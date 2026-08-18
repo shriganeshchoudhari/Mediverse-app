@@ -1,26 +1,25 @@
 services:
   postgres:
-    image: postgres:16-alpine
-    container_name: physiology-postgres
+    image: pgvector/pgvector:pg16
+    container_name: mediverse-postgres
     ports:
       - "5433:5432"
-
     environment:
-      POSTGRES_USER: physiology_user
-      POSTGRES_PASSWORD: physiology_secure_password123
-      POSTGRES_DB: physiology_db
+      POSTGRES_USER: mediverse_user
+      POSTGRES_PASSWORD: mediverse_secure_password123
+      POSTGRES_DB: mediverse_db
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./docs/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U physiology_user -d physiology_db"]
+      test: ["CMD-SHELL", "pg_isready -U mediverse_user -d mediverse_db"]
       interval: 5s
       timeout: 5s
       retries: 5
 
   redis:
     image: redis:7-alpine
-    container_name: physiology-redis
+    container_name: mediverse-redis
     ports:
       - "6379:6379"
     volumes:
@@ -33,7 +32,7 @@ services:
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.11.1
-    container_name: physiology-elasticsearch
+    container_name: mediverse-elasticsearch
     ports:
       - "9200:9200"
     environment:
@@ -53,13 +52,13 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: physiology-backend
+    container_name: mediverse-backend
     ports:
-      - "8500:8085"
+      - "8085:8085"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/physiology_db
-      - SPRING_DATASOURCE_USERNAME=physiology_user
-      - SPRING_DATASOURCE_PASSWORD=physiology_secure_password123
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/mediverse_db
+      - SPRING_DATASOURCE_USERNAME=mediverse_user
+      - SPRING_DATASOURCE_PASSWORD=mediverse_secure_password123
       - SPRING_DATA_REDIS_HOST=redis
       - SPRING_ELASTICSEARCH_URIS=http://elasticsearch:9200
       - JWT_SECRET=5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437
@@ -80,12 +79,12 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        - NEXT_PUBLIC_API_URL=http://localhost:8500/api/v1
-    container_name: physiology-frontend
+        - NEXT_PUBLIC_API_URL=http://localhost:8085/api/v1
+    container_name: mediverse-frontend
     ports:
       - "3000:3000"
     environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:8500/api/v1
+      - NEXT_PUBLIC_API_URL=http://localhost:8085/api/v1
       - BACKEND_URL=http://backend:8085
     volumes:
       - ./docs:/docs
@@ -94,7 +93,7 @@ services:
 
   prometheus:
     image: prom/prometheus:v2.53.0
-    container_name: physiology-prometheus
+    container_name: mediverse-prometheus
     ports:
       - "9090:9090"
     volumes:
