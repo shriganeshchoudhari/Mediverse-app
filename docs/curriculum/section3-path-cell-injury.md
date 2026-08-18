@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Robbins & Cotran Pathologic Basis of Disease Standards
 version: 1.0.0
+competency_code: "PA1.1"
+competency_description: "Describe mechanisms of reversible and irreversible cell injury, ischemic necrosis, and apoptosis."
+bloom_level: "K2 (Understand)"
+organ_system: "pathology"
+three_d_preset: "general" 
 ---
 
 # Cell Injury: Reversible vs. Irreversible Necrosis

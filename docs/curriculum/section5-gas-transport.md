@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.1.0
+competency_code: "PY6.4"
+competency_description: "Describe oxygen-hemoglobin dissociation curves, Bohr and Haldane effects, and carbon dioxide transport mechanisms in blood."
+bloom_level: "K2 (Understand)"
+organ_system: "respiratory"
+three_d_preset: "respiratory" 
 ---
 
 # O2 and CO2 Transport

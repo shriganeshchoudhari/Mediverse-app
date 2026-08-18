@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.1.0
+competency_code: "PY9.1"
+competency_description: "Describe spermatogenesis, Sertoli and Leydig cell functions, testosterone actions, and hypothalamic-pituitary-testicular axis."
+bloom_level: "K2 (Understand)"
+organ_system: "reproductive"
+three_d_preset: "general" 
 ---
 
 # Male Reproductive System

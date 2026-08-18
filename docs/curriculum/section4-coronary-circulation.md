@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.1.0
+competency_code: "PY5.5"
+competency_description: "Describe coronary blood flow regulation, metabolic autoregulation, myocardial oxygen supply-demand balance, and ischemia."
+bloom_level: "K3 (Apply)"
+organ_system: "cardiovascular"
+three_d_preset: "cardiovascular" 
 ---
 
 # Coronary Circulation

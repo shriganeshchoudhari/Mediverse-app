@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.1.0
+competency_code: "PY4.2"
+competency_description: "Describe salivary, gastric, pancreatic, and intestinal secretions, including parietal cell cellular acid secretion mechanisms."
+bloom_level: "K2 (Understand)"
+organ_system: "gastrointestinal"
+three_d_preset: "gastrointestinal" 
 ---
 
 # GI Secretions

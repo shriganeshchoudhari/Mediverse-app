@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.1.0
+competency_code: "PY9.3"
+competency_description: "Describe fertilization, implantation, feto-placental unit endocrine function (hCG, hPL, progesterone, estrogens), and parturition triggers."
+bloom_level: "K3 (Apply)"
+organ_system: "reproductive"
+three_d_preset: "general" 
 ---
 
 # Pregnancy & Placenta

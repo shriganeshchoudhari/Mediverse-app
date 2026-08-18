@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.1.0
+competency_code: "PY4.1"
+competency_description: "Describe electrical slow waves, enteric nervous system, mastication, deglutition, peristalsis, and defecation reflexes."
+bloom_level: "K2 (Understand)"
+organ_system: "gastrointestinal"
+three_d_preset: "gastrointestinal" 
 ---
 
 # Section 7: Gastrointestinal Physiology

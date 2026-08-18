@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.1.0
+competency_code: "PY2.1"
+competency_description: "Describe the composition, physical properties, cellular elements, and functions of whole blood."
+bloom_level: "K2 (Understand)"
+organ_system: "hematology"
+three_d_preset: "general" 
 ---
 
 # Section 2: Blood & Immunology

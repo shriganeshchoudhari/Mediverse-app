@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.2.0
+competency_code: "PY7.2"
+competency_description: "Describe segmental tubular reabsorption and secretion of water, electrolytes, glucose, and urea across the nephron."
+bloom_level: "K2 (Understand)"
+organ_system: "renal"
+three_d_preset: "renal" 
 ---
 
 # Renal Tubular Reabsorption

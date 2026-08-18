@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.1.0
+competency_code: "PY6.3"
+competency_description: "Describe central and peripheral chemoreceptor control of respiration, pontomedullary respiratory centers, and neural reflexes."
+bloom_level: "K3 (Apply)"
+organ_system: "respiratory"
+three_d_preset: "respiratory" 
 ---
 
 # Regulation of Breathing

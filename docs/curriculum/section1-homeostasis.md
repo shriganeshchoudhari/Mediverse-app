@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.1.0
+competency_code: "PY1.1"
+competency_description: "Describe the concept of homeostasis, negative and positive feedback mechanisms, and their clinical relevance."
+bloom_level: "K2 (Understand)"
+organ_system: "general_physiology"
+three_d_preset: "general" 
 ---
 
 # Section 1: Homeostasis & Cell Physiology

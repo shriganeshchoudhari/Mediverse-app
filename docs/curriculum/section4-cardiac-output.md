@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.2.0
+competency_code: "PY5.2"
+competency_description: "Explain cardiac output determinants (preload, afterload, inotropy, heart rate), Frank-Starling law, and measurement methods."
+bloom_level: "K3 (Apply)"
+organ_system: "cardiovascular"
+three_d_preset: "cardiovascular" 
 ---
 
 # Cardiac Output

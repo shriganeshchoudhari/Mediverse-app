@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.1.0
+competency_code: "PY5.1"
+competency_description: "Describe the phases of the cardiac cycle, heart sounds, Wiggers diagram, and pressure-volume changes in ventricles."
+bloom_level: "K3 (Apply)"
+organ_system: "cardiovascular"
+three_d_preset: "cardiovascular" 
 ---
 
 # Section 4: Cardiovascular Physiology

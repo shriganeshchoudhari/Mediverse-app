@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.1.0
+competency_code: "PY2.4"
+competency_description: "Describe the ABO and Rh blood grouping systems, transfusion reactions, and hemolytic disease of the newborn."
+bloom_level: "K3 (Apply)"
+organ_system: "hematology"
+three_d_preset: "general" 
 ---
 
 # Blood Groups & Transfusion

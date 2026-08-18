@@ -1,3 +1,17 @@
+---
+author: MBBS Physiology Faculty
+reviewer: Clinician Advisory Board
+last_review_date: August 2026
+evidence_grade: Level 1a (Syllabus/Guidelines)
+normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
+version: 1.2.0
+competency_code: "AETCOM-1.1"
+competency_description: "Demonstrate doctor-patient communication, empathy, and active listening skills in clinical settings."
+bloom_level: "K3 (Apply)"
+organ_system: "general_physiology"
+three_d_preset: "general" 
+---
+
 # AETCOM Module 1.1: Doctor-Patient Communication
 
 ## 1. Introduction

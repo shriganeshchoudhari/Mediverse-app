@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.1.0
+competency_code: "PY10.14"
+competency_description: "Describe the physiology of audition, vestibular balance, gustation, and olfaction."
+bloom_level: "K2 (Understand)"
+organ_system: "neurophysiology"
+three_d_preset: "neurophysiology" 
 ---
 
 # Other Special Senses: Smell, Taste, Hearing, & Equilibrium

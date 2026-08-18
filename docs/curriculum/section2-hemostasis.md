@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Guyton & Hall Textbook of Medical Physiology / Williams Hematology Standards
 version: 1.2.0
+competency_code: "PY2.5"
+competency_description: "Describe the stages of hemostasis: platelet plug formation, coagulation cascade, fibrinolysis, and anticoagulant mechanisms."
+bloom_level: "K3 (Apply)"
+organ_system: "hematology"
+three_d_preset: "general" 
 ---
 
 # Hemostasis and Blood Coagulation: Cellular and Cascade Mechanisms

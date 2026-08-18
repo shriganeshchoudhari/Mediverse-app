@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.1.0
+competency_code: "PY10.8"
+competency_description: "Describe higher cortical functions including memory, learning, language, speech, and emotion neurobiology."
+bloom_level: "K3 (Apply)"
+organ_system: "neurophysiology"
+three_d_preset: "neurophysiology" 
 ---
 
 # Higher Functions

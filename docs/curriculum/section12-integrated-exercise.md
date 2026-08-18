@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.1.0
+competency_code: "PY11.1"
+competency_description: "Describe cardiovascular, respiratory, metabolic, and temperature adaptations to acute exercise and chronic athletic conditioning."
+bloom_level: "K3 (Apply)"
+organ_system: "integrated_physiology"
+three_d_preset: "cardiovascular" 
 ---
 
 # Section 12: Integrated Physiology

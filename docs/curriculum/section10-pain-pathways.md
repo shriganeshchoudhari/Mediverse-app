@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.1.0
+competency_code: "PY10.6"
+competency_description: "Describe pain receptors, anterolateral ascending pain pathways, endogenous analgesia gating, and referred pain."
+bloom_level: "K3 (Apply)"
+organ_system: "neurophysiology"
+three_d_preset: "neurophysiology" 
 ---
 
 # Pain Pathways

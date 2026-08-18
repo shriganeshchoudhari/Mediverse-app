@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Guyton & Hall Textbook of Medical Physiology / Berne & Levy Physiology Standards
 version: 1.2.0
+competency_code: "PY3.3"
+competency_description: "Explain sliding filament theory, excitation-contraction coupling, cross-bridge cycling, and muscle energetics in skeletal muscle."
+bloom_level: "K2 (Understand)"
+organ_system: "nerve_muscle"
+three_d_preset: "neurophysiology" 
 ---
 
 # Skeletal Muscle Physiology: Excitation, Contraction, and Mechanics

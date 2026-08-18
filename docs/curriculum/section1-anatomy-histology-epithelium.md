@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Junqueira's Basic Histology Standards
 version: 1.0.0
+competency_code: "AN1.1"
+competency_description: "Describe the histological organization, microanatomy, and classification of epithelial tissues and cell junctions."
+bloom_level: "K2 (Understand)"
+organ_system: "general_physiology"
+three_d_preset: "general" 
 ---
 
 # Epithelial Histology: Classification and Structure

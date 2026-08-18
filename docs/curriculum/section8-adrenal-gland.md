@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.1.0
+competency_code: "PY8.3"
+competency_description: "Describe adrenal cortex zones, glucocorticoid/mineralocorticoid synthesis, adrenal medulla catecholamines, and stress responses."
+bloom_level: "K3 (Apply)"
+organ_system: "endocrine"
+three_d_preset: "endocrine" 
 ---
 
 # Adrenal Gland

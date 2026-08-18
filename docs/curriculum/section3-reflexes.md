@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.1.0
+competency_code: "PY10.2"
+competency_description: "Describe reflex arc components, muscle spindle and Golgi tendon organ mechanisms, stretch reflexes, and clinical tone."
+bloom_level: "K3 (Apply)"
+organ_system: "nerve_muscle"
+three_d_preset: "neurophysiology" 
 ---
 
 # Spinal Reflexes

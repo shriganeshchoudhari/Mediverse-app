@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.1.0
+competency_code: "PY6.5"
+competency_description: "Describe physiological acclimatization to high altitude hypobaric hypoxia, mountain sickness, and deep-sea diving physiology."
+bloom_level: "K3 (Apply)"
+organ_system: "respiratory"
+three_d_preset: "respiratory" 
 ---
 
 # High Altitude Physiology

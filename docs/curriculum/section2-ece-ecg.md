@@ -1,3 +1,17 @@
+---
+author: MBBS Physiology Faculty
+reviewer: Clinician Advisory Board
+last_review_date: August 2026
+evidence_grade: Level 1a (Syllabus/Guidelines)
+normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
+version: 1.2.0
+competency_code: "PY5.4"
+competency_description: "Interpret normal 12-lead electrocardiogram (ECG) waveforms, intervals, electrical axis, and arrhythmias."
+bloom_level: "K3 (Apply)"
+organ_system: "cardiovascular"
+three_d_preset: "cardiovascular" 
+---
+
 # Early Clinical Exposure: Basic 12-Lead ECG Interpretation
 
 ## 1. Introduction

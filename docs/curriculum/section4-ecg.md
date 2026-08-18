@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.2.0
+competency_code: "PY5.4"
+competency_description: "Explain physiological basis of standard 12-lead ECG, Einthoven's triangle, vectorcardiography, and ischemic ECG changes."
+bloom_level: "K3 (Apply)"
+organ_system: "cardiovascular"
+three_d_preset: "cardiovascular" 
 ---
 
 # Electrocardiogram (ECG)

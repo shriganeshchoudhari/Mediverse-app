@@ -5,6 +5,11 @@ last_review_date: July 2026
 evidence_grade: Level 1a (Syllabus/Guidelines)
 normal_range_provenance: Harrison's / Guyton & Hall Physiology Standards
 version: 1.1.0
+competency_code: "PY10.3"
+competency_description: "Describe sensory receptors, dorsal column and spinothalamic ascending sensory tracts, and thalamocortical processing."
+bloom_level: "K2 (Understand)"
+organ_system: "neurophysiology"
+three_d_preset: "neurophysiology" 
 ---
 
 # Sensory System
