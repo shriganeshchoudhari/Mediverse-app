@@ -4,12 +4,14 @@
 # Compatible with: VS Code REST Client, JetBrains HTTP Client, Bruno, Postman CLI, curl
 ###############################################################################
 
-@baseUrl = http://localhost:8080/api/v1
+@baseUrl = http://localhost:8085/api/v1
+@actuatorUrl = http://localhost:8085/actuator
 @contentType = application/json
 
 # Global variables updated dynamically after authentication
 @authToken = {{loginStudent.response.body.token}}
 @adminToken = {{loginAdmin.response.body.token}}
+@reviewerToken = {{loginReviewer.response.body.token}}
 
 ###############################################################################
 # 1. AUTHENTICATION & IDENTITY SUBSYSTEM (/api/v1/auth)
@@ -49,7 +51,27 @@ Content-Type: {{contentType}}
   "password": "SecurePassword123!"
 }
 
-### 1.4 Login with Invalid Password (Negative Test - Expects 401 Unauthorized)
+### 1.4 Login Medical Reviewer Account
+# @name loginReviewer
+POST {{baseUrl}}/auth/login
+Content-Type: {{contentType}}
+
+{
+  "email": "reviewer@mediverse.edu",
+  "password": "ReviewerPassword123!"
+}
+
+### 1.5 Login Admin Account
+# @name loginAdmin
+POST {{baseUrl}}/auth/login
+Content-Type: {{contentType}}
+
+{
+  "email": "admin@mediverse.edu",
+  "password": "AdminPassword123!"
+}
+
+### 1.6 Login with Invalid Password (Negative Test - Expects 401 Unauthorized)
 # @name loginInvalidPassword
 POST {{baseUrl}}/auth/login
 Content-Type: {{contentType}}
@@ -59,12 +81,12 @@ Content-Type: {{contentType}}
   "password": "WrongPassword999!"
 }
 
-### 1.5 Get Current Authenticated User Profile (/me)
+### 1.7 Get Current Authenticated User Profile (/me)
 # @name getCurrentUser
 GET {{baseUrl}}/auth/me
 Authorization: Bearer {{authToken}}
 
-### 1.6 Request Password Reset Token
+### 1.8 Request Password Reset Token
 # @name forgotPassword
 POST {{baseUrl}}/auth/forgot-password
 Content-Type: {{contentType}}
@@ -73,7 +95,7 @@ Content-Type: {{contentType}}
   "email": "student.pilot@mediverse.edu"
 }
 
-### 1.7 Reset Password with Token
+### 1.9 Reset Password with Token
 # @name resetPassword
 POST {{baseUrl}}/auth/reset-password
 Content-Type: {{contentType}}
@@ -177,6 +199,7 @@ POST {{baseUrl}}/simulations/calculate
 Content-Type: {{contentType}}
 
 {
+  "simulationType": "CARDIOVASCULAR",
   "preloadEdv": 120.0,
   "afterloadSvr": 100.0,
   "inotropyEes": 2.5,
@@ -189,13 +212,56 @@ POST {{baseUrl}}/simulations/calculate
 Content-Type: {{contentType}}
 
 {
+  "simulationType": "CARDIOVASCULAR",
   "preloadEdv": 160.0,
   "afterloadSvr": 140.0,
   "inotropyEes": 0.8,
   "heartRate": 95.0
 }
 
-### 3.4 Save Simulation Run Outcome
+### 3.4 Calculate Acid-Base Davenport Nomogram (Respiratory Acidosis)
+# @name calculateAcidBase
+POST {{baseUrl}}/simulations/calculate
+Content-Type: {{contentType}}
+
+{
+  "simulationType": "ACID_BASE",
+  "paco2": 55.0,
+  "hco3": 32.0,
+  "sodium": 140.0,
+  "chloride": 98.0
+}
+
+### 3.5 Calculate Renal Glomerular Filtration Dynamics (Starling Forces)
+# @name calculateRenalFiltration
+POST {{baseUrl}}/simulations/calculate
+Content-Type: {{contentType}}
+
+{
+  "simulationType": "RENAL",
+  "afferentResistance": 1.2,
+  "efferentResistance": 1.5,
+  "glomerularHydrostaticPressure": 60.0,
+  "bowmanHydrostaticPressure": 15.0,
+  "plasmaOncoticPressure": 28.0
+}
+
+### 3.6 Calculate Nerve Membrane Potential (Goldman-Hodgkin-Katz)
+# @name calculateNerveGhk
+POST {{baseUrl}}/simulations/calculate
+Content-Type: {{contentType}}
+
+{
+  "simulationType": "NERVE_MUSCLE",
+  "potassiumExtracellular": 4.5,
+  "sodiumExtracellular": 145.0,
+  "chlorideExtracellular": 105.0,
+  "potassiumIntracellular": 140.0,
+  "sodiumIntracellular": 12.0,
+  "chlorideIntracellular": 4.0
+}
+
+### 3.7 Save Simulation Run Outcome
 # @name saveSimulationRun
 POST {{baseUrl}}/simulations
 Authorization: Bearer {{authToken}}
@@ -207,7 +273,7 @@ Content-Type: {{contentType}}
   "outcomeMetrics": "{\"strokeVolume\": 72.0, \"cardiacOutput\": 5.4, \"ejectionFraction\": 60.0, \"map\": 93.3}"
 }
 
-### 3.5 Get My Executed Simulation Run History
+### 3.8 Get My Executed Simulation Run History
 # @name getMySimulations
 GET {{baseUrl}}/simulations
 Authorization: Bearer {{authToken}}
@@ -227,7 +293,7 @@ Accept: text/event-stream
 
 {
   "message": "Why does an increase in systemic vascular resistance shift the end-systolic volume to the right?",
-  "chapterId": "cardiovascular-pv-loops"
+  "topicContext": "cardiovascular-pv-loops"
 }
 
 ### 4.2 Query RAG Clinical Knowledge Embeddings
@@ -395,7 +461,7 @@ Accept: {{contentType}}
 
 
 ###############################################################################
-# 9. ADMINISTRATIVE MANAGEMENT & TELEMETRY (/api/v1/admin)
+# 9. ADMINISTRATIVE MANAGEMENT (/api/v1/admin)
 ###############################################################################
 
 ### 9.1 Get Platform System & User Statistics (Admin Protected)
@@ -408,4 +474,111 @@ Accept: {{contentType}}
 # @name getAdminUsers
 GET {{baseUrl}}/admin/users
 Authorization: Bearer {{adminToken}}
+Accept: {{contentType}}
+
+
+###############################################################################
+# 10. ROLE-BASED CMS CURRICULUM REVIEW SUBSYSTEM (/api/v1/cms)
+###############################################################################
+
+### 10.1 Submit Draft Lesson for Medical Peer Review
+# @name submitLessonForReview
+@targetLessonId = 00000000-0000-0000-0000-000000000012
+POST {{baseUrl}}/cms/lessons/{{targetLessonId}}/submit
+Authorization: Bearer {{authToken}}
+Content-Type: {{contentType}}
+
+{
+  "comments": "Completed initial draft with embedded KaTeX elastance equations and 3D landmark pins."
+}
+
+### 10.2 Get Pending Curriculum Review Items (Medical Reviewer Protected)
+# @name getPendingReviews
+GET {{baseUrl}}/cms/reviews/pending
+Authorization: Bearer {{reviewerToken}}
+Accept: {{contentType}}
+
+### 10.3 Submit Medical Review Decision (Approve Lesson)
+# @name approveLesson
+@reviewId = 00000000-0000-0000-0000-000000000013
+POST {{baseUrl}}/cms/reviews/{{reviewId}}/decision
+Authorization: Bearer {{reviewerToken}}
+Content-Type: {{contentType}}
+
+{
+  "decision": "APPROVED",
+  "comments": "Medically verified against Guyton & Hall Chapter 9. Formula precision and clinical vignettes are sound."
+}
+
+### 10.4 Submit Medical Review Decision (Reject Lesson with Revisions)
+# @name rejectLesson
+POST {{baseUrl}}/cms/reviews/{{reviewId}}/decision
+Authorization: Bearer {{reviewerToken}}
+Content-Type: {{contentType}}
+
+{
+  "decision": "REJECTED",
+  "comments": "Please correct the Winter formula compensation range for metabolic acidosis (tolerance +/- 2 mmHg)."
+}
+
+### 10.5 Get Lesson Review & Audit History
+# @name getLessonReviewHistory
+GET {{baseUrl}}/cms/lessons/{{targetLessonId}}/history
+Authorization: Bearer {{reviewerToken}}
+Accept: {{contentType}}
+
+
+###############################################################################
+# 11. IMS GLOBAL LTI 1.3 ADVANTAGE INTEROPERABILITY (/api/v1/lti)
+###############################################################################
+
+### 11.1 Retrieve Mediverse Public RS256 JWKS Keyset
+# @name getJwks
+GET http://localhost:8085/.well-known/jwks.json
+Accept: {{contentType}}
+
+### 11.2 Initiate OIDC Third-Party LMS Login
+# @name initiateLtiLogin
+POST {{baseUrl}}/lti/login/init
+Content-Type: application/x-www-form-urlencoded
+
+iss=https://canvas.instructure.com&login_hint=user_12345&target_link_uri=http://localhost:8085/api/v1/lti/launch
+
+### 11.3 Trigger Automated Assignment and Grade Passback (AGS v2.0)
+# @name triggerGradePassback
+POST {{baseUrl}}/lti/grade-passback
+Authorization: Bearer {{adminToken}}
+Content-Type: {{contentType}}
+
+{
+  "deploymentId": "00000000-0000-0000-0000-000000000014",
+  "userId": "00000000-0000-0000-0000-000000000015",
+  "examId": "00000000-0000-0000-0000-000000000016",
+  "scoreGiven": 95.0,
+  "scoreMaximum": 100.0,
+  "lineItemUrl": "https://canvas.instructure.com/api/lti/courses/101/line_items/55"
+}
+
+
+###############################################################################
+# 12. SPRING BOOT ACTUATOR & OBSERVABILITY TELEMETRY (/actuator)
+###############################################################################
+
+### 12.1 Get System Health Status (Liveness & Readiness)
+# @name getActuatorHealth
+GET {{actuatorUrl}}/health
+Accept: {{contentType}}
+
+### 12.2 Scrape Prometheus Metrics Baseline
+# @name getPrometheusMetrics
+GET {{actuatorUrl}}/prometheus
+
+### 12.3 Check HikariCP Active Database Connections
+# @name getHikariActiveConnections
+GET {{actuatorUrl}}/metrics/hikaricp.connections.active
+Accept: {{contentType}}
+
+### 12.4 Check HikariCP Pending Connection Gauge
+# @name getHikariPendingConnections
+GET {{actuatorUrl}}/metrics/hikaricp.connections.pending
 Accept: {{contentType}}
