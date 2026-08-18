@@ -1,289 +1,3 @@
-# Software Requirements Specification (SRS)
-
-**Document:** `02_Requirements/Software_Requirements_Specification.md`
-
----
-
-# Front Matter
-
-## Document Information
-
-| Field            | Value                                                                                                                                                                      |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Document Name    | Software Requirements Specification                                                                                                                                        |
-| Product          | Mediverse                                                                                                                                                                  |
-| Document ID      | MED-SRS-001                                                                                                                                                                |
-| Version          | 1.0                                                                                                                                                                        |
-| Status           | Draft                                                                                                                                                                      |
-| Classification   | Internal                                                                                                                                                                   |
-| Owner            | Product Management                                                                                                                                                         |
-| Prepared By      | Product Team                                                                                                                                                               |
-| Approved By      | Product Governance Board                                                                                                                                                   |
-| Related Document | Product Requirements Document (PRD)                                                                                                                                        |
-| Target Audience  | Product Managers, Architects, Developers, QA Engineers, DevOps Engineers, UI/UX Designers, AI Engineers, Security Engineers, Technical Writers, Institutional Stakeholders |
-
----
-
-## Revision History
-
-| Version | Date          | Description                                             |
-| ------- | ------------- | ------------------------------------------------------- |
-| 0.1     | Initial Draft | Initial creation of Software Requirements Specification |
-| 1.0     | TBD           | First approved version                                  |
-
----
-
-## Approval Matrix
-
-| Role                  | Responsibility                 |
-| --------------------- | ------------------------------ |
-| Product Owner         | Business approval              |
-| Product Manager       | Requirement approval           |
-| Solution Architect    | Technical feasibility review   |
-| Engineering Manager   | Implementation review          |
-| QA Lead               | Verification readiness review  |
-| Security Lead         | Security requirement review    |
-| Academic Review Board | Educational requirement review |
-
----
-
-## Distribution List
-
-This document is intended for:
-
-* Product Management
-* Software Architects
-* Backend Engineers
-* Frontend Engineers
-* Mobile Engineers
-* AI Engineers
-* DevOps Engineers
-* Security Engineers
-* QA Engineers
-* UI/UX Designers
-* Technical Writers
-* Academic Reviewers
-* Institutional Administrators
-
----
-
-## Purpose of this Document
-
-The Software Requirements Specification (SRS) defines the complete software behavior of Mediverse. It translates the business intent captured in the Product Requirements Document (PRD) into precise, testable, and traceable software requirements.
-
-The SRS serves as the authoritative reference for software design, implementation, verification, validation, and maintenance throughout the product lifecycle.
-
-Unlike the PRD, which focuses on business objectives and product vision, this document specifies **what the software shall do** and the quality characteristics it shall exhibit, while remaining independent of implementation technologies and architectural decisions.
-
----
-
-## Relationship with the PRD
-
-The PRD defines:
-
-* Business vision
-* Business objectives
-* Product scope
-* Stakeholder expectations
-* Product features
-* Business rules
-
-This SRS expands those requirements into detailed software specifications suitable for engineering and quality assurance activities.
-
-Every software requirement documented herein shall maintain traceability to one or more approved requirements defined in the Product Requirements Document.
-
----
-
-## Intended Audience
-
-This document is intended for stakeholders responsible for designing, developing, validating, deploying, operating, and maintaining Mediverse.
-
-Primary audiences include:
-
-* Software Architects
-* Solution Designers
-* Backend Developers
-* Frontend Developers
-* Mobile Developers
-* AI Engineers
-* QA Engineers
-* DevOps Engineers
-* Security Engineers
-* Technical Writers
-* Product Managers
-
-Secondary audiences include:
-
-* Academic Governance Teams
-* Institutional Administrators
-* Medical Reviewers
-* Executive Sponsors
-
----
-
-## Scope of this Document
-
-This Software Requirements Specification includes:
-
-* System behavior
-* Functional requirements
-* Software-level business logic
-* Validation rules
-* User interactions
-* Error handling expectations
-* Reporting requirements
-* Notification behavior
-* Security requirements
-* Privacy requirements
-* External interface requirements
-* Non-functional requirements
-* Requirement traceability
-* Acceptance criteria
-
-This document intentionally excludes:
-
-* Source code
-* Database schema
-* API implementation
-* Infrastructure configuration
-* Deployment procedures
-* Technology selection
-* Development standards
-* Build pipelines
-
-These topics are addressed in subsequent engineering documentation.
-
----
-
-## Requirement Language
-
-To ensure consistency, the following terminology shall be used throughout this document:
-
-| Term   | Interpretation                  |
-| ------ | ------------------------------- |
-| Shall  | Mandatory requirement           |
-| Should | Strong recommendation           |
-| May    | Optional capability             |
-| Can    | Possible behavior or capability |
-
-Only requirements using the term **"shall"** constitute mandatory software obligations.
-
----
-
-## Requirement Identification Standard
-
-Each software requirement shall have a unique identifier.
-
-Examples include:
-
-```text
-FR-AUTH-001
-FR-STU-025
-FR-CONT-110
-FR-AI-087
-NFR-SEC-015
-```
-
-Requirement identifiers shall remain stable across document revisions to preserve traceability.
-
----
-
-## Requirement Characteristics
-
-Every software requirement documented in this SRS shall satisfy the following quality attributes:
-
-* Correct
-* Complete
-* Consistent
-* Unambiguous
-* Verifiable
-* Feasible
-* Necessary
-* Traceable
-* Prioritized
-* Maintainable
-
-Requirements failing to meet these characteristics shall be reviewed and revised before approval.
-
----
-
-## Requirement Traceability Principles
-
-Each software requirement shall be traceable to:
-
-* Business objectives
-* Business requirements
-* Product epics
-* Functional modules
-* Test cases
-* Acceptance criteria
-
-Traceability supports impact analysis, quality assurance, and change management throughout the product lifecycle.
-
----
-
-## Enterprise Requirements Alignment
-
-This SRS shall remain aligned with the enterprise product scope defined in the PRD.
-
-The following PRD capability areas shall map to software modules in this SRS:
-
-| PRD Capability Area           | SRS Coverage Area                                      |
-| ----------------------------- | ------------------------------------------------------ |
-| Identity & Access             | Chapter 4, Chapter 21                                  |
-| Student Learning Experience   | Chapter 5, Chapter 8, Chapter 9, Chapter 12            |
-| Curriculum Engine             | Chapter 6                                              |
-| Content Management            | Chapter 7, Chapter 13                                  |
-| Media & 3D Learning           | Chapter 8, Chapter 9                                   |
-| Assessment Engine             | Chapter 10                                             |
-| AI Learning Ecosystem         | Chapter 11                                             |
-| Analytics & Reporting         | Chapter 12, Chapter 18                                 |
-| Faculty Workspace             | Chapter 13                                             |
-| Review & Governance Workflow  | Chapter 7, Chapter 13                                  |
-| Institution Administration    | Chapter 14                                             |
-| Platform Administration       | Chapter 20                                             |
-| Security & Compliance         | Chapter 21                                             |
-| Integrations                  | Chapter 19, Chapter 23                                 |
-| Operations & Readiness        | Chapter 20, Chapter 22, Chapter 26, Chapter 27         |
-
-Where the PRD defines enterprise readiness expectations, this SRS shall provide corresponding functional, non-functional, operational, security, or verification requirements.
-
----
-
-## Document Organization
-
-The SRS is organized into the following major sections:
-
-1. Introduction
-2. Overall Description
-3. System Context
-4. Functional Modules
-5. Detailed Software Requirements
-6. Quality Requirements
-7. Interface Requirements
-8. Traceability
-9. Appendices
-
-Each subsequent chapter progressively increases the level of technical detail while remaining aligned with the Product Requirements Document.
-
----
-
-## Document Maintenance
-
-This document shall be maintained under formal version control.
-
-All significant changes shall:
-
-* Be reviewed by relevant stakeholders.
-* Maintain backward traceability.
-* Preserve requirement identifiers.
-* Update revision history.
-* Record approval status.
-
-Periodic reviews should ensure continued alignment with product strategy, educational objectives, and organizational governance.
-
----
-
 # Chapter 1 — Introduction
 
 ## 1.1 Purpose
@@ -419,6 +133,7 @@ This introductory chapter establishes the purpose, objectives, scope, terminolog
 ---
 
 **End of Chapter 1**
+
 # Chapter 2 — Overall Description
 
 ---
@@ -936,6 +651,7 @@ This chapter establishes the overall context of the Mediverse software system by
 **End of Chapter 2**
 
 
+
 # Chapter 3 — System Context
 
 ---
@@ -1404,6 +1120,7 @@ This chapter defines the logical environment in which Mediverse operates by esta
 ---
 
 **End of Chapter 3**
+
 # Chapter 4 — Identity & Access Management Module
 
 ---
@@ -2009,6 +1726,7 @@ This chapter defines the Identity & Access Management module, which serves as th
 
 **End of Chapter 4**
 
+
 # Chapter 5 — Student Learning Workspace
 
 ---
@@ -2605,6 +2323,19 @@ This chapter defines the Student Learning Workspace, the central environment thr
 
 **End of Chapter 5**
 
+
+---
+
+# 5.16 Offline Learning & Progressive Web App (PWA) Operation
+
+### FR-STU-050
+The software shall cache static application bundles, curriculum metadata, and core 3D `.glb` anatomical organ models via the Service Worker Cache Storage API to enable offline exploration without active network connectivity.
+
+### FR-STU-051
+The software shall persist student study notes, practice quiz responses, bookmarking states, and local progress in client-side IndexedDB storage during offline operation.
+
+### FR-STU-052
+The software shall utilize the Background Synchronization API to automatically queue and retry pending assessment submissions and progress updates once network connectivity is restored.
 
 # Chapter 6 — Curriculum Management Module
 
@@ -3212,6 +2943,7 @@ This chapter defines the Curriculum Management Module, the academic backbone of 
 ---
 
 **End of Chapter 6**
+
 
 # Chapter 7 — Learning Content Management Module
 
@@ -3867,6 +3599,32 @@ This chapter defines the Learning Content Management Module, which governs the c
 **End of Chapter 7**
 
 
+---
+
+# 7.16 Role-Based Content Review & Governance Workflow
+
+### FR-CMS-001
+The software shall enforce a formal 5-stage content lifecycle state machine:
+```
+[ DRAFT ] ──(submitForReview)──► [ IN_REVIEW ]
+                                      │
+              ┌───────────────────────┴───────────────────────┐
+              ▼                                               ▼
+         [ APPROVED ]                                    [ REJECTED ]
+              │                                               │
+              ▼                                               ▼
+        [ PUBLISHED ]                                     [ DRAFT ]
+```
+
+### FR-CMS-002
+The software shall restrict approval and rejection review actions to authorized personas (`ROLE_MEDICAL_REVIEWER`, `ROLE_FACULTY`, `ROLE_EDITOR`) enforced via Spring Security `@PreAuthorize` method security.
+
+### FR-CMS-003
+The software shall persist an immutable audit record in the `content_reviews` table for every review decision, recording the reviewer identity, timestamp, decision (`APPROVED` or `REJECTED`), lesson version reviewed, and required feedback commentary.
+
+### FR-CMS-004
+The software shall provide an administrative review dashboard (`/cms`) with status filtering and a dedicated lesson review screen (`/cms/[lessonId]`) utilizing `ContentBlockRenderer` for WYSIWYG preview of LaTeX equations, Markdown text, and clinical case vignettes.
+
 # Chapter 8 — Multimedia Learning Module
 
 ---
@@ -4430,6 +4188,7 @@ This chapter defines the Multimedia Learning Module, which manages the delivery 
 ---
 
 **End of Chapter 8**
+
 
 # Chapter 9 — Interactive 3D Learning Module
 
@@ -5034,6 +4793,29 @@ This chapter defines the Interactive 3D Learning Module, one of Mediverse's core
 ---
 
 **End of Chapter 9**
+
+
+---
+
+# 9.16 3D WebGL Graphics Engine & Physiological Simulation Pipeline
+
+### FR-3D-025
+The software shall render interactive 3D multi-organ structures using Three.js with WebGL2 acceleration, perspective cameras, directional lighting, and OrbitControls.
+
+### FR-3D-026
+The software shall provide real-time cross-sectional dissection using local sagittal, coronal, and transverse clipping planes with stencil buffer capping to expose internal anatomical chambers without geometry artifacts.
+
+### FR-3D-027
+The software shall render interactive landmark beacons across Cardiovascular, Respiratory, Renal, Neuro, GI, and Endocrine organ presets (`OrganPresets.ts`), displaying clinical diagnostic descriptions and histological correlations upon selection.
+
+### FR-3D-028
+The software shall execute explicit WebGL resource cleanup (`renderer.dispose()`, `geometry.dispose()`, `material.dispose()`) on component unmount via `useThreeMemoryCleanup` to guarantee zero GPU memory leaks.
+
+### FR-3D-029
+The software shall automatically detect non-WebGL2 capable client devices and gracefully render high-resolution 2D anatomical cross-sections and labeled diagrams.
+
+### FR-SIM-016
+The software shall execute mathematical physiological differential equations client-side in TypeScript (Suga-Sagawa cardiac PV loops, Davenport acid-base nomograms, Starling renal microvascular filtration, Goldman-Hodgkin-Katz membrane voltage) to ensure 60 FPS slider reactivity with zero network roundtrip latency.
 
 # Chapter 10 — Assessment & Evaluation Module
 
@@ -5660,6 +5442,19 @@ This chapter defines the Assessment & Evaluation Module, which governs the creat
 **End of Chapter 10**
 
 
+---
+
+# 10.19 Clinical Board Examination Tools & Mastery Analytics
+
+### FR-ASSESS-025
+The software shall provide a timed clinical examination runner (`/exam`, `QuizRunner.tsx`) executing USMLE Step 1 and NMC CBME vignette questions mapped to competency codes (`PY1.1` through `PY11.14`).
+
+### FR-ASSESS-026
+The software shall provide student exam-taking tools including distractor strikethrough formatting, question bookmarking/flagging, and a slide-over question navigator indicating answered, flagged, and unanswered items.
+
+### FR-ASSESS-027
+The software shall generate an interactive Radar Chart breaking down student mastery across NMC CBME competency domains and Bloom's cognitive taxonomy levels (`ExamSummaryView.tsx`, `nmcMapping.ts`) upon exam completion.
+
 # Chapter 11 — AI Learning Assistant Module
 
 ---
@@ -6242,6 +6037,7 @@ This chapter defines the AI Learning Assistant Module, which serves as Mediverse
 **End of Chapter 11**
 
 
+
 # Chapter 12 — Learning Analytics & Progress Tracking Module
 
 ---
@@ -6815,6 +6611,7 @@ This chapter defines the Learning Analytics & Progress Tracking Module, which pr
 ---
 
 **End of Chapter 12**
+
 
 # Chapter 13 — Faculty & Content Authoring Workspace
 
@@ -7452,6 +7249,7 @@ This chapter defines the Faculty & Content Authoring Workspace, the primary envi
 * **FR-AI-004 (SSE Streaming Token Delivery):** The AI Tutor shall stream response tokens over Server-Sent Events (SSE) with a Time-to-First-Token (TTFT) of $< 1.2	ext{ seconds}$.
 
 
+
 # Chapter 14 — Review, Approval & Publication Workflow Module
 
 ---
@@ -8062,6 +7860,7 @@ This chapter defines the Review, Approval & Publication Workflow Module, which g
 ---
 
 **End of Chapter 14**
+
 
 # Chapter 15 — Institution Administration & Multi-Tenant Management Module
 
@@ -8684,6 +8483,7 @@ This chapter defines the Institution Administration & Multi-Tenant Management Mo
 
 **End of Chapter 15**
 
+
 # Chapter 16 — Communication, Collaboration & Notification Module
 
 ---
@@ -9252,6 +9052,7 @@ This chapter defines the Communication, Collaboration & Notification Module, whi
 
 **End of Chapter 16**
 
+
 # Chapter 17 — Search, Knowledge Discovery & Recommendation Module
 
 ---
@@ -9814,6 +9615,7 @@ This chapter defines the Search, Knowledge Discovery & Recommendation Module, wh
 ---
 
 **End of Chapter 17**
+
 
 # Chapter 18 — Reporting, Dashboards & Business Intelligence Module
 
@@ -10382,6 +10184,7 @@ This chapter defines the Reporting, Dashboards & Business Intelligence Module, w
 ---
 
 **End of Chapter 18**
+
 
 # Chapter 19 — Integration, APIs & External Systems Module
 
@@ -10962,6 +10765,22 @@ This chapter defines the Integration, APIs & External Systems Module, which enab
 * **FR-LTI-003 (Names and Role Provisioning Services - NRPS v2p0):** The platform shall synchronize course roster memberships and user roles (Learner, Instructor, TeachingAssistant) automatically from the host LMS upon course launch.
 * **FR-LTI-004 (Deep Linking v2p0):** The platform shall allow instructors inside their native LMS course builder to select and embed specific Mediverse 3D organ models, simulation labs, or quiz assignments as native LMS course items.
 
+
+---
+
+# 19.16 IMS Global LTI 1.3 Advantage Interoperability
+
+### FR-INT-035
+The software shall support IMS Global LTI 1.3 Core OpenID Connect (OIDC) third-party launch flows with RS256 asymmetric signed JWT tokens and automated JWKS public key rotation.
+
+### FR-INT-036
+The software shall implement Assignment and Grade Services (LTI AGS v2.0) to execute automated bidirectional grade passback from Mediverse clinical exam completions to university LMS gradebooks (Canvas, Blackboard, Moodle, Brightspace).
+
+### FR-INT-037
+The software shall implement Names and Role Provisioning Services (LTI NRPS v2.0) to synchronize course rosters and student enrollment memberships securely from institutional LMS systems.
+
+### FR-INT-038
+The software shall implement LTI Deep Linking (DL v2.0) allowing institutional faculty to browse and embed specific 3D dissection presets and simulation labs directly into university course modules.
 
 # Chapter 20 — System Administration, Configuration & Platform Operations Module
 
@@ -11594,6 +11413,7 @@ This chapter defines the System Administration, Configuration & Platform Operati
 ---
 
 **End of Chapter 20**
+
 
 
 # Chapter 21 — Security, Privacy, Compliance & Audit Module
@@ -12241,6 +12061,46 @@ This chapter defines the Security, Privacy, Compliance & Audit Module, which est
 * **FR-PRIV-004 (Granular Consent Management):** The platform shall capture separate, unbundled, opt-in consent for: (1) Core educational platform operation, (2) AI Socratic tutor conversational telemetry, (3) Institution research analytics, and (4) Email/push notifications. Consent version IDs shall be recorded with timestamps.
 * **FR-PRIV-005 (Minor Learner Parental Verification):** For any enrolled student under 18 years of age, the platform shall enforce a dual-stage digital consent workflow requiring verified parent/guardian email authorization before activating interactive AI tutoring features.
 
+
+---
+
+# 21.14 Compliance & Regulatory Framework Register
+
+| Identifier | Standard / Regulation | Territorial Scope | Mandatory Controls & Traceability | Verification Method |
+|---|---|---|---|---|
+| **REG-NMC** | **NMC CBME MBBS Guidelines** | India (National) | Physiology competencies `PY1.1`–`PY11.14` mapped to curriculum, logbooks, and assessments. | Academic Audit & Syllabus Mapping |
+| **REG-USMLE** | **USMLE Step 1 / FSMB-NBME** | United States / Global | Organ-system clinical vignette construction, distractor analysis, and Bloom's taxonomy scoring. | Clinical Question Review |
+| **REG-FERPA** | **Family Educational Rights & Privacy Act** | United States (Federal) | Strict privacy of student educational records, grades, exam attempts, and audit logs. | Access Control & Audit Log Review |
+| **REG-GDPR** | **General Data Protection Regulation** | European Union / Global | Articles 15–22 Data Subject Rights (Access, Erasure, Portability), DPA logging, lawful basis. | Data Protection Impact Assessment (DPIA) |
+| **REG-DPDPA** | **Digital Personal Data Protection Act 2023** | India (National) | Granular consent management, purpose limitation, data fiduciary obligations, minor protections. | Privacy Compliance Audit |
+| **REG-WCAG** | **W3C WCAG 2.1 Level AA** | International | Keyboard navigation, high-contrast color ratios $\ge 4.5:1$, screen reader ARIA landmarks. | Automated Accessibility Audits |
+
+---
+
+# 21.15 Data Subject Rights & Consent Lifecycle
+
+### FR-PRIV-001
+The software shall provide an automated mechanism for data subjects to request a structured, machine-readable JSON export of their personal profile, study notes, learning progress, and assessment history within a mandatory 30-day response window.
+
+### FR-PRIV-002
+The software shall support verified user account deletion workflows that purge personal identifiers while preserving anonymized aggregate curriculum analytics, recording an immutable deletion audit entry.
+
+### FR-PRIV-003
+The software shall record explicit, withdrawable, and version-stamped user consent for optional AI learning telemetry, research participation, and marketing notifications.
+
+---
+
+# 21.16 OWASP Top 10 & API Security Control Matrix
+
+| Threat Category | Primary Risk | Mandatory Platform Control | Verification Method |
+|---|---|---|---|
+| **A01: Broken Access Control** | Unauthorized access to exam data or CMS reviews | Method-level Spring Security `@PreAuthorize`, stateless JWT claim validation | Automated Integration Tests & RBAC Matrix |
+| **A02: Cryptographic Failures** | Exposed credentials or weak token signatures | BCrypt password hashing (salt factor 12), TLS 1.3 in transit, AES-256 at rest | SSL Labs Scan & Static Code Analysis |
+| **A03: Injection** | SQL, HQL, or Command Injection | Spring Data JPA parameterized queries, zero raw concatenated SQL | SAST / SonarQube Rule Gates |
+| **A04: Insecure Design** | Unrestricted AI prompt injection / exam bypass | Strict Socratic AI system prompt sandboxing, server-side timer validation | E2E Security Sanitization Tests |
+| **A05: Security Misconfiguration** | Exposed actuator endpoints, default credentials | Minimal `/actuator` exposure, automated security header insertion (HSTS, CSP) | Automated DAST Scans |
+| **A07: Identification & Auth** | Brute force or session hijacking | Stateless 24-hour JWT expiration, client-side token storage isolation | E2E Auth Test Suites |
+| **A08: Software & Data Integrity**| Untrusted third-party packages | Automated Dependabot & Trivy container vulnerability scanning | CI/CD Pipeline Build Gates |
 
 # Chapter 22 — Non-Functional Requirements (NFR)
 
@@ -12978,6 +12838,20 @@ This chapter defines the enterprise-wide Non-Functional Requirements for Mediver
 **End of Chapter 22**
 
 
+---
+
+# 22.14 Quantitative Performance SLOs & Engineering Benchmarks
+
+| Metric Identifier | Target Dimension | Quantitative Target | Verified Codebase Benchmark |
+|---|---|---|---|
+| **NFR-PERF-001** | Renal Starling GFR Solver Latency | $< 250\text{ ms}$ for 5,000 evaluations ($< 50\mu\text{s/op}$) | **61 ms** in `nfrPerformanceBenchmarks.e2e.test.ts` |
+| **NFR-PERF-002** | Acid-Base Davenport Nomogram Latency | $< 250\text{ ms}$ for 5,000 evaluations | **46 ms** in `nfrPerformanceBenchmarks.e2e.test.ts` |
+| **NFR-PERF-003** | Cardiac Suga-Sagawa PV Loop Latency | $< 500\text{ ms}$ for 1,000 evaluations; 60 FPS slider reactivity | **107 ms** in `nfrPerformanceBenchmarks.e2e.test.ts` |
+| **NFR-PERF-004** | Curriculum Hierarchy Traversal | $< 500\text{ ms}$ for full in-memory taxonomy search | **4 ms** in `nfrPerformanceBenchmarks.e2e.test.ts` |
+| **NFR-PERF-005** | AI Socratic Assistant Latency | Time-to-First-Token ($\text{TTFT} \le 1.5\text{s}$), response completion $\le 10.0\text{s}$ | Verified in SSE streaming controller tests |
+| **NFR-AVAIL-001** | Production Service Availability | $\ge 99.9\%$ monthly uptime (excluding scheduled maintenance $\le 2\text{h/month}$) | Enforced via Prometheus uptime monitoring |
+| **NFR-DR-001** | Disaster Recovery RPO / RTO | Recovery Point Objective $\text{RPO} \le 4\text{ hours}$; Recovery Time Objective $\text{RTO} \le 24\text{ hours}$ | Automated WAL archiving & daily snapshots |
+
 # Chapter 23 — External Interface Requirements
 
 ---
@@ -13548,6 +13422,7 @@ This chapter defines the External Interface Requirements for Mediverse, establis
 ---
 
 **End of Chapter 23**
+
 
 
 # Chapter 24 — System Architecture & Deployment Requirements
@@ -14164,6 +14039,7 @@ This chapter defines the System Architecture & Deployment Requirements for Mediv
 **End of Chapter 24**
 
 
+
 # Chapter 25 — Data Architecture, Database Design & Information Model
 
 ---
@@ -14755,6 +14631,7 @@ This chapter defines the enterprise Data Architecture, Database Design, and Info
 ---
 
 **End of Chapter 25**
+
 
 # Chapter 26 — DevSecOps, CI/CD Pipeline & Release Management
 
@@ -15362,6 +15239,17 @@ This chapter defines the DevSecOps, CI/CD Pipeline & Release Management framewor
 ---
 
 **End of Chapter 26**
+
+
+---
+
+# 26.12 Dynamic Application Security Testing (DAST) & Security Verification
+
+### DEVOPS-025
+The CI/CD pipeline shall execute automated Dynamic Application Security Testing (DAST) scans against pre-production staging environments on every release candidate, with zero Critical or High vulnerabilities required to pass the production promotion gate.
+
+### DEVOPS-026
+The software shall undergo scheduled annual third-party penetration testing covering external-facing REST APIs, WebGL canvas communication, and administrative console interfaces, with all findings tracked to remediation within a 30-day SLA.
 
 # Chapter 27 — Testing, Verification & Validation Strategy
 
@@ -16015,6 +15903,7 @@ This chapter defines the enterprise Testing, Verification & Validation Strategy 
 ---
 
 **End of Chapter 27**
+
 
 # Chapter 28 — Appendices, Glossary, Acronyms & Requirements Traceability Matrix
 

@@ -1,6 +1,8 @@
-# Mediverse Administrator Guide (AG)
+# Mediverse Administrator Guide,mnbvdcsxazt567uy6trewsqa (AG)
 
 This 75-chapter guide provides comprehensive instructions for Platform Administrators, Customer Success Managers, and Institutional IT Staff. It defines how to manage tenants, users, AI limitations, educational content, and billing through the Mediverse Admin UI and Admin REST APIs.
+
+---
 
 ---
 
@@ -18,18 +20,20 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
-### Chapter 2: Administrative Personas
+---
+
+### Chapter 2: Administrative Personas & RBAC Authorization Matrix
 
 **Administrative Procedure & Policy:**
-- **Super Admin**: Mediverse staff. Can view all tenants and billing.
-- **Tenant Admin**: University IT. Can manage users and SSO within their own tenant.
-- **Content Creator**: Medical faculty. Can upload videos and create quizzes.
+* **Super Admin (`ROLE_ADMIN`):** Full platform control, institutional tenant onboarding, global system telemetry, exam bank governance.
+* **Tenant Admin (`ROLE_ADMIN`):** University IT administrator managing student rosters, SAML/OIDC SSO, and LTI 1.3 Advantage deployments within their institution.
+* **Medical Reviewer / Editor (`ROLE_MEDICAL_REVIEWER`, `ROLE_EDITOR`):** Medical education board members evaluating pending curriculum lessons, approving/rejecting submissions in the CMS review queue (`/cms`), and auditing version histories.
+* **Faculty Content Writer (`ROLE_FACULTY`):** Medical professors authoring curriculum lessons, drafting clinical case vignettes, and submitting content for peer review.
+* **Student Learner (`ROLE_STUDENT`):** Medical students accessing 3D organ dissection, interactive simulation solvers, timed board exams, and Socratic AI tutoring.
 
 **Institutional Governance & Security Controls:**
-- **Tenant Management:** Provision institutional medical college tenants with dedicated subdomains (college.mediverse.edu), custom branding, and DPDPA 2023 data localization (ap-south-1).
-- **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
-- **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
-- **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+* Method-level authorization enforced via Spring Security `@PreAuthorize` across all domain REST controllers.
+* Immutable audit trail logging all role modifications and administrative actions in the `audit_logs` table.
 
 ---
 
@@ -47,6 +51,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 4: Navigating the Admin Dashboard UI
 
 **Administrative Procedure & Policy:**
@@ -57,6 +63,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -74,6 +82,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 6: Using the Admin REST API for Bulk Operations
 
 **Administrative Procedure & Policy:**
@@ -85,6 +95,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -102,6 +114,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 8: Onboarding a New Institutional Tenant
 
 **Administrative Procedure & Policy:**
@@ -113,6 +127,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -130,6 +146,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 10: Setting up Tenant Single Sign-On (SAML/OIDC)
 
 **Administrative Procedure & Policy:**
@@ -141,6 +159,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -157,6 +177,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 12: Setting Tenant Seat Limits & Active User Quotas
 
 **Administrative Procedure & Policy:**
@@ -167,6 +189,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -184,6 +208,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 14: Offboarding a Tenant & Initiating Data Deletion
 
 **Administrative Procedure & Policy:**
@@ -195,6 +221,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -212,6 +240,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 16: The Role-Based Access Control (RBAC) Hierarchy
 
 **Administrative Procedure & Policy:**
@@ -223,6 +253,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -239,6 +271,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 18: Managing Custom User Groups and Cohorts
 
 **Administrative Procedure & Policy:**
@@ -249,6 +283,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -266,6 +302,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 20: Suspending or Banning Abusive Users
 
 **Administrative Procedure & Policy:**
@@ -279,31 +317,34 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
-### Chapter 21: Investigating 'Impossible Travel' Security Flags
+---
+
+### Chapter 21: Medical Curriculum Content Management & Review Lifecycle
 
 **Administrative Procedure & Policy:**
-- Review user login history Map in profile.
-- If false positive (VPN use), click `Dismiss Alert`.
+* Mediverse enforces a strict **5-stage peer-review state machine** for all curriculum lessons:
+  `[ DRAFT ]` ──(submitForReview)──► `[ IN_REVIEW ]` ──► `[ APPROVED ]` ──► `[ PUBLISHED ]` (or `[ REJECTED ]` ──► `[ DRAFT ]`).
+* Content Writers submit drafts to the central review queue. Medical Reviewers evaluate lessons at `/cms` before approving for publication.
+* All decisions generate immutable audit records in the `content_reviews` table (`V24__cms_content_review_workflow.sql`).
 
-**Institutional Governance & Security Controls:**
-- **Tenant Management:** Provision institutional medical college tenants with dedicated subdomains (college.mediverse.edu), custom branding, and DPDPA 2023 data localization (ap-south-1).
-- **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
-- **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
-- **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+**Operational REST Commands:**
+* List pending lessons: `GET /api/v1/cms/lessons?status=IN_REVIEW`
+* Submit draft for review: `POST /api/v1/cms/lessons/{lessonId}/submit`
+* Approve/Reject lesson: `POST /api/v1/cms/lessons/{lessonId}/review` with `{"decision": "APPROVED", "comments": "Peer-reviewed and verified against NMC CBME."}`
 
 ---
 
-### Chapter 22: Merging Duplicate User Accounts
+### Chapter 22: Operating the CMS Review Queue & WYSIWYG Evaluation
 
 **Administrative Procedure & Policy:**
-- Tool to merge `john.doe@gmail.com` with `jdoe@university.edu`.
-- Consolidates exam history and course progress.
+* Navigate to `https://mediverse.edu/cms` and select the **"In Review"** tab.
+* Click on any pending lesson to open the WYSIWYG evaluation interface (`/cms/[lessonId]`).
+* Inspect rendered Markdown content, LaTeX mathematical equations, and clinical case vignettes rendered by `ContentBlockRenderer`.
+* Click **"Approve"** to transition the lesson to `APPROVED` / `PUBLISHED`, or click **"Reject"** and provide mandatory pedagogical feedback comments.
 
 **Institutional Governance & Security Controls:**
-- **Tenant Management:** Provision institutional medical college tenants with dedicated subdomains (college.mediverse.edu), custom branding, and DPDPA 2023 data localization (ap-south-1).
-- **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
-- **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
-- **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+* Rejection feedback is mandatory; empty rejection submissions are blocked by backend validation (`CmsReviewService.java`).
+* Reviewers must possess `ROLE_MEDICAL_REVIEWER`, `ROLE_FACULTY`, or `ROLE_EDITOR` credentials.
 
 ---
 
@@ -317,6 +358,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -334,6 +377,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 25: Uploading and Transcoding Surgical Videos
 
 **Administrative Procedure & Policy:**
@@ -348,31 +393,35 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
-### Chapter 26: Creating and Managing Interactive 3D Anatomy Models
+---
+
+### Chapter 26: Clinical Vignette Question Bank & USMLE/NMC CBME Governance
 
 **Administrative Procedure & Policy:**
-- Upload `.gltf` or `.obj` assets.
-- Use the visual editor to define clickable 'hotspots' (e.g., 'Aortic Valve') with text popups.
+* Clinical assessment items must adhere to standard USMLE Step 1 / NMC CBME vignette structure: patient history, physical examination, diagnostic lab findings, and 4–5 single-best-answer distractors.
+* Manage questions in the central repository (`clinicalExamQuestions.ts` and `quiz_questions` database table).
+* Every question must include comprehensive rationale explanations for both the correct answer and all incorrect distractors.
 
 **Institutional Governance & Security Controls:**
-- **Tenant Management:** Provision institutional medical college tenants with dedicated subdomains (college.mediverse.edu), custom branding, and DPDPA 2023 data localization (ap-south-1).
-- **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
-- **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
-- **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+* All questions require dual-faculty peer review before activation in student board examination pools.
 
 ---
 
-### Chapter 27: Designing Adaptive Quizzes and Exam Banks
+### Chapter 27: NMC CBME Competency & Bloom's Taxonomy Mapping
 
 **Administrative Procedure & Policy:**
-- Create Question Banks tagged by difficulty and organ system.
-- Enable 'Adaptive Mode' so subsequent questions adjust based on prior answers.
-
-**Institutional Governance & Security Controls:**
-- **Tenant Management:** Provision institutional medical college tenants with dedicated subdomains (college.mediverse.edu), custom branding, and DPDPA 2023 data localization (ap-south-1).
-- **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
-- **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
-- **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+* Tag every curriculum lesson and clinical question with standardized National Medical Commission competency codes:
+  - `PY1.1`–`PY1.9`: General Physiology & Cellular Transport
+  - `PY2.1`–`PY2.13`: Hematology & Immunology
+  - `PY3.1`–`PY3.18`: Nerve-Muscle Physiology
+  - `PY4.1`–`PY4.10`: Gastrointestinal System
+  - `PY5.1`–`PY5.14`: Cardiovascular System
+  - `PY6.1`–`PY6.10`: Respiratory System
+  - `PY7.1`–`PY7.9`: Renal Physiology & Acid-Base Balance
+  - `PY8.1`–`PY8.6`: Endocrine System
+  - `PY9.1`–`PY9.12`: Reproductive System
+  - `PY10.1`–`PY10.20`: Neurophysiology & Special Senses
+* Tag Bloom's cognitive taxonomy levels (Recall, Comprehension, Application, Analysis) to drive the interactive Radar Chart mastery analytics (`ExamSummaryView.tsx`, `nmcMapping.ts`).
 
 ---
 
@@ -386,6 +435,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -403,6 +454,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 30: Resolving Content Flagged by Users
 
 **Administrative Procedure & Policy:**
@@ -417,16 +470,22 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
-### Chapter 31: Setting up Content Drip-Schedules for Cohorts
+---
+
+### Chapter 31: 3D WebGL Multi-Organ Presets & Anatomical Landmark Administration
 
 **Administrative Procedure & Policy:**
-- Unlock Module 2 only after Module 1 is complete, or on a specific calendar date (e.g., 'Oct 15th').
+* Manage 3D anatomical organ models and landmark beacon metadata in `OrganPresets.ts`:
+  - Cardiovascular (Left Ventricle, Aortic Valve, SA Node, Interventricular Septum)
+  - Respiratory (Main Bronchus, Alveolar Sac, Pulmonary Capillary, Diaphragm)
+  - Renal (Glomerulus, Bowman's Capsule, Proximal Convoluted Tubule, Loop of Henle)
+  - Neurophysiology (Axon Hillock, Myelin Sheath, Synaptic Cleft)
+  - Gastrointestinal (Gastric Parietal Cell, Villi, Crypt of Lieberkuhn)
+  - Endocrine (Pancreatic Beta Cell, Adrenal Cortex, Thyroid Follicle)
+* Configure default camera position vectors, zoom limits, and clinical correlation diagnostic popover text.
 
 **Institutional Governance & Security Controls:**
-- **Tenant Management:** Provision institutional medical college tenants with dedicated subdomains (college.mediverse.edu), custom branding, and DPDPA 2023 data localization (ap-south-1).
-- **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
-- **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
-- **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+* Ensure all 3D canvas components bind to `useThreeMemoryCleanup.ts` to execute `renderer.dispose()` and prevent client VRAM memory leaks.
 
 ---
 
@@ -443,6 +502,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 33: Understanding the AI Tutor Role in Mediverse
 
 **Administrative Procedure & Policy:**
@@ -453,6 +514,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -470,6 +533,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 35: Monitoring Tenant AI Usage and Forecasting Overage
 
 **Administrative Procedure & Policy:**
@@ -484,16 +549,17 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
-### Chapter 36: Adjusting AI Tutor Persona Guidelines
+---
+
+### Chapter 36: Real-Time Physiological Simulation Solvers Calibration
 
 **Administrative Procedure & Policy:**
-- Modify the System Prompt globally or per tenant (e.g., 'Explain concepts at a 1st-year nursing level vs 4th-year surgical resident level').
-
-**Institutional Governance & Security Controls:**
-- **Tenant Management:** Provision institutional medical college tenants with dedicated subdomains (college.mediverse.edu), custom branding, and DPDPA 2023 data localization (ap-south-1).
-- **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
-- **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
-- **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+* Calibrate mathematical differential equation solvers to maintain clinical fidelity across physiological extremes:
+  - **Cardiac Suga-Sagawa Solver (`cardiacSolver.ts`):** Left ventricular time-varying elastance $E(t)$, ESPVR, EDPVR, Stroke Volume, and Ejection Fraction.
+  - **Acid-Base Davenport Solver (`acidBaseSolver.ts`):** Henderson-Hasselbalch solver ($pH = 6.1 + \log_{10}\frac{[\text{HCO}_3^-]}{0.03 \cdot \text{PaCO}_2}$), Anion Gap, Winter's formula, and Davenport buffer lines.
+  - **Renal Starling Solver (`renalSolver.ts`):** Glomerular filtration rate ($\text{GFR} = K_f \cdot [(P_{gc} - P_{bs}) - (\pi_{gc} - \pi_{bs})]$), Inulin/Creatinine clearance, and fractional sodium excretion ($\text{FeNa}$).
+  - **Electrophysiology Solver (`membraneSolver.ts`):** Goldman-Hodgkin-Katz membrane voltage equation.
+* Verify calculation API latency ($< 1.0\text{ms}$) via `SimulationApiController.java` (`POST /api/v1/simulations/calculate`).
 
 ---
 
@@ -507,6 +573,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -524,6 +592,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 39: Reviewing Flagged AI Hallucinations
 
 **Administrative Procedure & Policy:**
@@ -535,6 +605,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -551,16 +623,18 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
-### Chapter 41: Managing Subscription Tiers
+---
+
+### Chapter 41: Socratic AI Companion Prompt Sandboxing & Safety Governance
 
 **Administrative Procedure & Policy:**
-- Define feature access mapping for Basic (No AI), Pro (AI Tutor), and Enterprise (SSO + Custom Branding).
+* Configure the Socratic AI system prompt in `AITutorService.java` to enforce Socratic inquiry rather than providing direct exam answers.
+* Mandate reference textbook citation grounding (Guyton & Hall Textbook of Medical Physiology, Costanzo Physiology).
+* Enforce clinical emergency triage guardrails: automated refusal of live-patient diagnostic inquiries with medical emergency disclaimers.
 
-**Institutional Governance & Security Controls:**
-- **Tenant Management:** Provision institutional medical college tenants with dedicated subdomains (college.mediverse.edu), custom branding, and DPDPA 2023 data localization (ap-south-1).
-- **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
-- **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
-- **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+**Operational Telemetry & Rate Limits:**
+* Stream Socratic tokens via Server-Sent Events (`POST /api/v1/ai-tutor/chat/stream`).
+* Configure per-student token quotas (30 requests/minute) managed via Redis token buckets.
 
 ---
 
@@ -578,6 +652,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 43: Generating Custom Invoices for Enterprise Tenants
 
 **Administrative Procedure & Policy:**
@@ -588,6 +664,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -605,6 +683,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 45: Managing Discount Codes and Promotional Campaigns
 
 **Administrative Procedure & Policy:**
@@ -615,6 +695,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -632,6 +714,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 47: Exporting Monthly Revenue Recognition Reports
 
 **Administrative Procedure & Policy:**
@@ -642,6 +726,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -658,6 +744,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 49: Generating Student Engagement & Drop-off Reports
 
 **Administrative Procedure & Policy:**
@@ -668,6 +756,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -684,6 +774,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 51: Tracking Video Viewership and 3D Interactivity
 
 **Administrative Procedure & Policy:**
@@ -694,6 +786,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -710,6 +804,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 53: Building Custom Metabase Dashboards
 
 **Administrative Procedure & Policy:**
@@ -720,6 +816,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -736,6 +834,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 55: Handling GDPR Data Subject Access Requests (DSAR)
 
 **Administrative Procedure & Policy:**
@@ -746,6 +846,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -763,6 +865,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 57: Exporting HIPAA Compliance Access Logs
 
 **Administrative Procedure & Policy:**
@@ -773,6 +877,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -789,6 +895,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 59: Identifying and Remediating PII Data Spills
 
 **Administrative Procedure & Policy:**
@@ -799,6 +907,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -815,6 +925,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 61: Conducting a Platform Access Audit
 
 **Administrative Procedure & Policy:**
@@ -825,6 +937,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -841,6 +955,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 63: Syncing Grades back to External LMS Platforms
 
 **Administrative Procedure & Policy:**
@@ -851,6 +967,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -868,16 +986,17 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
-### Chapter 65: Managing Webhook HMAC Signing Secrets
+---
+
+### Chapter 65: IMS Global LTI 1.3 Advantage LMS Registration & Key Rotation
 
 **Administrative Procedure & Policy:**
-- Admins must provide the HMAC secret to their developers to verify payload authenticity.
-
-**Institutional Governance & Security Controls:**
-- **Tenant Management:** Provision institutional medical college tenants with dedicated subdomains (college.mediverse.edu), custom branding, and DPDPA 2023 data localization (ap-south-1).
-- **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
-- **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
-- **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+* Register institutional LMS deployments (Canvas, Blackboard, Moodle, Brightspace):
+  - Generate Platform Client ID, Deployment ID, and OIDC Authorization Endpoint.
+  - Public Key Set URL (JWKS): `https://mediverse.edu/.well-known/jwks.json` using RS256 asymmetric keys.
+* Enable Assignment and Grade Services (AGS v2.0) for automated grade passback from Mediverse clinical exams into university gradebooks.
+* Enable Names and Role Provisioning Services (NRPS v2.0) for automated student roster and course enrollment synchronization.
+* Enable LTI Deep Linking (DL v2.0) allowing professors to embed specific 3D dissection presets or simulation labs into LMS course modules.
 
 ---
 
@@ -894,6 +1013,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 67: Integrating Zoom or Teams for Live Lectures
 
 **Administrative Procedure & Policy:**
@@ -904,6 +1025,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -920,6 +1043,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 69: Interpreting User Error Codes in the Support Portal
 
 **Administrative Procedure & Policy:**
@@ -930,6 +1055,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -947,6 +1074,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 71: Escalating a Bug to L2 SRE / Engineering
 
 **Administrative Procedure & Policy:**
@@ -957,6 +1086,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 
@@ -973,6 +1104,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 73: Handling SLA Breach Customer Communications
 
 **Administrative Procedure & Policy:**
@@ -986,6 +1119,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 
 ---
 
+---
+
 ### Chapter 74: Requesting Temporary API Rate Limit Increases
 
 **Administrative Procedure & Policy:**
@@ -996,6 +1131,8 @@ This 75-chapter guide provides comprehensive instructions for Platform Administr
 - **SSO & Directory Sync:** Configure SAML 2.0 / OIDC Single Sign-On and enable SCIM 2.0 directory provisioning for automated student/faculty lifecycle management.
 - **LTI 1.3 Integration:** Register institutional LMS platforms (Canvas, Moodle, Blackboard) with asymmetric RSA-256 JWKS key sets.
 - **AI Governance & Quotas:** Allocate student cohort AI Socratic Tutor token budgets, enforce rate limits, and maintain immutable audit logs for regulatory compliance.
+
+---
 
 ---
 

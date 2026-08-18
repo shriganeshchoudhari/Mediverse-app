@@ -218,6 +218,8 @@ Mediverse operates strictly as an educational platform and adheres to rigorous r
 
 # PART I
 
+---
+
 # Chapter 1
 
 # Executive Summary
@@ -321,6 +323,8 @@ The primary objectives of the first product release are to:
 **Part 2 of 20**
 
 **Continues from:** Chapter 1 – Executive Summary
+
+---
 
 ---
 
@@ -629,6 +633,7 @@ Every future capability described within this Product Requirements Document shal
 
 **Next:** **Chapter 3 – Product Mission**, where we define the mission, strategic objectives, measurable business outcomes, educational objectives, and the guiding mission pillars that translate the vision into actionable goals.
 
+---
 
 # Chapter 3 — Product Mission
 
@@ -967,6 +972,8 @@ The mission of Mediverse establishes the purpose behind the platform and transla
 **End of Chapter 3**
 
 **Next:** **Chapter 4 – Product Philosophy**, where we'll define the core product beliefs, educational philosophy, design philosophy, user experience philosophy, AI philosophy, and the decision-making principles that shape every aspect of Mediverse.
+
+---
 
 # Chapter 4 — Product Philosophy
 
@@ -1356,6 +1363,7 @@ The Product Philosophy establishes the enduring principles that define Mediverse
 
 **Next:** **Chapter 5 – Problem Statement**, where we'll analyze the current challenges in medical education, identify stakeholder pain points, define opportunity areas, and establish the business justification for building Mediverse.
 
+---
 
 # Chapter 5 — Problem Statement
 
@@ -1700,6 +1708,7 @@ The remaining chapters of this Product Requirements Document describe the produc
 
 **Next:** **Chapter 6 – Business Goals**, where we will define strategic business objectives, educational goals, measurable outcomes, product success criteria, stakeholder value propositions, and long-term business strategy.
 
+---
 
 # Chapter 6 — Business Goals
 
@@ -2064,6 +2073,7 @@ These goals provide the foundation for prioritizing future product capabilities,
 
 **End of Chapter 6**
 
+---
 
 # Chapter 7 — Product Scope
 
@@ -2558,6 +2568,7 @@ The product deliberately excludes unrelated healthcare operational systems to ma
 
 **End of Chapter 7**
 
+---
 
 # Chapter 8 — Stakeholders
 
@@ -3071,6 +3082,7 @@ Understanding these stakeholder relationships provides the foundation for design
 
 **End of Chapter 8**
 
+---
 
 # Chapter 9 — User Personas
 
@@ -3598,6 +3610,7 @@ The personas defined in this chapter represent the primary users of Mediverse an
 
 **End of Chapter 9**
 
+---
 
 # Chapter 10 — User Journeys
 
@@ -4310,6 +4323,7 @@ These journeys provide a foundation for user experience design, workflow optimiz
 
 **End of Chapter 10**
 
+---
 
 # Chapter 11 — Business Requirements
 
@@ -4870,6 +4884,8 @@ These business requirements provide the bridge between the product strategy desc
 ---
 
 **End of Chapter 11**
+
+---
 
 # Chapter 12 — Product Features
 
@@ -5597,8 +5613,21 @@ The next chapter translates these epics into precise, traceable, and testable sy
 
 ---
 
+---
+
+# 12.10 Core Physiological Simulation Solvers & 3D Multi-Organ Feature Matrix
+
+| Feature Domain | Target Mathematical Equations & Physiological Models | Live Platform Implementation |
+|---|---|---|
+| **Cardiovascular Simulation** | Suga-Sagawa left ventricular elastance $E(t) = \frac{P(t)}{V(t) - V_0}$, ESPVR/EDPVR, Stroke Volume, and Pressure-Volume loop generation | `cardiacSolver.ts` (`/simulators/cardiac-cycle`) |
+| **Acid-Base Nomogram** | Henderson-Hasselbalch $pH = 6.1 + \log_{10}\frac{[\text{HCO}_3^-]}{0.03 \cdot \text{PaCO}_2}$, Winter's formula, Davenport buffer slopes, automated ABG diagnosis | `acidBaseSolver.ts` (`/simulators/acid-base`) |
+| **Renal Filtration Engine** | Glomerular Starling microvascular filtration $\text{GFR} = K_f \cdot [(P_{gc} - P_{bs}) - (\pi_{gc} - \pi_{bs})]$, FeNa, clearance | `renalSolver.ts` (`/simulators/renal-filtration`) |
+| **Nerve-Muscle Electrophysiology** | Goldman-Hodgkin-Katz resting membrane potential & Hodgkin-Huxley action potential kinetics | `membraneSolver.ts` (`/simulators/nerve-muscle`) |
+| **3D Multi-Organ WebGL Canvas** | Three.js WebGL2 multi-organ viewport with GLSL cross-sectional clipping planes and anatomical landmark presets | `ThreeCanvas.tsx`, `OrganPresets.ts`, `DissectionShader.ts` |
+
 **End of Chapter 12**
 
+---
 
 # Chapter 13 — Functional Requirements
 
@@ -6195,13 +6224,6 @@ This traceability ensures that every implemented feature can be justified, valid
 This first part of the Functional Requirements chapter establishes the requirement taxonomy and defines the core functional requirements for authentication, user management, student workspace, curriculum management, content management, multimedia learning, and interactive 3D learning.
 
 The remaining functional domains—including Assessment, AI, Analytics, Faculty Workspace, Review Workflow, Administration, Notifications, and Search—continue in the next part of this chapter due to their size.
-
----
-
-**End of Chapter 13 — Part 1**
-
-
-# Chapter 13 — Functional Requirements (Part 2)
 
 ---
 
@@ -6951,9 +6973,51 @@ Together, these requirements provide a comprehensive, traceable, and testable sp
 
 ---
 
+---
+
+# 13.21 Physiological Simulation Solvers (FR-SIM)
+
+* **FR-SIM-001 (Cardiovascular $PV$-Loop Solver):** The platform shall compute instantaneous ventricular pressure-volume curves in $< 1.0\text{ms}$ using time-varying elastance $E(t)$, outputting Stroke Volume, Cardiac Output, and Ejection Fraction based on user-adjusted preload, afterload, and inotropy sliders (`cardiacSolver.ts`).
+* **FR-SIM-002 (Acid-Base & Davenport Solver):** The platform shall calculate arterial blood gas parameters via the Henderson-Hasselbalch equation ($pH = 6.1 + \log_{10}\frac{[\text{HCO}_3^-]}{0.03 \cdot \text{PaCO}_2}$), evaluate respiratory compensation via Winter's formula, and classify disorders on the interactive Davenport nomogram (`acidBaseSolver.ts`).
+* **FR-SIM-003 (Renal Filtration Solver):** The platform shall solve glomerular Starling forces ($\text{GFR} = K_f \cdot [(P_{gc} - P_{bs}) - (\pi_{gc} - \pi_{bs})]$) and calculate Fractional Excretion of Sodium (FeNa) in response to afferent/efferent resistance perturbations (`renalSolver.ts`).
+* **FR-SIM-004 (Nerve Membrane Potential Solver):** The platform shall calculate resting membrane potential via the Goldman-Hodgkin-Katz equation and simulate action potential propagation across varying ionic concentrations (`membraneSolver.ts`).
+
+---
+
+# 13.22 Role-Based CMS Curriculum Review Engine (FR-CMS)
+
+* **FR-CMS-001 (5-Stage Review State Machine):** The platform shall enforce a 5-stage lifecycle for curriculum modules: `[ DRAFT ]` ──► `[ IN_REVIEW ]` ──► `[ APPROVED ]` ──► `[ PUBLISHED ]` (or `[ REJECTED ]` ──► `[ DRAFT ]`).
+* **FR-CMS-002 (Role-Based Authorization):** The platform shall restrict review and publishing actions to authenticated users possessing `MEDICAL_REVIEWER`, `FACULTY`, or `EDITOR` roles (`CmsReviewController.java`).
+* **FR-CMS-003 (Immutable Audit Trail):** The platform shall record reviewer user IDs, decision statuses, feedback commentary, and lesson version numbers immutably in `curriculum.content_reviews` (`V24__cms_content_review_workflow.sql`).
+
+---
+
+# 13.23 Socratic AI Study Companion & Citation Grounding (FR-AI)
+
+* **FR-AI-001 (Floating Assistant Drawer):** The platform shall provide a persistent floating assistant drawer (`GlobalSocraticAssistant.tsx`) with Server-Sent Events (SSE) token streaming via `POST /api/v1/ai-tutor/chat/stream`.
+* **FR-AI-002 (Socratic Scaffolding Prompt):** The AI tutor shall provide scaffolding hints and conceptual explanations rather than direct answers to exam questions.
+* **FR-AI-003 (Textbook Citation Grounding):** The AI tutor shall ground $\ge 98\%$ of physiological explanations in standard medical authorities (Guyton & Hall, Costanzo Physiology) using 1536-D dense vector retrieval (`aitutor.embeddings_metadata`).
+* **FR-AI-004 (LaTeX Formula Rendering):** The platform shall render mathematical and chemical expressions in clean LaTeX formatting via KaTeX.
+
+---
+
+# 13.24 Timed Clinical Examination Runner & Radar Mastery (FR-EXAM)
+
+* **FR-EXAM-001 (Timed Exam Runner):** The platform shall provide a timed examination runner (`QuizRunner.tsx` at `/exam`) with countdown timer, distractor strikeout tool, question bookmarking, and slide-over question grid.
+* **FR-EXAM-002 (Distractor Rationales):** The platform shall provide detailed pathophysiological explanations for correct and incorrect multiple-choice options (`clinicalExamQuestions.ts`).
+* **FR-EXAM-003 (Competency Radar Mastery):** The platform shall generate multi-axis Bloom's taxonomy Radar Charts (`ExamSummaryView.tsx`, `nmcMapping.ts`) mapping student mastery across all 11 NMC CBME physiological competencies (`PY1.1` to `PY11.14`).
+
+---
+
+# 13.25 IMS Global LTI 1.3 Advantage Interoperability (FR-LTI)
+
+* **FR-LTI-001 (LTI 1.3 Core OIDC Launch):** The platform shall authenticate university students via LTI 1.3 Core OIDC launch with RS256 JWKS signature verification (`lti.deployments`).
+* **FR-LTI-002 (Assignment and Grade Services):** The platform shall automatically synchronize student examination scores to university LMS gradebooks (Canvas, Blackboard, Moodle) via AGS v2.0 (`lti.grade_passbacks`).
+* **FR-LTI-003 (Names and Role Provisioning):** The platform shall synchronize course rosters and student cohort enrollments via NRPS v2.0.
+
 **End of Chapter 13**
 
-
+---
 
 # Chapter 14 — Non-Functional Requirements
 
@@ -7657,6 +7721,18 @@ Together with the functional requirements defined in Chapter 13, these quality a
 
 ---
 
+---
+
+# 14.10 Quantitative Performance SLAs & Reliability Benchmarks
+
+| Service Domain | Service Level Indicator (SLI) | Target SLA / SLO | Measurement Tool |
+|---|---|---|---|
+| **Platform Availability** | Successful HTTP Requests / Total Requests | **$\ge 99.95\%$ Uptime** ($< 21.6\text{ min}$ downtime/mo) | Synthetic multi-region uptime probes |
+| **Simulation Math Solvers** | End-to-end latency on `POST /api/v1/simulations/calculate` | **P95 $< 15\text{ms}$, P99 $< 50\text{ms}$** | Spring Boot Actuator + OpenTelemetry |
+| **3D WebGL Canvas Viewport** | Time-to-Interactive (TTI) for organ render | **P95 $< 1.5\text{ seconds}$** | Lighthouse CI + Real User Monitoring (RUM) |
+| **Socratic AI Streaming** | First-token latency on `POST /api/v1/ai-tutor/chat/stream` | **P95 $< 800\text{ms}$** | SSE Client Telemetry |
+| **Disaster Recovery** | Recovery Point Objective (RPO) / Recovery Time Objective (RTO) | **RPO $\le 5\text{ min}$, RTO $\le 30\text{ min}$** | AWS Multi-AZ PITR + Warm Standby |
+
 **End of Chapter 14**
 
 
@@ -7679,6 +7755,7 @@ The platform shall adhere to strict, measurable service level objectives:
 | **Concurrent Active Students** | $10,000$ active concurrent users without degradation | k6 distributed load testing |
 | **Accessibility Conformance** | **WCAG 2.2 Level AA** compliance | Automated axe-core scans + manual screen reader audits |
 
+---
 
 # Chapter 15 — Business Rules
 
@@ -8229,6 +8306,7 @@ Together with the functional and non-functional requirements, these business rul
 
 **End of Chapter 15**
 
+---
 
 # Chapter 16 — Success Metrics & Key Performance Indicators (KPIs)
 
@@ -8790,6 +8868,7 @@ These metrics provide the basis for continuous improvement, strategic decision-m
 
 **End of Chapter 16**
 
+---
 
 # Chapter 17 — Risks, Assumptions, Constraints & Dependencies
 
@@ -9358,6 +9437,7 @@ By documenting these factors, the product organization can make informed decisio
 
 **End of Chapter 17**
 
+---
 
 # Chapter 18 — Acceptance Criteria & Release Readiness
 
@@ -9918,6 +9998,7 @@ Together, these practices ensure that every release of Mediverse delivers measur
 
 **End of Chapter 18**
 
+---
 
 # Chapter 19 — Product Roadmap & Future Vision
 
@@ -10325,6 +10406,8 @@ The roadmap provides a shared vision that guides future product decisions while 
 ---
 
 **End of Chapter 19**
+
+---
 
 # Chapter 20 — Appendices
 

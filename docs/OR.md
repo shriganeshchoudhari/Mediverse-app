@@ -4,6 +4,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 1: How to Use This Runbook During an Incident
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -16,6 +18,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -33,6 +37,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 3: Connecting to the Bastion Host
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -44,6 +50,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -61,6 +69,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 5: Fetching Dynamic DB Credentials from Vault
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -72,6 +82,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -89,6 +101,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 7: Triage: VPC NAT Gateway Exhaustion
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -103,6 +117,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 8: Triage: AWS Route53 Resolution Failures
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -114,6 +130,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -132,6 +150,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 10: Recovery: Restarting Stalled EKS Control Plane
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -143,6 +163,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -160,6 +182,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 12: Mitigation: Ingress Controller Dropping Traffic
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -171,6 +195,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -188,6 +214,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 14: Mitigation: Cert-Manager Let's Encrypt Limits
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -202,6 +230,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 15: Recovery: Promoting RDS Read-Replica to Primary
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -213,6 +243,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -231,6 +263,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 17: Recovery: RDS Point-In-Time-Recovery (PITR)
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -241,6 +275,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -258,17 +294,32 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
-### Chapter 19: Recovery: Rebuilding Corrupted pgvector Index
+---
+
+### Chapter 19: Recovery: Rebuilding Corrupted pgvector Index & Slow Query Triage
 
 **Tactical Mitigation & Diagnostic Commands:**
-- Connect via psql.
-- Command: `REINDEX INDEX CONCURRENTLY my_hnsw_idx;`
+* **Symptom:** Socratic AI chat latency spikes $> 3.0\text{s}$ or throws `ERROR: hnsw index graph corrupted`.
+* **Diagnostic Query:**
+  ```sql
+  EXPLAIN ANALYZE 
+  SELECT document_source, chapter_title, chunk_text, (embedding <=> '[0.012, -0.045, ...]'::vector) AS distance
+  FROM aitutor.embeddings_metadata 
+  ORDER BY distance ASC LIMIT 5;
+  ```
+* **Tactical Rebuild Command:**
+  ```sql
+  -- Increase maintenance memory and rebuild HNSW graph concurrently
+  SET maintenance_work_mem = '1GB';
+  REINDEX INDEX CONCURRENTLY aitutor.idx_embeddings_hnsw;
+  VACUUM (ANALYZE, VERBOSE) aitutor.embeddings_metadata;
+  ```
 
 **Emergency SRE Execution Steps:**
-- **Step 1 (Triage & Diagnosis):** Inspect relevant Kubernetes pod logs via `kubectl logs -n production -l app=<service-name> --tail=100` and query Grafana Loki.
-- **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
-- **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
-- **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+* **Step 1 (Triage & Diagnosis):** Check PostgreSQL log entries for deadlocks or out-of-memory errors during vector indexing.
+* **Step 2 (Isolation & Circuit Breaking):** Temporarily fall back to keyword-based full-text search (`tsvector`) if vector queries lock.
+* **Step 3 (Mitigation & Recovery):** Execute `REINDEX INDEX CONCURRENTLY` to restore the HNSW cosine graph without blocking read queries.
+* **Step 4 (Post-Mitigation Verification):** Validate vector query latency returns to P95 $< 15\text{ms}$.
 
 ---
 
@@ -286,6 +337,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 21: Mitigation: Flushing Redis Caches (Emergency)
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -297,6 +350,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -314,6 +369,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 23: Recovery: Resetting Kafka Consumer Group Offsets
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -324,6 +381,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -341,16 +400,27 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
-### Chapter 25: Mitigation: Forcing Elasticsearch Index Routing
+---
+
+### Chapter 25: Triage: Spring Boot JVM Heap Exhaustion & HikariCP Leaks
 
 **Tactical Mitigation & Diagnostic Commands:**
-- Command: `POST /_cluster/reroute?retry_failed=true` to force cluster to attempt allocating failed shards again.
+* **Symptom:** Spring Boot backend pod restarts with `OOMKilled` (Exit Code 137) or HTTP 500 `Connection is not available`.
+* **Diagnostic Commands:**
+  ```bash
+  # Check HikariCP connection pool metrics
+  curl -s http://localhost:8085/actuator/metrics/hikaricp.connections.pending
+  curl -s http://localhost:8085/actuator/metrics/hikaricp.connections.active
+
+  # Generate live thread dump to detect connection leaks
+  kubectl exec -it <backend-pod-name> -n mediverse-prod -- jcmd 1 Thread.print > /tmp/thread_dump.txt
+  ```
 
 **Emergency SRE Execution Steps:**
-- **Step 1 (Triage & Diagnosis):** Inspect relevant Kubernetes pod logs via `kubectl logs -n production -l app=<service-name> --tail=100` and query Grafana Loki.
-- **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
-- **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
-- **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+* **Step 1 (Triage & Diagnosis):** Inspect HikariCP active vs. idle connection gauges in Grafana.
+* **Step 2 (Isolation & Circuit Breaking):** Scale backend replica set from 3 to 6 pods to distribute incoming connection pressure.
+* **Step 3 (Mitigation & Recovery):** Perform rolling pod restart to release leaked database handles (`kubectl rollout restart deployment/mediverse-backend -n mediverse-prod`).
+* **Step 4 (Post-Mitigation Verification):** Confirm pending connection requests drop to 0.
 
 ---
 
@@ -368,6 +438,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 27: Mitigation: Bypassing Istio mTLS for Debugging
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -378,6 +450,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -395,6 +469,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 29: Mitigation: Adjusting HPA Minimums
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -409,6 +485,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 30: Triage: 502 Bad Gateway from Spring Cloud
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -419,6 +497,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -436,6 +516,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 32: Recovery: MFE S3 Cache Invalidation Failure
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -447,6 +529,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -463,6 +547,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 34: Mitigation: Identity Provider (Keycloak) Outage
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -476,16 +562,27 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
-### Chapter 35: Recovery: Rotating Compromised JWT Signing Keys
+---
+
+### Chapter 35: Mitigation: Socratic AI SSE Stream Buffer Stalls & LLM 429 Outages
 
 **Tactical Mitigation & Diagnostic Commands:**
-- Command: Generate new RSA keypair in Vault. Rotate Keycloak Realm Keys. All existing user sessions will immediately invalidate (requires re-login).
+* **Symptom:** Student Socratic AI drawer displays spinning loader without rendering streamed tokens.
+* **Diagnostic Command:**
+  ```bash
+  # Verify backend produces unbuffered text/event-stream chunks
+  curl -i -N -H "Accept: text/event-stream" \
+    -H "Authorization: Bearer ${TEST_JWT}" \
+    -X POST https://api.mediverse.edu/api/v1/ai-tutor/chat/stream \
+    -d '{"message":"What is preload?","topicContext":"cardiovascular"}'
+  ```
+* **Verify Response Headers:** Ensure `X-Accel-Buffering: no` and `Content-Type: text/event-stream` are present.
 
 **Emergency SRE Execution Steps:**
-- **Step 1 (Triage & Diagnosis):** Inspect relevant Kubernetes pod logs via `kubectl logs -n production -l app=<service-name> --tail=100` and query Grafana Loki.
-- **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
-- **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
-- **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+* **Step 1 (Triage & Diagnosis):** Inspect Nginx ingress logs for `upstream prematurely closed connection`.
+* **Step 2 (Isolation & Circuit Breaking):** If upstream LLM returns HTTP 429, activate exponential backoff and route to secondary backup model.
+* **Step 3 (Mitigation & Recovery):** Reload Nginx ingress if proxy buffering was erroneously re-enabled (`nginx -s reload`).
+* **Step 4 (Post-Mitigation Verification):** Confirm first-token streaming latency drops below $800\text{ms}$.
 
 ---
 
@@ -499,6 +596,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -516,6 +615,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 38: Triage: Istio AuthorizationPolicy Rejecting Traffic
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -527,6 +628,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -543,16 +646,25 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
-### Chapter 40: Mitigation: Quarantining a Compromised Pod
+---
+
+### Chapter 40: Mitigation: 3D WebGL Draco Mesh CDN Cache Invalidation
 
 **Tactical Mitigation & Diagnostic Commands:**
-- Apply `NetworkPolicy` dropping all ingress/egress except to forensic tools. Leave the pod running (do not delete) for malware analysis.
+* **Symptom:** Students receive 404 or corrupted binary errors loading 3D heart, lung, or kidney meshes.
+* **Tactical Invalidation Command:**
+  ```bash
+  # Invalidate CloudFront CDN cache for all 3D GLB assets and textures
+  aws cloudfront create-invalidation \
+    --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} \
+    --paths "/models/*" "/textures/*" "/draco/*"
+  ```
 
 **Emergency SRE Execution Steps:**
-- **Step 1 (Triage & Diagnosis):** Inspect relevant Kubernetes pod logs via `kubectl logs -n production -l app=<service-name> --tail=100` and query Grafana Loki.
-- **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
-- **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
-- **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+* **Step 1 (Triage & Diagnosis):** Verify S3 bucket asset checksums (`aws s3 ls s3://mediverse-assets-prod/models/`).
+* **Step 2 (Isolation & Circuit Breaking):** Invalidate edge cache to flush stale or corrupted binary chunks.
+* **Step 3 (Mitigation & Recovery):** Purge browser IndexedDB cache on affected client sessions.
+* **Step 4 (Post-Mitigation Verification):** Test 3D organ load time in browser incognito window ($< 1.5\text{s}$).
 
 ---
 
@@ -570,6 +682,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 42: Recovery: Forcing AI Model Weight Re-Download
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -581,6 +695,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -598,6 +714,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 44: Triage: RAG Vector Search Returning Irrelevant Context
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -608,6 +726,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -624,6 +744,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 46: Recovery: Rolling Back an A/B Prompt Test
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -634,6 +756,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -651,6 +775,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 48: Mitigation: Argo CD Sync Stuck Progressing
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -662,6 +788,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -678,17 +806,23 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
-### Chapter 50: Recovery: Deleting a Stuck Helm Release Secret
+---
+
+### Chapter 50: Triage: IMS Global LTI 1.3 OIDC State Nonce & Clock Skew Errors
 
 **Tactical Mitigation & Diagnostic Commands:**
-- Symptom: ArgoCD complains 'another operation is in progress'.
-- Command: `kubectl delete secret -l name=<release-name>,status=pending-upgrade -n <namespace>`.
+* **Symptom:** University LMS users fail launch with `401 Unauthorized: Invalid Token Signature` or `State Nonce Expired`.
+* **Diagnostic Command:**
+  ```bash
+  # Check university LMS JWKS public key endpoint reachability
+  curl -v -m 5 https://canvas.university.edu/.well-known/jwks.json
+  ```
 
 **Emergency SRE Execution Steps:**
-- **Step 1 (Triage & Diagnosis):** Inspect relevant Kubernetes pod logs via `kubectl logs -n production -l app=<service-name> --tail=100` and query Grafana Loki.
-- **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
-- **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
-- **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+* **Step 1 (Triage & Diagnosis):** Inspect backend JWT validation logs for `JwtValidationException: token was issued in the future`.
+* **Step 2 (Isolation & Circuit Breaking):** If clock skew is detected between AWS and university servers, apply a 60-second timestamp leeway in `Lti13SecurityConfig.java`.
+* **Step 3 (Mitigation & Recovery):** Re-sync server NTP time daemon (`chronyd -q 'server pool.ntp.org iburst'`).
+* **Step 4 (Post-Mitigation Verification):** Execute synthetic LTI 1.3 OIDC test launch from Canvas sandbox.
 
 ---
 
@@ -705,6 +839,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 52: Triage: GitHub Actions Runner Queue Backlog
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -715,6 +851,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -732,6 +870,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 54: Recovery: Re-pushing Lost Container Image
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -742,6 +882,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -758,6 +900,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 56: DR Execution: Updating Global Route53 Policies
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -768,6 +912,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -784,6 +930,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 58: P0 Drill: Ransomware / Mass Data Deletion
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -794,6 +942,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -810,6 +960,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 60: Recovery: Re-deploying EKS from Scratch
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -820,6 +972,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -836,6 +990,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 62: P0 Drill: Global DNS Hijacking
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -846,6 +1002,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -863,6 +1021,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 64: Mitigation: Grafana Dashboards Failing to Load
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -877,17 +1037,25 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
-### Chapter 65: Mitigation: Loki Log Ingestion Backpressure
+---
+
+### Chapter 65: Recovery: Zero-Downtime Database Multi-AZ Emergency Failover
 
 **Tactical Mitigation & Diagnostic Commands:**
-- Symptom: Fluent-bit dropping logs.
-- Mitigation: Scale up Loki ingester statefulset. Check S3 write limits.
+* **Symptom:** Amazon RDS Primary instance unresponsive or suffering unrecoverable storage degradation.
+* **Tactical Failover Command:**
+  ```bash
+  # Force immediate Multi-AZ failover to standby replica in ap-south-1b
+  aws rds reboot-db-instance \
+    --db-instance-identifier mediverse-prod-db \
+    --force-failover
+  ```
 
 **Emergency SRE Execution Steps:**
-- **Step 1 (Triage & Diagnosis):** Inspect relevant Kubernetes pod logs via `kubectl logs -n production -l app=<service-name> --tail=100` and query Grafana Loki.
-- **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
-- **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
-- **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+* **Step 1 (Triage & Diagnosis):** Check RDS CloudWatch `DatabaseConnections` and `ReadIOPS` spikes.
+* **Step 2 (Isolation & Circuit Breaking):** Trigger automated Multi-AZ failover; DNS CNAME automatically updates within 60 seconds.
+* **Step 3 (Mitigation & Recovery):** Monitor backend HikariCP connection recovery as pods re-establish JDBC pools to the new primary.
+* **Step 4 (Post-Mitigation Verification):** Validate API health probes (`/actuator/health`) return HTTP 200 `UP`.
 
 ---
 
@@ -904,6 +1072,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 67: Mitigation: PagerDuty Webhook Failures
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -914,6 +1084,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -930,6 +1102,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 69: Mitigation: Twilio/SendGrid Down
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -940,6 +1114,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -956,6 +1132,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 71: Mitigation: AWS IAM Control Plane Outage
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -966,6 +1144,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 
@@ -982,6 +1162,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 73: Mitigation: Datadog/NewRelic Total Outage
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -995,6 +1177,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 
 ---
 
+---
+
 ### Chapter 74: Mitigation: LMS SSO Outage (Canvas/Blackboard)
 
 **Tactical Mitigation & Diagnostic Commands:**
@@ -1005,6 +1189,8 @@ This 75-chapter runbook provides the exact tactical commands and step-by-step mi
 - **Step 2 (Isolation & Circuit Breaking):** If downstream dependencies (e.g. LLM API or database connection pool) are saturated, activate circuit breakers or scale pod replicas.
 - **Step 3 (Mitigation & Recovery):** Execute zero-downtime rolling restart (`kubectl rollout restart deployment/<service-name> -n production`) or trigger automated RDS failover if necessary.
 - **Step 4 (Post-Mitigation Verification):** Validate synthetic uptime probes and ensure latency and error rates return to normal baseline.
+
+---
 
 ---
 

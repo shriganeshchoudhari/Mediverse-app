@@ -1,8 +1,4 @@
-# Technical Design Document (TDD)
-
-# Mediverse – AI-Powered Medical Education Platform
-
-## Chapter 1 — Introduction
+# Chapter 1 — Introduction
 
 ---
 
@@ -251,6 +247,7 @@ This introductory chapter establishes the purpose, scope, objectives, assumption
 **End of Chapter 1**
 
 **Next:** Chapter 2 – Purpose, Scope & Objectives.
+
 
 # Chapter 2 — Purpose, Scope & Objectives
 
@@ -596,6 +593,7 @@ This chapter defines the purpose, scope, objectives, implementation boundaries, 
 **End of Chapter 2**
 
 **Next:** Chapter 3 – References (PRD, SRS, SAD, ADR).
+
 
 # Chapter 3 — References (PRD, SRS, SAD, ADR)
 
@@ -1007,6 +1005,7 @@ This chapter defines the authoritative references that govern the Mediverse Tech
 **End of Chapter 3**
 
 **Next:** Chapter 4 – Design Principles & Coding Standards.
+
 
 # Chapter 4 — Design Principles & Coding Standards
 
@@ -1508,6 +1507,7 @@ This chapter establishes the design principles and coding standards that govern 
 
 **Next:** Chapter 5 – Technology Stack & Version Matrix.
 
+
 # Chapter 5 — Technology Stack & Version Matrix
 
 ---
@@ -1950,10 +1950,32 @@ This chapter establishes the approved technology baseline for all implementation
 This chapter defines the approved technology stack and version matrix for the Mediverse platform. It standardizes the technologies used across backend, frontend, AI, databases, messaging, DevOps, observability, and security while establishing compatibility requirements, lifecycle management practices, and governance policies. These standards ensure consistent implementation, operational stability, and long-term maintainability across the entire Mediverse engineering ecosystem.
 
 ---
+---
+
+# 5.10 Mediverse Core Technology Stack & Version Matrix
+
+### TECH-025: Production Technology Stack Standard
+The platform standardizes on the following production-verified technology stack:
+
+| Layer / Subsystem | Primary Technology | Version | Purpose & Rationale |
+|---|---|---|---|
+| **Web Framework** | Next.js (App Router) | `14.2.x` | React Server Components (RSC), nested layouts, and static page optimization |
+| **UI Library** | React | `18.3.x` | Component lifecycle, custom hooks, and concurrent rendering |
+| **3D Graphics Engine** | Three.js | `0.160.x` | WebGL2 hardware-accelerated anatomical organ rendering and clipping |
+| **Styling Engine** | Vanilla CSS & CSS Modules | Custom | Scoped modular CSS (`*.module.css`) and centralized design tokens (`globals.css`) |
+| **Math & Typography** | KaTeX / Remark / Rehype | `0.16.x` | High-fidelity LaTeX biomedical and physiological equation rendering |
+| **Backend Framework** | Spring Boot | `3.4.1` | Production-grade REST controllers, dependency injection, and transaction management |
+| **Runtime Language** | Java (LTS) | `21` | Virtual threads (Project Loom), pattern matching, and high-throughput concurrency |
+| **Security Framework** | Spring Security | `6.2.x` | Stateless JWT authentication and method-level authorization (`@PreAuthorize`) |
+| **Build Toolchain** | Gradle (Groovy DSL) | `8.5` | Fast incremental compilation, multi-project orchestration, and automated test execution |
+| **Relational Database** | PostgreSQL | `16.x` | ACID compliance, JSONB content blocks, and versioned Flyway migrations (V1–V26) |
+| **In-Memory Cache** | Redis | `7.x` | Session caching, high-frequency curriculum caching, and rate limiting |
+
 
 **End of Chapter 5**
 
 **Next:** Chapter 6 – Overall Technical Architecture.
+
 
 # Chapter 6 — Overall Technical Architecture
 
@@ -2531,6 +2553,7 @@ This chapter presents the overall technical architecture of the Mediverse platfo
 **Next:** Chapter 7 – Module Decomposition.
 
 
+
 # Chapter 7 — Module Decomposition
 
 ---
@@ -3077,6 +3100,7 @@ This chapter decomposes the Mediverse platform into well-defined business domain
 
 **Next:** Chapter 8 – Package Structure.
 
+
 # Chapter 8 — Package Structure
 
 ---
@@ -3575,10 +3599,41 @@ This chapter establishes the standard package organization for all implementatio
 This chapter defines the standardized package structure for the Mediverse platform, covering backend, frontend, shared libraries, infrastructure, security, configuration, and testing. By adopting a consistent, domain-oriented organization aligned with Clean Architecture and Domain-Driven Design principles, the package structure improves maintainability, scalability, code discoverability, and long-term architectural integrity while enabling efficient collaboration across engineering teams.
 
 ---
+---
+
+# 8.10 Frontend & Backend Bounded Context Package Architecture
+
+### PKG-025: Backend Modular Monolith Domain Architecture
+The backend application (`com.curiolearn.*`) enforces strict Domain-Driven package modularity:
+
+```text
+com.curiolearn/
+├── auth/           # Identity, JWT token generation, security filters, User entity
+├── curriculum/     # Subject, Module, Chapter, Lesson, ContentBlock, CMS Review Controller
+├── simulation/     # Simulation catalog, calculate API, mathematical parameter models
+├── aitutor/        # Socratic AI tutor, SSE streaming controller, RAG context service
+├── quiz/           # Question banks, clinical vignettes, exam scoring, submissions
+├── progress/       # Student metrics, bookmarks, spaced repetition revision schedules
+├── admin/          # Institutional user management, system telemetry, audit reporting
+└── common/         # Global exception handling, response envelopes, pagination utils
+```
+
+### PKG-026: Frontend Next.js 14 Application Structure
+```text
+frontend/
+├── app/            # Next.js 14 App Router routes (/auth, /curriculum, /simulators, /exam, /cms)
+├── components/     # UI components (3d/ThreeCanvas, ai/GlobalSocraticAssistant, exam/QuizRunner)
+├── lib/            # Business logic (simulations/*Solvers, competencies/clinicalExamQuestions)
+├── hooks/          # Custom state hooks (useSocraticChatStream, useThreeMemoryCleanup)
+├── config/         # AuthContext, API client configuration
+└── public/         # Static assets (brand vector badges, 3D glb models, manifest.json)
+```
+
 
 **End of Chapter 8**
 
 **Next:** Chapter 9 – Project Structure (Monorepo).
+
 
 # Chapter 9 — Project Structure (Monorepo)
 
@@ -4119,6 +4174,7 @@ This chapter defines the enterprise monorepo structure for the Mediverse platfor
 **End of Chapter 9**
 
 **Next:** Chapter 10 – Coding Standards & Naming Conventions.
+
 
 # Chapter 10 — Coding Standards & Naming Conventions
 
@@ -4690,6 +4746,7 @@ This chapter defines the coding standards and naming conventions that govern the
 **End of Chapter 10**
 
 **Next:** Chapter 11 – Spring Boot Project Design.
+
 
 # Chapter 11 — Spring Boot Project Design
 
@@ -5285,6 +5342,7 @@ This chapter establishes the standardized Spring Boot project design for the Med
 
 **Next:** Chapter 12 – Configuration Management.
 
+
 # Chapter 12 — Configuration Management
 
 ---
@@ -5794,6 +5852,7 @@ This chapter establishes the configuration management strategy for the Mediverse
 **End of Chapter 12**
 
 **Next:** Chapter 13 – Dependency Management (Maven).
+
 
 # Chapter 13 — Dependency Management (Maven)
 
@@ -6339,10 +6398,53 @@ This chapter establishes dependency management standards for all backend service
 This chapter defines the Maven-based dependency management strategy for the Mediverse platform. It standardizes project structure, parent POM hierarchy, dependency classification, version management, repository usage, plugin management, build lifecycle, security controls, governance, and upgrade processes. By adopting centralized dependency management and rigorous governance, the platform ensures reproducible builds, secure software supply chains, consistent implementation, and efficient CI/CD automation across all backend microservices.
 
 ---
+---
+
+# 13.10 Gradle Multi-Project Build & Toolchain Architecture
+
+### MAVEN-025: Standard Gradle Toolchain Specification
+The backend build toolchain is standardized on **Gradle 8.5 (Groovy DSL)** via `build.gradle` and `settings.gradle`:
+
+```groovy
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.4.1'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.curiolearn'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.3'
+    implementation 'org.flywaydb:flyway-core'
+    implementation 'org.flywaydb:flyway-database-postgresql'
+    runtimeOnly 'org.postgresql:postgresql'
+    runtimeOnly 'com.h2database:h2'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+}
+```
+
 
 **End of Chapter 13**
 
 **Next:** Chapter 14 – Exception Handling Design.
+
 
 # Chapter 14 — Exception Handling Design
 
@@ -6892,6 +6994,7 @@ This chapter establishes the exception handling design for the Mediverse platfor
 
 **Next:** Chapter 15 – Validation Framework.
 
+
 # Chapter 15 — Validation Framework
 
 ---
@@ -7424,6 +7527,7 @@ This chapter establishes the enterprise validation framework for the Mediverse p
 
 **Next:** Chapter 16 – Logging Framework.
 
+
 # Chapter 16 — Logging Framework
 
 ---
@@ -7944,6 +8048,7 @@ This chapter establishes the enterprise logging framework for the Mediverse plat
 
 **Next:** Chapter 17 – Configuration Profiles.
 
+
 # Chapter 17 — Configuration Profiles
 
 ---
@@ -8431,6 +8536,7 @@ This chapter defines the configuration profile framework for the Mediverse platf
 **End of Chapter 17**
 
 **Next:** Chapter 18 – DTO Design.
+
 
 # Chapter 18 — DTO Design
 
@@ -8996,6 +9102,7 @@ This chapter defines the enterprise DTO design strategy for the Mediverse platfo
 **End of Chapter 18**
 
 **Next:** Chapter 19 – Mapper Design (MapStruct).
+
 
 # Chapter 19 — Mapper Design (MapStruct)
 
@@ -9573,6 +9680,7 @@ This chapter defines the MapStruct-based object mapping framework for the Medive
 **End of Chapter 19**
 
 **Next:** Chapter 20 – Response Wrapper Design.
+
 
 # Chapter 20 — Response Wrapper Design
 
@@ -10168,6 +10276,7 @@ This chapter defines the unified response wrapper framework for the Mediverse pl
 
 **Next:** **Chapter 21 – Domain Model Design** (Beginning **Part IV – Domain Model**).
 
+
 # Chapter 21 — Domain Model Design
 
 ---
@@ -10744,6 +10853,7 @@ This chapter establishes the Domain Model Design for the Mediverse platform usin
 **End of Chapter 21**
 
 **Next:** **Chapter 22 – Entity Design**.
+
 
 # Chapter 22 — Entity Design
 
@@ -11336,6 +11446,7 @@ This chapter establishes the Entity Design for the Mediverse platform using Doma
 **End of Chapter 22**
 
 **Next:** **Chapter 23 – Aggregate Design**.
+
 
 # Chapter 23 — Aggregate Design
 
@@ -11941,6 +12052,7 @@ This chapter defines the Aggregate Design strategy for the Mediverse platform us
 
 **Next:** **Chapter 24 – Value Objects Design**.
 
+
 # Chapter 24 — Value Objects Design
 
 ---
@@ -12489,6 +12601,7 @@ This chapter defines the Value Object Design strategy for the Mediverse platform
 **End of Chapter 24**
 
 **Next:** **Chapter 25 – Repository Design**.
+
 
 # Chapter 25 — Repository Design
 
@@ -13044,6 +13157,7 @@ This chapter defines the Repository Design strategy for the Mediverse platform u
 **End of Chapter 25**
 
 **Next:** **Chapter 26 – Service Layer Design**.
+
 
 # Chapter 26 — Service Layer Design
 
@@ -13618,6 +13732,7 @@ This chapter defines the Service Layer Design for the Mediverse platform using C
 **End of Chapter 26**
 
 **Next:** **Chapter 27 – Controller Design**.
+
 
 # Chapter 27 — Controller Design
 
@@ -14207,6 +14322,7 @@ This chapter defines the Controller Design strategy for the Mediverse platform. 
 
 **Next:** **Chapter 28 – Business Rule Implementation**.
 
+
 # Chapter 28 — Business Rule Implementation
 
 ---
@@ -14795,6 +14911,7 @@ This chapter defines the Business Rule Implementation strategy for the Mediverse
 **End of Chapter 28**
 
 **Next:** **Chapter 29 – Authentication Module Design** (Beginning **Part V – Detailed Module Design**).
+
 
 # Chapter 29 — Authentication Module Design
 
@@ -15401,6 +15518,7 @@ This chapter defines the Authentication Module Design for the Mediverse platform
 
 **Next:** **Chapter 30 – User Management Module Design**.
 
+
 # Chapter 30 — User Management Module Design
 
 ---
@@ -16006,6 +16124,7 @@ This chapter defines the User Management Module Design for the Mediverse platfor
 
 **Next:** **Chapter 31 – Role & Permission Module Design**.
 
+
 # Chapter 31 — Role & Permission Module Design
 
 ---
@@ -16595,6 +16714,7 @@ This chapter defines the Role & Permission Module Design for the Mediverse platf
 **End of Chapter 31**
 
 **Next:** **Chapter 32 – Student Module Design**.
+
 
 # Chapter 32 — Student Module Design
 
@@ -17207,6 +17327,7 @@ This chapter defines the Student Module Design for the Mediverse platform. It es
 
 **Next:** **Chapter 33 – Faculty Module Design**.
 
+
 # Chapter 33 — Faculty Module Design
 
 ---
@@ -17816,6 +17937,7 @@ This chapter defines the Faculty Module Design for the Mediverse platform. It es
 **End of Chapter 33**
 
 **Next:** **Chapter 34 – Course Module Design**.
+
 
 # Chapter 34 — Course Module Design
 
@@ -18435,6 +18557,7 @@ This chapter defines the Course Module Design for the Mediverse platform. It est
 
 **Next:** **Chapter 35 – Lesson Module Design**.
 
+
 # Chapter 35 — Lesson Module Design
 
 ---
@@ -19011,10 +19134,33 @@ This chapter defines the Lesson Module Design for the Mediverse platform.
 This chapter defines the Lesson Module Design for the Mediverse platform. It establishes the architecture, domain model, lesson lifecycle, multimedia content management, interactive learning, AI-assisted lesson generation, progress tracking, search and discovery, accessibility, localization, security, observability, performance optimization, testing, and governance. By providing a flexible, AI-enhanced, multimedia-rich learning environment with strong academic controls and enterprise scalability, the Lesson Module serves as the primary educational delivery component of the Mediverse platform.
 
 ---
+---
+
+# 35.10 Role-Based Medical Curriculum CMS Review Engine
+
+### LESSON-025: 5-Stage Content Governance State Machine
+Curriculum lessons undergo a strict review lifecycle:
+```
+[ DRAFT ] ──(submitForReview)──► [ IN_REVIEW ]
+                                      │
+              ┌───────────────────────┴───────────────────────┐
+              ▼                                               ▼
+         [ APPROVED ]                                    [ REJECTED ]
+              │                                               │
+              ▼                                               ▼
+        [ PUBLISHED ]                                     [ DRAFT ]
+```
+
+### LESSON-026: Content Review Controller & Audit Schema
+* **Controller:** `CmsReviewController.java` (`GET /api/v1/cms/lessons`, `POST /submit`, `POST /review`, `GET /history`).
+* **Service:** `CmsReviewService.java` managing state transitions, version incrementation, and role authorization.
+* **Audit Table:** `content_reviews` (`V24__cms_content_review_workflow.sql`) storing immutable reviewer decisions, timestamps, and required rejection rationale.
+
 
 **End of Chapter 35**
 
 **Next:** **Chapter 36 – Assessment Module Design**.
+
 
 # Chapter 36 — Assessment Module Design
 
@@ -19591,10 +19737,24 @@ This chapter defines the Assessment Module Design for the Mediverse platform.
 This chapter defines the Assessment Module Design for the Mediverse platform. It establishes the architecture, domain model, assessment lifecycle, scheduling, submission workflow, evaluation strategies, AI-assisted assessment generation, academic integrity controls, analytics, security, observability, performance optimization, testing, and governance. By providing a scalable, secure, and AI-enhanced assessment framework with comprehensive evaluation capabilities and strong academic integrity controls, the Assessment Module ensures reliable measurement of learner achievement while supporting enterprise-scale medical education.
 
 ---
+---
+
+# 36.10 Timed Clinical Vignette Exam Engine & NMC CBME Radar Analytics
+
+### ASSESS-025: Clinical Examination Runner Architecture
+* **Component:** `QuizRunner.tsx` mounted at `/exam`.
+* **State Machine:** Countdown timer with auto-submit, distractor strikeout formatting, question flagging/bookmarking, and drawer navigation.
+* **Question Bank:** `clinicalExamQuestions.ts` containing high-yield USMLE Step 1 / NMC CBME clinical vignettes.
+
+### ASSESS-026: Bloom's Taxonomy & NMC Competency Radar Analytics
+* **Component:** `ExamSummaryView.tsx` and `nmcMapping.ts`.
+* **Mastery Breakdown:** Multi-axis Radar Chart breaking down student mastery across NMC competencies (`PY1.1` to `PY11.14`), score percentiles, and detailed rationale reviews.
+
 
 **End of Chapter 36**
 
 **Next:** **Chapter 37 – Question Bank Module Design**.
+
 
 # Chapter 37 — Question Bank Module Design
 
@@ -20178,6 +20338,7 @@ This chapter defines the Question Bank Module Design for the Mediverse platform.
 
 **Next:** **Chapter 38 – Progress Tracking Module Design**.
 
+
 # Chapter 38 — Progress Tracking Module Design
 
 ---
@@ -20745,6 +20906,7 @@ This chapter defines the Progress Tracking Module Design for the Mediverse platf
 **End of Chapter 38**
 
 **Next:** **Chapter 39 – Certificate Module Design**.
+
 
 # Chapter 39 — Certificate Module Design
 
@@ -21325,6 +21487,7 @@ This chapter defines the Certificate Module Design for the Mediverse platform. I
 
 **Next:** **Chapter 40 – Notification Module Design**.
 
+
 # Chapter 40 — Notification Module Design
 
 ---
@@ -21896,6 +22059,7 @@ This chapter defines the Notification Module Design for the Mediverse platform. 
 
 **Next:** **Chapter 41 – Media Management Module Design**.
 
+
 # Chapter 41 — Media Management Module Design
 
 ---
@@ -22444,6 +22608,7 @@ This chapter defines the Media Management Module Design for the Mediverse platfo
 **End of Chapter 41**
 
 **Next:** **Chapter 42 – Search Module Design**.
+
 
 # Chapter 42 — Search Module Design
 
@@ -22994,6 +23159,7 @@ This chapter defines the Search Module Design for the Mediverse platform. It est
 **End of Chapter 42**
 
 **Next:** **Chapter 43 – Analytics Module Design**.
+
 
 # Chapter 43 — Analytics Module Design
 
@@ -23552,6 +23718,7 @@ This chapter defines the Analytics Module Design for the Mediverse platform. It 
 
 **Next:** **Chapter 44 – Administration Module Design**.
 
+
 # Chapter 44 — Administration Module Design
 
 ---
@@ -24108,6 +24275,7 @@ This chapter defines the Administration Module Design for the Mediverse platform
 **End of Chapter 44**
 
 **Next:** **Chapter 45 – AI Platform Design**.
+
 
 # Chapter 45 — AI Platform Design
 
@@ -24694,6 +24862,7 @@ This chapter defines the AI Platform Design for the Mediverse platform. It estab
 
 **Next:** **Chapter 46 – RAG Pipeline Design**.
 
+
 # Chapter 46 — RAG Pipeline Design
 
 ---
@@ -25245,6 +25414,7 @@ This chapter defines the Retrieval-Augmented Generation (RAG) Pipeline Design fo
 **End of Chapter 46**
 
 **Next:** **Chapter 47 – Knowledge Base Design**.
+
 
 
 # Chapter 47 — Knowledge Base Design
@@ -25838,6 +26008,7 @@ This chapter defines the Knowledge Base Design for the Mediverse platform. It es
 
 **Next:** **Chapter 48 – Vector Database Design**.
 
+
 # Chapter 48 — Vector Database Design
 
 ---
@@ -26388,6 +26559,7 @@ This chapter defines the Vector Database Design for the Mediverse platform. It e
 **End of Chapter 48**
 
 **Next:** **Chapter 49 – Prompt Engineering Design**.
+
 
 # Chapter 49 — Prompt Engineering Design
 
@@ -26964,6 +27136,7 @@ This chapter defines the Prompt Engineering Design for the Mediverse platform. I
 
 **Next:** **Chapter 50 – AI Tutor Design**.
 
+
 # Chapter 50 — AI Tutor Design
 
 ---
@@ -27527,10 +27700,20 @@ This chapter defines the AI Tutor Design for the Mediverse platform.
 This chapter defines the AI Tutor Design for the Mediverse platform. It establishes the architecture, tutor domain model, conversational workflows, personalization strategies, instructional methodologies, clinical reasoning support, conversation management, learning feedback, multimodal learning support, security, observability, performance optimization, testing, and governance. By providing a context-aware, evidence-based, and adaptive virtual medical educator, the AI Tutor enables personalized learning experiences that improve knowledge acquisition, critical thinking, and long-term learner success while maintaining institutional standards, AI safety, and educational integrity.
 
 ---
+---
+
+# 50.10 Socratic AI Server-Sent Events (SSE) Streaming Engine & KaTeX Rendering
+
+### TUTOR-025: Server-Sent Events (SSE) Streaming Architecture
+* **Controller:** `AITutorApiController.java` exposing `POST /api/v1/ai-tutor/chat/stream` with `MediaType.TEXT_EVENT_STREAM_VALUE`.
+* **Client Hook:** `useSocraticChatStream.ts` consuming sequential token chunks and updating the conversation state.
+* **UI Drawer:** `GlobalSocraticAssistant.tsx` providing a global floating companion that auto-detects current route context and renders LaTeX math formulas via KaTeX.
+
 
 **End of Chapter 50**
 
 **Next:** **Chapter 51 – Recommendation Engine Design**.
+
 
 # Chapter 51 — Recommendation Engine Design
 
@@ -28113,6 +28296,7 @@ This chapter defines the Recommendation Engine Design for the Mediverse platform
 **End of Chapter 51**
 
 **Next:** **Chapter 52 – AI Assessment Generator Design**.
+
 
 # Chapter 52 — AI Assessment Generator Design
 
@@ -28707,6 +28891,7 @@ This chapter defines the AI Assessment Generator Design for the Mediverse platfo
 
 **Next:** **Chapter 53 – AI Safety & Guardrails Design**.
 
+
 # Chapter 53 — AI Safety & Guardrails Design
 
 ---
@@ -29276,6 +29461,7 @@ This chapter defines the AI Safety & Guardrails Design for the Mediverse platfor
 **End of Chapter 53**
 
 **Next:** **Chapter 54 – Database Implementation Design**.
+
 
 # Chapter 54 — Database Implementation Design
 
@@ -29876,6 +30062,7 @@ This chapter defines the Database Implementation Design for the Mediverse platfo
 
 **Next:** **Chapter 55 – Schema Implementation Design**.
 
+
 # Chapter 55 — Schema Implementation Design
 
 ---
@@ -30456,10 +30643,27 @@ This chapter defines the Schema Implementation Design for the Mediverse platform
 This chapter defines the Schema Implementation Design for the Mediverse platform. It establishes the physical organization of business schemas, table structures, entity relationships, integrity constraints, audit fields, naming conventions, indexing strategies, security controls, testing practices, and governance processes. By implementing a normalized, modular, and enterprise-grade relational schema aligned with Domain-Driven Design principles, the platform provides a scalable, secure, maintainable, and high-performance foundation for transactional processing, AI integration, analytics, and long-term evolution while preserving data integrity and architectural consistency.
 
 ---
+---
+
+# 55.10 Master Database Schema & Flyway Versioned Migration Register (V1–V26)
+
+### SCHEMA-025: Production Database Migration Inventory
+The database schema evolution is managed via versioned Flyway SQL migrations:
+
+| Migration File | Primary Tables Created / Modified | Functional Domain |
+|---|---|---|
+| `V1__init_schema.sql` | `users`, `roles`, `user_roles`, `categories` | IAM & Foundations |
+| `V2__curriculum_structure.sql` | `subjects`, `modules`, `chapters`, `topics`, `lessons` | Curriculum Hierarchy |
+| `V3__content_blocks.sql` | `content_blocks` (Markdown, LaTeX, Media, 3D Models) | Lesson Content |
+| `V10__quizzes_and_questions.sql` | `quizzes`, `quiz_questions`, `quiz_submissions` | Assessment Engine |
+| `V24__cms_content_review_workflow.sql` | `content_reviews` | CMS Review Audit Log |
+| `V26__ai_tutor_rag_and_lti13.sql` | `ai_tutor_sessions`, `lti_deployments`, `lti_launches` | AI RAG & LTI 1.3 LMS |
+
 
 **End of Chapter 55**
 
 **Next:** **Chapter 56 – Migration Strategy (Flyway)**.
+
 
 # Chapter 56 — Migration Strategy (Flyway)
 
@@ -31009,6 +31213,7 @@ This chapter defines the Migration Strategy for the Mediverse platform using Fly
 **End of Chapter 56**
 
 **Next:** **Chapter 57 – Caching Design (Redis)**.
+
 
 # Chapter 57 — Caching Design (Redis)
 
@@ -31609,6 +31814,7 @@ This chapter defines the Caching Design for the Mediverse platform using Redis a
 **Next:** **Chapter 58 – REST API Design**.
 
 
+
 # Chapter 58 — REST API Design
 
 ---
@@ -32203,10 +32409,22 @@ This chapter defines the REST API Design for the Mediverse platform.
 This chapter defines the REST API Design for the Mediverse platform. It establishes standardized resource-oriented API architecture, HTTP semantics, request and response contracts, error handling, versioning, pagination, filtering, security, performance optimization, observability, OpenAPI documentation, testing, governance, and enterprise best practices. By adopting consistent RESTful design principles and robust API governance, the platform provides secure, scalable, maintainable, and developer-friendly interfaces that support web clients, mobile applications, AI services, and external integrations while ensuring long-term compatibility and operational excellence.
 
 ---
+---
+
+# 58.10 Client-Side & Server-Side Mathematical Simulation Solvers
+
+### API-025: Mathematical Physiology Differential Equation Solvers
+* **Cardiac Hemodynamics Solver (`cardiacSolver.ts`):** Suga-Sagawa time-varying elastance E(t), ESPVR, EDPVR, Stroke Volume, Cardiac Output, and Ejection Fraction.
+* **Acid-Base Davenport Solver (`acidBaseSolver.ts`):** Henderson-Hasselbalch solver ($pH = 6.1 + \log_{10}\frac{[HCO_3^-]}{0.03 \cdot PaCO_2}$), Anion Gap, Winter's formula, and Davenport buffer lines.
+* **Renal Microvascular Solver (`renalSolver.ts`):** Starling Glomerular Filtration Rate ($GFR = K_f \cdot [(P_{gc} - P_{bs}) - (\pi_{gc} - \pi_{bs})]$), Inulin/Creatinine clearance, and fractional sodium excretion (FeNa).
+* **Electrophysiology Solver (`membraneSolver.ts`):** Goldman-Hodgkin-Katz membrane voltage equation.
+* **Backend Calculation API:** `SimulationApiController.java` (`POST /api/v1/simulations/calculate`).
+
 
 **End of Chapter 58**
 
 **Next:** **Chapter 59 – Kafka Event Design**.
+
 
 # Chapter 59 — Kafka Event Design
 
@@ -32775,6 +32993,7 @@ This chapter defines the Kafka Event Design for the Mediverse platform. It estab
 **End of Chapter 59**
 
 **Next:** **Chapter 60 – External Integration Design**.
+
 
 
 # Chapter 60 — External Integration Design
@@ -33376,6 +33595,7 @@ This chapter defines the External Integration Design for the Mediverse platform.
 **Next:** **Chapter 61 – Docker Design**.
 
 
+
 # Chapter 61 — Docker Design
 
 ---
@@ -33910,6 +34130,7 @@ This chapter defines the Docker Design for the Mediverse platform. It establishe
 **End of Chapter 61**
 
 **Next:** **Chapter 62 – Kubernetes Deployment Design**.
+
 
 # Chapter 62 — Kubernetes Deployment Design
 
@@ -34506,6 +34727,7 @@ This chapter defines the Kubernetes Deployment Design for the Mediverse platform
 **Next:** **Chapter 63 – CI/CD Pipeline Design**.
 
 
+
 # Chapter 63 — CI/CD Pipeline Design
 
 ---
@@ -35076,6 +35298,7 @@ This chapter defines the CI/CD Pipeline Design for the Mediverse platform. It es
 **End of Chapter 63**
 
 **Next:** **Chapter 64 – Testing Design**.
+
 
 # Chapter 64 — Testing Design
 
@@ -35684,6 +35907,7 @@ This chapter defines the Testing Design for the Mediverse platform. It establish
 **End of Chapter 64**
 
 **Next:** **Chapter 65 – Performance, Security & Production Readiness (Final Chapter)**.
+
 
 # Chapter 65 — Performance, Security & Production Readiness
 

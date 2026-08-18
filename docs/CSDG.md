@@ -1,5 +1,3 @@
-# Coding Standards & Development Guidelines (CSDG)
-
 # Chapter 1 — Introduction
 
 **Document ID:** MED-CSDG-001
@@ -476,13 +474,7 @@ Key principles include:
 
 ---
 
-## Chapter 1 Status
-
-**Completed:** ✅
-
-**Next Chapter:** **Chapter 2 — Engineering Philosophy**, where we will define the engineering culture, core beliefs, development mindset, decision-making principles, and long-term engineering practices that underpin every Mediverse software project.
-
-# Coding Standards & Development Guidelines (CSDG)
+---
 
 # Chapter 2 — Engineering Philosophy
 
@@ -1025,563 +1017,7 @@ Key principles are:
 
 ---
 
-## Chapter 2 Status
-
-**Completed:** ✅
-
-**Next Chapter:** **Chapter 3 — Development Principles**, where we will define the mandatory engineering principles that every developer must follow, including SOLID, DRY, KISS, YAGNI, Separation of Concerns, Composition over Inheritance, Fail Fast, Defensive Programming, and other foundational design principles for the Mediverse platform.
-
-
-# Coding Standards & Development Guidelines (CSDG)
-
-# Chapter 2 — Engineering Philosophy
-
-**Document ID:** MED-CSDG-002
-**Chapter:** 2
-**Version:** 1.0
-**Status:** Approved Baseline
-
 ---
-
-# 1. Purpose
-
-This chapter defines the engineering philosophy that guides every technical decision within the Mediverse platform.
-
-While coding standards define *what* developers must do, engineering philosophy defines *why* those standards exist. It establishes a shared mindset for building software that remains reliable, maintainable, and adaptable over many years.
-
----
-
-# 2. Engineering Vision
-
-The Mediverse engineering organization aims to build software that is:
-
-```text
-Simple
-
-↓
-
-Reliable
-
-↓
-
-Secure
-
-↓
-
-Scalable
-
-↓
-
-Maintainable
-
-↓
-
-Observable
-
-↓
-
-Adaptable
-```
-
-The objective is to create systems that continue to evolve successfully rather than systems that only satisfy immediate requirements.
-
----
-
-# 3. Engineering Mission
-
-Every engineering activity should contribute to one or more of the following goals:
-
-* Deliver business value.
-* Improve student learning.
-* Protect user data.
-* Ensure operational stability.
-* Reduce technical complexity.
-* Enable rapid innovation.
-* Support future growth.
-
-Technology is a means to achieve these outcomes, not an end in itself.
-
----
-
-# 4. Business Before Technology
-
-Engineering decisions shall begin with the business problem.
-
-Decision sequence:
-
-```text
-Business Need
-      │
-      ▼
-Functional Requirement
-      │
-      ▼
-Architecture
-      │
-      ▼
-Technology
-      │
-      ▼
-Implementation
-```
-
-Technology choices should be justified by business value rather than popularity or novelty.
-
----
-
-# 5. Simplicity First
-
-The preferred solution is the simplest one that fully satisfies the requirements.
-
-Developers should avoid:
-
-* unnecessary abstractions
-* speculative features
-* excessive configuration
-* premature optimization
-* overly complex patterns
-
-Simplicity improves readability, maintainability, and onboarding.
-
----
-
-# 6. Readability Over Cleverness
-
-Code is read far more often than it is written.
-
-Therefore, prioritize:
-
-* descriptive names
-* straightforward control flow
-* explicit intent
-* small functions
-* clear module boundaries
-
-Avoid writing code that requires special knowledge to understand.
-
----
-
-# 7. Maintainability as a Primary Goal
-
-Software should be easy to modify without introducing regressions.
-
-Maintainable software exhibits:
-
-* low coupling
-* high cohesion
-* modular design
-* clear interfaces
-* comprehensive tests
-
-Future developers should be able to extend the system with confidence.
-
----
-
-# 8. Correctness Before Optimization
-
-The order of priorities is:
-
-```text
-Correctness
-
-↓
-
-Reliability
-
-↓
-
-Maintainability
-
-↓
-
-Performance
-```
-
-Performance optimizations should be based on measurable evidence rather than assumptions.
-
----
-
-# 9. Security by Design
-
-Security is an architectural concern, not an afterthought.
-
-Every component should assume:
-
-* untrusted input
-* authenticated access
-* least privilege
-* secure defaults
-* audited actions
-
-Security reviews should occur throughout development, not only before release.
-
----
-
-# 10. Privacy by Design
-
-Personal and educational data should receive the highest level of protection.
-
-Engineering practices should emphasize:
-
-* data minimization
-* purpose limitation
-* secure storage
-* secure transmission
-* controlled access
-
-Every new feature should consider its impact on user privacy.
-
----
-
-# 11. Scalability from the Beginning
-
-Systems should be designed to grow.
-
-Developers should consider:
-
-* increasing users
-* larger datasets
-* higher traffic
-* additional services
-* new regions
-
-Scalability should be incorporated into architecture rather than added after growth.
-
----
-
-# 12. Reliability is Non-Negotiable
-
-Critical educational services must remain available.
-
-Engineering practices should include:
-
-* graceful degradation
-* retries
-* timeouts
-* circuit breakers
-* health checks
-
-Reliability supports user trust.
-
----
-
-# 13. Observability by Default
-
-Every service should be observable.
-
-Required capabilities:
-
-```text
-Logs
-
-Metrics
-
-Tracing
-
-Audit Records
-
-Health Endpoints
-```
-
-Operational visibility is essential for diagnosis and improvement.
-
----
-
-# 14. Automation Over Manual Work
-
-Whenever a repetitive engineering activity exists, automation should be preferred.
-
-Examples include:
-
-* formatting
-* linting
-* testing
-* deployment
-* dependency updates
-* documentation generation
-
-Automation reduces human error and improves consistency.
-
----
-
-# 15. Reuse Before Reinvention
-
-Before implementing new functionality, developers should evaluate whether an existing solution can be reused.
-
-Preferred order:
-
-```text
-Existing Platform Service
-
-↓
-
-Shared Library
-
-↓
-
-Open Standard
-
-↓
-
-New Implementation
-```
-
-Duplication should be avoided unless justified.
-
----
-
-# 16. Ownership and Accountability
-
-Every software component should have clear ownership.
-
-Ownership includes responsibility for:
-
-* implementation
-* documentation
-* testing
-* production support
-* security
-* maintenance
-
-Shared ownership without accountability should be avoided.
-
----
-
-# 17. Continuous Improvement
-
-Engineering practices should evolve based on:
-
-* production experience
-* retrospectives
-* incident reviews
-* architecture reviews
-* developer feedback
-
-Continuous improvement is expected from every engineering team.
-
----
-
-# 18. Learning Culture
-
-Engineers are expected to continuously develop their skills.
-
-Areas include:
-
-* programming languages
-* frameworks
-* architecture
-* cloud technologies
-* AI
-* security
-* performance engineering
-
-Knowledge sharing should be encouraged through documentation and technical discussions.
-
----
-
-# 19. Technical Excellence
-
-Technical excellence is achieved through disciplined engineering practices rather than isolated heroic efforts.
-
-Indicators include:
-
-* consistent code quality
-* reliable deployments
-* comprehensive testing
-* minimal production defects
-* manageable technical debt
-
-Excellence is the result of sustained practice.
-
----
-
-# 20. Long-Term Thinking
-
-Engineering decisions should consider the expected lifespan of the platform.
-
-Questions to ask before implementation:
-
-* Will this still be understandable in five years?
-* Can it scale with future demand?
-* Is it easy to modify?
-* Does it align with architectural principles?
-* Will it increase or reduce technical debt?
-
-Long-term maintainability should outweigh short-term convenience.
-
----
-
-# 21. Engineering Ethics
-
-Developers should act with:
-
-* integrity
-* professionalism
-* accountability
-* transparency
-* respect for user privacy
-* commitment to quality
-
-Engineering decisions can directly affect users and should reflect that responsibility.
-
----
-
-# 22. Collaboration Over Individual Optimization
-
-Successful software is built by teams.
-
-Engineering practices should encourage:
-
-* shared knowledge
-* constructive reviews
-* pair programming where appropriate
-* open communication
-* documentation
-
-Knowledge silos should be actively reduced.
-
----
-
-# 23. Evidence-Based Decision Making
-
-Technical decisions should rely on measurable information such as:
-
-* benchmarks
-* production metrics
-* architecture evaluations
-* proof-of-concepts
-* operational data
-
-Assumptions should be validated whenever practical.
-
----
-
-# 24. Innovation with Discipline
-
-Innovation is encouraged when it:
-
-* solves a real problem
-* improves maintainability
-* enhances user experience
-* reduces operational complexity
-
-Experimental technologies should undergo controlled evaluation before adoption.
-
----
-
-# 25. Definition of Engineering Excellence
-
-For Mediverse, engineering excellence means consistently delivering software that is:
-
-* correct
-* secure
-* reliable
-* maintainable
-* observable
-* scalable
-* well documented
-* aligned with enterprise architecture
-
----
-
-# 26. Engineering Decision Framework
-
-Every significant implementation decision should follow:
-
-```text
-Understand the Problem
-        │
-        ▼
-Evaluate Alternatives
-        │
-        ▼
-Choose the Simplest Viable Solution
-        │
-        ▼
-Implement
-        │
-        ▼
-Review
-        │
-        ▼
-Measure
-        │
-        ▼
-Improve
-```
-
----
-
-# 27. Anti-Patterns
-
-The Mediverse engineering organization rejects:
-
-* Clever code that sacrifices readability
-* Premature optimization
-* Copy-paste programming
-* Hard-coded configuration
-* Ignoring code reviews
-* Skipping automated tests
-* Uncontrolled technical debt
-* Security shortcuts
-* Undocumented architectural changes
-* Tight coupling between modules
-
----
-
-# 28. Alignment with Enterprise Architecture
-
-This philosophy supports and operationalizes:
-
-* Architecture Principles
-* Architecture Decision Records (ADR-001 to ADR-100)
-* Software Architecture Document (SAD)
-* Technical Design Document (TDD)
-* API Design Specification (ADS)
-* Security Design Document (SecDD)
-* DevOps & Infrastructure Guide (DIG)
-
-Engineering philosophy provides the cultural foundation for implementing these architectural decisions consistently.
-
----
-
-# 29. Success Indicators
-
-The engineering philosophy is successful when teams consistently achieve:
-
-* High code quality
-* Low defect rates
-* Fast onboarding
-* Stable production systems
-* Predictable releases
-* Low technical debt
-* Strong collaboration
-* Continuous learning
-
----
-
-# 30. Chapter Summary
-
-This chapter establishes the engineering mindset for Mediverse.
-
-Key principles are:
-
-* Business value drives engineering decisions.
-* Simplicity and readability take precedence over clever implementations.
-* Security, privacy, reliability, and observability are built into every solution.
-* Automation, reuse, and continuous improvement are expected.
-* Technical excellence is achieved through disciplined, repeatable engineering practices.
-* Long-term maintainability is prioritized over short-term convenience.
-
----
-
-## Chapter 2 Status
-
-**Completed:** ✅
-
-**Next Chapter:** **Chapter 3 — Development Principles**, where we will define the mandatory engineering principles that every developer must follow, including SOLID, DRY, KISS, YAGNI, Separation of Concerns, Composition over Inheritance, Fail Fast, Defensive Programming, and other foundational design principles for the Mediverse platform.
-
-# Coding Standards & Development Guidelines (CSDG)
 
 # Chapter 3 — Development Principles
 
@@ -2064,14 +1500,7 @@ The Mediverse development principles establish a common engineering foundation:
 
 ---
 
-## Chapter 3 Status
-
-**Completed:** ✅
-
-**Next Chapter:** **Chapter 4 — Enterprise Coding Governance**, which will define governance processes for coding standards, approval authorities, coding policy lifecycle, exceptions, waivers, code ownership, architecture compliance, static analysis policies, review gates, and enterprise engineering governance.
-
-
-# Coding Standards & Development Guidelines (CSDG)
+---
 
 # Chapter 4 — Enterprise Coding Governance
 
@@ -2631,14 +2060,7 @@ Key principles include:
 
 ---
 
-## Chapter 4 Status
-
-**Completed:** ✅
-
-**Next Chapter:** **Chapter 5 — Software Engineering Lifecycle**, where we will define the standardized lifecycle for Mediverse development, from idea and requirements through design, implementation, testing, deployment, operations, maintenance, and retirement, including mandatory quality gates at each stage.
-
-
-# Coding Standards & Development Guidelines (CSDG)
+---
 
 # Chapter 5 — Software Engineering Lifecycle
 
@@ -3271,14 +2693,7 @@ Key principles include:
 
 ---
 
-## Chapter 5 Status
-
-**Completed:** ✅
-
-**Next Chapter:** **Chapter 6 — Development Workflow**, where we will define the day-to-day workflow for engineers, including task intake, branch creation, local development, coding practices, testing, pull requests, reviews, CI/CD integration, release readiness, and merge strategies for the Mediverse platform.
-
-
-# Coding Standards & Development Guidelines (CSDG)
+---
 
 # Chapter 6 — Development Workflow
 
@@ -3857,14 +3272,7 @@ Key principles include:
 
 ---
 
-## Chapter 6 Status
-
-**Completed:** ✅
-
-**Next Chapter:** **Chapter 7 — Development Environment Standards**, where we will define the mandatory development environment for Mediverse engineers, including operating systems, IDE configuration, Java and Node.js versions, Docker, Kubernetes tooling, database setup, AI development tools, environment variables, secrets handling, and reproducible local development environments.
-
-
-# Coding Standards & Development Guidelines (CSDG)
+---
 
 # Chapter 7 — Development Environment Standards
 
@@ -4403,13 +3811,7 @@ Key principles include:
 
 ---
 
-## Chapter 7 Status
-
-**Completed:** ✅
-
-**Next Chapter:** **Chapter 8 — IDE Configuration Standards**, which will define standardized IDE configurations, shared settings, formatting rules, inspection profiles, debugging configurations, code templates, live templates, plugins, and productivity guidelines for IntelliJ IDEA, Visual Studio Code, and other approved development environments.
-
-# Coding Standards & Development Guidelines (CSDG)
+---
 
 # Chapter 8 — IDE Configuration Standards
 
@@ -4887,11 +4289,7 @@ Key principles include:
 
 ---
 
-## Chapter 8 Status
-
-**Completed:** ✅
-
-**Next Chapter:** **Chapter 9 — Toolchain Standards**, where we will define the approved engineering toolchain for Mediverse, including build systems, dependency managers, testing frameworks, static analysis tools, security scanners, documentation generators, container tooling, Kubernetes utilities, CI/CD platforms, and version compatibility matrices.
+---
 
 # CSDG — Chapter 9: Toolchain Standards
 
@@ -5805,19 +5203,8 @@ Tool choices must be justified, versioned, documented, secured, and integrated i
 
 ---
 
-## Chapter 9 Status
+---
 
-**Completed:** ✅
-
-**Completed so far:** **9 / 100 chapters**
-
-**Remaining:** **91 chapters**
-
-### Next: Chapter 10 — Developer Responsibilities
-
-This chapter will define exactly what Mediverse developers are accountable for across **coding, testing, security, documentation, code review, Git, CI/CD, production readiness, incident response, technical debt, and continuous learning**.
-	
-	
 # CSDG — Chapter 10: Developer Responsibilities
 
 **Document ID:** `MED-CSDG-010`
@@ -6625,31 +6012,7 @@ The most important rule is:
 
 ---
 
-## Chapter 10 Status
-
-**Completed:** ✅
-
-### CSDG Progress
-
-| Chapter                              | Status |
-| ------------------------------------ | ------ |
-| 1. Introduction & Scope              | ✅      |
-| 2. Standards & Conventions           | ✅      |
-| 3. Development Principles            | ✅      |
-| 4. Enterprise Coding Governance      | ✅      |
-| 5. Software Engineering Lifecycle    | ✅      |
-| 6. Development Workflow              | ✅      |
-| 7. Development Environment Standards | ✅      |
-| 8. IDE Configuration Standards       | ✅      |
-| 9. Toolchain Standards               | ✅      |
-| **10. Developer Responsibilities**   | **✅**  |
-
-**Completed: 10 chapters**
-
-**Next: Chapter 11 — Naming Conventions**
-
-This will establish the detailed naming rules for **Java packages/classes/methods/variables, Spring components, REST APIs, database tables/columns/indexes, React components/hooks/files, TypeScript types/interfaces, Kubernetes resources, Helm objects, Terraform resources, environment variables, Kafka topics, Redis keys, Git branches, commits, and documentation artifacts.**
-
+---
 
 # CSDG — Chapter 11: Naming Conventions
 
@@ -7981,30 +7344,7 @@ The core principle is:
 
 ---
 
-## Chapter 11 Status
-
-**Completed:** ✅
-
-### CSDG Progress
-
-| Chapter                              | Status |
-| ------------------------------------ | ------ |
-| 1. Introduction & Scope              | ✅      |
-| 2. Standards & Conventions           | ✅      |
-| 3. Development Principles            | ✅      |
-| 4. Enterprise Coding Governance      | ✅      |
-| 5. Software Engineering Lifecycle    | ✅      |
-| 6. Development Workflow              | ✅      |
-| 7. Development Environment Standards | ✅      |
-| 8. IDE Configuration Standards       | ✅      |
-| 9. Toolchain Standards               | ✅      |
-| 10. Developer Responsibilities       | ✅      |
-| **11. Naming Conventions**           | **✅**  |
-
-**Completed: 11 chapters**
-
-**Next: Chapter 12 — Java Coding Standards**, covering the actual Mediverse Java/Spring Boot coding rules: **class structure, methods, constructors, interfaces, generics, collections, Optional, streams, exception handling, immutability, Lombok, records, DTOs, entities, services, repositories, controllers, dependency injection, transactions, concurrency, logging, null handling, and performance.**
-
+---
 
 # CSDG — Chapter 12: Java Coding Standards
 
@@ -9194,32 +8534,7 @@ The standard covers:
 
 ---
 
-## Chapter 12 Status
-
-**Completed:** ✅
-
-### CSDG Progress
-
-| Chapter                              | Status |
-| ------------------------------------ | ------ |
-| 1. Introduction & Scope              | ✅      |
-| 2. Standards & Conventions           | ✅      |
-| 3. Development Principles            | ✅      |
-| 4. Enterprise Coding Governance      | ✅      |
-| 5. Software Engineering Lifecycle    | ✅      |
-| 6. Development Workflow              | ✅      |
-| 7. Development Environment Standards | ✅      |
-| 8. IDE Configuration Standards       | ✅      |
-| 9. Toolchain Standards               | ✅      |
-| 10. Developer Responsibilities       | ✅      |
-| 11. Naming Conventions               | ✅      |
-| **12. Java Coding Standards**        | **✅**  |
-
-**Completed: 12 chapters**
-
-### Next Chapter — Chapter 13: Spring Boot Coding Standards
-
-This will go deeper into the **actual Mediverse backend implementation rules**: Spring Boot project structure, configuration, profiles, dependency injection, controllers, services, repositories, JPA/Hibernate, transactions, validation, exception handling, REST APIs, security integration, caching, events, scheduled jobs, Actuator, health checks, configuration properties, and production-ready Spring Boot practices.
+---
 
 # CSDG — Chapter 13: Spring Boot Coding Standards
 
@@ -10473,6 +9788,8 @@ The central principle is:
 ### Next: Chapter 14 — REST API Coding Standards
 
 This chapter will define the implementation-level API rules for Mediverse: **resource design, URI structure, HTTP methods, status codes, request/response DTOs, pagination, sorting, filtering, validation, error contracts, idempotency, versioning, headers, caching, rate limiting, file APIs, security, OpenAPI, backward compatibility, and API review standards.**
+
+---
 
 # CSDG — Chapter 14: REST API Coding Standards
 
@@ -11843,6 +11160,8 @@ The core principle is:
 **Next → Chapter 15: JPA & Hibernate Coding Standards**
 
 That chapter will go deep into the database/persistence layer: **entity design, mappings, relationships, aggregate boundaries, lazy/eager loading, cascade, orphan removal, transactions, persistence context, dirty checking, N+1 queries, JPQL, native queries, projections, specifications, optimistic locking, auditing, pagination, bulk operations, database performance, and Hibernate-specific pitfalls.**
+
+---
 
 # CSDG — Chapter 15: JPA & Hibernate Coding Standards
 
@@ -13235,6 +12554,8 @@ That chapter will cover the database side separately from Hibernate: **schema de
 
 
 Ready. The next chapter in the **Mediverse Coding Standards & Development Guidelines (CSDG)** sequence is:
+
+---
 
 ### Chapter 16 — PostgreSQL & Database Coding Standards
 
@@ -15064,12 +14385,7 @@ We’re at **CSDG Chapter 16 — PostgreSQL & Database Coding Standards**.
 
 The next chapter is:
 
-### Chapter 17 — Exception Handling & Error Management Standards
-
-We’ll continue sequentially from there.
-
-
-Continuing with the **Mediverse CSDG** sequence.
+---
 
 # Chapter 17 — Exception Handling & Error Management Standards
 
@@ -16210,27 +15526,7 @@ For Mediverse:
 
 ---
 
-# Chapter 17 Status
-
-| # | Chapter | Status |
-|---:|---|---|
-| 1–14 | Previous CSDG Chapters | ✅ |
-| 15 | JPA & Hibernate Coding Standards | ✅ |
-| 16 | PostgreSQL & Database Coding Standards | ✅ |
-| **17** | **Exception Handling & Error Management Standards** | **✅** |
-
-### **CSDG Progress: 17 chapters completed**
-
-**Next → Chapter 18: Logging, Monitoring & Observability Coding Standards**
-
-That chapter will cover **structured logging, log levels, correlation/trace IDs, MDC, sensitive-data masking, audit logging, metrics, distributed tracing, health checks, application diagnostics, performance telemetry, production debugging, and observability anti-patterns.**
-
-
-Continuing the **Mediverse CSDG** sequence.
-
-**Current status: 17 chapters completed.**
-
-### Next chapter
+---
 
 # Chapter 18 — Logging, Monitoring & Observability Coding Standards
 
@@ -17980,6 +17276,8 @@ We should continue **Chapter 19 in full depth**, then move sequentially to Chapt
 
 Continuing the **Mediverse Coding Standards & Development Guidelines (CSDG)**.
 
+---
+
 # Chapter 19 — Configuration & Environment Management Standards
 
 **Document ID:** `MED-CSDG-019`
@@ -19130,30 +18428,7 @@ Before considering configuration standards complete:
 
 ---
 
-# Chapter 19 Completion
-
-|      # | CSDG Chapter                               | Status |
-| -----: | ------------------------------------------ | ------ |
-|   1–14 | Previous CSDG Chapters                     | ✅      |
-|     15 | JPA & Hibernate Coding Standards           | ✅      |
-|     16 | PostgreSQL & Database Coding Standards     | ✅      |
-|     17 | Exception Handling & Error Management      | ✅      |
-|     18 | Logging, Monitoring & Observability        | ✅      |
-| **19** | **Configuration & Environment Management** | **✅**  |
-
-## **CSDG Progress: 19 chapters completed**
-
-### Next: **Chapter 20 — API Consumption & External Integration Coding Standards**
-
-This will cover **REST client standards, WebClient/HTTP clients, timeouts, retries, circuit breakers, idempotency, request/response mapping, external API authentication, error translation, API version compatibility, rate limits, connection pooling, third-party failures, and integration anti-patterns.**
-
-Continuing the **Mediverse CSDG** sequence.
-
-## Current status
-
-**19 / 37 planned chapters completed.**
-
-### Next chapter
+---
 
 # Chapter 20 — API Consumption & External Integration Coding Standards
 
@@ -20629,1318 +19904,23 @@ Before an integration is considered production-ready:
 
 ---
 
-# Chapter 20 Completion
-
-|      # | CSDG Chapter                               | Status |
-| -----: | ------------------------------------------ | ------ |
-|   1–14 | Previous CSDG Chapters                     | ✅      |
-|     15 | JPA & Hibernate Coding Standards           | ✅      |
-|     16 | PostgreSQL & Database Coding Standards     | ✅      |
-|     17 | Exception Handling & Error Management      | ✅      |
-|     18 | Logging, Monitoring & Observability        | ✅      |
-|     19 | Configuration & Environment Management     | ✅      |
-| **20** | **API Consumption & External Integration** | **✅**  |
-
-## **CSDG Progress: 20 chapters completed**
-
-### Next → Chapter 21
-
-**Caching & Redis Coding Standards**
-
-This will cover **cache-aside architecture, Redis key design, TTL, serialization, cache invalidation, distributed caching, cache stampede, penetration, avalanche, consistency, locking, session/token caching, Spring Cache, Redis failure handling, metrics, testing, and Mediverse-specific caching rules.**
-
-
-# Mediverse CSDG — Chapter 21
-
-## Caching & Redis Coding Standards
-
-**Document ID:** `MED-CSDG-021`
-**Version:** `1.0`
-**Status:** Approved Baseline
-
 ---
 
-## 1. Purpose
-
-Caching in Mediverse should reduce unnecessary database and external-service load while improving response latency.
-
-The fundamental rule is:
-
-> **Cache is an optimization, not the source of truth.**
-
-The database remains authoritative unless a specific architecture decision explicitly says otherwise.
-
----
-
-# 2. What Should Be Cached?
-
-Good candidates include:
-
-```text
-Subject metadata
-Chapter metadata
-Frequently accessed medical content
-Reference data
-User preferences
-Frequently accessed configuration
-Expensive read-only computations
-Short-lived external API responses
-```
-
-Poor candidates include:
-
-```text
-Highly volatile transactional data
-Security-sensitive state without a clear invalidation strategy
-Large objects that are rarely reused
-Data where stale values would create unacceptable correctness problems
-```
-
----
-
-# 3. Cache-Aside Pattern
-
-The preferred general pattern:
-
-```text
-Application
-    │
-    ▼
-Check Cache
-    │
- ┌──┴───────┐
- │          │
-Hit        Miss
- │          │
- ▼          ▼
-Return    Database
-             │
-             ▼
-           Cache
-             │
-             ▼
-           Return
-```
-
-Example:
-
-```java
-@Cacheable(
-    value = "subjects",
-    key = "#subjectId"
-)
-public SubjectDto getSubject(Long subjectId) {
-    return repository.findById(subjectId)
-        .map(mapper::toDto)
-        .orElseThrow();
-}
-```
-
----
-
-# 4. Why Cache-Aside?
-
-It provides:
-
-* Simple failure behavior
-* Database remains authoritative
-* Easy cache eviction
-* Independent cache lifecycle
-* Straightforward testing
-
----
-
-# 5. Redis Usage
-
-For distributed caching, Mediverse can use Redis.
-
-```text
-              ┌──────────────┐
-              │ Mediverse API│
-              └──────┬───────┘
-                     │
-              ┌──────▼───────┐
-              │    Redis     │
-              └──────┬───────┘
-                     │
-              ┌──────▼───────┐
-              │  PostgreSQL  │
-              └──────────────┘
-```
-
-Redis should not automatically become the primary database.
-
----
-
-# 6. Cache Key Design
-
-Keys must be:
-
-* Predictable
-* Unique
-* Consistent
-* Versionable where necessary
-* Easy to debug
-
-Recommended:
-
-```text
-mediverse:subject:123
-mediverse:chapter:456
-mediverse:user:789:preferences
-```
-
-Avoid:
-
-```text
-123
-456
-data
-cache1
-```
-
-Those keys provide no useful namespace isolation.
-
----
-
-# 7. Key Naming Convention
-
-Recommended structure:
-
-```text
-<application>:<domain>:<resource>:<identifier>
-```
-
-Example:
-
-```text
-mediverse:subject:123
-```
-
-For more complex keys:
-
-```text
-mediverse:quiz:result:student:123:quiz:456
-```
-
-Keep keys deterministic.
-
----
-
-# 8. Cache Names
-
-Spring cache names should be meaningful.
-
-Good:
-
-```text
-subjects
-chapters
-medical-content
-student-preferences
-quiz-metadata
-```
-
-Bad:
-
-```text
-cache1
-temp
-data
-x
-```
-
----
-
-# 9. TTL
-
-Every cache entry should have an intentional TTL unless there is a documented reason for indefinite retention.
-
-Example:
-
-```text
-Subject metadata → 1 hour
-Chapter metadata → 1 hour
-User preferences → 15 minutes
-Temporary API response → 5 minutes
-```
-
-These are examples, **not universal values**. Actual TTLs should be based on freshness requirements.
-
----
-
-# 10. Why TTL Matters
-
-Without expiration:
-
-```text
-Old data
-   ↓
-remains indefinitely
-   ↓
-database changes
-   ↓
-cache remains stale
-```
-
-TTL limits the maximum natural lifetime of stale data.
-
----
-
-# 11. TTL Is Not Invalidation
-
-Important distinction:
-
-```text
-TTL
-→ eventually removes data
-
-Invalidation
-→ removes data when data changes
-```
-
-For important mutable data, use both when appropriate.
-
----
-
-# 12. Cache Invalidation
-
-Example:
-
-```text
-Update Chapter
-      ↓
-Update PostgreSQL
-      ↓
-Evict chapter cache
-```
-
-For example:
-
-```java
-@CacheEvict(
-    value = "chapters",
-    key = "#chapterId"
-)
-public void updateChapter(Long chapterId, ...) {
-    ...
-}
-```
-
----
-
-# 13. Update Ordering
-
-A safe pattern is generally:
-
-```text
-Validate
-   ↓
-Update database
-   ↓
-Invalidate cache
-```
-
-Do not update the cache first and assume the database update will succeed.
-
-Otherwise:
-
-```text
-Cache = new value
-Database = old value
-```
-
-which creates inconsistency.
-
----
-
-# 14. Delete Operations
-
-When deleting data:
-
-```text
-Delete DB record
-      ↓
-Evict cache
-```
-
-Example:
-
-```java
-@CacheEvict(
-    value = "chapters",
-    key = "#chapterId"
-)
-public void deleteChapter(Long chapterId) {
-    repository.deleteById(chapterId);
-}
-```
-
----
-
-# 15. Cache Consistency
-
-Caching creates a consistency problem:
-
-```text
-PostgreSQL
-   │
-   ├── updated
-   │
-Redis
-   │
-   └── old value
-```
-
-Every cache design must explicitly answer:
-
-> **How stale can this data safely be?**
-
-If the answer is "it cannot be stale", caching may be the wrong design.
-
----
-
-# 16. Read-Only Medical Content
-
-Mediverse may have frequently accessed educational content such as:
-
-```text
-Anatomy
-Physiology
-Biochemistry
-Pathology
-Pharmacology
-Microbiology
-```
-
-Frequently accessed, relatively stable metadata can be strong caching candidates.
-
-But content changes must invalidate affected cache entries.
-
----
-
-# 17. Student-Specific Cache
-
-Student-specific data requires careful keys.
-
-Example:
-
-```text
-mediverse:student:123:progress
-```
-
-Never accidentally use:
-
-```text
-mediverse:student:progress
-```
-
-for all students.
-
-That can cause one student's data to be returned to another.
-
-This is both a **correctness and security problem**.
-
----
-
-# 18. Authorization and Caching
-
-Never assume:
-
-```text
-same resource = same authorization
-```
-
-Two users may have different access rights.
-
-Therefore, cache design must consider:
-
-```text
-User
-Role
-Tenant
-Permissions
-Resource visibility
-```
-
-where applicable.
-
----
-
-# 19. Do Not Cache Sensitive Data Casually
-
-Examples requiring careful consideration:
-
-```text
-Authentication tokens
-Password-related information
-Highly sensitive student information
-Private educational records
-Security decisions
-```
-
-Caching such data introduces additional attack and invalidation concerns.
-
----
-
-# 20. Serialization
-
-Redis requires serialization.
-
-Possible formats:
-
-```text
-JSON
-String
-Binary
-```
-
-The chosen format should be standardized.
-
-For broadly interoperable cached DTOs, JSON may be easier to inspect and debug, while binary formats can offer different performance characteristics.
-
-Don't choose serialization randomly across modules.
-
----
-
-# 21. Cache DTOs, Not JPA Entities
-
-Avoid storing Hibernate/JPA entities directly in Redis.
-
-Bad:
-
-```java
-redisTemplate.opsForValue()
-    .set(key, studentEntity);
-```
-
-Prefer:
-
-```java
-StudentSummaryDto
-```
-
-or another explicit cache representation.
-
-Reasons include:
-
-* Lazy relationships
-* Hibernate proxies
-* Serialization complexity
-* Schema evolution
-* Accidental sensitive-field exposure
-
----
-
-# 22. Cache Schema Evolution
-
-Suppose:
-
-```text
-Cache version 1
-```
-
-stores:
-
-```json
-{
-  "name": "Physiology"
-}
-```
-
-and version 2 requires:
-
-```json
-{
-  "name": "Physiology",
-  "description": "..."
-}
-```
-
-Old cached objects may become incompatible.
-
-Use cache versioning where necessary:
-
-```text
-mediverse:v2:subject:123
-```
-
----
-
-# 23. Cache Stampede
-
-A cache stampede occurs when a popular cache entry expires and many requests simultaneously query the database.
-
-```text
-Cache expires
-     ↓
-10,000 requests
-     ↓
-10,000 DB queries
-```
-
-This can overload PostgreSQL.
-
----
-
-# 24. Stampede Prevention
-
-Possible approaches:
-
-```text
-Request coalescing
-Distributed locks
-Early refresh
-Randomized TTL
-Background refresh
-```
-
-Use the simplest strategy that solves the actual workload.
-
----
-
-# 25. Cache Penetration
-
-Cache penetration occurs when requests repeatedly query data that doesn't exist.
-
-Example:
-
-```text
-GET subject/999999
-       ↓
-Cache miss
-       ↓
-DB miss
-       ↓
-Repeat
-       ↓
-DB repeatedly queried
-```
-
-Potential solution:
-
-```text
-Negative caching
-```
-
-for appropriate cases.
-
----
-
-# 26. Negative Caching
-
-Example:
-
-```text
-mediverse:subject:999999 → NOT_FOUND
-```
-
-with a short TTL.
-
-Do not cache non-existence indefinitely because the resource may later be created.
-
----
-
-# 27. Cache Avalanche
-
-A cache avalanche occurs when many entries expire around the same time.
-
-```text
-10,000 keys
-     ↓
-same TTL
-     ↓
-expire together
-     ↓
-huge DB load
-```
-
-Mitigation:
-
-```text
-TTL jitter
-Staggered expiration
-Pre-warming
-Background refresh
-```
-
----
-
-# 28. Redis Failure
-
-Redis must not automatically make the entire application unavailable if caching is non-critical.
-
-Prefer:
-
-```text
-Redis available
-    ↓
-Use cache
-
-Redis unavailable
-    ↓
-Fallback to database
-```
-
-However, this must be evaluated against workload.
-
-If Redis failure causes a massive DB load spike, the architecture needs additional protection.
-
----
-
-# 29. Cache Failure Is Not Database Failure
-
-Do not write:
-
-```java
-catch (Exception e) {
-    throw new DatabaseUnavailableException();
-}
-```
-
-when the actual failure is Redis.
-
-Classify failures accurately.
-
----
-
-# 30. Cache Availability
-
-Monitor:
-
-```text
-Cache hit rate
-Cache miss rate
-Redis latency
-Redis connection errors
-Evictions
-Memory usage
-Expired keys
-Command latency
-```
-
----
-
-# 31. Cache Hit Ratio
-
-A useful metric:
-
-```text
-Hit Ratio =
-Cache Hits /
-(Cache Hits + Cache Misses)
-```
-
-Example:
-
-```text
-900 hits
-100 misses
-
-Hit ratio = 90%
-```
-
-A low hit rate may indicate:
-
-* Poor key design
-* TTL too short
-* Low reuse
-* Wrong caching candidate
-
----
-
-# 32. Don't Optimize for Hit Rate Alone
-
-A 99% hit rate is not automatically good.
-
-Suppose:
-
-```text
-Cache hit = 2 ms
-DB query = 20 ms
-```
-
-Good.
-
-But if cached data is stale and incorrect, a high hit rate is worthless.
-
-Correctness comes first.
-
----
-
-# 33. Redis Memory Management
-
-Redis memory is finite.
-
-Monitor:
-
-```text
-Used memory
-Max memory
-Eviction count
-Fragmentation
-Key count
-Largest keys
-```
-
-Don't treat Redis as infinite storage.
-
----
-
-# 34. Large Objects
-
-Avoid caching unnecessarily large objects.
-
-Bad:
-
-```text
-Entire medical textbook
-   ↓
-Redis
-```
-
-when users typically request only:
-
-```text
-Chapter
-Section
-Topic
-```
-
-Cache at the correct granularity.
-
----
-
-# 35. Cache Granularity
-
-Too broad:
-
-```text
-entire-subject
-```
-
-Too granular:
-
-```text
-every-single-word
-```
-
-Choose a useful domain boundary.
-
-For Mediverse:
-
-```text
-Subject
-Chapter
-Topic
-Question Set
-Quiz Metadata
-```
-
-may be more sensible units depending on access patterns.
-
----
-
-# 36. Query Result Caching
-
-Caching database query results can help expensive read operations.
-
-But ask:
-
-```text
-Is the query expensive?
-Is it repeated?
-How often does its data change?
-How expensive is invalidation?
-```
-
-If the query executes once a day, caching may be pointless.
-
----
-
-# 37. Cache-Through vs Cache-Aside
-
-### Cache-Aside
-
-Application manages:
-
-```text
-read → cache → DB
-```
-
-### Cache-Through
-
-Cache layer manages data retrieval.
-
-For Mediverse, **cache-aside is generally the simpler default**.
-
----
-
-# 38. Write-Through
-
-Write:
-
-```text
-Application
-   ↓
-Cache
-   ↓
-Database
-```
-
-This can be useful in specific systems but introduces complexity.
-
-Do not adopt it simply because it sounds more sophisticated.
-
----
-
-# 39. Write-Behind
-
-```text
-Application
-   ↓
-Cache
-   ↓
-Async DB write
-```
-
-This introduces durability risk.
-
-It should not be used casually for important educational or student transactional data.
-
----
-
-# 40. Redis Distributed Locking
-
-Locks may help prevent duplicate expensive cache rebuilds.
-
-Example:
-
-```text
-Cache miss
-    ↓
-Acquire lock
-    ↓
-Load DB
-    ↓
-Populate cache
-    ↓
-Release lock
-```
-
-But distributed locks introduce their own failure modes.
-
-Don't add them until there is evidence of a stampede problem.
-
----
-
-# 41. Lock Expiration
-
-Any distributed lock must have a bounded lifetime.
-
-Otherwise:
-
-```text
-Process crashes
-   ↓
-Lock remains
-   ↓
-Resource permanently blocked
-```
-
-Use safe expiration and ownership semantics.
-
----
-
-# 42. Spring Cache
-
-For straightforward caching:
-
-```java
-@Cacheable
-@CachePut
-@CacheEvict
-```
-
-can provide a clean abstraction.
-
-Example:
-
-```java
-@Cacheable(
-    value = "chapters",
-    key = "#id"
-)
-public ChapterDto findChapter(Long id) {
-    ...
-}
-```
-
----
-
-# 43. `@Cacheable` Key Design
-
-Avoid relying blindly on complex method arguments.
-
-Prefer explicit keys when clarity matters:
-
-```java
-@Cacheable(
-    value = "chapters",
-    key = "'chapter:' + #id"
-)
-```
-
-The exact strategy should be standardized across the project.
-
----
-
-# 44. `@CacheEvict`
-
-Use for mutation operations.
-
-```java
-@CacheEvict(
-    value = "chapters",
-    key = "#id"
-)
-public void delete(Long id) {
-    ...
-}
-```
-
-For bulk changes, consider:
-
-```java
-allEntries = true
-```
-
-only when the cache size and workload make it acceptable.
-
----
-
-# 45. Transaction Interaction
-
-Be careful when cache operations interact with database transactions.
-
-Example:
-
-```text
-DB update
- ↓
-transaction later rolls back
- ↓
-cache already invalidated
-```
-
-This may produce an unnecessary cache miss but is usually safer than serving stale data.
-
-More complex consistency requirements may need transaction-aware event processing.
-
----
-
-# 46. Event-Based Invalidation
-
-For larger architectures:
-
-```text
-Chapter Updated
-      ↓
-Domain/Application Event
-      ↓
-Cache Invalidation
-```
-
-This can become useful in microservice environments.
-
----
-
-# 47. Distributed Cache Invalidation
-
-If multiple application instances exist:
-
-```text
-API Pod 1
-API Pod 2
-API Pod 3
-      ↓
-    Redis
-```
-
-they should use the shared distributed cache when consistency requires it.
-
-Local in-memory caches can create inconsistent copies.
-
----
-
-# 48. Local Cache vs Redis
-
-### Local cache
-
-```text
-Fast
-Simple
-No network
-```
-
-but:
-
-```text
-Per-instance
-Potential inconsistency
-Lost on restart
-```
-
-### Redis
-
-```text
-Shared
-Distributed
-Persistent options
-```
-
-but:
-
-```text
-Network dependency
-Operational complexity
-Additional latency
-```
-
-Choose based on requirements.
-
----
-
-# 49. Cache Security
-
-Protect Redis infrastructure using:
-
-```text
-Authentication
-TLS where required
-Network isolation
-Firewall/network policies
-Least privilege
-Credential rotation
-Monitoring
-```
-
-Never expose Redis directly to the public internet.
-
----
-
-# 50. Cache Testing
-
-Tests should verify:
-
-```text
-Cache hit
-Cache miss
-Cache population
-Cache eviction
-TTL behavior
-Serialization
-Redis unavailable
-Stale data behavior
-Concurrent access
-```
-
----
-
-# 51. Integration Testing
-
-A real Redis instance should be used for appropriate integration tests.
-
-A containerized Redis test environment is often preferable to assuming a developer's local Redis configuration.
-
----
-
-# 52. Cache Observability
-
-Track cache operations without logging every key.
-
-Useful metrics:
-
-```text
-cache_hits_total
-cache_misses_total
-cache_evictions_total
-cache_load_duration
-redis_connection_errors_total
-redis_operation_duration
-```
-
-Avoid high-cardinality labels such as:
-
-```text
-studentId
-userId
-full cache key
-```
-
----
-
-# 53. Cache Warm-Up
-
-For heavily accessed stable content, cache pre-warming may be useful.
-
-Example:
-
-```text
-Application startup
-      ↓
-Load popular subjects
-      ↓
-Populate cache
-```
-
-But don't make startup dependent on successful cache warm-up unless explicitly required.
-
----
-
-# 54. Cache Invalidation Is a Design Requirement
-
-Whenever introducing a cache, document:
-
-```text
-What is cached?
-Who reads it?
-Who writes the source data?
-When does it expire?
-When is it invalidated?
-How stale can it be?
-What happens if Redis fails?
-```
-
-If these questions cannot be answered, the cache design isn't complete.
-
----
-
-# 55. Mediverse Cache Classification
-
-A useful initial classification:
-
-| Data                            | Cache Candidate     | Typical Strategy          |
-| ------------------------------- | ------------------- | ------------------------- |
-| Subject metadata                | ✅                   | Cache-aside               |
-| Chapter metadata                | ✅                   | Cache-aside               |
-| Stable medical content metadata | ✅                   | Cache-aside               |
-| Popular question sets           | ✅                   | Cache-aside               |
-| Student progress                | ⚠️                  | Carefully designed        |
-| Quiz answers                    | ❌/⚠️                | Prefer DB/source of truth |
-| Authentication secrets          | ❌                   | Don't casually cache      |
-| Temporary external API results  | ✅                   | Short TTL                 |
-| Analytics                       | Usually unnecessary | Depends on architecture   |
-
-These are architectural starting points, not absolute rules.
-
----
-
-# 56. Mediverse Recommended Architecture
-
-```text
-                     ┌───────────────┐
-                     │   Frontend    │
-                     └───────┬───────┘
-                             │
-                             ▼
-                    ┌─────────────────┐
-                    │  Mediverse API  │
-                    └────────┬────────┘
-                             │
-                     ┌───────▼───────┐
-                     │ Cache Service  │
-                     │    / Redis     │
-                     └───────┬───────┘
-                         hit │ miss
-                             │
-                             ▼
-                    ┌─────────────────┐
-                    │   PostgreSQL    │
-                    └─────────────────┘
-```
-
-The rule is simple:
-
-```text
-Redis = performance layer
-PostgreSQL = authoritative persistence
-```
-
----
-
-# 57. Cache Decision Framework
-
-Before caching anything:
-
-```text
-                 Is it read frequently?
-                        │
-                  ┌─────┴─────┐
-                 No          Yes
-                 │            │
-              Don't      Is it expensive?
-              cache          │
-                        ┌─────┴─────┐
-                       No          Yes
-                       │            │
-                    Maybe       Candidate
-                                  │
-                          Can stale data
-                          be tolerated?
-                              │
-                         ┌────┴────┐
-                        No        Yes
-                        │           │
-                  Don't cache   Design TTL/
-                               invalidation
-```
-
----
-
-# 58. Cache Anti-Patterns
-
-```text
-❌ Cache everything
-❌ No TTL
-❌ No invalidation strategy
-❌ Treat Redis as primary DB without architectural justification
-❌ Cache JPA entities
-❌ Cache sensitive data casually
-❌ Use meaningless keys
-❌ Put student IDs into uncontrolled cache structures
-❌ Ignore cache failures
-❌ Unlimited Redis memory
-❌ Infinite retries against Redis
-❌ Use distributed locks unnecessarily
-❌ Assume high hit rate means good cache design
-❌ Cache large objects indiscriminately
-❌ Ignore serialization compatibility
-```
-
----
-
-# 59. Mediverse Cache Checklist
-
-```text
-☑ Cache candidate identified
-☑ Source of truth identified
-☑ Cache key defined
-☑ Cache namespace defined
-☑ TTL defined
-☑ Invalidation strategy defined
-☑ Staleness tolerance documented
-☑ Serialization strategy defined
-☑ Redis failure behavior defined
-☑ Security controls defined
-☑ Memory limits considered
-☑ Stampede risk evaluated
-☑ Penetration risk evaluated
-☑ Avalanche risk evaluated
-☑ Metrics defined
-☑ Tests implemented
-☑ Cache ownership documented
-```
+# 20.10 Vanilla CSS & Scoped CSS Modules Architecture Standard
+
+### CSDG-0205: Vanilla CSS Token Standards
+* **Pure Vanilla CSS:** Styling must use pure Vanilla CSS and CSS Modules (`*.module.css`). Utility-class frameworks (Tailwind CSS) and CSS-in-JS runtimes (styled-components) are explicitly prohibited.
+* **Design Token Hierarchy:** All colors, typography, spacing, border radiuses, and elevation shadows must reference centralized CSS custom properties declared in `globals.css`:
+  ```css
+  /* Example CSS Module usage */
+  .container {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-card);
+  }
+  ```
 
 ---
 
@@ -23791,6 +21771,8 @@ Start with meaningful bounded domains.
 
 ---
 
+---
+
 # Chapter 22 Completion
 
 |      # | CSDG Chapter                                              | Status |
@@ -25550,6 +23532,8 @@ Recommended high-level design:
 
 ---
 
+---
+
 # Chapter 23 Completion
 
 |      # | CSDG Chapter                                           | Status |
@@ -25569,2007 +23553,6 @@ Recommended high-level design:
 This will cover **search architecture, indexing, analyzers, tokenization, mappings, Elasticsearch document design, search queries, filters, ranking, relevance, autocomplete, typo tolerance, medical terminology, indexing events, reindexing, aliases, pagination, performance, consistency, failure handling, security, and Mediverse-specific search standards.**
 
 Ready. The next chapter in the **Mediverse Coding Standards & Development Guidelines (CSDG)** sequence is:
-
-# Chapter 24 — Search, Elasticsearch & Full-Text Search Coding Standards
-
-We'll continue in the same format:
-
-1. Purpose & scope
-2. Search architecture
-3. Elasticsearch standards
-4. Index design
-5. Document modeling
-6. Mapping standards
-7. Analyzers & tokenization
-8. Medical terminology handling
-9. Full-text queries
-10. Filters
-11. Relevance & scoring
-12. Autocomplete
-13. Typo tolerance
-14. Synonyms
-15. Search suggestions
-16. Pagination
-17. Sorting
-18. Indexing strategy
-19. Event-driven indexing
-20. Reindexing
-21. Zero-downtime index migration
-22. Index aliases
-23. Consistency & synchronization
-24. Failure handling
-25. Retry & dead-letter handling
-26. Search security
-27. Performance optimization
-28. Caching
-29. Monitoring & observability
-30. Testing standards
-31. Search API coding standards
-32. Mediverse-specific search use cases
-33. Anti-patterns
-34. Developer checklist
-
-**Progress remains: 23/chapters completed.**
-
-Send **`next`** and we'll start **Chapter 24** in deep dive.
-
-## Mediverse CSDG — Chapter 24
-
-# Search, Elasticsearch & Full-Text Search Coding Standards
-
-**Document ID:** `MED-CSDG-024`
-**Version:** `1.0`
-**Status:** Approved Baseline
-
-> **Core principle:** Elasticsearch is a **search/read optimization system**, not the authoritative source of Mediverse business data. PostgreSQL remains the source of truth unless the architecture explicitly states otherwise.
-
----
-
-# 1. Purpose
-
-Mediverse will need search across educational content such as:
-
-```text
-Subjects
-Chapters
-Topics
-Subtopics
-Medical terminology
-Questions
-MCQs
-Flashcards
-Articles
-PDFs
-Lecture transcripts
-Faculty content
-Learning resources
-```
-
-Search must support more than simple:
-
-```text
-WHERE name LIKE '%anatomy%'
-```
-
-A proper search system should provide:
-
-```text
-Keyword search
-Full-text search
-Relevance ranking
-Filtering
-Autocomplete
-Typo tolerance
-Synonyms
-Medical terminology
-Faceted search
-Pagination
-Highlighting
-```
-
----
-
-# 2. Search Architecture
-
-Recommended architecture:
-
-```text
-                  PostgreSQL
-                      │
-                Source of Truth
-                      │
-                      ▼
-                Domain Service
-                      │
-                 Domain Event
-                      │
-                      ▼
-                    Kafka
-                      │
-                      ▼
-             Search Indexer
-                      │
-                      ▼
-               Elasticsearch
-                      │
-                      ▼
-                Search API
-                      │
-                      ▼
-                 React UI
-```
-
-Important:
-
-```text
-PostgreSQL
-    =
-Authoritative data
-
-Elasticsearch
-    =
-Search projection
-```
-
----
-
-# 3. Why Not Search PostgreSQL for Everything?
-
-PostgreSQL is excellent for transactional workloads.
-
-But large-scale full-text search can require:
-
-```text
-Relevance ranking
-Fuzzy matching
-Autocomplete
-Synonym expansion
-Highlighting
-Complex analyzers
-Faceted search
-Distributed search
-```
-
-Elasticsearch is designed specifically for these workloads.
-
----
-
-# 4. Never Treat Elasticsearch as the Primary Database
-
-Bad architecture:
-
-```text
-React
- ↓
-Elasticsearch
- ↓
-Business operation
-```
-
-Prefer:
-
-```text
-React
- ↓
-Application API
- ↓
-PostgreSQL
-```
-
-For search:
-
-```text
-React
- ↓
-Search API
- ↓
-Elasticsearch
-```
-
-If Elasticsearch disappears:
-
-```text
-Search unavailable
-```
-
-but core transactional data should remain safe.
-
----
-
-# 5. Search Event Flow
-
-When a chapter changes:
-
-```text
-Faculty
-   ↓
-Update Chapter
-   ↓
-PostgreSQL
-   ↓
-ChapterUpdated event
-   ↓
-Kafka
-   ↓
-Search Indexer
-   ↓
-Elasticsearch
-```
-
-This creates eventual consistency.
-
----
-
-# 6. Search Indexing Must Be Asynchronous
-
-Don't make a chapter update depend on Elasticsearch being available.
-
-Bad:
-
-```text
-POST /chapter
-    ↓
-PostgreSQL
-    ↓
-Elasticsearch
-    ↓
-Response
-```
-
-If Elasticsearch is down:
-
-```text
-Chapter update fails
-```
-
-Prefer:
-
-```text
-POST /chapter
-    ↓
-PostgreSQL
-    ↓
-Commit
-    ↓
-Response
-    ↓
-Event
-    ↓
-Elasticsearch
-```
-
----
-
-# 7. Transactional Outbox
-
-For important indexing events:
-
-```text
-BEGIN
-   INSERT chapter
-   INSERT outbox_event
-COMMIT
-```
-
-Then:
-
-```text
-Outbox
- ↓
-Kafka
- ↓
-Search Indexer
- ↓
-Elasticsearch
-```
-
-This avoids the classic:
-
-```text
-DB update succeeded
-Kafka publication failed
-```
-
-problem.
-
----
-
-# 8. Search Index Naming
-
-Use a predictable naming convention.
-
-Example:
-
-```text
-mediverse-content-v1
-mediverse-question-v1
-mediverse-course-v1
-```
-
-Avoid:
-
-```text
-index1
-test
-data
-final-index
-new-index-final
-```
-
----
-
-# 9. Index per Domain
-
-Do not put the entire Mediverse platform into one giant index.
-
-Potential indexes:
-
-```text
-mediverse-content-v1
-mediverse-question-v1
-mediverse-course-v1
-mediverse-flashcard-v1
-```
-
-The final structure should be based on actual search requirements.
-
----
-
-# 10. Elasticsearch Document
-
-A content document could conceptually look like:
-
-```json
-{
-  "id": "chapter-123",
-  "type": "CHAPTER",
-  "title": "Cardiac Cycle",
-  "subject": "Physiology",
-  "body": "The cardiac cycle consists...",
-  "topics": [
-    "Cardiac Cycle",
-    "Heart Physiology"
-  ],
-  "status": "PUBLISHED"
-}
-```
-
-Only searchable/required projection data should be indexed.
-
----
-
-# 11. Don't Copy the Entire Database Entity
-
-Bad:
-
-```text
-PostgreSQL Entity
-      ↓
-Entire entity
-      ↓
-Elasticsearch
-```
-
-This creates unnecessary:
-
-```text
-Storage
-Coupling
-Index size
-Update complexity
-```
-
-Instead define a deliberate search document.
-
----
-
-# 12. Search Document Model
-
-Example:
-
-```java
-public class ContentSearchDocument {
-
-    private UUID id;
-
-    private String title;
-
-    private String subject;
-
-    private List<String> topics;
-
-    private String searchableText;
-
-    private String contentType;
-
-    private String status;
-}
-```
-
-This is intentionally different from the persistence entity.
-
----
-
-# 13. Separate Persistence and Search Models
-
-Do not reuse:
-
-```java
-@Entity
-class Chapter
-```
-
-directly as:
-
-```text
-Elasticsearch document
-```
-
-Prefer:
-
-```text
-ChapterEntity
-      │
-      ▼
-ChapterSearchDocument
-```
-
-This keeps storage models independent.
-
----
-
-# 14. Mapping
-
-Explicit mappings should be preferred for important indexes.
-
-Example:
-
-```json
-{
-  "properties": {
-    "title": {
-      "type": "text"
-    },
-    "subject": {
-      "type": "keyword"
-    },
-    "status": {
-      "type": "keyword"
-    }
-  }
-}
-```
-
-Don't blindly depend on dynamic mappings for critical search indexes.
-
----
-
-# 15. `text` vs `keyword`
-
-This distinction is fundamental.
-
-### `text`
-
-Used for full-text search:
-
-```text
-title
-body
-description
-```
-
-### `keyword`
-
-Used for exact matching/filtering:
-
-```text
-status
-subjectId
-contentType
-language
-```
-
-Example:
-
-```text
-status = PUBLISHED
-```
-
-should generally be a keyword.
-
----
-
-# 16. Multi-Fields
-
-Sometimes the same field needs both behaviors.
-
-Example:
-
-```json
-{
-  "title": {
-    "type": "text",
-    "fields": {
-      "keyword": {
-        "type": "keyword"
-      }
-    }
-  }
-}
-```
-
-Now:
-
-```text
-title
-```
-
-supports full-text search while:
-
-```text
-title.keyword
-```
-
-supports exact operations such as sorting where appropriate.
-
----
-
-# 17. Analyzers
-
-Search quality depends heavily on analyzers.
-
-Conceptually:
-
-```text
-Input
- ↓
-Character filtering
- ↓
-Tokenization
- ↓
-Token filters
- ↓
-Indexed terms
-```
-
-For example:
-
-```text
-"Cardiac Cycle"
-```
-
-may become:
-
-```text
-cardiac
-cycle
-```
-
-depending on the configured analyzer.
-
----
-
-# 18. Tokenization
-
-Tokenization determines how text is broken into searchable units.
-
-Example:
-
-```text
-"cardiovascular system"
-```
-
-could become:
-
-```text
-cardiovascular
-system
-```
-
-The analyzer must be chosen according to the content language and domain.
-
----
-
-# 19. Lowercasing
-
-Search should generally be case-insensitive.
-
-Therefore:
-
-```text
-Anatomy
-ANATOMY
-anatomy
-```
-
-should normally produce equivalent search behavior.
-
----
-
-# 20. Stop Words
-
-Common words such as:
-
-```text
-the
-is
-of
-and
-```
-
-may contribute little to search relevance.
-
-However, blindly removing stop words can sometimes damage meaning.
-
-Therefore:
-
-> Stop-word configuration must be based on actual Mediverse search requirements and tested against representative educational content.
-
----
-
-# 21. Stemming
-
-Stemming can allow related word forms to match.
-
-For example:
-
-```text
-study
-studies
-studying
-```
-
-may be normalized depending on the analyzer.
-
-But aggressive stemming can produce unwanted matches.
-
-Do not enable it simply because it sounds useful.
-
----
-
-# 22. Medical Terminology
-
-Medical education creates special search requirements.
-
-Examples:
-
-```text
-myocardial infarction
-MI
-heart attack
-ECG
-EKG
-electrocardiogram
-```
-
-A user may search using:
-
-```text
-ECG
-```
-
-while content uses:
-
-```text
-electrocardiogram
-```
-
-This is where domain-specific synonyms become valuable.
-
----
-
-# 23. Medical Synonyms
-
-Maintain controlled synonym mappings where appropriate.
-
-Example:
-
-```text
-ECG ↔ EKG
-```
-
-Potentially:
-
-```text
-MI → myocardial infarction
-```
-
-But don't automatically declare every medical term equivalent.
-
-Medical terminology can have subtle differences.
-
----
-
-# 24. Synonym Governance
-
-Synonyms should be:
-
-```text
-Versioned
-Reviewed
-Tested
-Documented
-Approved
-```
-
-Especially because incorrect medical synonym mappings can degrade educational accuracy.
-
----
-
-# 25. Search Fields
-
-A Mediverse content document might include:
-
-```text
-title
-description
-body
-subject
-topic
-tags
-keywords
-medicalTerms
-contentType
-language
-```
-
-Search weighting should not treat all fields equally.
-
----
-
-# 26. Field Boosting
-
-For a query:
-
-```text
-cardiac cycle
-```
-
-a title match should generally be more valuable than a match buried deep in a PDF transcript.
-
-Conceptually:
-
-```text
-title       → high boost
-topic       → high boost
-keywords    → medium-high
-body        → normal
-metadata    → low
-```
-
-The exact weights should be validated experimentally.
-
----
-
-# 27. Relevance Ranking
-
-Search results should be ranked based on relevance, not merely:
-
-```text
-alphabetical order
-```
-
-Potential factors:
-
-```text
-Text relevance
-Title match
-Topic match
-Content quality
-Popularity
-Recency
-User context
-```
-
-Be careful with popularity and recency because they can overpower educational relevance.
-
----
-
-# 28. Search Query
-
-A basic search request might be:
-
-```http
-GET /api/search?q=cardiac+cycle
-```
-
-The Search Service translates the request into Elasticsearch queries.
-
-The frontend should not construct raw Elasticsearch queries.
-
----
-
-# 29. Search API Abstraction
-
-Bad:
-
-```text
-React
- ↓
-Raw Elasticsearch query
-```
-
-Prefer:
-
-```text
-React
- ↓
-Mediverse Search API
- ↓
-Search Service
- ↓
-Elasticsearch
-```
-
-This prevents infrastructure details from leaking into the frontend.
-
----
-
-# 30. Search Filters
-
-Example:
-
-```text
-Query:
-cardiac
-
-Filters:
-Subject = Physiology
-Content Type = Chapter
-Language = English
-Status = Published
-```
-
-Filtering should generally use structured fields rather than full-text matching.
-
----
-
-# 31. Filter vs Search
-
-This distinction matters.
-
-Search:
-
-```text
-"cardiac cycle"
-```
-
-Filter:
-
-```text
-subject = physiology
-```
-
-Don't implement exact metadata filtering as full-text search.
-
----
-
-# 32. Faceted Search
-
-The UI may display:
-
-```text
-Subject
- ├── Anatomy (34)
- ├── Physiology (28)
- └── Biochemistry (17)
-
-Content Type
- ├── Chapter (52)
- ├── Question (41)
- └── Video (19)
-```
-
-These are search facets/aggregations.
-
----
-
-# 33. Aggregation Performance
-
-Don't create enormous aggregations over unnecessary fields.
-
-Only expose aggregations required by the UI.
-
-Potential facets:
-
-```text
-subject
-contentType
-difficulty
-year
-language
-topic
-```
-
----
-
-# 34. Autocomplete
-
-When the user types:
-
-```text
-card...
-```
-
-the system can return:
-
-```text
-Cardiac Cycle
-Cardiac Output
-Cardiovascular System
-```
-
-Autocomplete should be optimized separately from normal full-text search.
-
----
-
-# 35. Autocomplete Latency
-
-Autocomplete is a high-frequency operation.
-
-A user may generate:
-
-```text
-c
-ca
-car
-card
-cardi
-```
-
-within seconds.
-
-Therefore:
-
-```text
-Low latency
-Small responses
-Efficient queries
-Debouncing
-```
-
-are important.
-
----
-
-# 36. Frontend Debouncing
-
-Don't send a request for every keystroke immediately.
-
-Conceptually:
-
-```text
-User types
- ↓
-Debounce 200–300ms
- ↓
-Search
-```
-
-The exact value should be tuned using actual UX/performance measurements.
-
----
-
-# 37. Typo Tolerance
-
-Users may type:
-
-```text
-physiolgy
-```
-
-instead of:
-
-```text
-physiology
-```
-
-Fuzzy search can help.
-
-But fuzzy matching should not be applied indiscriminately to every query.
-
----
-
-# 38. Fuzzy Search Cost
-
-Fuzzy queries can be more expensive than normal matching.
-
-Use them selectively:
-
-```text
-Short query
-No exact result
-Autocomplete
-User explicitly needs typo tolerance
-```
-
-Avoid turning every search into an expensive fuzzy query.
-
----
-
-# 39. Prefix Search
-
-For:
-
-```text
-anat...
-```
-
-prefix-based strategies can be useful.
-
-Potentially:
-
-```text
-Anatomy
-Anatomical
-Anatomist
-```
-
-But prefix search must be designed with appropriate mappings/analyzers.
-
----
-
-# 40. Highlighting
-
-Search results may highlight matching terms:
-
-```text
-The <em>cardiac cycle</em> consists of...
-```
-
-This improves usability.
-
-But sanitize highlighted content before rendering it in the frontend.
-
----
-
-# 41. Pagination
-
-Search APIs must have controlled pagination.
-
-Example:
-
-```text
-GET /api/search?q=anatomy&page=0&size=20
-```
-
-Set a maximum:
-
-```text
-size <= configured limit
-```
-
-Never allow:
-
-```text
-size=100000
-```
-
----
-
-# 42. Deep Pagination
-
-Traditional offset pagination becomes inefficient for very deep result pages.
-
-For large datasets, consider search-after/cursor-based approaches.
-
-For normal educational search:
-
-```text
-First 10–100 results
-```
-
-may be enough.
-
-Don't build infinite deep pagination unless there's a real requirement.
-
----
-
-# 43. Sorting
-
-Possible sorting:
-
-```text
-Relevance
-Newest
-Oldest
-Popularity
-```
-
-Default should generally be:
-
-```text
-Relevance
-```
-
-for a search query.
-
----
-
-# 44. Search Consistency
-
-After faculty publishes a chapter:
-
-```text
-PostgreSQL = updated immediately
-Elasticsearch = potentially updated shortly afterward
-```
-
-Therefore users may briefly experience:
-
-```text
-DB says published
-Search doesn't show it yet
-```
-
-This is expected eventual consistency.
-
----
-
-# 45. Search Index Failure
-
-If Elasticsearch is unavailable:
-
-```text
-Content creation
-      ↓
-PostgreSQL
-      ↓
-SUCCESS
-```
-
-should generally remain possible.
-
-But:
-
-```text
-Search
- ↓
-Elasticsearch unavailable
-```
-
-should return a controlled error/fallback.
-
----
-
-# 46. Search Fallback
-
-Depending on requirements, fallback could be:
-
-```text
-Elasticsearch unavailable
-       ↓
-Simple PostgreSQL search
-```
-
-But don't automatically build this unless the product actually requires search availability during Elasticsearch outages.
-
-A simpler controlled response may be better.
-
----
-
-# 47. Indexing Failure
-
-Suppose:
-
-```text
-ChapterUpdated
-      ↓
-Indexer
-      ↓
-Elasticsearch failure
-```
-
-The event must remain recoverable.
-
-Use:
-
-```text
-Retry
- ↓
-Retry
- ↓
-DLQ
-```
-
-or another durable retry mechanism.
-
----
-
-# 48. Reindexing
-
-Indexes eventually need rebuilding.
-
-Reasons:
-
-```text
-Mapping change
-Analyzer change
-Bug fix
-New searchable field
-Data migration
-Search quality improvement
-```
-
-Never assume an index is permanent.
-
----
-
-# 49. Zero-Downtime Reindexing
-
-Use versioned indexes:
-
-```text
-mediverse-content-v1
-mediverse-content-v2
-```
-
-Then:
-
-```text
-Alias
- ↓
-v1
-```
-
-Build v2:
-
-```text
-v2
- ↓
-fully indexed
- ↓
-validated
-```
-
-Then switch:
-
-```text
-Alias
- ↓
-v2
-```
-
-This avoids downtime.
-
----
-
-# 50. Index Aliases
-
-Application code should ideally query:
-
-```text
-mediverse-content
-```
-
-where:
-
-```text
-mediverse-content
-    ↓
-alias
-    ↓
-mediverse-content-v2
-```
-
-instead of hardcoding:
-
-```text
-mediverse-content-v2
-```
-
-throughout the codebase.
-
----
-
-# 51. Reindexing Process
-
-Recommended:
-
-```text
-Create new index
-      ↓
-Apply mapping
-      ↓
-Apply analyzer
-      ↓
-Bulk index PostgreSQL data
-      ↓
-Validate document count
-      ↓
-Validate search quality
-      ↓
-Switch alias
-      ↓
-Monitor
-      ↓
-Remove old index later
-```
-
----
-
-# 52. Bulk Indexing
-
-For large reindex operations, don't send:
-
-```text
-1 document
-1 HTTP request
-```
-
-for millions of records.
-
-Use bulk operations with controlled batch sizes.
-
----
-
-# 53. Bulk Processing Limits
-
-Don't create gigantic bulk requests either.
-
-Too large:
-
-```text
-Huge request
- ↓
-Memory pressure
- ↓
-Timeout
-```
-
-Use controlled batches and monitor Elasticsearch performance.
-
----
-
-# 54. Indexing Backpressure
-
-If PostgreSQL produces changes faster than Elasticsearch can index:
-
-```text
-Events
- ↓
-Kafka
- ↓
-Growing backlog
-```
-
-Monitor:
-
-```text
-Consumer lag
-Indexing throughput
-Failure rate
-Processing latency
-```
-
----
-
-# 55. Delete Events
-
-Search indexing must handle deletes.
-
-Example:
-
-```text
-ChapterDeleted
-      ↓
-Search Indexer
-      ↓
-Delete document
-```
-
-Otherwise Elasticsearch may display content that no longer exists.
-
----
-
-# 56. Unpublish Events
-
-Deletion and unpublishing are not necessarily identical.
-
-Example:
-
-```text
-ChapterUnpublished
-```
-
-may mean:
-
-```text
-Remove from student search
-```
-
-while retaining the record in PostgreSQL.
-
-The search projection should reflect visibility rules.
-
----
-
-# 57. Security Filtering
-
-Never return unpublished or unauthorized content merely because it exists in Elasticsearch.
-
-Search queries must respect:
-
-```text
-status
-visibility
-user permissions
-course enrollment
-role
-```
-
-where applicable.
-
----
-
-# 58. Search Index Security
-
-Elasticsearch itself should not be exposed directly to:
-
-```text
-Internet
-Browser
-Untrusted clients
-```
-
-Prefer:
-
-```text
-React
- ↓
-Search API
- ↓
-Elasticsearch
-```
-
----
-
-# 59. Search Result DTO
-
-Don't return raw Elasticsearch documents.
-
-Use an API DTO:
-
-```java
-public class SearchResult {
-
-    private UUID id;
-
-    private String title;
-
-    private String contentType;
-
-    private String subject;
-
-    private String highlight;
-
-    private double score;
-}
-```
-
-This protects the frontend from index implementation details.
-
----
-
-# 60. Search API Response
-
-Example:
-
-```json
-{
-  "query": "cardiac cycle",
-  "total": 42,
-  "results": [
-    {
-      "id": "123",
-      "title": "Cardiac Cycle",
-      "contentType": "CHAPTER",
-      "subject": "Physiology",
-      "score": 12.42
-    }
-  ]
-}
-```
-
-Don't expose unnecessary Elasticsearch internals.
-
----
-
-# 61. Search Query Validation
-
-Validate:
-
-```text
-Query length
-Maximum page size
-Supported filters
-Allowed sort fields
-Allowed content types
-```
-
-Reject pathological requests.
-
----
-
-# 62. Search Injection
-
-Don't blindly accept arbitrary Elasticsearch DSL from clients.
-
-Bad:
-
-```http
-POST /search
-{
-  "rawElasticsearchQuery": "..."
-}
-```
-
-Prefer controlled application-level parameters:
-
-```text
-q
-subject
-contentType
-page
-size
-sort
-```
-
-The backend constructs the actual Elasticsearch query.
-
----
-
-# 63. Search Caching
-
-Frequently repeated queries can potentially be cached.
-
-Examples:
-
-```text
-Popular subjects
-Popular chapter searches
-Autocomplete suggestions
-```
-
-But search caching must account for:
-
-```text
-Index changes
-Permissions
-User-specific results
-```
-
-Don't cache private search responses globally.
-
----
-
-# 64. Search Cache Keys
-
-A cache key may need to include:
-
-```text
-query
-filters
-sort
-page
-user context
-```
-
-when the result depends on those dimensions.
-
----
-
-# 65. Search Observability
-
-Track:
-
-```text
-search_requests_total
-search_errors_total
-search_latency
-search_result_count
-zero_result_searches
-autocomplete_latency
-indexing_latency
-indexing_failures
-consumer_lag
-```
-
----
-
-# 66. Zero-Result Searches
-
-This metric is particularly useful.
-
-Example:
-
-```text
-"cardic cycle"
-```
-
-returns zero results.
-
-Repeated zero-result queries can reveal:
-
-```text
-Missing synonyms
-Poor analyzer
-Missing content
-Bad ranking
-User terminology mismatch
-```
-
-This can directly improve the learning experience.
-
----
-
-# 67. Search Analytics
-
-Potential events:
-
-```text
-SearchPerformed
-SearchResultClicked
-SearchNoResults
-SearchSuggestionSelected
-```
-
-This allows product teams to understand how students search.
-
-Be careful not to collect unnecessary personal data.
-
----
-
-# 68. Search Ranking Improvement
-
-Ranking should be measurable.
-
-Example:
-
-```text
-Query:
-cardiac cycle
-```
-
-Expected top results:
-
-```text
-1. Cardiac Cycle
-2. Cardiac Output
-3. Heart Physiology
-```
-
-rather than irrelevant keyword matches.
-
-Use representative search datasets to tune ranking.
-
----
-
-# 69. Medical Search Quality
-
-Mediverse should create a domain-specific test set.
-
-Example:
-
-```text
-Query                 Expected Result
-
-cardiac cycle         Cardiac Cycle chapter
-ECG                   Electrocardiogram content
-MI                    Myocardial Infarction content
-cranial nerves        Cranial Nerves chapter
-glycolysis            Glycolysis chapter
-```
-
-This becomes a regression suite for search quality.
-
----
-
-# 70. Search Testing
-
-Test:
-
-```text
-Exact match
-Partial match
-Typo
-Synonym
-Multiple terms
-No result
-Case variation
-Special characters
-Filters
-Sorting
-Pagination
-Highlighting
-Authorization
-Deleted content
-Unpublished content
-Index outage
-```
-
----
-
-# 71. Index Mapping Tests
-
-Validate:
-
-```text
-Field type
-Analyzer
-Keyword fields
-Nested/object structure
-Required fields
-```
-
-Mapping changes should not be treated as trivial configuration changes.
-
----
-
-# 72. Integration Tests
-
-Test:
-
-```text
-PostgreSQL
- ↓
-Domain event
- ↓
-Kafka
- ↓
-Indexer
- ↓
-Elasticsearch
-```
-
-The goal is to ensure the complete indexing pipeline works.
-
----
-
-# 73. Contract Tests
-
-Search API contracts should verify:
-
-```text
-Request format
-Response format
-Pagination
-Filtering
-Error responses
-```
-
-Frontend should not depend on Elasticsearch-specific response structures.
-
----
-
-# 74. Performance Testing
-
-Test with realistic data volumes.
-
-For example:
-
-```text
-10,000 documents
-100,000 documents
-1,000,000 documents
-```
-
-depending on expected production scale.
-
-Measure:
-
-```text
-P50
-P95
-P99
-```
-
-latency rather than relying only on average latency.
-
----
-
-# 75. Search Timeout
-
-Every search operation should have sensible timeout behavior.
-
-Never allow a query to hang indefinitely.
-
----
-
-# 76. Query Complexity
-
-Avoid constructing unnecessarily complex queries.
-
-Every additional:
-
-```text
-fuzzy query
-aggregation
-nested query
-wildcard
-script
-```
-
-can increase resource consumption.
-
-Search quality and query complexity must be balanced.
-
----
-
-# 77. Wildcard Queries
-
-Avoid leading wildcard queries such as:
-
-```text
-*cardiac*
-```
-
-across huge datasets unless there is a clear requirement and the index is designed for it.
-
-They can be expensive.
-
----
-
-# 78. Regex Queries
-
-Regex queries should be tightly controlled.
-
-Don't allow arbitrary user-generated regex against massive indexes.
-
-This can become a resource-exhaustion problem.
-
----
-
-# 79. Script Queries
-
-Avoid user-controlled Elasticsearch scripts entirely.
-
-Application users should never be able to inject arbitrary Elasticsearch scripting logic.
-
----
-
-# 80. Search Anti-Patterns
-
-```text
-❌ Elasticsearch as primary database
-❌ Browser directly accessing Elasticsearch
-❌ Raw Elasticsearch DSL from frontend
-❌ Giant search documents
-❌ Dynamic mappings everywhere
-❌ No index versioning
-❌ No alias strategy
-❌ No reindex strategy
-❌ No delete-event handling
-❌ No authorization filtering
-❌ Unlimited page size
-❌ Uncontrolled fuzzy search
-❌ Arbitrary wildcard queries
-❌ Arbitrary regex
-❌ No consumer retry
-❌ No search monitoring
-❌ No zero-result analysis
-❌ Treating search consistency as immediate
-❌ Hardcoding index versions throughout code
-```
-
----
-
-# 81. Recommended Mediverse Search Flow
-
-```text
-                     ┌─────────────────┐
-                     │   PostgreSQL    │
-                     │  Source Truth   │
-                     └────────┬────────┘
-                              │
-                         Domain Event
-                              │
-                              ▼
-                           Kafka
-                              │
-                              ▼
-                      ┌───────────────┐
-                      │ Search Worker │
-                      └───────┬───────┘
-                              │
-                              ▼
-                     ┌─────────────────┐
-                     │ Elasticsearch   │
-                     │ Search Index    │
-                     └────────┬────────┘
-                              │
-                              ▼
-                         Search API
-                              │
-                              ▼
-                         React UI
-```
-
----
-
-# 82. Recommended Mediverse Search Domains
-
-Initial candidates:
-
-```text
-Content
-Questions
-Subjects
-Topics
-Flashcards
-Courses
-```
-
-Later:
-
-```text
-Lecture transcripts
-Medical terminology
-Learning resources
-```
-
-Do not create indexes for entities that have no meaningful search requirement.
-
----
-
-# 83. Developer Checklist
-
-Before implementing a searchable resource:
-
-```text
-☑ PostgreSQL source of truth identified
-☑ Search document defined
-☑ Search fields identified
-☑ text vs keyword decided
-☑ Mapping explicitly defined
-☑ Analyzer selected
-☑ Medical synonyms evaluated
-☑ Ranking strategy defined
-☑ Filters defined
-☑ Facets defined
-☑ Pagination defined
-☑ Autocomplete requirements defined
-☑ Fuzzy matching evaluated
-☑ Indexing event defined
-☑ Delete event defined
-☑ Retry strategy defined
-☑ DLQ strategy defined
-☑ Reindex strategy defined
-☑ Alias strategy defined
-☑ Authorization strategy defined
-☑ Search metrics defined
-☑ Performance tests defined
-☑ Search-quality regression dataset defined
-```
-
----
-
-# 84. Final Architecture Rule
-
-For Mediverse, remember this distinction:
-
-```text
-                    WRITE PATH
-                        │
-                        ▼
-                   PostgreSQL
-                  SOURCE OF TRUTH
-                        │
-                        ▼
-                     Events
-                        │
-                        ▼
-                  Search Indexer
-                        │
-                        ▼
-                Elasticsearch
-                        │
-                        ▼
-                    SEARCH
-                     PATH
-```
-
-**Never make Elasticsearch the hidden source of truth just because the search implementation happens to be convenient.**
 
 ---
 
@@ -29636,6 +25619,8 @@ Before merging database-related code:
 
 ---
 
+---
+
 # Chapter 25 Completed ✅
 
 | Chapter | CSDG Topic                                      | Status |
@@ -31540,6 +27525,8 @@ Before merging exception/logging-related code:
 
 ---
 
+---
+
 # Chapter 26 Completed ✅
 
 | Chapter | CSDG Topic                                         | Status |
@@ -33334,6 +29321,8 @@ Before merging integration code:
 
 ---
 
+---
+
 # Chapter 27 Completed ✅
 
 | Chapter | CSDG Topic                                               | Status |
@@ -34978,1653 +30967,6 @@ Before merging configuration changes:
 ```
 
 ---
-
-# Chapter 28 Completed ✅
-
-| Chapter | CSDG Topic                                           | Status |
-| ------: | ---------------------------------------------------- | :----: |
-|      25 | Database Access, JPA/Hibernate & PostgreSQL          |    ✅   |
-|      26 | Logging, Exception Handling & Error Management       |    ✅   |
-|      27 | API Client, External Service & Integration           |    ✅   |
-|  **28** | **Configuration Management & Environment Standards** |  **✅** |
-
-## Mediverse CSDG Progress: **28 chapters completed**
-
-### Next → Chapter 29
-
-# **Testing & Test-Code Standards**
-
-We'll cover:
-
-* Unit-test architecture
-* JUnit 5
-* Mockito
-* Spring Boot testing
-* `@WebMvcTest`
-* `@DataJpaTest`
-* `@SpringBootTest`
-* Integration testing
-* Testcontainers
-* PostgreSQL testing
-* Kafka testing
-* Redis testing
-* API testing
-* Contract testing
-* Security testing
-* Test data builders
-* Fixtures
-* Mocking standards
-* What **not** to mock
-* Test naming
-* Arrange/Act/Assert
-* Test isolation
-* Transaction testing
-* Async testing
-* Failure-path testing
-* Performance testing
-* Test coverage standards
-* Mutation testing
-* CI test execution
-* Flaky-test management
-* Mediverse-specific testing patterns.
-
-
-## Mediverse CSDG — Chapter 28
-
-# Configuration Management & Environment Standards
-
-**Document ID:** `MED-CSDG-028`
-**Version:** `1.0`
-**Status:** Approved Baseline
-
-This chapter defines how configuration is designed, stored, loaded, validated, secured, and promoted across Mediverse environments.
-
-The core rule:
-
-> **Code should be the same across environments; configuration should change.**
-
----
-
-# 1. Purpose
-
-Mediverse will run across multiple environments:
-
-```text
-Development
-     ↓
-Testing
-     ↓
-UAT1
-     ↓
-UAT2
-     ↓
-Staging
-     ↓
-Production
-```
-
-The application should **not** require source-code changes when moving between these environments.
-
-For example:
-
-```text
-Development PostgreSQL
-        ↓
-UAT PostgreSQL
-        ↓
-Production PostgreSQL
-```
-
-The application binary/container should remain the same.
-
-Only configuration changes.
-
----
-
-# 2. Configuration Architecture
-
-Recommended hierarchy:
-
-```text
-                    Mediverse Application
-                           │
-              ┌────────────┴────────────┐
-              │                         │
-        Application Config        Environment Config
-              │                         │
-              └────────────┬────────────┘
-                           │
-                    External Config
-                           │
-             ┌─────────────┼─────────────┐
-             │             │             │
-        Environment    ConfigMap      Secret
-        Variables      Kubernetes     Kubernetes
-```
-
----
-
-# 3. Configuration Categories
-
-Every configuration property should belong to a category.
-
-### 1. Static application configuration
-
-Example:
-
-```yaml
-server:
-  port: 8080
-```
-
-### 2. Environment configuration
-
-```text
-DATABASE_HOST
-DATABASE_PORT
-```
-
-### 3. Secret configuration
-
-```text
-DATABASE_PASSWORD
-JWT_SECRET
-API_KEY
-```
-
-### 4. Feature configuration
-
-```text
-AI_EXPLANATION_ENABLED
-```
-
-### 5. Infrastructure configuration
-
-```text
-Kafka broker
-Redis host
-Elasticsearch endpoint
-```
-
----
-
-# 4. Configuration Must Not Be Hard-Coded
-
-Bad:
-
-```java
-String databaseHost = "prod-db.mediverse.internal";
-```
-
-Bad:
-
-```java
-String apiKey = "abc123";
-```
-
-Good:
-
-```yaml
-database:
-  host: ${DATABASE_HOST}
-```
-
----
-
-# 5. Environment Independence
-
-The same application artifact should work in:
-
-```text
-dev
-test
-UAT
-staging
-production
-```
-
-by changing configuration.
-
-Example:
-
-```text
-mediverse-content-service.jar
-```
-
-or:
-
-```text
-mediverse-content-service:<version>
-```
-
-should not be rebuilt simply because the database endpoint changed.
-
----
-
-# 6. Configuration Precedence
-
-Spring Boot supports multiple configuration sources.
-
-Conceptually:
-
-```text
-Lowest priority
-      ↓
-application.yml
-      ↓
-application-{profile}.yml
-      ↓
-Environment variables
-      ↓
-Command-line arguments
-      ↓
-Higher priority
-```
-
-The exact precedence should be understood before overriding values.
-
----
-
-# 7. Don't Create Configuration Chaos
-
-Avoid having the same property defined in:
-
-```text
-application.yml
-application-prod.yml
-environment variables
-Kubernetes ConfigMap
-command-line arguments
-```
-
-without documenting which value wins.
-
-Configuration should have one clear source of truth for each deployment.
-
----
-
-# 8. Spring Profiles
-
-Recommended environments:
-
-```text
-dev
-test
-uat
-staging
-prod
-```
-
-Example:
-
-```yaml
-spring:
-  profiles:
-    active: dev
-```
-
-However, production profile selection should preferably be controlled externally rather than hard-coded into the application artifact.
-
----
-
-# 9. `application.yml`
-
-Keep common defaults here.
-
-Example:
-
-```yaml
-spring:
-  application:
-    name: mediverse-content-service
-
-server:
-  shutdown: graceful
-```
-
-Do not put production secrets here.
-
----
-
-# 10. Profile-Specific Configuration
-
-Example:
-
-```text
-application.yml
-application-dev.yml
-application-test.yml
-application-uat.yml
-application-prod.yml
-```
-
-Use these only for configuration genuinely specific to that environment.
-
----
-
-# 11. Avoid Profile Duplication
-
-Bad:
-
-```yaml
-# dev
-database:
-  pool:
-    max-size: 20
-
-# UAT
-database:
-  pool:
-    max-size: 20
-
-# production
-database:
-  pool:
-    max-size: 20
-```
-
-If the value is genuinely common, put it in the shared configuration.
-
----
-
-# 12. Environment Variables
-
-Environment variables are appropriate for deployment-specific configuration.
-
-Example:
-
-```text
-DATABASE_HOST
-DATABASE_PORT
-DATABASE_NAME
-DATABASE_USERNAME
-DATABASE_PASSWORD
-```
-
-Spring:
-
-```yaml
-spring:
-  datasource:
-    url: jdbc:postgresql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
-```
-
----
-
-# 13. Environment Variable Naming
-
-Use uppercase snake case:
-
-```text
-MEDIVERSE_SERVICE_NAME
-DATABASE_HOST
-DATABASE_PORT
-REDIS_HOST
-KAFKA_BOOTSTRAP_SERVERS
-ELASTICSEARCH_URL
-```
-
-Avoid:
-
-```text
-dbHost
-database-host
-databasehost
-```
-
-for environment variables.
-
----
-
-# 14. Application Property Naming
-
-Use lowercase kebab-case.
-
-Good:
-
-```yaml
-learning:
-  progress:
-    batch-size: 100
-```
-
-Avoid inconsistent naming such as:
-
-```yaml
-learningProgress:
-learning_progress:
-LearningProgress:
-```
-
----
-
-# 15. Strongly Typed Configuration
-
-Don't scatter:
-
-```java
-@Value("${some.property}")
-private String value;
-```
-
-throughout the application.
-
-For grouped configuration, prefer:
-
-```java
-@ConfigurationProperties(prefix = "learning")
-```
-
-Example:
-
-```java
-@ConfigurationProperties(prefix = "learning.progress")
-public record ProgressProperties(
-        int batchSize,
-        Duration timeout
-) {}
-```
-
-This provides stronger structure.
-
----
-
-# 16. Configuration Properties
-
-Example:
-
-```yaml
-learning:
-  progress:
-    batch-size: 100
-    timeout: 2s
-```
-
-Java:
-
-```java
-public record ProgressProperties(
-        int batchSize,
-        Duration timeout
-) {}
-```
-
-This is preferable to passing arbitrary strings around.
-
----
-
-# 17. Configuration Validation
-
-Critical configuration must be validated.
-
-Example:
-
-```java
-@NotBlank
-private String baseUrl;
-```
-
-or:
-
-```java
-@Min(1)
-@Max(1000)
-private int batchSize;
-```
-
-Bad configuration should fail fast.
-
----
-
-# 18. Fail Fast
-
-Suppose:
-
-```text
-DATABASE_HOST = missing
-```
-
-If PostgreSQL is mandatory, application startup should fail clearly rather than allowing the application to start and fail unpredictably later.
-
----
-
-# 19. Optional Dependencies
-
-Not every dependency must necessarily be mandatory.
-
-Example:
-
-```text
-AI integration
-```
-
-could be optional in a deployment.
-
-Configuration:
-
-```text
-AI_ENABLED=false
-```
-
-should then produce predictable behavior.
-
-Don't accidentally initialize an optional service and crash the whole application.
-
----
-
-# 20. Secrets vs Configuration
-
-This distinction is critical.
-
-### Normal configuration
-
-```text
-PORT=8080
-LOG_LEVEL=INFO
-AI_ENABLED=true
-```
-
-### Secret
-
-```text
-DATABASE_PASSWORD
-JWT_SECRET
-AWS_SECRET_ACCESS_KEY
-OAUTH_CLIENT_SECRET
-```
-
-Secrets require stronger controls.
-
----
-
-# 21. Never Commit Secrets
-
-Never commit:
-
-```text
-application-prod.yml
-```
-
-containing:
-
-```yaml
-password: real-production-password
-```
-
-Never commit:
-
-```text
-.env
-```
-
-containing real credentials.
-
----
-
-# 22. `.gitignore`
-
-Development-only secret files should be excluded:
-
-```text
-.env
-.env.local
-application-local.yml
-```
-
-But `.gitignore` is **not a security system**.
-
-If a secret has already been committed, rotate it.
-
----
-
-# 23. Kubernetes ConfigMap
-
-Non-sensitive configuration:
-
-```text
-ConfigMap
-```
-
-Examples:
-
-```text
-LOG_LEVEL
-AI_ENABLED
-SERVICE_MODE
-FEATURE_FLAGS
-```
-
----
-
-# 24. Kubernetes Secret
-
-Sensitive configuration:
-
-```text
-Secret
-```
-
-Examples:
-
-```text
-DATABASE_PASSWORD
-JWT_SECRET
-API_KEY
-```
-
-But remember:
-
-> A Kubernetes Secret is not automatically equivalent to a full enterprise secret-management solution.
-
-Access control, encryption-at-rest, RBAC, rotation, and operational practices still matter.
-
----
-
-# 25. Secret Management
-
-For production, consider an organization-approved secret manager such as:
-
-```text
-HashiCorp Vault
-AWS Secrets Manager
-Azure Key Vault
-Google Secret Manager
-```
-
-depending on infrastructure.
-
-The actual choice should be captured in an ADR.
-
----
-
-# 26. Secret Rotation
-
-Secrets should be rotatable.
-
-Example:
-
-```text
-Old DB password
-      ↓
-New DB password
-      ↓
-Application configuration update
-      ↓
-Rolling restart / reload
-```
-
-Don't design a system where changing a credential requires modifying source code.
-
----
-
-# 27. JWT Secret
-
-JWT signing credentials are especially sensitive.
-
-Never:
-
-```text
-JWT_SECRET=secret123
-```
-
-in source control.
-
-Production secrets should have sufficient entropy and should be managed by secure infrastructure.
-
----
-
-# 28. API Keys
-
-External API keys must come from secret configuration:
-
-```yaml
-ai:
-  api-key: ${AI_API_KEY}
-```
-
-not:
-
-```yaml
-ai:
-  api-key: abc123
-```
-
----
-
-# 29. Database Configuration
-
-Example:
-
-```yaml
-spring:
-  datasource:
-    url: ${DATABASE_URL}
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
-```
-
-Pool settings can also be externalized:
-
-```yaml
-spring:
-  datasource:
-    hikari:
-      maximum-pool-size: ${DB_POOL_MAX_SIZE:20}
-```
-
-Defaults should be safe and documented.
-
----
-
-# 30. Database URL
-
-Don't hard-code:
-
-```text
-jdbc:postgresql://localhost:5432/mediverse
-```
-
-inside application code.
-
-Development can use:
-
-```text
-DATABASE_URL=jdbc:postgresql://localhost:5432/mediverse
-```
-
-while Kubernetes might use:
-
-```text
-DATABASE_URL=jdbc:postgresql://postgres.mediverse.svc.cluster.local:5432/mediverse
-```
-
-Same application, different configuration.
-
----
-
-# 31. Redis Configuration
-
-Example:
-
-```yaml
-spring:
-  data:
-    redis:
-      host: ${REDIS_HOST}
-      port: ${REDIS_PORT:6379}
-```
-
-Production credentials should come from secrets.
-
----
-
-# 32. Kafka Configuration
-
-Example:
-
-```yaml
-spring:
-  kafka:
-    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
-```
-
-Do not hard-code environment-specific broker addresses.
-
----
-
-# 33. Elasticsearch Configuration
-
-Example:
-
-```yaml
-elasticsearch:
-  url: ${ELASTICSEARCH_URL}
-```
-
-Authentication credentials must remain secret.
-
----
-
-# 34. External API Configuration
-
-Example:
-
-```yaml
-integrations:
-  ai:
-    base-url: ${AI_BASE_URL}
-    timeout: ${AI_TIMEOUT:3s}
-```
-
-This connects directly to **CSDG Chapter 27**.
-
----
-
-# 35. Configuration Groups
-
-Organize configuration logically:
-
-```yaml
-spring:
-  datasource:
-  kafka:
-  data:
-
-server:
-
-security:
-
-mediverse:
-
-integrations:
-
-storage:
-
-search:
-
-observability:
-```
-
-Avoid a huge flat collection of unrelated properties.
-
----
-
-# 36. Recommended Mediverse Configuration
-
-Example:
-
-```yaml
-spring:
-  application:
-    name: mediverse-content-service
-
-server:
-  port: ${SERVER_PORT:8080}
-
-security:
-  jwt:
-    issuer: ${JWT_ISSUER}
-
-integrations:
-  ai:
-    enabled: ${AI_ENABLED:false}
-    base-url: ${AI_BASE_URL:}
-    timeout: ${AI_TIMEOUT:3s}
-
-storage:
-  base-url: ${STORAGE_BASE_URL}
-
-search:
-  url: ${ELASTICSEARCH_URL}
-
-observability:
-  service-name: ${OBSERVABILITY_SERVICE_NAME:mediverse-content-service}
-```
-
----
-
-# 37. Configuration Prefixes
-
-Use domain-specific prefixes.
-
-Good:
-
-```text
-mediverse.content
-mediverse.learning
-integrations.ai
-integrations.storage
-security.jwt
-```
-
-Avoid generic properties:
-
-```text
-timeout
-url
-enabled
-secret
-```
-
-because their meaning becomes ambiguous.
-
----
-
-# 38. Default Values
-
-Defaults are useful for safe non-sensitive settings.
-
-Example:
-
-```yaml
-server:
-  port: ${SERVER_PORT:8080}
-```
-
-But don't provide dangerous defaults.
-
-Bad:
-
-```yaml
-database:
-  password: ${DATABASE_PASSWORD:admin123}
-```
-
-Never provide a real-looking production credential as a fallback.
-
----
-
-# 39. Dangerous Defaults
-
-Avoid defaults for:
-
-```text
-JWT secrets
-database passwords
-API keys
-encryption keys
-admin credentials
-```
-
-Fail startup instead.
-
----
-
-# 40. Environment-Specific URLs
-
-Example:
-
-```text
-DEV:
-http://localhost:8080
-
-UAT:
-https://uat-api.mediverse.example
-
-PROD:
-https://api.mediverse.example
-```
-
-These should come from environment configuration.
-
----
-
-# 41. UAT1 / UAT2
-
-Since Mediverse may have multiple UAT environments:
-
-```text
-UAT1
-UAT2
-```
-
-do not create separate code branches merely because the endpoints differ.
-
-Use environment-specific configuration.
-
-Example:
-
-```text
-UAT1:
-DATABASE_HOST=uat1-postgres
-
-UAT2:
-DATABASE_HOST=uat2-postgres
-```
-
-Same application image.
-
----
-
-# 42. Configuration Promotion
-
-Recommended:
-
-```text
-Code
- ↓
-Build artifact
- ↓
-Dev
- ↓
-Test
- ↓
-UAT
- ↓
-Staging
- ↓
-Production
-```
-
-Don't rebuild application code between environments simply to change configuration.
-
----
-
-# 43. Immutable Artifact Principle
-
-Example:
-
-```text
-mediverse-content-service:1.8.0
-```
-
-The exact same image should ideally move:
-
-```text
-UAT
- ↓
-Staging
- ↓
-Production
-```
-
-Configuration changes independently.
-
----
-
-# 44. Configuration Drift
-
-Configuration drift occurs when:
-
-```text
-UAT configuration ≠ expected UAT configuration
-```
-
-or:
-
-```text
-Production configuration differs from the approved configuration
-```
-
-This creates difficult-to-debug problems.
-
-Infrastructure-as-Code and GitOps can help control this.
-
----
-
-# 45. GitOps Configuration
-
-A possible model:
-
-```text
-Git
- ↓
-Helm values
- ↓
-Argo CD
- ↓
-Kubernetes
-```
-
-Example:
-
-```text
-values-dev.yaml
-values-uat.yaml
-values-prod.yaml
-```
-
-Sensitive values should be integrated through approved secret-management mechanisms rather than casually stored in Git.
-
----
-
-# 46. Helm Configuration
-
-Example:
-
-```yaml
-image:
-  repository: mediverse/content-service
-  tag: "1.8.0"
-
-config:
-  logLevel: INFO
-  aiEnabled: false
-```
-
-Helm values control deployment-specific behavior.
-
----
-
-# 47. Don't Put Secrets in Plain Helm Values
-
-Bad:
-
-```yaml
-database:
-  password: production-password
-```
-
-Use a secret mechanism.
-
----
-
-# 48. Configuration and Kubernetes
-
-Conceptually:
-
-```text
-Helm
- │
- ├── Deployment
- │
- ├── ConfigMap
- │
- └── Secret reference
-```
-
-Container:
-
-```text
-Environment variables
-       ↓
-Spring Boot
-       ↓
-@ConfigurationProperties
-```
-
----
-
-# 49. Runtime Configuration
-
-Some configuration can be changed without rebuilding:
-
-```text
-Feature flags
-Log levels
-Some operational parameters
-```
-
-But not everything should be dynamically mutable.
-
----
-
-# 50. Immutable Configuration
-
-Core configuration should generally be loaded at startup.
-
-Examples:
-
-```text
-Database URL
-Kafka brokers
-JWT issuer
-External service credentials
-```
-
-If changed, restart/redeploy through controlled operations.
-
----
-
-# 51. Dynamic Configuration
-
-Dynamic configuration can be useful for:
-
-```text
-Feature flags
-UI configuration
-Business thresholds
-Operational toggles
-```
-
-But dynamic configuration introduces:
-
-```text
-Consistency problems
-Debugging complexity
-Audit requirements
-Cache invalidation
-```
-
-Don't make every property dynamically configurable.
-
----
-
-# 52. Feature Flags
-
-Example:
-
-```text
-AI_EXPLANATION_ENABLED=true
-```
-
-Potential feature flags:
-
-```text
-AI_EXPLANATION_ENABLED
-RECOMMENDATION_ENGINE_ENABLED
-NEW_DASHBOARD_ENABLED
-BETA_3D_CONTENT_ENABLED
-```
-
----
-
-# 53. Feature Flag Naming
-
-Use:
-
-```text
-<FEATURE>_ENABLED
-```
-
-or a documented naming convention.
-
-Avoid:
-
-```text
-flag1
-newThing
-testFeature
-```
-
----
-
-# 54. Feature Flag Lifecycle
-
-Feature flags should not become permanent garbage.
-
-Every flag should have:
-
-```text
-Owner
-Purpose
-Created date
-Expected removal date
-Default state
-Environment behavior
-```
-
-Once fully released:
-
-```text
-Remove flag
-Remove old code path
-```
-
----
-
-# 55. Security Configuration
-
-Examples:
-
-```yaml
-security:
-  jwt:
-    issuer: ${JWT_ISSUER}
-    audience: ${JWT_AUDIENCE}
-```
-
-Avoid putting authentication policy decisions randomly across classes.
-
-Centralize security configuration.
-
----
-
-# 56. CORS Configuration
-
-Don't hard-code:
-
-```text
-allow-origin=*
-```
-
-for production.
-
-Configure allowed origins per environment.
-
-Example:
-
-```text
-DEV:
-http://localhost:5173
-
-UAT:
-https://uat.mediverse.example
-
-PROD:
-https://mediverse.example
-```
-
----
-
-# 57. CORS as Configuration
-
-Example:
-
-```yaml
-security:
-  cors:
-    allowed-origins: ${CORS_ALLOWED_ORIGINS}
-```
-
-This avoids rebuilding the application for environment changes.
-
----
-
-# 58. Logging Configuration
-
-Example:
-
-```yaml
-logging:
-  level:
-    root: INFO
-    com.mediverse: INFO
-```
-
-Development might use:
-
-```text
-DEBUG
-```
-
-while production should generally use controlled levels.
-
----
-
-# 59. Don't Use DEBUG Everywhere in Production
-
-This can create:
-
-```text
-Huge log volume
-Performance overhead
-Sensitive data exposure
-Storage cost
-Harder incident analysis
-```
-
-Use targeted debug logging when necessary and remove/revert it afterward.
-
----
-
-# 60. Configuration Validation Test
-
-Tests should verify required configuration.
-
-Example:
-
-```text
-Missing DATABASE_URL
-     ↓
-Application context fails
-```
-
-This is better than discovering the problem after deployment.
-
----
-
-# 61. Test Configuration
-
-Tests should use isolated configuration.
-
-Example:
-
-```text
-application-test.yml
-```
-
-Potentially:
-
-```text
-Testcontainers PostgreSQL
-Embedded/mock dependencies
-Dedicated test topics
-```
-
-Don't let automated tests accidentally connect to production.
-
----
-
-# 62. Production Protection
-
-Application configuration should make accidental production access difficult.
-
-For example:
-
-```text
-TEST environment
-  ↓
-TEST database
-
-PRODUCTION
-  ↓
-PRODUCTION database
-```
-
-Credentials and access policies must enforce the boundary.
-
----
-
-# 63. Configuration Security Review
-
-Before deployment:
-
-```text
-☑ No plaintext secrets
-☑ No credentials in Git
-☑ Correct environment endpoints
-☑ Correct CORS origins
-☑ Correct database
-☑ Correct Kafka cluster
-☑ Correct Redis
-☑ Correct Elasticsearch
-☑ Correct external APIs
-☑ Production debug disabled
-☑ Secret references valid
-```
-
----
-
-# 64. Configuration Ownership
-
-Every important configuration group should have an owner.
-
-Example:
-
-| Configuration | Owner               |
-| ------------- | ------------------- |
-| Database      | Backend/Platform    |
-| Kafka         | Platform            |
-| Redis         | Platform            |
-| JWT           | Security/Backend    |
-| AI            | AI/Backend          |
-| CORS          | Backend/Security    |
-| Feature flags | Product/Engineering |
-| Observability | Platform            |
-
-Exact ownership should be defined organizationally.
-
----
-
-# 65. Configuration Documentation
-
-For every important property document:
-
-```text
-Property
-Purpose
-Type
-Required?
-Default
-Secret?
-Allowed values
-Example
-Owner
-```
-
-Example:
-
-| Property            | Required      | Secret | Example   |
-| ------------------- | ------------- | ------ | --------- |
-| `DATABASE_URL`      | Yes           | No     | JDBC URL  |
-| `DATABASE_PASSWORD` | Yes           | Yes    | Secret    |
-| `AI_ENABLED`        | No            | No     | `true`    |
-| `AI_BASE_URL`       | If AI enabled | No     | HTTPS URL |
-| `AI_API_KEY`        | If AI enabled | Yes    | Secret    |
-| `LOG_LEVEL`         | No            | No     | `INFO`    |
-
----
-
-# 66. Configuration Anti-Patterns
-
-Never:
-
-```text
-❌ Hard-code passwords
-❌ Hard-code production URLs
-❌ Commit API keys
-❌ Use the same secret everywhere
-❌ Put secrets in ConfigMaps
-❌ Store production secrets in Git
-❌ Use dangerous default passwords
-❌ Rebuild code for environment changes
-❌ Duplicate every property in every profile
-❌ Have undocumented configuration precedence
-❌ Create unlimited feature flags
-❌ Enable DEBUG globally in production
-❌ Let tests access production services
-❌ Allow unrestricted CORS in production
-```
-
----
-
-# 67. Recommended Mediverse Structure
-
-```text
-mediverse-content-service/
-│
-├── src/main/resources/
-│   ├── application.yml
-│   ├── application-dev.yml
-│   ├── application-test.yml
-│   ├── application-uat.yml
-│   └── application-prod.yml
-│
-├── deploy/
-│   └── helm/
-│       └── mediverse-content-service/
-│           ├── values.yaml
-│           ├── values-dev.yaml
-│           ├── values-uat.yaml
-│           └── values-prod.yaml
-│
-└── docs/
-    └── configuration.md
-```
-
-The exact repository structure may evolve with the final Mediverse deployment architecture.
-
----
-
-# 68. Configuration Flow
-
-The target flow is:
-
-```text
-┌─────────────────────┐
-│ Git / Helm Values   │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│ Kubernetes          │
-│ ConfigMap / Secret  │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│ Environment Vars    │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│ Spring Boot         │
-│ Configuration       │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│ Typed Properties    │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│ Application         │
-└─────────────────────┘
-```
-
----
-
-# 69. Mediverse Environment Matrix
-
-A baseline model:
-
-| Setting       | DEV                    | TEST         | UAT1/UAT2      | STAGING        | PROD           |
-| ------------- | ---------------------- | ------------ | -------------- | -------------- | -------------- |
-| PostgreSQL    | Dev DB                 | Test DB      | UAT DB         | Stage DB       | Prod DB        |
-| Redis         | Dev                    | Test         | UAT            | Stage          | Prod           |
-| Kafka         | Dev                    | Test         | UAT            | Stage          | Prod           |
-| Elasticsearch | Dev                    | Test         | UAT            | Stage          | Prod           |
-| AI            | Optional               | Mock         | Controlled     | Enabled        | Approved       |
-| Log Level     | DEBUG                  | INFO         | INFO           | INFO           | INFO           |
-| Debug         | Limited                | No           | No             | No             | No             |
-| CORS          | Local                  | Test         | UAT            | Stage          | Production     |
-| Secrets       | Local secret mechanism | Test secrets | Secret manager | Secret manager | Secret manager |
-
-This matrix should become part of Mediverse's deployment documentation.
-
----
-
-# 70. Configuration Golden Rules
-
-```text
-1. Configuration belongs outside application code.
-2. Secrets never belong in Git.
-3. Use typed configuration for grouped settings.
-4. Validate critical configuration at startup.
-5. Keep the same artifact across environments.
-6. Separate configuration from secrets.
-7. Use ConfigMaps for non-sensitive Kubernetes configuration.
-8. Use Secrets/secret-management systems for sensitive data.
-9. Avoid dangerous defaults.
-10. Document configuration ownership.
-11. Control configuration precedence.
-12. Avoid unnecessary profile duplication.
-13. Treat UAT1/UAT2 as configuration differences, not code differences.
-14. Keep feature flags temporary.
-15. Protect production configuration.
-16. Test configuration.
-17. Prevent configuration drift.
-18. Make configuration changes auditable.
-```
-
----
-
-# 71. Developer Checklist
-
-Before merging configuration changes:
-
-```text
-☐ Property name follows convention
-☐ Correct configuration prefix
-☐ Environment-specific behavior reviewed
-☐ Secret classification checked
-☐ No credentials committed
-☐ Default value evaluated
-☐ Startup validation considered
-☐ ConfigurationProperties used where appropriate
-☐ Kubernetes ConfigMap/Secret requirement checked
-☐ Helm values updated
-☐ UAT behavior checked
-☐ Production behavior checked
-☐ CORS reviewed
-☐ Logging reviewed
-☐ Feature flag lifecycle documented
-☐ Configuration documentation updated
-```
 
 ---
 
@@ -38347,6 +32689,84 @@ Yes. I found the exact continuation point in the uploaded CSDG. **Chapter 29 is 
 I’ll continue directly from that point and preserve the established CSDG style and numbering.
 
 # Coding Standards & Development Guidelines (CSDG)
+
+---
+
+# 28.10 Mathematical Physiology Differential Solvers Coding Standards
+
+### CSDG-0285: Pure Functional Simulation Architecture
+* **Pure Functional Decoupling:** Solvers (`cardiacSolver.ts`, `acidBaseSolver.ts`, `renalSolver.ts`, `membraneSolver.ts`) must be pure deterministic TypeScript functions with zero React DOM dependencies.
+* **Defensive Numerical Stability:** Guard against division-by-zero, `NaN`, and `Infinity` propagation in Euler integration loops.
+* **Biological Bound Clamping:** Clamp all outputs to valid biological ranges (e.g. Heart Rate: $20 \le HR \le 260\text{ BPM}$, Arterial Blood pH: $6.80 \le pH \le 7.80$).
+* **Performance Budget:** Execution time must not exceed $< 1.0\text{ms}$ per calculation cycle to ensure continuous 60 FPS slider reactivity.
+
+---
+
+# Chapter 29 — 3D WebGL, Three.js & Interactive Shader Graphics Standards
+
+## 29.1 Overview
+
+This chapter defines the engineering standards, memory management lifecycle rules, rendering loop conventions, and GLSL shader practices for developing 3D anatomical and physiological models in the Mediverse platform.
+
+## 29.2 Three.js WebGL2 Architecture & Canvas Standards
+
+### CSDG-0291: Three.js Canvas Lifecycle & Component Architecture
+* **Canvas Component:** All 3D WebGL canvases must be implemented using Three.js canvas wrappers (`ThreeCanvas.tsx`) supporting WebGL2.
+* **Camera & Controls:** Utilize `PerspectiveCamera` with a field of view (FOV) between $45^\circ$ and $60^\circ$ and `OrbitControls` with damping enabled (`enableDamping: true`, damping factor: `0.05`).
+* **Lighting Model:** Use a calibrated three-point lighting rig (Key DirectionalLight, Fill AmbientLight, Rim PointLight) to ensure anatomical surface depth without washouts.
+
+### CSDG-0292: Mandatory GPU VRAM Disposal & Memory Cleanup
+* **Unmount Disposal:** Every React component mounting a 3D mesh, geometry, material, or texture must bind to an unmount cleanup hook (`useThreeMemoryCleanup.ts`).
+* **Disposal Pattern:**
+  ```typescript
+  export function dispose3DObject(object: THREE.Object3D): void {
+    object.traverse((child) => {
+      if (child instanceof THREE.Mesh) {
+        if (child.geometry) child.geometry.dispose();
+        if (child.material) {
+          if (Array.isArray(child.material)) {
+            child.material.forEach((mat) => disposeMaterial(mat));
+          } else {
+            disposeMaterial(child.material);
+          }
+        }
+      }
+    });
+  }
+
+  function disposeMaterial(material: THREE.Material): void {
+    Object.keys(material).forEach((prop) => {
+      const val = (material as any)[prop];
+      if (val && typeof val.dispose === 'function') {
+        val.dispose();
+      }
+    });
+    material.dispose();
+  }
+  ```
+
+### CSDG-0293: Zero Allocation in Render Loops (useFrame / requestAnimationFrame)
+* **Prohibition:** Strictly prohibit instantiating `new THREE.Vector3()`, `new THREE.Matrix4()`, `new THREE.Quaternion()`, or temporary arrays inside the `useFrame` or `requestAnimationFrame` loop.
+* **Reuse Rule:** Declare module-scoped or ref-cached scratch variables:
+  ```typescript
+  // CORRECT: Pre-allocated scratch objects
+  const _scratchVector = new THREE.Vector3();
+  const _scratchMatrix = new THREE.Matrix4();
+
+  useFrame((state, delta) => {
+    _scratchVector.set(0, Math.sin(state.clock.elapsedTime), 0);
+    meshRef.current.position.add(_scratchVector.multiplyScalar(delta));
+  });
+  ```
+
+### CSDG-0294: GLSL Cross-Sectional Dissection Shader Standards
+* **Clipping Planes:** Multi-plane dissection clipping (sagittal, coronal, transverse) must be implemented via custom GLSL shaders or standard Three.js `clippingPlanes` with stencil buffer capping (`DissectionShader.ts`).
+* **Precision Qualifiers:** Always declare `precision mediump float;` for mobile cross-browser compatibility.
+
+### CSDG-0295: WebGL Context Loss & Mobile Fallbacks
+* **Context Loss Handler:** Add explicit event listeners for `webglcontextlost` (calling `event.preventDefault()` to allow WebGL restoration) and `webglcontextrestored` (re-initializing textures and mesh geometries).
+
+---
 
 # Chapter 30 — Git, Branching, Commit & Pull Request Standards
 
@@ -41040,879 +35460,7 @@ The Chapter 30 scope follows the exact next-chapter roadmap already present in y
 
 Yes. Based on the latest canonical Mediverse CSDG state, **Chapter 30** is the next chapter.
 
-# CSDG — Chapter 30
-
-## Git, Branching, Commit & Pull Request Standards
-
-This chapter should establish the **mandatory Git and repository governance standards** for every Mediverse repository.
-
-### 30.1 Purpose
-
-Define a consistent Git workflow for:
-
-* Source-code management
-* Branching
-* Commits
-* Pull requests
-* Code reviews
-* Merge strategies
-* Release management
-* Hotfixes
-* Repository security
-* Ownership
-* Auditability
-* CI/CD integration
-
-The goal is not to impose Git complexity. The goal is to make every change **traceable, reviewable, reproducible, reversible, and safe**.
-
 ---
-
-## 30.2 Scope
-
-Applies to:
-
-* Backend repositories
-* Frontend repositories
-* Mobile repositories
-* AI/RAG/MCP repositories
-* Infrastructure repositories
-* Terraform repositories
-* Helm repositories
-* Kubernetes/GitOps repositories
-* CI/CD repositories
-* Documentation repositories
-* Automation repositories
-* Database migration repositories
-* Configuration repositories
-
-It applies to:
-
-* Developers
-* AI coding agents
-* DevOps engineers
-* SRE
-* Platform engineers
-* Security engineers
-* QA engineers
-* Architects
-* Technical leads
-
----
-
-# 30.3 Repository Standards
-
-Every Mediverse repository MUST contain, where applicable:
-
-```text
-README.md
-LICENSE
-.gitignore
-.gitattributes
-CONTRIBUTING.md
-CODEOWNERS
-SECURITY.md
-CHANGELOG.md
-```
-
-Recommended project structure:
-
-```text
-repository/
-├── README.md
-├── CONTRIBUTING.md
-├── SECURITY.md
-├── CODEOWNERS
-├── CHANGELOG.md
-├── LICENSE
-├── .gitignore
-├── .gitattributes
-├── .editorconfig
-├── docs/
-├── src/
-├── tests/
-├── scripts/
-└── .github/
-    ├── workflows/
-    ├── pull_request_template.md
-    └── ISSUE_TEMPLATE/
-```
-
-Not every repository will require every directory, but unnecessary files/directories MUST NOT be created merely to satisfy a template.
-
----
-
-# 30.4 Repository Naming
-
-Repository names MUST:
-
-* Be descriptive
-* Use lowercase
-* Use hyphens where appropriate
-* Represent the bounded context/service/component
-* Avoid ambiguous abbreviations
-
-Examples:
-
-```text
-student-service
-course-service
-assessment-service
-notification-service
-ai-tutor-service
-media-service
-frontend-web
-mobile-app
-platform-infrastructure
-gitops-environments
-terraform-aws
-helm-charts
-```
-
-Avoid:
-
-```text
-service1
-backend-new
-final-project
-mediverse2
-test-api
-my-service
-temp
-```
-
----
-
-# 30.5 Branching Strategy
-
-The canonical branch model is:
-
-```text
-main
-develop
-feature/*
-bugfix/*
-release/*
-hotfix/*
-support/*
-experiment/*
-```
-
-### Main
-
-`main` represents production-ready code.
-
-```text
-main
-```
-
-Rules:
-
-* MUST be protected
-* Direct pushes MUST be disabled
-* Changes MUST go through PR
-* Required CI checks MUST pass
-* Required approvals MUST be obtained
-* Production releases originate from approved code on `main`
-
----
-
-## 30.6 Develop
-
-```text
-develop
-```
-
-Purpose:
-
-* Integration of completed development work
-* Pre-release validation
-* UAT integration
-
-It MUST NOT be treated as an uncontrolled development dump.
-
----
-
-# 30.7 Feature Branches
-
-Format:
-
-```text
-feature/<ticket>-<short-description>
-```
-
-Examples:
-
-```text
-feature/MED-101-student-registration
-feature/MED-205-ai-tutor-chat
-feature/MED-310-course-search
-feature/MED-412-3d-anatomy-viewer
-```
-
-Feature branches MUST:
-
-* Have a clear owner
-* Represent one logical feature/change
-* Be short-lived where practical
-* Be regularly synchronized with the target branch
-* Not contain unrelated changes
-
----
-
-# 30.8 Bugfix Branches
-
-Format:
-
-```text
-bugfix/<ticket>-<short-description>
-```
-
-Example:
-
-```text
-bugfix/MED-501-jwt-expiration
-bugfix/MED-522-course-search-timeout
-```
-
----
-
-# 30.9 Release Branches
-
-Format:
-
-```text
-release/<version>
-```
-
-Examples:
-
-```text
-release/1.0.0
-release/1.2.0
-release/2.0.0
-```
-
-Release branches are used for:
-
-* Release stabilization
-* Final testing
-* Release documentation
-* Version preparation
-* Critical release-only fixes
-
-New features SHOULD NOT be introduced into a release branch.
-
----
-
-# 30.10 Hotfix Branches
-
-Format:
-
-```text
-hotfix/<ticket>-<short-description>
-```
-
-Example:
-
-```text
-hotfix/MED-701-payment-timeout
-hotfix/MED-702-security-vulnerability
-```
-
-Hotfixes MUST be:
-
-* Minimal
-* Targeted
-* Reviewed
-* Tested
-* Auditable
-
-A hotfix MUST eventually be synchronized back into the appropriate development branch to prevent regression.
-
----
-
-# 30.11 Commit Standards
-
-Mediverse MUST use **Conventional Commits**.
-
-Format:
-
-```text
-<type>(<scope>): <description>
-```
-
-Examples:
-
-```text
-feat(student): add student registration API
-
-fix(auth): handle expired refresh token
-
-refactor(course): simplify enrollment validation
-
-test(assessment): add quiz submission tests
-
-docs(api): update course API documentation
-
-perf(search): optimize course search query
-
-build(deps): upgrade spring boot version
-
-ci(gitops): add production deployment validation
-
-security(auth): enforce refresh token rotation
-
-chore(repo): update repository configuration
-```
-
----
-
-# 30.12 Commit Types
-
-Approved types include:
-
-| Type       | Purpose                 |
-| ---------- | ----------------------- |
-| `feat`     | New functionality       |
-| `fix`      | Bug fix                 |
-| `refactor` | Code restructuring      |
-| `test`     | Tests                   |
-| `docs`     | Documentation           |
-| `perf`     | Performance improvement |
-| `build`    | Build/dependencies      |
-| `ci`       | CI/CD                   |
-| `security` | Security changes        |
-| `chore`    | Maintenance             |
-| `revert`   | Reverting a change      |
-
----
-
-# 30.13 Commit Rules
-
-Commits MUST be:
-
-* Atomic
-* Meaningful
-* Reviewable
-* Reversible
-* Related to one logical change
-
-Bad:
-
-```text
-fix stuff
-changes
-final
-final2
-working
-updates
-```
-
-Good:
-
-```text
-fix(auth): reject expired access tokens
-```
-
-Do not create commits such as:
-
-```text
-feat(student): add registration + redesign dashboard + update Kafka + fix Docker
-```
-
-That's multiple logical changes.
-
-Split it.
-
----
-
-# 30.14 Commit Message Quality
-
-The subject SHOULD:
-
-* Be concise
-* Use imperative language
-* Clearly describe the change
-* Avoid unnecessary punctuation
-* Avoid vague wording
-
-Good:
-
-```text
-fix(user): validate email uniqueness
-```
-
-Bad:
-
-```text
-fixed some user issue!!!
-```
-
----
-
-# 30.15 Pull Request Standards
-
-Every production-impacting change MUST go through a Pull Request.
-
-A PR MUST contain:
-
-```text
-Title
-Description
-Problem
-Solution
-Testing
-Security Impact
-Deployment Impact
-Rollback Considerations
-Related Issue/Ticket
-```
-
-Example:
-
-```text
-feat(student): add student registration API
-```
-
----
-
-# 30.16 Pull Request Size
-
-PRs SHOULD remain small enough to review effectively.
-
-Avoid:
-
-```text
-1 PR
-→ 75 files
-→ 12 services
-→ 8 unrelated fixes
-→ infrastructure changes
-→ UI redesign
-→ database migration
-```
-
-Prefer:
-
-```text
-PR 1 → Database model
-PR 2 → Backend API
-PR 3 → Frontend integration
-PR 4 → Tests
-PR 5 → Deployment configuration
-```
-
-unless the changes genuinely form one inseparable unit.
-
----
-
-# 30.17 Code Review
-
-At least one appropriate reviewer MUST review normal changes.
-
-Critical areas SHOULD require additional review:
-
-* Authentication
-* Authorization
-* Patient/student sensitive data
-* AI/RAG
-* Infrastructure
-* Kubernetes
-* Terraform
-* Security
-* Database migrations
-* Production configuration
-* Disaster recovery
-
-Reviewers should evaluate:
-
-1. Correctness
-2. Security
-3. Maintainability
-4. Performance
-5. Test coverage
-6. Observability
-7. API compatibility
-8. Data integrity
-9. Operational impact
-10. Architectural compliance
-
----
-
-# 30.18 CODEOWNERS
-
-Repositories MUST define ownership for critical areas.
-
-Example:
-
-```text
-/backend/auth/       @mediverse-security
-/backend/            @mediverse-backend
-/frontend/            @mediverse-frontend
-/infrastructure/     @mediverse-platform
-/terraform/           @mediverse-platform
-/helm/                @mediverse-platform
-/gitops/              @mediverse-sre
-/docs/architecture/  @mediverse-architecture
-```
-
-CODEOWNERS MUST complement—not replace—normal code review.
-
----
-
-# 30.19 Protected Branches
-
-`main` MUST be protected.
-
-Recommended controls:
-
-```text
-Direct push                  ❌
-Force push                   ❌
-Branch deletion              ❌
-PR required                 ✅
-CI required                 ✅
-Security checks             ✅
-Code-owner approval         ✅
-Signed commits              ✅ where enforced
-Conversation resolution     ✅
-```
-
-Production branches MUST have stronger protection than development branches.
-
----
-
-# 30.20 Merge Strategy
-
-The merge strategy MUST be selected according to repository policy.
-
-Preferred approaches:
-
-```text
-Squash Merge
-```
-
-for feature branches when preserving a clean target-branch history is more important than retaining every development commit.
-
-Use:
-
-```text
-Merge Commit
-```
-
-when preserving branch history is valuable.
-
-Use:
-
-```text
-Rebase
-```
-
-for maintaining a clean local development history where appropriate.
-
-Do not rewrite protected production history.
-
----
-
-# 30.21 Force Push
-
-Force-pushing to:
-
-```text
-main
-release/*
-hotfix/*
-```
-
-is prohibited.
-
-Developers may use controlled force-pushes on personal feature branches when required, provided the branch is not protected and no other contributor depends on its history.
-
----
-
-# 30.22 Tags and Releases
-
-Mediverse releases MUST use semantic versioning where applicable:
-
-```text
-MAJOR.MINOR.PATCH
-```
-
-Examples:
-
-```text
-v1.0.0
-v1.1.0
-v1.1.1
-v2.0.0
-```
-
-Tags MUST be immutable once associated with a production release.
-
-Do not silently move:
-
-```text
-v1.0.0
-```
-
-to a different commit.
-
----
-
-# 30.23 CHANGELOG
-
-Production releases SHOULD maintain:
-
-```text
-CHANGELOG.md
-```
-
-Example:
-
-```text
-## [1.4.0] - 2026-08-09
-
-### Added
-- AI tutor conversation history
-- Course recommendation API
-
-### Changed
-- Improved search ranking
-
-### Fixed
-- Refresh token expiration handling
-
-### Security
-- Added dependency vulnerability remediation
-```
-
----
-
-# 30.24 Git Security
-
-Developers MUST NOT commit:
-
-```text
-Passwords
-API keys
-JWT secrets
-Private keys
-AWS credentials
-Database credentials
-OAuth secrets
-Encryption keys
-Production tokens
-PHI/PII
-Patient/student sensitive data
-```
-
-Secrets MUST be detected using automated scanning.
-
-Recommended controls:
-
-```text
-Pre-commit secret scanning
-        ↓
-PR secret scanning
-        ↓
-CI secret scanning
-        ↓
-Repository scanning
-        ↓
-Runtime secret management
-```
-
----
-
-# 30.25 `.gitignore`
-
-`.gitignore` MUST exclude:
-
-```text
-.env
-.env.*
-*.key
-*.pem
-*.p12
-*.jks
-node_modules/
-target/
-build/
-dist/
-coverage/
-.idea/
-.vscode/
-*.log
-.DS_Store
-```
-
-But `.gitignore` MUST NOT be used to hide required source/configuration files from version control.
-
----
-
-# 30.26 Pre-Commit Checks
-
-Where appropriate, repositories SHOULD enforce:
-
-```text
-Formatting
-Linting
-Unit tests
-Secret scanning
-Commit-message validation
-License checks
-Security checks
-```
-
-Example flow:
-
-```text
-git commit
-     ↓
-pre-commit hooks
-     ↓
-validation
-     ↓
-commit
-```
-
-CI remains authoritative; local hooks are developer feedback, not a replacement for CI.
-
----
-
-# 30.27 Pull Request CI
-
-PR validation SHOULD include:
-
-```text
-Compile
-    ↓
-Unit Tests
-    ↓
-Integration Tests
-    ↓
-Static Analysis
-    ↓
-Dependency Scan
-    ↓
-Secret Scan
-    ↓
-License Validation
-    ↓
-Container Scan
-    ↓
-API/Contract Validation
-    ↓
-PR Approval
-```
-
-Critical failures MUST block merging.
-
----
-
-# 30.28 AI Coding Agent Rules
-
-Because Mediverse uses AI-assisted engineering, AI-generated commits and PRs MUST follow exactly the same Git standards as human-generated changes.
-
-AI agents MUST NOT:
-
-* Commit secrets
-* Bypass branch protection
-* Merge their own production PR without required approval
-* Rewrite protected history
-* Invent issue IDs
-* Claim tests were executed when they were not
-* Modify architecture without the required ADR/change process
-
-AI-generated code remains subject to:
-
-```text
-Human Review
-+
-Automated Testing
-+
-Security Validation
-+
-Architecture Compliance
-```
-
----
-
-# 30.29 Git Governance
-
-Repository governance MUST provide:
-
-```text
-Ownership
-Traceability
-Auditability
-Reproducibility
-Security
-Reviewability
-Rollback capability
-Release traceability
-```
-
-Every production artifact should ultimately be traceable through:
-
-```text
-Requirement
-   ↓
-Issue/Ticket
-   ↓
-Commit
-   ↓
-Pull Request
-   ↓
-CI
-   ↓
-Artifact
-   ↓
-Release
-   ↓
-GitOps Change
-   ↓
-Deployment
-```
-
-This aligns Git with Mediverse's broader trusted software-delivery chain.
-
----
-
-# 30.30 Definition of Done
-
-A Git-based change is complete only when:
-
-* [ ] Correct branch is used
-* [ ] Branch naming follows the standard
-* [ ] Commits follow Conventional Commits
-* [ ] Commits are atomic
-* [ ] No secrets are committed
-* [ ] Tests pass
-* [ ] Security checks pass
-* [ ] CI passes
-* [ ] PR description is complete
-* [ ] Required reviewers approve
-* [ ] CODEOWNERS requirements are satisfied
-* [ ] Deployment impact is understood
-* [ ] Rollback strategy is understood
-* [ ] Documentation is updated where required
-* [ ] Changelog/release metadata is updated where applicable
-* [ ] Merge follows repository policy
-* [ ] Production changes remain fully traceable
-
----
-
-## Chapter 30 — Core Principle
-
-> **Every Mediverse change must be traceable from intent to production.**
-
-Git is not merely source-code storage.
-
-For Mediverse, Git is part of the **engineering control plane** connecting requirements, development, review, security, CI/CD, artifacts, GitOps, deployment, and auditability.
-
-This chapter is the correct next CSDG chapter based on the latest canonical status you provided.
-
 
 # CSDG — Chapter 31
 
@@ -43573,6 +37121,7 @@ Chapter 31 therefore turns Mediverse's DevSecOps architecture into **repeatable 
 
 **Next `.` → CSDG Chapter 32: Docker & Container Development Standards.**
 
+---
 
 # CSDG — Chapter 32
 
@@ -45200,6 +38749,8 @@ Mediverse container engineering follows these principles:
 > **A container is not a miniature server. It is an immutable, verifiable software artifact whose lifecycle must be controlled from source code through production.**
 
 **Next `.` → CSDG Chapter 33: Kubernetes Development Standards.**
+
+---
 
 # CSDG — Chapter 33
 
@@ -46854,6 +40405,7 @@ Mediverse Kubernetes development follows these principles:
 
 **Next `.` → CSDG Chapter 34: Helm Development Standards.**
 
+---
 
 # CSDG — Chapter 34
 
@@ -48759,6 +42311,8 @@ Mediverse Helm development follows these principles:
 > **A good Helm chart makes the correct Kubernetes deployment easy, the insecure deployment difficult, and the desired state completely reproducible.**
 
 **Next `.` → CSDG Chapter 35: Terraform & Infrastructure-as-Code Standards.**
+
+---
 
 # CSDG — Chapter 35
 
@@ -50698,6 +44252,8 @@ Mediverse Terraform development follows these principles:
 
 **Next `.` → CSDG Chapter 36: Ansible Configuration Management Standards.**
 
+---
+
 # CSDG — Chapter 36
 
 ## Ansible Configuration Management Standards
@@ -52514,7 +46070,7 @@ Mediverse Ansible development follows these principles:
 
 **Next `.` → CSDG Chapter 37: CI/CD Pipeline Development Standards.**
 
-
+---
 
 # CSDG — Chapter 37
 
@@ -54417,6 +47973,7 @@ Mediverse CI/CD follows these principles:
 
 **Next `.` → CSDG Chapter 38: Git & GitHub Development Standards.**
 
+---
 
 # CSDG — Chapter 38
 
@@ -56233,6 +49790,7 @@ Mediverse Git/GitHub development follows:
 
 **Next `.` → CSDG Chapter 39: Docker & Containerization Standards.**
 
+---
 
 # CSDG — Chapter 39
 
@@ -58184,6 +51742,8 @@ Mediverse containerization follows:
 > **A Docker image is not just a packaging artifact. In Mediverse it is a security boundary, deployment artifact, and supply-chain object whose exact contents must be reproducible, identifiable, and trustworthy.**
 
 **Next `.` → CSDG Chapter 40: Kubernetes Development & Deployment Standards.**
+
+---
 
 # CSDG — Chapter 40
 
@@ -60450,6 +54010,8 @@ Mediverse Kubernetes development follows:
 
 **Next `.` → CSDG Chapter 41: Helm Chart & Kubernetes Packaging Standards.**
 
+---
+
 # CSDG — Chapter 41
 
 ## Helm Chart & Kubernetes Packaging Standards
@@ -62299,6 +55861,8 @@ Mediverse Helm standards are based on:
 
 **Next `.` → CSDG Chapter 42: GitOps & Argo CD Standards.**
 
+---
+
 # CSDG — Chapter 42
 
 ## GitOps & Argo CD Standards
@@ -64041,6 +57605,7 @@ Mediverse GitOps follows:
 
 **Next `.` → CSDG Chapter 43: CI/CD Pipeline Standards.**
 
+---
 
 # CSDG — Chapter 43
 
@@ -65818,6 +59383,8 @@ Mediverse CI/CD follows these principles:
 > **The goal of CI/CD is not to deploy faster at any cost. The goal is to make delivering a verified, secure, traceable change to Mediverse routine, repeatable, and boring.**
 
 **Next `.` → CSDG Chapter 44: Docker & Containerization Standards.**
+
+---
 
 # CSDG — Chapter 44
 
@@ -67628,6 +61195,8 @@ Mediverse containerization follows:
 
 **Next `.` → CSDG Chapter 45: Kubernetes Security Standards.**
 
+---
+
 # CSDG — Chapter 45
 
 ## Kubernetes Security Standards
@@ -69281,6 +62850,8 @@ Mediverse Kubernetes security follows these principles:
 
 **Next `.` → CSDG Chapter 46: Helm Chart Standards.**
 
+---
+
 # CSDG — Chapter 46
 
 ## Helm Chart Standards
@@ -70826,6 +64397,8 @@ Mediverse Helm standards follow:
 
 **Next `.` → CSDG Chapter 47: GitOps & Argo CD Standards.**
 
+---
+
 # CSDG — Chapter 47
 
 ## GitOps & Argo CD Standards
@@ -72185,6 +65758,8 @@ Mediverse GitOps follows these rules:
 > **The goal of Mediverse GitOps is not simply automated deployment. It is a reproducible, auditable, self-correcting path from approved source code to a known production state.**
 
 **Next `.` → CSDG Chapter 48: CI/CD Pipeline Standards.**
+
+---
 
 # CSDG — Chapter 48
 
@@ -73741,6 +67316,8 @@ Mediverse CI/CD follows:
 > **The objective of Mediverse CI/CD is not simply to automate Jenkins jobs. It is to create a reliable chain of evidence from source code → tested artifact → secured image → approved environment → healthy production workload.**
 
 **Next `.` → CSDG Chapter 49: Observability, Logging & Monitoring Standards.**
+
+---
 
 # CSDG — Chapter 49
 
@@ -75362,6 +68939,8 @@ Mediverse observability follows:
 > **Mediverse observability must allow an engineer to move from symptom → service → request → trace → log → dependency → root cause without guessing.**
 
 **Next `.` → CSDG Chapter 50: Incident Management, Error Handling & Production Troubleshooting Standards.**
+
+---
 
 # CSDG — Chapter 50
 
@@ -77044,6 +70623,7 @@ Mediverse incident management follows:
 
 **Next `.` → CSDG Chapter 51: Database Coding & Data Access Standards.**
 
+---
 
 # CSDG — Chapter 51
 
@@ -78797,6 +72377,7 @@ Mediverse database implementation is production-ready when:
 
 **Next `.` → CSDG Chapter 52: API Design, REST, Request/Response & Integration Standards.**
 
+---
 
 # CSDG — Chapter 52
 
@@ -80362,6 +73943,7 @@ A Mediverse API is production-ready when:
 
 **Next `.` → CSDG Chapter 53: Authentication, Authorization & Identity Security Standards.**
 
+---
 
 # CSDG — Chapter 53
 
@@ -82090,6 +75672,8 @@ Mediverse identity security is production-ready when:
 > **In Mediverse, identity is a security boundary. Every request must be evaluated according to a verifiable identity, explicit permissions, resource ownership, and current security policy—not assumptions made by the frontend or network.**
 
 **Next `.` → CSDG Chapter 54: Frontend Coding, React Architecture & UI Development Standards.**
+
+---
 
 # CSDG — Chapter 54
 
@@ -83988,6 +77572,8 @@ A Mediverse frontend feature is production-ready when:
 
 **Next `.` → CSDG Chapter 55: Database Coding, JPA/Hibernate & Data Access Standards.**
 
+---
+
 # CSDG — Chapter 55
 
 ## Database Coding, JPA/Hibernate & Data Access Standards
@@ -85802,6 +79388,8 @@ A Mediverse data-access implementation is production-ready when:
 
 **Next `.` → CSDG Chapter 56: API Design, REST, HTTP Semantics & Integration Standards.**
 
+---
+
 # CSDG — Chapter 56
 
 ## API Design, REST, HTTP Semantics & Integration Standards
@@ -87400,6 +80988,8 @@ An API feature is production-ready when:
 
 **Next `.` → CSDG Chapter 57: Security Coding Standards, Authentication, Authorization & Application Security.**
 
+---
+
 # CSDG — Chapter 57
 
 ## Security Coding Standards, Authentication, Authorization & Application Security
@@ -88968,6 +82558,8 @@ A security-sensitive Mediverse feature is production-ready when:
 > **For Mediverse, security is especially important because the platform combines user identity, educational records, potentially sensitive information, AI capabilities, media, administrative functions, and distributed infrastructure. A vulnerable frontend, API, AI tool, Kubernetes service, or database can become a path into the entire platform.**
 
 **Next `.` → CSDG Chapter 58: Testing Standards — Unit, Integration, API, E2E, Performance & Security Testing.**
+
+---
 
 # CSDG — Chapter 58
 
@@ -90620,6 +84212,9 @@ A Mediverse feature is considered tested when:
 > **For Mediverse, testing must prove that the platform remains correct when users behave unexpectedly, services fail, requests are duplicated, permissions are wrong, data is malformed, traffic increases, and AI produces unexpected output—not merely that the ideal workflow works on a developer laptop.**
 
 **Next `.` → CSDG Chapter 59: Performance Engineering, Scalability, Caching & Resource Optimization.**
+
+---
+
 # CSDG — Chapter 59
 
 ## Performance Engineering, Scalability, Caching & Resource Optimization
@@ -92278,6 +85873,8 @@ A performance-sensitive feature is complete when:
 
 **Next `.` → CSDG Chapter 60: Observability, Logging, Monitoring, Metrics, Tracing & Alerting.**
 
+---
+
 # CSDG — Chapter 60
 
 ## Observability, Logging, Monitoring, Metrics, Tracing & Alerting
@@ -93928,6 +87525,7 @@ An observable Mediverse service is complete when:
 
 **Next `.` → CSDG Chapter 61: DevOps, CI/CD, GitOps, Build, Release & Deployment Standards.**
 
+---
 
 # CSDG — Chapter 61
 
@@ -95489,6 +89087,7 @@ A production-ready delivery pipeline is complete when:
 
 **Next `.` → CSDG Chapter 62: Infrastructure as Code, Terraform, Ansible & Environment Provisioning Standards.**
 
+---
 
 # CSDG — Chapter 62
 
@@ -96864,6 +90463,7 @@ Infrastructure is considered production-ready when:
 
 **Next `.` → CSDG Chapter 63: Database Engineering, PostgreSQL, Schema Design, Migration, Transaction & Data Management Standards.**
 
+---
 
 # CSDG — Chapter 63
 
@@ -98558,6 +92158,7 @@ A production-ready database design is complete when:
 
 **Next `.` → CSDG Chapter 64: API Design, REST, OpenAPI, Versioning, Error Contracts & Integration Standards.**
 
+---
 
 # CSDG — Chapter 64
 
@@ -100229,6 +93830,8 @@ An API is production-ready when:
 
 **Next `.` → CSDG Chapter 65: Frontend Engineering Standards — React, TypeScript/JavaScript, Components, State Management, UI Architecture & Accessibility.**
 
+---
+
 # CSDG — Chapter 65
 
 ## Frontend Engineering Standards — React, TypeScript/JavaScript, Components, State Management, UI Architecture & Accessibility
@@ -101818,6 +95421,17 @@ A frontend feature is production-ready when:
 > **For Mediverse, the frontend is not just a dashboard. It is the student's primary learning environment. That means accessibility, readability, navigation, progress visibility, media performance, and educational UX are architectural concerns—not cosmetic details.**
 
 **Next `.` → CSDG Chapter 66: Java & Spring Boot Backend Engineering Standards — Project Structure, Layers, Services, Dependency Injection, Exception Handling & Coding Practices.**
+
+---
+
+# 65.10 Socratic AI Prompt Engineering & KaTeX Sanitization Standards
+
+### CSDG-0655: Socratic AI Prompt Sandboxing & Streaming Standards
+* **Prompt Sandboxing:** System prompts must strictly isolate instructions from untrusted user inputs to prevent jailbreaks.
+* **Server-Sent Events (SSE) Hook Pattern:** Streaming chat must consume tokens via standardized React hooks (`useSocraticChatStream.ts`) handling buffer flushes and network disconnects.
+* **KaTeX & LaTeX Sanitization:** Mathematical formulas must be rendered using `rehype-katex` and `remark-math` with DOMPurify XSS sanitization.
+
+---
 
 # CSDG — Chapter 66
 
@@ -103883,6 +97497,8 @@ A backend feature is production-ready when:
 
 **Next `.` → CSDG Chapter 67: Security Engineering Standards — Authentication, Authorization, JWT/OAuth2, Secrets, OWASP, Data Protection & Secure Development.**
 
+---
+
 # CSDG — Chapter 67
 
 ## Security Engineering Standards — Authentication, Authorization, JWT/OAuth2, Secrets, OWASP, Data Protection & Secure Development
@@ -105448,6 +99064,8 @@ A security-sensitive feature is NOT complete until:
 > **For Mediverse, security is especially important because the platform may eventually hold identity data, academic performance, private learning records, teacher/admin capabilities, uploaded educational content, and AI-related functionality. A compromised account must therefore not automatically become a compromised platform. The architecture must contain the blast radius through authentication, authorization, least privilege, isolation, auditing, and secure defaults.**
 
 **Next `.` → CSDG Chapter 68: API Engineering Standards — REST Design, URL Conventions, HTTP Methods, Status Codes, DTOs, Pagination, Filtering, Versioning, Idempotency & API Error Contracts.**
+
+---
 
 # CSDG — Chapter 68
 
@@ -107284,6 +100902,8 @@ An API endpoint is production-ready when:
 
 **Next `.` → CSDG Chapter 69: Database Engineering Standards — PostgreSQL, Schema Design, Naming, Indexes, Constraints, Transactions, Migrations, JPA/Hibernate, Query Performance & Data Integrity.**
 
+---
+
 # CSDG — Chapter 69
 
 ## Database Engineering Standards — PostgreSQL, Schema Design, Naming, Indexes, Constraints, Transactions, Migrations, JPA/Hibernate, Query Performance & Data Integrity
@@ -108975,6 +102595,8 @@ A database-backed feature is production-ready when:
 > **For Mediverse, this is particularly important because entities such as enrollments, quiz attempts, submissions, progress, course publication state, and user relationships will become increasingly interconnected. A bug in application logic should not be capable of silently creating duplicate enrollments, orphaned lessons, invalid progress values, inconsistent quiz attempts, or corrupted course relationships. PostgreSQL constraints, transactions, migrations, indexing, and carefully designed JPA mappings form the foundation that prevents those failures.**
 
 **Next `.` → CSDG Chapter 70: Frontend Engineering Standards — React Architecture, Components, State Management, Routing, API Integration, Forms, Accessibility, Performance, Security & UI Consistency.**
+
+---
 
 # CSDG — Chapter 70
 
@@ -110915,6 +104537,29 @@ A frontend feature is production-ready when:
 
 **Next `.` → CSDG Chapter 71: Testing & Quality Engineering Standards — Unit Testing, Integration Testing, API Testing, React Testing, E2E, Test Data, Mocking, Coverage, Quality Gates & Defect Management.**
 
+---
+
+# 70.10 TypeScript 5 Strict Compiler & Code Quality Standards
+
+### CSDG-0705: Strict TypeScript Compiler Baseline
+All frontend and simulation code must compile under TypeScript 5.x with maximum strictness:
+```json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true
+  }
+}
+```
+
+---
 
 # CSDG — Chapter 71
 
@@ -112353,6 +105998,8 @@ The Definition of Done SHOULD include:
 > **For Mediverse, testing must protect both software correctness and educational correctness. A technically functioning quiz that calculates the wrong score, a progress system that reports incorrect completion, an authorization flaw that allows unauthorized content changes, or a medical-content rendering defect can all have serious consequences. The test strategy therefore needs to prioritize the workflows and data that matter most to students, educators, administrators, and the integrity of the platform.**
 
 **Next `.` → CSDG Chapter 72: API Design & Integration Standards — REST conventions, endpoint design, HTTP semantics, DTOs, pagination, filtering, sorting, errors, versioning, idempotency, API security, OpenAPI and frontend integration.**
+
+---
 
 # CSDG — Chapter 72
 
@@ -113893,6 +107540,8 @@ An API feature is complete when:
 
 **Next `.` → CSDG Chapter 73: Database Coding & Data Access Standards — PostgreSQL, JPA/Hibernate, entities, relationships, repositories, transactions, migrations, indexing, query optimization, locking, auditing, soft delete and data integrity.**
 
+---
+
 # CSDG — Chapter 73
 
 ## Database Coding & Data Access Standards
@@ -115267,6 +108916,8 @@ A database-related feature is complete when:
 
 **Next `.` → CSDG Chapter 74: Security Coding Standards — Spring Security, authentication, authorization, JWT/OAuth2, passwords, RBAC, object-level access control, secrets, OWASP, input security, file security, API security, session management and security testing.**
 
+---
+
 # CSDG — Chapter 74
 
 ## Security Coding Standards
@@ -116613,6 +110264,7 @@ A security-sensitive feature is complete only when:
 
 **Next `.` → CSDG Chapter 75: Testing & Quality Assurance Standards — unit testing, integration testing, API testing, security testing, Testcontainers, MockMvc, frontend testing, E2E, test data, coverage, mocking strategy, CI quality gates and Definition of Done.**
 
+---
 
 # CSDG — Chapter 75
 
@@ -117935,6 +111587,8 @@ A feature is complete when:
 > **For Mediverse, testing must be built around the actual educational workflows rather than just individual CRUD operations. The highest-value scenarios are things like student enrollment, lesson completion, progress calculation, quiz submission/scoring, teacher content management, role boundaries, and administrative actions. Those workflows cross multiple layers, so unit tests alone will not catch the failures that matter most.**
 
 **Next `.` → CSDG Chapter 76: Logging, Monitoring & Observability Standards — structured logging, correlation IDs, log levels, metrics, traces, health checks, Prometheus, Grafana, alerting, dashboards, audit logs, SLOs/SLIs and production troubleshooting.**
+
+---
 
 # CSDG — Chapter 76
 
@@ -119290,6 +112944,7 @@ A production-ready feature SHOULD satisfy:
 
 **Next `.` → CSDG Chapter 77: API Design & REST Standards — resource naming, HTTP methods, status codes, versioning, DTOs, pagination, filtering, sorting, idempotency, error contracts, OpenAPI, backward compatibility and API security.**
 
+---
 
 # CSDG — Chapter 77
 
@@ -120695,6 +114350,8 @@ An API is production-ready when:
 
 **Next `.` → CSDG Chapter 78: Database & Data Access Standards — PostgreSQL schema design, JPA/Hibernate, entity mapping, migrations, indexes, transactions, locking, connection pools, query optimization, N+1 prevention, soft deletion, auditing and backup considerations.**
 
+---
+
 # CSDG — Chapter 78
 
 ## Database & Data Access Standards
@@ -121955,7 +115612,7 @@ A database-related feature is complete when:
 
 **Next `.` → CSDG Chapter 79: Frontend Development Standards — React architecture, component design, state management, routing, API integration, forms, validation, accessibility, performance, error handling, security and frontend testing.**
 
-
+---
 
 # CSDG — Chapter 79
 
@@ -123311,6 +116968,8 @@ A frontend feature is complete when:
 
 **Next `.` → CSDG Chapter 80: Authentication, Authorization & Identity Standards — JWT, OAuth2/OIDC, roles, permissions, RBAC, token lifecycle, refresh tokens, session security, password policies, MFA, service-to-service authentication, and identity boundaries.**
 
+---
+
 # CSDG — Chapter 80
 
 ## Authentication, Authorization & Identity Standards
@@ -124596,1291 +118255,7 @@ Authentication/authorization functionality is production-ready when:
 
 **Next `.` → CSDG Chapter 81: Security Engineering Standards — OWASP, input validation, XSS, CSRF, SQL injection, SSRF, file-upload security, secrets, dependency security, headers, encryption, threat modeling and security testing.**
 
-
-# CSDG — Chapter 80
-
-## Authentication, Authorization & Identity Standards
-
-### 80.1 Purpose
-
-This chapter defines standards for identity, authentication, authorization, roles, permissions, tokens, sessions, and service-to-service security within Mediverse.
-
-Core principle:
-
-> **Authentication answers “Who are you?” Authorization answers “What are you allowed to do?”**
-
-These MUST be treated as separate concerns.
-
 ---
-
-## 80.2 Identity Architecture
-
-Mediverse SHOULD establish a clear identity boundary:
-
-```text
-User
- ↓
-Identity / Authentication
- ↓
-Authenticated Principal
- ↓
-Authorization
- ↓
-Application Resource
-```
-
----
-
-## 80.3 Authentication
-
-Authentication verifies the identity of the caller.
-
-Examples:
-
-```text
-Email + Password
-OAuth2
-OpenID Connect
-MFA
-```
-
-Successful authentication MUST produce an authenticated identity that the application can trust within the defined security boundary.
-
----
-
-## 80.4 Authorization
-
-Authorization determines whether the authenticated identity can perform an operation.
-
-Example:
-
-```text
-Student
-   ↓
-GET course
-   → ALLOWED
-
-Student
-   ↓
-DELETE course
-   → DENIED
-```
-
----
-
-## 80.5 Authentication vs Authorization
-
-Never confuse:
-
-```text
-401 Unauthorized
-```
-
-with:
-
-```text
-403 Forbidden
-```
-
-Conceptually:
-
-```text
-401 → Identity is missing/invalid
-
-403 → Identity is known, but access is denied
-```
-
----
-
-# 80.6 Identity Model
-
-Mediverse SHOULD distinguish between:
-
-```text
-User
-Identity
-Role
-Permission
-Session / Token
-```
-
-These are related but not interchangeable concepts.
-
----
-
-## 80.7 User
-
-A user represents the application-level person/account.
-
-Example:
-
-```text
-Student
-Teacher
-Administrator
-```
-
----
-
-## 80.8 Role
-
-A role groups permissions.
-
-Example:
-
-```text
-STUDENT
-TEACHER
-ADMIN
-```
-
----
-
-## 80.9 Permission
-
-A permission represents a specific capability.
-
-Examples:
-
-```text
-COURSE_READ
-COURSE_CREATE
-COURSE_UPDATE
-COURSE_DELETE
-QUIZ_CREATE
-QUIZ_GRADE
-USER_MANAGE
-```
-
----
-
-## 80.10 RBAC
-
-Role-Based Access Control SHOULD be used where appropriate.
-
-Example:
-
-```text
-ADMIN
- ├── USER_MANAGE
- ├── COURSE_MANAGE
- └── SYSTEM_CONFIGURE
-
-TEACHER
- ├── COURSE_CREATE
- ├── COURSE_UPDATE
- └── QUIZ_MANAGE
-
-STUDENT
- ├── COURSE_READ
- ├── COURSE_ENROLL
- └── QUIZ_SUBMIT
-```
-
----
-
-## 80.11 Avoid Role Explosion
-
-Do not create dozens of roles to represent every possible permission combination.
-
-Prefer:
-
-```text
-Roles
- +
-Permissions
-```
-
-when the authorization model becomes complex.
-
----
-
-## 80.12 Least Privilege
-
-Every identity MUST receive only the permissions necessary to perform its responsibilities.
-
-Do not give:
-
-```text
-STUDENT → ADMIN
-```
-
-permissions merely because it simplifies development.
-
----
-
-## 80.13 Default Deny
-
-Authorization SHOULD follow:
-
-```text
-No explicit permission
-        ↓
-      DENY
-```
-
-Access should not be granted merely because a restriction was forgotten.
-
----
-
-# JWT
-
-## 80.14 JWT Usage
-
-JWT MAY be used for stateless API authentication where appropriate.
-
-A JWT commonly contains:
-
-```text
-Header
-Payload
-Signature
-```
-
----
-
-## 80.15 JWT Is Not Encryption
-
-JWT payloads SHOULD be treated as readable by the token holder unless encryption is explicitly implemented.
-
-Never place secrets in ordinary JWT claims.
-
----
-
-## 80.16 JWT Claims
-
-Only necessary claims SHOULD be included.
-
-Potential claims:
-
-```text
-sub
-iat
-exp
-iss
-aud
-scope
-roles
-```
-
----
-
-## 80.17 Subject
-
-The `sub` claim SHOULD represent a stable identity identifier.
-
-Avoid using mutable attributes such as email as the primary identity identifier when a stable internal ID exists.
-
----
-
-## 80.18 Issuer
-
-Tokens SHOULD identify their trusted issuer where applicable.
-
-Example:
-
-```text
-iss
-```
-
-The API SHOULD validate the issuer.
-
----
-
-## 80.19 Audience
-
-Where multiple services consume tokens, audience validation SHOULD be used.
-
-Example:
-
-```text
-aud
-```
-
-This reduces the risk of accepting a token intended for a different service.
-
----
-
-## 80.20 Expiration
-
-Access tokens MUST expire.
-
-Example:
-
-```text
-exp
-```
-
-Never create effectively permanent access tokens for normal user authentication.
-
----
-
-## 80.21 Short-Lived Access Tokens
-
-Access tokens SHOULD generally be relatively short-lived.
-
-The exact duration MUST be determined by the security and usability requirements.
-
----
-
-# Refresh Tokens
-
-## 80.22 Refresh Tokens
-
-Refresh tokens MAY be used to obtain new access tokens without requiring the user to authenticate again.
-
----
-
-## 80.23 Refresh Token Storage
-
-Refresh tokens require stronger protection than ordinary access tokens.
-
-The chosen storage mechanism MUST account for:
-
-```text
-XSS
-CSRF
-Token theft
-Device/session management
-Revocation
-```
-
----
-
-## 80.24 Refresh Token Rotation
-
-Refresh token rotation SHOULD be considered.
-
-Conceptually:
-
-```text
-Refresh Token A
-       ↓
-Refresh
-       ↓
-Access Token B
-+
-Refresh Token C
-
-Token A → invalidated
-```
-
-This reduces the useful lifetime of a stolen refresh token.
-
----
-
-## 80.25 Refresh Token Revocation
-
-The system SHOULD support revoking refresh tokens when appropriate.
-
-Examples:
-
-```text
-Logout
-Password reset
-Account compromise
-Administrative suspension
-Security incident
-```
-
----
-
-## 80.26 Logout
-
-Logout MUST define what actually happens to authentication state.
-
-For example:
-
-```text
-Client
- ↓
-Delete local authentication state
- ↓
-Revoke server-side refresh/session state
-```
-
-Simply deleting a frontend variable does not necessarily invalidate a still-valid token.
-
----
-
-# Password Security
-
-## 80.27 Password Storage
-
-Passwords MUST NEVER be stored in plaintext.
-
-They MUST be stored using a password hashing algorithm designed for password storage.
-
----
-
-## 80.28 Password Hashing
-
-Use an appropriate adaptive password hashing algorithm such as:
-
-```text
-Argon2
-bcrypt
-scrypt
-```
-
-The project SHOULD standardize on one appropriate implementation.
-
----
-
-## 80.29 Password Encryption
-
-Passwords should be **hashed**, not reversibly encrypted.
-
-The application should never need to recover the original password.
-
----
-
-## 80.30 Password Verification
-
-Authentication SHOULD verify the supplied password against the stored password hash.
-
-Never compare plaintext passwords against stored values.
-
----
-
-## 80.31 Password Policy
-
-Password requirements SHOULD balance:
-
-```text
-Security
-Usability
-```
-
-Avoid arbitrary rules that make passwords difficult to manage without meaningful security benefits.
-
----
-
-## 80.32 Password Reset
-
-Password-reset links/tokens MUST:
-
-```text
-Expire
-Be unpredictable
-Be single-use
-Be invalidated after successful reset
-```
-
----
-
-## 80.33 Password Reset Enumeration
-
-Password-reset endpoints SHOULD avoid revealing whether an email/account exists.
-
-Bad:
-
-```text
-Email does not exist.
-```
-
-Better:
-
-```text
-If an account exists, reset instructions will be sent.
-```
-
----
-
-# OAuth2 / OpenID Connect
-
-## 80.34 OAuth2
-
-OAuth2 SHOULD be used when delegated authorization is required.
-
-OAuth2 itself is primarily an authorization framework.
-
----
-
-## 80.35 OpenID Connect
-
-OpenID Connect SHOULD be used when the application needs standardized authentication/identity information on top of OAuth2.
-
----
-
-## 80.36 External Identity Providers
-
-If Mediverse supports external login providers, the architecture SHOULD separate:
-
-```text
-External Identity
-        ↓
-Mediverse User Identity
-```
-
-Do not make the external provider's user representation the entire internal user model.
-
----
-
-## 80.37 Account Linking
-
-If multiple authentication methods are supported, account-linking rules MUST be explicit.
-
-Example:
-
-```text
-Email/password
-+
-Google login
-```
-
-must not accidentally create two accounts for the same person when they should represent one identity.
-
----
-
-# MFA
-
-## 80.38 Multi-Factor Authentication
-
-MFA SHOULD be strongly considered for:
-
-```text
-Administrator accounts
-Privileged teacher accounts
-Sensitive administrative operations
-```
-
----
-
-## 80.39 MFA Recovery
-
-MFA recovery MUST be designed securely.
-
-Recovery mechanisms must not become an easy authentication bypass.
-
----
-
-# Session Security
-
-## 80.40 Session Management
-
-If server-side sessions are used, sessions MUST have:
-
-```text
-Expiration
-Secure identifiers
-Revocation capability
-Appropriate cookie attributes
-```
-
----
-
-## 80.41 Cookie Security
-
-Authentication cookies SHOULD use appropriate:
-
-```text
-Secure
-HttpOnly
-SameSite
-```
-
-attributes according to the authentication architecture.
-
----
-
-## 80.42 CSRF
-
-If authentication uses cookies, CSRF protections MUST be considered.
-
-Token-based architectures that do not automatically send authentication credentials cross-site have different CSRF characteristics, but other threats still need consideration.
-
----
-
-# Token Security
-
-## 80.43 Token Leakage
-
-Tokens MUST NOT be written to:
-
-```text
-Logs
-Analytics
-Error messages
-URLs
-Browser history
-```
-
-where avoidable.
-
----
-
-## 80.44 Authorization Header
-
-Bearer access tokens SHOULD normally be sent through:
-
-```text
-Authorization: Bearer <token>
-```
-
-rather than query parameters.
-
-Avoid:
-
-```text
-/api/courses?token=...
-```
-
----
-
-## 80.45 Token Validation
-
-Protected APIs MUST validate relevant token properties, including where applicable:
-
-```text
-Signature
-Expiration
-Issuer
-Audience
-Algorithm
-```
-
----
-
-## 80.46 Algorithm Validation
-
-The server MUST NOT blindly trust the algorithm specified by an untrusted token.
-
-The accepted algorithm(s) MUST be explicitly configured.
-
----
-
-## 80.47 JWT Signature
-
-JWT signatures MUST use secure, appropriately configured cryptographic algorithms.
-
-Signing keys MUST be protected.
-
----
-
-## 80.48 Signing Key Management
-
-JWT signing keys MUST NOT be:
-
-```text
-Hardcoded
-Committed to Git
-Stored in frontend code
-Printed in logs
-```
-
----
-
-## 80.49 Key Rotation
-
-Production signing keys SHOULD support controlled rotation.
-
-The architecture SHOULD allow old tokens to be handled appropriately during the transition period.
-
----
-
-# Authorization
-
-## 80.50 Endpoint Authorization
-
-Every protected endpoint MUST explicitly define who can access it.
-
-Example:
-
-```text
-GET /courses
-→ authenticated users
-
-POST /courses
-→ TEACHER with COURSE_CREATE
-
-DELETE /courses/{id}
-→ authorized owner or ADMIN
-```
-
----
-
-## 80.51 Object-Level Authorization
-
-Role checks alone are insufficient.
-
-Example:
-
-```text
-Teacher A
-   ↓
-PATCH /courses/123
-```
-
-The system MUST verify that Teacher A is allowed to modify course `123`.
-
-This prevents IDOR-style vulnerabilities.
-
----
-
-## 80.52 IDOR
-
-Insecure Direct Object Reference vulnerabilities occur when a user can access another user's resource simply by changing an identifier.
-
-Example:
-
-```text
-GET /api/v1/profiles/100
-GET /api/v1/profiles/101
-GET /api/v1/profiles/102
-```
-
-The API MUST verify authorization for the requested resource.
-
----
-
-## 80.53 Ownership Checks
-
-Where resources are user-owned, authorization SHOULD verify ownership.
-
-Example:
-
-```text
-Authenticated User
-        ↓
-Enrollment.student_id == authenticatedUser.id
-```
-
----
-
-## 80.54 Role + Ownership
-
-Complex authorization may require both:
-
-```text
-Role
-+
-Ownership
-```
-
-Example:
-
-```text
-TEACHER
-+
-Teacher owns course
-```
-
----
-
-## 80.55 Administrative Access
-
-Administrative endpoints MUST have stronger authorization controls.
-
-Examples:
-
-```text
-/user-management
-/system-config
-/audit
-```
-
----
-
-## 80.56 Privileged Operations
-
-Sensitive operations SHOULD require explicit permissions rather than broad role checks where practical.
-
----
-
-# Service-to-Service Authentication
-
-## 80.57 Internal Services
-
-Microservices MUST authenticate service-to-service requests when the environment requires it.
-
-Do not assume:
-
-```text
-Internal network = trusted
-```
-
----
-
-## 80.58 Service Identity
-
-Each service SHOULD have a distinct identity.
-
-Example:
-
-```text
-course-service
-quiz-service
-notification-service
-```
-
----
-
-## 80.59 Service Credentials
-
-Service credentials MUST NOT be shared unnecessarily.
-
-Bad:
-
-```text
-All services
-   ↓
-Same API key
-```
-
-Prefer:
-
-```text
-Service A → Credential A
-Service B → Credential B
-Service C → Credential C
-```
-
----
-
-## 80.60 Service Authorization
-
-A service should receive only the permissions it needs.
-
-Example:
-
-```text
-Notification Service
-→ SEND_NOTIFICATION
-
-Notification Service
-≠
-DELETE_USERS
-```
-
----
-
-# Authentication Architecture
-
-## 80.61 Recommended Flow
-
-A possible Mediverse architecture:
-
-```text
-                    ┌───────────────┐
-                    │    Student   │
-                    └───────┬───────┘
-                            │
-                            ↓
-                     React Frontend
-                            │
-                            ↓
-                       API Gateway
-                            │
-                            ↓
-                  Authentication Layer
-                            │
-                            ↓
-                   Access Token / Identity
-                            │
-              ┌─────────────┼─────────────┐
-              ↓             ↓             ↓
-        Course Service  Quiz Service  User Service
-```
-
-The exact architecture MUST follow the approved Mediverse system design.
-
----
-
-# Security Boundaries
-
-## 80.62 Trust Boundary
-
-Never assume that a request is trustworthy simply because it originates from:
-
-```text
-Frontend
-Internal service
-Private network
-Kubernetes pod
-```
-
-Every trust boundary must be explicitly defined.
-
----
-
-## 80.63 Browser Trust
-
-The browser is an untrusted environment.
-
-Anything the user can modify in browser developer tools MUST be treated as attacker-controlled.
-
----
-
-## 80.64 Hidden UI Controls
-
-Hiding:
-
-```text
-Admin button
-Delete button
-Teacher menu
-```
-
-does not provide authorization.
-
-The backend MUST enforce the rule.
-
----
-
-# Account Security
-
-## 80.65 Account Lockout
-
-Account protection SHOULD consider repeated authentication failures.
-
-Avoid simplistic permanent lockouts that can be abused for denial-of-service against legitimate users.
-
----
-
-## 80.66 Rate Limiting Authentication
-
-Authentication endpoints SHOULD be rate limited.
-
-Especially:
-
-```text
-/login
-/password-reset
-/verify
-```
-
----
-
-## 80.67 Brute Force Protection
-
-The authentication system SHOULD detect and mitigate:
-
-```text
-Credential stuffing
-Brute-force attacks
-Automated login attempts
-```
-
----
-
-## 80.68 Suspicious Authentication
-
-Security monitoring SHOULD consider:
-
-```text
-Repeated failures
-Unusual login patterns
-Token reuse
-Impossible session behavior
-```
-
-where appropriate.
-
----
-
-# Identity Lifecycle
-
-## 80.69 User Registration
-
-Registration SHOULD validate:
-
-```text
-Identity data
-Password
-Email
-Duplicate account
-```
-
----
-
-## 80.70 Email Verification
-
-If email verification is required, verification tokens MUST be:
-
-```text
-Unpredictable
-Time-limited
-Single-use
-```
-
----
-
-## 80.71 Account Suspension
-
-Suspended users MUST be prevented from performing prohibited actions even if an old token remains valid.
-
-This may require server-side account-status checks depending on the token architecture.
-
----
-
-## 80.72 Account Deletion
-
-Account deletion MUST define what happens to:
-
-```text
-Courses
-Enrollments
-Progress
-Quiz submissions
-Audit records
-Created content
-```
-
-Do not implement account deletion as simply:
-
-```text
-DELETE FROM users
-```
-
-without domain analysis.
-
----
-
-# Authorization Model
-
-## 80.73 Permission Naming
-
-Permissions SHOULD follow a consistent naming convention.
-
-Example:
-
-```text
-RESOURCE_ACTION
-```
-
-Examples:
-
-```text
-COURSE_READ
-COURSE_CREATE
-COURSE_UPDATE
-COURSE_DELETE
-
-QUIZ_READ
-QUIZ_CREATE
-QUIZ_UPDATE
-QUIZ_SUBMIT
-```
-
----
-
-## 80.74 Permission Granularity
-
-Permissions SHOULD be granular enough to support real security requirements but not so granular that authorization becomes unmanageable.
-
----
-
-## 80.75 Authorization Centralization
-
-Authorization rules SHOULD have a consistent implementation strategy.
-
-Avoid scattered checks such as:
-
-```java
-if (user.getRole().equals("ADMIN"))
-```
-
-throughout hundreds of components.
-
----
-
-## 80.76 Spring Security
-
-For Spring Boot services, Spring Security SHOULD be the primary security framework.
-
-Security configuration SHOULD remain centralized and understandable.
-
----
-
-## 80.77 Method-Level Authorization
-
-Method-level authorization MAY be used for sensitive operations.
-
-For example:
-
-```text
-@PreAuthorize(...)
-```
-
-The project SHOULD establish consistent conventions rather than mixing unrelated authorization techniques.
-
----
-
-## 80.78 URL-Level Authorization
-
-URL-level authorization MAY provide broad access rules.
-
-Example:
-
-```text
-/api/admin/**
-```
-
-But object-level authorization still needs to be enforced where required.
-
----
-
-# Security Error Handling
-
-## 80.79 Authentication Errors
-
-Authentication failures MUST NOT reveal unnecessary information.
-
-Avoid:
-
-```text
-Email exists but password is wrong.
-```
-
----
-
-## 80.80 Authorization Errors
-
-Authorization responses SHOULD avoid exposing sensitive information about resources the user is not permitted to discover.
-
----
-
-# Audit
-
-## 80.81 Authentication Audit Events
-
-Security-relevant authentication events SHOULD be auditable.
-
-Examples:
-
-```text
-Login success
-Login failure
-Logout
-Password change
-Password reset
-MFA change
-Account lock/suspension
-```
-
----
-
-## 80.82 Authorization Audit
-
-Sensitive authorization events MAY require audit records.
-
-Examples:
-
-```text
-Role changed
-Permission changed
-Admin operation
-Sensitive data access
-```
-
----
-
-# Security Testing
-
-## 80.83 Authentication Testing
-
-Authentication tests SHOULD cover:
-
-```text
-Valid credentials
-Invalid credentials
-Expired credentials
-Malformed tokens
-Revoked credentials
-Password reset
-```
-
----
-
-## 80.84 Authorization Testing
-
-Authorization tests MUST verify:
-
-```text
-Student → Student operation
-Student → Teacher operation
-Student → Admin operation
-Teacher → Own resource
-Teacher → Other teacher's resource
-Admin → Administrative operation
-```
-
----
-
-## 80.85 Negative Testing
-
-Security tests MUST emphasize denial cases.
-
-A system that only tests successful access is not adequately security-tested.
-
----
-
-## 80.86 Token Testing
-
-Test:
-
-```text
-Expired token
-Tampered token
-Wrong issuer
-Wrong audience
-Wrong signature
-Missing token
-Malformed token
-```
-
-where applicable.
-
----
-
-# 80.87 Definition of Done
-
-Authentication/authorization functionality is production-ready when:
-
-* [ ] Authentication mechanism is documented
-* [ ] Authorization model is documented
-* [ ] Roles are defined
-* [ ] Permissions are defined where required
-* [ ] Default-deny behavior exists
-* [ ] Protected endpoints require authentication
-* [ ] Object-level authorization is implemented
-* [ ] JWT validation is correct where JWT is used
-* [ ] Tokens have expiration
-* [ ] Refresh-token behavior is defined
-* [ ] Passwords are securely hashed
-* [ ] Password reset is secure
-* [ ] Authentication endpoints are rate limited
-* [ ] Secrets are securely stored
-* [ ] Service-to-service authentication is defined
-* [ ] Security events are auditable
-* [ ] Authentication tests exist
-* [ ] Authorization negative tests exist
-* [ ] Token manipulation tests exist
-
----
-
-# 80.88 Core Principles
-
-1. **Authentication and authorization are different problems.**
-2. **Never trust the frontend for authorization.**
-3. **Default access should be deny.**
-4. **Use least privilege.**
-5. **Roles should group permissions rather than become arbitrary security flags.**
-6. **Object-level authorization is mandatory for user-owned resources.**
-7. **JWT payloads are not automatically encrypted.**
-8. **Access tokens must expire.**
-9. **Refresh tokens require stronger lifecycle controls.**
-10. **Passwords must be hashed using an appropriate password-hashing algorithm.**
-11. **Authentication endpoints need brute-force protection.**
-12. **Service-to-service traffic should not automatically be considered trusted.**
-13. **Security failures must not leak sensitive information.**
-14. **Every important identity lifecycle event should be auditable.**
-15. **Authorization must be tested primarily through negative scenarios.**
-
-> **For Mediverse, don't make the common mistake of implementing `ROLE_ADMIN`, `ROLE_TEACHER`, and `ROLE_STUDENT` and assuming authorization is finished. A teacher being allowed to edit courses does not automatically mean they can edit *every* course. A student being allowed to view a quiz does not mean they can access another student's submission. The real security boundary is the combination of identity + permission + resource ownership + server-side enforcement.**
-
-**Next `.` → CSDG Chapter 81: Security Engineering Standards — OWASP, input validation, XSS, CSRF, SQL injection, SSRF, file-upload security, secrets, dependency security, headers, encryption, threat modeling and security testing.**
 
 # CSDG — Chapter 81
 
@@ -127063,6 +119438,7 @@ A security-sensitive feature is complete when:
 
 **Next `.` → CSDG Chapter 82: API Design & REST Standards — resource modeling, HTTP methods/status codes, DTOs, pagination, filtering, sorting, versioning, idempotency, API errors, OpenAPI, rate limiting and backward compatibility.**
 
+---
 
 # CSDG — Chapter 82
 
@@ -128423,7 +120799,7 @@ An API is production-ready when:
 
 **Next `.` → CSDG Chapter 83: Microservices Architecture Standards — service boundaries, database ownership, synchronous vs asynchronous communication, API Gateway, service discovery, resilience, distributed transactions, events, Saga, and microservice anti-patterns.**
 
-
+---
 
 # CSDG — Chapter 83
 
@@ -129733,6 +122109,7 @@ A microservice is production-ready when:
 
 **Next `.` → CSDG Chapter 84: Database Architecture & Data Management Standards — PostgreSQL design, schema ownership, normalization, indexing, transactions, migrations, locking, concurrency, soft deletion, auditing, backups, retention, and database performance.**
 
+---
 
 # CSDG — Chapter 84
 
@@ -131212,6 +123589,7 @@ A database-backed feature is production-ready when:
 
 **Next `.` → CSDG Chapter 85: Redis & Caching Standards — cache-aside, TTL, invalidation, distributed caching, session/token use, cache stampede, eviction, consistency, Redis data structures, HA, persistence, and failure handling.**
 
+---
 
 # CSDG — Chapter 85
 
@@ -132543,6 +124921,8 @@ A Redis/cache implementation is production-ready when:
 > **For Mediverse, start with cache-aside for genuinely read-heavy data such as course/catalog content. Do not immediately cache users, permissions, enrollments, quiz attempts, and everything else. Those areas have stronger consistency and security implications. Measure PostgreSQL performance first, identify the actual hot paths, then introduce Redis where it provides measurable value.**
 
 **Next `.` → CSDG Chapter 86: API Design & REST Standards — resource modeling, HTTP semantics, URI conventions, DTOs, pagination, filtering, sorting, versioning, error contracts, idempotency, rate limiting, and API security.**
+
+---
 
 # CSDG — Chapter 86
 
@@ -134036,6 +126416,7 @@ An API is production-ready when:
 
 **Next `.` → CSDG Chapter 87: Authentication & Authorization Standards — OAuth2/OIDC, JWT, access/refresh tokens, Spring Security, RBAC, permissions, resource ownership, token lifecycle, session security, password policies, MFA, and identity-service architecture.**
 
+---
 
 # CSDG — Chapter 87
 
@@ -135479,6 +127860,7 @@ Authentication/authorization is production-ready when:
 
 **Next `.` → CSDG Chapter 88: Frontend Architecture & React Standards — React structure, component architecture, state management, routing, API integration, forms, error handling, performance, accessibility, security, design system, and frontend observability.**
 
+---
 
 # CSDG — Chapter 88
 
@@ -137142,6 +129524,7 @@ Another component modifies it
 
 **Next `.` → CSDG Chapter 89: Database Architecture & Data Management Standards — PostgreSQL, schema design, normalization, indexing, transactions, constraints, migrations, JPA/Hibernate, query optimization, connection pooling, partitioning, backups, and data lifecycle.**
 
+---
 
 # CSDG — Chapter 89
 
@@ -139147,6 +131530,8 @@ Database architecture is production-ready when:
 
 **Next `.` → CSDG Chapter 90: Caching & Distributed Data Standards — Redis architecture, cache-aside, TTL, invalidation, distributed locks, rate limiting, session storage, cache stampede, consistency, and failure handling.**
 
+---
+
 # CSDG — Chapter 90
 
 ## Caching & Distributed Data Standards
@@ -140629,6 +133014,7 @@ Caching architecture is production-ready when:
 
 **Next `.` → CSDG Chapter 91: API Architecture & REST Standards — resource design, HTTP semantics, URI conventions, DTOs, pagination, filtering, sorting, versioning, idempotency, errors, HATEOAS considerations, API contracts, and backward compatibility.**
 
+---
 
 # CSDG — Chapter 91
 
@@ -142434,6 +134820,7 @@ An API is production-ready when:
 
 **Next `.` → CSDG Chapter 92: Authentication, Authorization & Identity Standards — OAuth2, JWT, refresh tokens, RBAC, ABAC, permissions, service identities, token lifecycle, session security, MFA, password security, and identity architecture.**
 
+---
 
 # CSDG — Chapter 92
 
@@ -144224,6 +136611,7 @@ Identity architecture is production-ready when:
 
 **Next `.` → CSDG Chapter 93: Data Security, Privacy & Protection Standards — encryption at rest/in transit, PII, medical/educational data classification, secrets, masking, retention, deletion, backups, auditability, privacy boundaries, and data-loss prevention.**
 
+---
 
 # CSDG — Chapter 93
 
@@ -146095,6 +138483,8 @@ Data security is production-ready when:
 > **The biggest data-security mistake is treating encryption as the whole solution. Encryption protects data from some forms of exposure; it does not stop an authorized-but-malicious user, a broken authorization rule, an overprivileged database account, leaked credentials, insecure logs, public object storage, or a developer accidentally committing secrets. Data security is an entire lifecycle, not a database checkbox.**
 
 **Next `.` → CSDG Chapter 94: Application Security & OWASP Standards — secure coding, input validation, XSS, CSRF, SQL injection, SSRF, deserialization, file-upload attacks, dependency security, security headers, SAST/DAST, and DevSecOps integration.**
+
+---
 
 # CSDG — Chapter 94
 
@@ -148024,6 +140414,7 @@ Application security is production-ready when:
 
 **Next `.` → CSDG Chapter 95: DevSecOps & Secure CI/CD — Git security, branch protection, SAST, SCA, secret scanning, Docker/Trivy, SBOM, image signing, Jenkins/GitHub Actions security, Kubernetes admission controls, security gates, artifact provenance, and supply-chain security.**
 
+---
 
 # CSDG — Chapter 95
 
@@ -150186,6 +142577,8 @@ The target architecture for Mediverse is:
 > **The uncomfortable truth: a beautifully designed application can still be compromised because the CI pipeline leaked a cloud credential, a Docker image contained a vulnerable package, a developer had cluster-admin access, an old Helm chart remained deployable, or a production artifact could be silently replaced. In modern systems, your software supply chain is part of your application. Secure the path from Git commit to running container—not just the Java code.**
 
 **Next `.` → CSDG Chapter 96: Identity, Authentication & Authorization Architecture — IAM, OAuth 2.0, OpenID Connect, JWT, refresh tokens, RBAC, ABAC, MFA, sessions, service identities, API authorization, tenant isolation, and zero-trust identity.**
+
+---
 
 # CSDG — Chapter 96
 
@@ -152432,6 +144825,7 @@ Identity and authorization are mature when:
 
 **Next `.` → CSDG Chapter 97: Data Security & Privacy — encryption at rest/in transit, PostgreSQL security, PII classification, medical/educational data protection, data masking, tokenization, retention, deletion, backups, key management, privacy-by-design, and breach response.**
 
+---
 
 # CSDG — Chapter 97
 
@@ -154288,7 +146682,7 @@ Data security is not complete until:
 
 **Next `.` → CSDG Chapter 98: Application Security — OWASP Top 10, Spring Boot security hardening, XSS, CSRF, SQL injection, SSRF, deserialization, file-upload attacks, API abuse, dependency vulnerabilities, secure coding standards, and application security testing.**
 
-
+---
 
 # CSDG — Chapter 98
 
@@ -156576,6 +148970,8 @@ If any important answer is unclear, **deny or explicitly handle the exception**.
 
 **Next `.` → CSDG Chapter 99: Security Operations & Monitoring — SIEM, security logging, threat detection, Prometheus/Grafana vs security telemetry, alerting, incident detection, SOC workflows, vulnerability management, runtime security, Kubernetes security monitoring, and security dashboards.**
 
+---
+
 # CSDG — Chapter 99
 
 ## Security Operations, Monitoring & Threat Detection
@@ -158553,7 +150949,7 @@ Done
 
 **Next `.` → CSDG Chapter 100: DevSecOps & Secure SDLC — security gates in Git, Maven/npm dependency scanning, SonarQube, SAST/DAST, Trivy, SBOM, secret scanning, container signing, Kubernetes admission controls, Terraform security, Jenkins/GitHub Actions security, and the complete Mediverse security pipeline.**
 
-
+---
 
 ## CSDG — Chapter 100
 
@@ -162035,6 +154431,8 @@ That is the real supply-chain security question.
 
 ---
 
+---
+
 ## Chapter 101 checkpoint
 
 ```text
@@ -163623,26 +156021,7 @@ That is the real supply-chain security question.
 
 ---
 
-## Chapter 101 checkpoint
-
-```text
-CSDG
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-98   Application Security       ✅
-99   Security Operations        ✅
-100  DevSecOps / Secure SDLC   ✅
-101  Supply-Chain Security     ✅
-
-Next
-102  SBOM, SLSA & Provenance    ⏳
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Progress: 101 / 125
-Remaining: 24
-```
-
-**Next `.` → Chapter 102: SBOM, SLSA & Provenance — we'll go significantly deeper into CycloneDX, SPDX, SBOM generation for Maven/npm/Docker, dependency graphs, SLSA levels, build provenance, attestations, reproducible builds, and how to implement the entire chain in the Mediverse CI/CD pipeline.**
+---
 
 # Chapter 102 — SBOM, SLSA & Provenance
 
@@ -165149,31 +157528,7 @@ Keep this mental picture:
                        PRODUCTION
 ```
 
-## Chapter 102 checkpoint
-
-```text
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CSDG Progress
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-098  Application Security          ✅
-099  Security Operations            ✅
-100  DevSecOps / Secure SDLC       ✅
-101  Software Supply Chain         ✅
-102  SBOM, SLSA & Provenance       ✅
-
-103  Artifact Signing & Verification ⏳
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Completed: 102 / 125
-Remaining: 23
-Progress: 81.6%
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-**Next → Chapter 103: Artifact Signing & Verification.**
-
-There we'll go hands-on conceptually with **Cosign, Sigstore, OCI image signatures, key-based vs keyless signing, certificates, transparency logs, verification policies, signed SBOMs/attestations, registry integration, and Kubernetes admission enforcement**.
+---
 
 # Chapter 103 — Artifact Signing & Verification
 
@@ -166725,33 +159080,7 @@ Then Chapter 104 will take all of this into the **CI/CD pipeline itself**.
 
 ---
 
-# Chapter 103 — Final Checkpoint
-
-```text
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CSDG PROGRESS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-098  Application Security             ✅
-099  Security Operations               ✅
-100  DevSecOps / Secure SDLC          ✅
-101  Software Supply-Chain Security   ✅
-102  SBOM, SLSA & Provenance          ✅
-103  Artifact Signing & Verification  ✅
-
-104  CI/CD Pipeline Security           ⏳
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Completed: 103 / 125
-Remaining: 22
-Progress: 82.4%
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-**Next: Chapter 104 — CI/CD Pipeline Security.**
-
-We will connect **Jenkins → Git → secrets → dependency security → SAST/SCA → SBOM → image scanning → signing → registry → artifact promotion → GitOps**, and analyze how a compromised CI/CD pipeline can become one of the most dangerous attack paths in the entire platform.
-
+---
 
 # Chapter 104 — CI/CD Pipeline Security
 
@@ -168405,33 +160734,7 @@ Remember this:
                   PRODUCTION
 ```
 
-## Chapter 104 Checkpoint
-
-```text
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CSDG PROGRESS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-098  Application Security             ✅
-099  Security Operations              ✅
-100  DevSecOps / Secure SDLC         ✅
-101  Software Supply Chain           ✅
-102  SBOM, SLSA & Provenance         ✅
-103  Artifact Signing & Verification ✅
-104  CI/CD Pipeline Security         ✅
-
-105  GitOps Security                  ⏳
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Completed: 104 / 125
-Remaining: 21
-Progress: 83.2%
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-**Next → Chapter 105: GitOps Security**
-
-We'll go deep into **Argo CD security, GitOps trust boundaries, repository compromise, signed commits, protected branches, application/project RBAC, secrets in Git, SOPS/Sealed Secrets, Argo CD authentication, sync policies, drift detection, and the security relationship between Jenkins → Git → Argo CD → Kubernetes**.
+---
 
 ## Chapter 105 — GitOps Security
 
@@ -170169,6 +162472,8 @@ PRODUCTION
 **Next: Chapter 106 — Kubernetes Security Architecture**
 
 That chapter will be much more Kubernetes-heavy: **API server security, authentication, authorization, RBAC, ServiceAccounts, admission controllers, Pod Security Standards, NetworkPolicies, Secrets, etcd protection, kubelet security, node security, namespaces, workload isolation, and cluster attack paths.**
+
+---
 
 # Chapter 106 — Kubernetes Security Architecture
 
@@ -172034,35 +164339,7 @@ And the key rule is:
 
 ---
 
-## Chapter 106 Checkpoint
-
-```text
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CSDG PROGRESS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-098  Application Security             ✅
-099  Security Operations              ✅
-100  DevSecOps / Secure SDLC          ✅
-101  Software Supply Chain            ✅
-102  SBOM, SLSA & Provenance          ✅
-103  Artifact Signing & Verification  ✅
-104  CI/CD Pipeline Security          ✅
-105  GitOps Security                  ✅
-106  Kubernetes Security Architecture ✅
-
-107  Kubernetes Network Security       ⏳
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Completed: 106 / 125
-Remaining: 19
-Progress: 84.8%
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-**Next → Chapter 107: Kubernetes Network Security**
-
-That chapter will go deeper into **NetworkPolicy, CNI security, ingress/egress control, service-to-service traffic, DNS attacks, service discovery, Kubernetes networking attack paths, namespace isolation, zero-trust networking, and designing secure communication for the Mediverse microservices.**
+---
 
 ## Chapter 107 — Kubernetes Network Security
 
@@ -173583,36 +165860,7 @@ Every other path:
 
 ---
 
-## Chapter 107 Checkpoint
-
-```text
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CSDG PROGRESS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-098  Application Security             ✅
-099  Security Operations              ✅
-100  DevSecOps / Secure SDLC          ✅
-101  Software Supply Chain            ✅
-102  SBOM, SLSA & Provenance          ✅
-103  Artifact Signing & Verification  ✅
-104  CI/CD Pipeline Security          ✅
-105  GitOps Security                  ✅
-106  Kubernetes Security Architecture ✅
-107  Kubernetes Network Security      ✅
-
-108  Kubernetes Runtime Security       ⏳
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Completed: 107 / 125
-Remaining: 18
-Progress: 85.6%
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-**Next → Chapter 108: Kubernetes Runtime Security**
-
-We'll go inside the actual workload execution boundary: **container escape, Linux namespaces, cgroups, capabilities, seccomp, AppArmor/SELinux, rootless containers, runtime threats, Falco/runtime detection, image-to-runtime attacks, node compromise, and container breakout attack paths.**
+---
 
 ## Chapter 108 — Kubernetes Runtime Security
 
@@ -175100,38 +167348,7 @@ Rapid Response
 
 ---
 
-## Chapter 108 Checkpoint
-
-```text
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CSDG PROGRESS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-098  Application Security             ✅
-099  Security Operations              ✅
-100  DevSecOps / Secure SDLC          ✅
-101  Software Supply Chain            ✅
-102  SBOM, SLSA & Provenance          ✅
-103  Artifact Signing & Verification  ✅
-104  CI/CD Pipeline Security          ✅
-105  GitOps Security                  ✅
-106  Kubernetes Security Architecture ✅
-107  Kubernetes Network Security      ✅
-108  Kubernetes Runtime Security      ✅
-
-109  Kubernetes Secrets Security       ⏳
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Completed: 108 / 125
-Remaining: 17
-Progress: 86.4%
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-**Next → Chapter 109: Kubernetes Secrets Security**
-
-We will cover **Kubernetes Secrets, etcd exposure, encryption at rest, secret leakage through Git/GitOps, External Secrets, Vault-style architectures, secret rotation, ServiceAccount tokens, TLS certificates, secret injection, developer access, Argo CD secret handling, and the complete secret lifecycle from creation → deployment → rotation → revocation.**
-
+---
 
 ## Chapter 109 — Kubernetes Secrets Security
 
@@ -176952,39 +169169,7 @@ No Secret Logging
 
 ---
 
-## Chapter 109 Checkpoint
-
-```text
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CSDG PROGRESS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-098  Application Security             ✅
-099  Security Operations              ✅
-100  DevSecOps / Secure SDLC          ✅
-101  Software Supply Chain            ✅
-102  SBOM, SLSA & Provenance          ✅
-103  Artifact Signing & Verification  ✅
-104  CI/CD Pipeline Security          ✅
-105  GitOps Security                  ✅
-106  Kubernetes Security Architecture ✅
-107  Kubernetes Network Security      ✅
-108  Kubernetes Runtime Security      ✅
-109  Kubernetes Secrets Security      ✅
-
-110  Kubernetes Identity Security      ⏳
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Completed: 109 / 125
-Remaining: 16
-Progress: 87.2%
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-**Next → Chapter 110: Kubernetes Identity Security**
-
-We'll connect **ServiceAccounts, RBAC, Kubernetes API authentication, user identity, workload identity, cloud IAM, OIDC, short-lived credentials, impersonation, token theft, cluster-admin escalation, and zero-trust workload identity** into one complete security model.
-
+---
 
 # Chapter 110 — Kubernetes Identity Security
 
@@ -178683,52 +170868,7 @@ Auditability
 
 ---
 
-## Chapter 110 Checkpoint
-
-```text
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CSDG PROGRESS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-098  Application Security             ✅
-099  Security Operations              ✅
-100  DevSecOps / Secure SDLC          ✅
-101  Software Supply Chain            ✅
-102  SBOM, SLSA & Provenance          ✅
-103  Artifact Signing & Verification  ✅
-104  CI/CD Pipeline Security          ✅
-105  GitOps Security                  ✅
-106  Kubernetes Security Architecture ✅
-107  Kubernetes Network Security      ✅
-108  Kubernetes Runtime Security      ✅
-109  Kubernetes Secrets Security       ✅
-110  Kubernetes Identity Security     ✅
-
-111  Kubernetes Admission Security     ⏳
-112  Kubernetes Policy as Code          ⏳
-113  Kubernetes Audit & Forensics       ⏳
-114  Cloud Security                     ⏳
-115  AWS Security Architecture          ⏳
-116  Zero Trust Architecture            ⏳
-117  Security Monitoring & SIEM         ⏳
-118  Incident Response                  ⏳
-119  Disaster Recovery & Cyber Resilience ⏳
-120  Advanced DevSecOps Architecture   ⏳
-121  Security Testing & Red Teaming     ⏳
-122  Threat Modeling                    ⏳
-123  Security Architecture Review       ⏳
-124  Capstone Security Project          ⏳
-125  Final CSDG Architecture Review     ⏳
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Completed: 110 / 125
-Remaining: 15
-Progress: 88%
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-**Next: Chapter 111 — Kubernetes Admission Security.**
-That chapter is where we'll examine how Kubernetes can **inspect and reject dangerous workloads before they ever run**—including admission controllers, validating/mutating admission, Pod Security Admission, policy engines, Gatekeeper/Kyverno concepts, and security enforcement in your CI/CD → GitOps → Kubernetes pipeline.
+---
 
 ## Chapter 111 — Kubernetes Admission Security
 
@@ -178780,6 +170920,8 @@ Pod runs
 20. Final Mediverse admission-security architecture
 
 **Chapter 111 is especially important because it connects Kubernetes security theory to actual enforcement.** RBAC alone is not enough; a user can be legitimately authorized to create a Pod while the Pod itself may violate your security requirements.
+
+---
 
 ## Chapter 112 — Kubernetes Policy as Code
 
@@ -180071,55 +172213,7 @@ At this point, your Kubernetes security model should look like:
 
 ---
 
-## Chapter 112 Checkpoint
-
-```text
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CSDG PROGRESS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-098  Application Security                  ✅
-099  Security Operations                   ✅
-100  DevSecOps / Secure SDLC               ✅
-101  Software Supply Chain                 ✅
-102  SBOM, SLSA & Provenance               ✅
-103  Artifact Signing & Verification       ✅
-104  CI/CD Pipeline Security               ✅
-105  GitOps Security                       ✅
-106  Kubernetes Security Architecture      ✅
-107  Kubernetes Network Security           ✅
-108  Kubernetes Runtime Security           ✅
-109  Kubernetes Secrets Security            ✅
-110  Kubernetes Identity Security           ✅
-111  Kubernetes Admission Security         ✅
-112  Kubernetes Policy as Code              ✅
-
-113  Kubernetes Audit & Forensics           ⏳
-114  Cloud Security                         ⏳
-115  AWS Security Architecture              ⏳
-116  Zero Trust Architecture                ⏳
-117  Security Monitoring & SIEM             ⏳
-118  Incident Response                      ⏳
-119  Disaster Recovery & Cyber Resilience   ⏳
-120  Advanced DevSecOps Architecture       ⏳
-121  Security Testing & Red Teaming         ⏳
-122  Threat Modeling                        ⏳
-123  Security Architecture Review           ⏳
-124  Capstone Security Project              ⏳
-125  Final CSDG Architecture Review         ⏳
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Completed: 112 / 125
-Remaining: 13
-Progress: 89.6%
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-**Next → Chapter 113: Kubernetes Audit & Forensics.**
-
-That chapter moves from **preventing attacks** to answering the uncomfortable question: **"Something happened in the cluster—who did it, what changed, what was accessed, and how do we reconstruct the attack?"**
-
-
+---
 
 ## Chapter 113 — Kubernetes Audit & Forensics
 
@@ -181660,107 +173754,7 @@ to reconstruct the incident.
 
 ---
 
-# Chapter 113 Summary
-
-The core forensic model is:
-
-```text
-                 INCIDENT
-                    │
-                    ▼
-             ┌─────────────┐
-             │  Identity   │
-             └──────┬──────┘
-                    │
-                    ▼
-             Kubernetes API
-                    │
-                    ▼
-               Audit Logs
-                    │
-       ┌────────────┼────────────┐
-       ▼            ▼            ▼
-   Kubernetes    Runtime       Network
-    Events       Logs          Logs
-       │            │            │
-       └────────────┼────────────┘
-                    ▼
-             Application Logs
-                    │
-                    ▼
-              Cloud Audit
-                    │
-                    ▼
-              SIEM / Search
-                    │
-                    ▼
-              Timeline
-                    │
-                    ▼
-              Root Cause
-```
-
-The biggest lesson:
-
-> **A Kubernetes incident is rarely isolated to Kubernetes.**
-
-A compromised Pod can become:
-
-```text
-Pod
- ↓
-ServiceAccount
- ↓
-Kubernetes API
- ↓
-Cloud IAM
- ↓
-Cloud resources
-```
-
-So good forensics must follow the attack across **identity → Kubernetes → workload → network → cloud**.
-
 ---
-
-## CSDG Progress
-
-```text
-098  Application Security                  ✅
-099  Security Operations                   ✅
-100  DevSecOps / Secure SDLC               ✅
-101  Software Supply Chain                 ✅
-102  SBOM, SLSA & Provenance               ✅
-103  Artifact Signing & Verification       ✅
-104  CI/CD Pipeline Security               ✅
-105  GitOps Security                       ✅
-106  Kubernetes Security Architecture      ✅
-107  Kubernetes Network Security           ✅
-108  Kubernetes Runtime Security           ✅
-109  Kubernetes Secrets Security            ✅
-110  Kubernetes Identity Security           ✅
-111  Kubernetes Admission Security         ✅
-112  Kubernetes Policy as Code              ✅
-113  Kubernetes Audit & Forensics           ✅
-
-114  Cloud Security                         ⏳
-115  AWS Security Architecture              ⏳
-116  Zero Trust Architecture                ⏳
-117  Security Monitoring & SIEM             ⏳
-118  Incident Response                      ⏳
-119  Disaster Recovery & Cyber Resilience   ⏳
-120  Advanced DevSecOps Architecture       ⏳
-121  Security Testing & Red Teaming         ⏳
-122  Threat Modeling                        ⏳
-123  Security Architecture Review           ⏳
-124  Capstone Security Project              ⏳
-125  Final CSDG Architecture Review         ⏳
-
-Completed: 113 / 125
-Remaining: 12
-Progress: 90.4%
-```
-
-**Next: Chapter 114 — Cloud Security.**
 
 ## Chapter 114 — Cloud Security
 
@@ -183084,6 +175078,8 @@ Progress: 91.2%
 ```
 
 **Next → Chapter 115: AWS Security Architecture.**
+
+---
 
 ## Chapter 115 — AWS Security Architecture
 
@@ -184501,6 +176497,8 @@ Progress: 92.0%
 ```
 
 **Next → Chapter 116: Zero Trust Architecture.**
+
+---
 
 ## Chapter 116 — Zero Trust Architecture
 
@@ -185949,6 +177947,8 @@ Progress: 92.8%
 ```
 
 **Next → Chapter 117: Security Monitoring & SIEM.**
+
+---
 
 ## Chapter 117 — Security Monitoring & SIEM
 
@@ -187488,6 +179488,8 @@ Progress: 93.6%
 
 **Next → Chapter 118: Incident Response.**
 
+---
+
 ## Chapter 118 — Incident Response
 
 Now we move from **detecting security incidents** to **handling them**.
@@ -188768,6 +180770,8 @@ Progress: 94.4%
 ```
 
 **Next → Chapter 119: Disaster Recovery & Cyber Resilience.**
+
+---
 
 ## Chapter 119 — Disaster Recovery & Cyber Resilience
 
@@ -190423,6 +182427,8 @@ Progress: 95.2%
 
 **Next → Chapter 120: Advanced DevSecOps Architecture.**
 
+---
+
 # Chapter 120 — Advanced DevSecOps Architecture
 
 This is where we stop treating DevSecOps as **“put SonarQube and a security scan into Jenkins”** and start designing security as an architectural property of the entire software delivery system.
@@ -191925,6 +183931,8 @@ Progress: 96.0%
 ```
 
 **Next → Chapter 121: Security Testing & Red Teaming.**
+
+---
 
 # Chapter 121 — Security Testing & Red Teaming
 
@@ -193588,6 +185596,7 @@ Progress: 96.8%
 
 **Next → Chapter 122: Threat Modeling.**
 
+---
 
 # Chapter 122 — Threat Modeling
 
@@ -195212,6 +187221,7 @@ Progress: 97.6%
 
 **Next → Chapter 123: Security Architecture Review.**
 
+---
 
 ## Chapter 123 — Security Architecture Review
 
@@ -195822,6 +187832,7 @@ Progress: 98.4%
 
 **Next: Chapter 124 — Capstone Security Project.**
 
+---
 
 # Chapter 124 — Capstone Security Project
 
@@ -196889,6 +188900,8 @@ Progress: 99.2%
 ```
 
 **Next → Chapter 125: Final CSDG Architecture Review — the final chapter.**
+
+---
 
 # Chapter 125 — Final CSDG Architecture Review
 

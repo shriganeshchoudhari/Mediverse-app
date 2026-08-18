@@ -1,7 +1,3 @@
-﻿# Security Design Document (SecDD)
-
-# Part I — Enterprise Security Foundation & Governance
-
 # Chapter 1 — Introduction to Enterprise Security Architecture
 
 ---
@@ -379,6 +375,7 @@ This chapter establishes the foundational Enterprise Security Architecture for t
 
 # Part I — Enterprise Security Foundation & Governance
 
+
 # Chapter 2 — Security Vision, Objectives & Design Principles
 
 ---
@@ -745,370 +742,6 @@ This chapter established the strategic security direction for the Mediverse plat
 
 # Part I — Enterprise Security Foundation & Governance
 
-# Chapter 2 — Security Vision, Objectives & Design Principles
-
----
-
-# Chapter Overview
-
-This chapter defines the long-term security vision, strategic objectives, and foundational design principles that guide the security architecture of the Mediverse platform. These principles ensure that security is embedded into every business process, application, API, AI service, infrastructure component, and operational workflow rather than being treated as an afterthought.
-
-The security vision aligns with Mediverse's mission to provide a secure, scalable, resilient, and trustworthy AI-powered medical education platform while protecting sensitive data, ensuring service availability, and complying with applicable regulatory requirements.
-
----
-
-# 2.1 Enterprise Security Vision
-
-**Vision Statement**
-
-> *To establish Mediverse as a secure-by-design, privacy-first, zero-trust medical education platform where every component—from user interfaces and APIs to AI services and cloud infrastructure—is protected through proactive, automated, and continuously improving security controls.*
-
-The vision emphasizes:
-
-* Security by Design
-* Privacy by Default
-* Continuous Risk Reduction
-* Zero Trust Architecture
-* Automated Security
-* Secure Innovation
-* Regulatory Compliance
-* Operational Resilience
-* Trustworthy AI
-* Continuous Security Improvement
-
----
-
-### SDR-0017
-
-The Mediverse platform shall adopt a **Security by Design** approach for all new systems and services.
-
----
-
-### SDR-0018
-
-Security objectives shall be aligned with the overall business strategy and technology roadmap.
-
----
-
-# 2.2 Enterprise Security Goals
-
-The primary goals of the security architecture are:
-
-| Goal                   | Description                                         |
-| ---------------------- | --------------------------------------------------- |
-| Protect Identities     | Secure authentication and authorization             |
-| Protect Data           | Safeguard confidential and regulated information    |
-| Protect Applications   | Prevent exploitation of application vulnerabilities |
-| Protect APIs           | Secure service communication                        |
-| Protect AI Systems     | Secure AI models, prompts, and vector data          |
-| Protect Infrastructure | Secure Kubernetes, cloud, and networks              |
-| Detect Threats         | Rapid identification of malicious activity          |
-| Respond Quickly        | Effective incident response                         |
-| Recover Efficiently    | Maintain business continuity                        |
-| Continuously Improve   | Enhance security posture over time                  |
-
----
-
-### SDR-0019
-
-Security controls shall support all defined enterprise security goals.
-
----
-
-### SDR-0020
-
-Security goals shall be reviewed periodically and updated as organizational risks evolve.
-
----
-
-# 2.3 Security Design Objectives
-
-The security architecture shall achieve the following measurable objectives:
-
-* Minimize attack surface.
-* Reduce security vulnerabilities.
-* Prevent unauthorized access.
-* Detect threats in near real time.
-* Ensure secure software delivery.
-* Protect AI workloads.
-* Encrypt sensitive data.
-* Maintain service availability.
-* Provide complete auditability.
-* Enable regulatory compliance.
-
----
-
-### SDR-0021
-
-Every architectural component shall implement controls that reduce its attack surface.
-
----
-
-### SDR-0022
-
-Security controls shall be measurable through defined KPIs and governance metrics.
-
----
-
-# 2.4 Security Design Principles
-
-The following principles govern all security decisions:
-
-### 1. Security by Design
-
-Security is integrated during architecture and design, not added later.
-
-### 2. Security by Default
-
-Systems start in the most secure configuration.
-
-### 3. Least Privilege
-
-Users and services receive only the minimum permissions required.
-
-### 4. Zero Trust
-
-No user, service, or device is trusted implicitly.
-
-### 5. Defense in Depth
-
-Multiple independent security layers protect critical assets.
-
-### 6. Fail Secure
-
-Failures should default to a secure state.
-
-### 7. Privacy by Design
-
-Privacy considerations are embedded into system design.
-
-### 8. Continuous Verification
-
-Access and trust are continuously validated.
-
-### 9. Automation First
-
-Security controls should be automated wherever feasible.
-
-### 10. Continuous Improvement
-
-Security posture is regularly reviewed and enhanced.
-
----
-
-### SDR-0023
-
-All architectural decisions shall conform to the approved security design principles.
-
----
-
-### SDR-0024
-
-Exceptions to security principles shall require documented approval through enterprise governance.
-
----
-
-# 2.5 Zero Trust Philosophy
-
-The Mediverse platform adopts a Zero Trust model based on the following assumptions:
-
-* Never trust by default.
-* Always verify identity.
-* Validate device posture.
-* Authenticate every request.
-* Authorize every action.
-* Encrypt all communications.
-* Monitor continuously.
-* Assume breach.
-* Limit lateral movement.
-* Continuously assess risk.
-
-```text
-User/Service
-      │
-      ▼
-Identity Verification
-      │
-      ▼
-Policy Evaluation
-      │
-      ▼
-Authorization Decision
-      │
-      ▼
-Continuous Monitoring
-      │
-      ▼
-Access Granted / Denied
-```
-
----
-
-### SDR-0025
-
-All access requests shall undergo authentication and authorization before resource access is granted.
-
----
-
-### SDR-0026
-
-Trust decisions shall be continuously evaluated throughout active sessions.
-
----
-
-# 2.6 Defense-in-Depth Strategy
-
-Security controls are implemented across multiple layers:
-
-* Physical Security
-* Network Security
-* Cloud Security
-* Kubernetes Security
-* Container Security
-* Host Security
-* Identity Security
-* API Security
-* Application Security
-* Data Security
-* AI Security
-* Monitoring & Detection
-* Incident Response
-
-No single control is relied upon exclusively.
-
----
-
-### SDR-0027
-
-Critical assets shall be protected by multiple independent security controls.
-
----
-
-### SDR-0028
-
-Removal or failure of one control shall not eliminate protection for critical resources.
-
----
-
-# 2.7 Secure Innovation Principles
-
-Innovation shall never compromise security.
-
-Security considerations apply equally to:
-
-* AI model development
-* Machine learning pipelines
-* New APIs
-* Cloud-native services
-* Third-party integrations
-* Experimental features
-* Research initiatives
-
-Security reviews are required before production deployment.
-
----
-
-### SDR-0029
-
-New technologies shall undergo security assessment before production use.
-
----
-
-### SDR-0030
-
-Experimental features shall not bypass enterprise security controls.
-
----
-
-# 2.8 Governance Alignment
-
-The security vision aligns with enterprise governance through:
-
-* Executive sponsorship
-* Enterprise Architecture Board oversight
-* Security architecture reviews
-* Risk assessments
-* Compliance audits
-* Continuous monitoring
-* Security metrics
-* Improvement programs
-
----
-
-### SDR-0031
-
-Enterprise governance shall ensure alignment between business objectives and security strategy.
-
----
-
-### SDR-0032
-
-Security strategy shall be reviewed at planned governance intervals.
-
----
-
-# 2.9 Traceability
-
-**Related Chapters**
-
-* Chapter 1 — Introduction to Enterprise Security Architecture
-* Chapter 3 — Security Standards & Regulatory Compliance
-* Chapter 4 — Enterprise Security Governance Framework
-
-**Related Documents**
-
-* PRD
-* SRS
-* SAD
-* TDD
-* DDD
-* ADS
-* FDS
-
-**Related Standards**
-
-* ISO/IEC 27001
-* ISO/IEC 27701
-* NIST Cybersecurity Framework (CSF)
-* NIST SP 800-53
-* CIS Controls v8
-* OWASP ASVS
-
----
-
-# Chapter Summary
-
-This chapter established the strategic security direction for the Mediverse platform by defining its vision, enterprise goals, measurable objectives, and guiding design principles. It introduced the Zero Trust philosophy, defense-in-depth strategy, secure innovation approach, and governance alignment that will shape all subsequent security architecture decisions. These principles provide the foundation for implementing consistent, risk-based, and resilient security controls across the entire Mediverse ecosystem.
-
----
-
-**End of Chapter 2**
-
----
-
-# Part I — Enterprise Security Foundation & Governance Progress
-
-**Completed Chapters:** **2 / 10 (Part I)**
-
-**Security Requirement IDs Covered:** **SDR-0001 → SDR-0032**
-
----
-
-## Overall SecDD Progress
-
-| Metric                             | Status                                                   |
-| ---------------------------------- | -------------------------------------------------------- |
-| Completed Chapters                 | **2 / 70**                                               |
-| Completed Security Requirement IDs | **SDR-0001 → SDR-0032**                                  |
-| Completed Parts                    | None                                                     |
-| Current Part                       | **Part I — Enterprise Security Foundation & Governance** |
-
----
-
-**Next:** **Chapter 3 — Security Standards & Regulatory Compliance**
-# Security Design Document (SecDD)
-
-# Part I — Enterprise Security Foundation & Governance
 
 # Chapter 3 — Security Standards & Regulatory Compliance
 
@@ -1463,9 +1096,26 @@ This chapter established the security standards and regulatory compliance framew
 
 **Next:** **Chapter 4 — Enterprise Security Governance Framework**
 
+---
+
+# 3.10 Mediverse Regulatory Compliance & Governance Register
+
+### SDR-0045: Enterprise Regulatory Compliance Mapping
+The Mediverse platform establishes formal traceability to the following regulatory instruments:
+
+| Identifier | Standard / Regulation | Territorial Scope | Mandatory Security Controls & Traceability | Verification Method |
+|---|---|---|---|---|
+| **REG-NMC** | **NMC CBME MBBS Guidelines** | India (National) | Physiology competencies `PY1.1`–`PY11.14` mapped to curriculum, logbooks, and assessments. | Academic Audit & Syllabus Mapping |
+| **REG-USMLE** | **USMLE Step 1 / FSMB-NBME** | United States / Global | Clinical vignette integrity, distractor analysis, and Bloom's taxonomy scoring. | Clinical Question Review |
+| **REG-FERPA** | **Family Educational Rights & Privacy Act** | United States (Federal) | Strict privacy of student educational records, grades, exam attempts, and audit logs. | Access Control & Audit Log Review |
+| **REG-GDPR** | **General Data Protection Regulation** | European Union / Global | Articles 15–22 Data Subject Rights (Access, Erasure, Portability), DPA logging, lawful basis. | Data Protection Impact Assessment (DPIA) |
+| **REG-DPDPA** | **Digital Personal Data Protection Act 2023** | India (National) | Granular consent management, purpose limitation, data fiduciary obligations, minor protections. | Privacy Compliance Audit |
+| **REG-WCAG** | **W3C WCAG 2.1 Level AA** | International | Keyboard navigation, high-contrast color ratios $\ge 4.5:1$, screen reader ARIA landmarks. | Automated Accessibility Audits |
+
 # Security Design Document (SecDD)
 
 # Part I — Enterprise Security Foundation & Governance
+
 
 # Chapter 4 — Enterprise Security Governance Framework
 
@@ -1804,6 +1454,7 @@ This chapter established the Enterprise Security Governance Framework for Medive
 # Security Design Document (SecDD)
 
 # Part I — Enterprise Security Foundation & Governance
+
 
 # Chapter 5 — Security Organization, Roles & Responsibilities
 
@@ -2230,6 +1881,7 @@ This chapter defined the enterprise security organization for the Mediverse plat
 
 # Part I — Enterprise Security Foundation & Governance
 
+
 # Chapter 6 — Enterprise Risk Management
 
 ---
@@ -2632,6 +2284,7 @@ This chapter established the Enterprise Risk Management framework for Mediverse 
 # Security Design Document (SecDD)
 
 # Part I — Enterprise Security Foundation & Governance
+
 
 # Chapter 7 — Security Policies & Baselines
 
@@ -3063,6 +2716,7 @@ This chapter established the enterprise framework for Security Policies and Secu
 
 # Part I — Enterprise Security Foundation & Governance
 
+
 # Chapter 8 — Enterprise Security Reference Architecture
 
 ---
@@ -3432,6 +3086,7 @@ This chapter defined the Enterprise Security Reference Architecture for the Medi
 # Security Design Document (SecDD)
 
 # Part I — Enterprise Security Foundation & Governance
+
 
 # Chapter 9 — Security Documentation & Traceability
 
@@ -3830,6 +3485,7 @@ This chapter established the documentation and traceability framework for the Me
 # Security Design Document (SecDD)
 
 # Part I — Enterprise Security Foundation & Governance
+
 
 # Chapter 10 — Enterprise Threat Landscape & Attack Surface
 
@@ -4273,6 +3929,7 @@ This chapter will begin the technical security architecture by defining the ente
 
 # Part II — Identity, Authentication & Zero Trust
 
+
 # Chapter 11 — Identity & Access Management (IAM)
 
 ---
@@ -4678,6 +4335,7 @@ This chapter established the Enterprise Identity & Access Management architectur
 # Security Design Document (SecDD)
 
 # Part II — Identity, Authentication & Zero Trust
+
 
 # Chapter 12 — Authentication Architecture
 
@@ -5102,9 +4760,23 @@ This chapter established the Enterprise Authentication Architecture for the Medi
 
 **Next:** **Chapter 13 — Authorization Architecture (RBAC, ABAC, PBAC, Fine-Grained Authorization, Resource Permissions, Policy Decision Points, Policy Enforcement Points, and Enterprise Access Governance)**
 
+---
+
+# 12.10 Cryptographic Credential & Password Policy Baseline
+
+### SDR-0175: Password Security & Lockout Policy
+* **Password Hashing:** Industry-standard **BCrypt** with salt cost factor $\ge 12$.
+* **Complexity Requirements:** Minimum 12 characters containing uppercase, lowercase, numeric, and special characters.
+* **Account Lockout:** 5 consecutive failed login attempts trigger an automated 15-minute temporary lockout.
+
+### SDR-0176: Multi-Factor Authentication (MFA) Standard
+* **Mandatory MFA:** Enforced for all `ROLE_ADMIN` and `ROLE_MEDICAL_REVIEWER` accounts.
+* **MFA Protocol:** Standard RFC 6238 TOTP (Time-based One-Time Password) with a 30-second window tolerance.
+
 # Security Design Document (SecDD)
 
 # Part II — Identity, Authentication & Zero Trust
+
 
 # Chapter 13 — Authorization Architecture
 
@@ -5537,6 +5209,7 @@ This chapter established the Enterprise Authorization Architecture for the Mediv
 
 # Part II — Identity, Authentication & Zero Trust
 
+
 # Chapter 14 — Zero Trust Security Architecture
 
 ---
@@ -5960,6 +5633,7 @@ This chapter established the Enterprise Zero Trust Security Architecture for the
 # Security Design Document (SecDD)
 
 # Part II — Identity, Authentication & Zero Trust
+
 
 # Chapter 15 — Session & Token Management
 
@@ -6388,9 +6062,37 @@ This chapter established the Enterprise Session & Token Management Architecture 
 
 **Next:** **Chapter 16 — Multi-Factor Authentication & Passwordless Security**
 
+---
+
+# 15.10 Mediverse JWT Token Policy & Session Lifecycle Parameters
+
+### SDR-0225: JWT Token Specification
+All authentication tokens issued by `/api/v1/auth/login` conform to RFC 7519 JSON Web Tokens:
+
+```json
+{
+  "sub": "student.physio@mediverse.edu",
+  "roles": [
+    "ROLE_STUDENT"
+  ],
+  "userId": "1001",
+  "institutionId": "med-uni-01",
+  "iat": 1723700000,
+  "exp": 1723786400,
+  "iss": "mediverse-backend"
+}
+```
+
+### SDR-0226: Cryptographic Lifecycle & Revocation
+* **Signing Algorithm:** HMAC-SHA256 (`HS256`) with minimum 256-bit cryptographically secure key.
+* **Token Lifetime:** 24 Hours (86,400 seconds) standard expiration.
+* **Header Convention:** `Authorization: Bearer <jwt-token>`.
+* **Revocation Triggers:** Immediate token invalidation upon user password reset or role modification.
+
 # Security Design Document (SecDD)
 
 # Part II — Identity, Authentication & Zero Trust
+
 
 # Chapter 16 — Multi-Factor Authentication & Passwordless Security
 
@@ -6829,6 +6531,7 @@ This chapter established the Enterprise Multi-Factor Authentication and Password
 
 # Part II — Identity, Authentication & Zero Trust
 
+
 # Chapter 17 — Privileged Access Management (PAM)
 
 ---
@@ -7256,6 +6959,7 @@ This chapter established the Enterprise Privileged Access Management (PAM) Archi
 # Security Design Document (SecDD)
 
 # Part II — Identity, Authentication & Zero Trust
+
 
 # Chapter 18 — Secrets & Credential Management
 
@@ -7691,6 +7395,7 @@ This chapter established the Enterprise Secrets & Credential Management Architec
 
 # Part II — Identity, Authentication & Zero Trust
 
+
 # Chapter 19 — Identity Federation & Single Sign-On (SSO)
 
 ---
@@ -8093,6 +7798,7 @@ This chapter established the Enterprise Identity Federation & Single Sign-On (SS
 # Security Design Document (SecDD)
 
 # Part II — Identity, Authentication & Zero Trust
+
 
 # Chapter 20 — Certificate & Public Key Infrastructure (PKI) Management
 
@@ -8546,6 +8252,7 @@ This chapter begins the application security domain by defining the enterprise A
 
 # Part III — Application, API & AI Security
 
+
 # Chapter 21 — API Security Architecture
 
 ---
@@ -8929,9 +8636,25 @@ This chapter established the Enterprise API Security Architecture for the Medive
 
 **Next:** **Chapter 22 — Service-to-Service Security**
 
+---
+
+# 21.10 Quantitative Rate Limiting & Throttling Tiers
+
+### SDR-0315: API Rate Limiting Thresholds
+The platform enforces the following rate limiting tiers managed via Redis token buckets:
+
+| Endpoint Domain | Rate Limit Threshold | Burst Capacity | Lockout Threshold |
+|---|---|---|---|
+| **Authentication APIs** (`/api/v1/auth/*`) | 5 req/min per IP | 10 req | 15-minute temporary IP block on 3x breach |
+| **General Curriculum APIs** (`/api/v1/curriculum/*`) | 100 req/min per user | 150 req | HTTP 429 Too Many Requests |
+| **Simulation Calculation API** (`/api/v1/simulations/calculate`) | 60 req/min per user | 90 req | HTTP 429 Too Many Requests |
+| **Socratic AI Streaming** (`/api/v1/ai-tutor/chat/stream`) | 30 req/min per user | 45 req | HTTP 429 with retry-after header |
+| **Admin Operations** (`/api/v1/admin/*`) | 20 req/min per user | 30 req | HTTP 429 Too Many Requests |
+
 # Security Design Document (SecDD)
 
 # Part III — Application, API & AI Security
+
 
 # Chapter 22 — Service-to-Service Security
 
@@ -9307,9 +9030,27 @@ This chapter established the Enterprise Service-to-Service Security Architecture
 
 **Next:** **Chapter 23 — OWASP Top 10 Mitigation Strategy**
 
+---
+
+# 22.10 Role-Based Access Control (RBAC) & Spring Security Matrix
+
+### SDR-0330: Spring Security Method-Level Access Matrix
+The platform enforces role-based access control via Spring Security `@PreAuthorize` annotations:
+
+| Role Identifier | Accessible API Domains | Mandatory Security Expression |
+|---|---|---|
+| `ROLE_STUDENT` / `ROLE_USER` | 3D organ dissection, simulation solvers, practice exams, Socratic tutor | `@PreAuthorize("hasAnyRole('STUDENT', 'USER', 'FACULTY', 'ADMIN')")` |
+| `ROLE_FACULTY` / `ROLE_CONTENT_WRITER` | Authoring lessons, drafting curriculum, submitting to review queue | `@PreAuthorize("hasAnyRole('FACULTY', 'CONTENT_WRITER', 'ADMIN')")` |
+| `ROLE_MEDICAL_REVIEWER` / `ROLE_EDITOR` | Reviewing pending curriculum lessons, approving/rejecting with audit logs | `@PreAuthorize("hasAnyRole('MEDICAL_REVIEWER', 'FACULTY', 'EDITOR', 'ADMIN')")` |
+| `ROLE_ADMIN` / `ROLE_SUPER_ADMIN` | User management, role modification, global telemetry, tenant config | `@PreAuthorize("hasRole('ADMIN')")` |
+
+### SDR-0331: CMS Review Audit Trail Immutability
+All curriculum review decisions are recorded in the `content_reviews` database table (`V24__cms_content_review_workflow.sql`) capturing reviewer identity, timestamp, decision, lesson version, and required feedback commentary.
+
 # Security Design Document (SecDD)
 
 # Part III — Application, API & AI Security
+
 
 # Chapter 23 — OWASP Top 10 Mitigation Strategy
 
@@ -9702,6 +9443,7 @@ This chapter established the Enterprise OWASP Top 10 Mitigation Strategy for the
 
 # Part III — Application, API & AI Security
 
+
 # Chapter 24 — OWASP API Security Top 10 Mitigation
 
 ---
@@ -10066,6 +9808,7 @@ This chapter established the Enterprise OWASP API Security Top 10 Mitigation Str
 # Security Design Document (SecDD)
 
 # Part III — Application, API & AI Security
+
 
 # Chapter 25 — Container Security
 
@@ -10436,6 +10179,7 @@ This chapter established the Enterprise Container Security Architecture for the 
 # Security Design Document (SecDD)
 
 # Part III — Application, API & AI Security
+
 
 # Chapter 26 — Kubernetes Security
 
@@ -10825,6 +10569,7 @@ This chapter established the Enterprise Kubernetes Security Architecture for the
 
 # Part III — Application, API & AI Security
 
+
 # Chapter 27 — Cloud Security Architecture
 
 ---
@@ -11186,6 +10931,7 @@ This chapter established the Enterprise Cloud Security Architecture for the Medi
 # Security Design Document (SecDD)
 
 # Part III — Application, API & AI Security
+
 
 # Chapter 28 — Artificial Intelligence & Machine Learning Security
 
@@ -11580,6 +11326,7 @@ This chapter established the Enterprise Artificial Intelligence & Machine Learni
 
 # Part III — Application, API & AI Security
 
+
 # Chapter 29 — Secure Coding Standards & Application Security Controls
 
 ---
@@ -11952,6 +11699,7 @@ This chapter established the Enterprise Secure Coding Standards & Application Se
 
 # Part III — Application, API & AI Security
 
+
 # Chapter 30 — Secure Software Development Lifecycle (SSDLC)
 
 ---
@@ -12319,6 +12067,7 @@ This chapter established the Enterprise Secure Software Development Lifecycle (S
 # Security Design Document (SecDD)
 
 # Part III — Application, API & AI Security
+
 
 # Chapter 31 — DevSecOps Security
 
@@ -12700,6 +12449,7 @@ This chapter established the Enterprise DevSecOps Security Architecture for the 
 
 # Part III — Application, API & AI Security
 
+
 # Chapter 32 — Infrastructure Security
 
 ---
@@ -13025,10 +12775,19 @@ This chapter established the Enterprise Infrastructure Security Architecture for
 
 **Next:** **Chapter 33 — Endpoint & Device Security**
 
+---
+
+# 32.10 Socratic AI Security, Prompt Sandboxing & KaTeX Sanitization
+
+### SDR-0480: Socratic AI Prompt Sandboxing & Safety Guardrails
+* **System Prompt Sandboxing:** Restricts LLM dialog strictly to biomedical sciences and medical education, preventing jailbreaks and prompt injection.
+* **Clinical Triage Guardrails:** Automatically refuses requests for live-patient clinical diagnosis and emits standard medical emergency disclaimers.
+* **KaTeX & Markdown Sanitization:** Client-side XSS prevention via sanitized React Markdown rendering (`rehype-katex`, `remark-math`).
 
 # Security Design Document (SecDD)
 
 # Part III — Application, API & AI Security
+
 
 # Chapter 33 — Endpoint & Device Security
 
@@ -13356,6 +13115,7 @@ This chapter established the Enterprise Endpoint & Device Security Architecture 
 # Security Design Document (SecDD)
 
 # Part III — Application, API & AI Security
+
 
 # Chapter 34 — Network Security Architecture
 
@@ -13694,6 +13454,7 @@ This chapter established the Enterprise Network Security Architecture for the Me
 # Security Design Document (SecDD)
 
 # Part III — Application, API & AI Security
+
 
 # Chapter 35 — Security Architecture Review & Threat Modeling
 
@@ -14069,6 +13830,7 @@ This chapter established the Enterprise Security Architecture Review & Threat Mo
 
 # Part IV — Data Protection, Privacy & Compliance
 
+
 # Chapter 36 — Enterprise Data Classification & Information Lifecycle Management
 
 ---
@@ -14400,6 +14162,7 @@ This chapter established the Enterprise Data Classification & Information Lifecy
 
 # Part IV — Data Protection, Privacy & Compliance
 
+
 # Chapter 37 — Data Privacy & Personally Identifiable Information (PII) Protection
 
 ---
@@ -14726,6 +14489,7 @@ This chapter established the Enterprise Data Privacy & Personally Identifiable I
 # Security Design Document (SecDD)
 
 # Part IV — Data Protection, Privacy & Compliance
+
 
 # Chapter 38 — Data Loss Prevention (DLP) & Information Leakage Protection
 
@@ -15065,6 +14829,7 @@ This chapter established the Enterprise Data Loss Prevention (DLP) & Information
 
 # Part IV — Data Protection, Privacy & Compliance
 
+
 # Chapter 39 — Backup, Recovery & Data Resilience
 
 ---
@@ -15391,6 +15156,7 @@ This chapter established the Enterprise Backup, Recovery & Data Resilience Frame
 # Security Design Document (SecDD)
 
 # Part IV — Data Protection, Privacy & Compliance
+
 
 # Chapter 40 — Records Management & Digital Evidence Preservation
 
@@ -15721,6 +15487,7 @@ This chapter established the Enterprise Records Management & Digital Evidence Pr
 
 # Part IV — Data Protection, Privacy & Compliance
 
+
 # Chapter 41 — Secure Data Sharing & Third-Party Data Exchange
 
 ---
@@ -16048,6 +15815,7 @@ This chapter established the Enterprise Secure Data Sharing & Third-Party Data E
 # Security Design Document (SecDD)
 
 # Part IV — Data Protection, Privacy & Compliance
+
 
 # Chapter 42 — Database Security Architecture
 
@@ -16379,6 +16147,7 @@ This chapter established the Enterprise Database Security Architecture for the M
 
 # Part IV — Data Protection, Privacy & Compliance
 
+
 # Chapter 43 — Data Integrity, Non-Repudiation & Digital Signatures
 
 ---
@@ -16705,6 +16474,7 @@ This chapter established the Enterprise Data Integrity, Non-Repudiation & Digita
 # Security Design Document (SecDD)
 
 # Part IV — Data Protection, Privacy & Compliance
+
 
 # Chapter 44 — Data Retention, Archival & Secure Data Disposal
 
@@ -17034,6 +16804,7 @@ This chapter established the Enterprise Data Retention, Archival & Secure Data D
 # Security Design Document (SecDD)
 
 # Part IV — Data Protection, Privacy & Compliance
+
 
 # Chapter 45 — Enterprise Cryptography & Data Protection
 
@@ -17385,6 +17156,7 @@ This chapter established the Enterprise Cryptography & Data Protection Framework
 
 # Part V — Governance, Risk, Compliance & Operational Security
 
+
 # Chapter 46 — Enterprise Risk Management & Security Risk Assessment
 
 ---
@@ -17721,6 +17493,7 @@ This chapter established the Enterprise Risk Management & Security Risk Assessme
 
 # Part V — Governance, Risk, Compliance & Operational Security
 
+
 # Chapter 47 — Regulatory Compliance, Legal & Audit Requirements
 
 ---
@@ -18049,6 +17822,7 @@ This chapter established the Enterprise Regulatory Compliance, Legal & Audit Fra
 
 # Part V — Governance, Risk, Compliance & Operational Security
 
+
 # Chapter 48 — Security Policy, Standards & Exception Management
 
 ---
@@ -18374,6 +18148,7 @@ This chapter established the Enterprise Security Policy, Standards & Exception M
 # Security Design Document (SecDD)
 
 # Part V — Governance, Risk, Compliance & Operational Security
+
 
 # Chapter 49 — Third-Party, Vendor & Supply Chain Security
 
@@ -18708,6 +18483,7 @@ This chapter established the Enterprise Third-Party, Vendor & Supply Chain Secur
 
 # Part V — Governance, Risk, Compliance & Operational Security
 
+
 # Chapter 50 — Business Continuity Planning (BCP) & Operational Resilience
 
 ---
@@ -19039,6 +18815,7 @@ This chapter established the Enterprise Business Continuity Planning (BCP) & Ope
 
 # Part V — Governance, Risk, Compliance & Operational Security
 
+
 # Chapter 51 — Disaster Recovery Planning (DRP) & Service Restoration
 
 ---
@@ -19368,6 +19145,7 @@ This chapter established the Enterprise Disaster Recovery Planning (DRP) & Servi
 # Security Design Document (SecDD)
 
 # Part V — Governance, Risk, Compliance & Operational Security
+
 
 # Chapter 52 — Security Monitoring, SIEM & Security Operations Center (SOC)
 
@@ -19700,6 +19478,7 @@ This chapter established the Enterprise Security Monitoring, SIEM & Security Ope
 
 # Part V — Governance, Risk, Compliance & Operational Security
 
+
 # Chapter 53 — Vulnerability Management & Security Assessment
 
 ---
@@ -20026,10 +19805,27 @@ This chapter established the Enterprise Vulnerability Management & Security Asse
 
 **Next:** **Chapter 54 — Patch, Configuration & Change Security Management**
 
+---
+
+# 53.10 Vulnerability Remediation SLAs & Automated DAST Gates
+
+### SDR-0795: Vulnerability Remediation SLAs
+Security vulnerabilities identified through SAST, DAST, SCA, or penetration testing adhere to strict remediation SLAs:
+
+| Severity Level | CVSS v3.1 Score | Remediation SLA | Release Gate Policy |
+|---|---|---|---|
+| **Critical** | $9.0 - 10.0$ | $\le 24\text{ hours}$ | Blocks production promotion immediately |
+| **High** | $7.0 - 8.9$ | $\le 7\text{ days}$ | Blocks production promotion |
+| **Medium** | $4.0 - 6.9$ | $\le 30\text{ days}$ | Monitored in release backlog |
+| **Low** | $0.1 - 3.9$ | $\le 90\text{ days}$ | Scheduled routine maintenance |
+
+### SDR-0796: Automated DAST CI/CD Release Gate
+The CI/CD pipeline executes automated Dynamic Application Security Testing (DAST) scans against pre-production staging environments on every release candidate. Zero Critical or High vulnerabilities are required to pass the release gate.
 
 # Security Design Document (SecDD)
 
 # Part V — Governance, Risk, Compliance & Operational Security
+
 
 # Chapter 54 — Patch, Configuration & Change Security Management
 
@@ -20360,338 +20156,6 @@ This chapter established the Enterprise Patch, Configuration & Change Security M
 
 # Part V — Governance, Risk, Compliance & Operational Security
 
-# Chapter 55 — Security Incident Response, Digital Forensics & Cyber Crisis Management
-
----
-
-# Chapter Overview
-
-Despite implementing preventive, detective, and corrective security controls, cybersecurity incidents may still occur due to sophisticated threat actors, insider threats, zero-day vulnerabilities, ransomware, supply chain compromises, cloud service failures, or accidental operational errors. A structured Incident Response capability minimizes business impact through timely detection, containment, eradication, recovery, forensic investigation, coordinated crisis management, and continuous improvement.
-
-This chapter defines the Enterprise **Security Incident Response, Digital Forensics & Cyber Crisis Management Framework** for the Mediverse platform. It establishes mandatory controls governing incident preparation, detection, analysis, containment, eradication, recovery, digital forensic investigations, cyber crisis management, communications, evidence preservation, governance, and continuous improvement.
-
-The framework applies to all enterprise applications, cloud environments, Kubernetes clusters, AI platforms, APIs, databases, identity services, endpoints, networks, third-party services, employees, contractors, and operational teams.
-
----
-
-# 55.1 Purpose
-
-The Enterprise Incident Response Framework shall:
-
-* Detect cybersecurity incidents.
-* Minimize operational impact.
-* Coordinate incident response.
-* Preserve digital evidence.
-* Support forensic investigations.
-* Restore secure operations.
-* Strengthen cyber resilience.
-* Meet regulatory obligations.
-* Enable executive decision-making.
-* Promote continuous improvement.
-
----
-
-### SDR-0913
-
-The Mediverse platform shall implement an Enterprise Security Incident Response, Digital Forensics, and Cyber Crisis Management Framework.
-
----
-
-### SDR-0914
-
-Cybersecurity incidents shall be managed through documented incident response procedures and governance processes.
-
----
-
-# 55.2 Incident Response Architecture
-
-```text
-          Security Events
-                 │
-                 ▼
-      Detection & Reporting
-                 │
-                 ▼
-     Incident Classification
-                 │
-        ┌────────┼─────────┐
-        ▼        ▼         ▼
- Containment Investigation Recovery
-        │        │         │
-        └────────┼─────────┘
-                 ▼
-      Lessons Learned Review
-```
-
-Enterprise incident response shall integrate security operations, information technology, legal, privacy, business leadership, communications, and external stakeholders where required.
-
----
-
-### SDR-0915
-
-Enterprise incident response shall follow a documented lifecycle including preparation, detection, analysis, containment, eradication, recovery, and post-incident review.
-
----
-
-### SDR-0916
-
-Incident response roles, responsibilities, escalation paths, and decision authorities shall be formally documented.
-
----
-
-# 55.3 Incident Detection & Classification
-
-Incident management shall include:
-
-* Security Event Monitoring
-* Incident Reporting
-* Alert Validation
-* Threat Analysis
-* Incident Classification
-* Severity Assessment
-* Business Impact Assessment
-* Escalation
-
-Incidents shall be classified according to predefined severity levels and business impact criteria.
-
----
-
-### SDR-0917
-
-Potential cybersecurity incidents shall be promptly assessed to determine severity, scope, and required response actions.
-
----
-
-### SDR-0918
-
-Incident classification shall consider technical impact, business impact, regulatory obligations, and data sensitivity.
-
----
-
-# 55.4 Containment, Eradication & Recovery
-
-Response activities shall include:
-
-* Short-Term Containment
-* Long-Term Containment
-* Threat Eradication
-* Malware Removal
-* Credential Reset
-* Infrastructure Restoration
-* Service Validation
-* Secure Recovery
-
-Recovery shall restore business operations while ensuring security controls remain effective.
-
----
-
-### SDR-0919
-
-Containment strategies shall minimize further damage while preserving critical business operations where feasible.
-
----
-
-### SDR-0920
-
-Recovery activities shall verify that affected systems are secure before returning them to production service.
-
----
-
-# 55.5 Digital Forensics & Evidence Preservation
-
-Forensic activities shall include:
-
-* Evidence Identification
-* Evidence Collection
-* Chain of Custody
-* Memory Acquisition
-* Disk Imaging
-* Log Preservation
-* Timeline Analysis
-* Root Cause Investigation
-
-Digital evidence shall be handled to preserve integrity and admissibility where applicable.
-
----
-
-### SDR-0921
-
-Digital evidence shall be collected, preserved, stored, and handled using documented forensic procedures.
-
----
-
-### SDR-0922
-
-Chain of custody records shall be maintained for evidence supporting investigations, legal proceedings, or regulatory requirements.
-
----
-
-# 55.6 Cyber Crisis Management
-
-Cyber crisis management shall include:
-
-* Executive Coordination
-* Crisis Management Team Activation
-* Business Decision Support
-* Regulatory Coordination
-* Customer Communication
-* Media Management
-* Third-Party Coordination
-* Executive Reporting
-
-Crisis management activities shall align with enterprise business continuity and disaster recovery capabilities.
-
----
-
-### SDR-0923
-
-Significant cybersecurity incidents shall activate documented cyber crisis management procedures where defined criteria are met.
-
----
-
-### SDR-0924
-
-Executive leadership shall receive timely updates regarding significant cybersecurity incidents and recovery activities.
-
----
-
-# 55.7 Communication & Reporting
-
-Communication activities shall include:
-
-* Internal Notifications
-* Executive Briefings
-* Regulatory Reporting
-* Customer Notifications
-* Law Enforcement Coordination
-* Third-Party Communications
-* Status Reporting
-* Final Incident Reporting
-
-Communications shall be accurate, timely, and consistent with legal and regulatory obligations.
-
----
-
-### SDR-0925
-
-Incident communications shall follow documented approval and notification procedures.
-
----
-
-### SDR-0926
-
-Incident records shall include sufficient information to support regulatory reporting, audit activities, and organizational learning.
-
----
-
-# 55.8 Governance & Continuous Improvement
-
-Governance activities shall include:
-
-* Incident Metrics
-* Root Cause Analysis
-* Lessons Learned
-* Corrective Actions
-* Procedure Reviews
-* Training Exercises
-* Threat Intelligence Integration
-* Continuous Improvement
-
-The incident response capability shall evolve based on operational experience, emerging threats, audit findings, and organizational requirements.
-
----
-
-### SDR-0927
-
-The Enterprise Incident Response Framework shall undergo periodic review and approval.
-
----
-
-### SDR-0928
-
-Incident response, digital forensics, and cyber crisis management processes shall be continuously improved using lessons learned, threat intelligence, operational metrics, audit findings, and industry best practices.
-
----
-
-# 55.9 Traceability
-
-**Related Chapters**
-
-* Chapter 39 — Backup, Recovery & Data Resilience
-* Chapter 46 — Enterprise Risk Management & Security Risk Assessment
-* Chapter 47 — Regulatory Compliance, Legal & Audit Requirements
-* Chapter 50 — Business Continuity Planning (BCP) & Operational Resilience
-* Chapter 51 — Disaster Recovery Planning (DRP) & Service Restoration
-* Chapter 52 — Security Monitoring, SIEM & Security Operations Center (SOC)
-* Chapter 53 — Vulnerability Management & Security Assessment
-* Chapter 54 — Patch, Configuration & Change Security Management
-
-**Related Documents**
-
-* Incident Response Plan (IRP)
-* Digital Forensics Procedure
-* Cyber Crisis Management Plan
-* Business Continuity Plan (BCP)
-* Disaster Recovery Plan (DRP)
-* Security Monitoring Standard
-* Product Requirements Document (PRD)
-* Software Requirements Specification (SRS)
-
-**Referenced Standards**
-
-* ISO/IEC 27035 — Information Security Incident Management
-* ISO/IEC 27037 — Guidelines for Identification, Collection, Acquisition and Preservation of Digital Evidence
-* NIST SP 800-61 Rev.2 — Computer Security Incident Handling Guide
-* NIST SP 800-86 — Guide to Integrating Forensic Techniques into Incident Response
-* NIST SP 800-53 Rev.5
-* MITRE ATT&CK Framework
-* ISO/IEC 27001
-* CIS Controls v8
-
----
-
-# Chapter Summary
-
-This chapter established the Enterprise Security Incident Response, Digital Forensics & Cyber Crisis Management Framework for the Mediverse platform. It defined mandatory controls governing incident detection, classification, containment, eradication, recovery, forensic investigation, crisis management, communications, governance, and continuous improvement. These controls ensure that cybersecurity incidents are managed consistently, digital evidence is preserved, business operations are restored securely, regulatory obligations are met, and organizational resilience is continuously strengthened.
-
----
-
-**End of Chapter 55**
-
----
-
-# Part V — Governance, Risk, Compliance & Operational Security Progress
-
-**Completed Chapters:** **10 / 10 (Part V) ✅**
-
-**Security Requirement IDs Covered:** **SDR-0769 → SDR-0928**
-
----
-
-## Overall SecDD Progress
-
-| Metric                             | Status                  |
-| ---------------------------------- | ----------------------- |
-| Completed Parts                    | **5 / 7**               |
-| Completed Chapters                 | **55 / 70**             |
-| Completed Security Requirement IDs | **SDR-0001 → SDR-0928** |
-| Current Status                     | **Part V Completed**    |
-
----
-
-# Part V Summary
-
-Part V established the operational governance and cybersecurity management capabilities required to operate and sustain the Mediverse platform securely. Across Chapters 46–55, it defined enterprise controls for risk management, regulatory compliance, policy governance, third-party security, business continuity, disaster recovery, security monitoring, vulnerability management, secure change management, and incident response. Together, these chapters provide the governance and operational foundation necessary to maintain cyber resilience, regulatory compliance, and continuous security improvement throughout the platform lifecycle.
-
----
-
-**Next:** **Part VI — Enterprise Security Assurance, Metrics & Organizational Security**
-
-**Chapter 56 — Security Testing, Validation & Assurance**
-
-# Security Design Document (SecDD)
-
-# Part V — Governance, Risk, Compliance & Operational Security
 
 # Chapter 55 — Security Incident Response, Digital Forensics & Cyber Crisis Management
 
@@ -21026,6 +20490,7 @@ Part V established the operational governance and cybersecurity management capab
 # Security Design Document (SecDD)
 
 # Part VI — Enterprise Security Assurance, Metrics & Organizational Security
+
 
 # Chapter 56 — Security Testing, Validation & Assurance
 
@@ -21356,6 +20821,7 @@ This chapter established the Enterprise Security Testing, Validation & Assurance
 
 # Part VI — Enterprise Security Assurance, Metrics & Organizational Security
 
+
 # Chapter 57 — Security Auditing & Continuous Compliance
 
 ---
@@ -21684,6 +21150,7 @@ This chapter established the Enterprise Security Auditing & Continuous Complianc
 # Security Design Document (SecDD)
 
 # Part VI — Enterprise Security Assurance, Metrics & Organizational Security
+
 
 # Chapter 58 — Security Metrics, KPIs, KRIs & Executive Security Reporting
 
@@ -22017,6 +21484,7 @@ This chapter established the Enterprise Security Metrics, KPIs, KRIs & Executive
 
 # Part VI — Enterprise Security Assurance, Metrics & Organizational Security
 
+
 # Chapter 59 — Security Awareness, Education & Training
 
 ---
@@ -22347,6 +21815,7 @@ This chapter established the Enterprise Security Awareness, Education & Training
 # Security Design Document (SecDD)
 
 # Part VI — Enterprise Security Assurance, Metrics & Organizational Security
+
 
 # Chapter 60 — Security Organization, Roles, Responsibilities & Governance Structure
 
@@ -22680,6 +22149,7 @@ This chapter established the Enterprise Security Organization, Roles, Responsibi
 
 # Part VI — Enterprise Security Assurance, Metrics & Organizational Security
 
+
 # Chapter 61 — Enterprise Security Documentation, Knowledge Management & Configuration Management
 
 ---
@@ -23009,6 +22479,7 @@ This chapter established the Enterprise Security Documentation, Knowledge Manage
 
 # Part VI — Enterprise Security Assurance, Metrics & Organizational Security
 
+
 # Chapter 62 — Enterprise Security Culture, Human Factors & Insider Threat Management
 
 ---
@@ -23335,6 +22806,7 @@ This chapter established the Enterprise Security Culture, Human Factors & Inside
 # Security Design Document (SecDD)
 
 # Part VI — Enterprise Security Assurance, Metrics & Organizational Security
+
 
 # Chapter 63 — Enterprise Security Maturity, Capability Assessment & Continuous Improvement
 
@@ -23667,6 +23139,7 @@ This chapter established the Enterprise Security Maturity, Capability Assessment
 
 # Part VI — Enterprise Security Assurance, Metrics & Organizational Security
 
+
 # Chapter 64 — Enterprise Security Architecture Review Board (SARB), Governance Reviews & Security Design Authority
 
 ---
@@ -23995,6 +23468,7 @@ This chapter established the Enterprise Security Architecture Review Board (SARB
 # Security Design Document (SecDD)
 
 # Part VI — Enterprise Security Assurance, Metrics & Organizational Security
+
 
 # Chapter 65 — Enterprise Security Program Management, Strategic Planning & Roadmap
 
@@ -24326,6 +23800,7 @@ This chapter established the Enterprise Security Program Management, Strategic P
 
 # Part VII — Future Security, Emerging Technologies & Security Evolution
 
+
 # Chapter 66 — Emerging Technologies Security (AI, Quantum Computing, Edge Computing & Future Threats)
 
 ---
@@ -24650,6 +24125,7 @@ This chapter established the Enterprise Emerging Technologies Security Framework
 # Security Design Document (SecDD)
 
 # Part VII — Future Security, Emerging Technologies & Security Evolution
+
 
 # Chapter 67 — Security Research, Innovation & Threat Intelligence Evolution
 
@@ -24978,6 +24454,7 @@ This chapter established the Enterprise Security Research, Innovation & Threat I
 
 # Part VII — Future Security, Emerging Technologies & Security Evolution
 
+
 # Chapter 68 — Cybersecurity Future Readiness, Strategic Resilience & Adaptive Security
 
 ---
@@ -25305,6 +24782,7 @@ This chapter established the Enterprise Cybersecurity Future Readiness, Strategi
 # Security Design Document (SecDD)
 
 # Part VII — Future Security, Emerging Technologies & Security Evolution
+
 
 # Chapter 69 — Enterprise Security Vision, Long-Term Strategy & Cybersecurity Transformation
 
@@ -25637,6 +25115,7 @@ This chapter established the Enterprise Security Vision, Long-Term Strategy & Cy
 # Security Design Document (SecDD)
 
 # Part VII — Future Security, Emerging Technologies & Security Evolution
+
 
 # Chapter 70 — Enterprise Security Conclusion, Security Principles & Final Governance Statement
 

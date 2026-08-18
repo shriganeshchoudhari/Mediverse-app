@@ -4,6 +4,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 1: Welcome to the Mediverse Educator Portal
 
 **Educator Procedure & Administration:**
@@ -15,6 +17,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -32,6 +36,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 3: Navigating the Educator Dashboard
 
 **Educator Procedure & Administration:**
@@ -42,6 +48,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -59,6 +67,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 5: Understanding How Students View the Platform
 
 **Educator Procedure & Administration:**
@@ -69,6 +79,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -85,6 +97,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 7: Requesting Sandbox Courses
 
 **Educator Procedure & Administration:**
@@ -98,16 +112,24 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
-### Chapter 8: The Course Hierarchy
+---
+
+### Chapter 8: The Course Hierarchy & CMS Curriculum Authoring
 
 **Educator Procedure & Administration:**
-- **Subject** (e.g., Anatomy) -> **Course** (e.g., Gross Anatomy 101) -> **Module** (e.g., The Heart) -> **Lesson** (e.g., Cardiac Cycle Video).
+* Organize curriculum into a clean 3-tier hierarchy: **Organ System** $\rightarrow$ **Topic** $\rightarrow$ **Lesson Modules**.
+* Author lessons in the Mediverse CMS using Markdown with embedded KaTeX mathematical and chemical expressions:
+  ```markdown
+  ### Left Ventricular Time-Varying Elastance
+  The instantaneous pressure-volume relationship is governed by Suga-Sagawa elastance:
+  $$E(t) = \frac{P(t)}{V(t) - V_0}$$
+  where $E(t)$ is ventricular elastance, $P(t)$ is cavity pressure, and $V_0$ is the volume axis intercept.
+  ```
+* Submit drafted lessons to the 5-stage peer review queue (`DRAFT` $\rightarrow$ `IN_REVIEW` $\rightarrow$ `APPROVED` $\rightarrow$ `PUBLISHED` / `REJECTED`) via `POST /api/v1/cms/lessons/{lessonId}/submit`.
 
 **Faculty Workflow & Accreditation Standards:**
-- **NMC CBME Alignment:** Directly link course modules, 3D anatomical labs, and quizzes to National Medical Commission competencies (PY1.1 to PY11.14) for automated portfolio generation.
-- **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
-- **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
-- **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+* **NMC CBME Alignment:** Directly link course modules, 3D anatomical labs, and quizzes to National Medical Commission competencies (`PY1.1` to `PY11.14`) for automated portfolio generation.
+* **Review Audit Trail:** Inspect reviewer feedback and version revisions in the `content_reviews` table.
 
 ---
 
@@ -125,6 +147,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 10: Uploading and Structuring Recorded Video Lectures
 
 **Educator Procedure & Administration:**
@@ -135,6 +159,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -151,6 +177,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 12: Embedding External Web Content
 
 **Educator Procedure & Administration:**
@@ -161,6 +189,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -178,6 +208,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 14: Collaborating with Co-Instructors
 
 **Educator Procedure & Administration:**
@@ -188,6 +220,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -204,16 +238,20 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
-### Chapter 16: The Anatomy of a Question Bank
+---
+
+### Chapter 16: The Anatomy of a High-Yield Clinical Question Bank
 
 **Educator Procedure & Administration:**
-- Create a centralized bank of questions independent of exams. Tag them heavily (e.g., `Cardiology`, `Difficulty: Hard`, `USMLE Step 1`).
+* Construct clinical vignette items adhering to USMLE Step 1 / NMC CBME standards:
+  1. **Patient Presentation:** Age, biological sex, chief complaint, duration of symptoms.
+  2. **Physical Examination & Vitals:** Blood pressure, heart rate, respiratory rate, core temperature.
+  3. **Diagnostic Laboratory Data:** Tabular arterial blood gases, serum electrolytes, or cardiac biomarkers.
+  4. **Question Stem:** Single best answer prompt focusing on underlying physiological mechanisms.
+  5. **Distractor Rationales:** Mandatory pedagogical explanations detailing why the correct option is pathophysiologically sound and why each incorrect distractor is false (`clinicalExamQuestions.ts`).
 
 **Faculty Workflow & Accreditation Standards:**
-- **NMC CBME Alignment:** Directly link course modules, 3D anatomical labs, and quizzes to National Medical Commission competencies (PY1.1 to PY11.14) for automated portfolio generation.
-- **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
-- **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
-- **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+* **Competency Tagging:** Tag items with NMC competency codes (`PY1.1` to `PY11.14`) and Bloom's cognitive taxonomy levels (`Recall`, `Comprehension`, `Application`, `Analysis`).
 
 ---
 
@@ -230,6 +268,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 18: Designing Clinical Vignette Case Studies
 
 **Educator Procedure & Administration:**
@@ -240,6 +280,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -256,17 +298,18 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
-### Chapter 20: Setting Exam Time Limits and Retake Policies
+---
+
+### Chapter 20: 3D WebGL Multi-Organ Dissection & Classroom Demonstrations
 
 **Educator Procedure & Administration:**
-- Set total time limits or time-per-question limits.
-- Configure retakes (e.g., 'Allow 2 retakes, keep highest score').
+* Utilize `ThreeCanvas.tsx` during live video lectures or in-person anatomy/physiology laboratories:
+  - **Orbit, Pan & Zoom:** Demonstrate spatial relationships of cardiac chambers, pulmonary alveoli, and nephron vascular structures.
+  - **Cross-Sectional Dissection:** Activate sagittal, coronal, and transverse clipping planes (`DissectionShader.ts`) with stencil buffer capping to expose internal ventricular septa and renal medulla.
+  - **Anatomical Landmark Beacons:** Click on preset landmark pins (`OrganPresets.ts`) to project clinical diagnostic popovers (e.g. Sinoatrial Node action potential conduction pathways).
 
 **Faculty Workflow & Accreditation Standards:**
-- **NMC CBME Alignment:** Directly link course modules, 3D anatomical labs, and quizzes to National Medical Commission competencies (PY1.1 to PY11.14) for automated portfolio generation.
-- **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
-- **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
-- **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+* **Memory & Stability:** Canvas components bind to `useThreeMemoryCleanup.ts` to dispose WebGL VRAM upon unmount, ensuring zero browser memory leaks on student laptops and tablets.
 
 ---
 
@@ -283,6 +326,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 22: Defining Passing Score Thresholds
 
 **Educator Procedure & Administration:**
@@ -293,6 +338,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -309,6 +356,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 24: How the Socratic AI Tutor Interacts
 
 **Educator Procedure & Administration:**
@@ -319,6 +368,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -335,16 +386,19 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
-### Chapter 26: Uploading Syllabi to the AI Knowledge Base
+---
+
+### Chapter 26: Authoring Physiological Simulation Laboratory Assignments
 
 **Educator Procedure & Administration:**
-- Ensure the AI only answers based on *your* course materials. Upload your specific slides to the RAG Knowledge Base in the `AI Lab` tab.
+* Design interactive student challenges utilizing Mediverse's differential equation simulation engines:
+  - **Cardiac Hemodynamics (`cardiacSolver.ts`):** Challenge students to modify ventricular contractility ($E_{max}$), compliance, and systemic vascular resistance (SVR) to simulate Heart Failure with Reduced Ejection Fraction (HFrEF) on the Pressure-Volume ($PV$) loop.
+  - **Acid-Base Nomogram (`acidBaseSolver.ts`):** Challenge students to evaluate mixed metabolic acidosis and respiratory alkalosis using the interactive Davenport diagram and Winter's formula.
+  - **Renal Filtration (`renalSolver.ts`):** Challenge students to adjust afferent/efferent arteriolar resistances and observe resulting changes in Glomerular Filtration Rate (GFR) and filtration fraction.
+  - **Nerve Electrophysiology (`membraneSolver.ts`):** Challenge students to compute resting membrane potential using the Goldman-Hodgkin-Katz equation.
 
 **Faculty Workflow & Accreditation Standards:**
-- **NMC CBME Alignment:** Directly link course modules, 3D anatomical labs, and quizzes to National Medical Commission competencies (PY1.1 to PY11.14) for automated portfolio generation.
-- **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
-- **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
-- **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+* **Real-Time Verification:** Solvers calculate in $< 1.0\text{ms}$ to ensure responsive 60 FPS slider reactivity for student discovery learning.
 
 ---
 
@@ -361,6 +415,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 28: Restricting the AI (Setting Boundaries)
 
 **Educator Procedure & Administration:**
@@ -371,6 +427,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -387,6 +445,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 30: Creating Simulated Patient AI Prompts
 
 **Educator Procedure & Administration:**
@@ -397,6 +457,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -413,6 +475,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 32: Embedding 3D Anatomy Models
 
 **Educator Procedure & Administration:**
@@ -423,6 +487,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -439,6 +505,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 34: Creating 3D 'Find the Structure' Quizzes
 
 **Educator Procedure & Administration:**
@@ -452,16 +520,18 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
-### Chapter 35: Setting up Virtual Physiology Simulation Labs
+---
+
+### Chapter 35: Interpreting Bloom's Taxonomy & NMC CBME Radar Mastery Analytics
 
 **Educator Procedure & Administration:**
-- Link interactive web-based simulation widgets directly into the lesson flow. Ensure grades from the simulation pass back to Mediverse.
+* Access cohort-level mastery analytics generated by `ExamSummaryView.tsx` and `nmcMapping.ts`:
+  - **Multi-Axis Radar Charts:** Visualize student cohort mastery across all 11 NMC CBME physiological systems (General, Hematology, Nerve-Muscle, GI, CVS, Respiratory, Renal, Endocrine, Reproductive, Neuro, Special Senses).
+  - **Bloom's Cognitive Breakdown:** Track cohort performance across Recall, Comprehension, Application, and Clinical Analysis.
+  - **Item Discrimination Index ($r_{pb}$):** Identify poorly discriminating assessment items ($r_{pb} < 0.20$) for curricular revision.
 
 **Faculty Workflow & Accreditation Standards:**
-- **NMC CBME Alignment:** Directly link course modules, 3D anatomical labs, and quizzes to National Medical Commission competencies (PY1.1 to PY11.14) for automated portfolio generation.
-- **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
-- **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
-- **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+* **Early Warning System:** Automated dashboard alerts identify students performing below $65\%$ mastery in core competencies for timely pedagogical intervention.
 
 ---
 
@@ -478,6 +548,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 37: Importing Custom 3D Models
 
 **Educator Procedure & Administration:**
@@ -488,6 +560,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -504,6 +578,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 39: Filtering Grades by Cohort or Individual
 
 **Educator Procedure & Administration:**
@@ -514,6 +590,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -530,6 +608,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 41: Exporting the Gradebook
 
 **Educator Procedure & Administration:**
@@ -540,6 +620,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -556,6 +638,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 43: Viewing Student Engagement Heatmaps
 
 **Educator Procedure & Administration:**
@@ -566,6 +650,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -582,16 +668,16 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
-### Chapter 45: Generating Mid-Term Progress Reports
+---
+
+### Chapter 45: Configuring the Socratic AI Teaching Assistant
 
 **Educator Procedure & Administration:**
-- Click `Generate Reports` to email a PDF summary of grades and missing assignments directly to all students.
-
-**Faculty Workflow & Accreditation Standards:**
-- **NMC CBME Alignment:** Directly link course modules, 3D anatomical labs, and quizzes to National Medical Commission competencies (PY1.1 to PY11.14) for automated portfolio generation.
-- **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
-- **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
-- **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+* Configure the Socratic AI Companion (`GlobalSocraticAssistant.tsx`, `AITutorService.java`):
+  - **Socratic Guidance Prompt:** Enforce pedagogical scaffolding hints rather than direct answers to exam vignettes.
+  - **Textbook Grounding:** Ensure AI explanations cite standard medical physiology authorities (Guyton & Hall Textbook of Medical Physiology, Costanzo Physiology).
+  - **Clinical Emergency Disclaimers:** Ensure automated refusal of live-patient diagnostic inquiries.
+  - **Token Rate Limiting:** Enforce a rate limit of 30 requests/minute per student via Redis token buckets.
 
 ---
 
@@ -608,6 +694,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 47: Assigning TAs to Sections
 
 **Educator Procedure & Administration:**
@@ -618,6 +706,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -634,6 +724,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 49: Moving Students Between Sections
 
 **Educator Procedure & Administration:**
@@ -644,6 +736,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -660,6 +754,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 51: Issuing Course Completion Certificates
 
 **Educator Procedure & Administration:**
@@ -670,6 +766,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -686,6 +784,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 53: Managing the Course Discussion Forums
 
 **Educator Procedure & Administration:**
@@ -696,6 +796,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -712,6 +814,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 55: Sending Direct Messages to Struggling Students
 
 **Educator Procedure & Administration:**
@@ -722,6 +826,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -738,6 +844,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 57: Moderating Flagged Forum Posts
 
 **Educator Procedure & Administration:**
@@ -748,6 +856,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -764,6 +874,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 59: Taking Automated Attendance for Live Sessions
 
 **Educator Procedure & Administration:**
@@ -774,6 +886,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -790,6 +904,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 61: Using Mediverse within Blackboard
 
 **Educator Procedure & Administration:**
@@ -800,6 +916,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -816,6 +934,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 63: Dealing with Sync Errors
 
 **Educator Procedure & Administration:**
@@ -826,6 +946,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -842,6 +964,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 65: Dealing with 'Video Not Playing' Complaints
 
 **Educator Procedure & Administration:**
@@ -852,6 +976,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -868,6 +994,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 67: Requesting New Features or 3D Models
 
 **Educator Procedure & Administration:**
@@ -878,6 +1006,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 
@@ -894,6 +1024,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 
 ---
 
+---
+
 ### Chapter 69: Reviewing the Mediverse Knowledge Base
 
 **Educator Procedure & Administration:**
@@ -904,6 +1036,8 @@ This 70-chapter guide provides comprehensive instructions for Professors, Instru
 - **Custom Assignment Authoring:** Combine 3D organ presets with specific simulation parameter challenges to test student diagnostic and analytical reasoning.
 - **Examination Management:** Schedule timed cohort examinations with anti-cheating randomized question distribution and automatic grade passback to Canvas/Moodle/Blackboard via LTI 1.3.
 - **Analytics & Early Intervention:** Monitor cohort score distributions, question discrimination indices (r_pb), and automated early warning alerts for students scoring < 65%.
+
+---
 
 ---
 

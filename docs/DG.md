@@ -6,6 +6,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 1: Deployment Guide Purpose & Scope
 
 **Deployment Architecture & Specification:**
@@ -16,6 +18,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -34,6 +38,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 3: Cloud Provider Quotas & Soft Limits Check
 
 **Deployment Architecture & Specification:**
@@ -44,6 +50,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -60,6 +68,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 5: Network Foundation: VPC, Subnets, and NAT
 
 **Deployment Architecture & Specification:**
@@ -70,6 +80,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -86,6 +98,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 7: Bastion Hosts & Secure Management Access
 
 **Deployment Architecture & Specification:**
@@ -96,6 +110,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -112,6 +128,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 9: Provisioning the Core Network
 
 **Deployment Architecture & Specification:**
@@ -125,17 +143,25 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
-### Chapter 10: Provisioning Managed PostgreSQL Clusters
+---
+
+### Chapter 10: Provisioning Managed PostgreSQL Clusters & Flyway Pipeline
 
 **Deployment Architecture & Specification:**
-- Multi-AZ RDS Aurora PostgreSQL deployment.
-- Automated backups enabled with 35-day retention.
-- Parameter groups tuned for `max_connections` (relies on PgBouncer).
+* Deploy Amazon RDS / Cloud SQL PostgreSQL 16 Multi-AZ with `pgvector` extension enabled.
+* Schema evolution is strictly managed via 26 sequential Flyway migrations (`V1` to `V26`).
+* Database migrations execute as an isolated pre-deployment Kubernetes Job before application rollout:
+  ```bash
+  # Production Flyway Migration Execution Command
+  ./gradlew flywayMigrate \
+    -Dflyway.url=jdbc:postgresql://db.mediverse.internal:5432/mediverse_prod \
+    -Dflyway.user=mediverse_migration_user \
+    -Dflyway.password=${DB_MIGRATION_PASSWORD}
+  ```
 
 **Infrastructure & Platform Standards:**
-- **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
-- **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
-- **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+* Automated daily snapshots with 30-day point-in-time recovery (PITR) retention.
+* Read replicas provisioned in separate Availability Zones for analytical queries.
 
 ---
 
@@ -152,6 +178,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 12: Provisioning Managed Elasticsearch / OpenSearch
 
 **Deployment Architecture & Specification:**
@@ -162,6 +190,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -178,6 +208,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 14: Provisioning Object Storage & IAM Policies
 
 **Deployment Architecture & Specification:**
@@ -188,6 +220,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -204,6 +238,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 16: EKS/GKE Cluster Provisioning
 
 **Deployment Architecture & Specification:**
@@ -214,6 +250,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -230,6 +268,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 18: Kubernetes Add-ons
 
 **Deployment Architecture & Specification:**
@@ -240,6 +280,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -256,55 +298,191 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
-### Chapter 20: Ingress Controller Setup
+---
+
+### Chapter 20: Local Development & Docker Compose Orchestration
 
 **Deployment Architecture & Specification:**
-- AWS ALB Ingress Controller handling Edge routing.
-- Integrates with WAF and Shield Advanced for DDoS protection.
+Developers and QA engineers spin up the entire Mediverse platform locally using `docker-compose.yml`:
 
-**Infrastructure & Platform Standards:**
-- **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
-- **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
-- **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+```yaml
+version: '3.8'
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: mediverse-postgres
+    environment:
+      POSTGRES_DB: mediverse
+      POSTGRES_USER: mediverse
+      POSTGRES_PASSWORD: mediverse_local_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mediverse"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: mediverse-redis
+    ports:
+      - "6379:6379"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: mediverse-backend
+    environment:
+      SPRING_PROFILES_ACTIVE: local
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/mediverse
+      SPRING_DATASOURCE_USERNAME: mediverse
+      SPRING_DATASOURCE_PASSWORD: mediverse_local_password
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
+    ports:
+      - "8085:8085"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: mediverse-frontend
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8085
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
+```
 
 ---
 
-### Chapter 21: Cert-Manager Installation
+### Chapter 21: Backend Containerization & Multi-Stage Dockerfile
 
 **Deployment Architecture & Specification:**
-- Let's Encrypt cluster-issuers via DNS-01 challenge.
-- Certificates mapped automatically to Ingress resources.
+The Spring Boot 3.4.1 backend container is compiled on Eclipse Temurin 21 JDK and executed on a hardened Alpine JRE runtime:
 
-**Infrastructure & Platform Standards:**
-- **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
-- **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
-- **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+```dockerfile
+# Stage 1: Build JAR with Gradle 8.5
+FROM gradle:8.5-jdk21-alpine AS builder
+WORKDIR /app
+COPY build.gradle settings.gradle /app/
+COPY gradle /app/gradle
+COPY src /app/src
+RUN gradle bootJar --no-daemon -x test
+
+# Stage 2: Hardened Runtime Container
+FROM eclipse-temurin:21-jre-alpine
+WORKDIR /app
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
+COPY --from=builder /app/build/libs/*.jar app.jar
+EXPOSE 8085
+ENTRYPOINT ["java", "-XX:+UseZGC", "-XX:MaxRAMPercentage=75.0", "-jar", "app.jar"]
+```
 
 ---
 
-### Chapter 22: ExternalDNS Setup
+### Chapter 22: Frontend Containerization & Next.js Standalone Dockerfile
 
 **Deployment Architecture & Specification:**
-- Automates Route53 record creation based on Ingress hostnames.
-- Uses IAM Roles for Service Accounts (IRSA) for secure AWS API access.
+The Next.js 14 frontend compiles using Node 20 and exports a lightweight standalone bundle (`output: 'standalone'`):
 
-**Infrastructure & Platform Standards:**
-- **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
-- **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
-- **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+```dockerfile
+# Stage 1: Dependencies
+FROM node:20-alpine AS deps
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+
+# Stage 2: Next.js Standalone Build
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+ENV NEXT_TELEMETRY_DISABLED=1
+RUN npm run build
+
+# Stage 3: Production Runtime
+FROM node:20-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+USER nextjs
+EXPOSE 3000
+ENV PORT=3000
+CMD ["node", "server.js"]
+```
 
 ---
 
-### Chapter 23: HashiCorp Vault Deployment
+### Chapter 23: Kubernetes Deployment Manifests & Rolling Update Strategy
 
 **Deployment Architecture & Specification:**
-- StatefulSet deployment with Consul/Raft storage backend.
-- Auto-unseal configured via AWS KMS.
+Production workloads deploy with zero downtime using rolling updates and Spring Boot Actuator probes:
 
-**Infrastructure & Platform Standards:**
-- **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
-- **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
-- **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediverse-backend
+  namespace: mediverse-prod
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: mediverse-backend
+  template:
+    metadata:
+      labels:
+        app: mediverse-backend
+    spec:
+      containers:
+      - name: backend
+        image: mediverse-registry/backend:v1.0.0
+        ports:
+        - containerPort: 8085
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 8085
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 8085
+          initialDelaySeconds: 20
+          periodSeconds: 5
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "1Gi"
+          limits:
+            cpu: "2000m"
+            memory: "2Gi"
+```
 
 ---
 
@@ -321,6 +499,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 25: Service Mesh Installation
 
 **Deployment Architecture & Specification:**
@@ -331,6 +511,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -347,16 +529,43 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
-### Chapter 27: Network Policies Default Deny
+---
+
+### Chapter 27: Ingress Configuration & Server-Sent Events (SSE) Proxying
 
 **Deployment Architecture & Specification:**
-- Cilium `CiliumNetworkPolicy` enforces Zero-Trust.
-- Default deny all ingress/egress. Explicit allow rules required per microservice.
+Nginx Ingress is specifically configured to support unbuffered token streaming for Socratic AI tutoring:
 
-**Infrastructure & Platform Standards:**
-- **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
-- **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
-- **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+```nginx
+upstream backend_upstream {
+    server mediverse-backend.mediverse-prod.svc.cluster.local:8085;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name api.mediverse.edu;
+
+    # Socratic AI Token Streaming Endpoint (Unbuffered SSE)
+    location /api/v1/ai-tutor/chat/stream {
+        proxy_pass http://backend_upstream;
+        proxy_http_version 1.1;
+        proxy_set_header Connection '';
+        proxy_set_header Host $host;
+        chunked_transfer_encoding on;
+        proxy_buffering off;
+        proxy_cache off;
+        proxy_read_timeout 300s;
+        proxy_send_timeout 300s;
+    }
+
+    # General REST API Endpoints
+    location /api/ {
+        proxy_pass http://backend_upstream;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+```
 
 ---
 
@@ -373,6 +582,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 29: Container Security Tools
 
 **Deployment Architecture & Specification:**
@@ -382,6 +593,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -398,6 +611,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 31: Argo CD Installation
 
 **Deployment Architecture & Specification:**
@@ -408,6 +623,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -424,6 +641,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 33: App of Apps Pattern
 
 **Deployment Architecture & Specification:**
@@ -436,6 +655,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 34: CI Pipeline Definitions
 
 **Deployment Architecture & Specification:**
@@ -445,6 +666,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -461,6 +684,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 36: Supply Chain Security
 
 **Deployment Architecture & Specification:**
@@ -471,6 +696,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -487,6 +714,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 38: pgvector Extension Initialization
 
 **Deployment Architecture & Specification:**
@@ -497,6 +726,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -513,6 +744,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 40: Redis Cache Pre-warming
 
 **Deployment Architecture & Specification:**
@@ -522,6 +755,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -538,6 +773,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 42: Elasticsearch Index Template Setup
 
 **Deployment Architecture & Specification:**
@@ -547,6 +784,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -562,6 +801,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 44: GPU Node Pool Provisioning
 
 **Deployment Architecture & Specification:**
@@ -574,6 +815,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 45: vLLM / Inference Engine Deployment
 
 **Deployment Architecture & Specification:**
@@ -583,6 +826,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -599,6 +844,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 47: RAG Pipeline Knowledge Base Initialization
 
 **Deployment Architecture & Specification:**
@@ -611,15 +858,17 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
-### Chapter 48: Model Registry Sync
+---
+
+### Chapter 48: Zero-Downtime Blue/Green Release & Rollback Runbooks
 
 **Deployment Architecture & Specification:**
-- HuggingFace / S3 model weights downloaded to a persistent volume (ReadWriteMany) to avoid re-downloading on pod restart.
-
-**Infrastructure & Platform Standards:**
-- **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
-- **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
-- **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+* **Canary Verification Gate:** 5% of production traffic is routed to the new release candidate for 15 minutes.
+* **Automated Rollback Triggers:**
+  - HTTP $5xx$ error rate exceeds $0.1\%$.
+  - Socratic AI SSE stream failure rate exceeds $0.5\%$.
+  - End-to-end simulation calculation API P99 latency exceeds $150\text{ms}$.
+* **Rollback Command:** `kubectl rollout undo deployment/mediverse-backend -n mediverse-prod`
 
 ---
 
@@ -632,6 +881,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -648,6 +899,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 51: Order of Operations: Domain Services
 
 **Deployment Architecture & Specification:**
@@ -657,6 +910,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -673,6 +928,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 53: Progressive Delivery: Blue/Green
 
 **Deployment Architecture & Specification:**
@@ -686,6 +943,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 54: Progressive Delivery: Canary Release
 
 **Deployment Architecture & Specification:**
@@ -695,6 +954,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -711,6 +972,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 56: CDN Invalidations
 
 **Deployment Architecture & Specification:**
@@ -720,6 +983,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -736,6 +1001,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 58: PromQL Rule Configurations
 
 **Deployment Architecture & Specification:**
@@ -745,6 +1012,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -761,6 +1030,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 60: Log Aggregation Stack
 
 **Deployment Architecture & Specification:**
@@ -770,6 +1041,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -786,6 +1059,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 62: PagerDuty / Slack Integration
 
 **Deployment Architecture & Specification:**
@@ -795,6 +1070,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -811,6 +1088,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 64: Pre-Flight Checks & PRR
 
 **Deployment Architecture & Specification:**
@@ -820,6 +1099,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -836,6 +1117,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 66: Disaster Recovery Validation Drills
 
 **Deployment Architecture & Specification:**
@@ -846,6 +1129,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -862,6 +1147,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 68: Runbook: Vault Seal Recovery
 
 **Deployment Architecture & Specification:**
@@ -871,6 +1158,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -887,6 +1176,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 70: Runbook: Emergency Rollback (Application)
 
 **Deployment Architecture & Specification:**
@@ -897,6 +1188,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -913,6 +1206,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 72: FinOps: Kubecost Deployment
 
 **Deployment Architecture & Specification:**
@@ -923,6 +1218,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 
@@ -939,6 +1236,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 
 ---
 
+---
+
 ### Chapter 74: Security Patching Workflow
 
 **Deployment Architecture & Specification:**
@@ -949,6 +1248,8 @@ It acts as the definitive runbook and deployment specification for DevOps, SRE, 
 - **AWS & Kubernetes Implementation:** Deployed on AWS EKS 1.30 across 3 Availability Zones (ap-south-1), with managed node groups, AWS Karpenter autoscaling, and Amazon RDS PostgreSQL 16 Multi-AZ with pgvector.
 - **Container & Helm Hardening:** Distroless container images running as non-root (USER 65534:65534), read-only root filesystems, strict CPU/Memory resource limits, and Cilium Zero-Trust network policies.
 - **Secrets & Ingress:** Credentials dynamically injected via External Secrets Operator from AWS Secrets Manager; ingress managed by AWS ALB Ingress Controller with TLS 1.3 and WAF rate-limiting.
+
+---
 
 ---
 

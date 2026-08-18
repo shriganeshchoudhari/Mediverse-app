@@ -315,6 +315,7 @@ This chapter establishes the foundation of the Mediverse Software Architecture D
 
 **End of Chapter 1**
 
+
 # Chapter 2 — Architectural Goals & Quality Attributes
 
 ---
@@ -880,6 +881,7 @@ This chapter establishes the architectural goals and quality attributes that gov
 
 **End of Chapter 2**
 
+
 # Chapter 3 — Architecture Principles
 
 ---
@@ -1379,6 +1381,7 @@ This chapter establishes the foundational architectural principles that govern e
 
 **End of Chapter 3**
 
+
 # Chapter 4 — System Context Architecture
 
 ---
@@ -1786,6 +1789,7 @@ This chapter defines the highest-level architectural view of Mediverse by identi
 ---
 
 **End of Chapter 4**
+
 
 # Chapter 5 — Enterprise Solution Architecture
 
@@ -2418,6 +2422,7 @@ The frontend architecture is optimized for high-performance 3D visualization and
 * **3D Asset Optimization Pipeline:** All anatomical organ models packaged as binary `.glb` files compressed via **Google Draco** geometry compression and **KTX2 / Basis Universal** texture compression, keeping individual organ downloads $< 15	ext{ MB}$.
 
 
+
 # Chapter 6 — Logical Architecture
 
 ---
@@ -2938,8 +2943,25 @@ This chapter traces to:
 This chapter defines the Logical Architecture of the Mediverse platform by organizing the solution into layered domains, identifying business service boundaries, establishing dependency rules, defining communication patterns, and describing cross-cutting concerns. The architecture emphasizes Domain-Driven Design, API-first communication, independent data ownership, and technology independence, providing a logical blueprint that will be refined into the detailed physical, deployment, microservice, and component architectures in the following chapters.
 
 ---
+---
+
+# 6.10 3D WebGL Multi-Organ Graphics Engine & Dissection Pipeline
+
+### ARCH-3D-001: Three.js WebGL2 Rendering Architecture
+The 3D anatomical visualization layer is orchestrated via Three.js with hardware-accelerated WebGL2 rendering (`ThreeCanvas.tsx`), providing 6-DOF camera controls, perspective projection, and multi-light illumination models.
+
+### ARCH-3D-002: Multi-Plane Cross-Sectional Dissection Shaders
+The platform executes real-time anatomical slicing using custom local sagittal, coronal, and transverse clipping planes with stencil buffer capping (`DissectionShader.ts`), exposing internal cardiac chambers, alveolar sacs, and nephron tubules without geometry artifacts.
+
+### ARCH-3D-003: Multi-Organ Preset Datasets & Landmark Beacons
+Predefined clinical landmark coordinates, camera vectors, and histological correlations are encapsulated in `OrganPresets.ts` across 6 core systems: Cardiovascular, Respiratory, Renal, Neurophysiology, Gastrointestinal, and Endocrine.
+
+### ARCH-3D-004: GPU Resource Lifecycle Management
+To eliminate WebGL VRAM memory leaks during continuous student navigation, all 3D canvas components bind to `useThreeMemoryCleanup.ts`, explicitly executing `renderer.dispose()`, `geometry.dispose()`, and `material.dispose()` upon component unmount.
+
 
 **End of Chapter 6**
+
 # Chapter 7 — Physical Architecture
 
 ---
@@ -3500,6 +3522,7 @@ This chapter defines the Physical Architecture of the Mediverse platform by desc
 
 **End of Chapter 7**
 
+
 # Chapter 8 — Deployment Architecture
 
 ---
@@ -4051,6 +4074,7 @@ This chapter defines the Deployment Architecture for the Mediverse platform by d
 
 **Next:** Chapter 9 – Technology Stack & Platform Selection.
 
+
 # Chapter 9 — Technology Stack & Platform Selection
 
 ---
@@ -4571,6 +4595,7 @@ This chapter defines the approved Technology Stack and Platform Selection for Me
 **End of Chapter 9**
 
 **Next:** Chapter 10 – Domain-Driven Design (DDD).
+
 
 # Chapter 10 — Domain-Driven Design (DDD)
 
@@ -5167,6 +5192,7 @@ This chapter establishes the Domain-Driven Design foundation for the Mediverse p
 
 **Next:** Chapter 11 – Microservice Architecture.
 
+
 # Chapter 11 — Microservice Architecture
 
 ---
@@ -5757,10 +5783,35 @@ This chapter traces to:
 This chapter defines the Microservice Architecture of the Mediverse platform by organizing business capabilities into independently deployable services aligned with Domain-Driven Design bounded contexts. It establishes service responsibilities, communication patterns, database ownership, API Gateway integration, service discovery, resilience mechanisms, scalability strategies, security controls, observability requirements, and service evolution practices. Together, these architectural decisions create a modular, cloud-native platform capable of supporting enterprise-scale medical education while enabling independent development, deployment, and continuous evolution.
 
 ---
+---
+
+# 11.10 Domain-Driven Modular Monolith Architecture Standard (ADR-002)
+
+### ARCH-MONO-001: Modular Monolith Topology Specification
+In accordance with **ADR-002**, Mediverse is architected and deployed as a **Domain-Driven Modular Monolith** in Spring Boot 3.4 and Java 21 (`com.curiolearn.*`).
+
+```text
+com.curiolearn/
+├── auth/           # Identity, JWT bearer authentication, SecurityConfig
+├── curriculum/     # Curriculum taxonomy, Lesson content blocks, CMS Review Controller
+├── simulation/     # Simulation catalog, calculate API, mathematical parameter models
+├── aitutor/        # Socratic AI tutor, SSE streaming controller, RAG service
+├── quiz/           # Clinical vignette question banks, exam scoring, submissions
+├── progress/       # Student mastery tracking, bookmarks, spaced repetition
+├── admin/          # Institutional user governance, system metrics, audit reporting
+└── common/         # Global exception handlers, response envelopes, pagination
+```
+
+### ARCH-MONO-002: Architectural Benefits & Boundary Invariants
+* **Zero Inter-Process Latency:** Sub-millisecond intra-process communication for curriculum retrieval, quiz evaluation, and simulation parameter checks.
+* **Strict Package Encapsulation:** Cross-domain communication restricted to public Service interfaces or published Spring Application Events; direct cross-domain JPA entity references are prohibited.
+* **Microservices Extraction Readiness:** Each bounded context maintains isolated database tables and independent service interfaces, enabling clean extraction into standalone microservices if institutional multi-region scale warrants.
+
 
 **End of Chapter 11**
 
 **Next:** Chapter 12 – Service Catalog.
+
 
 # Chapter 12 — Service Catalog
 
@@ -6531,6 +6582,7 @@ This chapter establishes the authoritative Service Catalog for the Mediverse pla
 
 **Next:** Chapter 13 – C4 Container Architecture.
 
+
 # Chapter 13 — C4 Container Architecture
 
 ---
@@ -7100,10 +7152,24 @@ This chapter traces to:
 This chapter defines the **C4 Container Architecture (Level 2)** for the Mediverse platform by identifying all major runtime containers, their responsibilities, communication patterns, security boundaries, deployment mappings, scalability characteristics, and operational interfaces. It demonstrates how client applications, business services, AI components, infrastructure platforms, and shared services collaborate to deliver a secure, scalable, cloud-native medical education ecosystem while maintaining clear ownership boundaries and independent deployability.
 
 ---
+---
+
+# 13.10 Next.js 14 App Router & Vanilla CSS Design Token Architecture
+
+### ARCH-FE-001: Next.js 14 App Router Architecture
+The web client container is built on Next.js 14 utilizing the App Router (`app/`) and React 18, leveraging React Server Components (RSC) for initial curriculum page loads and Client Components (`"use client"`) for interactive WebGL canvases, real-time math sliders, and Socratic chat drawers.
+
+### ARCH-FE-002: Vanilla CSS & CSS Modules Design System
+In accordance with **ADR-023**, all component styling is authored using scoped **CSS Modules (`*.module.css`)** and centralized semantic CSS custom properties (`globals.css`), avoiding utility-class clutter and ensuring bespoke medical UI craftsmanship.
+
+### ARCH-FE-003: High-Performance Solver State Architecture
+Global state is restricted to authentication (`AuthContext`) and notifications (`ToastContext`), while high-frequency physiological simulation solvers leverage local component state (`useState`, `useReducer`) and custom mathematical hooks (`cardiacSolver`, `renalSolver`, `acidBaseSolver`) to guarantee continuous 60 FPS slider reactivity.
+
 
 **End of Chapter 13**
 
 **Next:** Chapter 14 – Component Architecture.
+
 
 # Chapter 14 — Component Architecture
 
@@ -7671,10 +7737,33 @@ This chapter traces to:
 This chapter defines the internal Component Architecture for Mediverse by organizing each microservice into well-defined API, application, domain, persistence, infrastructure, and cross-cutting layers. It establishes standardized component responsibilities, dependency rules, interaction patterns, packaging conventions, quality requirements, and lifecycle governance. By combining Clean Architecture, Hexagonal Architecture, and Domain-Driven Design, the platform achieves highly cohesive, loosely coupled, independently testable, and maintainable services that can evolve safely while preserving business integrity.
 
 ---
+---
+
+# 14.10 Role-Based Medical Curriculum CMS Review State Machine
+
+### ARCH-CMS-001: 5-Stage Content Governance State Machine
+Medical curriculum lessons adhere to a strict state transition lifecycle:
+```
+[ DRAFT ] ──(submitForReview)──► [ IN_REVIEW ]
+                                      │
+              ┌───────────────────────┴───────────────────────┐
+              ▼                                               ▼
+         [ APPROVED ]                                    [ REJECTED ]
+              │                                               │
+              ▼                                               ▼
+        [ PUBLISHED ]                                     [ DRAFT ]
+```
+
+### ARCH-CMS-002: Component Interaction & Audit Schema
+* **Controller:** `CmsReviewController.java` (`GET /api/v1/cms/lessons`, `POST /submit`, `POST /review`, `GET /history`).
+* **Service:** `CmsReviewService.java` managing state transitions, version incrementation, and role authorization.
+* **Audit Table:** `content_reviews` (`V24__cms_content_review_workflow.sql`) storing immutable reviewer decisions, timestamps, and required rejection rationale.
+
 
 **End of Chapter 14**
 
 **Next:** Chapter 15 – Package Architecture.
+
 
 
 # Chapter 15 — Package Architecture
@@ -8292,6 +8381,7 @@ This chapter defines the standardized Package Architecture for all Mediverse mic
 
 **Next:** Chapter 16 – Class-Level Design Guidelines.
 
+
 # Chapter 16 — Class-Level Design Guidelines
 
 ---
@@ -8870,6 +8960,7 @@ This chapter establishes the Class-Level Design Guidelines for the Mediverse pla
 
 **Next:** Chapter 17 – Database Architecture.
 
+
 # Chapter 17 — Database Architecture
 
 ---
@@ -9356,10 +9447,27 @@ This chapter traces to:
 This chapter defines the Database Architecture for the Mediverse platform by establishing database ownership, storage technologies, consistency models, schema governance, security controls, AI data storage, backup strategies, performance optimization techniques, and enterprise governance practices. The architecture embraces the Database-per-Service pattern, polyglot persistence, event-driven synchronization, and strong data ownership principles to create a secure, scalable, resilient, and cloud-native foundation for transactional, analytical, and AI-enabled workloads.
 
 ---
+---
+
+# 17.10 PostgreSQL Schema Evolution & Flyway Migration Inventory (V1–V26)
+
+### ARCH-DB-001: Relational Schema & Migration Register
+The database schema evolution is managed via versioned Flyway SQL migrations:
+
+| Migration File | Primary Tables Created / Modified | Functional Domain |
+|---|---|---|
+| `V1__init_schema.sql` | `users`, `roles`, `user_roles`, `categories` | IAM & Foundations |
+| `V2__curriculum_structure.sql` | `subjects`, `modules`, `chapters`, `topics`, `lessons` | Curriculum Hierarchy |
+| `V3__content_blocks.sql` | `content_blocks` (Markdown, LaTeX, Media, 3D Models) | Lesson Content |
+| `V10__quizzes_and_questions.sql` | `quizzes`, `quiz_questions`, `quiz_submissions` | Assessment Engine |
+| `V24__cms_content_review_workflow.sql` | `content_reviews` | CMS Review Audit Log |
+| `V26__ai_tutor_rag_and_lti13.sql` | `ai_tutor_sessions`, `lti_deployments`, `lti_launches` | AI RAG & LTI 1.3 LMS |
+
 
 **End of Chapter 17**
 
 **Next:** Chapter 18 – Data Model.
+
 
 # Chapter 18 — Data Model
 
@@ -9859,6 +9967,7 @@ This chapter defines the logical Data Model for the Mediverse platform by identi
 **End of Chapter 18**
 
 **Next:** Chapter 19 – Data Flow Architecture.
+
 
 # Chapter 19 — Data Flow Architecture
 
@@ -10414,6 +10523,7 @@ This chapter defines the Data Flow Architecture for the Mediverse platform by de
 **End of Chapter 19**
 
 **Next:** Chapter 20 – Data Governance.
+
 
 # Chapter 20 — Data Governance
 
@@ -11001,6 +11111,7 @@ This chapter establishes the Data Governance framework for the Mediverse platfor
 
 **Next:** Chapter 21 – Caching Strategy.
 
+
 # Chapter 21 — Caching Strategy
 
 ---
@@ -11510,6 +11621,7 @@ This chapter defines the enterprise Caching Strategy for the Mediverse platform 
 **End of Chapter 21**
 
 **Next:** Chapter 22 – Non-Functional Requirements.
+
 
 # Chapter 22 — Non-Functional Requirements
 
@@ -12040,6 +12152,7 @@ This chapter defines the Non-Functional Requirements for the Mediverse platform 
 **End of Chapter 22**
 
 **Next:** Chapter 23 – Security Architecture.
+
 
 # Chapter 23 — Security Architecture
 
@@ -12649,6 +12762,7 @@ This chapter defines the Security Architecture for the Mediverse platform by est
 
 **Next:** Chapter 24 – System Architecture & Deployment Requirements.
 
+
 # Chapter 24 — System Architecture & Deployment Requirements
 
 ---
@@ -13212,6 +13326,7 @@ This chapter defines the System Architecture and Deployment Requirements for the
 
 **Next:** Chapter 25 – Data Architecture, Database Design & Information Model.
 
+
 # Chapter 25 — Data Architecture, Database Design & Information Model
 
 ---
@@ -13757,6 +13872,7 @@ This chapter defines the Data Architecture, Database Design, and Information Mod
 
 **Next:** Chapter 26 – DevSecOps Architecture.
 
+
 # Chapter 26 — DevSecOps Architecture
 
 ---
@@ -14328,576 +14444,6 @@ This chapter defines the DevSecOps Architecture for the Mediverse platform by es
 
 **Next:** Chapter 27 – Performance, Scalability & Capacity Planning.
 
-# Chapter 26 — DevSecOps Architecture
-
----
-
-# 26.1 Introduction
-
-The DevSecOps Architecture defines the enterprise software delivery framework for the Mediverse platform. It integrates software development, security, quality assurance, infrastructure automation, deployment, monitoring, and governance into a unified continuous delivery pipeline.
-
-Mediverse adopts a **Cloud-Native DevSecOps** approach where security, quality, compliance, testing, and operational governance are embedded throughout the Software Development Life Cycle (SDLC). Every code change is automatically validated, tested, scanned, packaged, deployed, observed, and audited before reaching production.
-
-The architecture leverages GitOps, Infrastructure as Code (IaC), Continuous Integration (CI), Continuous Delivery (CD), policy-as-code, automated security scanning, and Kubernetes-native deployment practices to provide a secure, scalable, and highly automated delivery platform.
-
----
-
-# 26.2 Objectives
-
-The DevSecOps Architecture shall:
-
-* Automate software delivery.
-* Integrate security throughout the SDLC.
-* Improve deployment reliability.
-* Reduce manual operational effort.
-* Enforce enterprise quality standards.
-* Support rapid feature delivery.
-* Enable Infrastructure as Code.
-* Ensure deployment traceability.
-* Strengthen compliance.
-* Support continuous improvement.
-
----
-
-# 26.3 DevSecOps Principles
-
-The Mediverse platform adopts the following principles.
-
-| Principle               | Description                                                        |
-| ----------------------- | ------------------------------------------------------------------ |
-| Shift Left Security     | Security begins during development                                 |
-| Everything as Code      | Infrastructure, policies, and configuration are version controlled |
-| GitOps                  | Git is the single source of truth                                  |
-| Continuous Integration  | Every change is automatically validated                            |
-| Continuous Delivery     | Deployments remain continuously releasable                         |
-| Continuous Verification | Runtime validation after deployment                                |
-| Immutable Deployments   | Replace rather than modify deployments                             |
-| Automation First        | Eliminate manual operational activities                            |
-| Observability           | Monitor every deployment                                           |
-| Continuous Improvement  | Delivery metrics drive optimization                                |
-
----
-
-### DEVSEC-001
-
-All production deployments shall originate from version-controlled repositories.
-
----
-
-### DEVSEC-002
-
-Security controls shall be integrated into every delivery stage.
-
----
-
-### DEVSEC-003
-
-Manual production changes shall be minimized and governed.
-
----
-
-# 26.4 DevSecOps Reference Architecture
-
-The enterprise delivery architecture follows the pipeline below.
-
-```text id="v2mhjr"
-Developer
-     │
-Git Repository
-     │
-CI Pipeline
-     │
-Security & Quality Gates
-     │
-Container Registry
-     │
-GitOps Repository
-     │
-Argo CD
-     │
-Kubernetes Cluster
-     │
-Monitoring & Feedback
-```
-
-The pipeline supports automated validation, deployment, rollback, monitoring, and auditing.
-
----
-
-### DEVSEC-004
-
-Deployment automation shall be fully traceable.
-
----
-
-# 26.5 Source Code Management
-
-Source code shall be centrally managed using Git.
-
-Repository standards include:
-
-* Protected branches
-* Pull requests
-* Mandatory code reviews
-* Signed commits (where applicable)
-* Branch protection rules
-* Semantic version tags
-* Repository templates
-
-Recommended branching strategy:
-
-* Main
-* Develop
-* Feature branches
-* Release branches
-* Hotfix branches
-
----
-
-### DEVSEC-005
-
-Production code shall be merged through approved review processes.
-
----
-
-### DEVSEC-006
-
-Direct commits to protected branches shall be prohibited.
-
----
-
-# 26.6 Continuous Integration (CI)
-
-Every source code change shall trigger automated validation.
-
-CI stages include:
-
-1. Source checkout
-2. Dependency restoration
-3. Compilation
-4. Unit testing
-5. Static code analysis
-6. Security scanning
-7. Build packaging
-8. Container image creation
-9. Artifact publication
-
-Representative CI tools:
-
-* GitHub Actions
-* Jenkins
-* GitLab CI (future compatibility)
-
----
-
-### DEVSEC-007
-
-Every commit shall undergo automated build verification.
-
----
-
-### DEVSEC-008
-
-Failed quality gates shall block artifact publication.
-
----
-
-# 26.7 Quality Gates
-
-Every build shall satisfy mandatory quality requirements.
-
-Representative quality gates include:
-
-| Gate               | Requirement                 |
-| ------------------ | --------------------------- |
-| Compilation        | Successful                  |
-| Unit Tests         | Pass                        |
-| Test Coverage      | ≥ 80%                       |
-| Static Analysis    | No critical issues          |
-| Dependency Scan    | No critical vulnerabilities |
-| Container Scan     | No critical vulnerabilities |
-| Code Review        | Approved                    |
-| License Compliance | Approved                    |
-
-Quality gates shall be enforced automatically within CI pipelines.
-
----
-
-### DEVSEC-009
-
-Artifacts shall not progress beyond failed quality gates.
-
----
-
-### DEVSEC-010
-
-Quality standards shall be centrally governed.
-
----
-
-# 26.8 Security Integration
-
-Security activities occur throughout the delivery lifecycle.
-
-Integrated controls include:
-
-* Secure coding standards
-* Secret detection
-* Static Application Security Testing (SAST)
-* Software Composition Analysis (SCA)
-* Dependency scanning
-* Container image scanning
-* Infrastructure scanning
-* Policy validation
-
-Security findings shall be prioritized based on risk.
-
----
-
-### DEVSEC-011
-
-Security scanning shall occur before deployment.
-
----
-
-### DEVSEC-012
-
-Critical security findings shall prevent production release.
-
----
-
-# 26.9 Artifact Management
-
-Build artifacts shall be centrally managed.
-
-Managed artifacts include:
-
-* JAR files
-* OCI container images
-* Helm charts
-* Configuration bundles
-* SBOM (Software Bill of Materials)
-* Release metadata
-
-Artifacts shall remain immutable after publication.
-
----
-
-### DEVSEC-013
-
-Published artifacts shall be versioned and immutable.
-
----
-
-### DEVSEC-014
-
-Artifact repositories shall enforce integrity verification.
-
----
-
-# 26.10 Infrastructure as Code (IaC)
-
-Infrastructure shall be provisioned declaratively.
-
-Infrastructure components include:
-
-* Kubernetes clusters
-* Networking
-* Databases
-* Object storage
-* IAM policies
-* Monitoring stack
-* Secrets infrastructure
-
-Representative IaC technologies:
-
-* Terraform
-* Helm
-* Kubernetes manifests
-* Kustomize (where appropriate)
-
----
-
-### DEVSEC-015
-
-Infrastructure changes shall be managed through version-controlled code.
-
----
-
-### DEVSEC-016
-
-Manual infrastructure configuration shall be avoided where practical.
-
----
-
-# 26.11 GitOps Deployment
-
-GitOps provides declarative deployment management.
-
-Deployment workflow:
-
-```text id="sn3vmu"
-Application Repository
-         │
-CI Pipeline
-         │
-Helm Chart Update
-         │
-GitOps Repository
-         │
-Argo CD
-         │
-Kubernetes Cluster
-```
-
-Git remains the authoritative source for desired production state.
-
----
-
-### DEVSEC-017
-
-Cluster state shall continuously reconcile with Git.
-
----
-
-### DEVSEC-018
-
-Deployment configuration shall remain version controlled.
-
----
-
-# 26.12 Continuous Delivery (CD)
-
-Continuous Delivery automates application deployment.
-
-Deployment stages include:
-
-* Development
-* Integration
-* QA
-* UAT
-* Staging
-* Production
-
-Deployment strategies supported:
-
-* Rolling Updates
-* Blue-Green Deployments
-* Canary Releases
-* Progressive Delivery
-* Feature Flag Releases
-
----
-
-### DEVSEC-019
-
-Production deployment shall support automated rollback.
-
----
-
-### DEVSEC-020
-
-Deployment strategies shall minimize service disruption.
-
----
-
-# 26.13 Runtime Verification
-
-Every deployment shall undergo post-deployment validation.
-
-Verification includes:
-
-* Health checks
-* Readiness probes
-* Smoke tests
-* API verification
-* Database connectivity
-* Security validation
-* Performance baseline checks
-
-Deployment success shall require successful runtime validation.
-
----
-
-### DEVSEC-021
-
-Runtime verification shall occur automatically after deployment.
-
----
-
-### DEVSEC-022
-
-Failed verification shall initiate rollback where appropriate.
-
----
-
-# 26.14 Observability Integration
-
-Operational visibility is integrated into the delivery platform.
-
-Collected telemetry includes:
-
-* Application metrics
-* Infrastructure metrics
-* Deployment events
-* Audit logs
-* Distributed traces
-* Security events
-* Business KPIs
-
-Representative technologies:
-
-* Prometheus
-* Grafana
-* OpenTelemetry
-* ELK/OpenSearch
-* Alertmanager
-
----
-
-### DEVSEC-023
-
-Deployment activities shall be observable.
-
----
-
-### DEVSEC-024
-
-Operational dashboards shall expose deployment health.
-
----
-
-# 26.15 Compliance and Audit
-
-The delivery platform shall maintain comprehensive audit evidence.
-
-Auditable activities include:
-
-* Code commits
-* Pull requests
-* Build execution
-* Security scans
-* Infrastructure changes
-* Deployments
-* Rollbacks
-* Administrative actions
-
-Audit records shall remain tamper-resistant.
-
----
-
-### DEVSEC-025
-
-Delivery activities shall be fully auditable.
-
----
-
-### DEVSEC-026
-
-Compliance evidence shall be retained according to governance policies.
-
----
-
-# 26.16 DevSecOps Governance
-
-Enterprise governance includes:
-
-* Pipeline standards
-* Secure coding guidelines
-* Release approvals
-* Infrastructure reviews
-* Architecture reviews
-* Security policy enforcement
-* Change management
-* Continuous process improvement
-
-Governance policies shall evolve based on operational experience and emerging threats.
-
----
-
-### DEVSEC-027
-
-Delivery pipelines shall comply with enterprise governance standards.
-
----
-
-### DEVSEC-028
-
-Pipeline changes shall undergo architectural review.
-
----
-
-# 26.17 DevSecOps Metrics
-
-The platform shall continuously measure delivery effectiveness.
-
-Representative metrics include:
-
-| Metric                                 | Objective                    |
-| -------------------------------------- | ---------------------------- |
-| Deployment Frequency                   | Continuous improvement       |
-| Lead Time for Changes                  | Minimize delivery delay      |
-| Build Success Rate                     | Maximize reliability         |
-| Change Failure Rate                    | Minimize deployment failures |
-| Mean Time to Recovery (MTTR)           | Rapid restoration            |
-| Security Vulnerability Resolution Time | Continuous reduction         |
-| Test Automation Coverage               | Continuous increase          |
-| Pipeline Duration                      | Continuous optimization      |
-
-These metrics align with industry-standard software delivery performance indicators.
-
----
-
-### DEVSEC-029
-
-Delivery performance shall be continuously measured.
-
----
-
-### DEVSEC-030
-
-Operational improvements shall be guided by measurable delivery metrics.
-
----
-
-# 26.18 Traceability
-
-This chapter traces to:
-
-**Related PRD Sections**
-
-* Software Delivery
-* Cloud Infrastructure
-* Security
-* Operational Excellence
-
-**Related SRS Chapters**
-
-* Chapter 22 – Non-Functional Requirements
-* Chapter 23 – Security Architecture
-* Chapter 24 – System Architecture & Deployment Requirements
-* Chapter 27 – Performance, Scalability & Capacity Planning
-* Chapter 28 – Monitoring, Logging & Observability
-
-**Architecture Views**
-
-* DevSecOps Architecture
-* CI/CD Pipeline View
-* GitOps Deployment View
-* Infrastructure as Code View
-* Software Delivery Lifecycle
-
----
-
-# Chapter Summary
-
-This chapter defines the DevSecOps Architecture for the Mediverse platform by establishing automated software delivery pipelines, Continuous Integration, Continuous Delivery, GitOps, Infrastructure as Code, security integration, quality gates, artifact management, runtime verification, observability, compliance, governance, and delivery performance metrics. Together, these practices provide a secure, automated, auditable, and scalable software delivery platform that enables rapid innovation while maintaining enterprise-grade quality, security, and operational reliability.
-
----
-
-**End of Chapter 26**
-
-**Next:** Chapter 27 – Performance, Scalability & Capacity Planning.
 
 # Chapter 27 — Performance, Scalability & Capacity Planning
 
@@ -15444,6 +14990,7 @@ This chapter defines the Performance, Scalability & Capacity Planning Architectu
 **End of Chapter 27**
 
 **Next:** Chapter 28 – Monitoring, Logging & Observability.
+
 
 # Chapter 28 — Monitoring, Logging & Observability
 
@@ -16007,6 +15554,7 @@ This chapter defines the Monitoring, Logging & Observability Architecture for th
 
 **Next:** Chapter 29 – Backup, Recovery & Business Continuity.
 
+
 # Chapter 29 — Backup, Recovery & Business Continuity
 
 ---
@@ -16548,6 +16096,7 @@ This chapter defines the Backup, Recovery & Business Continuity Architecture for
 **Next:** Chapter 30 – Integration Architecture & External Systems.
 
 
+
 # Chapter 30 — Integration Architecture & External Systems
 
 ---
@@ -17051,10 +16600,23 @@ This chapter traces to:
 This chapter defines the Integration Architecture & External Systems for the Mediverse platform by establishing enterprise integration principles, API-first communication, event-driven messaging, external system interoperability, integration security, data exchange standards, resilience mechanisms, monitoring, and governance. Together, these architectural capabilities enable Mediverse to integrate securely and reliably with internal services, institutional platforms, cloud providers, AI services, and future enterprise ecosystems while maintaining scalability, maintainability, and operational excellence.
 
 ---
+---
+
+# 30.10 IMS Global LTI 1.3 Advantage Integration Architecture
+
+### ARCH-LTI-001: LTI 1.3 Core OIDC Launch Architecture
+The platform integrates with university LMS platforms (Canvas, Blackboard, Moodle, Brightspace) via IMS Global LTI 1.3 Advantage, utilizing OpenID Connect (OIDC) third-party launch flows with RS256 asymmetric signed JWT tokens.
+
+### ARCH-LTI-002: LTI Services Integration Suite
+* **Assignment and Grade Services (AGS v2.0):** Automated bidirectional grade passback from Mediverse clinical exams into university LMS gradebooks.
+* **Names and Role Provisioning Services (NRPS v2.0):** Secure course roster and student membership synchronization.
+* **Deep Linking (DL v2.0):** Direct embedding of 3D dissection presets and simulation labs into university course modules.
+
 
 **End of Chapter 30**
 
 **Next:** Chapter 31 – Artificial Intelligence & Machine Learning Architecture.
+
 
 # Chapter 31 — Artificial Intelligence & Machine Learning Architecture
 
@@ -17586,10 +17148,22 @@ This chapter traces to:
 This chapter defines the Artificial Intelligence & Machine Learning Architecture for the Mediverse platform by establishing enterprise AI principles, Retrieval-Augmented Generation (RAG), foundation model integration, prompt engineering, knowledge management, vector databases, predictive machine learning, responsible AI controls, ModelOps lifecycle, AI security, observability, and governance. Together, these architectural capabilities enable Mediverse to deliver secure, explainable, scalable, and evidence-based AI-powered medical education while maintaining transparency, compliance, and long-term extensibility.
 
 ---
+---
+
+# 31.10 Socratic AI Server-Sent Events (SSE) Streaming & KaTeX Rendering Architecture
+
+### ARCH-AI-001: Streamed Socratic Tutoring Architecture
+The AI companion utilizes a hybrid architecture featuring Spring AI Server-Sent Events (SSE) streaming controllers (`AITutorApiController.java`, `POST /api/v1/ai-tutor/chat/stream`), delivering token chunks over `text/event-stream;charset=UTF-8` to the client hook `useSocraticChatStream.ts`.
+
+### ARCH-AI-002: KaTeX Mathematical Rendering & Grounding Guardrails
+* **KaTeX Rendering:** High-fidelity LaTeX biomedical and physiological equation formatting within `GlobalSocraticAssistant.tsx`.
+* **Grounding Guardrails:** System prompts grounded in standard medical reference textbooks (Guyton & Hall, Costanzo) with strict clinical triage safety boundaries.
+
 
 **End of Chapter 31**
 
 **Next:** Chapter 32 – Architecture Decision Records (ADR) & Architectural Governance.
+
 
 # Chapter 32 — Architecture Decision Records (ADR) & Architectural Governance
 
@@ -18115,10 +17689,31 @@ This chapter traces to:
 This chapter defines the Architecture Decision Records (ADR) and Architectural Governance framework for the Mediverse platform by establishing enterprise governance principles, architecture review processes, decision documentation standards, compliance validation, technology governance, quality reviews, risk management, governance metrics, Continuous Architecture practices, roles and responsibilities, and documentation governance. Together, these practices ensure that Mediverse evolves in a controlled, transparent, auditable, and strategically aligned manner while preserving architectural integrity, enabling informed decision-making, and supporting long-term enterprise sustainability.
 
 ---
+---
+
+# 32.10 Master Architecture Decision Records (ADR) Registry (ADR-001 to ADR-107)
+
+### ARCH-GOV-001: Master ADR Structure Across Parts I–X
+In accordance with [`docs/ADR.md`](file:///F:/Mediverse-app/docs/ADR.md), the enterprise architecture is governed by 107 authoritative Architecture Decision Records organized into 10 structural parts:
+
+| ADR Part | Category & Scope | Key Foundation Decisions |
+|---|---|---|
+| **Part I** | Enterprise Architecture Foundations | `ADR-001` (Vision), `ADR-002` (Modular Monolith) |
+| **Part II** | Technology Stack Decisions | `ADR-020` (Next.js 14), `ADR-022` (State), `ADR-023` (Vanilla CSS), `ADR-028` (JWT/RBAC) |
+| **Part III** | Cloud Infrastructure & Deployment | `ADR-031`–`040` (Kubernetes, Terraform, Multi-Region) |
+| **Part IV** | Data Platform & Storage | `ADR-041`–`050` (PostgreSQL 16, Redis, Flyway) |
+| **Part V** | Microservices, Integration & APIs | `ADR-051`–`060` (REST, OpenAPI 3.1, Rate Limiting) |
+| **Part VI** | Security, Identity & Compliance | `ADR-061`–`070` (Zero Trust, BCrypt, FERPA, GDPR) |
+| **Part VII** | Reliability, SRE & Observability | `ADR-071`–`080` (Prometheus, Grafana, SLOs) |
+| **Part VIII**| AI Platform & Intelligence | `ADR-081`–`090` (RAG Pipeline, Guardrails) |
+| **Part IX** | Enterprise Governance & Quality | `ADR-091`–`100` (EAB Governance, Capstone Standard) |
+| **Part X** | Mediverse Core 3D & Simulation | `ADR-101` (Three.js), `ADR-103` (Math Solvers), `ADR-104` (Socratic AI), `ADR-105` (LTI 1.3), `ADR-107` (CMS Review) |
+
 
 **End of Chapter 32**
 
 **Next:** Chapter 33 – Architecture Roadmap & Future Evolution.
+
 
 
 # Chapter 33 — Architecture Roadmap & Future Evolution
@@ -18574,6 +18169,7 @@ This chapter defines the Architecture Roadmap & Future Evolution strategy for th
 **End of Chapter 33**
 
 **Next:** Chapter 34 – Conclusion, Enterprise Architecture Summary & Final Recommendations.
+
 
 # Chapter 34 — Conclusion, Enterprise Architecture Summary & Final Recommendations
 

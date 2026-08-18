@@ -4,6 +4,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 1: Document Landscape & Implementation Purpose
 
 **Source Documents:** PRD, SRS
@@ -17,6 +19,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -36,6 +40,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 3: Key Stakeholders & Developer Personas
 
 **Source Documents:** PRD
@@ -49,6 +55,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -68,6 +76,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 5: Regulatory Compliance Baseline
 
 **Source Documents:** PRD, SecDD
@@ -81,6 +91,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -100,19 +112,28 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
-### Chapter 7: Microservices Paradigm & Boundaries
+---
 
-**Source Documents:** SAD, DDD
+### Chapter 7: Domain-Driven Modular Monolith Architecture Standard
+
+**Source Documents:** SAD, TDD, ADR-002
 
 **Implementation Details & Engineering Blueprint:**
-- No shared databases between services. Use Domain Events for cross-service state mutation.
-- 15+ independently deployable services.
+* Mediverse standardizes on a high-performance **Domain-Driven Modular Monolith** in Spring Boot 3.4.1 on Java 21 LTS (`com.curiolearn.*`), avoiding distributed microservice latency:
+  ```text
+  com.curiolearn
+  ├── auth         -> Identity, JWT tokens, Spring Security @PreAuthorize, Tenants
+  ├── curriculum   -> Organ systems, topics, lessons, 5-stage CMS review state machine
+  ├── simulation   -> Physiological differential equation solvers & REST calculation API
+  ├── aitutor      -> Spring AI, Socratic SSE token streaming, pgvector dense retrieval
+  ├── quiz         -> Clinical vignette question bank, exam runner, NMC CBME radar mastery
+  ├── progress     -> Lesson completion tracking, SuperMemo SM-2 spaced repetition
+  └── admin        -> Multi-tenancy management, SCIM 2.0 directory sync, LTI 1.3 Advantage
+  ```
 
 **Concrete Technical Implementation Standards:**
-- **Code Architecture:** Clean Architecture and Hexagonal Domain-Driven Design (DDD), enforcing strict separation between domain logic, application use-cases, and infrastructure adapters.
-- **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
-- **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
-- **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+* In-memory service calls between bounded contexts ensure sub-millisecond calculation verification.
+* Method-level authorization enforced via Spring Security `@PreAuthorize` across all domain controllers.
 
 ---
 
@@ -132,6 +153,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 9: Cloud-Native & Kubernetes Strategy
 
 **Source Documents:** SAD
@@ -145,6 +168,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -164,6 +189,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 11: High Availability & Scalability Targets
 
 **Source Documents:** SAD
@@ -177,6 +204,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -196,6 +225,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 13: Foundational Architecture Decision Records
 
 **Source Documents:** ADR
@@ -209,6 +240,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -228,6 +261,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 15: Technology Stack: Data & AI
 
 **Source Documents:** SAD
@@ -241,6 +276,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -260,6 +297,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 17: Bounded Context: Identity & Access Mgmt
 
 **Source Documents:** DDD
@@ -273,6 +312,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -292,6 +333,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 19: Bounded Context: Learning & Curriculum
 
 **Source Documents:** DDD
@@ -305,6 +348,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -324,6 +369,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 21: Bounded Context: Assessment & Certification
 
 **Source Documents:** DDD
@@ -337,6 +384,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -356,6 +405,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 23: Bounded Context: Notifications & Comms
 
 **Source Documents:** DDD
@@ -369,6 +420,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -388,19 +441,17 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
-### Chapter 25: Anti-Corruption Layers (ACL)
+---
 
-**Source Documents:** DDD
+### Chapter 25: 3D WebGL Multi-Organ Graphics Engine & GLSL Dissection Implementation
+
+**Source Documents:** FDS, CSDG, TDD
 
 **Implementation Details & Engineering Blueprint:**
-- Required when integrating with external LMS or AI providers.
-- Translate external models into internal ubiquitous language.
-
-**Concrete Technical Implementation Standards:**
-- **Code Architecture:** Clean Architecture and Hexagonal Domain-Driven Design (DDD), enforcing strict separation between domain logic, application use-cases, and infrastructure adapters.
-- **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
-- **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
-- **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+* **Canvas Component (`ThreeCanvas.tsx`):** Three.js WebGL2 canvas with OrbitControls, directional lighting, and perspective cameras.
+* **GLSL Dissection Shaders (`DissectionShader.ts`):** Real-time sagittal, coronal, and transverse clipping planes with stencil buffer capping.
+* **Organ Landmark Presets (`OrganPresets.ts`):** Interactive landmark beacons with diagnostic popovers across 6 organ systems (Cardiovascular, Respiratory, Renal, Neuro, GI, Endocrine).
+* **GPU Memory Disposal (`useThreeMemoryCleanup.ts`):** Mandatory unmount hook executing `renderer.dispose()`, `geometry.dispose()`, and `material.dispose()` to eliminate browser VRAM memory leaks.
 
 ---
 
@@ -420,6 +471,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 27: Primary OLTP DB Implementation
 
 **Source Documents:** FDS
@@ -433,6 +486,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -452,6 +507,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 29: Full-Text Search Implementation
 
 **Source Documents:** SAD
@@ -465,6 +522,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -484,6 +543,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 31: Data Replication & Synchronization
 
 **Source Documents:** FDS
@@ -497,6 +558,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -516,6 +579,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 33: Schema Migration Governance
 
 **Source Documents:** FDS
@@ -529,6 +594,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -548,19 +615,18 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
-### Chapter 35: Event Sourcing & CQRS
+---
 
-**Source Documents:** SAD
+### Chapter 35: Mathematical Physiology Simulation Solvers Implementation
+
+**Source Documents:** TDD, ADS, SAD
 
 **Implementation Details & Engineering Blueprint:**
-- Selective use of CQRS in Analytics and Assessment bounded contexts.
-- Command layer separated from Query layer.
-
-**Concrete Technical Implementation Standards:**
-- **Code Architecture:** Clean Architecture and Hexagonal Domain-Driven Design (DDD), enforcing strict separation between domain logic, application use-cases, and infrastructure adapters.
-- **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
-- **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
-- **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+* **Cardiac Cycle Solver (`cardiacSolver.ts`):** Left ventricular time-varying elastance $E(t)$, ESPVR/EDPVR, Stroke Volume, and Ejection Fraction.
+* **Acid-Base Nomogram Solver (`acidBaseSolver.ts`):** Henderson-Hasselbalch equation ($pH = 6.1 + \log_{10}\frac{[\text{HCO}_3^-]}{0.03 \cdot \text{PaCO}_2}$), Anion Gap, Winter's formula, and Davenport buffer slopes.
+* **Renal Filtration Solver (`renalSolver.ts`):** Glomerular capillary filtration rate ($\text{GFR} = K_f \cdot [(P_{gc} - P_{bs}) - (\pi_{gc} - \pi_{bs})]$), FeNa, and inulin clearance.
+* **Nerve Electrophysiology Solver (`membraneSolver.ts`):** Goldman-Hodgkin-Katz resting membrane potential.
+* **Backend REST API (`SimulationApiController.java`):** Calculation verification endpoint (`POST /api/v1/simulations/calculate`) executing in $< 1.0\text{ms}$.
 
 ---
 
@@ -580,6 +646,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 37: Edge Security: WAF & DDoS
 
 **Source Documents:** SecDD
@@ -593,6 +661,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -612,6 +682,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 39: JWT Validation & Token Lifecycle
 
 **Source Documents:** SecDD
@@ -625,6 +697,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -644,6 +718,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 41: RBAC Implementation
 
 **Source Documents:** SecDD
@@ -657,6 +733,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -676,6 +754,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 43: Encryption at Rest & Key Mgmt
 
 **Source Documents:** SecDD
@@ -689,6 +769,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -708,19 +790,16 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
-### Chapter 45: Threat Detection & Audit Logging
+---
 
-**Source Documents:** SecDD
+### Chapter 45: Socratic AI Server-Sent Events (SSE) Streaming & KaTeX Rendering
+
+**Source Documents:** ADS, TDD, SecDD
 
 **Implementation Details & Engineering Blueprint:**
-- All state-mutating API calls logged to SIEM.
-- Audit logs include UserID, TenantID, Timestamp, Action, ResourceID.
-
-**Concrete Technical Implementation Standards:**
-- **Code Architecture:** Clean Architecture and Hexagonal Domain-Driven Design (DDD), enforcing strict separation between domain logic, application use-cases, and infrastructure adapters.
-- **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
-- **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
-- **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+* **Backend Streaming Controller (`AITutorApiController.java`):** `POST /api/v1/ai-tutor/chat/stream` producing `MediaType.TEXT_EVENT_STREAM_VALUE` with Socratic prompt sandboxing.
+* **Frontend Hook & UI (`useSocraticChatStream.ts`, `GlobalSocraticAssistant.tsx`):** Persistent floating drawer consuming token chunks with route-aware context auto-detection.
+* **LaTeX Formula Rendering:** Safe client-side parsing of mathematical and biochemical formulas via `rehype-katex`, `remark-math`, and DOMPurify XSS sanitization.
 
 ---
 
@@ -740,6 +819,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 47: RESTful API Standards
 
 **Source Documents:** IRD
@@ -753,6 +834,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -772,6 +855,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 49: GraphQL API Implementation
 
 **Source Documents:** IRD
@@ -785,6 +870,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -804,6 +891,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 51: API Versioning & Deprecation
 
 **Source Documents:** IRD
@@ -817,6 +906,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -836,6 +927,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 53: Kafka Topic Design
 
 **Source Documents:** SAD
@@ -849,6 +942,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -868,19 +963,17 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
-### Chapter 55: Dead Letter Queue Handling
+---
 
-**Source Documents:** SAD
+### Chapter 55: Role-Based Medical Curriculum CMS Review Engine Implementation
+
+**Source Documents:** SAD, TDD, DDD
 
 **Implementation Details & Engineering Blueprint:**
-- Failed consumer messages routed to DLQ after 3 retries with exponential backoff.
-- Alerting required on DLQ depth > 0.
-
-**Concrete Technical Implementation Standards:**
-- **Code Architecture:** Clean Architecture and Hexagonal Domain-Driven Design (DDD), enforcing strict separation between domain logic, application use-cases, and infrastructure adapters.
-- **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
-- **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
-- **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+* **5-Stage Review State Machine:** `[ DRAFT ]` ──► `[ IN_REVIEW ]` ──► `[ APPROVED ]` ──► `[ PUBLISHED ]` (or `[ REJECTED ]` ──► `[ DRAFT ]`).
+* **Backend Controller (`CmsReviewController.java`):** Spring Security authorization `@PreAuthorize("hasAnyRole('MEDICAL_REVIEWER', 'FACULTY', 'EDITOR')")`.
+* **Audit Trail Persistence:** Rejection comments and approval timestamps logged immutably in `curriculum.content_reviews` (`V24__cms_content_review_workflow.sql`).
+* **WYSIWYG Evaluation (`/cms/[lessonId]`):** `ContentBlockRenderer` previewing live Markdown, KaTeX formulas, and clinical case vignettes.
 
 ---
 
@@ -900,6 +993,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 57: AI Safety Container Implementation
 
 **Source Documents:** SAD
@@ -913,6 +1008,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -932,6 +1029,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 59: LLM Provider Integration
 
 **Source Documents:** ADS
@@ -945,6 +1044,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -964,6 +1065,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 61: Knowledge Base Indexing
 
 **Source Documents:** ADS
@@ -977,6 +1080,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -996,6 +1101,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 63: AI Model Versioning
 
 **Source Documents:** ADS
@@ -1009,6 +1116,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -1028,19 +1137,16 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
-### Chapter 65: Hallucination Mitigation
+---
 
-**Source Documents:** ADS
+### Chapter 65: Timed Clinical Examination Runner & Radar Mastery Analytics
+
+**Source Documents:** FDS, TDD, SRS
 
 **Implementation Details & Engineering Blueprint:**
-- Require LLMs to output citations matching the RAG context.
-- Safety container drops responses containing un-cited medical claims.
-
-**Concrete Technical Implementation Standards:**
-- **Code Architecture:** Clean Architecture and Hexagonal Domain-Driven Design (DDD), enforcing strict separation between domain logic, application use-cases, and infrastructure adapters.
-- **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
-- **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
-- **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+* **Timed Exam Runner (`QuizRunner.tsx`):** Mounted at `/exam` with countdown timer, distractor strikethrough tool, question bookmarking, and slide-over question navigator.
+* **Clinical Vignette Bank (`clinicalExamQuestions.ts`):** High-yield USMLE / NMC CBME clinical vignette questions with comprehensive distractor rationales.
+* **Competency Radar Analytics (`ExamSummaryView.tsx`, `nmcMapping.ts`):** Multi-axis Bloom's taxonomy Radar Chart mastery breakdown mapped to NMC CBME competency codes (`PY1.1` to `PY11.14`).
 
 ---
 
@@ -1060,6 +1166,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 67: LMS: SCORM Implementation
 
 **Source Documents:** DIG
@@ -1073,6 +1181,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -1092,6 +1202,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 69: LMS: xAPI Store
 
 **Source Documents:** DIG
@@ -1105,6 +1217,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -1124,6 +1238,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 71: React 19+ & TypeScript Standards
 
 **Source Documents:** TDD, CSDG
@@ -1137,6 +1253,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -1156,6 +1274,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 73: State Management & Data Fetching
 
 **Source Documents:** TDD
@@ -1169,6 +1289,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -1188,6 +1310,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 75: Responsive Design & a11y
 
 **Source Documents:** TDD
@@ -1201,6 +1325,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -1220,6 +1346,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 77: 3D Medical Model Rendering
 
 **Source Documents:** TDD
@@ -1233,6 +1361,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -1252,6 +1382,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 79: Frontend Performance Optimization
 
 **Source Documents:** TDD
@@ -1265,6 +1397,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -1284,6 +1418,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 81: Clean Architecture Implementation
 
 **Source Documents:** ADS, CSDG
@@ -1297,6 +1433,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -1316,6 +1454,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 83: Controller Layer Standards
 
 **Source Documents:** ADS
@@ -1329,6 +1469,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -1348,6 +1490,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 85: Domain Layer Aggregates
 
 **Source Documents:** ADS
@@ -1361,6 +1505,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -1380,6 +1526,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 87: Error Handling & Exception Translation
 
 **Source Documents:** ADS
@@ -1393,6 +1541,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -1412,6 +1562,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 89: Background Job Processing
 
 **Source Documents:** ADS
@@ -1425,6 +1577,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -1444,6 +1598,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 91: Test-Driven Development (TDD)
 
 **Source Documents:** TSQP
@@ -1457,6 +1613,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -1476,6 +1634,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 93: Integration Testing
 
 **Source Documents:** TSQP
@@ -1489,6 +1649,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -1508,6 +1670,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 95: End-to-End (E2E) UI Testing
 
 **Source Documents:** TSQP
@@ -1521,6 +1685,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -1540,6 +1706,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 97: Distributed Tracing
 
 **Source Documents:** SAD
@@ -1553,6 +1721,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 
@@ -1572,6 +1742,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 
 ---
 
+---
+
 ### Chapter 99: Log Aggregation
 
 **Source Documents:** SAD
@@ -1585,6 +1757,8 @@ This massive implementation guide spans 100 chapters across 12 parts, synthesizi
 - **Frontend & 3D WebGL:** React 18 with @react-three/fiber and Three.js, Draco-compressed GLB asset streaming, GLSL shader clipping, and Vanilla CSS Modules (tokens.css).
 - **Backend & AI Solvers:** Spring Boot 3.4 on Java 21, Spring AI orchestration with pgvector dense RAG retrieval, SSE token streaming, and client-side Rust-to-Wasm differential equation solvers.
 - **LMS Interoperability:** IMS Global LTI 1.3 Advantage (OIDC launch, AGS grade passback, NRPS roster sync).
+
+---
 
 ---
 

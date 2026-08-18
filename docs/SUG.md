@@ -4,6 +4,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 1: Welcome to Your Medical Learning Platform
 
 **Student Step-by-Step Instructions:**
@@ -14,6 +16,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -31,6 +35,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 3: Setting Up Your Profile and Avatar
 
 **Student Step-by-Step Instructions:**
@@ -42,6 +48,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -59,6 +67,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 5: Customizing Accessibility Settings
 
 **Student Step-by-Step Instructions:**
@@ -69,6 +79,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -85,6 +97,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 7: Understanding the Student Dashboard
 
 **Student Step-by-Step Instructions:**
@@ -95,6 +109,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -111,6 +127,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 9: Browsing the Course Catalog
 
 **Student Step-by-Step Instructions:**
@@ -121,6 +139,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -137,6 +157,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 11: Viewing Your Overall Completion Progress
 
 **Student Step-by-Step Instructions:**
@@ -147,6 +169,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -163,6 +187,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 13: Navigating Course Modules and Syllabus
 
 **Student Step-by-Step Instructions:**
@@ -173,6 +199,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -190,6 +218,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 15: Turning on Closed Captions and Transcripts
 
 **Student Step-by-Step Instructions:**
@@ -200,6 +230,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -216,6 +248,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 17: Searching Within a Video Transcript
 
 **Student Step-by-Step Instructions:**
@@ -226,6 +260,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -242,6 +278,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 19: Understanding 'Drip Content'
 
 **Student Step-by-Step Instructions:**
@@ -255,16 +293,23 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
-### Chapter 20: Launching a 3D Anatomy Model
+---
+
+### Chapter 20: 3D WebGL Multi-Organ Dissection & Landmark Navigation Manual
 
 **Student Step-by-Step Instructions:**
-- When a lesson features 3D Anatomy, click the interactive window. Wait a few seconds for the high-res model to load.
+* **Viewport Navigation (`ThreeCanvas.tsx`):**
+  - **Rotate / Orbit:** Left-click and drag (or single-finger drag on touchscreens) to rotate the 3D organ 360 degrees.
+  - **Pan:** Right-click and drag (or two-finger drag) to reposition the model in the canvas.
+  - **Zoom:** Scroll mouse wheel (or pinch to zoom) to inspect microscopic tissue structures.
+* **Cross-Sectional Dissection:**
+  - Open the **Dissection Tool** panel in the bottom toolbar.
+  - Adjust the **Sagittal**, **Coronal**, or **Transverse** plane sliders (`DissectionShader.ts`) to slice open solid organs, revealing internal cardiac ventricles, renal medullary pyramids, or alveolar capillaries with solid stencil capping.
+* **Interactive Landmark Beacons (`OrganPresets.ts`):**
+  - Click on any glowing landmark pin (e.g. Sinoatrial Node, Glomerulus, Gastric Parietal Cells) to open a clinical diagnostic popover detailing physiological action potential conduction and cellular transport mechanisms.
 
 **Pedagogical Guidance & Best Practices:**
-- **Interactive Learning:** Use the 3D organ viewports to explore anatomical structures in 360 degrees. Toggle sagittal/coronal dissection planes and click landmark pins to understand underlying physiological mechanisms.
-- **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
-- **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
-- **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+* Use cross-sectional slicing while following lectures to bridge gross anatomical topology with microscopic physiological function.
 
 ---
 
@@ -281,6 +326,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 22: Hiding and Fading Layers
 
 **Student Step-by-Step Instructions:**
@@ -291,6 +338,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -307,6 +356,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 24: Taking a 3D 'Find the Structure' Quiz
 
 **Student Step-by-Step Instructions:**
@@ -317,6 +368,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -333,16 +386,24 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
-### Chapter 26: What is the AI Socratic Tutor?
+---
+
+### Chapter 26: Interactive Physiological Simulation Laboratories Discovery Guide
 
 **Student Step-by-Step Instructions:**
-- The AI is your 24/7 study buddy. **Note:** It will NOT give you the answers to your homework. It will ask you guiding questions to help you figure it out yourself.
+* **Cardiac Hemodynamics Lab (`/simulators/cardiac-cycle`):**
+  - Adjust sliders for **Contractility ($E_{max}$)**, **Afterload (SVR)**, and **Heart Rate**.
+  - Observe instantaneous shifts in the Pressure-Volume ($PV$) loop, End-Systolic Pressure-Volume Relationship (ESPVR), Stroke Volume, and Wiggers curves in real time ($< 1.0\text{ms}$ calculation latency via `cardiacSolver.ts`).
+* **Acid-Base & Davenport Nomogram Lab (`/simulators/acid-base`):**
+  - Adjust $\text{PaCO}_2$ and $[\text{HCO}_3^-]$ sliders across the interactive Davenport diagram.
+  - Read automated diagnostic classifications (Metabolic Acidosis, Respiratory Alkalosis, Mixed Disorders) with automated Winter's formula respiratory compensation validation (`acidBaseSolver.ts`).
+* **Renal Microvascular Filtration Lab (`/simulators/renal-filtration`):**
+  - Adjust Afferent vs. Efferent arteriolar resistances to observe hydrostatic and oncotic Starling pressure differentials affecting Glomerular Filtration Rate (GFR) and filtration fraction (`renalSolver.ts`).
+* **Nerve Electrophysiology Lab (`/simulators/nerve-muscle`):**
+  - Adjust extracellular $[K^+]$, $[Na^+]$, and $[Cl^-]$ to compute resting membrane potential using the Goldman-Hodgkin-Katz equation (`membraneSolver.ts`).
 
 **Pedagogical Guidance & Best Practices:**
-- **Interactive Learning:** Use the 3D organ viewports to explore anatomical structures in 360 degrees. Toggle sagittal/coronal dissection planes and click landmark pins to understand underlying physiological mechanisms.
-- **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
-- **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
-- **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+* Formulate hypotheses before moving sliders (e.g. *"What happens to Stroke Volume if afterload increases while contractility is constant?"*) to develop clinical diagnostic intuition.
 
 ---
 
@@ -359,6 +420,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 28: Asking the AI to Explain Concepts
 
 **Student Step-by-Step Instructions:**
@@ -369,6 +432,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -385,6 +450,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 30: Participating in 'Simulated Patient' Scenarios
 
 **Student Step-by-Step Instructions:**
@@ -395,6 +462,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -411,6 +480,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 32: Understanding Your Monthly AI Token Limits
 
 **Student Step-by-Step Instructions:**
@@ -421,6 +492,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -438,6 +511,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 34: The Exam Interface: Flagging Questions
 
 **Student Step-by-Step Instructions:**
@@ -451,16 +526,22 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
-### Chapter 35: Taking Adaptive Exams
+---
+
+### Chapter 35: 24/7 Socratic AI Study Companion & LaTeX Formula Guide
 
 **Student Step-by-Step Instructions:**
-- Don't panic if the questions get really hard! In an adaptive exam, getting a question right means the next one is harder. The system is trying to pinpoint your exact knowledge level.
+* **Opening the Assistant (`GlobalSocraticAssistant.tsx`):**
+  - Click the floating neural assistant icon in the bottom-right corner of any screen to open the slide-over Socratic chat drawer.
+  - The AI tutor automatically detects your current lesson or simulation context (e.g. Cardiovascular, Acid-Base, Renal).
+* **Asking Socratic Questions:**
+  - Type questions in natural language: *"Why does aortic stenosis lead to concentric left ventricular hypertrophy?"*
+  - The AI responds with guided scaffolding questions and explanations grounded in standard medical textbooks (Guyton & Hall Textbook of Medical Physiology, Costanzo Physiology).
+* **Interpreting Mathematical & Biochemical Formulas:**
+  - Physiological equations are rendered in crisp, formatted LaTeX via KaTeX (e.g. $pH = 6.1 + \log_{10}\frac{[\text{HCO}_3^-]}{0.03 \cdot \text{PaCO}_2}$).
 
 **Pedagogical Guidance & Best Practices:**
-- **Interactive Learning:** Use the 3D organ viewports to explore anatomical structures in 360 degrees. Toggle sagittal/coronal dissection planes and click landmark pins to understand underlying physiological mechanisms.
-- **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
-- **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
-- **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+* Use the Socratic tutor whenever you are stuck on a difficult physiological feedback loop rather than looking up direct answers.
 
 ---
 
@@ -477,6 +558,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 37: Taking Exams with Lockdown Browser
 
 **Student Step-by-Step Instructions:**
@@ -487,6 +570,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -503,6 +588,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 39: Requesting an Exam Retake
 
 **Student Step-by-Step Instructions:**
@@ -516,16 +603,23 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
-### Chapter 40: Accessing Your Personal Gradebook
+---
+
+### Chapter 40: Timed Clinical Board Exam Taking & Competency Radar Mastery Manual
 
 **Student Step-by-Step Instructions:**
-- Click the `Grades` tab in the main navigation to see your scores for all assignments in the course.
+* **Exam Interface (`QuizRunner.tsx` at `/exam`):**
+  - **Live Countdown Timer:** Track remaining exam time in the persistent top bar.
+  - **Distractor Strikeout Tool:** Click the strikethrough button (or right-click an option) to visually eliminate incorrect multiple-choice options.
+  - **Question Flagging:** Bookmark difficult vignettes to revisit before final submission.
+  - **Question Grid Navigator:** Slide open the question grid to jump directly to flagged or unanswered questions.
+* **Post-Exam Review & Rationales (`clinicalExamQuestions.ts`):**
+  - Review detailed distractor rationales explaining why your selected choice was correct/incorrect and the pathophysiological mechanism behind each distractor.
+* **Competency Radar Mastery Breakdown (`ExamSummaryView.tsx`, `nmcMapping.ts`):**
+  - Inspect your personalized multi-axis Bloom's taxonomy Radar Chart to evaluate mastery across all 11 NMC CBME physiological organ systems (`PY1.1` to `PY11.14`).
 
 **Pedagogical Guidance & Best Practices:**
-- **Interactive Learning:** Use the 3D organ viewports to explore anatomical structures in 360 degrees. Toggle sagittal/coronal dissection planes and click landmark pins to understand underlying physiological mechanisms.
-- **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
-- **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
-- **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+* Prioritize reviewing competencies where your radar chart score falls below $70\%$ before high-stakes institutional examinations.
 
 ---
 
@@ -542,6 +636,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 42: Understanding the 'Peer Comparison' Chart
 
 **Student Step-by-Step Instructions:**
@@ -552,6 +648,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -568,6 +666,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 44: Viewing Your Engagement Score
 
 **Student Step-by-Step Instructions:**
@@ -578,6 +678,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -594,6 +696,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 46: Posting a Question to the Discussion Forum
 
 **Student Step-by-Step Instructions:**
@@ -604,6 +708,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -620,6 +726,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 48: Completing a Peer-Review Assignment
 
 **Student Step-by-Step Instructions:**
@@ -630,6 +738,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -646,16 +756,21 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
-### Chapter 50: Sending a Direct Message to Your TA
+---
+
+### Chapter 50: PWA Offline Mobile Study & Spaced Repetition Sync
 
 **Student Step-by-Step Instructions:**
-- Navigate to `People -> Teaching Team` and click the envelope icon next to your TA's name.
+* **Installing the Progressive Web App (PWA):**
+  - **iOS:** Open Safari, tap the Share button, and select **'Add to Home Screen'**.
+  - **Android:** Open Chrome, tap the menu, and select **'Install Mediverse'**.
+* **Offline Study Mode:**
+  - Downloaded 3D models, simulation presets, and flashcards remain fully functional offline via IndexedDB local caching.
+* **SuperMemo SM-2 Spaced Repetition:**
+  - Flashcard reviews completed on mobile during transit automatically synchronize with the central PostgreSQL database once network connectivity is restored.
 
 **Pedagogical Guidance & Best Practices:**
-- **Interactive Learning:** Use the 3D organ viewports to explore anatomical structures in 360 degrees. Toggle sagittal/coronal dissection planes and click landmark pins to understand underlying physiological mechanisms.
-- **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
-- **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
-- **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+* Complete daily 10-minute spaced repetition reviews to lock high-yield physiological constants and clinical correlations into long-term memory.
 
 ---
 
@@ -672,6 +787,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 52: Downloading the Mediverse Mobile Apps
 
 **Student Step-by-Step Instructions:**
@@ -682,6 +799,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -698,6 +817,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 54: Downloading Videos for Offline Commute Viewing
 
 **Student Step-by-Step Instructions:**
@@ -708,6 +829,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -724,6 +847,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 56: Managing Mobile Push Notifications
 
 **Student Step-by-Step Instructions:**
@@ -734,6 +859,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -750,6 +877,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 58: What to Do If a Video Keeps Buffering
 
 **Student Step-by-Step Instructions:**
@@ -760,6 +889,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -776,6 +907,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 60: Reporting a Bug or Typo in a Question
 
 **Student Step-by-Step Instructions:**
@@ -786,6 +919,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -802,6 +937,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 62: Submitting a Support Ticket
 
 **Student Step-by-Step Instructions:**
@@ -812,6 +949,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
@@ -828,6 +967,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 
 ---
 
+---
+
 ### Chapter 64: What Happens to Your Account After Graduation?
 
 **Student Step-by-Step Instructions:**
@@ -838,6 +979,8 @@ Welcome to Mediverse! This 65-chapter guide is your comprehensive manual for usi
 - **Simulation Labs:** Adjust parameter sliders (e.g. cardiac preload, afterload, inotropy) and observe real-time recalculations on Wiggers diagrams and Pressure-Volume loops.
 - **AI Socratic Tutoring:** Ask questions in natural language. The AI tutor provides guided hints, references open-access physiology textbook chapters, and renders mathematical formulas in LaTeX.
 - **Exam Preparation:** Practice USMLE Step 1 / NCLEX style vignettes with automated rationales and sync your progress with university LMS gradebooks.
+
+---
 
 ---
 
