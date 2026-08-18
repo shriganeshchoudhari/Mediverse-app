@@ -1,0 +1,77 @@
+/* ==========================================================================
+   Mediverse Design Tokens — Pure Vanilla CSS (tokens.css)
+   ========================================================================== */
+
+:root {
+  /* Brand Color Palette (HSL Tailored) */
+  --color-primary-50: hsl(210, 100%, 96%);
+  --color-primary-100: hsl(210, 100%, 90%);
+  --color-primary-500: hsl(212, 100%, 48%);
+  --color-primary-600: hsl(215, 100%, 42%);
+  --color-primary-700: hsl(215, 100%, 34%);
+  
+  /* Physiological Accent Semantics */
+  --color-arterial-red: hsl(354, 85%, 54%);
+  --color-arterial-red-light: hsl(354, 85%, 65%);
+  --color-venous-blue: hsl(217, 91%, 60%);
+  --color-venous-blue-light: hsl(217, 91%, 72%);
+  --color-neural-gold: hsl(45, 93%, 47%);
+  --color-renal-amber: hsl(28, 80%, 52%);
+  --color-respiratory-cyan: hsl(186, 85%, 48%);
+  --color-success-green: hsl(152, 69%, 45%);
+
+  /* Surface & Canvas Overlays */
+  --bg-app: hsl(222, 47%, 7%);
+  --bg-surface: hsl(222, 47%, 11%);
+  --bg-surface-elevated: hsl(222, 40%, 15%);
+  --bg-canvas-overlay: hsla(222, 47%, 11%, 0.85);
+  --border-subtle: hsl(222, 30%, 20%);
+  --border-focus: hsl(212, 100%, 48%);
+
+  /* Text Colors */
+  --text-primary: hsl(210, 40%, 98%);
+  --text-secondary: hsl(215, 20%, 65%);
+  --text-muted: hsl(215, 16%, 47%);
+  --text-inverse: hsl(222, 47%, 11%);
+  
+  /* Typography Scale */
+  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1.0rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
+  /* Spacing Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1.0rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2.0rem;
+  --space-10: 2.5rem;
+  --space-12: 3.0rem;
+
+  /* Border Radii */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1.0rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Elevation Shadows */
+  --shadow-sm: 0 1px 2px 0 hsla(0, 0%, 0%, 0.2);
+  --shadow-md: 0 4px 6px -1px hsla(0, 0%, 0%, 0.3), 0 2px 4px -1px hsla(0, 0%, 0%, 0.2);
+  --shadow-lg: 0 10px 15px -3px hsla(0, 0%, 0%, 0.4), 0 4px 6px -2px hsla(0, 0%, 0%, 0.2);
+  --shadow-canvas-hud: 0 8px 32px 0 hsla(222, 47%, 7%, 0.6);
+  
+  /* Layout Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}

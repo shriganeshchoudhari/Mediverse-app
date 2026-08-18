@@ -1,0 +1,496 @@
+/* ==========================================================================
+   Mediverse QuizRunner CSS Module — High-Yield Examination Suite
+   ========================================================================== */
+
+.examContainer {
+  max-width: 960px;
+  margin: 0 auto;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .examContainer {
+    padding: var(--space-4);
+    border-radius: var(--radius-xl);
+  }
+}
+
+/* Exam Header */
+.examHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-6);
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.examTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.questionBadge {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.competencyTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: hsla(212, 100%, 48%, 0.12);
+  border: 1px solid hsla(212, 100%, 48%, 0.35);
+  color: var(--color-primary-100);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Timer Badge */
+.timerBadge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  color: var(--color-neural-gold);
+  font-weight: 700;
+  transition: all var(--transition-fast);
+}
+
+.timerWarning {
+  border-color: var(--color-arterial-red);
+  color: var(--color-arterial-red-light);
+  animation: pulseTimer 1.5s infinite;
+}
+
+@keyframes pulseTimer {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.03);
+  }
+}
+
+/* Flag / Bookmark Button */
+.flagButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.flagButton:hover {
+  background-color: hsla(45, 93%, 47%, 0.15);
+  border-color: var(--color-neural-gold);
+  color: var(--color-neural-gold);
+}
+
+.flagButtonActive {
+  background-color: hsla(45, 93%, 47%, 0.2);
+  border-color: var(--color-neural-gold);
+  color: var(--color-neural-gold);
+}
+
+/* Clinical Vignette Details (Vitals & Labs) */
+.clinicalBox {
+  background-color: var(--bg-app);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.vitalsBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px dashed var(--border-subtle);
+}
+
+.vitalPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.25rem 0.5rem;
+  font-size: var(--font-size-xs);
+  color: var(--text-primary);
+  font-family: var(--font-family-mono);
+}
+
+.vitalLabel {
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.labTableWrapper {
+  margin-top: var(--space-2);
+  overflow-x: auto;
+}
+
+.labTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}
+
+.labTable th {
+  text-align: left;
+  padding: 0.35rem 0.5rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-subtle);
+  font-weight: 600;
+}
+
+.labTable td {
+  padding: 0.35rem 0.5rem;
+  border-bottom: 1px solid hsla(222, 30%, 20%, 0.4);
+}
+
+.labValueHighlight {
+  color: var(--color-neural-gold);
+  font-weight: 700;
+  font-family: var(--font-family-mono);
+}
+
+/* Question Stem */
+.questionStem {
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  line-height: 1.65;
+  margin-bottom: var(--space-6);
+  font-weight: 500;
+}
+
+/* Options List */
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.optionButton {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-4);
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  color: var(--text-primary);
+  text-align: left;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.optionButton:hover:not(:disabled) {
+  border-color: var(--border-focus);
+  background-color: hsla(212, 100%, 48%, 0.08);
+}
+
+.optionLetter {
+  width: 1.75rem;
+  height: 1.75rem;
+  min-width: 1.75rem;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-app);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  font-family: var(--font-family-mono);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.optionText {
+  flex: 1;
+  line-height: 1.5;
+}
+
+.selectedOption {
+  border-color: var(--color-primary-500);
+  background-color: hsla(212, 100%, 48%, 0.16);
+}
+
+.selectedOption .optionLetter {
+  background-color: var(--color-primary-600);
+  border-color: var(--color-primary-500);
+  color: var(--text-primary);
+}
+
+.correctOption {
+  border-color: var(--color-success-green);
+  background-color: hsla(152, 69%, 45%, 0.18);
+}
+
+.correctOption .optionLetter {
+  background-color: var(--color-success-green);
+  border-color: var(--color-success-green);
+  color: #fff;
+}
+
+.incorrectOption {
+  border-color: var(--color-arterial-red);
+  background-color: hsla(354, 85%, 54%, 0.18);
+}
+
+.incorrectOption .optionLetter {
+  background-color: var(--color-arterial-red);
+  border-color: var(--color-arterial-red);
+  color: #fff;
+}
+
+.struckOption {
+  opacity: 0.45;
+  text-decoration: line-through;
+}
+
+.strikeButton {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.25rem;
+  font-size: 0.75rem;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+}
+
+.strikeButton:hover {
+  color: var(--text-primary);
+}
+
+/* Rationale & Clinical Pearls */
+.rationaleCard {
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-6);
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--bg-app);
+  border-left: 4px solid var(--color-primary-500);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.clinicalPearlCard {
+  margin-top: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background-color: hsla(45, 93%, 47%, 0.1);
+  border: 1px solid hsla(45, 93%, 47%, 0.3);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  color: var(--text-primary);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+/* Question Navigator Grid */
+.navDrawer {
+  margin-bottom: var(--space-6);
+  padding: var(--space-4);
+  background-color: var(--bg-app);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+}
+
+.navDrawerTitle {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(42px, 1fr));
+  gap: var(--space-2);
+}
+
+.navPill {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.navPill:hover {
+  border-color: var(--border-focus);
+  color: var(--text-primary);
+}
+
+.navPillActive {
+  border-color: var(--color-primary-500);
+  background-color: hsla(212, 100%, 48%, 0.25);
+  color: var(--text-primary);
+  font-weight: 700;
+  box-shadow: 0 0 0 1px var(--color-primary-500);
+}
+
+.navPillAnswered {
+  background-color: hsla(212, 100%, 48%, 0.15);
+  border-color: var(--color-primary-600);
+  color: var(--color-primary-100);
+}
+
+.navPillFlagged::after {
+  content: '★';
+  position: absolute;
+  top: -4px;
+  right: -2px;
+  font-size: 10px;
+  color: var(--color-neural-gold);
+}
+
+/* Action Row */
+.actionRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--space-5);
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.navButton {
+  padding: var(--space-3) var(--space-5);
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.navButton:hover:not(:disabled) {
+  background-color: hsla(222, 30%, 20%, 0.8);
+  border-color: var(--border-focus);
+}
+
+.navButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.primaryButton {
+  background-color: var(--color-primary-600);
+  color: var(--text-primary);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.primaryButton:hover:not(:disabled) {
+  background-color: var(--color-primary-500);
+}
+
+.primaryButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.submitButton {
+  background-color: var(--color-success-green);
+  color: #fff;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.submitButton:hover {
+  opacity: 0.9;
+}

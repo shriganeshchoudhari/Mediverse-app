@@ -1,0 +1,23 @@
+/**
+ * Postgraduate Advanced Psychiatry Curriculum Index (PG-610)
+ * Aggregates all 4 postgraduate psychiatry & interventional neuromodulation modules.
+ */
+
+import { TREATMENT_RESISTANT_DEPRESSION_NEUROMODULATION_MODULE } from "./treatmentResistantDepressionNeuromodulationContent";
+import { CATATONIA_NMS_SEROTONIN_SYNDROME_MODULE } from "./catatoniaNmsSerotoninSyndromeContent";
+import { REFRACTORY_SCHIZOPHRENIA_CLOZAPINE_MODULE } from "./refractorySchizophreniaClozapineProtocolsContent";
+import { BIPOLAR_MANIA_PERINATAL_PSYCHIATRY_LITHIUM_MODULE } from "./bipolarManiaPerinatalPsychiatryLithiumContent";
+
+export const PG10_MODULES = [
+  TREATMENT_RESISTANT_DEPRESSION_NEUROMODULATION_MODULE,
+  CATATONIA_NMS_SEROTONIN_SYNDROME_MODULE,
+  REFRACTORY_SCHIZOPHRENIA_CLOZAPINE_MODULE,
+  BIPOLAR_MANIA_PERINATAL_PSYCHIATRY_LITHIUM_MODULE
+];
+
+export {
+  TREATMENT_RESISTANT_DEPRESSION_NEUROMODULATION_MODULE,
+  CATATONIA_NMS_SEROTONIN_SYNDROME_MODULE,
+  REFRACTORY_SCHIZOPHRENIA_CLOZAPINE_MODULE,
+  BIPOLAR_MANIA_PERINATAL_PSYCHIATRY_LITHIUM_MODULE
+};

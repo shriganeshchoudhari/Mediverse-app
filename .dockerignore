@@ -1,0 +1,7 @@
+# Ignore local modules and build files
+**/node_modules
+**/.next
+**/build
+**/.gradle
+**/.git
+**/*.pdf

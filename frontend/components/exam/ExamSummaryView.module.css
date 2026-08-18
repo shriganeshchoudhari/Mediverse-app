@@ -1,0 +1,395 @@
+/* ==========================================================================
+   ExamSummaryView CSS Module — Performance & NMC CBME Mastery Breakdown
+   ========================================================================== */
+
+.summaryContainer {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Score Hero Card */
+.scoreHero {
+  background: linear-gradient(135deg, hsl(222, 47%, 13%) 0%, hsl(222, 47%, 9%) 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .scoreHero {
+    padding: var(--space-5);
+  }
+}
+
+.heroHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.heroTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.heroSubtitle {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-top: var(--space-1);
+}
+
+.distinctionBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.distinctionMastered {
+  background-color: hsla(152, 69%, 45%, 0.15);
+  border: 1px solid var(--color-success-green);
+  color: var(--color-success-green);
+}
+
+.distinctionProficient {
+  background-color: hsla(212, 100%, 48%, 0.15);
+  border: 1px solid var(--color-primary-500);
+  color: var(--color-primary-100);
+}
+
+.distinctionBorderline {
+  background-color: hsla(45, 93%, 47%, 0.15);
+  border: 1px solid var(--color-neural-gold);
+  color: var(--color-neural-gold);
+}
+
+.distinctionReview {
+  background-color: hsla(354, 85%, 54%, 0.15);
+  border: 1px solid var(--color-arterial-red);
+  color: var(--color-arterial-red-light);
+}
+
+/* Stat Grid */
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-4);
+}
+
+.statCard {
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.statValue {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  font-family: var(--font-family-mono);
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.statLabel {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Radar & Mastery Section */
+.masterySection {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.sectionSubtitle {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}
+
+.analyticsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-6);
+}
+
+@media (max-width: 900px) {
+  .analyticsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.radarCard {
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+}
+
+.radarTitle {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+/* Competency Bar List */
+.competencyList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.competencyCard {
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  transition: all var(--transition-fast);
+}
+
+.competencyCard:hover {
+  border-color: var(--border-focus);
+}
+
+.competencyCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+  gap: var(--space-2);
+}
+
+.competencyCodeTag {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  font-family: var(--font-family-mono);
+  background-color: hsla(212, 100%, 48%, 0.15);
+  color: var(--color-primary-100);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-md);
+}
+
+.competencyTopic {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.competencyScoreText {
+  font-size: var(--font-size-xs);
+  font-family: var(--font-family-mono);
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.progressBarTrack {
+  width: 100%;
+  height: 8px;
+  background-color: var(--bg-app);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: var(--space-2);
+}
+
+.progressBarFill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.8s ease-out;
+}
+
+.competencyFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+/* Review Mode Section */
+.reviewSection {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6);
+}
+
+.filterTabs {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.tabButton {
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.tabButton:hover {
+  color: var(--text-primary);
+  border-color: var(--border-focus);
+}
+
+.tabButtonActive {
+  background-color: var(--color-primary-600);
+  border-color: var(--color-primary-500);
+  color: #fff;
+}
+
+.reviewQuestionsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.reviewCard {
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.reviewCardCorrect {
+  border-left: 4px solid var(--color-success-green);
+}
+
+.reviewCardIncorrect {
+  border-left: 4px solid var(--color-arterial-red);
+}
+
+.reviewCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.resultBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+}
+
+.resultBadgeCorrect {
+  background-color: hsla(152, 69%, 45%, 0.15);
+  color: var(--color-success-green);
+  border: 1px solid var(--color-success-green);
+}
+
+.resultBadgeIncorrect {
+  background-color: hsla(354, 85%, 54%, 0.15);
+  color: var(--color-arterial-red-light);
+  border: 1px solid var(--color-arterial-red);
+}
+
+/* Actions Footer */
+.summaryActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+}
+
+.actionButtonSecondary {
+  padding: var(--space-3) var(--space-6);
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  border-radius: var(--radius-xl);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.actionButtonSecondary:hover {
+  background-color: hsla(222, 30%, 20%, 0.9);
+  border-color: var(--border-focus);
+}
+
+.actionButtonPrimary {
+  padding: var(--space-3) var(--space-6);
+  background-color: var(--color-primary-600);
+  border: 1px solid var(--color-primary-500);
+  color: #fff;
+  border-radius: var(--radius-xl);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  box-shadow: 0 4px 14px hsla(212, 100%, 48%, 0.3);
+}
+
+.actionButtonPrimary:hover {
+  background-color: var(--color-primary-500);
+}
