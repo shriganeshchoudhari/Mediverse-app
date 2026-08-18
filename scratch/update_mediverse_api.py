@@ -1,0 +1,603 @@
+import os
+
+def generate_mediverse_api():
+    return r"""###############################################################################
+# MEDIVERSE PLATFORM — ENTERPRISE API TEST & EXECUTION SUITE (.api / .http)
+# Standards: RFC 7230/7231 (HTTP/1.1), RFC 7519 (JWT), RFC 8895 (SSE)
+# Compatible with: VS Code REST Client, JetBrains HTTP Client, Bruno, Postman CLI, curl
+###############################################################################
+
+@baseUrl = http://localhost:8085/api/v1
+@actuatorUrl = http://localhost:8085/actuator
+@contentType = application/json
+
+# Global variables updated dynamically after authentication
+@authToken = {{loginStudent.response.body.token}}
+@adminToken = {{loginAdmin.response.body.token}}
+@reviewerToken = {{loginReviewer.response.body.token}}
+
+###############################################################################
+# 1. AUTHENTICATION & IDENTITY SUBSYSTEM (/api/v1/auth)
+###############################################################################
+
+### 1.1 Register New Student Account
+# @name registerStudent
+POST {{baseUrl}}/auth/register
+Content-Type: {{contentType}}
+
+{
+  "email": "student.pilot@mediverse.edu",
+  "password": "SecurePassword123!",
+  "firstName": "Arjun",
+  "lastName": "Sharma"
+}
+
+### 1.2 Register Duplicate Email (Negative Test - Expects 400 Bad Request)
+# @name registerDuplicateEmail
+POST {{baseUrl}}/auth/register
+Content-Type: {{contentType}}
+
+{
+  "email": "student.pilot@mediverse.edu",
+  "password": "SecurePassword123!",
+  "firstName": "Arjun",
+  "lastName": "Sharma"
+}
+
+### 1.3 Login Student Account
+# @name loginStudent
+POST {{baseUrl}}/auth/login
+Content-Type: {{contentType}}
+
+{
+  "email": "student.pilot@mediverse.edu",
+  "password": "SecurePassword123!"
+}
+
+### 1.4 Login Medical Reviewer Account
+# @name loginReviewer
+POST {{baseUrl}}/auth/login
+Content-Type: {{contentType}}
+
+{
+  "email": "reviewer@mediverse.edu",
+  "password": "ReviewerPassword123!"
+}
+
+### 1.5 Login Admin Account
+# @name loginAdmin
+POST {{baseUrl}}/auth/login
+Content-Type: {{contentType}}
+
+{
+  "email": "admin@mediverse.edu",
+  "password": "AdminPassword123!"
+}
+
+### 1.6 Login with Invalid Password (Negative Test - Expects 401 Unauthorized)
+# @name loginInvalidPassword
+POST {{baseUrl}}/auth/login
+Content-Type: {{contentType}}
+
+{
+  "email": "student.pilot@mediverse.edu",
+  "password": "WrongPassword999!"
+}
+
+### 1.7 Get Current Authenticated User Profile (/me)
+# @name getCurrentUser
+GET {{baseUrl}}/auth/me
+Authorization: Bearer {{authToken}}
+
+### 1.8 Request Password Reset Token
+# @name forgotPassword
+POST {{baseUrl}}/auth/forgot-password
+Content-Type: {{contentType}}
+
+{
+  "email": "student.pilot@mediverse.edu"
+}
+
+### 1.9 Reset Password with Token
+# @name resetPassword
+POST {{baseUrl}}/auth/reset-password
+Content-Type: {{contentType}}
+
+{
+  "token": "valid-sample-reset-token-uuid",
+  "newPassword": "NewSecurePassword456!"
+}
+
+
+###############################################################################
+# 2. MEDICAL CURRICULUM & CBME TAXONOMY SUBSYSTEM (/api/v1/curriculum)
+###############################################################################
+
+### 2.1 Get Master Curriculum by Code (e.g. MBBS-2026)
+# @name getCurriculumByCode
+GET {{baseUrl}}/curriculum/MBBS-2026
+Accept: {{contentType}}
+
+### 2.2 Get Non-Existent Curriculum Code (Negative Test - Expects 404 Not Found)
+# @name getCurriculumNotFound
+GET {{baseUrl}}/curriculum/NON-EXISTENT-CODE
+Accept: {{contentType}}
+
+### 2.3 Get Professional Years for Curriculum
+# @name getCurriculumYears
+@curriculumId = 00000000-0000-0000-0000-000000000001
+GET {{baseUrl}}/curriculum/{{curriculumId}}/years
+Accept: {{contentType}}
+
+### 2.4 Get Semesters for Academic Year
+# @name getSemesters
+@yearId = 00000000-0000-0000-0000-000000000002
+GET {{baseUrl}}/curriculum/years/{{yearId}}/semesters
+Accept: {{contentType}}
+
+### 2.5 Get Subjects for Semester (e.g. Human Physiology PHYS-101)
+# @name getSemesterSubjects
+@semesterId = 00000000-0000-0000-0000-000000000003
+GET {{baseUrl}}/curriculum/semesters/{{semesterId}}/subjects
+Accept: {{contentType}}
+
+### 2.6 Get Units for Subject (e.g. Cardiovascular, Respiratory, Renal)
+# @name getSubjectUnits
+@subjectId = 00000000-0000-0000-0000-000000000004
+GET {{baseUrl}}/curriculum/subjects/{{subjectId}}/units
+Accept: {{contentType}}
+
+### 2.7 Get Chapters for Unit
+# @name getUnitChapters
+@unitId = 00000000-0000-0000-0000-000000000005
+GET {{baseUrl}}/curriculum/units/{{unitId}}/chapters
+Accept: {{contentType}}
+
+### 2.8 Get Chapter Details
+# @name getChapterDetails
+@chapterId = 00000000-0000-0000-0000-000000000006
+GET {{baseUrl}}/curriculum/chapters/{{chapterId}}
+Accept: {{contentType}}
+
+### 2.9 Get Topics for Chapter
+# @name getChapterTopics
+GET {{baseUrl}}/curriculum/chapters/{{chapterId}}/topics
+Accept: {{contentType}}
+
+### 2.10 Get Concepts for Topic
+# @name getTopicConcepts
+@topicId = 00000000-0000-0000-0000-000000000007
+GET {{baseUrl}}/curriculum/topics/{{topicId}}/concepts
+Accept: {{contentType}}
+
+### 2.11 Get Interactive Lesson for Concept
+# @name getConceptLesson
+@conceptId = 00000000-0000-0000-0000-000000000008
+GET {{baseUrl}}/curriculum/concepts/{{conceptId}}/lesson
+Accept: {{contentType}}
+
+### 2.12 Get Clinical Cases for Concept
+# @name getConceptClinicalCases
+GET {{baseUrl}}/curriculum/concepts/{{conceptId}}/clinical-cases
+Accept: {{contentType}}
+
+### 2.13 Get Evidence & References for Concept
+# @name getConceptReferences
+GET {{baseUrl}}/curriculum/concepts/{{conceptId}}/references
+Accept: {{contentType}}
+
+
+###############################################################################
+# 3. PHYSIOLOGY SIMULATION ENGINES & SOLVERS (/api/v1/simulations)
+###############################################################################
+
+### 3.1 Get Simulation Catalog (All Presets & Organ Systems)
+# @name getSimulationCatalog
+GET {{baseUrl}}/simulations/catalog
+Accept: {{contentType}}
+
+### 3.2 Calculate Cardiovascular Suga-Sagawa PV Loop (Normal Physiology)
+# @name calculateCardiovascularPvLoop
+POST {{baseUrl}}/simulations/calculate
+Content-Type: {{contentType}}
+
+{
+  "simulationType": "CARDIOVASCULAR",
+  "preloadEdv": 120.0,
+  "afterloadSvr": 100.0,
+  "inotropyEes": 2.5,
+  "heartRate": 75.0
+}
+
+### 3.3 Calculate Cardiovascular PV Loop under Severe Heart Failure (Low Inotropy)
+# @name calculateHeartFailurePvLoop
+POST {{baseUrl}}/simulations/calculate
+Content-Type: {{contentType}}
+
+{
+  "simulationType": "CARDIOVASCULAR",
+  "preloadEdv": 160.0,
+  "afterloadSvr": 140.0,
+  "inotropyEes": 0.8,
+  "heartRate": 95.0
+}
+
+### 3.4 Calculate Acid-Base Davenport Nomogram (Respiratory Acidosis)
+# @name calculateAcidBase
+POST {{baseUrl}}/simulations/calculate
+Content-Type: {{contentType}}
+
+{
+  "simulationType": "ACID_BASE",
+  "paco2": 55.0,
+  "hco3": 32.0,
+  "sodium": 140.0,
+  "chloride": 98.0
+}
+
+### 3.5 Calculate Renal Glomerular Filtration Dynamics (Starling Forces)
+# @name calculateRenalFiltration
+POST {{baseUrl}}/simulations/calculate
+Content-Type: {{contentType}}
+
+{
+  "simulationType": "RENAL",
+  "afferentResistance": 1.2,
+  "efferentResistance": 1.5,
+  "glomerularHydrostaticPressure": 60.0,
+  "bowmanHydrostaticPressure": 15.0,
+  "plasmaOncoticPressure": 28.0
+}
+
+### 3.6 Calculate Nerve Membrane Potential (Goldman-Hodgkin-Katz)
+# @name calculateNerveGhk
+POST {{baseUrl}}/simulations/calculate
+Content-Type: {{contentType}}
+
+{
+  "simulationType": "NERVE_MUSCLE",
+  "potassiumExtracellular": 4.5,
+  "sodiumExtracellular": 145.0,
+  "chlorideExtracellular": 105.0,
+  "potassiumIntracellular": 140.0,
+  "sodiumIntracellular": 12.0,
+  "chlorideIntracellular": 4.0
+}
+
+### 3.7 Save Simulation Run Outcome
+# @name saveSimulationRun
+POST {{baseUrl}}/simulations
+Authorization: Bearer {{authToken}}
+Content-Type: {{contentType}}
+
+{
+  "simulationType": "CARDIOVASCULAR_PV_LOOP",
+  "inputParameters": "{\"preloadEdv\": 120.0, \"afterloadSvr\": 100.0, \"inotropyEes\": 2.5, \"heartRate\": 75.0}",
+  "outcomeMetrics": "{\"strokeVolume\": 72.0, \"cardiacOutput\": 5.4, \"ejectionFraction\": 60.0, \"map\": 93.3}"
+}
+
+### 3.8 Get My Executed Simulation Run History
+# @name getMySimulations
+GET {{baseUrl}}/simulations
+Authorization: Bearer {{authToken}}
+Accept: {{contentType}}
+
+
+###############################################################################
+# 4. AI SOCRATIC TUTOR SSE STREAMING (/api/v1/ai-tutor)
+###############################################################################
+
+### 4.1 Stream Socratic Guidance Token Stream (SSE)
+# @name streamSocraticChat
+POST {{baseUrl}}/ai-tutor/chat/stream
+Authorization: Bearer {{authToken}}
+Content-Type: {{contentType}}
+Accept: text/event-stream
+
+{
+  "message": "Why does an increase in systemic vascular resistance shift the end-systolic volume to the right?",
+  "topicContext": "cardiovascular-pv-loops"
+}
+
+### 4.2 Query RAG Clinical Knowledge Embeddings
+# @name queryRagKnowledge
+POST {{baseUrl}}/ai/rag/search
+Authorization: Bearer {{authToken}}
+Content-Type: {{contentType}}
+
+{
+  "query": "Winter formula metabolic acidosis compensation range",
+  "topK": 3
+}
+
+
+###############################################################################
+# 5. CLINICAL EXAMINATION & ASSESSMENT SUBSYSTEM (/api/v1/exam & /api/v1/quiz)
+###############################################################################
+
+### 5.1 Get Random Clinical Vignette Examination Questions
+# @name getRandomExamQuestions
+GET {{baseUrl}}/exam/questions?limit=10
+Authorization: Bearer {{authToken}}
+Accept: {{contentType}}
+
+### 5.2 Submit Clinical Board Examination Attempt
+# @name submitExamAttempt
+POST {{baseUrl}}/exam/submit
+Authorization: Bearer {{authToken}}
+Content-Type: {{contentType}}
+
+{
+  "sectionIds": ["cardiovascular-hemodynamics", "renal-filtration"],
+  "score": 9,
+  "totalQuestions": 10,
+  "timeTakenSeconds": 540
+}
+
+### 5.3 Get Past Exam History & Performance Records
+# @name getExamHistory
+GET {{baseUrl}}/exam/history
+Authorization: Bearer {{authToken}}
+Accept: {{contentType}}
+
+### 5.4 Get Lesson Quiz Questions
+# @name getLessonQuiz
+@lessonId = cardiac-cycle-lesson-01
+GET {{baseUrl}}/quiz/{{lessonId}}
+Authorization: Bearer {{authToken}}
+Accept: {{contentType}}
+
+### 5.5 Submit Lesson Quiz Answer
+# @name submitLessonQuiz
+POST {{baseUrl}}/quiz/{{lessonId}}/submit
+Authorization: Bearer {{authToken}}
+Content-Type: {{contentType}}
+
+{
+  "questionId": "00000000-0000-0000-0000-000000000009",
+  "selectedOption": "A",
+  "timeSpentSeconds": 45
+}
+
+
+###############################################################################
+# 6. STUDENT PROGRESS, XP & COMPETENCY ANALYTICS (/api/v1/progress & /analytics)
+###############################################################################
+
+### 6.1 Get Student Lesson Progress List
+# @name getStudentProgress
+GET {{baseUrl}}/progress
+Authorization: Bearer {{authToken}}
+Accept: {{contentType}}
+
+### 6.2 Update Progress on Completed Lesson
+# @name updateLessonProgress
+POST {{baseUrl}}/progress/{{lessonId}}
+Authorization: Bearer {{authToken}}
+Content-Type: {{contentType}}
+
+{
+  "lessonId": "{{lessonId}}",
+  "completionPercentage": 100,
+  "completed": true
+}
+
+### 6.3 Get Spaced Repetition Mastery Analytics
+# @name getSpacedRepetitionAnalytics
+GET {{baseUrl}}/analytics/spaced-repetition
+Authorization: Bearer {{authToken}}
+Accept: {{contentType}}
+
+### 6.4 Get Daily Study Streak Calendar
+# @name getStreakCalendar
+GET {{baseUrl}}/analytics/streak
+Authorization: Bearer {{authToken}}
+Accept: {{contentType}}
+
+
+###############################################################################
+# 7. SPACED REPETITION FLASHCARDS SUBSYSTEM (/api/v1/flashcards)
+###############################################################################
+
+### 7.1 Get Due Flashcards for Review Today
+# @name getDueFlashcards
+GET {{baseUrl}}/flashcards/due
+Authorization: Bearer {{authToken}}
+Accept: {{contentType}}
+
+### 7.2 Get Flashcards by Lesson
+# @name getFlashcardsByLesson
+GET {{baseUrl}}/flashcards/lesson/{{lessonId}}
+Authorization: Bearer {{authToken}}
+Accept: {{contentType}}
+
+### 7.3 Submit Flashcard Review Rating (SM-2 Algorithm: 0..5)
+# @name reviewFlashcard
+@cardId = 00000000-0000-0000-0000-000000000010
+POST {{baseUrl}}/flashcards/{{cardId}}/review
+Authorization: Bearer {{authToken}}
+Content-Type: {{contentType}}
+
+{
+  "rating": 5
+}
+
+
+###############################################################################
+# 8. SOCIAL LEARNING, STUDY GROUPS & LEADERBOARDS (/api/v1/social & /leaderboard)
+###############################################################################
+
+### 8.1 Get All Active Study Groups
+# @name getStudyGroups
+GET {{baseUrl}}/study-groups
+Authorization: Bearer {{authToken}}
+Accept: {{contentType}}
+
+### 8.2 Create New Medical Study Group
+# @name createStudyGroup
+POST {{baseUrl}}/study-groups
+Authorization: Bearer {{authToken}}
+Content-Type: {{contentType}}
+
+{
+  "name": "Cardiovascular Physiology & USMLE Step 1 Prep",
+  "description": "High-yield discussion on PV loops, Wiggers diagrams, and valve pathologies."
+}
+
+### 8.3 Join Study Group
+# @name joinStudyGroup
+@groupId = 00000000-0000-0000-0000-000000000011
+POST {{baseUrl}}/study-groups/{{groupId}}/join
+Authorization: Bearer {{authToken}}
+
+### 8.4 Get Global Student Leaderboard
+# @name getLeaderboard
+GET {{baseUrl}}/leaderboard
+Authorization: Bearer {{authToken}}
+Accept: {{contentType}}
+
+### 8.5 Get My Leaderboard Rank
+# @name getMyRank
+GET {{baseUrl}}/leaderboard/me
+Authorization: Bearer {{authToken}}
+Accept: {{contentType}}
+
+
+###############################################################################
+# 9. ADMINISTRATIVE MANAGEMENT (/api/v1/admin)
+###############################################################################
+
+### 9.1 Get Platform System & User Statistics (Admin Protected)
+# @name getAdminStats
+GET {{baseUrl}}/admin/stats
+Authorization: Bearer {{adminToken}}
+Accept: {{contentType}}
+
+### 9.2 Get All Registered Users (Admin Protected)
+# @name getAdminUsers
+GET {{baseUrl}}/admin/users
+Authorization: Bearer {{adminToken}}
+Accept: {{contentType}}
+
+
+###############################################################################
+# 10. ROLE-BASED CMS CURRICULUM REVIEW SUBSYSTEM (/api/v1/cms)
+###############################################################################
+
+### 10.1 Submit Draft Lesson for Medical Peer Review
+# @name submitLessonForReview
+@targetLessonId = 00000000-0000-0000-0000-000000000012
+POST {{baseUrl}}/cms/lessons/{{targetLessonId}}/submit
+Authorization: Bearer {{authToken}}
+Content-Type: {{contentType}}
+
+{
+  "comments": "Completed initial draft with embedded KaTeX elastance equations and 3D landmark pins."
+}
+
+### 10.2 Get Pending Curriculum Review Items (Medical Reviewer Protected)
+# @name getPendingReviews
+GET {{baseUrl}}/cms/reviews/pending
+Authorization: Bearer {{reviewerToken}}
+Accept: {{contentType}}
+
+### 10.3 Submit Medical Review Decision (Approve Lesson)
+# @name approveLesson
+@reviewId = 00000000-0000-0000-0000-000000000013
+POST {{baseUrl}}/cms/reviews/{{reviewId}}/decision
+Authorization: Bearer {{reviewerToken}}
+Content-Type: {{contentType}}
+
+{
+  "decision": "APPROVED",
+  "comments": "Medically verified against Guyton & Hall Chapter 9. Formula precision and clinical vignettes are sound."
+}
+
+### 10.4 Submit Medical Review Decision (Reject Lesson with Revisions)
+# @name rejectLesson
+POST {{baseUrl}}/cms/reviews/{{reviewId}}/decision
+Authorization: Bearer {{reviewerToken}}
+Content-Type: {{contentType}}
+
+{
+  "decision": "REJECTED",
+  "comments": "Please correct the Winter formula compensation range for metabolic acidosis (tolerance +/- 2 mmHg)."
+}
+
+### 10.5 Get Lesson Review & Audit History
+# @name getLessonReviewHistory
+GET {{baseUrl}}/cms/lessons/{{targetLessonId}}/history
+Authorization: Bearer {{reviewerToken}}
+Accept: {{contentType}}
+
+
+###############################################################################
+# 11. IMS GLOBAL LTI 1.3 ADVANTAGE INTEROPERABILITY (/api/v1/lti)
+###############################################################################
+
+### 11.1 Retrieve Mediverse Public RS256 JWKS Keyset
+# @name getJwks
+GET http://localhost:8085/.well-known/jwks.json
+Accept: {{contentType}}
+
+### 11.2 Initiate OIDC Third-Party LMS Login
+# @name initiateLtiLogin
+POST {{baseUrl}}/lti/login/init
+Content-Type: application/x-www-form-urlencoded
+
+iss=https://canvas.instructure.com&login_hint=user_12345&target_link_uri=http://localhost:8085/api/v1/lti/launch
+
+### 11.3 Trigger Automated Assignment and Grade Passback (AGS v2.0)
+# @name triggerGradePassback
+POST {{baseUrl}}/lti/grade-passback
+Authorization: Bearer {{adminToken}}
+Content-Type: {{contentType}}
+
+{
+  "deploymentId": "00000000-0000-0000-0000-000000000014",
+  "userId": "00000000-0000-0000-0000-000000000015",
+  "examId": "00000000-0000-0000-0000-000000000016",
+  "scoreGiven": 95.0,
+  "scoreMaximum": 100.0,
+  "lineItemUrl": "https://canvas.instructure.com/api/lti/courses/101/line_items/55"
+}
+
+
+###############################################################################
+# 12. SPRING BOOT ACTUATOR & OBSERVABILITY TELEMETRY (/actuator)
+###############################################################################
+
+### 12.1 Get System Health Status (Liveness & Readiness)
+# @name getActuatorHealth
+GET {{actuatorUrl}}/health
+Accept: {{contentType}}
+
+### 12.2 Scrape Prometheus Metrics Baseline
+# @name getPrometheusMetrics
+GET {{actuatorUrl}}/prometheus
+
+### 12.3 Check HikariCP Active Database Connections
+# @name getHikariActiveConnections
+GET {{actuatorUrl}}/metrics/hikaricp.connections.active
+Accept: {{contentType}}
+
+### 12.4 Check HikariCP Pending Connection Gauge
+# @name getHikariPendingConnections
+GET {{actuatorUrl}}/metrics/hikaricp.connections.pending
+Accept: {{contentType}}
+"""
+
+def main():
+    content = generate_mediverse_api()
+    targets = [
+        'docs/mediverse.api',
+        'backend/mediverse.api',
+        'mediverse.api'
+    ]
+    for t in targets:
+        with open(t, 'w', encoding='utf-8') as f:
+            f.write(content)
+        print(f"Updated {t} ({len(content)} chars, {len(content.splitlines())} lines).")
+
+if __name__ == '__main__':
+    main()
