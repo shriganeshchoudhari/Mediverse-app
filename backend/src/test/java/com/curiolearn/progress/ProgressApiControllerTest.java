@@ -30,7 +30,6 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -59,9 +58,9 @@ class ProgressApiControllerTest {
 
             @Override
             public Object resolveArgument(MethodParameter parameter,
-                                          ModelAndViewContainer mavContainer,
-                                          NativeWebRequest webRequest,
-                                          WebDataBinderFactory binderFactory) {
+                    ModelAndViewContainer mavContainer,
+                    NativeWebRequest webRequest,
+                    WebDataBinderFactory binderFactory) {
                 Principal principal = webRequest.getUserPrincipal();
                 if (principal == null) {
                     return null;
@@ -69,8 +68,7 @@ class ProgressApiControllerTest {
                 return new org.springframework.security.core.userdetails.User(
                         principal.getName(),
                         "password",
-                        Collections.emptyList()
-                );
+                        Collections.emptyList());
             }
         };
 
@@ -103,7 +101,7 @@ class ProgressApiControllerTest {
         when(progressService.getProgress(userId)).thenReturn(List.of(progressItem));
 
         mockMvc.perform(get("/api/v1/progress")
-                        .principal(() -> "student@mediverse.edu"))
+                .principal(() -> "student@mediverse.edu"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$", hasSize(1)))

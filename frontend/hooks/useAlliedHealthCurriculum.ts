@@ -1,22 +1,34 @@
-import useSWR from 'swr';
+import { useState, useEffect } from 'react';
 import { ALLIED_HEALTH_MAJORS, AlliedMajor } from '../lib/curriculum/alliedHealthCurriculumScaffold';
 
-const fetcher = async (url: string) => {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error('Failed to fetch allied health curriculum');
-  return res.json();
-};
-
 export function useAlliedHealthCurriculum() {
-  const { data, error, isLoading } = useSWR<AlliedMajor[]>(
-    '/api/v1/allied/programs',
-    fetcher,
-    { fallbackData: ALLIED_HEALTH_MAJORS }
-  );
+  const [majors, setMajors] = useState<AlliedMajor[]>(ALLIED_HEALTH_MAJORS);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    async function loadData() {
+      try {
+        const res = await fetch('/api/v1/allied/programs');
+        if (!res.ok) throw new Error('Failed to fetch allied health curriculum');
+        const data = await res.json();
+        if (isMounted && data && Array.isArray(data) && data.length > 0) {
+          setMajors(data);
+        }
+      } catch (err: unknown) {
+        if (isMounted) setIsError(err instanceof Error ? err : new Error(String(err)));
+      } finally {
+        if (isMounted) setIsLoading(false);
+      }
+    }
+    loadData();
+    return () => { isMounted = false; };
+  }, []);
 
   return {
-    majors: data || ALLIED_HEALTH_MAJORS,
+    majors,
     isLoading,
-    isError: error
+    isError
   };
 }

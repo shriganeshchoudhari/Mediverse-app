@@ -1,7 +1,5 @@
 package com.curiolearn.user;
 
-import com.curiolearn.user.User;
-import com.curiolearn.user.UserRepository;
 import com.curiolearn.auth.CustomUserDetailsService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +11,6 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 public class UserServiceTest {
@@ -44,5 +41,3 @@ public class UserServiceTest {
         assertTrue(userDetails.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ROLE_STUDENT")));
     }
 }
-
-

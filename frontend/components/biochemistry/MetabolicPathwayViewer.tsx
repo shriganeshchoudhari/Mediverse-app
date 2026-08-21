@@ -366,7 +366,7 @@ export default function MetabolicPathwayViewer({
               onClick={() => setMetabolicState("starvation")}
               className={`${styles.stateTab} ${metabolicState === "starvation" ? styles.stateTabActive : ""}`}
             >
-              🔥 Starvation (>3 Days)
+              🔥 Starvation (&gt;3 Days)
             </button>
           </div>
 

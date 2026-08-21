@@ -5,7 +5,8 @@ UPDATE programs
 SET healthcare_domain = 'VETERINARY', domain_tier = 3
 WHERE code IN ('BVSC', 'MVSC');
 
-CREATE OR REPLACE VIEW healthcare_domain_curriculum_stats AS
+DROP VIEW IF EXISTS healthcare_domain_curriculum_stats CASCADE;
+CREATE VIEW healthcare_domain_curriculum_stats AS
 SELECT 
     p.healthcare_domain,
     p.domain_tier,

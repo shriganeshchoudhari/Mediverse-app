@@ -148,12 +148,12 @@ public class SimulationApiService {
 
     public SimulationCalculateResponseDto calculate(SimulationCalculateRequestDto request) {
         if ("SPIROMETRY_PFT".equalsIgnoreCase(request.getSimulationType()) || "spirometry".equalsIgnoreCase(request.getSimulationType())) {
-            double age = request.getParameters() != null && request.getParameters().containsKey("age") ? ((Number) request.getParameters().get("age")).doubleValue() : 30.0;
-            double heightCm = request.getParameters() != null && request.getParameters().containsKey("heightCm") ? ((Number) request.getParameters().get("heightCm")).doubleValue() : 170.0;
-            String sex = request.getParameters() != null && request.getParameters().containsKey("sex") ? (String) request.getParameters().get("sex") : "M";
-            double fvc = request.getParameters() != null && request.getParameters().containsKey("fvc") ? ((Number) request.getParameters().get("fvc")).doubleValue() : 4.8;
-            double fev1 = request.getParameters() != null && request.getParameters().containsKey("fev1") ? ((Number) request.getParameters().get("fev1")).doubleValue() : 4.0;
-            Double tlc = request.getParameters() != null && request.getParameters().containsKey("tlc") ? ((Number) request.getParameters().get("tlc")).doubleValue() : null;
+            double age = request.getCustomParameters() != null && request.getCustomParameters().containsKey("age") ? ((Number) request.getCustomParameters().get("age")).doubleValue() : 30.0;
+            double heightCm = request.getCustomParameters() != null && request.getCustomParameters().containsKey("heightCm") ? ((Number) request.getCustomParameters().get("heightCm")).doubleValue() : 170.0;
+            String sex = request.getCustomParameters() != null && request.getCustomParameters().containsKey("sex") ? (String) request.getCustomParameters().get("sex") : "M";
+            double fvc = request.getCustomParameters() != null && request.getCustomParameters().containsKey("fvc") ? ((Number) request.getCustomParameters().get("fvc")).doubleValue() : 4.8;
+            double fev1 = request.getCustomParameters() != null && request.getCustomParameters().containsKey("fev1") ? ((Number) request.getCustomParameters().get("fev1")).doubleValue() : 4.0;
+            Double tlc = request.getCustomParameters() != null && request.getCustomParameters().containsKey("tlc") ? ((Number) request.getCustomParameters().get("tlc")).doubleValue() : null;
 
             Map<String, Object> spiroResult = spirometrySolver.calculate(age, heightCm, sex, fvc, fev1, tlc);
             return SimulationCalculateResponseDto.builder()

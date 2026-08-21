@@ -428,7 +428,7 @@ export default function CriticalCareLabViewer({
 
                 <div className="p-3 bg-slate-950/80 rounded-lg border border-slate-800">
                   <div className="text-sky-300 font-bold">Swan-Ganz Catheterization &amp; SvO2 Index</div>
-                  <div className="text-slate-300 mt-1">RA (0-8) -> RV (25/5) -> PA with dicrotic notch (25/10) -> PCWP Wedge (4-12 mmHg). Low SvO2 (&lt;65%) indicates high tissue extraction (cardiogenic/hypovolemic shock); High SvO2 (&gt;80%) indicates microvascular extraction failure (sepsis, cyanide).</div>
+                  <div className="text-slate-300 mt-1">RA (0-8) -&gt; RV (25/5) -&gt; PA with dicrotic notch (25/10) -&gt; PCWP Wedge (4-12 mmHg). Low SvO2 (&lt;65%) indicates high tissue extraction (cardiogenic/hypovolemic shock); High SvO2 (&gt;80%) indicates microvascular extraction failure (sepsis, cyanide).</div>
                 </div>
               </div>
             </div>

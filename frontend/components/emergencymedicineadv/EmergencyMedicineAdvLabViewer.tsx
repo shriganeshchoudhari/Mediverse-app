@@ -430,12 +430,12 @@ export default function EmergencyMedicineAdvLabViewer({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 <div className="p-3 bg-slate-950/80 rounded-lg border border-slate-800">
                   <div className="text-red-300 font-bold">Shockable (VF / Pulseless VT)</div>
-                  <div className="text-slate-300 mt-1">Immediate High-Energy Defibrillation (120-200 J biphasic) -> Resume CPR 2 min -> Epinephrine 1 mg IV every 3-5 min after Shock 2 -> Amiodarone 300 mg bolus after Shock 3 (150 mg second dose).</div>
+                  <div className="text-slate-300 mt-1">Immediate High-Energy Defibrillation (120-200 J biphasic) -&gt; Resume CPR 2 min -&gt; Epinephrine 1 mg IV every 3-5 min after Shock 2 -&gt; Amiodarone 300 mg bolus after Shock 3 (150 mg second dose).</div>
                 </div>
 
                 <div className="p-3 bg-slate-950/80 rounded-lg border border-slate-800">
                   <div className="text-red-300 font-bold">Non-Shockable (Asystole / PEA)</div>
-                  <div className="text-slate-300 mt-1">NO DEFIBRILLATION! High-quality CPR -> Epinephrine 1 mg IV ASAP, then every 3-5 min -> Aggressively identify and treat reversible causes (The 5 H's: Hypovolemia, Hypoxia, Hydrogen ion, Hypo/Hyperkalemia, Hypothermia; The 5 T's: Tension PTX, Tamponade, Toxins, Thrombosis PE, Thrombosis ACS).</div>
+                  <div className="text-slate-300 mt-1">NO DEFIBRILLATION! High-quality CPR -&gt; Epinephrine 1 mg IV ASAP, then every 3-5 min -&gt; Aggressively identify and treat reversible causes (The 5 H's: Hypovolemia, Hypoxia, Hydrogen ion, Hypo/Hyperkalemia, Hypothermia; The 5 T's: Tension PTX, Tamponade, Toxins, Thrombosis PE, Thrombosis ACS).</div>
                 </div>
               </div>
             </div>
@@ -578,7 +578,7 @@ export default function EmergencyMedicineAdvLabViewer({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 <div className="p-3 bg-slate-950/80 rounded-lg border border-slate-800">
                   <div className="text-red-300 font-bold">Tension Pneumothorax Decompression</div>
-                  <div className="text-slate-300 mt-1">Severe dyspnea, hypotension, JVD, hyperresonance, absent breath sounds, contralateral tracheal shift -> Immediate large-bore Needle Thoracostomy in 5th ICS anterior axillary line (or 2nd ICS MCL) followed by chest tube.</div>
+                  <div className="text-slate-300 mt-1">Severe dyspnea, hypotension, JVD, hyperresonance, absent breath sounds, contralateral tracheal shift -&gt; Immediate large-bore Needle Thoracostomy in 5th ICS anterior axillary line (or 2nd ICS MCL) followed by chest tube.</div>
                 </div>
 
                 <div className="p-3 bg-slate-950/80 rounded-lg border border-slate-800">

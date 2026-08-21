@@ -15,14 +15,15 @@ UPDATE programs SET healthcare_domain = 'DENTAL', domain_tier = 1 WHERE code = '
 UPDATE programs SET healthcare_domain = 'AYUSH', domain_tier = 1 WHERE code = 'BAMS';
 
 -- 3. Create domain curriculum statistics view (bridges healthcare_domains → programs → subjects → learning_objects)
-CREATE OR REPLACE VIEW healthcare_domain_curriculum_stats AS
+DROP VIEW IF EXISTS healthcare_domain_curriculum_stats CASCADE;
+CREATE VIEW healthcare_domain_curriculum_stats AS
 SELECT
     hd.id                                   AS domain_id,
     hd.name                                 AS domain_name,
     hd.tier                                 AS domain_tier,
     COUNT(DISTINCT p.id)                    AS program_count,
     COUNT(DISTINCT c.id)                    AS curriculum_count,
-    COUNT(DISTINCT s.id)                    AS subject_count,
+    COUNT(DISTINCT sub.id)                    AS subject_count,
     COUNT(DISTINCT ch.id)                   AS chapter_count,
     COUNT(DISTINCT lo.id)                   AS lesson_count
 FROM healthcare_domains hd

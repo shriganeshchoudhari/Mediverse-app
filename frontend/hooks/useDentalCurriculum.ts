@@ -1,30 +1,46 @@
-import useSWR from 'swr';
+import { useState, useEffect } from 'react';
 import { MDS_CURRICULUM } from '@/lib/curriculum/mdsCurriculumScaffold';
+import { BDS_CURRICULUM, BDS_METADATA } from '@/lib/curriculum/bdsCurriculumScaffold';
 
 type ProgramCode = 'BDS' | 'MDS';
 
-const fetcher = (url: string) => fetch(url).then((r) => r.json());
-
-// Need a dummy BDS_CURRICULUM and BDS_METADATA for fallback, or use any if not present
-// assuming BDS_CURRICULUM is already there
-import { BDS_CURRICULUM, BDS_METADATA } from '@/lib/curriculum/bdsCurriculumScaffold';
-
 export function useDentalCurriculum(program: ProgramCode = 'BDS') {
-  const { data, error, isLoading } = useSWR(
-    `/api/v1/dental/${program.toLowerCase()}/${program === 'BDS' ? 'subjects' : 'specialties'}`,
-    fetcher,
-    { revalidateOnFocus: false, dedupingInterval: 300_000 }
-  );
-
-  // Fall back to static scaffold on error
   const staticData = program === 'BDS' ? BDS_CURRICULUM : MDS_CURRICULUM;
-  const staticMeta = program === 'BDS' ? BDS_METADATA : null; // MDS metadata handled dynamically
+  const staticMeta = program === 'BDS' ? BDS_METADATA : null;
+  const [curriculum, setCurriculum] = useState<any>(staticData);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isOffline, setIsOffline] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    const url = `/api/v1/dental/${program.toLowerCase()}/${program === 'BDS' ? 'subjects' : 'specialties'}`;
+    async function loadData() {
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('Failed to fetch dental curriculum');
+        const json = await res.json();
+        if (isMounted && json && Array.isArray(json) && json.length > 0) {
+          setCurriculum(json);
+        }
+      } catch (err: unknown) {
+        if (isMounted) {
+          setIsOffline(true);
+          setError(err instanceof Error ? err : new Error(String(err)));
+        }
+      } finally {
+        if (isMounted) setIsLoading(false);
+      }
+    }
+    loadData();
+    return () => { isMounted = false; };
+  }, [program]);
 
   return {
-    curriculum: data ?? staticData,
+    curriculum,
     metadata: staticMeta,
     isLoading,
-    isOffline: !!error,
+    isOffline,
     error,
   };
 }

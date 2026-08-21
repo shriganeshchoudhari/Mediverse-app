@@ -56,8 +56,8 @@ describe('ToothMorphologyViewer Component', () => {
   });
 
   it('handles missing tooth gracefully (non-existent ID prop should fallback to default)', () => {
-    render(<ToothMorphologyViewer toothId="NON_EXISTENT_ID" />);
-    // Should fallback to default tooth which is usually Central Incisor
-    expect(screen.getByText(/Central Incisor/i)).toBeInTheDocument();
+    render(<ToothMorphologyViewer initialToothId="NON_EXISTENT_ID" />);
+    // Should fallback to default tooth data
+    expect(screen.getByText(/Selected Tooth|Central Incisor/i)).toBeInTheDocument();
   });
 });

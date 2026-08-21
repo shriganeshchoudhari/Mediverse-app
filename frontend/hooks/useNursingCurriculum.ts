@@ -1,21 +1,34 @@
-import useSWR from 'swr';
+import { useState, useEffect } from 'react';
 import { BSC_NURSING_CURRICULUM } from '../lib/curriculum/bscNursingCurriculumScaffold';
 
 export function useNursingCurriculum() {
-  const { data, error, isLoading } = useSWR('/api/v1/nursing/bscnursing/subjects', async (url) => {
-    try {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error('Failed to fetch');
-      return await res.json();
-    } catch (e) {
-      console.warn('Falling back to local curriculum scaffold', e);
-      return BSC_NURSING_CURRICULUM;
+  const [curriculum, setCurriculum] = useState<any>(BSC_NURSING_CURRICULUM);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    async function loadData() {
+      try {
+        const res = await fetch('/api/v1/nursing/bscnursing/subjects');
+        if (!res.ok) throw new Error('Failed to fetch nursing curriculum');
+        const data = await res.json();
+        if (isMounted && data && Array.isArray(data) && data.length > 0) {
+          setCurriculum(data);
+        }
+      } catch (err: unknown) {
+        if (isMounted) setIsError(err instanceof Error ? err : new Error(String(err)));
+      } finally {
+        if (isMounted) setIsLoading(false);
+      }
     }
-  });
+    loadData();
+    return () => { isMounted = false; };
+  }, []);
 
   return {
-    curriculum: data || BSC_NURSING_CURRICULUM,
+    curriculum,
     isLoading,
-    isError: error
+    isError
   };
 }

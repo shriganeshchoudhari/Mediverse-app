@@ -445,7 +445,7 @@ export default function ClinicalInt5LabViewer({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 <div className="p-3 bg-slate-950/80 rounded-lg border border-slate-800">
                   <div className="text-red-300 font-bold">LRINEC Scoring System</div>
-                  <div className="text-slate-300 mt-1">CRP &ge;150 (4) + WBC >25k (2) + Hb &lt;11 (2) + Na &lt;135 (2) + Cr >1.6 (2) + Glucose >180 (1). Score &ge;6 indicates high suspicion of necrotizing fasciitis (&ge;8 has &gt;90% PPV).</div>
+                  <div className="text-slate-300 mt-1">CRP &ge;150 (4) + WBC &gt;25k (2) + Hb &lt;11 (2) + Na &lt;135 (2) + Cr &gt;1.6 (2) + Glucose &gt;180 (1). Score &ge;6 indicates high suspicion of necrotizing fasciitis (&ge;8 has &gt;90% PPV).</div>
                 </div>
 
                 <div className="p-3 bg-slate-950/80 rounded-lg border border-slate-800">

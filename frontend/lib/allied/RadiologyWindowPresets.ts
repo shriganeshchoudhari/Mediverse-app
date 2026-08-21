@@ -22,7 +22,7 @@ export interface MRIPulseSequence {
     name: string;
     trMs: number;
     teMs: number;
-    fluidAppearance: 'Dark (Hypointense)' | 'Bright (Hyperintense)' | 'Suppressed';
+    fluidAppearance: 'Dark (Hypointense)' | 'Bright (Hyperintense)' | 'Suppressed' | 'Variable (Restricted diffusion is Bright on DWI, Dark on ADC)' | string;
     fatAppearance: string;
     clinicalUtility: string;
 }

@@ -15,11 +15,11 @@ export default function DravyagunaExplorer() {
 
   const filteredHerbs = useMemo(() => {
     return DRAVYAGUNA_HERBS.filter(herb => {
-      const matchSearch = herb.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          herb.sanskritName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          herb.botanicalName.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchDosha = doshaFilter ? herb.doshaPacifying.includes(doshaFilter) : true;
-      const matchVirya = viryaFilter ? herb.virya === viryaFilter : true;
+      const matchSearch = (herb.commonName || '').toLowerCase().includes(searchTerm.toLowerCase()) || 
+                          (herb.sanskritName || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          (herb.botanicalName || '').toLowerCase().includes(searchTerm.toLowerCase());
+      const matchDosha = doshaFilter ? (herb.doshaAction || '').includes(doshaFilter) : true;
+      const matchVirya = viryaFilter ? (herb.virya || '').includes(viryaFilter) : true;
       return matchSearch && matchDosha && matchVirya;
     });
   }, [searchTerm, doshaFilter, viryaFilter]);
@@ -28,7 +28,11 @@ export default function DravyagunaExplorer() {
 
   const getInteraction = () => {
     if (!selectedHerb) return null;
-    return selectedHerb.interactions.find(i => i.drug === selectedDrug) || { drug: selectedDrug, severity: 'Safe', warning: 'No known major interactions.' };
+    const precaution = selectedHerb.allopathicDrugPrecautions.find(p => p.drugClass.toLowerCase().includes(selectedDrug.toLowerCase()));
+    if (precaution) {
+      return { drug: selectedDrug, severity: precaution.severity, warning: precaution.potentialRisk };
+    }
+    return { drug: selectedDrug, severity: 'Safe', warning: 'No known major interactions with standard dosing.' };
   };
 
   const interaction = getInteraction();
@@ -69,11 +73,11 @@ export default function DravyagunaExplorer() {
               onClick={() => setSelectedHerbId(herb.id)}
             >
               <div className={styles.imgPlaceholder}>🌱</div>
-              <h4>{herb.name}</h4>
+              <h4>{herb.commonName}</h4>
               <p className={styles.sanskrit}>{herb.sanskritName}</p>
               <div className={styles.badges}>
                 <span className={styles.badge}>{herb.virya}</span>
-                {herb.doshaPacifying.map(d => <span key={d} className={`${styles.badge} ${styles[d.toLowerCase()]}`}>{d}</span>)}
+                <span className={`${styles.badge} ${styles.vata}`}>{herb.doshaAction}</span>
               </div>
             </div>
           ))}
@@ -84,14 +88,14 @@ export default function DravyagunaExplorer() {
         {selectedHerb && (
           <div className={styles.inspector}>
             <div className={styles.header}>
-              <h3>{selectedHerb.name} <span>({selectedHerb.botanicalName})</span></h3>
+              <h3>{selectedHerb.commonName} <span>({selectedHerb.botanicalName})</span></h3>
             </div>
 
             <div className={styles.energeticsPanel}>
               <h4>5-Fold Ayurvedic Energetics</h4>
               <div className={styles.energeticsGrid}>
-                <div className={styles.enCard}><strong>Rasa (Taste):</strong> {selectedHerb.rasa}</div>
-                <div className={styles.enCard}><strong>Guna (Quality):</strong> {selectedHerb.guna}</div>
+                <div className={styles.enCard}><strong>Rasa (Taste):</strong> {Array.isArray(selectedHerb.rasa) ? selectedHerb.rasa.join(', ') : selectedHerb.rasa}</div>
+                <div className={styles.enCard}><strong>Guna (Quality):</strong> {Array.isArray(selectedHerb.guna) ? selectedHerb.guna.join(', ') : selectedHerb.guna}</div>
                 <div className={styles.enCard}><strong>Virya (Potency):</strong> {selectedHerb.virya}</div>
                 <div className={styles.enCard}><strong>Vipaka (Post-digestive):</strong> {selectedHerb.vipaka}</div>
                 <div className={styles.enCard}><strong>Prabhava:</strong> {selectedHerb.prabhava}</div>
@@ -99,16 +103,16 @@ export default function DravyagunaExplorer() {
             </div>
 
             <div className={styles.infoSection}>
-              <h4>Phytochemicals</h4>
-              <p>{selectedHerb.phytochemicals.join(', ')}</p>
+              <h4>Active Phytochemicals</h4>
+              <p>{(selectedHerb.activePhytochemicals || []).join(', ')}</p>
 
               <h4>Clinical Indications</h4>
               <div className={styles.tagList}>
-                {selectedHerb.indications.map(ind => <span key={ind} className={styles.tag}>{ind}</span>)}
+                {(selectedHerb.indications || []).map(ind => <span key={ind} className={styles.tag}>{ind}</span>)}
               </div>
 
-              <h4>Dosage</h4>
-              <p>{selectedHerb.dosage}</p>
+              <h4>Therapeutic Dosage</h4>
+              <p>{selectedHerb.therapeuticDosage}</p>
             </div>
 
             <div className={styles.interactionSection}>

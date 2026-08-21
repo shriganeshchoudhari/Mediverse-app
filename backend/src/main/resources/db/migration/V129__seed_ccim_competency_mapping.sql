@@ -19,9 +19,9 @@ INSERT INTO ccim_competency_mapping (code, subject_code, domain, title, competen
 ('CCIM-CS-01', 'BAMS-CS', 'Charaka Samhita', 'Apply Sutra Sthana Fundamentals in diagnosis', 'KNOWS_HOW', ARRAY['BAMS-KC'], ARRAY['BAMS-DG']),
 ('CCIM-RSBK-01', 'BAMS-RSBK', 'Rasa Shastra', 'Prepare Bhasma & Kupipakwa Kalpana', 'PERFORMS', ARRAY['BAMS-KC'], ARRAY['BAMS-DG']),
 ('CCIM-KC-01', 'BAMS-KC', 'Kayachikitsa', 'Manage Prameha (Diabetes)', 'PERFORMS', ARRAY['BAMS-PK'], ARRAY['BAMS-CS']),
-('CCIM-ST-01', 'BAMS-ST', 'Shalya Tantra', 'Perform Ksharasutra Therapy in Fistula', 'PERFORMS', ARRAY[], ARRAY['BAMS-RS']),
+('CCIM-ST-01', 'BAMS-ST', 'Shalya Tantra', 'Perform Ksharasutra Therapy in Fistula', 'PERFORMS', ARRAY[]::TEXT[], ARRAY['BAMS-RS']),
 ('CCIM-PT-01', 'BAMS-PT', 'Prasuti Tantra', 'Conduct Garbhini Paricharya', 'SHOWS_HOW', ARRAY['BAMS-KB'], ARRAY['BAMS-ST']),
-('CCIM-SKT-01', 'BAMS-SKT', 'Shalakya Tantra', 'Perform Kriya Kalpa Ocular Therapies', 'PERFORMS', ARRAY[], ARRAY['BAMS-ST']),
-('CCIM-PK-01', 'BAMS-PK', 'Panchakarma', 'Perform Vamana & Virechana Protocols', 'PERFORMS', ARRAY[], ARRAY['BAMS-KC']),
-('CCIM-KB-01', 'BAMS-KB', 'Kaumarbhritya', 'Perform Navajata Shishu Paricharya', 'SHOWS_HOW', ARRAY[], ARRAY['BAMS-PT'])
+('CCIM-SKT-01', 'BAMS-SKT', 'Shalakya Tantra', 'Perform Kriya Kalpa Ocular Therapies', 'PERFORMS', ARRAY[]::TEXT[], ARRAY['BAMS-ST']),
+('CCIM-PK-01', 'BAMS-PK', 'Panchakarma', 'Perform Vamana & Virechana Protocols', 'PERFORMS', ARRAY[]::TEXT[], ARRAY['BAMS-KC']),
+('CCIM-KB-01', 'BAMS-KB', 'Kaumarbhritya', 'Perform Navajata Shishu Paricharya', 'SHOWS_HOW', ARRAY[]::TEXT[], ARRAY['BAMS-PT'])
 ON CONFLICT (code) DO NOTHING;

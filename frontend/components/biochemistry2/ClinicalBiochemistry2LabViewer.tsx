@@ -398,7 +398,7 @@ export default function ClinicalBiochemistry2LabViewer({
 
                 <div className="p-3 bg-slate-950/80 rounded-lg border border-slate-800">
                   <div className="text-purple-300 font-bold">Spliceosome snRNPs &amp; Anti-Smith Antibodies</div>
-                  <div className="text-slate-300 mt-1">snRNPs (U1, U2, U4, U5, U6) catalyze pre-mRNA intron excision via lariat loop intermediates. Anti-Smith (anti-Sm) autoantibodies targeting snRNP core proteins are highly specific (>99%) for Systemic Lupus Erythematosus.</div>
+                  <div className="text-slate-300 mt-1">snRNPs (U1, U2, U4, U5, U6) catalyze pre-mRNA intron excision via lariat loop intermediates. Anti-Smith (anti-Sm) autoantibodies targeting snRNP core proteins are highly specific (&gt;99%) for Systemic Lupus Erythematosus.</div>
                 </div>
               </div>
             </div>
@@ -422,7 +422,7 @@ export default function ClinicalBiochemistry2LabViewer({
 
                 <div className="p-3 bg-slate-950/80 rounded-lg border border-slate-800">
                   <div className="text-purple-300 font-bold">Ubiquitin-Proteasome &amp; Bortezomib</div>
-                  <div className="text-slate-300 mt-1">E1->E2->E3 cascade polyubiquitinates target proteins for 26S proteasomal degradation. Bortezomib pharmacologically inhibits the 26S proteasome, triggering proteotoxic stress and apoptosis in Multiple Myeloma plasma cells.</div>
+                  <div className="text-slate-300 mt-1">E1-&gt;E2-&gt;E3 cascade polyubiquitinates target proteins for 26S proteasomal degradation. Bortezomib pharmacologically inhibits the 26S proteasome, triggering proteotoxic stress and apoptosis in Multiple Myeloma plasma cells.</div>
                 </div>
               </div>
             </div>

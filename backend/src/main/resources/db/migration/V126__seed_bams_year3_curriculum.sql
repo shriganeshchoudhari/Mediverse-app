@@ -4,7 +4,7 @@ INSERT INTO subjects (id, semester_id, title, code, category) VALUES
 ON CONFLICT DO NOTHING;
 
 -- Adding chapters for BAMS-KC
-INSERT INTO units (id, subject_id, title, sort_order) VALUES ('30000000-0000-0000-0004-000000000007', '30000000-0000-0000-0003-000000000007', 'Kayachikitsa', 1) ON CONFLICT DO NOTHING;
+INSERT INTO units (id, subject_id, title, sort_order) VALUES ('30000000-0000-0000-0004-000000000007', '30000000-0000-0000-0003-000000000007', 'Kayachikitsa', 1) ON CONFLICT (id) DO NOTHING;
 INSERT INTO chapters (id, unit_id, title, sort_order) VALUES 
 ('30000000-0000-0000-0005-000000000024', '30000000-0000-0000-0004-000000000007', 'Jwara Chikitsa', 1),
 ('30000000-0000-0000-0005-000000000025', '30000000-0000-0000-0004-000000000007', 'Prameha (Diabetes)', 2),
@@ -12,7 +12,7 @@ INSERT INTO chapters (id, unit_id, title, sort_order) VALUES
 ('30000000-0000-0000-0005-000000000027', '30000000-0000-0000-0004-000000000007', 'Amavata & Rheumatoid Arthritis', 4) ON CONFLICT DO NOTHING;
 
 -- Adding chapters for BAMS-ST
-INSERT INTO units (id, subject_id, title, sort_order) VALUES ('30000000-0000-0000-0004-000000000008', '30000000-0000-0000-0003-000000000008', 'Shalya Tantra', 1) ON CONFLICT DO NOTHING;
+INSERT INTO units (id, subject_id, title, sort_order) VALUES ('30000000-0000-0000-0004-000000000008', '30000000-0000-0000-0003-000000000008', 'Shalya Tantra', 1) ON CONFLICT (id) DO NOTHING;
 INSERT INTO chapters (id, unit_id, title, sort_order) VALUES 
 ('30000000-0000-0000-0005-000000000028', '30000000-0000-0000-0004-000000000008', 'Yantra & Shastra (Sushruta Instruments)', 1),
 ('30000000-0000-0000-0005-000000000029', '30000000-0000-0000-0004-000000000008', 'Ksharasutra Therapy in Fistula', 2),

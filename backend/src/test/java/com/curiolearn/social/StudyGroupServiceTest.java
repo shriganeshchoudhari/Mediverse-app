@@ -1,9 +1,6 @@
 package com.curiolearn.social;
 
-import com.curiolearn.social.StudyGroupDto;
-import com.curiolearn.social.StudyGroup;
 import com.curiolearn.user.User;
-import com.curiolearn.social.StudyGroupRepository;
 import com.curiolearn.user.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,7 +11,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 import java.util.UUID;
-import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -66,9 +62,8 @@ public class StudyGroupServiceTest {
         assertEquals(groupDesc, dto.getDescription());
         assertEquals(1, dto.getMemberCount());
         assertTrue(dto.isMember());
-        
+
         verify(userRepository, times(1)).findById(testUser.getId());
         verify(studyGroupRepository, times(1)).save(any(StudyGroup.class));
     }
 }
-

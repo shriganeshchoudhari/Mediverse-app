@@ -2,15 +2,15 @@
 ALTER TABLE healthcare_domains ADD COLUMN IF NOT EXISTS primary_program_code VARCHAR(50);
 
 -- Populate the mapping
-UPDATE healthcare_domains SET primary_program_code = 'MBBS' WHERE domain_id = 'allopathic';
-UPDATE healthcare_domains SET primary_program_code = 'BDS'  WHERE domain_id = 'dental';
-UPDATE healthcare_domains SET primary_program_code = 'BAMS' WHERE domain_id = 'ayush';
-UPDATE healthcare_domains SET primary_program_code = 'PHARMD' WHERE domain_id = 'pharmacy';
-UPDATE healthcare_domains SET primary_program_code = 'BSCNURSING' WHERE domain_id = 'nursing';
-UPDATE healthcare_domains SET primary_program_code = 'BPT' WHERE domain_id = 'physiotherapy';
-UPDATE healthcare_domains SET primary_program_code = 'BSCPERFUSION' WHERE domain_id = 'allied';
-UPDATE healthcare_domains SET primary_program_code = 'BVSC' WHERE domain_id = 'veterinary';
-UPDATE healthcare_domains SET primary_program_code = 'MPH' WHERE domain_id = 'public-health';
+UPDATE healthcare_domains SET primary_program_code = 'MBBS' WHERE id = 'allopathic';
+UPDATE healthcare_domains SET primary_program_code = 'BDS'  WHERE id = 'dental';
+UPDATE healthcare_domains SET primary_program_code = 'BAMS' WHERE id = 'ayush';
+UPDATE healthcare_domains SET primary_program_code = 'PHARMD' WHERE id = 'pharmacy';
+UPDATE healthcare_domains SET primary_program_code = 'BSCNURSING' WHERE id = 'nursing';
+UPDATE healthcare_domains SET primary_program_code = 'BPT' WHERE id = 'physiotherapy';
+UPDATE healthcare_domains SET primary_program_code = 'BSCPERF' WHERE id = 'allied';
+UPDATE healthcare_domains SET primary_program_code = 'BVSC' WHERE id = 'veterinary';
+UPDATE healthcare_domains SET primary_program_code = 'MPH' WHERE id = 'public-health';
 
 -- Add FK constraint (deferred to handle any missing codes gracefully)
 ALTER TABLE healthcare_domains

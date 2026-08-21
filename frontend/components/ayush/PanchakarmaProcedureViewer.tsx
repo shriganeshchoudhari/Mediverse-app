@@ -38,8 +38,8 @@ export default function PanchakarmaProcedureViewer() {
 
       {currentTherapy && (
         <div className={styles.descriptionCard}>
-          <h3>{currentTherapy.name}</h3>
-          <p>{currentTherapy.description}</p>
+          <h3>{currentTherapy.name} ({currentTherapy.sanskritName})</h3>
+          <p>Dosha Target: {currentTherapy.doshaTarget} | Snehana Days: {currentTherapy.snehanaDays} days</p>
         </div>
       )}
 
@@ -118,11 +118,11 @@ export default function PanchakarmaProcedureViewer() {
             <p>Gradual restoration of digestive fire post-purification.</p>
             <div className={styles.timeline}>
               {SAMSARJANA_KRAMA_SCHEDULE.map(item => (
-                <div key={item.day} className={styles.timelineItem}>
+                <div key={item.mealNumber} className={styles.timelineItem}>
                   <div className={styles.timelineMarker}></div>
                   <div className={styles.timelineContent}>
-                    <h4>Day {item.day}: {item.meal}</h4>
-                    <p>{item.description}</p>
+                    <h4>Meal {item.mealNumber}: {item.foodItem}</h4>
+                    <p>{item.consistency} — {item.agniStimulationStage}</p>
                   </div>
                 </div>
               ))}

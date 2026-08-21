@@ -507,7 +507,7 @@ export default function NeurologyLabViewer({
 
                 <div className="p-3 bg-slate-950/80 rounded-lg border border-slate-800">
                   <div className="text-indigo-300 font-bold">Subarachnoid Hemorrhage &amp; Nimodipine</div>
-                  <div className="text-slate-300 mt-1">Berry aneurysm rupture -> 'thunderclap' worst headache of life. LP reveals Xanthochromia (&gt;12h). Prescribe oral Nimodipine (dihydropyridine CCB) to prevent delayed cerebral ischemia from vasospasm (Days 3-14).</div>
+                  <div className="text-slate-300 mt-1">Berry aneurysm rupture -&gt; 'thunderclap' worst headache of life. LP reveals Xanthochromia (&gt;12h). Prescribe oral Nimodipine (dihydropyridine CCB) to prevent delayed cerebral ischemia from vasospasm (Days 3-14).</div>
                 </div>
               </div>
             </div>

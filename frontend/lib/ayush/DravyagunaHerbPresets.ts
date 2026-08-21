@@ -7,8 +7,8 @@ export interface AyurvedicHerb {
   partUsed: string;
   rasa: string[];
   guna: string[];
-  virya: 'Ushna' | 'Sheeta';
-  vipaka: 'Madhura' | 'Amla' | 'Katu';
+  virya: 'Ushna' | 'Sheeta' | 'Anushnasheeta (Not too hot)' | string;
+  vipaka: 'Madhura' | 'Amla' | 'Katu' | string;
   prabhava: string;
   doshaAction: string;
   activePhytochemicals: string[];

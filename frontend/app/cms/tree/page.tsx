@@ -442,7 +442,7 @@ export default function CMSTreePage() {
       setTreeData(prev => [...prev, newNode]);
     } else {
       // Recursively add child node
-      function addChildRecursive(nodes: TreeNodeItem[]): TreeNodeItem[] {
+      const addChildRecursive = (nodes: TreeNodeItem[]): TreeNodeItem[] => {
         return nodes.map(n => {
           if (n.id === modalTargetParent?.id) {
             return {
@@ -455,7 +455,7 @@ export default function CMSTreePage() {
           }
           return n;
         });
-      }
+      };
 
       setTreeData(prev => addChildRecursive(prev));
       // Auto-expand parent node

@@ -507,12 +507,12 @@ export default function CardiovascularLabViewer({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 <div className="p-3 bg-slate-950/80 rounded-lg border border-slate-800">
                   <div className="text-rose-300 font-bold">Shockable Pulseless Arrest (VF/pVT)</div>
-                  <div className="text-slate-300 mt-1">Defibrillation 200 J biphasic -> CPR 2 min -> Epinephrine 1 mg q3-5min -> Amiodarone 300 mg bolus (then 150 mg). Do NOT pause CPR immediately after shock!</div>
+                  <div className="text-slate-300 mt-1">Defibrillation 200 J biphasic -&gt; CPR 2 min -&gt; Epinephrine 1 mg q3-5min -&gt; Amiodarone 300 mg bolus (then 150 mg). Do NOT pause CPR immediately after shock!</div>
                 </div>
 
                 <div className="p-3 bg-slate-950/80 rounded-lg border border-slate-800">
                   <div className="text-rose-300 font-bold">Tachycardia with Pulse (Stable vs Unstable)</div>
-                  <div className="text-slate-300 mt-1">Unstable (hypotension, altered mentation, shock, angina) -> Synchronized Cardioversion. Stable SVT -> Vagal maneuvers -> IV Adenosine 6 mg / 12 mg.</div>
+                  <div className="text-slate-300 mt-1">Unstable (hypotension, altered mentation, shock, angina) -&gt; Synchronized Cardioversion. Stable SVT -&gt; Vagal maneuvers -&gt; IV Adenosine 6 mg / 12 mg.</div>
                 </div>
               </div>
             </div>

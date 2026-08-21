@@ -3,7 +3,6 @@ package com.curiolearn.simulation;
 import com.curiolearn.simulation.controller.SimulationApiController;
 import com.curiolearn.simulation.dto.SimulationCalculateRequestDto;
 import com.curiolearn.simulation.dto.SimulationCalculateResponseDto;
-import com.curiolearn.simulation.dto.SimulationCatalogItemDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,7 +10,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.util.List;
 import java.util.UUID;
 
 import static org.hamcrest.Matchers.*;
@@ -28,7 +26,7 @@ class SimulationApiControllerTest {
 
     @BeforeEach
     void setUp() {
-        simulationApiService = new SimulationApiService();
+        simulationApiService = new SimulationApiService(new SpirometrySolver());
         SimulationApiController controller = new SimulationApiController(simulationApiService);
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
         objectMapper = new ObjectMapper();
@@ -55,8 +53,8 @@ class SimulationApiControllerTest {
                 .build();
 
         mockMvc.perform(post("/api/v1/simulations/calculate")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(requestDto)))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(requestDto)))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.strokeVolume", greaterThan(0.0)))
@@ -75,8 +73,8 @@ class SimulationApiControllerTest {
                 .build();
 
         mockMvc.perform(post("/api/v1/simulations/" + simId + "/calculate")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(requestDto)))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(requestDto)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.strokeVolume", greaterThan(50.0)))
                 .andExpect(jsonPath("$.pvLoopCoordinates", notNullValue()));

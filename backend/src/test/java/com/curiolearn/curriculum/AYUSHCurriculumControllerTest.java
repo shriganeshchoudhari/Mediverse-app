@@ -1,18 +1,26 @@
 package com.curiolearn.curriculum;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.mockito.Mockito;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(AYUSHCurriculumController.class)
 public class AYUSHCurriculumControllerTest {
 
-    @Autowired
     private MockMvc mockMvc;
+    private JdbcTemplate jdbcTemplate;
+
+    @BeforeEach
+    void setUp() {
+        jdbcTemplate = Mockito.mock(JdbcTemplate.class);
+        AYUSHCurriculumController controller = new AYUSHCurriculumController(jdbcTemplate);
+        mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+    }
 
     @Test
     public void testGetBamsSubjects() throws Exception {

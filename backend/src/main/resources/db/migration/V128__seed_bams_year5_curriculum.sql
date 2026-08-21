@@ -4,7 +4,7 @@ INSERT INTO subjects (id, semester_id, title, code, category) VALUES
 ON CONFLICT DO NOTHING;
 
 -- Adding chapters for BAMS-PK
-INSERT INTO units (id, subject_id, title, sort_order) VALUES ('30000000-0000-0000-0004-000000000011', '30000000-0000-0000-0003-000000000011', 'Panchakarma', 1) ON CONFLICT DO NOTHING;
+INSERT INTO units (id, subject_id, title, sort_order) VALUES ('30000000-0000-0000-0004-000000000011', '30000000-0000-0000-0003-000000000011', 'Panchakarma', 1) ON CONFLICT (id) DO NOTHING;
 INSERT INTO chapters (id, unit_id, title, sort_order) VALUES 
 ('30000000-0000-0000-0005-000000000038', '30000000-0000-0000-0004-000000000011', 'Snehana & Swedana (Purvakarma)', 1),
 ('30000000-0000-0000-0005-000000000039', '30000000-0000-0000-0004-000000000011', 'Vamana & Virechana Protocols', 2),
@@ -12,7 +12,7 @@ INSERT INTO chapters (id, unit_id, title, sort_order) VALUES
 ('30000000-0000-0000-0005-000000000041', '30000000-0000-0000-0004-000000000011', 'Samsarjana Krama & Nasya/Raktamokshana', 4) ON CONFLICT DO NOTHING;
 
 -- Adding chapters for BAMS-KB
-INSERT INTO units (id, subject_id, title, sort_order) VALUES ('30000000-0000-0000-0004-000000000012', '30000000-0000-0000-0003-000000000012', 'Kaumarbhritya', 1) ON CONFLICT DO NOTHING;
+INSERT INTO units (id, subject_id, title, sort_order) VALUES ('30000000-0000-0000-0004-000000000012', '30000000-0000-0000-0003-000000000012', 'Kaumarbhritya', 1) ON CONFLICT (id) DO NOTHING;
 INSERT INTO chapters (id, unit_id, title, sort_order) VALUES 
 ('30000000-0000-0000-0005-000000000042', '30000000-0000-0000-0004-000000000012', 'Navajata Shishu Paricharya (Neonatal Care)', 1),
 ('30000000-0000-0000-0005-000000000043', '30000000-0000-0000-0004-000000000012', 'Balagraha & Pediatric Diseases', 2),
