@@ -1,0 +1,280 @@
+.container {
+  padding: 24px;
+  background: #0f172a;
+  border-radius: 12px;
+  color: #f1f5f9;
+  border: 1px solid #1e293b;
+  margin-bottom: 24px;
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #84cc16;
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.zoonosisTabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.zBtn {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.zBtn:hover {
+  background: #334155;
+}
+
+.activeZBtn {
+  background: #65a30d;
+  border-color: #84cc16;
+  color: #fff;
+}
+
+.activeZBtn strong {
+  color: #fff;
+}
+
+.activeZBtn small {
+  color: #ecfccb;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.flowCol,
+.controlsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flowTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.fatalityBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ef4444;
+  background: #0f172a;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #334155;
+}
+
+.chainContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #0f172a;
+  padding: 14px;
+  border-radius: 8px;
+}
+
+.chainStep {
+  background: #1e293b;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stepIcon {
+  font-size: 1.2rem;
+}
+
+.chainStep strong {
+  font-size: 0.85rem;
+  color: #84cc16;
+}
+
+.chainStep p {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.chainArrow {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #f59e0b;
+  padding: 2px 0;
+}
+
+.triadGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.triadBox {
+  background: #0f172a;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+}
+
+.triadLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #84cc16;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.triadBox p {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.r0Box {
+  background: #0f172a;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.r0Val {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #84cc16;
+}
+
+.r0Sub {
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+.statusBanner {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.green { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+.amber { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+.red { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+
+.cardHeading {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.toggleItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #0f172a;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.activeToggle {
+  background: rgba(132, 204, 22, 0.1);
+  border-color: rgba(132, 204, 22, 0.4);
+}
+
+.checkbox {
+  margin-top: 3px;
+  accent-color: #84cc16;
+}
+
+.toggleItem div {
+  display: flex;
+  flex-direction: column;
+}
+
+.toggleItem strong {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+.toggleItem small {
+  font-size: 0.65rem;
+  color: #94a3b8;
+}
+
+.protocolCard {
+  background: rgba(132, 204, 22, 0.1);
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 3px solid #84cc16;
+  font-size: 0.8rem;
+  color: #ecfccb;
+}
+
+.protocolCard p {
+  margin: 4px 0 0 0;
+  line-height: 1.4;
+}

@@ -1,0 +1,248 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  color: #fff;
+  background-color: #121212;
+  border-radius: 8px;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+
+.selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.therapyBtn {
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+  color: #ccc;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.therapyBtn:hover {
+  background-color: #2a2a2a;
+}
+
+.activeTherapy {
+  background-color: #10b981;
+  color: #fff;
+  border-color: #10b981;
+}
+
+.descriptionCard {
+  background-color: #1a1a2e;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #10b981;
+}
+
+.descriptionCard h3 {
+  margin: 0 0 5px;
+  font-size: 1.1rem;
+}
+
+.descriptionCard p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.stageNavigator {
+  display: flex;
+  border-bottom: 2px solid #333;
+}
+
+.stageBtn {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #888;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.stageBtn:hover {
+  color: #ccc;
+}
+
+.activeStage {
+  color: #38bdf8;
+  border-bottom: 2px solid #38bdf8;
+  margin-bottom: -2px;
+}
+
+.stageContent {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.panel h3 {
+  margin-top: 0;
+}
+
+.sliderGroup {
+  margin: 20px 0;
+}
+
+.sliderGroup label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.slider {
+  width: 100%;
+}
+
+.chartArea {
+  height: 150px;
+  background-color: #121212;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.barChart {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.barCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+  width: 10%;
+}
+
+.barFill {
+  width: 100%;
+  background-color: #38bdf8;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s ease;
+}
+
+.barCol span {
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.alertBox {
+  background-color: rgba(56, 189, 248, 0.1);
+  border-left: 4px solid #38bdf8;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.monitorCard {
+  background-color: #121212;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.counterGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 15px 0;
+}
+
+.counterGroup button {
+  background-color: #333;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.count {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.complications {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-left: 4px solid #ef4444;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-left: 10px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #333;
+}
+
+.timelineItem {
+  display: flex;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.timelineMarker {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #10b981;
+  position: absolute;
+  left: 0;
+  top: 5px;
+}
+
+.timelineContent {
+  margin-left: 30px;
+}
+
+.timelineContent h4 {
+  margin: 0 0 5px;
+  color: #10b981;
+}
+
+.timelineContent p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #aaa;
+}

@@ -1,0 +1,203 @@
+.container {
+  padding: 24px;
+  background: #0f172a;
+  border-radius: 12px;
+  color: #f1f5f9;
+  border: 1px solid #1e293b;
+  margin-bottom: 24px;
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f97316;
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.presetsRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.presetBtn {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.presetBtn:hover {
+  background: #334155;
+}
+
+.activePreset {
+  background: #ea580c;
+  border-color: #f97316;
+  color: #fff;
+}
+
+.activePreset strong {
+  color: #fff;
+}
+
+.activePreset small {
+  color: #ffedd5;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sliceCol,
+.controlsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sliceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sliceTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.huBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #f97316;
+  background: #0f172a;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #334155;
+}
+
+.sliceSvgWrapper {
+  display: flex;
+  justify-content: center;
+  background: #000;
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #334155;
+}
+
+.sliceSvg {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+}
+
+.structuresBox {
+  background: rgba(249, 115, 22, 0.1);
+  padding: 10px 12px;
+  border-radius: 6px;
+  border-left: 3px solid #f97316;
+  font-size: 0.8rem;
+  color: #ffedd5;
+}
+
+.structuresBox p {
+  margin: 4px 0 0 0;
+}
+
+.cardHeading {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.sliderGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sliderHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+.sliderHeader strong {
+  color: #f97316;
+}
+
+.rangeSlider {
+  width: 100%;
+  accent-color: #ea580c;
+  cursor: pointer;
+}
+
+.hint {
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+.huList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.huItem {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  background: #0f172a;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+}
+
+.huAir { color: #38bdf8; font-weight: 700; }
+.huFat { color: #a855f7; font-weight: 700; }
+.huWater { color: #34d399; font-weight: 700; }
+.huCSF { color: #60a5fa; font-weight: 700; }
+.huSoft { color: #fbbf24; font-weight: 700; }
+.huBlood { color: #f87171; font-weight: 700; }
+.huBone { color: #ffffff; font-weight: 700; }

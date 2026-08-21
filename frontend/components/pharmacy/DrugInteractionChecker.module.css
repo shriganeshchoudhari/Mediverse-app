@@ -1,0 +1,339 @@
+.container {
+  padding: 24px;
+  background: #0f172a;
+  border-radius: 12px;
+  color: #f1f5f9;
+  border: 1px solid #1e293b;
+  margin-bottom: 24px;
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #c084fc;
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.presetsBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 12px;
+  background: #1e293b;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.presetLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.presetBtn {
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  background: #0f172a;
+  border: 1px solid #475569;
+  color: #cbd5e1;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.presetBtn:hover {
+  background: #334155;
+  border-color: #94a3b8;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.regimenSection,
+.resultsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cardTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.selectedDrugsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.drugChip {
+  background: #0f172a;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.chipInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.chipName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.chipCategory {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.chipEnzymes {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.subTag, .inhTag, .indTag {
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.subTag { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+.inhTag { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+.indTag { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+
+.removeBtn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.removeBtn:hover {
+  color: #ef4444;
+}
+
+.searchContainer {
+  position: relative;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #f1f5f9;
+  font-size: 0.85rem;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #1e293b;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  margin-top: 4px;
+  z-index: 20;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dropdownItem {
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  border-bottom: 1px solid #334155;
+}
+
+.dropdownItem:hover {
+  background: #334155;
+}
+
+.dropName {
+  font-size: 0.85rem;
+  color: #f1f5f9;
+}
+
+.dropCategory {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.noResults {
+  padding: 10px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.summaryBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e293b;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+}
+
+.summaryTitle {
+  font-size: 0.95rem;
+  color: #e2e8f0;
+}
+
+.badgeSummary {
+  display: flex;
+  gap: 8px;
+}
+
+.countBadge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.major { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+.moderate { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+.minor { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); }
+.safe { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+
+.interactionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.interactionCard {
+  background: #1e293b;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.interactionCard.major {
+  border-left: 4px solid #ef4444;
+}
+
+.interactionCard.moderate {
+  border-left: 4px solid #f59e0b;
+}
+
+.interactionCard.minor {
+  border-left: 4px solid #3b82f6;
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drugPair {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pairItem {
+  font-weight: 700;
+  color: #f1f5f9;
+  font-size: 0.95rem;
+}
+
+.vsText {
+  color: #94a3b8;
+}
+
+.severityBadge {
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.enzymeTag {
+  font-size: 0.75rem;
+  color: #c084fc;
+}
+
+.cardBody {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  line-height: 1.4;
+}
+
+.cardBody p {
+  margin: 2px 0;
+}
+
+.managementBox {
+  margin-top: 4px;
+  padding: 8px 12px;
+  background: rgba(147, 51, 234, 0.1);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #d8b4fe;
+  border: 1px solid rgba(147, 51, 234, 0.2);
+}
+
+.emptyState {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px dashed #334155;
+  text-align: center;
+  color: #94a3b8;
+}

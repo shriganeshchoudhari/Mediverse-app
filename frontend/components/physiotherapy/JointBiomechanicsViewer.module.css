@@ -1,0 +1,245 @@
+.container {
+  padding: 24px;
+  background: #0f172a;
+  border-radius: 12px;
+  color: #f1f5f9;
+  border: 1px solid #1e293b;
+  margin-bottom: 24px;
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #38bdf8;
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.jointButtonsRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.jointBtn {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.jointBtn:hover {
+  background: #334155;
+  border-color: #64748b;
+}
+
+.activeJointBtn {
+  background: #0284c7;
+  border-color: #38bdf8;
+  color: #fff;
+}
+
+.activeJointBtn strong {
+  color: #fff;
+}
+
+.activeJointBtn small {
+  color: #e0f2fe;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.visualizerPanel,
+.infoPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.canvasCard {
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.canvasHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jointTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.angleTag {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #f472b6;
+  background: #0f172a;
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+}
+
+.svgWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0f172a;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.jointSvg {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+}
+
+.sliderControl {
+  background: #0f172a;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sliderLabelRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+.sliderLabelRow strong {
+  color: #38bdf8;
+}
+
+.rangeSlider {
+  width: 100%;
+  accent-color: #0284c7;
+  cursor: pointer;
+}
+
+.card {
+  background: #1e293b;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.statusBadge {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.green { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+.amber { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+.blue { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); }
+
+.statusMsg {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.cardHeading {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.alignmentList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.alignItem {
+  background: #0f172a;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+}
+
+.alignTag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #38bdf8;
+  display: block;
+}
+
+.alignItem p {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  margin: 2px 0 0 0;
+}
+
+.endFeelBox {
+  background: rgba(56, 189, 248, 0.1);
+  padding: 10px;
+  border-radius: 6px;
+  border-left: 3px solid #38bdf8;
+  font-size: 0.8rem;
+  color: #bae6fd;
+}
+
+.endFeelBox p {
+  margin: 4px 0 0 0;
+}
+
+.clinicalPearlText {
+  font-size: 0.75rem;
+  color: #fbbf24;
+  margin: 0;
+  line-height: 1.35;
+}

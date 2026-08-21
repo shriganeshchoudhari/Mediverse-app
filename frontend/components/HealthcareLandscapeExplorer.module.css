@@ -1,0 +1,330 @@
+/* HealthcareLandscapeExplorer.module.css
+ * Scoped styles for the Healthcare Education Landscape domain card grid.
+ * Uses Mediverse design tokens from globals.css.
+ */
+
+/* ─── Explorer Container ──────────────────────────────────────────────────── */
+
+.explorer {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* ─── Header ──────────────────────────────────────────────────────────────── */
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-text-primary, #0f172a);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--color-text-secondary, #64748b);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ─── Tier Filter Tabs ────────────────────────────────────────────────────── */
+
+.tierTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.tierTab {
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  border: 1.5px solid var(--color-border, #e2e8f0);
+  background: transparent;
+  color: var(--color-text-secondary, #64748b);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.tierTab:hover {
+  border-color: var(--color-primary-500, #6366f1);
+  color: var(--color-primary-600, #4f46e5);
+  background: var(--color-primary-50, #eef2ff);
+}
+
+.tierTabActive {
+  background: var(--color-primary-600, #4f46e5);
+  border-color: var(--color-primary-600, #4f46e5);
+  color: #ffffff;
+}
+
+.tierTabActive:hover {
+  background: var(--color-primary-700, #4338ca);
+  border-color: var(--color-primary-700, #4338ca);
+  color: #ffffff;
+}
+
+/* ─── Domain Card Grid ────────────────────────────────────────────────────── */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.gridCompact {
+  gap: 0.75rem;
+}
+
+/* ─── Domain Card ─────────────────────────────────────────────────────────── */
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.75rem;
+  border-radius: 1rem;
+  border: 1.5px solid var(--color-border, #e2e8f0);
+  background: #ffffff;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--domain-color, #6366f1);
+  border-radius: 1rem 1rem 0 0;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border-color: var(--domain-color, #6366f1);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.cardCompact {
+  padding: 1.25rem;
+  gap: 0.5rem;
+}
+
+/* ─── Tier Badge ──────────────────────────────────────────────────────────── */
+
+.tierBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.tier1 {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.tier2 {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.tier3 {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+/* ─── Icon ────────────────────────────────────────────────────────────────── */
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.icon {
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+/* ─── Domain Name ─────────────────────────────────────────────────────────── */
+
+.domainName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary, #0f172a);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.domainFullName {
+  font-size: 0.8125rem;
+  color: var(--domain-color, #6366f1);
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ─── Description ─────────────────────────────────────────────────────────── */
+
+.description {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary, #64748b);
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+/* ─── Stats Row ───────────────────────────────────────────────────────────── */
+
+.statsRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.stat {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary, #64748b);
+}
+
+.stat strong {
+  color: var(--color-text-primary, #0f172a);
+  font-weight: 600;
+}
+
+.statAvailable {
+  color: #15803d;
+  font-weight: 600;
+}
+
+.statDivider {
+  width: 1px;
+  height: 12px;
+  background: var(--color-border, #e2e8f0);
+}
+
+/* ─── Highlights ──────────────────────────────────────────────────────────── */
+
+.highlights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.highlightItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary, #64748b);
+}
+
+.highlightDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--domain-color, #6366f1);
+  flex-shrink: 0;
+}
+
+/* ─── CTA ─────────────────────────────────────────────────────────────────── */
+
+.cta {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--domain-color, #6366f1);
+  margin-top: auto;
+}
+
+.ctaArrow {
+  transition: transform 0.15s ease;
+}
+
+.card:hover .ctaArrow {
+  transform: translateX(4px);
+}
+
+/* ─── Dark Mode ───────────────────────────────────────────────────────────── */
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    background: #1e293b;
+    border-color: #334155;
+  }
+
+  .title {
+    color: #f1f5f9;
+  }
+
+  .domainName {
+    color: #f1f5f9;
+  }
+
+  .stat strong {
+    color: #f1f5f9;
+  }
+
+  .tierTab {
+    border-color: #334155;
+    color: #94a3b8;
+  }
+
+  .tierTab:hover {
+    background: #1e293b;
+  }
+
+  .statDivider {
+    background: #334155;
+  }
+}

@@ -1,0 +1,289 @@
+.container {
+  padding: 24px;
+  background: #0f172a;
+  border-radius: 12px;
+  color: #f1f5f9;
+  border: 1px solid #1e293b;
+  margin-bottom: 24px;
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f472b6;
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.presetRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 12px;
+  background: #1e293b;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.presetLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.presetBtn {
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  background: #0f172a;
+  border: 1px solid #475569;
+  color: #cbd5e1;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.presetBtn:hover {
+  background: #334155;
+  border-color: #94a3b8;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.subscalesSection,
+.resultsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionHeading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.subscaleList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.subscaleCard {
+  background: #1e293b;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subscaleHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subscaleName {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #f1f5f9;
+}
+
+.currentScoreBadge {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  background: #0f172a;
+  border-radius: 4px;
+  color: #38bdf8;
+  border: 1px solid #334155;
+}
+
+.optionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+}
+
+.optBtn {
+  background: #0f172a;
+  border: 1px solid #334155;
+  padding: 8px;
+  border-radius: 6px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all 0.2s;
+}
+
+.optBtn:hover {
+  background: #1e293b;
+  border-color: #64748b;
+}
+
+.activeOpt {
+  background: rgba(236, 72, 153, 0.15);
+  border-color: #ec4899;
+}
+
+.optTop {
+  display: flex;
+  gap: 4px;
+  align-items: baseline;
+}
+
+.optScore {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #f472b6;
+}
+
+.optLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.optDesc {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.card {
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.scoreVal {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #f1f5f9;
+}
+
+.scoreVal small {
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 400;
+}
+
+.riskBadge {
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.red { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+.orange { background: rgba(249, 115, 22, 0.2); color: #fb923c; border: 1px solid rgba(249, 115, 22, 0.4); }
+.amber { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+.blue { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); }
+.green { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+
+.interventionsList h4 {
+  font-size: 0.85rem;
+  color: #e2e8f0;
+  margin: 0 0 8px 0;
+}
+
+.interventionsList ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+.woundTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.woundTabBtn {
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #94a3b8;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.activeWoundTab {
+  background: #db2777;
+  color: #fff;
+  border-color: #f472b6;
+}
+
+.woundDetails {
+  background: #0f172a;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.woundTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #f472b6;
+  margin: 0;
+}
+
+.woundDesc {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.dressingBox {
+  background: rgba(56, 189, 248, 0.1);
+  padding: 10px;
+  border-radius: 6px;
+  border-left: 3px solid #38bdf8;
+  font-size: 0.8rem;
+  color: #bae6fd;
+}
+
+.dressingBox p {
+  margin: 4px 0 0 0;
+}

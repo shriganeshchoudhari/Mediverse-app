@@ -1,0 +1,38 @@
+/* /app/healthcare/page.module.css — Healthcare Landscape root page styles */
+
+.page {
+  min-height: 100vh;
+  padding-bottom: 4rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 1.5rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroEyebrow {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary-600, #4f46e5);
+  margin: 0 0 1rem;
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--color-text-primary, #0f172a);
+  margin: 0 0 1rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.heroSubtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary, #64748b);
+  line-height: 1.7;
+  margin: 0;
+}

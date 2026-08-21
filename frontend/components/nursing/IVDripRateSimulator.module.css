@@ -1,0 +1,344 @@
+.container {
+  padding: 24px;
+  background: #0f172a;
+  border-radius: 12px;
+  color: #f1f5f9;
+  border: 1px solid #1e293b;
+  margin-bottom: 24px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f472b6;
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.tabNav {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 10px;
+}
+
+.tabBtn {
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #94a3b8;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.activeTab {
+  background: #db2777;
+  color: #fff;
+  border-color: #f472b6;
+}
+
+.presetsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: #1e293b;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.presetLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.presetChip {
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  background: #0f172a;
+  border: 1px solid #475569;
+  color: #cbd5e1;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.presetChip:hover {
+  background: #334155;
+  border-color: #94a3b8;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel,
+.outputPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.panelTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.formGroup {
+  background: #1e293b;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+.valBadge {
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.slider {
+  width: 100%;
+  accent-color: #ec4899;
+  cursor: pointer;
+}
+
+.dropFactorGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.dfBtn {
+  padding: 8px 4px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #94a3b8;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.dfBtn strong {
+  font-size: 0.95rem;
+  color: #f1f5f9;
+}
+
+.dfBtn small {
+  font-size: 0.65rem;
+  opacity: 0.8;
+}
+
+.activeDf {
+  background: #0284c7;
+  border-color: #38bdf8;
+}
+
+.activeDf strong, .activeDf small {
+  color: #fff;
+}
+
+.dripChamberCard,
+.card {
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dripVisRow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px;
+  background: #0f172a;
+  border-radius: 8px;
+}
+
+.dripSvg {
+  width: 80px;
+  height: 140px;
+  flex-shrink: 0;
+}
+
+.rateMetrics {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.metricBig {
+  display: flex;
+  flex-direction: column;
+}
+
+.metricLabel {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.metricNumber {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #f472b6;
+  line-height: 1.1;
+}
+
+.metricUnit {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.subMetrics {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.subMetrics strong {
+  color: #38bdf8;
+}
+
+.formulaBanner {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  padding: 8px 12px;
+  background: #0f172a;
+  border-radius: 6px;
+  border-left: 3px solid #38bdf8;
+}
+
+.drugSelectorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 8px;
+}
+
+.drugSelectBtn {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.activeDrug {
+  background: #db2777;
+  color: #fff;
+  border-color: #f472b6;
+}
+
+.vasoName {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.vasoUnit {
+  font-size: 0.65rem;
+  opacity: 0.8;
+}
+
+.pumpDisplay {
+  background: #020617;
+  border: 2px solid #38bdf8;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+
+.pumpDrugName {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.pumpRateVal {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #34d399;
+  margin: 4px 0;
+}
+
+.pumpRateVal small {
+  font-size: 1rem;
+  color: #94a3b8;
+}
+
+.pumpDoseSub {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+.concentrationInfo {
+  background: #0f172a;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.warningNote {
+  font-size: 0.75rem;
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.1);
+  padding: 10px;
+  border-radius: 6px;
+  border-left: 3px solid #f59e0b;
+  line-height: 1.4;
+}

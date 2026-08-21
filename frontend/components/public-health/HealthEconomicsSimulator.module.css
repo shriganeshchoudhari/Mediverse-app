@@ -1,0 +1,159 @@
+.container {
+  padding: 24px;
+  background: #0f172a;
+  border-radius: 12px;
+  color: #f1f5f9;
+  border: 1px solid #1e293b;
+  margin-bottom: 24px;
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #6366f1;
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.resultsCol,
+.controlsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.icerBox {
+  background: #0f172a;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icerVal {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #6366f1;
+}
+
+.icerSub {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+}
+
+.statusBanner {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.green { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+.amber { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+.red { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+
+.qalyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.qalyBox {
+  background: #0f172a;
+  padding: 10px 8px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qalyVal {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+.qalySub {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.thresholdBanner {
+  background: rgba(99, 102, 241, 0.1);
+  padding: 10px 12px;
+  border-radius: 6px;
+  border-left: 3px solid #6366f1;
+  font-size: 0.75rem;
+  color: #e0e7ff;
+}
+
+.cardHeading {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.sliderGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sliderHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+.sliderHeader strong {
+  color: #6366f1;
+}
+
+.rangeSlider {
+  width: 100%;
+  accent-color: #4f46e5;
+  cursor: pointer;
+}

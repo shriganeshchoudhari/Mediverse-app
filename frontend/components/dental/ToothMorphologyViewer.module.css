@@ -1,0 +1,218 @@
+.container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background-color: #0f172a;
+  color: #f8fafc;
+  font-family: system-ui, -apple-system, sans-serif;
+  height: 100%;
+}
+
+.leftPanel {
+  flex: 0 0 250px;
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.panelTitle {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+
+.arch {
+  margin-bottom: 24px;
+}
+
+.archTitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+.toothGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.toothBtn {
+  background: #334155;
+  border: 1px solid #475569;
+  color: #e2e8f0;
+  border-radius: 4px;
+  padding: 8px 0;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toothBtn:hover {
+  background: #475569;
+}
+
+.toothBtn.selected {
+  background: #3b82f6;
+  border-color: #60a5fa;
+  color: #fff;
+}
+
+.centerPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.controlsTop {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tabBtn {
+  background: #334155;
+  border: none;
+  color: #cbd5e1;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tabBtn.activeTab {
+  background: #0ea5e9;
+  color: white;
+}
+
+.svgContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.layerToggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+.toggleLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  cursor: pointer;
+}
+
+.rightPanel {
+  flex: 0 0 320px;
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.headerBox h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+}
+
+.chips {
+  display: flex;
+  gap: 8px;
+}
+
+.chip {
+  background: #334155;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.metricItem {
+  background: #0f172a;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.metricLabel {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.metricValue {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.badge {
+  background: #1e1b4b;
+  color: #818cf8;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.infoBox {
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.infoBox h4 {
+  margin: 0 0 8px 0;
+  font-size: 0.9rem;
+}
+
+.infoBox p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.pearlBox {
+  background: rgba(217, 119, 6, 0.2);
+  color: #fcd34d;
+  border: 1px solid rgba(217, 119, 6, 0.3);
+}
+
+.anomalyBox {
+  background: rgba(225, 29, 72, 0.2);
+  color: #fda4af;
+  border: 1px solid rgba(225, 29, 72, 0.3);
+}
+
+.extractionBox {
+  background: rgba(13, 148, 136, 0.2);
+  color: #5eead4;
+  border: 1px solid rgba(13, 148, 136, 0.3);
+}

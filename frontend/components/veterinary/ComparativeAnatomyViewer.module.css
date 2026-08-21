@@ -1,0 +1,246 @@
+.container {
+  padding: 24px;
+  background: #0f172a;
+  border-radius: 12px;
+  color: #f1f5f9;
+  border: 1px solid #1e293b;
+  margin-bottom: 24px;
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #84cc16;
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.systemTabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.systemBtn {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.systemBtn:hover {
+  background: #334155;
+}
+
+.activeSystem {
+  background: #65a30d;
+  border-color: #84cc16;
+  color: #fff;
+}
+
+.speciesRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.speciesPill {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.speciesPill:hover {
+  background: #334155;
+}
+
+.activeSpecies {
+  background: #84cc16;
+  border-color: #a3e635;
+  color: #0f172a;
+}
+
+.speciesIcon {
+  font-size: 1.3rem;
+}
+
+.speciesText {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.speciesText strong {
+  font-size: 0.8rem;
+}
+
+.speciesText small {
+  font-size: 0.65rem;
+  opacity: 0.8;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.visualCol,
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.speciesHeading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.classBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #84cc16;
+  background: #0f172a;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #334155;
+}
+
+.svgContainer {
+  display: flex;
+  justify-content: center;
+  background: #0f172a;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.anatomySvg {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+}
+
+.featureBox {
+  background: #0f172a;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border-left: 3px solid #84cc16;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+.featureBox p {
+  margin: 4px 0 0 0;
+  color: #a3e635;
+  font-weight: 600;
+}
+
+.cardHeading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.description {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.adaptCard {
+  background: rgba(132, 204, 22, 0.1);
+  padding: 14px;
+  border-radius: 8px;
+  border-left: 3px solid #84cc16;
+  font-size: 0.85rem;
+  color: #ecfccb;
+}
+
+.adaptCard p {
+  margin: 6px 0 0 0;
+  line-height: 1.4;
+}
+
+.quickFactsCard {
+  background: #1e293b;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.factsHeading {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #84cc16;
+  margin: 0 0 10px 0;
+}
+
+.matrixList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.matrixRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  background: #0f172a;
+  padding: 6px 10px;
+  border-radius: 4px;
+  color: #cbd5e1;
+}
+
+.matrixRow strong {
+  color: #a3e635;
+}

@@ -1,0 +1,101 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.filterBar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.select, .input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.levelPills {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pill {
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.pill.active {
+  border-color: #333;
+}
+
+.pill.all { background: #f0f0f0; color: #333; }
+.pill.KNOWS { background: #e2e8f0; color: #475569; }
+.pill.KNOWS_HOW { background: #dbeafe; color: #1d4ed8; }
+.pill.SHOWS_HOW { background: #fef3c7; color: #b45309; }
+.pill.PERFORMS { background: #dcfce7; color: #15803d; }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.th, .td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.th {
+  font-weight: 600;
+  color: #555;
+  background: #fafafa;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge.KNOWS { background: #e2e8f0; color: #475569; }
+.badge.KNOWS_HOW { background: #dbeafe; color: #1d4ed8; }
+.badge.SHOWS_HOW { background: #fef3c7; color: #b45309; }
+.badge.PERFORMS { background: #dcfce7; color: #15803d; }
+
+.integrationChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.chip {
+  font-size: 0.7rem;
+  padding: 0.1rem 0.3rem;
+  border-radius: 2px;
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+}
+
+.stats {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: right;
+  padding-top: 0.5rem;
+}

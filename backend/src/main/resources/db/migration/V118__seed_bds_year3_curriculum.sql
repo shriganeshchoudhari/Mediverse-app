@@ -1,0 +1,54 @@
+-- =============================================================================
+-- Migration: V118__seed_bds_year3_curriculum.sql
+-- Description: Seeds Year 3 (Semesters 5-6)
+-- =============================================================================
+
+-- Subject: BDS-CD (Conservative Dentistry & Endodontics)
+INSERT INTO subjects (id, semester_id, code, name, description) VALUES ('20000000-0000-0000-0003-000000000006', '20000000-0000-0000-0002-000000000005', 'BDS-CD', 'Conservative Dentistry & Endodontics', '') ON CONFLICT (code) DO NOTHING;
+
+-- Chapter: Root Canal Anatomy (Canal Configurations & Vertucci Classification)
+INSERT INTO units (id, subject_id, name) VALUES ('20000000-0000-0000-0004-000000000021', '20000000-0000-0000-0003-000000000006', 'Root Canal Anatomy (Canal Configurations & Vertucci Classification) Unit') ON CONFLICT DO NOTHING;
+INSERT INTO chapters (id, unit_id, name) VALUES ('20000000-0000-0000-0005-000000000021', '20000000-0000-0000-0004-000000000021', 'Root Canal Anatomy (Canal Configurations & Vertucci Classification)') ON CONFLICT DO NOTHING;
+INSERT INTO topics (id, chapter_id, name) VALUES ('20000000-0000-0000-0006-000000000021', '20000000-0000-0000-0005-000000000021', 'Root Canal Anatomy (Canal Configurations & Vertucci Classification) Topic') ON CONFLICT DO NOTHING;
+INSERT INTO concepts (id, topic_id, name) VALUES ('20000000-0000-0000-0007-000000000021', '20000000-0000-0000-0006-000000000021', 'Root Canal Anatomy (Canal Configurations & Vertucci Classification) Concept') ON CONFLICT DO NOTHING;
+INSERT INTO learning_objects (id, concept_id, object_type, content_payload) VALUES ('20000000-0000-0000-0008-000000000021', '20000000-0000-0000-0007-000000000021', 'TEXT', 'Root Canal Anatomy (Canal Configurations & Vertucci Classification) details') ON CONFLICT DO NOTHING;
+
+-- Chapter: Biomechanical Preparation (Working Length & Rotary Instrumentation)
+INSERT INTO units (id, subject_id, name) VALUES ('20000000-0000-0000-0004-000000000022', '20000000-0000-0000-0003-000000000006', 'Biomechanical Preparation (Working Length & Rotary Instrumentation) Unit') ON CONFLICT DO NOTHING;
+INSERT INTO chapters (id, unit_id, name) VALUES ('20000000-0000-0000-0005-000000000022', '20000000-0000-0000-0004-000000000022', 'Biomechanical Preparation (Working Length & Rotary Instrumentation)') ON CONFLICT DO NOTHING;
+INSERT INTO topics (id, chapter_id, name) VALUES ('20000000-0000-0000-0006-000000000022', '20000000-0000-0000-0005-000000000022', 'Biomechanical Preparation (Working Length & Rotary Instrumentation) Topic') ON CONFLICT DO NOTHING;
+INSERT INTO concepts (id, topic_id, name) VALUES ('20000000-0000-0000-0007-000000000022', '20000000-0000-0000-0006-000000000022', 'Biomechanical Preparation (Working Length & Rotary Instrumentation) Concept') ON CONFLICT DO NOTHING;
+INSERT INTO learning_objects (id, concept_id, object_type, content_payload) VALUES ('20000000-0000-0000-0008-000000000022', '20000000-0000-0000-0007-000000000022', 'TEXT', 'Biomechanical Preparation (Working Length & Rotary Instrumentation) details') ON CONFLICT DO NOTHING;
+
+-- Chapter: Obturation (Cold Lateral Condensation & Warm Vertical Compaction)
+INSERT INTO units (id, subject_id, name) VALUES ('20000000-0000-0000-0004-000000000023', '20000000-0000-0000-0003-000000000006', 'Obturation (Cold Lateral Condensation & Warm Vertical Compaction) Unit') ON CONFLICT DO NOTHING;
+INSERT INTO chapters (id, unit_id, name) VALUES ('20000000-0000-0000-0005-000000000023', '20000000-0000-0000-0004-000000000023', 'Obturation (Cold Lateral Condensation & Warm Vertical Compaction)') ON CONFLICT DO NOTHING;
+INSERT INTO topics (id, chapter_id, name) VALUES ('20000000-0000-0000-0006-000000000023', '20000000-0000-0000-0005-000000000023', 'Obturation (Cold Lateral Condensation & Warm Vertical Compaction) Topic') ON CONFLICT DO NOTHING;
+INSERT INTO concepts (id, topic_id, name) VALUES ('20000000-0000-0000-0007-000000000023', '20000000-0000-0000-0006-000000000023', 'Obturation (Cold Lateral Condensation & Warm Vertical Compaction) Concept') ON CONFLICT DO NOTHING;
+INSERT INTO learning_objects (id, concept_id, object_type, content_payload) VALUES ('20000000-0000-0000-0008-000000000023', '20000000-0000-0000-0007-000000000023', 'TEXT', 'Obturation (Cold Lateral Condensation & Warm Vertical Compaction) details') ON CONFLICT DO NOTHING;
+
+
+-- Subject: BDS-OS (Oral & Maxillofacial Surgery)
+INSERT INTO subjects (id, semester_id, code, name, description) VALUES ('20000000-0000-0000-0003-000000000007', '20000000-0000-0000-0002-000000000006', 'BDS-OS', 'Oral & Maxillofacial Surgery', '') ON CONFLICT (code) DO NOTHING;
+
+-- Chapter: Local Anaesthesia (IAN Block, Buccal & Lingual Infiltration)
+INSERT INTO units (id, subject_id, name) VALUES ('20000000-0000-0000-0004-000000000024', '20000000-0000-0000-0003-000000000007', 'Local Anaesthesia (IAN Block, Buccal & Lingual Infiltration) Unit') ON CONFLICT DO NOTHING;
+INSERT INTO chapters (id, unit_id, name) VALUES ('20000000-0000-0000-0005-000000000024', '20000000-0000-0000-0004-000000000024', 'Local Anaesthesia (IAN Block, Buccal & Lingual Infiltration)') ON CONFLICT DO NOTHING;
+INSERT INTO topics (id, chapter_id, name) VALUES ('20000000-0000-0000-0006-000000000024', '20000000-0000-0000-0005-000000000024', 'Local Anaesthesia (IAN Block, Buccal & Lingual Infiltration) Topic') ON CONFLICT DO NOTHING;
+INSERT INTO concepts (id, topic_id, name) VALUES ('20000000-0000-0000-0007-000000000024', '20000000-0000-0000-0006-000000000024', 'Local Anaesthesia (IAN Block, Buccal & Lingual Infiltration) Concept') ON CONFLICT DO NOTHING;
+INSERT INTO learning_objects (id, concept_id, object_type, content_payload) VALUES ('20000000-0000-0000-0008-000000000024', '20000000-0000-0000-0007-000000000024', 'TEXT', 'Local Anaesthesia (IAN Block, Buccal & Lingual Infiltration) details') ON CONFLICT DO NOTHING;
+
+-- Chapter: Impacted Third Molars (Classification & Surgical Protocol - Winter/Pell-Gregory)
+INSERT INTO units (id, subject_id, name) VALUES ('20000000-0000-0000-0004-000000000025', '20000000-0000-0000-0003-000000000007', 'Impacted Third Molars (Classification & Surgical Protocol - Winter/Pell-Gregory) Unit') ON CONFLICT DO NOTHING;
+INSERT INTO chapters (id, unit_id, name) VALUES ('20000000-0000-0000-0005-000000000025', '20000000-0000-0000-0004-000000000025', 'Impacted Third Molars (Classification & Surgical Protocol - Winter/Pell-Gregory)') ON CONFLICT DO NOTHING;
+INSERT INTO topics (id, chapter_id, name) VALUES ('20000000-0000-0000-0006-000000000025', '20000000-0000-0000-0005-000000000025', 'Impacted Third Molars (Classification & Surgical Protocol - Winter/Pell-Gregory) Topic') ON CONFLICT DO NOTHING;
+INSERT INTO concepts (id, topic_id, name) VALUES ('20000000-0000-0000-0007-000000000025', '20000000-0000-0000-0006-000000000025', 'Impacted Third Molars (Classification & Surgical Protocol - Winter/Pell-Gregory) Concept') ON CONFLICT DO NOTHING;
+INSERT INTO learning_objects (id, concept_id, object_type, content_payload) VALUES ('20000000-0000-0000-0008-000000000025', '20000000-0000-0000-0007-000000000025', 'TEXT', 'Impacted Third Molars (Classification & Surgical Protocol - Winter/Pell-Gregory) details') ON CONFLICT DO NOTHING;
+
+-- Chapter: Orthognathic Surgery (Le Fort Osteotomies & BSSO)
+INSERT INTO units (id, subject_id, name) VALUES ('20000000-0000-0000-0004-000000000026', '20000000-0000-0000-0003-000000000007', 'Orthognathic Surgery (Le Fort Osteotomies & BSSO) Unit') ON CONFLICT DO NOTHING;
+INSERT INTO chapters (id, unit_id, name) VALUES ('20000000-0000-0000-0005-000000000026', '20000000-0000-0000-0004-000000000026', 'Orthognathic Surgery (Le Fort Osteotomies & BSSO)') ON CONFLICT DO NOTHING;
+INSERT INTO topics (id, chapter_id, name) VALUES ('20000000-0000-0000-0006-000000000026', '20000000-0000-0000-0005-000000000026', 'Orthognathic Surgery (Le Fort Osteotomies & BSSO) Topic') ON CONFLICT DO NOTHING;
+INSERT INTO concepts (id, topic_id, name) VALUES ('20000000-0000-0000-0007-000000000026', '20000000-0000-0000-0006-000000000026', 'Orthognathic Surgery (Le Fort Osteotomies & BSSO) Concept') ON CONFLICT DO NOTHING;
+INSERT INTO learning_objects (id, concept_id, object_type, content_payload) VALUES ('20000000-0000-0000-0008-000000000026', '20000000-0000-0000-0007-000000000026', 'TEXT', 'Orthognathic Surgery (Le Fort Osteotomies & BSSO) details') ON CONFLICT DO NOTHING;
+

@@ -3,14 +3,13 @@ services:
     image: pgvector/pgvector:pg16
     container_name: mediverse-postgres
     ports:
-      - "5433:5432"
+      - "5434:5432"
     environment:
       POSTGRES_USER: mediverse_user
       POSTGRES_PASSWORD: mediverse_secure_password123
       POSTGRES_DB: mediverse_db
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./docs/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U mediverse_user -d mediverse_db"]
       interval: 5s

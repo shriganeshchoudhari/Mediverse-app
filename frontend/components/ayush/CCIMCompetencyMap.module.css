@@ -1,0 +1,78 @@
+.container {
+  padding: 1.5rem;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.searchInput, .selectInput {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  outline: none;
+}
+
+.searchInput {
+  flex: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  background-color: white;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.subject {
+  font-weight: 600;
+  color: #374151;
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+}
+
+.KNOWS { background-color: #dbeafe; color: #1e40af; }
+.KNOWS_HOW { background-color: #fef3c7; color: #92400e; }
+.SHOWS_HOW { background-color: #d1fae5; color: #065f46; }
+.PERFORMS { background-color: #fee2e2; color: #991b1b; }
+
+.description {
+  color: #4b5563;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.integrations {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.integrationBadge {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}

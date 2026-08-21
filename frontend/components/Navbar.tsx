@@ -65,6 +65,65 @@ export default function Navbar() {
           {/* Desktop Navigation Dropdowns */}
           <div ref={dropdownRef} className="hidden lg:flex items-center gap-1 text-xs font-semibold">
             
+            {/* 0. Healthcare Domains Dropdown */}
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => toggleDropdown("domains")}
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg transition-colors ${
+                  activeDropdown === "domains"
+                    ? "bg-slate-800 text-white"
+                    : "text-slate-300 hover:text-white hover:bg-slate-900"
+                }`}
+                aria-expanded={activeDropdown === "domains"}
+              >
+                <span>Domains</span>
+                <span className="text-[9px] opacity-70">▾</span>
+              </button>
+
+              {activeDropdown === "domains" && (
+                <div className="absolute left-0 top-full mt-2 w-80 rounded-xl bg-slate-900 border border-slate-800 shadow-2xl p-3 grid grid-cols-2 gap-2 animate-fade-in z-50">
+                  <div className="space-y-1">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-2 py-1">
+                      Tier 1 Priority
+                    </div>
+                    <Link href="/healthcare" onClick={closeAll} className="block px-2 py-1.5 rounded hover:bg-slate-800 text-blue-400 hover:text-blue-300 font-bold transition">
+                      🌐 All 9 Domains →
+                    </Link>
+                    <Link href="/healthcare/allopathic" onClick={closeAll} className="block px-2 py-1.5 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
+                      🩺 Allopathic (MBBS)
+                    </Link>
+                    <Link href="/healthcare/dental" onClick={closeAll} className="block px-2 py-1.5 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
+                      🦷 Dental (BDS)
+                    </Link>
+                    <Link href="/healthcare/ayush" onClick={closeAll} className="block px-2 py-1.5 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
+                      🌿 AYUSH (BAMS)
+                    </Link>
+                  </div>
+                  <div className="space-y-1 border-l border-slate-800/80 pl-2">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-2 py-1">
+                      Tier 2 &amp; 3 Allied
+                    </div>
+                    <Link href="/healthcare/pharmacy" onClick={closeAll} className="block px-2 py-1.5 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
+                      💊 Pharmacy
+                    </Link>
+                    <Link href="/healthcare/nursing" onClick={closeAll} className="block px-2 py-1.5 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
+                      🏥 Nursing
+                    </Link>
+                    <Link href="/healthcare/physiotherapy" onClick={closeAll} className="block px-2 py-1.5 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
+                      🦾 Physiotherapy
+                    </Link>
+                    <Link href="/healthcare/allied" onClick={closeAll} className="block px-2 py-1.5 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
+                      🔬 Allied Health
+                    </Link>
+                    <Link href="/healthcare/public-health" onClick={closeAll} className="block px-2 py-1.5 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
+                      🌍 Public Health
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+
             {/* 1. Curriculum Dropdown */}
             <div className="relative">
               <button
@@ -307,6 +366,24 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-slate-800 bg-slate-950 p-4 space-y-4 max-h-[85vh] overflow-y-auto animate-fade-in">
           <div className="space-y-1">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-2 py-1">
+              Healthcare Domains
+            </div>
+            <Link href="/healthcare" onClick={closeAll} className="block px-3 py-2 rounded-lg hover:bg-slate-900 text-blue-400 font-bold">
+              🌐 All 9 Domains Overview
+            </Link>
+            <Link href="/healthcare/allopathic" onClick={closeAll} className="block px-3 py-2 rounded-lg hover:bg-slate-900 text-slate-200">
+              🩺 Allopathic Medicine (MBBS)
+            </Link>
+            <Link href="/healthcare/dental" onClick={closeAll} className="block px-3 py-2 rounded-lg hover:bg-slate-900 text-slate-200">
+              🦷 Dental Sciences (BDS)
+            </Link>
+            <Link href="/healthcare/ayush" onClick={closeAll} className="block px-3 py-2 rounded-lg hover:bg-slate-900 text-slate-200">
+              🌿 AYUSH Systems (BAMS)
+            </Link>
+          </div>
+
+          <div className="space-y-1 border-t border-slate-900 pt-3">
             <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-2 py-1">
               Curriculum &amp; Dissection
             </div>

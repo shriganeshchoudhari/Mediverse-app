@@ -1,0 +1,252 @@
+.container {
+  padding: 24px;
+  background: #0f172a;
+  border-radius: 12px;
+  color: #f1f5f9;
+  border: 1px solid #1e293b;
+  margin-bottom: 24px;
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f97316;
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.phaseTabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.phaseTabBtn {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.phaseTabBtn:hover {
+  background: #334155;
+}
+
+.activePhaseTab {
+  background: #ea580c;
+  border-color: #f97316;
+  color: #fff;
+}
+
+.activePhaseTab strong {
+  color: #fff;
+}
+
+.activePhaseTab small {
+  color: #ffedd5;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.checklistCol,
+.sterilizationCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.checklistHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.phaseTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0 0 4px 0;
+}
+
+.timingTag {
+  font-size: 0.75rem;
+  color: #f97316;
+}
+
+.progressCircle {
+  background: #0f172a;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progressCircle strong {
+  font-size: 1.1rem;
+  color: #34d399;
+}
+
+.progressCircle small {
+  font-size: 0.65rem;
+  color: #94a3b8;
+}
+
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.itemLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #0f172a;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.checkedItem {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.checkbox {
+  margin-top: 3px;
+  accent-color: #10b981;
+}
+
+.itemText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.itemText span {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+.respTag {
+  font-size: 0.7rem;
+  color: #38bdf8;
+}
+
+.trapBox {
+  background: rgba(239, 68, 68, 0.1);
+  padding: 10px 12px;
+  border-radius: 6px;
+  border-left: 3px solid #ef4444;
+  font-size: 0.8rem;
+  color: #fca5a5;
+}
+
+.trapBox p {
+  margin: 4px 0 0 0;
+}
+
+.cardHeading {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.sterilizationGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sterBtn {
+  font-size: 0.8rem;
+  padding: 8px 10px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.activeSterBtn {
+  background: #ea580c;
+  border-color: #f97316;
+  color: #fff;
+}
+
+.sterDetails {
+  background: #0f172a;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sterTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f97316;
+  margin: 0;
+}
+
+.sterItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sterTag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.sterItem p {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  margin: 0;
+}

@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { useCurriculumCatalog } from "../hooks/useCurriculumCatalog";
 import SyllabusSearchGrid from "../components/lessons/SyllabusSearchGrid";
+import HealthcareLandscapeExplorer from "../components/HealthcareLandscapeExplorer";
 
 export default function HomePage() {
   const { totalSubjects, totalChapters, totalMinutes, loading } = useCurriculumCatalog();
@@ -112,6 +113,11 @@ export default function HomePage() {
             </p>
           </Link>
         </div>
+      </section>
+
+      {/* Healthcare Education Landscape (9 Domains) */}
+      <section className="max-w-6xl mx-auto px-6 py-4">
+        <HealthcareLandscapeExplorer showTierFilter={true} compact={false} />
       </section>
 
       {/* Curriculum Explorer Grid */}

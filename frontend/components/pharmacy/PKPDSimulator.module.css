@@ -1,0 +1,221 @@
+.container {
+  padding: 24px;
+  background: #0f172a;
+  border-radius: 12px;
+  color: #f1f5f9;
+  border: 1px solid #1e293b;
+  margin-bottom: 24px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #c084fc;
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.controls {
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.controlGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.presetButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.presetBtn {
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  background: #334155;
+  color: #e2e8f0;
+  border: 1px solid #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.presetBtn:hover {
+  background: #475569;
+}
+
+.activePreset {
+  background: #9333ea;
+  color: #fff;
+  border-color: #a855f7;
+}
+
+.routeSelector {
+  display: flex;
+  gap: 6px;
+}
+
+.routeBtn {
+  flex: 1;
+  padding: 6px 4px;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  background: #334155;
+  color: #cbd5e1;
+  border: 1px solid #475569;
+  cursor: pointer;
+}
+
+.activeRoute {
+  background: #3b82f6;
+  color: #fff;
+  border-color: #60a5fa;
+}
+
+.sliderGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sliderHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.val {
+  font-weight: 600;
+  color: #38bdf8;
+}
+
+.slider {
+  width: 100%;
+  accent-color: #a855f7;
+  cursor: pointer;
+}
+
+.displayPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chartContainer {
+  background: #1e293b;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+}
+
+.chartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.chartTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.statusBadge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.green {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.amber {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.red {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.metricCard {
+  background: #1e293b;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metricLabel {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.metricValue {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.metricValue small {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #64748b;
+}

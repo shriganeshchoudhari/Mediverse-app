@@ -1,0 +1,170 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background-color: #0f172a;
+  color: #f8fafc;
+  font-family: system-ui, -apple-system, sans-serif;
+  height: 100%;
+}
+
+.topTabs {
+  display: flex;
+  gap: 8px;
+  background: #1e293b;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.tabBtn {
+  background: #334155;
+  border: none;
+  color: #cbd5e1;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.tabBtn.activeTab {
+  background: #3b82f6;
+  color: white;
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  min-height: 0;
+}
+
+.canvasPanel {
+  flex: 1;
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.resultsPanel {
+  flex: 0 0 400px;
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+}
+
+.slidersList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.sliderRow {
+  background: #0f172a;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.sliderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.sliderLabel {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.normal { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+.borderline { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+.severe { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+
+.sliderControl {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slider {
+  flex: 1;
+  accent-color: #3b82f6;
+}
+
+.sliderValue {
+  font-size: 0.9rem;
+  font-family: monospace;
+  color: #94a3b8;
+  width: 40px;
+  text-align: right;
+}
+
+.placeholder {
+  color: #94a3b8;
+  font-style: italic;
+  padding: 20px;
+  text-align: center;
+}
+
+.summaryBox {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.summaryBox h3 {
+  margin: 0 0 16px 0;
+  font-size: 1.1rem;
+  color: #38bdf8;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.summaryItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 8px;
+}
+
+.summaryLabel {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.summaryValue {
+  color: #f8fafc;
+  font-weight: 600;
+  font-size: 0.95rem;
+}

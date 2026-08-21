@@ -1,0 +1,267 @@
+.container {
+  padding: 24px;
+  background: #0f172a;
+  border-radius: 12px;
+  color: #f1f5f9;
+  border: 1px solid #1e293b;
+  margin-bottom: 24px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #a855f7;
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.inputSection,
+.outputSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.drugGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.drugBtn {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: all 0.2s;
+}
+
+.drugBtn:hover {
+  background: #1e293b;
+  border-color: #64748b;
+}
+
+.activeDrug {
+  background: #7c3aed;
+  color: #ffffff;
+  border-color: #a855f7;
+}
+
+.drugName {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.drugClass {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+.fieldsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #f1f5f9;
+  font-size: 0.85rem;
+}
+
+.sexToggle {
+  display: flex;
+  gap: 4px;
+}
+
+.toggleBtn {
+  flex: 1;
+  padding: 8px;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #94a3b8;
+  cursor: pointer;
+}
+
+.activeToggle {
+  background: #3b82f6;
+  color: #fff;
+  border-color: #60a5fa;
+}
+
+.crClHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.crClValue {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.crClValue small {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #64748b;
+}
+
+.stageBadge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.green { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+.blue { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+.amber { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+.orange { background: rgba(249, 115, 22, 0.2); color: #fb923c; }
+.red { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+
+.formulaNote {
+  font-size: 0.7rem;
+  color: #64748b;
+}
+
+.recommendationGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.recItem {
+  background: #0f172a;
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.recLabel {
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+.recValueHighlight {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #34d399;
+}
+
+.recValue {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.recValueDanger {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f87171;
+}
+
+.clinicalNoteBox,
+.adviceBox,
+.toxicityBox,
+.pearlBox {
+  font-size: 0.8rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+  line-height: 1.4;
+}
+
+.clinicalNoteBox {
+  background: rgba(59, 130, 246, 0.1);
+  border-left: 3px solid #3b82f6;
+  color: #93c5fd;
+}
+
+.adviceBox {
+  background: rgba(168, 85, 247, 0.1);
+  border-left: 3px solid #a855f7;
+  color: #d8b4fe;
+}
+
+.toxicityBox {
+  background: rgba(239, 68, 68, 0.1);
+  border-left: 3px solid #ef4444;
+  color: #fca5a5;
+}
+
+.pearlBox {
+  background: rgba(245, 158, 11, 0.1);
+  border-left: 3px solid #f59e0b;
+  color: #fde68a;
+}

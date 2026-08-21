@@ -1,0 +1,259 @@
+.container {
+  padding: 24px;
+  background: #0f172a;
+  border-radius: 12px;
+  color: #f1f5f9;
+  border: 1px solid #1e293b;
+  margin-bottom: 24px;
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #38bdf8;
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sectionCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cardHeading {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.stagesLadder {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.stageLadderBtn {
+  background: #0f172a;
+  border: 1px solid #334155;
+  padding: 8px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.activeStageLadder {
+  background: #0284c7;
+  border-color: #38bdf8;
+}
+
+.stgNum {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.activeStageLadder .stgNum {
+  color: #fff;
+}
+
+.stgLabel {
+  font-size: 0.7rem;
+  color: #cbd5e1;
+}
+
+.stageDetails {
+  background: #0f172a;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detailTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #38bdf8;
+  margin: 0;
+}
+
+.detailDesc {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.goalBox {
+  background: rgba(16, 185, 129, 0.1);
+  padding: 10px;
+  border-radius: 6px;
+  border-left: 3px solid #10b981;
+  font-size: 0.8rem;
+  color: #a7f3d0;
+}
+
+.goalBox p {
+  margin: 4px 0 0 0;
+}
+
+.ashworthGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+}
+
+.ashworthBtn {
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #94a3b8;
+  padding: 8px 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.activeAshworth {
+  background: #db2777;
+  border-color: #f472b6;
+  color: #fff;
+}
+
+.ashworthOutput {
+  background: #0f172a;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pnfSelector {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+.pnfBtn {
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 2px;
+}
+
+.activePnfBtn {
+  background: #0284c7;
+  border-color: #38bdf8;
+  color: #fff;
+}
+
+.pnfExtremity {
+  font-size: 0.65rem;
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.activePnfBtn .pnfExtremity {
+  color: #e0f2fe;
+}
+
+.pnfPatternName {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.pnfDetailsCard {
+  background: #0f172a;
+  padding: 14px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pnfTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f472b6;
+  margin: 0;
+}
+
+.pnfItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pnfTag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.pnfItem p {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.cueBox {
+  background: rgba(245, 158, 11, 0.1);
+  padding: 10px;
+  border-radius: 6px;
+  border-left: 3px solid #f59e0b;
+  font-size: 0.8rem;
+  color: #fde68a;
+}
+
+.cueBox p {
+  margin: 4px 0 0 0;
+  font-style: italic;
+}

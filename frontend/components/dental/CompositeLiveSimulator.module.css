@@ -1,0 +1,204 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background-color: #0f172a;
+  color: #f8fafc;
+  font-family: system-ui, -apple-system, sans-serif;
+  height: 100%;
+}
+
+.toolbar {
+  display: flex;
+  gap: 20px;
+  background: #1e293b;
+  padding: 16px;
+  border-radius: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.toolGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toolGroup label {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+.toolGroup select {
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #f8fafc;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.checkboxLabel {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mainContent {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+}
+
+.canvasPanel {
+  flex: 1;
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.svg {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.controlsPanel {
+  flex: 0 0 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.statsCard {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.statItem span {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.statItem strong {
+  font-size: 1.2rem;
+  color: #38bdf8;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.primaryBtn, .secondaryBtn {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1;
+}
+
+.primaryBtn {
+  background: #3b82f6;
+  color: white;
+}
+
+.primaryBtn:disabled {
+  background: #1e3a8a;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.secondaryBtn {
+  background: #334155;
+  color: #cbd5e1;
+}
+
+.layerStack {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 16px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.layerStack h4 {
+  margin: 0 0 12px 0;
+  color: #e2e8f0;
+}
+
+.emptyMsg {
+  color: #64748b;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.layerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0f172a;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.cureBtn {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.statusDone {
+  color: #10b981;
+  font-weight: bold;
+}
+
+.riskPanel {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.riskPanel h4 {
+  margin: 0 0 8px 0;
+  color: #fca5a5;
+}
+
+.riskPanel ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #f8fafc;
+  font-size: 0.9rem;
+}
+
+.riskPanel li {
+  margin-bottom: 6px;
+}
+
+.warning {
+  color: #fbbf24;
+}

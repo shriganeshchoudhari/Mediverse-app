@@ -1,0 +1,63 @@
+.container {
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.search {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+  background: #8b5cf6;
+  color: white;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+}
+
+.code {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.desc {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.subject {
+  font-size: 0.8rem;
+  color: #666;
+}

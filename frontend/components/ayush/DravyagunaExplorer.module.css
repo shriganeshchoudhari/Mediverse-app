@@ -1,0 +1,211 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  color: #fff;
+  background-color: #121212;
+  border-radius: 8px;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+
+.filterBar {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.searchInput, .selectInput {
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.herbGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.herbCard {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.herbCard:hover {
+  background-color: #2a2a2a;
+}
+
+.selectedCard {
+  border-color: #10b981;
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.imgPlaceholder {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  background-color: #333;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.herbCard h4 {
+  margin: 0;
+}
+
+.sanskrit {
+  color: #aaa;
+  font-size: 0.85rem;
+  font-style: italic;
+  margin: 5px 0 10px;
+}
+
+.badges {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.badge {
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  border-radius: 10px;
+  background-color: #444;
+}
+
+.vata { color: #38bdf8; background-color: rgba(56, 189, 248, 0.2); }
+.pitta { color: #f59e0b; background-color: rgba(245, 158, 11, 0.2); }
+.kapha { color: #10b981; background-color: rgba(16, 185, 129, 0.2); }
+
+.inspector {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.header span {
+  font-style: italic;
+  color: #aaa;
+  font-size: 1rem;
+}
+
+.energeticsPanel h4, .infoSection h4, .interactionSection h4 {
+  margin: 0 0 10px 0;
+  border-bottom: 1px solid #444;
+  padding-bottom: 5px;
+  color: #10b981;
+}
+
+.energeticsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.enCard {
+  background-color: #2a2a2a;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.tagList {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background-color: #333;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.interactionSection {
+  background-color: #1a1a2e;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #2a2a4a;
+}
+
+.interactionControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.interactionControls select {
+  background-color: #2a2a2a;
+  color: white;
+  border: 1px solid #444;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.interactionAlert {
+  padding: 15px;
+  border-radius: 4px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.safe { background-color: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; }
+.moderate { background-color: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; }
+.high { background-color: rgba(239, 68, 68, 0.1); border-left: 4px solid #ef4444; }
+
+.severityBadge {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: rgba(0,0,0,0.2);
+}

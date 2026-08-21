@@ -1,0 +1,266 @@
+.container {
+  padding: 24px;
+  background: #0f172a;
+  border-radius: 12px;
+  color: #f1f5f9;
+  border: 1px solid #1e293b;
+  margin-bottom: 24px;
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #6366f1;
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.pathogenTabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.pathogenBtn {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pathogenBtn:hover {
+  background: #334155;
+}
+
+.activePathogenBtn {
+  background: #4f46e5;
+  border-color: #6366f1;
+  color: #fff;
+}
+
+.activePathogenBtn strong {
+  color: #fff;
+}
+
+.activePathogenBtn small {
+  color: #e0e7ff;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.visualCol,
+.controlsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.curveTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.rBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #6366f1;
+  background: #0f172a;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #334155;
+}
+
+.curveSvgWrapper {
+  display: flex;
+  justify-content: center;
+  background: #0f172a;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.curveSvg {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+}
+
+.legendRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.75rem;
+  justify-content: center;
+}
+
+.legendS { color: #38bdf8; }
+.legendI { color: #ef4444; }
+.legendR { color: #10b981; }
+.legendICU { color: #fbbf24; }
+
+.icuAlert {
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.icuRed {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+}
+
+.icuGreen {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #a7f3d0;
+}
+
+.label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.metricBox {
+  background: #0f172a;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.metricVal {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #6366f1;
+}
+
+.metricSub {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.cardHeading {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.toggleItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #0f172a;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.activeToggle {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+.checkbox {
+  margin-top: 3px;
+  accent-color: #6366f1;
+}
+
+.toggleItem div {
+  display: flex;
+  flex-direction: column;
+}
+
+.toggleItem strong {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+.toggleItem small {
+  font-size: 0.65rem;
+  color: #94a3b8;
+}
+
+.sliderGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sliderHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+.sliderHeader strong {
+  color: #6366f1;
+}
+
+.rangeSlider {
+  width: 100%;
+  accent-color: #4f46e5;
+  cursor: pointer;
+}
+
+.sliderHint {
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
