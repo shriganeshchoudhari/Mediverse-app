@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useAuth } from "../../config/AuthContext";
 import { useCurriculumCatalog } from "../../hooks/useCurriculumCatalog";
+import { useDomainCurriculumCatalog } from "../../hooks/useDomainCurriculumCatalog";
 
 import WeeklyActivityChart from "../../components/dashboard/WeeklyActivityChart";
 import StreakCalendar from "../../components/dashboard/StreakCalendar";
@@ -13,6 +14,7 @@ import LeaderboardPreview from "../../components/dashboard/LeaderboardPreview";
 import QuizScoreChart from "../../components/dashboard/QuizScoreChart";
 import ContinueLearningWidget from "../../components/dashboard/ContinueLearningWidget";
 import SectionProgressCards from "../../components/dashboard/SectionProgressCards";
+import PomodoroTimer from "../../components/lessons/PomodoroTimer";
 
 interface ProgressItem {
   lessonId: string;
@@ -110,7 +112,7 @@ export default function DashboardPage() {
         <span className="text-4xl mb-4">🔒</span>
         <h2 className="text-xl font-bold text-white mb-2">Access Protected</h2>
         <p className="text-slate-400 text-sm max-w-sm mb-6">
-          Please log in or register to view your custom MBBS progression, streaks, and spaced-repetition schedules.
+          Please log in or register to view your custom healthcare curriculum progression, streaks, and spaced-repetition schedules.
         </p>
         <div className="flex gap-4">
           <Link href="/auth/login" className="px-4 py-2 bg-blue-600 rounded text-white text-xs font-bold hover:bg-blue-500 transition">
@@ -147,9 +149,21 @@ export default function DashboardPage() {
             <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight mb-2">
               Welcome back, <span className="text-blue-400">{profile?.firstName || user?.email}</span>
             </h1>
-            <p className="text-xs text-slate-400 font-medium">MBBS Student Dashboard • Curriculum Progress</p>
+            <p className="text-xs text-slate-400 font-medium">{profile?.enrolledProgram || 'MBBS'} Student Dashboard • Curriculum Progress</p>
+            
+            <div style={{ position: "relative", display: "inline-block", marginTop: "1rem" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                <span style={{ fontSize: "0.75rem", color: "#94a3b8" }}>Current Program:</span>
+                <span style={{ fontSize: "0.75rem", fontWeight: "bold", background: "rgba(59,130,246,0.1)", color: "#93c5fd", padding: "0.25rem 0.5rem", borderRadius: "4px", border: "1px solid rgba(59,130,246,0.2)" }}>
+                  {profile?.enrolledProgram || 'MBBS'}
+                </span>
+                <Link href="/healthcare" style={{ fontSize: "0.75rem", color: "#60a5fa", textDecoration: "underline", marginLeft: "0.5rem" }}>
+                  Change Program
+                </Link>
+              </div>
+            </div>
           </div>
-          <Link href="/" className="px-4 py-2 bg-blue-600 hover:bg-blue-500 transition rounded-lg text-xs font-bold text-white shadow-md shadow-blue-900/30 self-start">
+          <Link href="/subjects" className="px-4 py-2 bg-blue-600 hover:bg-blue-500 transition rounded-lg text-xs font-bold text-white shadow-md shadow-blue-900/30 self-start">
             Browse Syllabus
           </Link>
         </header>
@@ -257,6 +271,7 @@ export default function DashboardPage() {
           </div>
         </section>
       </div>
+      <PomodoroTimer />
     </div>
   );
 }

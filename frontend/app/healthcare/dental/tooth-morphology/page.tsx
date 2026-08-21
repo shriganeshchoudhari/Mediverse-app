@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ToothMorphologyViewer from '@/components/dental/ToothMorphologyViewer';
+import WebGLErrorBoundary from '@/components/WebGLErrorBoundary';
 
 export const metadata: Metadata = {
   title: 'Tooth Morphology 3D Explorer | BDS Dental Sciences | Mediverse',
@@ -9,7 +10,12 @@ export const metadata: Metadata = {
 export default function ToothMorphologyPage() {
   return (
     <main style={{ minHeight: '100vh', background: '#0f172a' }}>
-      <ToothMorphologyViewer />
+      <WebGLErrorBoundary
+        fallbackTitle="Tooth Morphology Viewer Unavailable"
+        fallbackDescription="WebGL is required for 3D tooth visualization. Please use a desktop browser with hardware acceleration enabled."
+      >
+        <ToothMorphologyViewer />
+      </WebGLErrorBoundary>
     </main>
   );
 }

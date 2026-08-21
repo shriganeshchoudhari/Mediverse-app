@@ -1,0 +1,149 @@
+.pageContainer {
+  min-height: 100vh;
+  background-color: #020617;
+  color: #f8fafc;
+  padding: 2rem;
+  font-family: var(--font-sans, system-ui, sans-serif);
+}
+
+.header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: #e2e8f0;
+}
+
+.subtitle {
+  color: #94a3b8;
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+.controls {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.label {
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.select {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #f8fafc;
+  outline: none;
+  cursor: pointer;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.badgeDomain {
+  font-size: 0.75rem;
+  background: #312e81;
+  color: #a5b4fc;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.badgeDifficulty {
+  font-size: 0.75rem;
+  background: #064e3b;
+  color: #34d399;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem;
+  color: #f1f5f9;
+}
+
+.cardDesc {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  margin: 0 0 1.5rem;
+  flex-grow: 1;
+}
+
+.cardMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #1e293b;
+}
+
+.startBtn {
+  width: 100%;
+  padding: 0.75rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.startBtn:hover {
+  background: #2563eb;
+}
+
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #64748b;
+  padding: 3rem;
+}
+
+.backBtn {
+  background: transparent;
+  border: none;
+  color: #60a5fa;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding: 0;
+  font-size: 1rem;
+}
+.backBtn:hover {
+  text-decoration: underline;
+}

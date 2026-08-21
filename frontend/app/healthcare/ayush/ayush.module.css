@@ -1,0 +1,93 @@
+.pageWrapper {
+  min-height: 100vh;
+  background-color: #111827;
+  color: #f3f4f6;
+  padding: 2rem;
+}
+
+.header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #374151;
+  padding-bottom: 1.5rem;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: #9ca3af;
+  margin-bottom: 1rem;
+}
+
+.metadata {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: #374151;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.subjectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.subjectCard {
+  background-color: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.subjectCard h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #e5e7eb;
+}
+
+.subjectCard h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #9ca3af;
+  margin-bottom: 1rem;
+}
+
+.lessonList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lessonItem {
+  padding: 0.75rem 0;
+  border-top: 1px solid #374151;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lessonItem:first-child {
+  border-top: none;
+}
+
+.lessonTitle {
+  font-size: 0.95rem;
+  color: #d1d5db;
+}
+
+.lessonDuration {
+  font-size: 0.85rem;
+  color: #6b7280;
+}

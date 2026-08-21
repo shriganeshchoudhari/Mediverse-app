@@ -28,7 +28,10 @@ public class FlashcardController {
     }
 
     @GetMapping("/due")
-    public ResponseEntity<List<FlashcardResponseDto>> getDueCards(@AuthenticationPrincipal UserDetails userDetails) {
+    public ResponseEntity<List<FlashcardResponseDto>> getDueCards(
+            @RequestParam(required = false) String domain,
+            @RequestParam(required = false) String programCode,
+            @AuthenticationPrincipal UserDetails userDetails) {
         if (userDetails == null) {
             return ResponseEntity.status(401).build();
         }
@@ -37,7 +40,7 @@ public class FlashcardController {
         if (user == null) {
             return ResponseEntity.status(401).build();
         }
-        List<FlashcardResponseDto> dueCards = flashcardService.getDueCards(user.getId());
+        List<FlashcardResponseDto> dueCards = flashcardService.getDueCards(user.getId(), domain, programCode);
         return ResponseEntity.ok(dueCards);
     }
 

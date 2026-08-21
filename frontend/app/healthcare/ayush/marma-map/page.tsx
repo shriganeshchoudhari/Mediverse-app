@@ -5,6 +5,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import MarmaMapViewer from '@/components/ayush/MarmaMapViewer';
+import WebGLErrorBoundary from '@/components/WebGLErrorBoundary';
 
 export const metadata: Metadata = {
   title: '107 Marma Points 3D Body Map | AYUSH BAMS | Mediverse',
@@ -26,7 +27,12 @@ export default function MarmaMapPage() {
       </nav>
 
       {/* Main Interactive Visualizer */}
-      <MarmaMapViewer initialMarmaId="sthapani" />
+      <WebGLErrorBoundary
+        fallbackTitle="Marma Map Viewer Unavailable"
+        fallbackDescription="WebGL is required for 3D Marma point visualization."
+      >
+        <MarmaMapViewer initialMarmaId="sthapani" />
+      </WebGLErrorBoundary>
 
       {/* Back CTA */}
       <div style={{ marginTop: '2.5rem', textAlign: 'center' }}>

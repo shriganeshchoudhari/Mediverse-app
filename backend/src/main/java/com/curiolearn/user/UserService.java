@@ -24,6 +24,13 @@ public class UserService {
         user.setFirstName(dto.getFirstName());
         user.setLastName(dto.getLastName());
         
+        if (dto.getEnrolledProgram() != null) {
+            user.setEnrolledProgram(dto.getEnrolledProgram());
+        }
+        if (dto.getHealthcareDomain() != null) {
+            user.setHealthcareDomain(dto.getHealthcareDomain());
+        }
+        
         userRepository.save(user);
     }
 

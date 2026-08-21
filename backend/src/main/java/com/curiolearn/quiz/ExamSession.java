@@ -37,6 +37,13 @@ public class ExamSession {
 
     private Integer timeTakenSeconds;
 
+    @Column(length = 20)
+    @Builder.Default
+    private String examType = "MCQ"; // MCQ, OSCE, VIVA
+
+    @Column(length = 50)
+    private String domain;
+
     @Column(nullable = false, updatable = false)
     private LocalDateTime completedAt;
 

@@ -29,9 +29,15 @@ public class FlashcardService {
     }
 
     @Transactional(readOnly = true)
-    public List<FlashcardResponseDto> getDueCards(UUID userId) {
+    public List<FlashcardResponseDto> getDueCards(UUID userId, String domain, String programCode) {
         User user = findUserById(userId);
         List<Flashcard> dueCards = flashcardRepository.findDueCards(user, LocalDateTime.now());
+        if (domain != null && !domain.isBlank()) {
+            dueCards = dueCards.stream().filter(c -> domain.equalsIgnoreCase(c.getDomain())).collect(Collectors.toList());
+        }
+        if (programCode != null && !programCode.isBlank()) {
+            dueCards = dueCards.stream().filter(c -> programCode.equalsIgnoreCase(c.getProgramCode())).collect(Collectors.toList());
+        }
         return dueCards.stream().map(this::mapToDto).collect(Collectors.toList());
     }
 

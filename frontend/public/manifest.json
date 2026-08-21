@@ -1,9 +1,52 @@
 {
-  "name": "Mediverse | 3D Medical Physiology Platform",
+  "name": "Mediverse | Healthcare Education Platform",
   "short_name": "Mediverse",
-  "description": "Interactive 3D Medical Physiology Educational Platform for medical students.",
+  "description": "Multi-domain healthcare education platform for MBBS, BDS, BAMS, Pharmacy, Nursing, Physiotherapy, Allied Health, Veterinary, and Public Health students. Features 3D anatomy, physiological simulators, and AI-powered Socratic tutoring.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#020617",
-  "theme_color": "#020617"
+  "theme_color": "#020617",
+  "orientation": "any",
+  "lang": "en-IN",
+  "categories": ["education", "medical", "healthcare"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/dashboard.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Mediverse Student Dashboard"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "My Dashboard",
+      "url": "/dashboard",
+      "description": "View your learning progress"
+    },
+    {
+      "name": "Browse Simulators",
+      "url": "/simulators",
+      "description": "Access all physiological simulators"
+    },
+    {
+      "name": "Healthcare Domains",
+      "url": "/healthcare",
+      "description": "Explore all 9 healthcare domains"
+    }
+  ]
 }

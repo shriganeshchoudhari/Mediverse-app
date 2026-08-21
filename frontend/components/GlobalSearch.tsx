@@ -12,6 +12,30 @@ export default function GlobalSearch() {
   const inputRef = useRef<HTMLInputElement>(null);
   const { subjects } = useCurriculumCatalog();
 
+  const [apiResults, setApiResults] = useState<Array<{id:string, title:string, code:string, type:string, domain:string, result_type:string, path:string}>>([]);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      if (query.length >= 2) {
+        fetch('/api/v1/search?q=' + encodeURIComponent(query) + '&limit=10')
+          .then(res => res.json())
+          .then(data => {
+            if (Array.isArray(data)) {
+              setApiResults(data);
+            } else if (data && Array.isArray(data.results)) {
+              setApiResults(data.results);
+            } else {
+              setApiResults([]);
+            }
+          })
+          .catch(() => setApiResults([]));
+      } else {
+        setApiResults([]);
+      }
+    }, 350);
+    return () => clearTimeout(handler);
+  }, [query]);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
@@ -70,7 +94,32 @@ export default function GlobalSearch() {
 
         {query && (
           <div className="max-h-[60vh] overflow-y-auto p-2">
-            {filteredChapters.length > 0 ? (
+            {apiResults.length > 0 ? (
+              <ul className="space-y-1">
+                {apiResults.map((res) => (
+                  <li key={res.id}>
+                    <button
+                      onClick={() => {
+                        setIsOpen(false);
+                        router.push(res.path || `/lessons/${res.id}`);
+                      }}
+                      className="w-full text-left flex items-center justify-between p-3 rounded-lg hover:bg-slate-800 transition-colors"
+                    >
+                      <div>
+                        <h4 className="text-white font-medium">{res.title}</h4>
+                        <span className="text-xs text-slate-500 uppercase">
+                          <span className="inline-block px-1.5 py-0.5 rounded bg-slate-800 mr-2 text-[10px]">{res.domain || 'Allopathic'}</span>
+                          {res.result_type || 'Chapter'}
+                        </span>
+                      </div>
+                      <span className="text-xs font-bold text-blue-500 bg-blue-500/10 px-2 py-1 rounded">
+                        Jump to {res.result_type === 'subject' ? 'Subject' : 'Result'}
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            ) : filteredChapters.length > 0 ? (
               <ul className="space-y-1">
                 {filteredChapters.map((chapter) => (
                   <li key={chapter.id}>
@@ -83,7 +132,10 @@ export default function GlobalSearch() {
                     >
                       <div>
                         <h4 className="text-white font-medium">{chapter.title}</h4>
-                        <span className="text-xs text-slate-500 uppercase">{chapter.subjectTitle} • {chapter.section}</span>
+                        <span className="text-xs text-slate-500 uppercase">
+                          <span className="inline-block px-1.5 py-0.5 rounded bg-slate-800 mr-2 text-[10px]">Allopathic</span>
+                          {chapter.subjectTitle} • {chapter.section}
+                        </span>
                       </div>
                       <span className="text-xs font-bold text-blue-500 bg-blue-500/10 px-2 py-1 rounded">
                         Jump to Chapter

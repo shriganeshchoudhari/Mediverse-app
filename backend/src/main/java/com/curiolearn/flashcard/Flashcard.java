@@ -26,6 +26,12 @@ public class Flashcard {
     @Column(nullable = false)
     private String lessonId;
 
+    @Column(length = 50)
+    private String domain; // e.g., ALLOPATHIC, DENTAL, AYUSH
+
+    @Column(length = 50)
+    private String programCode; // e.g., MBBS, BDS, BAMS
+
     @Column(nullable = false, columnDefinition = "TEXT")
     private String frontText;
 

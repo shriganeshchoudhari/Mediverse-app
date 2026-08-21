@@ -40,6 +40,12 @@ public class User {
 
     private LocalDate lastStudyDate;
 
+    @Column(length = 50)
+    private String enrolledProgram; // e.g., MBBS, BDS, BAMS, PHARMD, BSCNURSING, BPT, BVSC, MPH
+
+    @Column(length = 50)
+    private String healthcareDomain; // e.g., ALLOPATHIC, DENTAL, AYUSH, PHARMACY, NURSING, PHYSIOTHERAPY, ALLIED, VETERINARY, PUBLIC_HEALTH
+
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 

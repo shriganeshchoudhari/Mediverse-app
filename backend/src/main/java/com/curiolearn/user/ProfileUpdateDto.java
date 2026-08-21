@@ -10,6 +10,9 @@ public class ProfileUpdateDto {
     
     @NotBlank(message = "Last name is required")
     private String lastName;
+
+    private String enrolledProgram;
+    private String healthcareDomain;
 }
 
 

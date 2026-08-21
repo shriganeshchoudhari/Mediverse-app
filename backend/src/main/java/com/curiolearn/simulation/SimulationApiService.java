@@ -13,6 +13,12 @@ import java.util.*;
 @Service
 public class SimulationApiService {
 
+    private final SpirometrySolver spirometrySolver;
+
+    public SimulationApiService(SpirometrySolver spirometrySolver) {
+        this.spirometrySolver = spirometrySolver;
+    }
+
     public List<SimulationCatalogItemDto> getCatalog() {
         List<SimulationCatalogItemDto> catalog = new ArrayList<>();
 
@@ -141,6 +147,20 @@ public class SimulationApiService {
     }
 
     public SimulationCalculateResponseDto calculate(SimulationCalculateRequestDto request) {
+        if ("SPIROMETRY_PFT".equalsIgnoreCase(request.getSimulationType()) || "spirometry".equalsIgnoreCase(request.getSimulationType())) {
+            double age = request.getParameters() != null && request.getParameters().containsKey("age") ? ((Number) request.getParameters().get("age")).doubleValue() : 30.0;
+            double heightCm = request.getParameters() != null && request.getParameters().containsKey("heightCm") ? ((Number) request.getParameters().get("heightCm")).doubleValue() : 170.0;
+            String sex = request.getParameters() != null && request.getParameters().containsKey("sex") ? (String) request.getParameters().get("sex") : "M";
+            double fvc = request.getParameters() != null && request.getParameters().containsKey("fvc") ? ((Number) request.getParameters().get("fvc")).doubleValue() : 4.8;
+            double fev1 = request.getParameters() != null && request.getParameters().containsKey("fev1") ? ((Number) request.getParameters().get("fev1")).doubleValue() : 4.0;
+            Double tlc = request.getParameters() != null && request.getParameters().containsKey("tlc") ? ((Number) request.getParameters().get("tlc")).doubleValue() : null;
+
+            Map<String, Object> spiroResult = spirometrySolver.calculate(age, heightCm, sex, fvc, fev1, tlc);
+            return SimulationCalculateResponseDto.builder()
+                    .additionalMetrics(spiroResult)
+                    .build();
+        }
+
         double edv = (request.getPreloadEdv() != null) ? Math.max(30.0, Math.min(300.0, request.getPreloadEdv())) : 120.0;
         double svr = (request.getAfterloadSvr() != null) ? Math.max(30.0, Math.min(250.0, request.getAfterloadSvr())) : 100.0;
         double ees = (request.getInotropyEes() != null) ? Math.max(0.4, Math.min(8.0, request.getInotropyEes())) : 2.5;
