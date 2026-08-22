@@ -1,0 +1,39 @@
+{"version":8,"type":"context-options","origin":"testRunner","browserName":"","playwrightVersion":"1.62.1","options":{},"platform":"win32","wallTime":1787415881724,"monotonicTime":1413326.594,"sdkLanguage":"javascript"}
+{"type":"before","callId":"hook@1","stepId":"hook@1","startTime":1413328.304,"class":"Test","method":"hook","title":"Before Hooks","params":{},"stack":[]}
+{"type":"before","callId":"fixture@22","stepId":"fixture@22","parentId":"hook@1","startTime":1413333.843,"class":"Test","method":"fixture","title":"Fixture \"context\"","params":{},"stack":[]}
+{"type":"before","callId":"pw:api@23","stepId":"pw:api@23","parentId":"fixture@22","startTime":1413334.598,"class":"Test","method":"pw:api","title":"Create context","params":{"recordVideo":"Object","selectorEngines":"[]","testIdAttributeName":"data-testid","acceptDownloads":"accept","bypassCSP":"false","colorScheme":"light","deviceScaleFactor":"1","hasTouch":"false","ignoreHTTPSErrors":"false","isMobile":"false","javaScriptEnabled":"true","locale":"en-US","offline":"false","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36","viewport":"Object","baseURL":"http://127.0.0.1:3000","serviceWorkers":"allow","noDefaultViewport":"false","extraHTTPHeaders":"undefined","storageState":"undefined","reducedMotion":"undefined","forcedColors":"undefined","contrast":"undefined","clientCertificates":"undefined"},"stack":[]}
+{"type":"after","callId":"pw:api@23","endTime":1413339.848,"annotations":[]}
+{"type":"after","callId":"fixture@22","endTime":1413342.878,"annotations":[]}
+{"type":"before","callId":"fixture@24","stepId":"fixture@24","parentId":"hook@1","startTime":1413343.446,"class":"Test","method":"fixture","title":"Fixture \"page\"","params":{},"stack":[]}
+{"type":"before","callId":"pw:api@25","stepId":"pw:api@25","parentId":"fixture@24","startTime":1413344.478,"class":"Test","method":"pw:api","title":"Create page","params":{},"stack":[]}
+{"type":"after","callId":"pw:api@25","endTime":1413447.017,"annotations":[]}
+{"type":"after","callId":"fixture@24","endTime":1413447.251,"annotations":[]}
+{"type":"after","callId":"hook@1","endTime":1413447.291,"annotations":[]}
+{"type":"before","callId":"pw:api@26","stepId":"pw:api@26","startTime":1413448.839,"class":"Test","method":"pw:api","title":"Navigate to \"/healthcare/allied/ecmo-circuit\"","params":{"url":"/healthcare/allied/ecmo-circuit","waitUntil":"load"},"stack":[{"file":"F:\\Mediverse-app\\frontend\\e2e\\specs\\09_domain_allied_health.spec.ts","line":5,"column":16}]}
+{"type":"after","callId":"pw:api@26","endTime":1414727.154,"annotations":[]}
+{"type":"before","callId":"expect@27","stepId":"expect@27","startTime":1414729.35,"class":"Test","method":"expect","title":"Expect \"toContainText\"","params":{"expected":"Object"},"stack":[{"file":"F:\\Mediverse-app\\frontend\\e2e\\specs\\09_domain_allied_health.spec.ts","line":6,"column":50}]}
+{"type":"after","callId":"expect@27","endTime":1414782.267,"annotations":[]}
+{"type":"before","callId":"hook@28","stepId":"hook@28","startTime":1414782.725,"class":"Test","method":"hook","title":"After Hooks","params":{},"stack":[]}
+{"type":"before","callId":"fixture@29","stepId":"fixture@29","parentId":"hook@28","startTime":1414783.29,"class":"Test","method":"fixture","title":"Fixture \"page\"","params":{},"stack":[]}
+{"type":"after","callId":"fixture@29","endTime":1414783.419,"annotations":[]}
+{"type":"before","callId":"fixture@30","stepId":"fixture@30","parentId":"hook@28","startTime":1414783.691,"class":"Test","method":"fixture","title":"Fixture \"context\"","params":{},"stack":[]}
+{"type":"before","callId":"pw:api@31","stepId":"pw:api@31","parentId":"fixture@30","startTime":1415500.803,"class":"Test","method":"pw:api","title":"Close context","params":{"reason":"Test ended."},"stack":[]}
+{"type":"after","callId":"pw:api@31","endTime":1415631.913,"annotations":[]}
+{"type":"after","callId":"fixture@30","endTime":1415632.162,"annotations":[]}
+{"type":"before","callId":"fixture@35","stepId":"fixture@35","parentId":"hook@28","startTime":1415633.684,"class":"Test","method":"fixture","title":"Fixture \"navigationTimeout\"","params":{},"stack":[{"file":"project#Desktop Chromium","line":1,"column":1}],"group":"configuration"}
+{"type":"after","callId":"fixture@35","endTime":1415633.746,"annotations":[]}
+{"type":"before","callId":"fixture@40","stepId":"fixture@40","parentId":"hook@28","startTime":1415634.764,"class":"Test","method":"fixture","title":"Fixture \"baseURL\"","params":{},"stack":[{"file":"project#Desktop Chromium","line":1,"column":1}],"group":"configuration"}
+{"type":"after","callId":"fixture@40","endTime":1415634.816,"annotations":[]}
+{"type":"before","callId":"fixture@41","stepId":"fixture@41","parentId":"hook@28","startTime":1415635.372,"class":"Test","method":"fixture","title":"Fixture \"userAgent\"","params":{},"stack":[{"file":"project#Desktop Chromium","line":1,"column":1}],"group":"configuration"}
+{"type":"after","callId":"fixture@41","endTime":1415635.486,"annotations":[]}
+{"type":"before","callId":"fixture@43","stepId":"fixture@43","parentId":"hook@28","startTime":1415635.913,"class":"Test","method":"fixture","title":"Fixture \"viewport\"","params":{},"stack":[{"file":"project#Desktop Chromium","line":1,"column":1}],"group":"configuration"}
+{"type":"after","callId":"fixture@43","endTime":1415635.964,"annotations":[]}
+{"type":"before","callId":"fixture@50","stepId":"fixture@50","parentId":"hook@28","startTime":1415637.544,"class":"Test","method":"fixture","title":"Fixture \"isMobile\"","params":{},"stack":[{"file":"project#Desktop Chromium","line":1,"column":1}],"group":"configuration"}
+{"type":"after","callId":"fixture@50","endTime":1415637.671,"annotations":[]}
+{"type":"before","callId":"fixture@54","stepId":"fixture@54","parentId":"hook@28","startTime":1415638.534,"class":"Test","method":"fixture","title":"Fixture \"hasTouch\"","params":{},"stack":[{"file":"project#Desktop Chromium","line":1,"column":1}],"group":"configuration"}
+{"type":"after","callId":"fixture@54","endTime":1415638.582,"annotations":[]}
+{"type":"before","callId":"fixture@56","stepId":"fixture@56","parentId":"hook@28","startTime":1415638.946,"class":"Test","method":"fixture","title":"Fixture \"deviceScaleFactor\"","params":{},"stack":[{"file":"project#Desktop Chromium","line":1,"column":1}],"group":"configuration"}
+{"type":"after","callId":"fixture@56","endTime":1415638.976,"annotations":[]}
+{"type":"after","callId":"hook@28","endTime":1415640.356,"annotations":[]}
+{"type":"before","callId":"attach@19f2a0de6c34b1997a9b5154082fd313","stepId":"attach@19f2a0de6c34b1997a9b5154082fd313","startTime":1416104.268,"class":"Test","method":"test.attach","title":"Attach \"trace\"","params":{},"stack":[]}
+{"type":"after","callId":"attach@19f2a0de6c34b1997a9b5154082fd313","endTime":1416104.495,"attachments":[]}

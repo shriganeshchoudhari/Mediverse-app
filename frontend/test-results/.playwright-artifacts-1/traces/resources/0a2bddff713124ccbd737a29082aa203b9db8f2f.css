@@ -1,0 +1,343 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./components/pharmacy/DrugInteractionChecker.module.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************/
+.DrugInteractionChecker_container__N5DgC {
+  padding: 24px;
+  background: #0f172a;
+  border-radius: 12px;
+  color: #f1f5f9;
+  border: 1px solid #1e293b;
+  margin-bottom: 24px;
+}
+
+.DrugInteractionChecker_header__SA1vL {
+  margin-bottom: 16px;
+}
+
+.DrugInteractionChecker_title__np7aa {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #c084fc;
+  margin: 0 0 6px 0;
+}
+
+.DrugInteractionChecker_subtitle__bitJK {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.DrugInteractionChecker_presetsBar__dv5rs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 12px;
+  background: #1e293b;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.DrugInteractionChecker_presetLabel__h2Vet {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.DrugInteractionChecker_presetBtn__UwIaY {
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  background: #0f172a;
+  border: 1px solid #475569;
+  color: #cbd5e1;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.DrugInteractionChecker_presetBtn__UwIaY:hover {
+  background: #334155;
+  border-color: #94a3b8;
+}
+
+.DrugInteractionChecker_layout__giyPR {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .DrugInteractionChecker_layout__giyPR {
+    grid-template-columns: 1fr;
+  }
+}
+
+.DrugInteractionChecker_regimenSection__trVwU,
+.DrugInteractionChecker_resultsSection__xEIg0 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.DrugInteractionChecker_card__28chs {
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.DrugInteractionChecker_cardTitle__VdtUK {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.DrugInteractionChecker_selectedDrugsList__hYoCm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.DrugInteractionChecker_drugChip__t27sK {
+  background: #0f172a;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.DrugInteractionChecker_chipInfo__cqxzt {
+  display: flex;
+  flex-direction: column;
+}
+
+.DrugInteractionChecker_chipName__epYQM {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.DrugInteractionChecker_chipCategory__3DjpZ {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.DrugInteractionChecker_chipEnzymes__ktOFC {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.DrugInteractionChecker_subTag__5MpHz, .DrugInteractionChecker_inhTag__Mh8HT, .DrugInteractionChecker_indTag__S5jXA {
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.DrugInteractionChecker_subTag__5MpHz { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+.DrugInteractionChecker_inhTag__Mh8HT { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+.DrugInteractionChecker_indTag__S5jXA { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+
+.DrugInteractionChecker_removeBtn__P_PK3 {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.DrugInteractionChecker_removeBtn__P_PK3:hover {
+  color: #ef4444;
+}
+
+.DrugInteractionChecker_searchContainer__zbi2X {
+  position: relative;
+}
+
+.DrugInteractionChecker_searchInput__V_SbP {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #f1f5f9;
+  font-size: 0.85rem;
+}
+
+.DrugInteractionChecker_dropdown__G_eyi {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #1e293b;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  margin-top: 4px;
+  z-index: 20;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.DrugInteractionChecker_dropdownItem__tGoxL {
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  border-bottom: 1px solid #334155;
+}
+
+.DrugInteractionChecker_dropdownItem__tGoxL:hover {
+  background: #334155;
+}
+
+.DrugInteractionChecker_dropName__ua2yM {
+  font-size: 0.85rem;
+  color: #f1f5f9;
+}
+
+.DrugInteractionChecker_dropCategory__U42uG {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.DrugInteractionChecker_noResults___K6KJ {
+  padding: 10px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.DrugInteractionChecker_summaryBar__DI0lX {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e293b;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+}
+
+.DrugInteractionChecker_summaryTitle__AhpgI {
+  font-size: 0.95rem;
+  color: #e2e8f0;
+}
+
+.DrugInteractionChecker_badgeSummary__F2B44 {
+  display: flex;
+  gap: 8px;
+}
+
+.DrugInteractionChecker_countBadge__zQuGM {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.DrugInteractionChecker_major__pocp6 { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+.DrugInteractionChecker_moderate__CJ_fS { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+.DrugInteractionChecker_minor__jSe9f { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); }
+.DrugInteractionChecker_safe__NLnPB { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+
+.DrugInteractionChecker_interactionsList__hDZ73 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.DrugInteractionChecker_interactionCard__IK7R0 {
+  background: #1e293b;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.DrugInteractionChecker_interactionCard__IK7R0.DrugInteractionChecker_major__pocp6 {
+  border-left: 4px solid #ef4444;
+}
+
+.DrugInteractionChecker_interactionCard__IK7R0.DrugInteractionChecker_moderate__CJ_fS {
+  border-left: 4px solid #f59e0b;
+}
+
+.DrugInteractionChecker_interactionCard__IK7R0.DrugInteractionChecker_minor__jSe9f {
+  border-left: 4px solid #3b82f6;
+}
+
+.DrugInteractionChecker_cardTop__0o9MX {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.DrugInteractionChecker_drugPair__TJ_ju {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.DrugInteractionChecker_pairItem__eVOvG {
+  font-weight: 700;
+  color: #f1f5f9;
+  font-size: 0.95rem;
+}
+
+.DrugInteractionChecker_vsText__Rlzk9 {
+  color: #94a3b8;
+}
+
+.DrugInteractionChecker_severityBadge__2AiGp {
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.DrugInteractionChecker_enzymeTag__kaUHW {
+  font-size: 0.75rem;
+  color: #c084fc;
+}
+
+.DrugInteractionChecker_cardBody__Kjo8Q {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  line-height: 1.4;
+}
+
+.DrugInteractionChecker_cardBody__Kjo8Q p {
+  margin: 2px 0;
+}
+
+.DrugInteractionChecker_managementBox__19Y_F {
+  margin-top: 4px;
+  padding: 8px 12px;
+  background: rgba(147, 51, 234, 0.1);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #d8b4fe;
+  border: 1px solid rgba(147, 51, 234, 0.2);
+}
+
+.DrugInteractionChecker_emptyState__8tG_m {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px dashed #334155;
+  text-align: center;
+  color: #94a3b8;
+}
+

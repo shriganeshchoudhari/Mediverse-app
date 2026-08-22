@@ -1,0 +1,270 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./components/public-health/EpidemicOutbreakSimulator.module.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
+.EpidemicOutbreakSimulator_container__b9URY {
+  padding: 24px;
+  background: #0f172a;
+  border-radius: 12px;
+  color: #f1f5f9;
+  border: 1px solid #1e293b;
+  margin-bottom: 24px;
+}
+
+.EpidemicOutbreakSimulator_header__w7XAa {
+  margin-bottom: 16px;
+}
+
+.EpidemicOutbreakSimulator_title__J_g32 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #6366f1;
+  margin: 0 0 6px 0;
+}
+
+.EpidemicOutbreakSimulator_subtitle__i5DHs {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.EpidemicOutbreakSimulator_pathogenTabs__rXmqo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.EpidemicOutbreakSimulator_pathogenBtn__gWws_ {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.EpidemicOutbreakSimulator_pathogenBtn__gWws_:hover {
+  background: #334155;
+}
+
+.EpidemicOutbreakSimulator_activePathogenBtn__EIWB3 {
+  background: #4f46e5;
+  border-color: #6366f1;
+  color: #fff;
+}
+
+.EpidemicOutbreakSimulator_activePathogenBtn__EIWB3 strong {
+  color: #fff;
+}
+
+.EpidemicOutbreakSimulator_activePathogenBtn__EIWB3 small {
+  color: #e0e7ff;
+}
+
+.EpidemicOutbreakSimulator_layout__Fx__o {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .EpidemicOutbreakSimulator_layout__Fx__o {
+    grid-template-columns: 1fr;
+  }
+}
+
+.EpidemicOutbreakSimulator_visualCol__z_fRI,
+.EpidemicOutbreakSimulator_controlsCol__q9Gdb {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.EpidemicOutbreakSimulator_card__A_NjQ {
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.EpidemicOutbreakSimulator_cardHeader__nbSYU {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.EpidemicOutbreakSimulator_curveTitle__o8Xeu {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.EpidemicOutbreakSimulator_rBadge__dOkEg {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #6366f1;
+  background: #0f172a;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #334155;
+}
+
+.EpidemicOutbreakSimulator_curveSvgWrapper__SlKj7 {
+  display: flex;
+  justify-content: center;
+  background: #0f172a;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.EpidemicOutbreakSimulator_curveSvg__fva9J {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+}
+
+.EpidemicOutbreakSimulator_legendRow__Ecl41 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.75rem;
+  justify-content: center;
+}
+
+.EpidemicOutbreakSimulator_legendS__ZCI93 { color: #38bdf8; }
+.EpidemicOutbreakSimulator_legendI__1cxJe { color: #ef4444; }
+.EpidemicOutbreakSimulator_legendR__Ti8Na { color: #10b981; }
+.EpidemicOutbreakSimulator_legendICU__m68VR { color: #fbbf24; }
+
+.EpidemicOutbreakSimulator_icuAlert__1e5ag {
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.EpidemicOutbreakSimulator_icuRed__oPitN {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+}
+
+.EpidemicOutbreakSimulator_icuGreen__cCg_9 {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #a7f3d0;
+}
+
+.EpidemicOutbreakSimulator_label__8wmdL {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.EpidemicOutbreakSimulator_metricsGrid___Tow7 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.EpidemicOutbreakSimulator_metricBox__dEToe {
+  background: #0f172a;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.EpidemicOutbreakSimulator_metricVal__1bN3A {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #6366f1;
+}
+
+.EpidemicOutbreakSimulator_metricSub__XncOW {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.EpidemicOutbreakSimulator_cardHeading__HHKIE {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.EpidemicOutbreakSimulator_toggleItem__1Xxab {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #0f172a;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.EpidemicOutbreakSimulator_activeToggle__Okqax {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+.EpidemicOutbreakSimulator_checkbox___Nlab {
+  margin-top: 3px;
+  accent-color: #6366f1;
+}
+
+.EpidemicOutbreakSimulator_toggleItem__1Xxab div {
+  display: flex;
+  flex-direction: column;
+}
+
+.EpidemicOutbreakSimulator_toggleItem__1Xxab strong {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+.EpidemicOutbreakSimulator_toggleItem__1Xxab small {
+  font-size: 0.65rem;
+  color: #94a3b8;
+}
+
+.EpidemicOutbreakSimulator_sliderGroup__vcGAc {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.EpidemicOutbreakSimulator_sliderHeader__i_occ {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+.EpidemicOutbreakSimulator_sliderHeader__i_occ strong {
+  color: #6366f1;
+}
+
+.EpidemicOutbreakSimulator_rangeSlider__9Qc8V {
+  width: 100%;
+  accent-color: #4f46e5;
+  cursor: pointer;
+}
+
+.EpidemicOutbreakSimulator_sliderHint__ClVHu {
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+

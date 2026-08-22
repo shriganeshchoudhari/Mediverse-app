@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import styles from './VCICompetencyMap.module.css';
 import { BVSC_CURRICULUM } from '../../lib/curriculum/bvscCurriculumScaffold';

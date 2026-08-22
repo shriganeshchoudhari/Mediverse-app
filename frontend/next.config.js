@@ -19,6 +19,22 @@ const nextConfig = {
         source: '/api/:path*',
         destination: `${backendUrl}/api/:path*`,
       },
+      {
+        source: '/simulations/ecg',
+        destination: '/simulators/cardiac-cycle',
+      },
+      {
+        source: '/simulations/:path*',
+        destination: '/simulators/:path*',
+      },
+      {
+        source: '/healthcare/allopathic/mbbs',
+        destination: '/healthcare/allopathic',
+      },
+      {
+        source: '/healthcare/allopathic/md-ms',
+        destination: '/healthcare/allopathic',
+      },
     ];
   },
 };

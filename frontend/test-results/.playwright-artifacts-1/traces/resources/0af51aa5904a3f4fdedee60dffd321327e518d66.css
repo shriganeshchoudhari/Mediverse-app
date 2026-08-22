@@ -1,0 +1,288 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./components/dental/ToothMorphologyViewer.module.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************/
+.ToothMorphologyViewer_container__ChQFB {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background-color: #0f172a;
+  color: #f8fafc;
+  font-family: system-ui, -apple-system, sans-serif;
+  height: 100%;
+}
+
+.ToothMorphologyViewer_leftPanel__J_7T5 {
+  flex: 0 0 250px;
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.ToothMorphologyViewer_panelTitle__ry1wP {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+
+.ToothMorphologyViewer_arch__N545m {
+  margin-bottom: 24px;
+}
+
+.ToothMorphologyViewer_archTitle__RFepi {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+.ToothMorphologyViewer_toothGrid__e2LB8 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.ToothMorphologyViewer_toothBtn__mhp4u {
+  background: #334155;
+  border: 1px solid #475569;
+  color: #e2e8f0;
+  border-radius: 4px;
+  padding: 8px 0;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ToothMorphologyViewer_toothBtn__mhp4u:hover {
+  background: #475569;
+}
+
+.ToothMorphologyViewer_toothBtn__mhp4u.ToothMorphologyViewer_selected__wLJRh {
+  background: #3b82f6;
+  border-color: #60a5fa;
+  color: #fff;
+}
+
+.ToothMorphologyViewer_centerPanel__UVq3B {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.ToothMorphologyViewer_controlsTop__Rj7_X {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.ToothMorphologyViewer_tabBtn__0KP6Y {
+  background: #334155;
+  border: none;
+  color: #cbd5e1;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ToothMorphologyViewer_tabBtn__0KP6Y.ToothMorphologyViewer_activeTab__gIKgW {
+  background: #0ea5e9;
+  color: white;
+}
+
+.ToothMorphologyViewer_svgContainer__X_Kx7 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.ToothMorphologyViewer_svg__Ol2NO {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.ToothMorphologyViewer_layerToggles__G4BcK {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+.ToothMorphologyViewer_toggleLabel__kHWuW {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  cursor: pointer;
+}
+
+.ToothMorphologyViewer_rightPanel__VWh2g {
+  flex: 0 0 320px;
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.ToothMorphologyViewer_headerBox__oNLx2 h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+}
+
+.ToothMorphologyViewer_chips__Be0X9 {
+  display: flex;
+  gap: 8px;
+}
+
+.ToothMorphologyViewer_chip__zpnRl {
+  background: #334155;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.ToothMorphologyViewer_metricsGrid__DZqS3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.ToothMorphologyViewer_metricItem__gDclg {
+  background: #0f172a;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.ToothMorphologyViewer_metricLabel__uQhqh {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.ToothMorphologyViewer_metricValue__bithq {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.ToothMorphologyViewer_badge__bKtwE {
+  background: #1e1b4b;
+  color: #818cf8;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.ToothMorphologyViewer_infoBox__grCVs {
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.ToothMorphologyViewer_infoBox__grCVs h4 {
+  margin: 0 0 8px 0;
+  font-size: 0.9rem;
+}
+
+.ToothMorphologyViewer_infoBox__grCVs p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.ToothMorphologyViewer_pearlBox__gnMq7 {
+  background: rgba(217, 119, 6, 0.2);
+  color: #fcd34d;
+  border: 1px solid rgba(217, 119, 6, 0.3);
+}
+
+.ToothMorphologyViewer_anomalyBox__i0jbI {
+  background: rgba(225, 29, 72, 0.2);
+  color: #fda4af;
+  border: 1px solid rgba(225, 29, 72, 0.3);
+}
+
+.ToothMorphologyViewer_extractionBox___zTRp {
+  background: rgba(13, 148, 136, 0.2);
+  color: #5eead4;
+  border: 1px solid rgba(13, 148, 136, 0.3);
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./components/WebGLErrorBoundary.module.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************/
+.WebGLErrorBoundary_fallback__tItDm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(51, 65, 85, 0.6);
+  border-radius: 12px;
+  padding: 2.5rem;
+  text-align: center;
+  gap: 1rem;
+}
+
+.WebGLErrorBoundary_icon__g3Dat {
+  font-size: 3rem;
+  opacity: 0.7;
+}
+
+.WebGLErrorBoundary_title__GnJy7 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0;
+}
+
+.WebGLErrorBoundary_description__I3_mB {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  max-width: 420px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.WebGLErrorBoundary_error__9kxxK {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-family: monospace;
+  background: rgba(0,0,0,0.3);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.WebGLErrorBoundary_retryBtn__j6ihQ {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  border-radius: 8px;
+  color: #93c5fd;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.WebGLErrorBoundary_retryBtn__j6ihQ:hover {
+  background: rgba(59, 130, 246, 0.25);
+}
+

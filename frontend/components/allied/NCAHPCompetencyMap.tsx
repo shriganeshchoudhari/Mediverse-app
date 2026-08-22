@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import styles from './NCAHPCompetencyMap.module.css';
 import { ALLIED_HEALTH_MAJORS } from '../../lib/curriculum/alliedHealthCurriculumScaffold';

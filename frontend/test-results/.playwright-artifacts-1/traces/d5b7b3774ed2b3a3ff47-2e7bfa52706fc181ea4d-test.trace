@@ -1,0 +1,41 @@
+{"version":8,"type":"context-options","origin":"testRunner","browserName":"","playwrightVersion":"1.62.1","options":{},"platform":"win32","wallTime":1787415865317,"monotonicTime":1396919.064,"sdkLanguage":"javascript"}
+{"type":"before","callId":"hook@1","stepId":"hook@1","startTime":1396920.43,"class":"Test","method":"hook","title":"Before Hooks","params":{},"stack":[]}
+{"type":"before","callId":"fixture@22","stepId":"fixture@22","parentId":"hook@1","startTime":1396932.118,"class":"Test","method":"fixture","title":"Fixture \"context\"","params":{},"stack":[]}
+{"type":"before","callId":"pw:api@23","stepId":"pw:api@23","parentId":"fixture@22","startTime":1396934.389,"class":"Test","method":"pw:api","title":"Create context","params":{"recordVideo":"Object","selectorEngines":"[]","testIdAttributeName":"data-testid","acceptDownloads":"accept","bypassCSP":"false","colorScheme":"light","deviceScaleFactor":"1","hasTouch":"false","ignoreHTTPSErrors":"false","isMobile":"false","javaScriptEnabled":"true","locale":"en-US","offline":"false","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36","viewport":"Object","baseURL":"http://127.0.0.1:3000","serviceWorkers":"allow","noDefaultViewport":"false","extraHTTPHeaders":"undefined","storageState":"undefined","reducedMotion":"undefined","forcedColors":"undefined","contrast":"undefined","clientCertificates":"undefined"},"stack":[]}
+{"type":"after","callId":"pw:api@23","endTime":1396945.055,"annotations":[]}
+{"type":"after","callId":"fixture@22","endTime":1396949.958,"annotations":[]}
+{"type":"before","callId":"fixture@24","stepId":"fixture@24","parentId":"hook@1","startTime":1396950.825,"class":"Test","method":"fixture","title":"Fixture \"page\"","params":{},"stack":[]}
+{"type":"before","callId":"pw:api@25","stepId":"pw:api@25","parentId":"fixture@24","startTime":1396952.868,"class":"Test","method":"pw:api","title":"Create page","params":{},"stack":[]}
+{"type":"after","callId":"pw:api@25","endTime":1397070.149,"annotations":[]}
+{"type":"after","callId":"fixture@24","endTime":1397070.518,"annotations":[]}
+{"type":"after","callId":"hook@1","endTime":1397070.705,"annotations":[]}
+{"type":"before","callId":"pw:api@26","stepId":"pw:api@26","startTime":1397072.54,"class":"Test","method":"pw:api","title":"Navigate to \"/healthcare/dental/tooth-morphology\"","params":{"url":"/healthcare/dental/tooth-morphology","waitUntil":"load"},"stack":[{"file":"F:\\Mediverse-app\\frontend\\e2e\\specs\\04_domain_dental.spec.ts","line":5,"column":16}]}
+{"type":"after","callId":"pw:api@26","endTime":1398313.386,"annotations":[]}
+{"type":"before","callId":"expect@27","stepId":"expect@27","startTime":1398314.931,"class":"Test","method":"expect","title":"Expect \"toContainText\"","params":{"expected":"Object"},"stack":[{"file":"F:\\Mediverse-app\\frontend\\e2e\\specs\\04_domain_dental.spec.ts","line":6,"column":50}]}
+{"type":"after","callId":"expect@27","endTime":1398359.694,"annotations":[]}
+{"type":"before","callId":"expect@28","stepId":"expect@28","startTime":1398361.015,"class":"Test","method":"expect","title":"Expect \"toBeVisible\"","params":{},"stack":[{"file":"F:\\Mediverse-app\\frontend\\e2e\\specs\\04_domain_dental.spec.ts","line":7,"column":120}]}
+{"type":"after","callId":"expect@28","endTime":1398378.473,"annotations":[]}
+{"type":"before","callId":"hook@29","stepId":"hook@29","startTime":1398379.11,"class":"Test","method":"hook","title":"After Hooks","params":{},"stack":[]}
+{"type":"before","callId":"fixture@30","stepId":"fixture@30","parentId":"hook@29","startTime":1398379.919,"class":"Test","method":"fixture","title":"Fixture \"page\"","params":{},"stack":[]}
+{"type":"after","callId":"fixture@30","endTime":1398380.053,"annotations":[]}
+{"type":"before","callId":"fixture@31","stepId":"fixture@31","parentId":"hook@29","startTime":1398380.406,"class":"Test","method":"fixture","title":"Fixture \"context\"","params":{},"stack":[]}
+{"type":"before","callId":"pw:api@32","stepId":"pw:api@32","parentId":"fixture@31","startTime":1398983.485,"class":"Test","method":"pw:api","title":"Close context","params":{"reason":"Test ended."},"stack":[]}
+{"type":"after","callId":"pw:api@32","endTime":1399089.674,"annotations":[]}
+{"type":"after","callId":"fixture@31","endTime":1399089.944,"annotations":[]}
+{"type":"before","callId":"fixture@36","stepId":"fixture@36","parentId":"hook@29","startTime":1399091.059,"class":"Test","method":"fixture","title":"Fixture \"navigationTimeout\"","params":{},"stack":[{"file":"project#Desktop Chromium","line":1,"column":1}],"group":"configuration"}
+{"type":"after","callId":"fixture@36","endTime":1399091.109,"annotations":[]}
+{"type":"before","callId":"fixture@41","stepId":"fixture@41","parentId":"hook@29","startTime":1399092.414,"class":"Test","method":"fixture","title":"Fixture \"baseURL\"","params":{},"stack":[{"file":"project#Desktop Chromium","line":1,"column":1}],"group":"configuration"}
+{"type":"after","callId":"fixture@41","endTime":1399092.469,"annotations":[]}
+{"type":"before","callId":"fixture@42","stepId":"fixture@42","parentId":"hook@29","startTime":1399092.621,"class":"Test","method":"fixture","title":"Fixture \"userAgent\"","params":{},"stack":[{"file":"project#Desktop Chromium","line":1,"column":1}],"group":"configuration"}
+{"type":"after","callId":"fixture@42","endTime":1399092.646,"annotations":[]}
+{"type":"before","callId":"fixture@44","stepId":"fixture@44","parentId":"hook@29","startTime":1399092.983,"class":"Test","method":"fixture","title":"Fixture \"viewport\"","params":{},"stack":[{"file":"project#Desktop Chromium","line":1,"column":1}],"group":"configuration"}
+{"type":"after","callId":"fixture@44","endTime":1399093.041,"annotations":[]}
+{"type":"before","callId":"fixture@51","stepId":"fixture@51","parentId":"hook@29","startTime":1399094.273,"class":"Test","method":"fixture","title":"Fixture \"isMobile\"","params":{},"stack":[{"file":"project#Desktop Chromium","line":1,"column":1}],"group":"configuration"}
+{"type":"after","callId":"fixture@51","endTime":1399094.306,"annotations":[]}
+{"type":"before","callId":"fixture@55","stepId":"fixture@55","parentId":"hook@29","startTime":1399095.075,"class":"Test","method":"fixture","title":"Fixture \"hasTouch\"","params":{},"stack":[{"file":"project#Desktop Chromium","line":1,"column":1}],"group":"configuration"}
+{"type":"after","callId":"fixture@55","endTime":1399095.113,"annotations":[]}
+{"type":"before","callId":"fixture@57","stepId":"fixture@57","parentId":"hook@29","startTime":1399095.502,"class":"Test","method":"fixture","title":"Fixture \"deviceScaleFactor\"","params":{},"stack":[{"file":"project#Desktop Chromium","line":1,"column":1}],"group":"configuration"}
+{"type":"after","callId":"fixture@57","endTime":1399095.541,"annotations":[]}
+{"type":"after","callId":"hook@29","endTime":1399096.504,"annotations":[]}
+{"type":"before","callId":"attach@4a4b4fb83035dedc663165ea5b97dbf8","stepId":"attach@4a4b4fb83035dedc663165ea5b97dbf8","startTime":1399634.443,"class":"Test","method":"test.attach","title":"Attach \"trace\"","params":{},"stack":[]}
+{"type":"after","callId":"attach@4a4b4fb83035dedc663165ea5b97dbf8","endTime":1399634.716,"attachments":[]}

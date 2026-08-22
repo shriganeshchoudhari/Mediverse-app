@@ -1,0 +1,242 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./components/nursing/NEWS2Simulator.module.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************/
+.NEWS2Simulator_container__btmtB {
+  padding: 24px;
+  background: #0f172a;
+  border-radius: 12px;
+  color: #f1f5f9;
+  border: 1px solid #1e293b;
+  margin-bottom: 24px;
+}
+
+.NEWS2Simulator_header__Z2Gr_ {
+  margin-bottom: 16px;
+}
+
+.NEWS2Simulator_title__1NsxX {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f472b6;
+  margin: 0 0 6px 0;
+}
+
+.NEWS2Simulator_subtitle__U_Uw0 {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.NEWS2Simulator_presetRow__H5c8s {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 12px;
+  background: #1e293b;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.NEWS2Simulator_presetLabel__jzlDm {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.NEWS2Simulator_presetBtn__V2q0K {
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  background: #0f172a;
+  border: 1px solid #475569;
+  color: #cbd5e1;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.NEWS2Simulator_presetBtn__V2q0K:hover {
+  background: #334155;
+  border-color: #94a3b8;
+}
+
+.NEWS2Simulator_layout__New4V {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .NEWS2Simulator_layout__New4V {
+    grid-template-columns: 1fr;
+  }
+}
+
+.NEWS2Simulator_slidersPanel__gw__O,
+.NEWS2Simulator_resultsPanel__Xmdcd {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.NEWS2Simulator_panelTitle__1mQPE {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.NEWS2Simulator_formGroup__BRKZW {
+  background: #1e293b;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.NEWS2Simulator_labelRow__Zl0_v {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+.NEWS2Simulator_valBadge__NZRsP {
+  font-weight: 700;
+  color: #38bdf8;
+  font-size: 0.85rem;
+}
+
+.NEWS2Simulator_valBadge__NZRsP small {
+  color: #f472b6;
+}
+
+.NEWS2Simulator_slider__W1YcY {
+  width: 100%;
+  accent-color: #ec4899;
+  cursor: pointer;
+}
+
+.NEWS2Simulator_subCheck__gT3WS {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+.NEWS2Simulator_subCheck__gT3WS label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.NEWS2Simulator_btnToggleRow__UQRpL {
+  display: flex;
+  gap: 8px;
+}
+
+.NEWS2Simulator_toggleBtn__n06AG {
+  flex: 1;
+  padding: 6px;
+  font-size: 0.75rem;
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #94a3b8;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.NEWS2Simulator_activeToggle__aXtcP {
+  background: #0284c7;
+  border-color: #38bdf8;
+  color: #fff;
+  font-weight: 600;
+}
+
+.NEWS2Simulator_card__f7GF6 {
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.NEWS2Simulator_label__oAtow {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.NEWS2Simulator_scoreVal__ZtIjE {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #f1f5f9;
+  line-height: 1;
+}
+
+.NEWS2Simulator_scoreVal__ZtIjE small {
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 400;
+}
+
+.NEWS2Simulator_tierBadge__oA7u4 {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.NEWS2Simulator_high__41l95 { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+.NEWS2Simulator_medium__SRbqn { background: rgba(249, 115, 22, 0.2); color: #fb923c; border: 1px solid rgba(249, 115, 22, 0.4); }
+.NEWS2Simulator_lowmedium__tftUh { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+.NEWS2Simulator_low___1Msl { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+
+.NEWS2Simulator_protocolBox__f1bdL {
+  background: #0f172a;
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 3px solid #f472b6;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+.NEWS2Simulator_protocolBox__f1bdL p {
+  margin: 4px 0 0 0;
+  line-height: 1.4;
+}
+
+.NEWS2Simulator_sbarContainer__J40Ep {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.NEWS2Simulator_sbarItem__kH3Xq {
+  background: #0f172a;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.NEWS2Simulator_sbarTag__RzHy1 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #38bdf8;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.NEWS2Simulator_sbarItem__kH3Xq p {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.4;
+}
+

@@ -43,7 +43,7 @@ describe("E2E Non-Functional: Performance, Latency & Throughput Benchmarks (NFR-
         preloadEDV: (100 + (i % 50)) as any,
         afterloadSVR: 80 as any,
         inotropyEes: 2.5,
-        heartRate: 75,
+        heartRate: 75 as any,
       });
     }
 

@@ -1,0 +1,228 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./components/ayush/PrakritiAssessmentViewer.module.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************/
+.PrakritiAssessmentViewer_container__roOCF {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  color: #fff;
+  background-color: #121212;
+  border-radius: 8px;
+}
+
+.PrakritiAssessmentViewer_title__ZaLmD {
+  margin: 0;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+
+.PrakritiAssessmentViewer_progressSection__3_LwK {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.PrakritiAssessmentViewer_progressText__t_7F0 {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.PrakritiAssessmentViewer_progressBarBg__Dn8IX {
+  width: 100%;
+  height: 8px;
+  background-color: #333;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.PrakritiAssessmentViewer_progressBarFill__PRXSC {
+  height: 100%;
+  background-color: #3b82f6;
+  transition: width 0.3s ease;
+}
+
+.PrakritiAssessmentViewer_layout___MkeJ {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .PrakritiAssessmentViewer_layout___MkeJ {
+    grid-template-columns: 1fr;
+  }
+}
+
+.PrakritiAssessmentViewer_questionnaire__MDP4C {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.PrakritiAssessmentViewer_tabs__WM6eq {
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+  overflow-x: auto;
+}
+
+.PrakritiAssessmentViewer_tabBtn__aztGG {
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.PrakritiAssessmentViewer_tabBtn__aztGG:hover {
+  color: #fff;
+}
+
+.PrakritiAssessmentViewer_activeTab__8uy3t {
+  color: #fff;
+  border-bottom: 2px solid #3b82f6;
+}
+
+.PrakritiAssessmentViewer_questionList__UahNc {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.PrakritiAssessmentViewer_questionCard__sCfYC {
+  background-color: #1e1e1e;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.PrakritiAssessmentViewer_questionText__nOa3Z {
+  margin: 0 0 10px 0;
+  font-weight: 500;
+}
+
+.PrakritiAssessmentViewer_optionsGrid__Jac0f {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.PrakritiAssessmentViewer_optionBtn__eP47U {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  color: #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.PrakritiAssessmentViewer_optionBtn__eP47U:hover {
+  background-color: #3a3a3a;
+}
+
+.PrakritiAssessmentViewer_selectedVata__8rNks { background-color: rgba(56, 189, 248, 0.2); border-color: #38bdf8; color: #38bdf8; }
+.PrakritiAssessmentViewer_selectedPitta__70Ugk { background-color: rgba(245, 158, 11, 0.2); border-color: #f59e0b; color: #f59e0b; }
+.PrakritiAssessmentViewer_selectedKapha__coe97 { background-color: rgba(16, 185, 129, 0.2); border-color: #10b981; color: #10b981; }
+
+.PrakritiAssessmentViewer_resultsPanel__0oLP0 {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.PrakritiAssessmentViewer_resultsPanel__0oLP0 h3 {
+  margin: 0;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+}
+
+.PrakritiAssessmentViewer_dials__A3SPM {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.PrakritiAssessmentViewer_dial__mUsoo span {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.PrakritiAssessmentViewer_barBg__9NC6K {
+  width: 100%;
+  height: 8px;
+  background-color: #333;
+  border-radius: 4px;
+}
+
+.PrakritiAssessmentViewer_barFill__UTieh {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.PrakritiAssessmentViewer_badgeContainer__swyAI {
+  display: flex;
+  justify-content: center;
+}
+
+.PrakritiAssessmentViewer_dominantBadge__NBa5Q {
+  background-color: #3b82f6;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.PrakritiAssessmentViewer_recommendations__6JQYH h4 {
+  margin: 10px 0 5px;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.PrakritiAssessmentViewer_recommendations__6JQYH p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.PrakritiAssessmentViewer_presets__ClK0l {
+  border-top: 1px solid #444;
+  padding-top: 15px;
+}
+
+.PrakritiAssessmentViewer_presets__ClK0l h4 {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+}
+
+.PrakritiAssessmentViewer_presets__ClK0l button {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 0 5px 5px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.PrakritiAssessmentViewer_presets__ClK0l button:hover {
+  background-color: #3a3a3a;
+}
+

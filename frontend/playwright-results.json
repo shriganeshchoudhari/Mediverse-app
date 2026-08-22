@@ -1,0 +1,916 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "F:\\Mediverse-app\\frontend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--project=Desktop Chromium"
+    ],
+    "configFile": "F:\\Mediverse-app\\frontend\\playwright.config.ts",
+    "rootDir": "F:/Mediverse-app/frontend/e2e/specs",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "F:/Mediverse-app/frontend/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Desktop Chromium",
+        "name": "Desktop Chromium",
+        "testDir": "F:/Mediverse-app/frontend/e2e/specs",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "F:/Mediverse-app/frontend/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Mobile Chrome (Pixel 5)",
+        "name": "Mobile Chrome (Pixel 5)",
+        "testDir": "F:/Mediverse-app/frontend/e2e/specs",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "F:/Mediverse-app/frontend/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Mobile Safari (iPhone 13)",
+        "name": "Mobile Safari (iPhone 13)",
+        "testDir": "F:/Mediverse-app/frontend/e2e/specs",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "playwright-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "01_auth_navigation.spec.ts",
+      "file": "01_auth_navigation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "SPEC 01: Authentication & Navigation Shell",
+          "file": "01_auth_navigation.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "AUTH-001 & NAV-001: Header Topbar is unique and renders branding cleanly",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Chromium",
+                  "projectName": "Desktop Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1952,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-22T16:20:48.981Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a22ca8284089a4eefe2b-d831de29b270bde3f29d",
+              "file": "01_auth_navigation.spec.ts",
+              "line": 5,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "02_global_search_socratic.spec.ts",
+      "file": "02_global_search_socratic.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "SPEC 02: Global Search & Socratic AI Tutor",
+          "file": "02_global_search_socratic.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "SEARCH-001 & SOC-001: Global search keyboard shortcut triggers modal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Chromium",
+                  "projectName": "Desktop Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2677,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-22T16:20:51.193Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e197a62f9fd0514e17eb-b207e55ca9a52ed701ce",
+              "file": "02_global_search_socratic.spec.ts",
+              "line": 5,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "03_domain_allopathic.spec.ts",
+      "file": "03_domain_allopathic.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "SPEC 03: Domain 1 — Allopathic Medicine (MBBS / MD / MS)",
+          "file": "03_domain_allopathic.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "ALLO-001: MBBS curriculum portal renders professional phases",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Chromium",
+                  "projectName": "Desktop Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1727,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-22T16:20:53.907Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2f8a74a0884d71528a5f-a179f0ea7f9d94c8795b",
+              "file": "03_domain_allopathic.spec.ts",
+              "line": 5,
+              "column": 7
+            },
+            {
+              "title": "ALLO-005: Cardiac Cycle Simulator and ECG waveform interactives",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Chromium",
+                  "projectName": "Desktop Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2365,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-22T16:20:55.658Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2f8a74a0884d71528a5f-d752404c5bfec1ae3f7f",
+              "file": "03_domain_allopathic.spec.ts",
+              "line": 11,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "04_domain_dental.spec.ts",
+      "file": "04_domain_dental.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "SPEC 04: Domain 2 — Dental Sciences (BDS / MDS)",
+          "file": "04_domain_dental.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "DENT-001 & DENT-004: BDS portal and 3D Tooth Morphology",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Chromium",
+                  "projectName": "Desktop Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1850,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-22T16:20:58.063Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d5b7b3774ed2b3a3ff47-2e7bfa52706fc181ea4d",
+              "file": "04_domain_dental.spec.ts",
+              "line": 4,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "05_domain_ayush.spec.ts",
+      "file": "05_domain_ayush.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "SPEC 05: Domain 3 — AYUSH (BAMS, BHMS, BNYS, BUMS, BSMS)",
+          "file": "05_domain_ayush.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "AYUSH-001 & AYUSH-007: BAMS portal and Prakriti assessment",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Chromium",
+                  "projectName": "Desktop Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1839,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-22T16:20:59.946Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2cebb2ec1af9268f0f36-7c9e9d5ac91c2e696816",
+              "file": "05_domain_ayush.spec.ts",
+              "line": 4,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "06_domain_pharmacy.spec.ts",
+      "file": "06_domain_pharmacy.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "SPEC 06: Domain 4 — Pharmacy (B.Pharm, M.Pharm, Pharm.D)",
+          "file": "06_domain_pharmacy.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "PHARM-001 & PHARM-004: B.Pharm portal and Drug Interaction analyzer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Chromium",
+                  "projectName": "Desktop Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1516,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-22T16:21:01.818Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e81edc150ae004b5bbe-1f6c5a95922648e33762",
+              "file": "06_domain_pharmacy.spec.ts",
+              "line": 4,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "07_domain_nursing.spec.ts",
+      "file": "07_domain_nursing.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "SPEC 07: Domain 5 — Nursing Sciences (B.Sc / M.Sc Nursing)",
+          "file": "07_domain_nursing.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "NURS-001 & NURS-003: Nursing portal and NEWS2 Deterioration Score",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Chromium",
+                  "projectName": "Desktop Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1965,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-22T16:21:03.361Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f2efc2bfde41c0aaf43e-f2778d5b7db2448c6bdc",
+              "file": "07_domain_nursing.spec.ts",
+              "line": 4,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "08_domain_physiotherapy.spec.ts",
+      "file": "08_domain_physiotherapy.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "SPEC 08: Domain 6 — Physiotherapy & Rehabilitation (BPT / MPT)",
+          "file": "08_domain_physiotherapy.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "PT-001 & PT-003: BPT portal and Gait Cycle pathological simulator",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Chromium",
+                  "projectName": "Desktop Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4229,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-22T16:21:05.360Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d3a3146c9a4bc4e00dff-707bae97bc8a677769a3",
+              "file": "08_domain_physiotherapy.spec.ts",
+              "line": 4,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "09_domain_allied_health.spec.ts",
+      "file": "09_domain_allied_health.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "SPEC 09: Domain 7 — Allied Health (Perfusion, Radiology, Dialysis, OT)",
+          "file": "09_domain_allied_health.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "ALLIED-001 & ALLIED-002: Allied Health curriculum and ECMO circuit simulator",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Chromium",
+                  "projectName": "Desktop Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1605,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-22T16:21:09.621Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "172ed2476afe592685d6-b93c0f12b56d07f4746c",
+              "file": "09_domain_allied_health.spec.ts",
+              "line": 4,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "10_domain_veterinary.spec.ts",
+      "file": "10_domain_veterinary.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "SPEC 10: Domain 8 — Veterinary Science (BVSc & AH / MVSc)",
+          "file": "10_domain_veterinary.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "VET-001 & VET-003: BVSc portal and Comparative Anatomy multi-species viewer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Chromium",
+                  "projectName": "Desktop Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1628,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-22T16:21:11.251Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dc1cc76b74c05abd9a81-9a0f1e8fca5afb827bfd",
+              "file": "10_domain_veterinary.spec.ts",
+              "line": 4,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "11_domain_public_health.spec.ts",
+      "file": "11_domain_public_health.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "SPEC 11: Domain 9 — Public Health & Hospital Admin (MPH / MHA)",
+          "file": "11_domain_public_health.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "PUB-001 & PUB-003: MPH portal and Epidemic Outbreak SEIR simulator",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Chromium",
+                  "projectName": "Desktop Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1639,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-22T16:21:12.906Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "312c7fe2339720549995-519ff2b1b69458d0eeb0",
+              "file": "11_domain_public_health.spec.ts",
+              "line": 4,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "12_collaborative_study_rooms.spec.ts",
+      "file": "12_collaborative_study_rooms.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "SPEC 12: Collaborative Study Rooms & WebRTC/3D Sync",
+          "file": "12_collaborative_study_rooms.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "ROOM-001 & ROOM-002: Live study room entry, Presenter claim and chat",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Chromium",
+                  "projectName": "Desktop Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2281,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-22T16:21:14.576Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ff137404586a8b2f29fd-efdec6ab926e42aa4f9b",
+              "file": "12_collaborative_study_rooms.spec.ts",
+              "line": 6,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "13_exam_and_osce.spec.ts",
+      "file": "13_exam_and_osce.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "SPEC 13: Assessment Engine & OSCE Stations",
+          "file": "13_exam_and_osce.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "EXAM-001 & EXAM-003: OSCE Station evaluation and rubric scoring",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Chromium",
+                  "projectName": "Desktop Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1705,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-22T16:21:16.896Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "01949f3bd31a99f2a33e-bed872b5e4ecd346f433",
+              "file": "13_exam_and_osce.spec.ts",
+              "line": 5,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "14_cms_curriculum_authoring.spec.ts",
+      "file": "14_cms_curriculum_authoring.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "SPEC 14: CMS Lesson Editor & Taxonomy Tree",
+          "file": "14_cms_curriculum_authoring.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "CMS-001 & CMS-002: CMS authoring interfaces",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Chromium",
+                  "projectName": "Desktop Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1642,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-22T16:21:18.634Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "09648a05a7033cde1bce-0803926223900c86c865",
+              "file": "14_cms_curriculum_authoring.spec.ts",
+              "line": 5,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "15_accessibility_and_responsive.spec.ts",
+      "file": "15_accessibility_and_responsive.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "SPEC 15: Accessibility & Responsive Layouts",
+          "file": "15_accessibility_and_responsive.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "A11Y-001 & RESP-001: Mobile viewport responsive rendering",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Desktop Chromium",
+                  "projectName": "Desktop Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1364,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-08-22T16:21:20.306Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "06cf40d0b65a21657618-af19791999953dd23ab0",
+              "file": "15_accessibility_and_responsive.spec.ts",
+              "line": 4,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-08-22T16:20:47.795Z",
+    "duration": 34116.255999999994,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
