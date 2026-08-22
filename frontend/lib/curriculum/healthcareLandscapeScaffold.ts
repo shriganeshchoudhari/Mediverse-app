@@ -68,7 +68,7 @@ const allopathicDomain: HealthcareDomain = {
       description: '19 core disciplines across 9 semesters — preclinical, paraclinical, and clinical rotations with NMC CBME curriculum.',
       regulatoryBody: 'NMC (National Medical Commission)',
       competencyPrefix: 'PY / AN / BI / PA / MI / PH / FM / CM',
-      routePath: '/subjects',
+      routePath: '/healthcare/allopathic/mbbs',
       available: true,
     },
     {
@@ -79,7 +79,7 @@ const allopathicDomain: HealthcareDomain = {
       description: 'Postgraduate residency across 12 super-specialties including Critical Care, Cardiology, and Neurology.',
       regulatoryBody: 'NMC',
       competencyPrefix: 'PG',
-      routePath: '/healthcare/allopathic',
+      routePath: '/healthcare/allopathic/md-ms',
       available: true,
     },
     {

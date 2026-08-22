@@ -15,7 +15,7 @@ export default function MHAPage() {
   const subjectsForYear = mhaCurriculum?.filter(subject => subject.year === activeYear) || [];
 
   return (
-    <div className="p-8">
+    <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 pb-20">
       <h1 className="text-3xl font-bold mb-4">Master of Hospital Administration (MHA)</h1>
 
       <div className="mb-4 border-b">
@@ -37,12 +37,12 @@ export default function MHAPage() {
         {subjectsForYear.map(subject => (
           <div key={subject.id} className="border p-4 rounded shadow-sm">
             <h3 className="text-xl font-semibold">{subject.name} ({subject.code})</h3>
-            <p className="text-gray-600 mb-2">{subject.description}</p>
+            <p className="text-slate-400 mb-2">{subject.description}</p>
             <p className="text-sm font-medium mb-2">Credits: {subject.creditHours}</p>
             <ul className="list-disc pl-5">
               {subject.lessons.map(lesson => (
                 <li key={lesson.id} className="mb-1">
-                  {lesson.title} - <span className="text-gray-500 text-sm">{lesson.description}</span>
+                  {lesson.title} - <span className="text-slate-400 text-sm">{lesson.description}</span>
                 </li>
               ))}
             </ul>

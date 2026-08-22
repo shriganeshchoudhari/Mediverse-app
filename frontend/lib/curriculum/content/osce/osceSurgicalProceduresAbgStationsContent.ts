@@ -41,19 +41,20 @@ Technical procedural precision in basic surgical wound closure combined with rap
    - Enter far ($4-8\\text{ mm}$) from wound edge $\\rightarrow$ pass deep $\\rightarrow$ exit far $\\rightarrow$ backhand enter near ($1-2\\text{ mm}$) $\\rightarrow$ pass superficial $\\rightarrow$ exit near $\\rightarrow$ tie knot.
 4. **Horizontal Mattress Suture**: Eversion with broad tension distribution (fragile skin, palm/sole).
 5. **Knot Tying (Square Knot / Instrument Tie)**:
-   - Double throw forward (Surgeon\'s knot) $\\rightarrow$ pull flat $\\rightarrow$ single throw backward $\\rightarrow$ square the knot $\\rightarrow$ single throw forward. Minimum **3 to 4 throws for braided** sutures; **5 to 6 throws for monofilament** sutures (Nylon/Prolene have high memory).
+   - Double throw forward (Surgeon\\'s knot) $\\rightarrow$ pull flat $\\rightarrow$ single throw backward $\\rightarrow$ square the knot $\\rightarrow$ single throw forward. Minimum **3 to 4 throws for braided** sutures; **5 to 6 throws for monofilament** sutures (Nylon/Prolene have high memory).
 
 ---
 
 ## 2. OSCE Station 6: Stepwise Arterial Blood Gas (ABG) Diagnostic Algorithm
 
-$$\\begin{array}{rcl}
-\\text{Step 1: Check } pH & \\longrightarrow & \\text{Acidemia } (pH < 7.35) \\text{ vs Alkalemia } (pH > 7.45) \\\\
-\\text{Step 2: Check } PaCO_2 \\text{ and } [HCO_3^-] & \\longrightarrow & \\text{Determine Primary Metabolic vs Respiratory Disorder} \\\\
-\\text{Step 3: Calculate Serum Anion Gap (AG)} & \\longrightarrow & \\mathbf{AG = [Na^+] - ([Cl^-] + [HCO_3^-])} \\quad (\\text{Normal: } 8 - 12\\text{ mEq/L}) \\\\
-\\text{Step 4: Check Respiratory Compensation} & \\longrightarrow & \\mathbf{\\text{Winter\'s Formula: Expected } PaCO_2 = 1.5 \\times [HCO_3^-] + 8 \\pm 2} \\\\
-\\text{Step 5: Check Delta-Delta Ratio } (\\Delta-\\Delta) & \\longrightarrow & \\mathbf{\\frac{\\Delta AG}{\\Delta HCO_3^-} = \\frac{AG - 12}{24 - [HCO_3^-]}} \\quad (<0.8 \\implies \\text{NAGMA; } >2.0 \\implies \\text{Metabolic Alkalosis})
-\\end{array}$$
+- **Step 1: Check pH** $\implies$ Acidemia ($\text{pH} < 7.35$) vs Alkalemia ($\text{pH} > 7.45$)
+- **Step 2: Check $\text{PaCO}_2$ and $[\text{HCO}_3^-]$** $\implies$ Determine Primary Metabolic vs Respiratory Disorder
+- **Step 3: Calculate Serum Anion Gap (AG)**:
+  $$\text{AG} = [\text{Na}^+] - ([\text{Cl}^-] + [\text{HCO}_3^-]) \quad (\text{Normal: } 8 - 12\text{ mEq/L})$$
+- **Step 4: Check Respiratory Compensation (Winter's Formula)**:
+  $$\text{Expected PaCO}_2 = 1.5 \times [\text{HCO}_3^-] + 8 \pm 2$$
+- **Step 5: Check Delta-Delta Ratio ($\Delta\text{-}\Delta$)**:
+  $$\frac{\Delta \text{AG}}{\Delta \text{HCO}_3^-} = \frac{\text{AG} - 12}{24 - [\text{HCO}_3^-]} \quad (<0.8 \implies \text{NAGMA; } >2.0 \implies \text{Metabolic Alkalosis})$$
 
 | Primary Acid-Base Disturbance | Primary Alteration | Secondary Expected Compensation | Classic Clinical Causes |
 | :--- | :--- | :--- | :--- |

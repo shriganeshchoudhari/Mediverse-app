@@ -8,6 +8,7 @@ import {
   getAnatomyModuleById,
 } from "../../lib/curriculum/content/anatomy";
 import Link from "next/link";
+import MarkdownRenderer from "../../components/common/MarkdownRenderer";
 import {
   Layers,
   BookOpen,
@@ -38,7 +39,7 @@ export default function DissectionLabPage() {
               🦴 Human Anatomy & Histology (ANAT-101)
             </h1>
             <p className="text-slate-400 text-sm sm:text-base max-w-2xl mt-2 leading-relaxed">
-              Interactive 5-layer dissection peeling (Skin $\rightarrow$ Fascia $\rightarrow$ Muscular $\rightarrow$ Neurovascular $\rightarrow$ Skeletal), multi-planar clipping shaders, and high-yield landmark pin inspection.
+              Interactive 5-layer dissection peeling (Skin → Fascia → Muscular → Neurovascular → Skeletal), multi-planar clipping shaders, and high-yield landmark pin inspection.
             </p>
           </div>
 
@@ -83,8 +84,8 @@ export default function DissectionLabPage() {
             </div>
 
             {/* Markdown Content Excerpt */}
-            <div className="prose prose-invert max-w-none text-slate-300 text-sm leading-relaxed whitespace-pre-wrap font-sans bg-slate-950/60 p-5 rounded-xl border border-slate-800/80 max-h-96 overflow-y-auto">
-              {activeModule.markdownContent}
+            <div className="bg-slate-950/60 p-5 rounded-xl border border-slate-800/80 max-h-96 overflow-y-auto">
+              <MarkdownRenderer content={activeModule.markdownContent} />
             </div>
 
             {/* Clinical Vignette Card */}

@@ -316,10 +316,10 @@ export default function SpirometryLab() {
             {/* Pathophysiology explanation */}
             <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
               <h3 className="text-white font-bold mb-3">Pathophysiology Guide</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                By comparing the patient's loops with the **Normal Control (Ref)**, we can analyze changes in compliance and resistance. 
-                In **obstruction** (e.g. Asthma), a reduced radius increases resistance, causing a characteristic *scooped-out* expiratory curve. 
-                In **restriction** (e.g. Fibrosis), a loss of compliance limits lung expansion, resulting in a compressed, narrow loop that preserves the slope (normal ratio) but severely limits the maximum volume (FVC).
+              <p className="text-slate-400 text-sm leading-relaxed space-y-2">
+                By comparing the patient's loops with the <strong className="text-white font-semibold">Normal Control (Ref)</strong>, we can analyze changes in compliance and resistance. 
+                In <strong className="text-white font-semibold">obstruction</strong> (e.g. Asthma), a reduced radius increases resistance, causing a characteristic <em className="text-sky-300 not-italic font-medium">scooped-out</em> expiratory curve. 
+                In <strong className="text-white font-semibold">restriction</strong> (e.g. Fibrosis), a loss of compliance limits lung expansion, resulting in a compressed, narrow loop that preserves the slope (normal ratio) but severely limits the maximum volume (FVC).
               </p>
             </div>
           </div>

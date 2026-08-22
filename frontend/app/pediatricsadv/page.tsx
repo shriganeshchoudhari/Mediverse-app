@@ -7,6 +7,7 @@ import {
   getPediatricsAdvModuleById,
 } from "../../lib/curriculum/content/pediatricsadv";
 import Link from "next/link";
+import MarkdownRenderer from "../../components/common/MarkdownRenderer";
 import {
   Sparkles,
   BookOpen,
@@ -76,8 +77,8 @@ export default function PediatricsAdvLabPage() {
             </div>
 
             {/* Markdown Text Excerpt */}
-            <div className="prose prose-invert max-w-none text-slate-300 text-sm leading-relaxed whitespace-pre-wrap font-sans bg-slate-950/60 p-5 rounded-xl border border-slate-800/80 max-h-96 overflow-y-auto">
-              {activeModule.markdownContent}
+            <div className="bg-slate-950/60 p-5 rounded-xl border border-slate-800/80 max-h-96 overflow-y-auto">
+              <MarkdownRenderer content={activeModule.markdownContent} />
             </div>
 
             {/* Clinical Vignette Card */}

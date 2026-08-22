@@ -1,13 +1,10 @@
-/**
- * /healthcare/dental/bds — BDS Dental Surgery Curriculum Page
- */
-
 'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { BDS_CURRICULUM, BDS_METADATA } from '@/lib/curriculum/bdsCurriculumScaffold';
 import DCICompetencyMap from '@/components/dental/DCICompetencyMap';
+import { Sparkles, ArrowLeft, ArrowRight, BookOpen, Award } from 'lucide-react';
 
 export default function BDSCurriculumPage() {
   const [selectedYear, setSelectedYear] = useState<number>(1);
@@ -16,292 +13,228 @@ export default function BDSCurriculumPage() {
   const currentYearData = BDS_CURRICULUM.find((y) => y.year === selectedYear) || BDS_CURRICULUM[0];
 
   return (
-    <main style={{ maxWidth: 1100, margin: '0 auto', padding: '3rem 1.5rem' }}>
-      {/* Breadcrumbs */}
-      <nav style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '1.5rem' }}>
-        <Link href="/healthcare" style={{ color: '#4f46e5', textDecoration: 'none' }}>
-          Healthcare Landscape
-        </Link>{' '}
-        / <Link href="/healthcare/dental" style={{ color: '#4f46e5', textDecoration: 'none' }}>Dental Sciences</Link>{' '}
-        / BDS Curriculum
-      </nav>
+    <div className="min-h-screen bg-slate-950 text-slate-100 pb-20">
+      {/* Hero Banner */}
+      <div className="border-b border-emerald-950/80 bg-gradient-to-r from-slate-950 via-emerald-950/40 to-slate-950 py-10 px-4 sm:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+          <div>
+            <nav className="text-xs text-slate-400 mb-3 flex items-center gap-2">
+              <Link href="/healthcare" className="text-emerald-400 hover:text-emerald-300 transition">
+                Healthcare Landscape
+              </Link>
+              <span>/</span>
+              <Link href="/healthcare/dental" className="text-emerald-400 hover:text-emerald-300 transition">
+                Dental Sciences
+              </Link>
+              <span>/</span>
+              <span className="text-slate-300">BDS Curriculum</span>
+            </nav>
 
-      {/* Header */}
-      <header style={{ marginBottom: '2.5rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-          <span style={{ fontSize: '2.5rem' }}>🦷</span>
-          <h1 style={{ fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', fontWeight: 800, margin: 0, color: '#0f172a' }}>
-            {BDS_METADATA.programName} ({BDS_METADATA.abbreviation})
-          </h1>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-3xl sm:text-4xl">🦷</span>
+              <div className="flex items-center gap-2">
+                <span className="px-3 py-0.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  {BDS_METADATA.regulatoryBody}
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold">
+                  {BDS_METADATA.totalYears} YEARS
+                </span>
+              </div>
+            </div>
+
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-1">
+              {BDS_METADATA.programName} ({BDS_METADATA.abbreviation})
+            </h1>
+            <p className="text-slate-400 text-sm sm:text-base max-w-2xl mt-2 leading-relaxed">
+              5-year DCI-recognized Bachelor of Dental Surgery curriculum covering basic oral biology, maxillofacial anatomy, nerve block anesthesia, and clinical operative dentistry.
+            </p>
+          </div>
+
+          <div className="flex gap-3 flex-wrap">
+            <button
+              onClick={() => setShowCompetencyMap(!showCompetencyMap)}
+              className="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 text-sm font-semibold transition flex items-center gap-2"
+            >
+              <Award size={16} className="text-emerald-400" />
+              {showCompetencyMap ? 'Hide Competency Map' : 'View DCI Competencies'}
+            </button>
+            <Link
+              href="/healthcare/dental"
+              className="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold shadow-lg shadow-emerald-500/20 transition flex items-center gap-2"
+            >
+              <ArrowLeft size={16} /> Dental Portal
+            </Link>
+          </div>
         </div>
-        <p style={{ fontSize: '1rem', color: '#64748b', margin: '0 0 1rem', lineHeight: 1.6 }}>
-          Comprehensive 5-year DCI-recognized curriculum covering basic dental sciences, applied oral biology,
-          and advanced clinical dentistry with 3D maxillofacial landmarks &amp; simulation models.
-        </p>
+      </div>
 
-        {/* Clinical Simulators Bar */}
-        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
+      {/* Simulators Shortcuts */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <Link
             href="/healthcare/dental/tooth-morphology"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              padding: '0.5rem 0.9rem',
-              background: '#0f172a',
-              color: '#38bdf8',
-              borderRadius: '0.5rem',
-              fontSize: '0.8125rem',
-              fontWeight: 600,
-              textDecoration: 'none',
-              border: '1px solid #1e293b'
-            }}
+            className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 transition flex items-center gap-2 text-xs font-bold text-slate-200"
           >
-            🦷 Tooth Morphology 3D
+            <span>🦷</span> Tooth Morphology 3D
           </Link>
           <Link
             href="/healthcare/dental/nerve-block"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              padding: '0.5rem 0.9rem',
-              background: '#0f172a',
-              color: '#34d399',
-              borderRadius: '0.5rem',
-              fontSize: '0.8125rem',
-              fontWeight: 600,
-              textDecoration: 'none',
-              border: '1px solid #1e293b'
-            }}
+            className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 transition flex items-center gap-2 text-xs font-bold text-slate-200"
           >
-            💉 Nerve Block Simulator
+            <span>💉</span> Nerve Block Simulator
           </Link>
           <Link
             href="/healthcare/dental/tmj"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              padding: '0.5rem 0.9rem',
-              background: '#0f172a',
-              color: '#a78bfa',
-              borderRadius: '0.5rem',
-              fontSize: '0.8125rem',
-              fontWeight: 600,
-              textDecoration: 'none',
-              border: '1px solid #1e293b'
-            }}
+            className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 transition flex items-center gap-2 text-xs font-bold text-slate-200"
           >
-            🦴 TMJ Biomechanics
+            <span>🦴</span> TMJ Biomechanics
           </Link>
           <Link
             href="/healthcare/dental/cephalometric"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              padding: '0.5rem 0.9rem',
-              background: '#0f172a',
-              color: '#fbbf24',
-              borderRadius: '0.5rem',
-              fontSize: '0.8125rem',
-              fontWeight: 600,
-              textDecoration: 'none',
-              border: '1px solid #1e293b'
-            }}
+            className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 transition flex items-center gap-2 text-xs font-bold text-slate-200"
           >
-            📐 Cephalometric Analyzer
-          </Link>
-          <Link
-            href="/healthcare/dental/composite-simulator"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              padding: '0.5rem 0.9rem',
-              background: '#0f172a',
-              color: '#f43f5e',
-              borderRadius: '0.5rem',
-              fontSize: '0.8125rem',
-              fontWeight: 600,
-              textDecoration: 'none',
-              border: '1px solid #1e293b'
-            }}
-          >
-            🔬 Composite C-Factor Sim
-          </Link>
-          <Link
-            href="/healthcare/dental/mds"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              padding: '0.5rem 0.9rem',
-              background: '#4f46e5',
-              color: '#ffffff',
-              borderRadius: '0.5rem',
-              fontSize: '0.8125rem',
-              fontWeight: 600,
-              textDecoration: 'none'
-            }}
-          >
-            🎓 MDS Postgraduate (8 Specialties) →
+            <span>📐</span> Cephalometric Tracer
           </Link>
         </div>
-
-        {/* Stats row */}
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', fontSize: '0.875rem', color: '#334155' }}>
-          <span style={{ background: '#f1f5f9', padding: '0.35rem 0.75rem', borderRadius: '0.5rem', fontWeight: 600 }}>
-            📚 {BDS_METADATA.totalSubjects} Subjects
-          </span>
-          <span style={{ background: '#f1f5f9', padding: '0.35rem 0.75rem', borderRadius: '0.5rem', fontWeight: 600 }}>
-            📖 {BDS_METADATA.totalLessons} Core Lessons
-          </span>
-          <span style={{ background: '#ecfdf5', color: '#047857', padding: '0.35rem 0.75rem', borderRadius: '0.5rem', fontWeight: 600 }}>
-            🫀 {BDS_METADATA.lessonsWith3D} 3D Interactive Lessons
-          </span>
-          <span style={{ background: '#eff6ff', color: '#1d4ed8', padding: '0.35rem 0.75rem', borderRadius: '0.5rem', fontWeight: 600 }}>
-            ⚡ {BDS_METADATA.lessonsWithSimulation} Simulation Solvers
-          </span>
-          <button
-            onClick={() => setShowCompetencyMap(!showCompetencyMap)}
-            style={{
-              background: showCompetencyMap ? '#4338ca' : '#e0e7ff',
-              color: showCompetencyMap ? '#ffffff' : '#4338ca',
-              border: 'none',
-              padding: '0.35rem 0.75rem',
-              borderRadius: '0.5rem',
-              fontWeight: 600,
-              fontSize: '0.875rem',
-              cursor: 'pointer'
-            }}
-          >
-            📋 {showCompetencyMap ? 'Hide' : 'View'} DCI Competency Map
-          </button>
-        </div>
-      </header>
-
-      {/* DCI Competency Map Section (Collapsible) */}
-      {showCompetencyMap && (
-        <section style={{ marginBottom: '2.5rem', background: '#f8fafc', padding: '1.5rem', borderRadius: '1rem', border: '1px solid #e2e8f0' }}>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0f172a', marginBottom: '1rem' }}>
-            📋 DCI Competency-Based Framework
-          </h2>
-          <DCICompetencyMap />
-        </section>
-      )}
-
-      {/* Year Tabs */}
-      <div style={{ display: 'flex', gap: '0.5rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.75rem', marginBottom: '2rem', overflowX: 'auto' }}>
-        {BDS_CURRICULUM.map((year) => (
-          <button
-            key={year.year}
-            onClick={() => setSelectedYear(year.year)}
-            style={{
-              padding: '0.6rem 1.25rem',
-              borderRadius: '0.5rem',
-              border: 'none',
-              background: selectedYear === year.year ? '#10b981' : '#f8fafc',
-              color: selectedYear === year.year ? '#ffffff' : '#475569',
-              fontWeight: 600,
-              fontSize: '0.875rem',
-              cursor: 'pointer',
-              whiteSpace: 'nowrap',
-              transition: 'all 0.15s ease',
-            }}
-          >
-            Year {year.year} (Sem {year.semesters.join(' & ')})
-          </button>
-        ))}
       </div>
 
-      {/* Subjects & Lessons in Current Year */}
-      <div style={{ display: 'grid', gap: '2rem' }}>
-        <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0f172a', margin: 0 }}>
-          {currentYearData.title}
-        </h2>
-
-        {currentYearData.subjects.map((subj) => (
-          <section
-            key={subj.id}
-            style={{
-              border: '1.5px solid #e2e8f0',
-              borderRadius: '1rem',
-              padding: '1.5rem',
-              background: '#ffffff',
-            }}
-          >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem' }}>
-              <div>
-                <span style={{ fontSize: '0.75rem', background: '#ecfdf5', color: '#065f46', padding: '0.2rem 0.5rem', borderRadius: 9999, fontWeight: 700 }}>
-                  {subj.code}
-                </span>
-                <h3 style={{ fontSize: '1.125rem', fontWeight: 700, margin: '0.5rem 0 0.25rem', color: '#0f172a' }}>
-                  {subj.name}
-                </h3>
-                <p style={{ fontSize: '0.875rem', color: '#64748b', margin: 0 }}>{subj.description}</p>
-              </div>
-              <span style={{ fontSize: '0.8125rem', color: '#64748b' }}>
-                Credit Hours: <strong>{subj.creditHours}</strong>
-              </span>
-            </div>
-
-            {/* Lessons grid */}
-            <div style={{ display: 'grid', gap: '0.75rem', marginTop: '1rem' }}>
-              {subj.lessons.map((lesson) => (
-                <div
-                  key={lesson.id}
-                  style={{
-                    padding: '1rem',
-                    borderRadius: '0.5rem',
-                    background: '#f8fafc',
-                    border: '1px solid #f1f5f9',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '0.35rem',
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      <span style={{ fontSize: '0.75rem', color: '#64748b', fontFamily: 'monospace', fontWeight: 600 }}>
-                        [{lesson.dciCode}]
-                      </span>
-                      <strong style={{ fontSize: '0.9375rem', color: '#1e293b' }}>
-                        {lesson.title}
-                      </strong>
-                    </div>
-                    <div style={{ display: 'flex', gap: '0.35rem' }}>
-                      {lesson.has3DContent && (
-                        <span style={{ fontSize: '0.7rem', background: '#ecfdf5', color: '#047857', padding: '0.1rem 0.4rem', borderRadius: 4, fontWeight: 600 }}>
-                          3D Model
-                        </span>
-                      )}
-                      {lesson.hasSimulation && (
-                        <span style={{ fontSize: '0.7rem', background: '#eff6ff', color: '#1d4ed8', padding: '0.1rem 0.4rem', borderRadius: 4, fontWeight: 600 }}>
-                          Simulation
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  <p style={{ margin: 0, fontSize: '0.8125rem', color: '#64748b', lineHeight: 1.5 }}>
-                    {lesson.description}
-                  </p>
-                </div>
-              ))}
-            </div>
+      {/* Main Content Area */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-8 space-y-8">
+        {/* Collapsible Competency Map */}
+        {showCompetencyMap && (
+          <section className="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-xl space-y-4">
+            <h2 className="text-lg font-bold text-white flex items-center gap-2">
+              <Award className="text-emerald-400" /> DCI Competency-Based Dental Framework
+            </h2>
+            <DCICompetencyMap />
           </section>
-        ))}
-      </div>
+        )}
 
-      <div style={{ marginTop: '3rem', textAlign: 'center' }}>
-        <Link
-          href="/healthcare/dental"
-          style={{ padding: '0.75rem 1.5rem', background: '#f1f5f9', color: '#334155', borderRadius: '0.75rem', textDecoration: 'none', fontWeight: 600, fontSize: '0.9375rem' }}
-        >
-          ← Back to Dental Sciences
-        </Link>
+        {/* Year Tabs */}
+        <div className="flex gap-2 border-b border-slate-800 pb-3 overflow-x-auto">
+          {BDS_CURRICULUM.map((year) => (
+            <button
+              key={year.year}
+              onClick={() => setSelectedYear(year.year)}
+              className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
+                selectedYear === year.year
+                  ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-500/20'
+                  : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800'
+              }`}
+            >
+              Year {year.year} (Sem {year.semesters.join(' & ')})
+            </button>
+          ))}
+        </div>
+
+        {/* Subjects & Chapters */}
+        <div className="space-y-8">
+          <div>
+            <h2 className="text-2xl font-extrabold text-white">
+              {currentYearData.title}
+            </h2>
+            <p className="text-xs text-slate-400 mt-1">
+              DCI-accredited subjects and interactive curriculum chapters with 3D models.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {currentYearData.subjects.map((subj) => (
+              <div
+                key={subj.id}
+                className="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-xl space-y-5"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-800 gap-2">
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-[11px] font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                        {subj.code}
+                      </span>
+                      <span className="text-xs text-slate-400">
+                        Semester {subj.semester} • Credits: {subj.creditHours}
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-bold text-white">
+                      {subj.name}
+                    </h3>
+                  </div>
+
+                  <span className="text-xs px-3 py-1 rounded-full bg-slate-950 border border-slate-800 text-slate-300 font-semibold self-start sm:self-auto">
+                    {subj.lessons.length} Core Chapters
+                  </span>
+                </div>
+
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  {subj.description}
+                </p>
+
+                {/* Numbered Chapters Grid */}
+                <div className="space-y-3">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                    <BookOpen size={14} className="text-emerald-400" /> Syllabus Chapters &amp; Learning Modules
+                  </h4>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {subj.lessons.map((lesson, idx) => (
+                      <div
+                        key={lesson.id}
+                        className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/90 hover:border-emerald-500/50 transition-all flex flex-col justify-between group shadow-sm"
+                      >
+                        <div>
+                          <div className="flex items-center justify-between gap-2 mb-2">
+                            <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">
+                              Chapter {idx + 1}
+                            </span>
+                            <span className="text-[10px] text-slate-500 font-mono">
+                              [{lesson.dciCode}]
+                            </span>
+                          </div>
+
+                          <h5 className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">
+                            {lesson.title}
+                          </h5>
+
+                          <p className="text-xs text-slate-400 mt-1.5 leading-relaxed line-clamp-2">
+                            {lesson.description}
+                          </p>
+                        </div>
+
+                        <div className="mt-4 pt-3 border-t border-slate-900 flex items-center justify-between gap-2">
+                          <div className="flex gap-1.5 text-[10px]">
+                            {lesson.has3DContent && (
+                              <span className="bg-purple-500/20 text-purple-300 border border-purple-500/30 px-1.5 py-0.5 rounded font-semibold">
+                                3D Model
+                              </span>
+                            )}
+                            {lesson.hasSimulation && (
+                              <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-1.5 py-0.5 rounded font-semibold">
+                                Simulation
+                              </span>
+                            )}
+                          </div>
+
+                          <Link
+                            href={
+                              lesson.has3DContent
+                                ? '/healthcare/dental/tooth-morphology'
+                                : lesson.hasSimulation
+                                ? '/healthcare/dental/nerve-block'
+                                : `/lessons/${lesson.id}`
+                            }
+                            className="text-xs font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 group-hover:translate-x-0.5 transition-transform"
+                          >
+                            Study Chapter <ArrowRight size={12} />
+                          </Link>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    </main>
+    </div>
   );
 }

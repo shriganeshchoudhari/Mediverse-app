@@ -156,10 +156,10 @@ export default function CardiacCycleSimulator() {
             {/* Educational notes/guide */}
             <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
               <h3 className="text-white font-bold mb-3">Physiological Guide</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                The **Wiggers Diagram** coordinates electrical events (ECG) and acoustic signals (Phonocardiogram) with dynamic pressure and volume profiles in the left atrium, left ventricle, and aorta.
-                Notice how the **S1 Heart Sound** occurs during *isovolumetric contraction* right as the Mitral valve closes, while the **S2 Heart Sound** occurs during *isovolumetric relaxation* as the Aortic valve snaps shut.
-                Switch to the **Frank-Starling Curve** to see how stretching the myocardium (increasing Preload) increases the force of contraction and Stroke Volume, conforming to the length-tension relationship of cardiac sarcomeres.
+              <p className="text-slate-400 text-sm leading-relaxed space-y-2">
+                The <strong className="text-white font-semibold">Wiggers Diagram</strong> coordinates electrical events (ECG) and acoustic signals (Phonocardiogram) with dynamic pressure and volume profiles in the left atrium, left ventricle, and aorta.
+                Notice how the <strong className="text-white font-semibold">S1 Heart Sound</strong> occurs during <em className="text-blue-300 not-italic font-medium">isovolumetric contraction</em> right as the Mitral valve closes, while the <strong className="text-white font-semibold">S2 Heart Sound</strong> occurs during <em className="text-blue-300 not-italic font-medium">isovolumetric relaxation</em> as the Aortic valve snaps shut.
+                Switch to the <strong className="text-white font-semibold">Frank-Starling Curve</strong> to see how stretching the myocardium (increasing Preload) increases the force of contraction and Stroke Volume, conforming to the length-tension relationship of cardiac sarcomeres.
               </p>
             </div>
           </div>

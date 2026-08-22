@@ -55,6 +55,18 @@ public class SecurityConfig {
                     "/api/v1/simulations/*/calculate",
                     "/api/v1/quiz/*/sync",
                     "/api/v1/curriculum/**",
+                    "/api/v1/curricula/**",
+                    "/api/v1/domains/**",
+                    "/api/v1/search/**",
+                    "/api/v1/healthcare/**",
+                    "/api/v1/dental/**",
+                    "/api/v1/ayush/**",
+                    "/api/v1/pharmacy/**",
+                    "/api/v1/nursing/**",
+                    "/api/v1/physiotherapy/**",
+                    "/api/v1/allied/**",
+                    "/api/v1/veterinary/**",
+                    "/api/v1/public-health/**",
                     "/swagger-ui/**",
                     "/v3/api-docs/**",
                     "/swagger-ui.html",
@@ -71,8 +83,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        List<String> origins = Arrays.asList(allowedOrigins.split(","));
-        configuration.setAllowedOrigins(origins);
+        configuration.setAllowedOriginPatterns(List.of("*"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type", "X-Requested-With", "Accept", "Origin"));
         configuration.setAllowCredentials(true);

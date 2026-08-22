@@ -1,13 +1,10 @@
-/**
- * /healthcare/ayush/bams — BAMS Ayurvedic Medicine Curriculum Page
- */
-
 'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { BAMS_CURRICULUM, BAMS_METADATA } from '@/lib/curriculum/bamsCurriculumScaffold';
 import CCIMCompetencyMap from '@/components/ayush/CCIMCompetencyMap';
+import { Sparkles, ArrowLeft, ArrowRight, BookOpen, Layers, Award } from 'lucide-react';
 
 export default function BAMSCurriculumPage() {
   const [selectedYear, setSelectedYear] = useState<number>(1);
@@ -16,317 +13,240 @@ export default function BAMSCurriculumPage() {
   const currentYearData = BAMS_CURRICULUM.find((y) => y.year === selectedYear) || BAMS_CURRICULUM[0];
 
   return (
-    <main style={{ maxWidth: 1100, margin: '0 auto', padding: '3rem 1.5rem' }}>
-      {/* Breadcrumbs */}
-      <nav style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '1.5rem' }}>
-        <Link href="/healthcare" style={{ color: '#4f46e5', textDecoration: 'none' }}>
-          Healthcare Landscape
-        </Link>{' '}
-        / <Link href="/healthcare/ayush" style={{ color: '#4f46e5', textDecoration: 'none' }}>AYUSH Systems</Link>{' '}
-        / BAMS Curriculum
-      </nav>
+    <div className="min-h-screen bg-slate-950 text-slate-100 pb-20">
+      {/* Hero Banner */}
+      <div className="border-b border-amber-950/80 bg-gradient-to-r from-slate-950 via-amber-950/40 to-slate-950 py-10 px-4 sm:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+          <div>
+            <nav className="text-xs text-slate-400 mb-3 flex items-center gap-2">
+              <Link href="/healthcare" className="text-amber-400 hover:text-amber-300 transition">
+                Healthcare Landscape
+              </Link>
+              <span>/</span>
+              <Link href="/healthcare/ayush" className="text-amber-400 hover:text-amber-300 transition">
+                AYUSH Medicine
+              </Link>
+              <span>/</span>
+              <span className="text-slate-300">BAMS Curriculum</span>
+            </nav>
 
-      {/* Header */}
-      <header style={{ marginBottom: '2.5rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-          <span style={{ fontSize: '2.5rem' }}>🌿</span>
-          <h1 style={{ fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', fontWeight: 800, margin: 0, color: '#0f172a' }}>
-            {BAMS_METADATA.programName} ({BAMS_METADATA.abbreviation})
-          </h1>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-3xl sm:text-4xl">🌿</span>
+              <div className="flex items-center gap-2">
+                <span className="px-3 py-0.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                  {BAMS_METADATA.regulatoryBody}
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold">
+                  {BAMS_METADATA.totalYears}.5 YEARS
+                </span>
+              </div>
+            </div>
+
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-1">
+              {BAMS_METADATA.programName} ({BAMS_METADATA.abbreviation})
+            </h1>
+            <p className="text-slate-400 text-sm sm:text-base max-w-2xl mt-2 leading-relaxed">
+              Comprehensive 5.5-year CCIM/NCISM curriculum covering foundational Ayurvedic philosophy, Dravyaguna herbology, 3D Marma point anatomy, and Panchakarma therapeutics.
+            </p>
+          </div>
+
+          <div className="flex gap-3 flex-wrap">
+            <button
+              onClick={() => setShowCompetencyMap(!showCompetencyMap)}
+              className="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 text-sm font-semibold transition flex items-center gap-2"
+            >
+              <Award size={16} className="text-amber-400" />
+              {showCompetencyMap ? 'Hide Competency Map' : 'View CCIM Competencies'}
+            </button>
+            <Link
+              href="/healthcare/ayush"
+              className="px-4 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-sm font-bold shadow-lg shadow-amber-500/20 transition flex items-center gap-2"
+            >
+              <ArrowLeft size={16} /> AYUSH Portal
+            </Link>
+          </div>
         </div>
-        <p style={{ fontSize: '1rem', color: '#64748b', margin: '0 0 1rem', lineHeight: 1.6 }}>
-          5.5-year CCIM-recognized curriculum integrating traditional Ayurvedic epistemology (Tridosha, Dhatu, Agni)
-          with modern biophysical sciences, the 107 Marma Points interactive 3D map, and Dravyaguna phytopharmacology.
-        </p>
+      </div>
 
-        {/* Clinical Simulators Bar */}
-        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
+      {/* Simulator Shortcuts Bar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
           <Link
             href="/healthcare/ayush/marma-map"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              padding: '0.5rem 0.9rem',
-              background: '#0f172a',
-              color: '#fbbf24',
-              borderRadius: '0.5rem',
-              fontSize: '0.8125rem',
-              fontWeight: 600,
-              textDecoration: 'none',
-              border: '1px solid #1e293b'
-            }}
+            className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 transition flex items-center gap-2 text-xs font-bold text-slate-200"
           >
-            📍 107 Marma Points 3D Map
+            <span>📍</span> 107 Marma 3D Map
           </Link>
           <Link
             href="/healthcare/ayush/tridosha-ans"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              padding: '0.5rem 0.9rem',
-              background: '#0f172a',
-              color: '#38bdf8',
-              borderRadius: '0.5rem',
-              fontSize: '0.8125rem',
-              fontWeight: 600,
-              textDecoration: 'none',
-              border: '1px solid #1e293b'
-            }}
+            className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 transition flex items-center gap-2 text-xs font-bold text-slate-200"
           >
-            ⚡ Tridosha-ANS Simulator
+            <span>⚡</span> Tridosha-ANS Lab
           </Link>
           <Link
             href="/healthcare/ayush/prakriti-assessment"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              padding: '0.5rem 0.9rem',
-              background: '#0f172a',
-              color: '#34d399',
-              borderRadius: '0.5rem',
-              fontSize: '0.8125rem',
-              fontWeight: 600,
-              textDecoration: 'none',
-              border: '1px solid #1e293b'
-            }}
+            className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 transition flex items-center gap-2 text-xs font-bold text-slate-200"
           >
-            🧬 Prakriti Assessment Tool
+            <span>🧬</span> Prakriti Assessor
           </Link>
           <Link
             href="/healthcare/ayush/panchakarma-guide"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              padding: '0.5rem 0.9rem',
-              background: '#0f172a',
-              color: '#a78bfa',
-              borderRadius: '0.5rem',
-              fontSize: '0.8125rem',
-              fontWeight: 600,
-              textDecoration: 'none',
-              border: '1px solid #1e293b'
-            }}
+            className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 transition flex items-center gap-2 text-xs font-bold text-slate-200"
           >
-            🏺 Panchakarma Stage Sim
+            <span>🏺</span> Panchakarma Stages
           </Link>
           <Link
             href="/healthcare/ayush/dravyaguna-explorer"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              padding: '0.5rem 0.9rem',
-              background: '#0f172a',
-              color: '#f43f5e',
-              borderRadius: '0.5rem',
-              fontSize: '0.8125rem',
-              fontWeight: 600,
-              textDecoration: 'none',
-              border: '1px solid #1e293b'
-            }}
+            className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 transition flex items-center gap-2 text-xs font-bold text-slate-200"
           >
-            🌿 Dravyaguna Herb Explorer
-          </Link>
-          <Link
-            href="/healthcare/ayush/md-ayurveda"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              padding: '0.5rem 0.9rem',
-              background: '#d97706',
-              color: '#ffffff',
-              borderRadius: '0.5rem',
-              fontSize: '0.8125rem',
-              fontWeight: 600,
-              textDecoration: 'none'
-            }}
-          >
-            🎓 MD/MS Ayurveda (8 Specialties) →
-          </Link>
-          <Link
-            href="/healthcare/ayush/bhms"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              padding: '0.5rem 0.9rem',
-              background: '#059669',
-              color: '#ffffff',
-              borderRadius: '0.5rem',
-              fontSize: '0.8125rem',
-              fontWeight: 600,
-              textDecoration: 'none'
-            }}
-          >
-            🧪 BHMS Homeopathy →
+            <span>🌿</span> Dravyaguna Herbology
           </Link>
         </div>
-
-        {/* Stats row */}
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', fontSize: '0.875rem', color: '#334155' }}>
-          <span style={{ background: '#f1f5f9', padding: '0.35rem 0.75rem', borderRadius: '0.5rem', fontWeight: 600 }}>
-            📚 {BAMS_METADATA.totalSubjects} Subjects
-          </span>
-          <span style={{ background: '#f1f5f9', padding: '0.35rem 0.75rem', borderRadius: '0.5rem', fontWeight: 600 }}>
-            📖 {BAMS_METADATA.totalLessons} Core Lessons
-          </span>
-          <span style={{ background: '#fef3c7', color: '#b45309', padding: '0.35rem 0.75rem', borderRadius: '0.5rem', fontWeight: 600 }}>
-            📍 {BAMS_METADATA.marmaLessons} Marma Point Maps
-          </span>
-          <span style={{ background: '#ecfdf5', color: '#047857', padding: '0.35rem 0.75rem', borderRadius: '0.5rem', fontWeight: 600 }}>
-            🫀 {BAMS_METADATA.lessonsWith3D} 3D Lessons
-          </span>
-          <span style={{ background: '#eff6ff', color: '#1d4ed8', padding: '0.35rem 0.75rem', borderRadius: '0.5rem', fontWeight: 600 }}>
-            ⚡ {BAMS_METADATA.lessonsWithSimulation} Simulation Labs
-          </span>
-          <button
-            onClick={() => setShowCompetencyMap(!showCompetencyMap)}
-            style={{
-              background: showCompetencyMap ? '#b45309' : '#fef3c7',
-              color: showCompetencyMap ? '#ffffff' : '#b45309',
-              border: 'none',
-              padding: '0.35rem 0.75rem',
-              borderRadius: '0.5rem',
-              fontWeight: 600,
-              fontSize: '0.875rem',
-              cursor: 'pointer'
-            }}
-          >
-            📋 {showCompetencyMap ? 'Hide' : 'View'} CCIM Competency Map
-          </button>
-        </div>
-      </header>
-
-      {/* CCIM Competency Map Section (Collapsible) */}
-      {showCompetencyMap && (
-        <section style={{ marginBottom: '2.5rem', background: '#f8fafc', padding: '1.5rem', borderRadius: '1rem', border: '1px solid #e2e8f0' }}>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0f172a', marginBottom: '1rem' }}>
-            📋 CCIM / NCISM Competency-Based Framework
-          </h2>
-          <CCIMCompetencyMap />
-        </section>
-      )}
-
-      {/* Year Tabs */}
-      <div style={{ display: 'flex', gap: '0.5rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.75rem', marginBottom: '2rem', overflowX: 'auto' }}>
-        {BAMS_CURRICULUM.map((year) => (
-          <button
-            key={year.year}
-            onClick={() => setSelectedYear(year.year)}
-            style={{
-              padding: '0.6rem 1.25rem',
-              borderRadius: '0.5rem',
-              border: 'none',
-              background: selectedYear === year.year ? '#f59e0b' : '#f8fafc',
-              color: selectedYear === year.year ? '#ffffff' : '#475569',
-              fontWeight: 600,
-              fontSize: '0.875rem',
-              cursor: 'pointer',
-              whiteSpace: 'nowrap',
-              transition: 'all 0.15s ease',
-            }}
-          >
-            Year {year.year} (Sem {year.semesters.join(' & ')})
-          </button>
-        ))}
       </div>
 
-      {/* Subjects & Lessons in Current Year */}
-      <div style={{ display: 'grid', gap: '2rem' }}>
-        <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0f172a', margin: 0 }}>
-          {currentYearData.title}
-        </h2>
-
-        {currentYearData.subjects.map((subj) => (
-          <section
-            key={subj.id}
-            style={{
-              border: '1.5px solid #e2e8f0',
-              borderRadius: '1rem',
-              padding: '1.5rem',
-              background: '#ffffff',
-            }}
-          >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem' }}>
-              <div>
-                <span style={{ fontSize: '0.75rem', background: '#fef3c7', color: '#92400e', padding: '0.2rem 0.5rem', borderRadius: 9999, fontWeight: 700 }}>
-                  {subj.code}
-                </span>
-                <h3 style={{ fontSize: '1.125rem', fontWeight: 700, margin: '0.5rem 0 0.25rem', color: '#0f172a' }}>
-                  {subj.name} <span style={{ fontSize: '0.875rem', fontWeight: 500, color: '#b45309' }}>({subj.sanskritName})</span>
-                </h3>
-                <p style={{ fontSize: '0.875rem', color: '#64748b', margin: 0 }}>{subj.description}</p>
-              </div>
-              <span style={{ fontSize: '0.8125rem', color: '#64748b' }}>
-                Credit Hours: <strong>{subj.creditHours}</strong>
-              </span>
-            </div>
-
-            {/* Lessons grid */}
-            <div style={{ display: 'grid', gap: '0.75rem', marginTop: '1rem' }}>
-              {subj.lessons.map((lesson) => (
-                <div
-                  key={lesson.id}
-                  style={{
-                    padding: '1rem',
-                    borderRadius: '0.5rem',
-                    background: '#f8fafc',
-                    border: '1px solid #f1f5f9',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '0.35rem',
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      <span style={{ fontSize: '0.75rem', color: '#64748b', fontFamily: 'monospace', fontWeight: 600 }}>
-                        [{lesson.ccimCode}]
-                      </span>
-                      <strong style={{ fontSize: '0.9375rem', color: '#1e293b' }}>
-                        {lesson.title}
-                      </strong>
-                    </div>
-                    <div style={{ display: 'flex', gap: '0.35rem' }}>
-                      {lesson.hasMarmaDiagram && (
-                        <span style={{ fontSize: '0.7rem', background: '#fef3c7', color: '#b45309', padding: '0.1rem 0.4rem', borderRadius: 4, fontWeight: 600 }}>
-                          Marma Map
-                        </span>
-                      )}
-                      {lesson.has3DContent && (
-                        <span style={{ fontSize: '0.7rem', background: '#ecfdf5', color: '#047857', padding: '0.1rem 0.4rem', borderRadius: 4, fontWeight: 600 }}>
-                          3D Model
-                        </span>
-                      )}
-                      {lesson.hasSimulation && (
-                        <span style={{ fontSize: '0.7rem', background: '#eff6ff', color: '#1d4ed8', padding: '0.1rem 0.4rem', borderRadius: 4, fontWeight: 600 }}>
-                          Simulation
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  <p style={{ margin: 0, fontSize: '0.8125rem', color: '#64748b', lineHeight: 1.5 }}>
-                    {lesson.description}
-                  </p>
-                </div>
-              ))}
-            </div>
+      {/* Main Content Area */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-8 space-y-8">
+        {/* Collapsible Competency Map */}
+        {showCompetencyMap && (
+          <section className="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-xl space-y-4">
+            <h2 className="text-lg font-bold text-white flex items-center gap-2">
+              <Award className="text-amber-400" /> CCIM / NCISM Competency-Based Framework
+            </h2>
+            <CCIMCompetencyMap />
           </section>
-        ))}
-      </div>
+        )}
 
-      <div style={{ marginTop: '3rem', textAlign: 'center' }}>
-        <Link
-          href="/healthcare/ayush"
-          style={{ padding: '0.75rem 1.5rem', background: '#f1f5f9', color: '#334155', borderRadius: '0.75rem', textDecoration: 'none', fontWeight: 600, fontSize: '0.9375rem' }}
-        >
-          ← Back to AYUSH Systems
-        </Link>
+        {/* Year Tabs */}
+        <div className="flex gap-2 border-b border-slate-800 pb-3 overflow-x-auto">
+          {BAMS_CURRICULUM.map((year) => (
+            <button
+              key={year.year}
+              onClick={() => setSelectedYear(year.year)}
+              className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
+                selectedYear === year.year
+                  ? 'bg-amber-600 text-white shadow-lg shadow-amber-500/20'
+                  : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800'
+              }`}
+            >
+              Year {year.year} (Sem {year.semesters.join(' & ')})
+            </button>
+          ))}
+        </div>
+
+        {/* Subjects & Numbered Chapters */}
+        <div className="space-y-8">
+          <div>
+            <h2 className="text-2xl font-extrabold text-white">
+              {currentYearData.title}
+            </h2>
+            <p className="text-xs text-slate-400 mt-1">
+              Explore subject syllabi and launch interactive chapters and clinical labs.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {currentYearData.subjects.map((subj) => (
+              <div
+                key={subj.id}
+                className="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-xl space-y-5"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-800 gap-2">
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-[11px] font-mono font-bold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                        {subj.code}
+                      </span>
+                      <span className="text-xs text-slate-400">
+                        Semester {subj.semester} • Credits: {subj.creditHours}
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-bold text-white">
+                      {subj.name}{' '}
+                      <span className="text-sm font-medium text-amber-400">
+                        ({subj.sanskritName})
+                      </span>
+                    </h3>
+                  </div>
+
+                  <span className="text-xs px-3 py-1 rounded-full bg-slate-950 border border-slate-800 text-slate-300 font-semibold self-start sm:self-auto">
+                    {subj.lessons.length} Core Chapters
+                  </span>
+                </div>
+
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  {subj.description}
+                </p>
+
+                {/* Numbered Chapters Grid */}
+                <div className="space-y-3">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                    <BookOpen size={14} className="text-amber-400" /> Syllabus Chapters &amp; Learning Modules
+                  </h4>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {subj.lessons.map((lesson, idx) => (
+                      <div
+                        key={lesson.id}
+                        className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/90 hover:border-amber-500/50 transition-all flex flex-col justify-between group shadow-sm"
+                      >
+                        <div>
+                          <div className="flex items-center justify-between gap-2 mb-2">
+                            <span className="text-[10px] font-mono font-bold text-amber-400 bg-amber-500/10 px-1.5 py-0.5 rounded">
+                              Chapter {idx + 1}
+                            </span>
+                            <span className="text-[10px] text-slate-500 font-mono">
+                              [{lesson.ccimCode}]
+                            </span>
+                          </div>
+
+                          <h5 className="text-sm font-bold text-white group-hover:text-amber-300 transition-colors">
+                            {lesson.title}
+                          </h5>
+
+                          <p className="text-xs text-slate-400 mt-1.5 leading-relaxed line-clamp-2">
+                            {lesson.description}
+                          </p>
+                        </div>
+
+                        <div className="mt-4 pt-3 border-t border-slate-900 flex items-center justify-between gap-2">
+                          <div className="flex gap-1.5 text-[10px]">
+                            {lesson.hasMarmaDiagram && (
+                              <span className="bg-amber-500/20 text-amber-300 border border-amber-500/30 px-1.5 py-0.5 rounded font-semibold">
+                                Marma
+                              </span>
+                            )}
+                            {lesson.has3DContent && (
+                              <span className="bg-purple-500/20 text-purple-300 border border-purple-500/30 px-1.5 py-0.5 rounded font-semibold">
+                                3D
+                              </span>
+                            )}
+                            {lesson.hasSimulation && (
+                              <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-1.5 py-0.5 rounded font-semibold">
+                                Sim
+                              </span>
+                            )}
+                          </div>
+
+                          <Link
+                            href={
+                              lesson.hasMarmaDiagram
+                                ? '/healthcare/ayush/marma-map'
+                                : `/lessons/${lesson.id}`
+                            }
+                            className="text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1 group-hover:translate-x-0.5 transition-transform"
+                          >
+                            Study Chapter <ArrowRight size={12} />
+                          </Link>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    </main>
+    </div>
   );
 }

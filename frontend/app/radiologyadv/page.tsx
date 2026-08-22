@@ -7,6 +7,7 @@ import {
   getRadiologyAdvModuleById,
 } from "../../lib/curriculum/content/radiologyadv";
 import Link from "next/link";
+import MarkdownRenderer from "../../components/common/MarkdownRenderer";
 import {
   Sparkles,
   BookOpen,
@@ -77,8 +78,8 @@ export default function ClinicalRadiologyLabPage() {
             </div>
 
             {/* Markdown Text Excerpt */}
-            <div className="prose prose-invert max-w-none text-slate-300 text-sm leading-relaxed whitespace-pre-wrap font-sans bg-slate-950/60 p-5 rounded-xl border border-slate-800/80 max-h-96 overflow-y-auto">
-              {activeModule.markdownContent}
+            <div className="bg-slate-950/60 p-5 rounded-xl border border-slate-800/80 max-h-96 overflow-y-auto">
+              <MarkdownRenderer content={activeModule.markdownContent} />
             </div>
 
             {/* Clinical Vignette Card */}
@@ -150,7 +151,7 @@ export default function ClinicalRadiologyLabPage() {
               <li>CIN Prevention: <strong>Isotonic Normal Saline (1 mL/kg/h) pre- and post-scan</strong>.</li>
               <li>Metformin Safety: <strong>Hold at scan and withhold for 48h in eGFR &lt;60</strong>.</li>
               <li>CT Halo Sign: <strong>Angioinvasive Aspergillosis in febrile neutropenia (Voriconazole DOC)</strong>.</li>
-              <li>Pneumatosis &amp; Portal Gas: <strong>Transmural bowel infarction $\rightarrow$ emergency laparotomy</strong>.</li>
+              <li>Pneumatosis &amp; Portal Gas: <strong>Transmural bowel infarction → emergency laparotomy</strong>.</li>
               <li>TIPS Complication: <strong>Hepatic Encephalopathy due to bypassed portal detox (Lactulose DOC)</strong>.</li>
             </ul>
           </div>

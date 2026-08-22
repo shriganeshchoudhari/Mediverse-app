@@ -22,22 +22,18 @@ Current critical care paradigms prioritize an **analgesia-first, light-sedation 
 
 ## 1. Richmond Agitation-Sedation Scale (RASS) & PADIS Guidelines
 
-$$\\begin{array}{lcl}
-\\hline
-\\textbf{RASS Score} & \\textbf{Clinical State} & \\textbf{Patient Response / Clinical Target} \\\\
-\\hline
-+4 & \\text{Combative} & \\text{Overtly combative, violent, immediate danger to staff} \\\\
-+3 & \\text{Very Agitated} & \\text{Pulls on tubes, aggressive behavior} \\\\
-+2 & \\text{Agitated} & \\text{Frequent non-purposeful movement, fights ventilator} \\\\
-+1 & \\text{Restless} & \\text{Anxious, apprehensive, movements not aggressive} \\\\
-\\mathbf{0} & \\mathbf{\\text{Alert and Calm}} & \\mathbf{\\text{Normal Spontaneous Baseline Target}} \\\\
-\\mathbf{-1} & \\mathbf{\\text{Drowsy}} & \\mathbf{\\text{Sustained awakening (>10s) with eye contact to voice (LIGHT SEDATION TARGET)}} \\\\
--2 & \\text{Light Sedation} & \\text{Brief awakening (<10s) with eye contact to voice} \\\\
--3 & \\text{Moderate Sedation} & \\text{Movement or eye opening to voice, NO eye contact} \\\\
--4 & \\text{Deep Sedation} & \\text{No response to voice, physical stimulation required} \\\\
--5 & \\text{Unarousable} & \\text{No response to voice or physical stimulation} \\\\
-\\hline
-\\end{array}$$
+| RASS Score | Clinical State | Patient Response / Clinical Target |
+| :--- | :--- | :--- |
+| **+4** | Combative | Overtly combative, violent, immediate danger to staff |
+| **+3** | Very Agitated | Pulls on tubes, aggressive behavior |
+| **+2** | Agitated | Frequent non-purposeful movement, fights ventilator |
+| **+1** | Restless | Anxious, apprehensive, movements not aggressive |
+| **0** | **Alert and Calm** | **Normal Spontaneous Baseline Target** |
+| **-1** | **Drowsy** | **Sustained awakening (>10s) with eye contact to voice (LIGHT SEDATION TARGET)** |
+| **-2** | Light Sedation | Brief awakening (<10s) with eye contact to voice |
+| **-3** | Moderate Sedation | Movement or eye opening to voice, NO eye contact |
+| **-4** | Deep Sedation | No response to voice, physical stimulation required |
+| **-5** | Unarousable | No response to voice or physical stimulation |
 
 - **Sedative Agent Selection**:
   - **Dexmedetomidine**: Selective $\\alpha_2$-adrenergic agonist providing cooperative, conscious sedation without respiratory depression; reduces ICU delirium and shortens time to extubation.
@@ -48,42 +44,38 @@ $$\\begin{array}{lcl}
 
 ## 2. Confusion Assessment Method for the ICU (CAM-ICU)
 
-$$\\begin{array}{lcc}
-\\hline
-\\textbf{CAM-ICU Feature} & \\textbf{Assessment Method} & \\textbf{Positive Criterion} \\\\
-\\hline
-\\textbf{Feature 1: Acute Onset / Fluctuating} & \\text{Baseline mental status change in last 24h} & \\text{Yes (Fluctuating score)} \\\\
-\\textbf{Feature 2: Inattention} & \\text{Squeeze hand on letter 'A' in 'SAVEAHAART'} & \\mathbf{> 2\\text{ Errors (Score } < 8/10\\text{)}} \\\\
-\\textbf{Feature 3: Altered Level of Consciousness} & \\text{Current RASS score} & \\mathbf{\\text{Current RASS } \\ne 0} \\\\
-\\textbf{Feature 4: Disorganized Thinking} & 4\\text{ simple questions \u0026 command test} & > 1\\text{ Error} \\\\
-\\hline
-\\end{array}$$
+| CAM-ICU Feature | Assessment Method | Positive Criterion |
+| :--- | :--- | :--- |
+| **Feature 1: Acute Onset / Fluctuating** | Baseline mental status change in last 24h | **Yes (Fluctuating score)** |
+| **Feature 2: Inattention** | Squeeze hand on letter 'A' in 'SAVEAHAART' | **$> 2$ Errors (Score $< 8/10$)** |
+| **Feature 3: Altered Level of Consciousness** | Current RASS score | **Current RASS $\\ne 0$** |
+| **Feature 4: Disorganized Thinking** | 4 simple questions & 2-step command test | **$> 1$ Error** |
 
-$$\\mathbf{\\text{CAM-ICU Positive (Delirium)}} = \\mathbf{\\text{Feature 1 AND Feature 2 AND (Feature 3 OR Feature 4)}}$$
+- **Diagnosis of Delirium**: Requires **Feature 1 + Feature 2** PLUS either **Feature 3 OR Feature 4**.
 
 ---
 
 ## 3. The ABCDEF ICU Liberation Bundle
 
-- **A (Assess, Prevent, and Manage Pain)**: CPOT/BPS pain scales; IV opioids before sedatives.
-- **B (Both SAT and SBT)**: Daily Spontaneous Awakening Trial (turn off sedatives) paired with Spontaneous Breathing Trial (T-piece or PSV).
-- **C (Choice of Analgesia and Sedation)**: Target RASS $0$ to $-1$; use non-benzodiazepines (Dexmedetomidine / Propofol).
-- **D (Delirium: Assess, Prevent, and Manage)**: Routine CAM-ICU screening; reorient patient, maintain day/night light cycles.
-- **E (Early Mobility and Exercise)**: Progressive mobilization (dangling, standing, ambulation while intubated).
-- **F (Family Engagement and Empowerment)**: Flexible ICU visiting hours, family presence during rounds.
+- **A — Assess, Prevent, and Manage Pain**: Routine CPOT (Critical-Care Pain Observation Tool) scoring; multimodal analgesia (Acetaminophen, Ketamine, regional blocks) before sedation.
+- **B — Both SAT and SBT**: Daily Spontaneous Awakening Trials (SAT) paired immediately with Spontaneous Breathing Trials (SBT).
+- **C — Choice of Analgesia and Sedation**: Target light sedation (RASS -1 to 0); prioritize Dexmedetomidine or Propofol; eliminate scheduled benzodiazepines.
+- **D — Delirium Assessment, Prevention, and Management**: Twice-daily CAM-ICU screening; non-pharmacological sleep hygiene, day/night light cycles, early glasses/hearing aids.
+- **E — Early Mobility and Exercise**: Physical and occupational therapy initiated within 48h of intubation.
+- **F — Family Engagement and Empowerment**: Unrestricted family visitation and active participation in multidisciplinary rounds.
 `,
   clinicalVignettes: [
     {
-      scenario: "A 58-year-old male is mechanically ventilated on Day 4 of admission for severe acute pancreatitis. He is receiving a continuous Midazolam infusion (4 mg/h) and Fentanyl infusion (100 mcg/h). On assessment, he opens his eyes briefly when loudly called, but does not maintain eye contact (RASS -3). When the nurse stops the midazolam infusion as part of a Spontaneous Awakening Trial (SAT), the patient becomes awake (RASS +1), but when given the letter sequence 'S-A-V-E-A-H-A-A-R-T', he squeezes the nurse's hand on 4 incorrect letters (6/10 correct, Inattention positive). He also nods 'yes' when asked if a leaf floats on water, but nods 'yes' when asked if an elephant can fly.",
-      question: "What is this patient's neurological status based on the CAM-ICU tool, and what is the most evidence-based management strategy?",
+      scenario: "A 71-year-old female is on post-operative day 3 following emergent bowel resection for strangulated hernia. She is mechanically ventilated on low-dose Propofol (15 mcg/kg/min). The morning sedation hold is performed (SAT passed). When assessing with CAM-ICU: Nurse notes baseline mental status fluctuates over the morning shift. On the attention screening test (letter 'A' in 'SAVEAHAART'), the patient misses 4 targets (Score 6/10). Her current RASS is +1 (restless, picking at IV lines).",
+      question: "What is the CAM-ICU diagnostic interpretation and what is the optimal initial management strategy?",
       options: [
-        "CAM-ICU Positive (Hyperactive/Mixed ICU Delirium); Discontinue Midazolam, transition to an analgesia-first protocol with Dexmedetomidine if sedation is needed, and implement the ABCDEF bundle (early mobility, sleep hygiene, reorientation)",
-        "CAM-ICU Negative; Double the dose of Midazolam to achieve deep sedation (RASS -4)",
-        "Normal neurological recovery; Administer intravenous Haloperidol 10 mg every 4 hours routinely",
-        "Acute ischemic stroke; Immediately administer IV recombinant tissue plasminogen activator (tPA)"
+        "CAM-ICU Positive (Delirium present: Feature 1 + Feature 2 + Feature 3 present); Re-orient the patient, review all medications to discontinue anticholinergic/deliriogenic drugs, optimize day/night light cycles, ensure adequate analgesia, and avoid initiating high-dose benzodiazepines or haloperidol without acute distress",
+        "CAM-ICU Negative; Increase Propofol to achieve deep sedation (RASS -4)",
+        "CAM-ICU Indeterminate; Order emergency stat head CT scan before taking any action",
+        "Normal post-operative emergence; Administer IV Midazolam 5 mg bolus to calm patient"
       ],
       correctAnswerIndex: 0,
-      explanation: "This patient is CAM-ICU positive for ICU Delirium: (1) Acute onset/fluctuating course (Feature 1 positive), (2) Inattention on the SaveAHAART test with >2 errors (Feature 2 positive), (3) Altered consciousness with RASS +1 (Feature 3 positive), and (4) Disorganized thinking (Feature 4 positive). According to SCCM PADIS guidelines, benzodiazepines (Midazolam) are a major independent driver of ICU delirium and should be discontinued. The evidence-based approach is to adopt an analgesia-first protocol, transition to a non-benzodiazepine sedative such as Dexmedetomidine if light sedation is required, avoid routine prophylactic antipsychotics, and systematically implement the ABCDEF ICU liberation bundle."
+      explanation: "The patient meets diagnostic criteria for CAM-ICU Positive (Delirium): Feature 1 (Acute onset/fluctuation) is positive, Feature 2 (Inattention with >2 errors on SAVEAHAART) is positive, and Feature 3 (Altered consciousness with RASS +1 != 0) is positive. Delirium is confirmed. The primary management is non-pharmacological: re-orientation, sleep-wake cycle preservation, pain management, early mobilization, and removal of deliriogenic agents (anticholinergics, benzodiazepines). Antipsychotics do not treat the underlying delirium or shorten ICU stay and should be reserved only for severe distress or patient/staff safety."
     }
   ]
 };

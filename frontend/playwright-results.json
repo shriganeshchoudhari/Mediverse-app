@@ -4,7 +4,7 @@
       "C:\\Program Files\\nodejs\\node.exe",
       "F:\\Mediverse-app\\frontend\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "--project=Desktop Chromium"
+      "--ui"
     ],
     "configFile": "F:\\Mediverse-app\\frontend\\playwright.config.ts",
     "rootDir": "F:/Mediverse-app/frontend/e2e/specs",
@@ -130,17 +130,23 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1952,
+                      "duration": 3944,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-22T16:20:48.981Z",
+                      "startTime": "2026-08-22T16:24:06.539Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\01_auth_navigation-SPEC-01-6d9c4-nd-renders-branding-cleanly-Desktop-Chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -181,17 +187,23 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2677,
+                      "duration": 3894,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-22T16:20:51.193Z",
+                      "startTime": "2026-08-22T16:24:11.513Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\02_global_search_socratic--6947a-ard-shortcut-triggers-modal-Desktop-Chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -232,17 +244,23 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1727,
+                      "duration": 3116,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-22T16:20:53.907Z",
+                      "startTime": "2026-08-22T16:24:16.439Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\03_domain_allopathic-SPEC--7abaa-renders-professional-phases-Desktop-Chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -266,17 +284,23 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2365,
+                      "duration": 4046,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-22T16:20:55.658Z",
+                      "startTime": "2026-08-22T16:24:20.344Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\03_domain_allopathic-SPEC--f3045-d-ECG-waveform-interactives-Desktop-Chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -317,17 +341,23 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1850,
+                      "duration": 2157,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-22T16:20:58.063Z",
+                      "startTime": "2026-08-22T16:24:25.316Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\04_domain_dental-SPEC-04-D-95a24-tal-and-3D-Tooth-Morphology-Desktop-Chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -368,17 +398,23 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1839,
+                      "duration": 3341,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-22T16:20:59.946Z",
+                      "startTime": "2026-08-22T16:24:28.051Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\05_domain_ayush-SPEC-05-Do-126a5-tal-and-Prakriti-assessment-Desktop-Chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -419,17 +455,23 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1516,
+                      "duration": 3060,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-22T16:21:01.818Z",
+                      "startTime": "2026-08-22T16:24:31.960Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\06_domain_pharmacy-SPEC-06-59366-d-Drug-Interaction-analyzer-Desktop-Chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -470,17 +512,23 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1965,
+                      "duration": 2601,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-22T16:21:03.361Z",
+                      "startTime": "2026-08-22T16:24:35.706Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\07_domain_nursing-SPEC-07--b8cee-d-NEWS2-Deterioration-Score-Desktop-Chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -521,17 +569,23 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4229,
+                      "duration": 2381,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-22T16:21:05.360Z",
+                      "startTime": "2026-08-22T16:24:38.863Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\08_domain_physiotherapy-SP-b38fe-ycle-pathological-simulator-Desktop-Chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -572,17 +626,23 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1605,
+                      "duration": 2298,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-22T16:21:09.621Z",
+                      "startTime": "2026-08-22T16:24:41.724Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\09_domain_allied_health-SP-e0302--and-ECMO-circuit-simulator-Desktop-Chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -623,17 +683,23 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1628,
+                      "duration": 2296,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-22T16:21:11.251Z",
+                      "startTime": "2026-08-22T16:24:44.513Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\10_domain_veterinary-SPEC--7beab-natomy-multi-species-viewer-Desktop-Chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -674,17 +740,23 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1639,
+                      "duration": 2598,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-22T16:21:12.906Z",
+                      "startTime": "2026-08-22T16:24:47.325Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\11_domain_public_health-SP-a7c5c-mic-Outbreak-SEIR-simulator-Desktop-Chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -725,17 +797,23 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2281,
+                      "duration": 3600,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-22T16:21:14.576Z",
+                      "startTime": "2026-08-22T16:24:50.538Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\12_collaborative_study_roo-7a51e-ry-Presenter-claim-and-chat-Desktop-Chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -776,17 +854,23 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1705,
+                      "duration": 5441,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-22T16:21:16.896Z",
+                      "startTime": "2026-08-22T16:24:54.981Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\13_exam_and_osce-SPEC-13-A-72a25-aluation-and-rubric-scoring-Desktop-Chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -827,17 +911,23 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1642,
+                      "duration": 7599,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-22T16:21:18.634Z",
+                      "startTime": "2026-08-22T16:25:01.362Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\14_cms_curriculum_authorin-5b55f-02-CMS-authoring-interfaces-Desktop-Chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -878,17 +968,23 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1364,
+                      "duration": 6828,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-22T16:21:20.306Z",
+                      "startTime": "2026-08-22T16:25:09.960Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\15_accessibility_and_respo-f362f-ewport-responsive-rendering-Desktop-Chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -906,8 +1002,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-08-22T16:20:47.795Z",
-    "duration": 34116.255999999994,
+    "startTime": "2026-08-22T16:24:04.916Z",
+    "duration": 73308.00300000003,
     "expected": 16,
     "skipped": 0,
     "unexpected": 0,

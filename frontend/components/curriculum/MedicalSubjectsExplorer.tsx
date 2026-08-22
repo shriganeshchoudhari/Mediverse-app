@@ -12,6 +12,7 @@ import styles from "./MedicalSubjectsExplorer.module.css";
 export default function MedicalSubjectsExplorer() {
   const [selectedPhase, setSelectedPhase] = useState<MedicalPhase | "ALL">("ALL");
   const [searchQuery, setSearchQuery] = useState("");
+  const [expandedSubjectId, setExpandedSubjectId] = useState<string | null>(null);
 
   const filteredSubjects = useMemo(() => {
     return MEDICAL_CURRICULUM_SCAFFOLD.filter(subj => {
@@ -146,11 +147,56 @@ export default function MedicalSubjectsExplorer() {
 
               {/* Units & Chapters Preview */}
               <div className={styles.unitList}>
-                <div className={styles.unitListHeader}>Core Units &amp; Modules ({subject.units.length})</div>
+                <div className="flex justify-between items-center mb-2">
+                  <span className={styles.unitListHeader}>Core Units ({subject.units.length}) • Chapters ({subject.units.reduce((a, b) => a + b.chapters.length, 0)})</span>
+                  <button
+                    onClick={() => setExpandedSubjectId(expandedSubjectId === subject.id ? null : subject.id)}
+                    className="text-xs font-bold text-blue-400 hover:text-blue-300 transition py-0.5 px-2 rounded bg-blue-500/10 border border-blue-500/20"
+                  >
+                    {expandedSubjectId === subject.id ? 'Hide Chapters ▲' : 'View Chapters ▼'}
+                  </button>
+                </div>
+
                 {subject.units.map(unit => (
-                  <div key={unit.id} className={styles.unitItem}>
-                    <span className={styles.dot} style={{ backgroundColor: subject.colorTheme.accent }} />
-                    <span>{unit.title} ({unit.chapters.length} chap)</span>
+                  <div key={unit.id} className="mb-2">
+                    <div className={styles.unitItem}>
+                      <span className={styles.dot} style={{ backgroundColor: subject.colorTheme.accent }} />
+                      <span className="font-semibold text-slate-200">{unit.title} ({unit.chapters.length} chap)</span>
+                    </div>
+
+                    {/* Expandable Chapters List */}
+                    {expandedSubjectId === subject.id && (
+                      <div className="mt-2 ml-4 space-y-2 border-l-2 border-slate-800 pl-3">
+                        {unit.chapters.map((chap, chapIdx) => (
+                          <div
+                            key={chap.id}
+                            className="p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 hover:border-blue-500/40 transition flex flex-col sm:flex-row sm:items-center justify-between gap-2"
+                          >
+                            <div className="space-y-0.5">
+                              <div className="flex items-center gap-2">
+                                <span className="text-[11px] font-mono font-bold text-blue-400 bg-blue-500/10 px-1.5 py-0.5 rounded">
+                                  Chap {chapIdx + 1}
+                                </span>
+                                <strong className="text-xs text-white font-semibold">{chap.title}</strong>
+                              </div>
+                              <p className="text-[11px] text-slate-400">{chap.description}</p>
+                              <div className="flex gap-2 text-[10px] text-slate-500">
+                                <span>⏱️ {chap.estimatedMinutes} mins</span>
+                                <span>•</span>
+                                <span>{chap.highYieldTopics.length} high-yield topics</span>
+                              </div>
+                            </div>
+
+                            <Link
+                              href={subject.defaultSimulatorRoute || `/lessons/${chap.id}`}
+                              className="px-2.5 py-1 rounded bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/30 text-[11px] font-bold self-start sm:self-center transition flex-shrink-0"
+                            >
+                              Study Chapter →
+                            </Link>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>

@@ -20,6 +20,10 @@ const nextConfig = {
         destination: `${backendUrl}/api/:path*`,
       },
       {
+        source: '/ws/:path*',
+        destination: `${backendUrl}/ws/:path*`,
+      },
+      {
         source: '/simulations/ecg',
         destination: '/simulators/cardiac-cycle',
       },

@@ -176,8 +176,8 @@ export default function PatientEmergencySimulator() {
             <h1 className="text-3xl md:text-4xl font-black text-white tracking-tight flex items-center gap-3">
               <Shield className="w-8 h-8 text-red-500" /> Patient ER Simulator
             </h1>
-            <p className="text-slate-450 text-sm md:text-base mt-1">
-              Case File: **Traumatic Hemorrhage (Hypovolemic Shock)**. Manage fluid resuscitation, control bleeding, and stabilize perfusion.
+            <p className="text-slate-400 text-sm md:text-base mt-1">
+              Case File: <strong className="text-red-400 font-bold">Traumatic Hemorrhage (Hypovolemic Shock)</strong>. Manage fluid resuscitation, control bleeding, and stabilize perfusion.
             </p>
           </div>
 
@@ -337,8 +337,8 @@ export default function PatientEmergencySimulator() {
             <div className="bg-slate-950 p-4 rounded-xl border border-slate-850">
               <h3 className="text-xs font-bold text-white mb-2">Physiological Mechanics</h3>
               <p className="text-[10px] text-slate-400 leading-relaxed">
-                In acute hemorrhage, reduced blood volume triggers the **Baroreceptor Reflex**. Afferent signaling to the medulla decreases, stimulating sympathetic tone. 
-                This causes **tachycardia** (high HR) and **vasoconstriction** (narrowing pulse pressure, cooling skin) to protect brain and heart perfusion at the cost of renal clearance (severe oliguria).
+                In acute hemorrhage, reduced blood volume triggers the <strong className="text-slate-200 font-bold">Baroreceptor Reflex</strong>. Afferent signaling to the medulla decreases, stimulating sympathetic tone. 
+                This causes <strong className="text-slate-200 font-bold">tachycardia</strong> (high HR) and <strong className="text-slate-200 font-bold">vasoconstriction</strong> (narrowing pulse pressure, cooling skin) to protect brain and heart perfusion at the cost of renal clearance (severe oliguria).
               </p>
             </div>
           </div>
@@ -348,10 +348,10 @@ export default function PatientEmergencySimulator() {
             <h2 className="text-base font-bold text-white border-b border-slate-800 pb-3 mb-4">Patient Chart / ER Logs</h2>
             <div className="flex-1 overflow-y-auto space-y-3 pr-2 scrollbar-thin">
               {logs.map((log, idx) => (
-                <div key={idx} className="bg-slate-950 p-3 rounded-lg border border-slate-850 text-xs">
-                  <div className="flex justify-between text-[10px] text-slate-500 font-bold mb-1">
-                    <span>{log.time}</span>
-                    <span className="text-purple-400 uppercase tracking-widest">{log.effect}</span>
+                <div key={idx} className="bg-slate-950 p-3 rounded-lg border border-slate-800 text-xs">
+                  <div className="flex justify-between items-center text-[10px] font-bold mb-1 gap-2">
+                    <span className="text-slate-400 font-mono flex-shrink-0 bg-slate-900 px-1.5 py-0.5 rounded border border-slate-800">{log.time}</span>
+                    <span className="text-purple-400 uppercase tracking-widest text-right truncate">{log.effect}</span>
                   </div>
                   <p className="text-slate-300">{log.message}</p>
                 </div>

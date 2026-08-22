@@ -35,16 +35,12 @@ $$O_2ER = \\frac{VO_2}{DO_2} = \\frac{CaO_2 - CvO_2}{CaO_2} \\approx 25\\%$$
 
 ## 2. Pulmonary Artery (Swan-Ganz) Catheterization
 
-$$\\begin{array}{lcccc}
-\\hline
-\\textbf{Chamber / Vessel} & \\textbf{Normal Pressure (mmHg)} & \\textbf{Waveform Morphology} & \\textbf{Clinical Correlate} \\\\
-\\hline
-\\textbf{Right Atrium (RA / CVP)} & 0 - 8 & a, c, v\\text{ waves; } x, y\\text{ descents} & \\text{Right ventricular preload} \\\\
-\\textbf{Right Ventricle (RV)} & 15 - 30 \\, / \\, 0 - 8 & \\text{Sharp systolic rise, diastolic drop} & \\text{Pulsatile ventricular pressure} \\\\
-\\textbf{Pulmonary Artery (PA)} & 15 - 30 \\, / \\, 4 - 12 & \\mathbf{\\text{Dicrotic notch (pulmonic valve)}} & \\text{PA diastolic } \\approx \\text{ PCWP} \\\\
-\\textbf{Pulmonary Capillary Wedge (PCWP)} & 4 - 12 & \\text{Blunted } a \\text{ and } v \\text{ waves} & \\mathbf{\\text{Left ventricular end-diastolic pressure (LVEDP)}} \\\\
-\\hline
-\\end{array}$$
+| Chamber / Vessel | Normal Pressure (mmHg) | Waveform Morphology | Clinical Correlate |
+| :--- | :---: | :--- | :--- |
+| **Right Atrium (RA / CVP)** | 0 - 8 | $a, c, v$ waves; $x, y$ descents | Right ventricular preload |
+| **Right Ventricle (RV)** | 15 - 30 / 0 - 8 | Sharp systolic rise, diastolic drop | Pulsatile ventricular pressure |
+| **Pulmonary Artery (PA)** | 15 - 30 / 4 - 12 | **Dicrotic notch (pulmonic valve closure)** | $\\text{PA diastolic } \\approx \\text{ PCWP}$ |
+| **Pulmonary Capillary Wedge (PCWP)** | 4 - 12 | Blunted $a$ and $v$ waves | **Left ventricular end-diastolic pressure (LVEDP)** |
 
 - **Mixed Venous Saturation ($SvO_2$, Normal $65-75\\%$)**:
   - **Low $SvO_2$ ($<65\\%$)**: Cardiogenic shock, hypovolemic shock, severe anemia, hypoxemia, or shivering (increased tissue extraction).
