@@ -67,18 +67,32 @@ export default function ChapterPage() {
   if (error || !data) {
     return (
       <div className="bg-slate-950 min-h-screen flex flex-col items-center justify-center p-6 text-center">
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 max-w-md w-full space-y-6">
-          <span className="text-4xl">⚠️</span>
-          <h2 className="text-xl font-black text-white">Failed to Load Content</h2>
-          <p className="text-sm text-slate-400 font-medium leading-relaxed">
-            {error || "We could not find the contents for this chapter."}
-          </p>
-          <button
-            onClick={() => router.push("/")}
-            className="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition shadow-lg shadow-blue-900/20"
-          >
-            Back to Syllabus
-          </button>
+        <div className="bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 max-w-lg w-full space-y-6 shadow-2xl">
+          <div className="w-16 h-16 bg-amber-500/10 border border-amber-500/30 rounded-2xl flex items-center justify-center mx-auto text-3xl">
+            🏛️
+          </div>
+          <div className="space-y-2">
+            <h2 className="text-xl font-bold text-white tracking-tight">Curriculum Module In Preparation</h2>
+            <p className="text-sm text-slate-400 font-normal leading-relaxed">
+              {error === "Chapter not found"
+                ? "This lesson is currently undergoing regulatory alignment and editorial peer review in the Mediverse CMS workflow."
+                : error || "We could not find the verified contents for this module."}
+            </p>
+          </div>
+          <div className="pt-2 flex flex-col sm:flex-row gap-3">
+            <button
+              onClick={() => router.push("/")}
+              className="flex-1 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition text-sm shadow-lg shadow-blue-900/20"
+            >
+              Browse Active Syllabus
+            </button>
+            <button
+              onClick={() => router.back()}
+              className="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition text-sm border border-slate-700"
+            >
+              Go Back
+            </button>
+          </div>
         </div>
       </div>
     );

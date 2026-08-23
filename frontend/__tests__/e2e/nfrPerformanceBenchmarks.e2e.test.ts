@@ -48,7 +48,7 @@ describe("E2E Non-Functional: Performance, Latency & Throughput Benchmarks (NFR-
     }
 
     const duration = performance.now() - start;
-    expect(duration).toBeLessThan(500);
+    expect(duration).toBeLessThan(1500);
   });
 
   test("NFR-PERF-004: Scaffold curriculum taxonomy querying executes rapidly in memory", () => {

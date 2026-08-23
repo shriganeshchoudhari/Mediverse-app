@@ -2,6 +2,7 @@ package com.curiolearn.auth;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -14,7 +15,6 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.beans.factory.annotation.Value;
 
-import com.curiolearn.auth.JwtAuthenticationFilter;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.util.Arrays;
@@ -29,7 +29,7 @@ public class SecurityConfig {
 
     private final JwtAuthenticationFilter jwtAuthFilter;
 
-    @Value("${cors.allowed-origins:http://localhost:3000}")
+    @Value("${cors.allowed-origins:http://localhost:3000,http://127.0.0.1:3000}")
     private String allowedOrigins;
 
     public SecurityConfig(JwtAuthenticationFilter jwtAuthFilter) {
@@ -47,13 +47,13 @@ public class SecurityConfig {
                     "/api/v1/auth/**",
                     "/ws/**",
                     "/api/v1/public/**",
-                    "/api/v1/rag/**",
-                    "/api/v1/ai/**",
-                    "/api/v1/ai-tutor/**",
-                    "/api/v1/simulations/catalog",
-                    "/api/v1/simulations/calculate",
-                    "/api/v1/simulations/*/calculate",
-                    "/api/v1/quiz/*/sync",
+                    "/swagger-ui/**",
+                    "/v3/api-docs/**",
+                    "/swagger-ui.html",
+                    "/actuator/health",
+                    "/actuator/prometheus"
+                ).permitAll()
+                .requestMatchers(HttpMethod.GET,
                     "/api/v1/curriculum/**",
                     "/api/v1/curricula/**",
                     "/api/v1/domains/**",
@@ -67,11 +67,7 @@ public class SecurityConfig {
                     "/api/v1/allied/**",
                     "/api/v1/veterinary/**",
                     "/api/v1/public-health/**",
-                    "/swagger-ui/**",
-                    "/v3/api-docs/**",
-                    "/swagger-ui.html",
-                    "/actuator/health",
-                    "/actuator/prometheus"
+                    "/api/v1/simulations/catalog"
                 ).permitAll()
                 .anyRequest().authenticated()
             )
@@ -79,11 +75,14 @@ public class SecurityConfig {
         return http.build();
     }
 
-
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(List.of("*"));
+        List<String> origins = Arrays.stream(allowedOrigins.split(","))
+                .map(String::trim)
+                .filter(s -> !s.isEmpty())
+                .toList();
+        configuration.setAllowedOrigins(origins);
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type", "X-Requested-With", "Accept", "Origin"));
         configuration.setAllowCredentials(true);
@@ -97,4 +96,3 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
-

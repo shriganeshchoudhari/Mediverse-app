@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,10 +12,13 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import java.util.List;
+import java.util.regex.Pattern;
+
 @Service
 public class AiService {
 
-    @Value("${gemini.api.key}")
+    @Value("${gemini.api.key:}")
     private String geminiApiKey;
 
     private final String GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=";
@@ -23,30 +27,37 @@ public class AiService {
     private final ObjectMapper objectMapper;
     private final RagService ragService;
 
+    // Matches genuine personal emergency distress cues rather than academic/curriculum exam questions
+    private static final Pattern CRISIS_PATTERN = Pattern.compile(
+            "\\b(i am having|i have|help me|i feel like|i took)\\b.*\\b(chest pain|heart attack|suicidal|kill myself|cannot breathe|overdose|heavy bleeding)\\b",
+            Pattern.CASE_INSENSITIVE
+    );
+
     public AiService(RagService ragService) {
-        this.restTemplate = new RestTemplate();
+        SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
+        factory.setConnectTimeout(10000);
+        factory.setReadTimeout(30000);
+        this.restTemplate = new RestTemplate(factory);
         this.objectMapper = new ObjectMapper();
         this.ragService = ragService;
     }
 
     private boolean isEmergency(String prompt) {
-        if (prompt == null) return false;
+        if (prompt == null || prompt.trim().isEmpty()) return false;
         String lower = prompt.toLowerCase();
-        return lower.contains("chest pain") || lower.contains("heart attack") || 
-               lower.contains("cardiac arrest") || lower.contains("stroke") || 
-               lower.contains("difficulty breathing") || lower.contains("shortness of breath") || 
-               lower.contains("anaphylaxis") || lower.contains("severe bleeding") || 
-               lower.contains("unresponsive") || lower.contains("suicidal") ||
-               lower.contains("poisoning") || lower.contains("emergency");
+        if (lower.contains("i want to die") || lower.contains("i want to kill myself") || lower.contains("i feel suicidal")) {
+            return true;
+        }
+        return CRISIS_PATTERN.matcher(prompt).find();
     }
 
-    public String askTutor(String prompt, String context, java.util.List<AiController.ChatMessage> history) {
+    public String askTutor(String prompt, String context, List<AiController.ChatMessage> history) {
         if (isEmergency(prompt)) {
-            return "**CRITICAL WARNING**: If you or someone else is experiencing a medical emergency, please call your local emergency services (e.g., 911 or 112) or go to the nearest emergency room immediately. This AI tutor is strictly for educational purposes and cannot provide medical advice, triage, or clinical management.";
+            return "**CRITICAL SAFETY NOTICE**: If you or someone else is experiencing an acute medical emergency or crisis, please contact your local emergency services (112 / 911 / emergency dispatch) or present to the nearest hospital immediately. This AI Socratic Tutor is strictly for academic and professional study and cannot provide personal medical care.";
         }
 
         if (geminiApiKey == null || geminiApiKey.isEmpty() || geminiApiKey.equals("your_api_key_here") || geminiApiKey.contains("${")) {
-            return "AI Tutor is currently offline. Please configure your GEMINI_API_KEY to enable AI assistance.";
+            return "AI Tutor is currently offline. Please configure your GEMINI_API_KEY environment variable to enable live generative responses.";
         }
 
         try {
@@ -54,21 +65,22 @@ public class AiService {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
 
-            String systemInstruction = "You are an expert AI Physiology Tutor. The user is currently studying the context: " + context + ".\n" +
-                "CRITICAL CLINICAL SAFETY NOTICE: This AI tutor is strictly for educational/academic study of physiological principles and is NOT a clinical tool or diagnostic aid. You must never offer medical advice, treatment recommendations, or diagnostic decisions for patient care. If a user asks for clinical advice, you must refuse and direct them to consult a qualified physician.\n\n" +
-                "INSTRUCTIONS:\n" +
-                "1. Provide a clear, medically accurate, and concise explanation (under 3 paragraphs) emphasizing the physiological mechanisms.\n" +
-                "2. Do not use overly complex jargon without explaining it.\n" +
-                "3. Cite specific chapters or sections from the provided reference material when grounding your answers.";
-            
-            // BM25 RAG: Fetch relevant curriculum chunks from Elasticsearch based on the user's prompt
+            String systemInstruction = "You are an expert AI Medical and Healthcare Sciences Socratic Tutor assisting students across all statutory healthcare disciplines (Allopathic Medicine/MBBS, Dental/BDS, AYUSH/BAMS, Pharmacy, Nursing, Physiotherapy, Allied Health, Veterinary, and Public Health).\n" +
+                    "The student is currently studying: " + (context != null && !context.isEmpty() ? context : "Healthcare Sciences Curriculum") + ".\n\n" +
+                    "PEDAGOGICAL & CLINICAL SAFETY GUIDELINES:\n" +
+                    "1. Socratic Teaching: Guide the student with structured conceptual reasoning, physiological mechanisms, and clinical correlations.\n" +
+                    "2. Academic Grounding: Ground answers in the curriculum reference material provided below, citing relevant subjects, chapters, and competency codes.\n" +
+                    "3. Concise and Clear: Structure answers under 3-4 paragraphs using markdown bolding and bullet points for high-yield clarity.\n" +
+                    "4. Strict Safety: This platform is exclusively for academic education. Do not provide real-time patient diagnosis or clinical prescribing advice.";
+
+            // Hybrid RAG: Fetch relevant curriculum chunks from Elasticsearch + Vector store based on the user's prompt
             String ragContext = ragService.searchRelevantContext(prompt);
             if (!ragContext.isEmpty()) {
-                systemInstruction += "\n\n" + ragContext + "\nAnswer the user's question using the above local syllabus content where possible, citing the source chapter.";
+                systemInstruction += "\n\n" + ragContext + "\nAnswer the student's question using the above verified curriculum content where applicable, citing the source chapter.";
             }
 
             ObjectNode requestBody = objectMapper.createObjectNode();
-            
+
             // system_instruction for Gemini 1.5
             ObjectNode sysInst = requestBody.putObject("system_instruction");
             ArrayNode sysParts = sysInst.putArray("parts");
@@ -76,7 +88,7 @@ public class AiService {
 
             // contents array
             ArrayNode contents = requestBody.putArray("contents");
-            
+
             if (history != null && !history.isEmpty()) {
                 for (AiController.ChatMessage msg : history) {
                     ObjectNode contentObj = contents.addObject();
@@ -90,23 +102,22 @@ public class AiService {
                 ArrayNode parts = contentObj.putArray("parts");
                 parts.addObject().put("text", prompt);
             }
-            
+
             HttpEntity<String> request = new HttpEntity<>(objectMapper.writeValueAsString(requestBody), headers);
-            
+
             String response = restTemplate.postForObject(url, request, String.class);
-            
+
             JsonNode root = objectMapper.readTree(response);
             JsonNode textNode = root.path("candidates").get(0).path("content").path("parts").get(0).path("text");
-            
-            if (textNode.isMissingNode()) {
-                return "I'm sorry, I couldn't process that right now.";
+
+            if (textNode != null && !textNode.isMissingNode()) {
+                return textNode.asText();
             }
-            return textNode.asText();
+
+            return "Unable to generate a response at this time. Please try again.";
 
         } catch (Exception e) {
-            e.printStackTrace();
-            return "An error occurred while connecting to the AI Tutor. Please try again later.";
+            return "AI Tutor service temporarily unavailable: " + e.getMessage();
         }
     }
 }
-
