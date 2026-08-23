@@ -45,6 +45,9 @@ export const cmsApi = {
   listLessons: (status: string = "IN_REVIEW") =>
     apiClient.get<LessonQueueItem[]>(`/cms/lessons?status=${encodeURIComponent(status)}`),
 
+  createLesson: (payload: { title: string; conceptId?: string; difficulty?: string; blocks: any[] }) =>
+    apiClient.post<LessonDetail>(`/cms/lessons`, payload),
+
   getLesson: (lessonId: string) => apiClient.get<LessonDetail>(`/cms/lessons/${lessonId}`),
 
   submitForReview: (lessonId: string) =>

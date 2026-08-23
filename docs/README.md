@@ -10,8 +10,14 @@ Welcome to the Mediverse platform architectural and engineering documentation in
 |---|---|---|---|
 | [`ADR-001`](./adr/ADR-001-v7-migration-skip.md) | V7 Migration Skip & Schema Baseline | Accepted | Flyway Database Baseline |
 | [`ADR-002`](./adr/ADR-002-multi-domain-curriculum-architecture.md) | Multi-Domain Healthcare Curriculum Architecture | Accepted | 9 Statutory Healthcare Councils |
-| [`ADR-003`](./adr/ADR-003-unified-content-ingestion-and-metadata-pipeline.md) | Unified Content Ingestion & Metadata Pipeline | Accepted | Single DB Source of Truth |
-| [`ADR-004`](./adr/ADR-004-hybrid-dense-sparse-rag-retrieval.md) | Hybrid Dense-Sparse RAG & Semantic Retrieval | Accepted | Elasticsearch + pgvector RRF |
+| [`ADR-003`](./adr/ADR-003-unified-content-ingestion-and-metadata-pipeline.md) | Canonical Hierarchy Linking & Content Unification | Accepted | Single DB Source of Truth |
+| [`ADR-004`](./adr/ADR-004-hybrid-dense-sparse-rag-retrieval.md) | Dual-Tier Hybrid RAG with Reciprocal Rank Fusion | Accepted | Elasticsearch + pgvector RRF |
+| [`ADR-005`](./adr/ADR-005-canonical-platform-naming.md) | Canonical Platform Naming & Namespace Harmonization | Accepted | Mediverse / Curiolearn Standard |
+
+---
+
+## 📊 Content Audits & Parity Metrics
+* **[`Content Parity & Drift Audit Report`](./reports/content-parity-audit-report.md)**: 3-way reconciliation across 86 subjects, 351 lesson modules, 277k words, and 185 database migrations.
 
 ---
 

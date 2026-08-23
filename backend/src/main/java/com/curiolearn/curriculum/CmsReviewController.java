@@ -32,6 +32,12 @@ public class CmsReviewController {
         return ResponseEntity.ok(cmsReviewService.listByStatus(status));
     }
 
+    @PostMapping
+    @PreAuthorize("hasAnyRole('SUPER_ADMIN','ADMIN','FACULTY','CONTENT_WRITER')")
+    public ResponseEntity<Lesson> createLesson(@RequestBody CreateLessonRequestDto request) {
+        return ResponseEntity.ok(cmsReviewService.createLesson(request));
+    }
+
     @GetMapping("/{lessonId}")
     @PreAuthorize("hasAnyRole('SUPER_ADMIN','ADMIN','FACULTY','CONTENT_WRITER','MEDICAL_REVIEWER','EDITOR')")
     public ResponseEntity<LessonDetailDto> getDetail(@PathVariable UUID lessonId) {

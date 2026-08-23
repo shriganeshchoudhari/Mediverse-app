@@ -1,6 +1,6 @@
-# Project Roadmap & Developer Checklist
+﻿# Project Roadmap & Developer Checklist
 
-This document is the single source of truth for the MedSyllabus platform, defining high-level engineering phases, detailed developer tasks, completed progress, and planned backlog.
+This document is the single source of truth for the Mediverse platform, defining high-level engineering phases, detailed developer tasks, completed progress, and planned backlog.
 
 ---
 
@@ -26,14 +26,14 @@ This document is the single source of truth for the MedSyllabus platform, defini
 - [x] Restructure Spring Boot backend into package-by-feature modular domains.
 - [x] Rename the parent package prefix from `com.physiology` to the program-neutral `com.curiolearn` to support BDS/Nursing/other curricula.
 - [x] Add the `Program` hierarchy above the `Curriculum` schema (`V23__add_program_hierarchy.sql`; existing curricula backfilled to a seeded MBBS program).
-- [x] Lock package boundaries using lightweight architecture assertions (ArchUnit — `ArchitectureTest.java`).
+- [x] Lock package boundaries using lightweight architecture assertions (ArchUnit â€” `ArchitectureTest.java`).
 
 ### Phase 5: Metadata-Driven Content Engine & Role-Based CMS (Completed)
 - [x] Refactor content schema into dynamic `Lesson` and `ContentBlock` blocks (`V22__metadata_driven_content_engine.sql`).
-- [x] Extend user role model documentation (`Roles.java`: `SUPER_ADMIN, ADMIN, FACULTY, CONTENT_WRITER, MEDICAL_REVIEWER, EDITOR, STUDENT`). Column remains free-text for migration safety; validity enforced at the application layer — see ADR-002.
+- [x] Extend user role model documentation (`Roles.java`: `SUPER_ADMIN, ADMIN, FACULTY, CONTENT_WRITER, MEDICAL_REVIEWER, EDITOR, STUDENT`). Column remains free-text for migration safety; validity enforced at the application layer â€” see ADR-002.
 - [x] Implement content review workflow (`DRAFT -> IN_REVIEW -> APPROVED -> PUBLISHED` / `REJECTED`) via `ContentReview` audit entity (`V24__cms_content_review_workflow.sql`) and `CmsReviewService`/`CmsReviewController`.
 - [x] Build CMS review endpoints (`/api/v1/cms/lessons/**`) with role-based authorization (`@PreAuthorize`).
-- [x] Frontend CMS review-queue UI (`/cms`, `/cms/[lessonId]`) — tabbed queue by status, content-block preview via the existing `ContentBlockRenderer`, approve/reject with comments, review history.
+- [x] Frontend CMS review-queue UI (`/cms`, `/cms/[lessonId]`) â€” tabbed queue by status, content-block preview via the existing `ContentBlockRenderer`, approve/reject with comments, review history.
 - [ ] **Backlog**: Curriculum tree editor and lesson content-block *authoring* UI (the review/approve side is built; drafting/editing content blocks still requires direct API calls or DB access).
 
 ### Phase 6: Obsolescence, DevOps & CI/CD (In Progress)
@@ -77,3 +77,4 @@ This document is the single source of truth for the MedSyllabus platform, defini
 - [x] Install Three.js, React Three Fiber (`@react-three/fiber`), and Drei (`@react-three/drei`).
 - [x] Create a responsive `ThreeCanvas` component with custom organ geometry loading.
 - [x] Build sidebar, navbar, responsive dashboard, and interactive study statistics widgets.
+

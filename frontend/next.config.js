@@ -41,6 +41,35 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/cardiovascular',
+        destination: '/healthcare/allopathic/mbbs/cardiovascularadv',
+        permanent: false,
+      },
+      {
+        source: '/anatomy2',
+        destination: '/healthcare/allopathic/mbbs/anatomy2',
+        permanent: false,
+      },
+      {
+        source: '/biochemistry2',
+        destination: '/healthcare/allopathic/mbbs/biochemistry2',
+        permanent: false,
+      },
+      {
+        source: '/dermatologyadv',
+        destination: '/healthcare/allopathic/mbbs/dermatologyadv',
+        permanent: false,
+      },
+      ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => ({
+        source: `/pg${n}`,
+        destination: `/healthcare/allopathic/md-ms/pg/${n}`,
+        permanent: false,
+      })),
+    ];
+  },
 };
 
 module.exports = withPWA(nextConfig);

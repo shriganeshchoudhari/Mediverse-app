@@ -226,6 +226,10 @@ export const curriculumApi = {
           for (const block of blocks) {
             if (block.type === 'EXPLANATION' && block.metadata && block.metadata.text) {
               markdown += `${block.metadata.text}\n\n`;
+            } else if (block.type === 'CLINICAL_CASE' && block.metadata) {
+              markdown += `\n### Clinical Case: ${block.metadata.scenario || ''}\n\n`;
+              if (block.metadata.question) markdown += `**Question**: ${block.metadata.question}\n\n`;
+              if (block.metadata.explanation) markdown += `> **Clinical Reasoning**: ${block.metadata.explanation}\n\n`;
             }
           }
         } catch (e) {

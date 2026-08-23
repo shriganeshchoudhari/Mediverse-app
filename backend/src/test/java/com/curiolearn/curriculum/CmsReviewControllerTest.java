@@ -68,4 +68,23 @@ class CmsReviewControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.status", is("IN_REVIEW")));
     }
+
+    @Test
+    @DisplayName("TC-CMS-003: POST /api/v1/cms/lessons creates lesson with multi-modal content blocks")
+    void testCreateLesson() throws Exception {
+        UUID lessonId = UUID.randomUUID();
+        Lesson lesson = new Lesson();
+        lesson.setId(lessonId);
+        lesson.setTitle("Acute Coronary Syndromes");
+        lesson.setStatus("DRAFT");
+
+        when(cmsReviewService.createLesson(org.mockito.ArgumentMatchers.any(CreateLessonRequestDto.class))).thenReturn(lesson);
+
+        mockMvc.perform(post("/api/v1/cms/lessons")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"title\":\"Acute Coronary Syndromes\",\"blocks\":[]}"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.title", is("Acute Coronary Syndromes")))
+                .andExpect(jsonPath("$.status", is("DRAFT")));
+    }
 }

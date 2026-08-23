@@ -8,12 +8,13 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 /**
- * Drives the Lesson content-review workflow:
- * DRAFT -> IN_REVIEW -> (APPROVED -> PUBLISHED | REJECTED -> DRAFT)
+ * Drives the Lesson content-authoring and review workflow:
+ * CREATE (DRAFT) -> EDIT -> SUBMIT (IN_REVIEW) -> (APPROVED -> PUBLISHED | REJECTED -> DRAFT)
  */
 @Service
 @RequiredArgsConstructor
@@ -22,6 +23,41 @@ public class CmsReviewService {
     private final LessonRepository lessonRepository;
     private final ContentReviewRepository contentReviewRepository;
     private final UserRepository userRepository;
+    private final ConceptRepository conceptRepository;
+    private final ContentBlockRepository contentBlockRepository;
+
+    @Transactional
+    public Lesson createLesson(CreateLessonRequestDto request) {
+        Concept concept = null;
+        if (request.getConceptId() != null) {
+            concept = conceptRepository.findById(request.getConceptId()).orElse(null);
+        }
+
+        Lesson lesson = new Lesson();
+        lesson.setTitle(request.getTitle());
+        lesson.setStatus(LessonStatus.DRAFT);
+        lesson.setVersion(1);
+        lesson.setConcept(concept);
+
+        Lesson saved = lessonRepository.save(lesson);
+
+        if (request.getBlocks() != null && !request.getBlocks().isEmpty()) {
+            int order = 1;
+            List<ContentBlock> blocks = new ArrayList<>();
+            for (CreateLessonRequestDto.BlockPayload b : request.getBlocks()) {
+                ContentBlock block = new ContentBlock();
+                block.setLesson(saved);
+                block.setType(b.getType() != null ? b.getType().toUpperCase() : "EXPLANATION");
+                block.setOrderIndex(b.getOrderIndex() > 0 ? b.getOrderIndex() : order++);
+                block.setMetadata(b.getMetadata());
+                blocks.add(block);
+            }
+            contentBlockRepository.saveAll(blocks);
+            saved.setContentBlocks(blocks);
+        }
+
+        return saved;
+    }
 
     @Transactional
     public Lesson submitForReview(UUID lessonId) {
