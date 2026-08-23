@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { resolveScaffoldLesson } from "@/lib/curriculum/scaffoldLessonResolver";
 import { AETCOM_CORE_MODULES } from "@/lib/curriculum/content/aetcom";
 import { ANATOMY_CORE_MODULES } from "@/lib/curriculum/content/anatomy";
 import { ANATOMY2_CORE_MODULES } from "@/lib/curriculum/content/anatomy2";
@@ -178,6 +179,13 @@ const ALL_STATIC_MODULES = [
 
 // Slug and alias mapping for glossary terms, clinical keywords, and canonical URLs
 const SLUG_ALIASES: Record<string, string> = {
+  // Physiology chapters
+  "phys-c1": "phys-nerve-muscle",
+  "phys-c2": "phys-neurophysiology",
+  "phys-c3": "phys-cardiac-cycle",
+  "phys-c4": "phys-respiratory-mechanics",
+  "phys-c5": "phys-renal-filtration",
+  "phys-c6": "phys-acid-base",
   "synaptic-transmission": "phys-neurophysiology",
   "cns-synapse": "phys-neurophysiology",
   "action-potential": "phys-nerve-muscle",
@@ -197,6 +205,52 @@ const SLUG_ALIASES: Record<string, string> = {
   "homeostasis": "phys-nerve-muscle",
   "vision": "phys-neurophysiology",
   "spirometry": "phys-respiratory-mechanics",
+
+  // Anatomy chapters
+  "anat-c1": "anat-upper-limb",
+  "anat-c2": "anat-thorax-mediastinum",
+  "anat-c3": "anat-head-neck-circle-of-willis",
+
+  // Biochemistry chapters
+  "bioc-c1": "bioc-glycolysis-tca-oxphos",
+  "bioc-c2": "bioc-lipoprotein-metabolism-dyslipidemia",
+
+  // Pathology chapters
+  "path-c1": "path-cellular-injury-necrosis-apoptosis",
+  "path-c2": "path-acute-chronic-inflammation-granuloma",
+  "path-c3": "path-neoplasia-hallmarks-tnm-staging",
+
+  // Microbiology chapters
+  "micr-c1": "micr-bacterial-cell-wall-gram-stain",
+  "micr-c2": "micr-antimicrobial-resistance-mechanisms",
+
+  // Pharmacology chapters
+  "pharm-c1": "pharm-pharmacokinetics-adme-first-order",
+  "pharm-c2": "pharm-autonomic-nervous-system-receptors",
+  "pharm-c3": "pharm-beta-lactam-antibiotics-mechanisms",
+
+  // FMT & Community Medicine
+  "for-c1": "for-thanatology-postmortem-changes",
+  "comm-c1": "comm-epidemiology-study-designs-bias",
+
+  // Clinical subjects
+  "med-c1": "med-acute-coronary-syndromes-ecg-stemi",
+  "med-c2": "med-diabetic-ketoacidosis-hhs-management",
+  "surg-c1": "surg-acute-appendicitis-alvarado-laparoscopy",
+  "surg-c2": "surg-surgical-shock-trauma-atls-primary-survey",
+  "og-c1": "og-normal-labor-stages-partogram-monitoring",
+  "peds-c1": "peds-developmental-milestones-primitive-reflexes",
+  "ortho-c1": "ortho-fracture-healing-compartment-syndrome",
+  "ophth-c1": "ophth-glaucoma-mechanisms-visual-field-defects",
+  "ent-c1": "ent-otitis-media-hearing-loss-audiometry",
+  "derm-c1": "derm-psoriasis-eczema-autoimmune-bullous",
+  "psych-c1": "psych-major-depressive-disorder-bipolar-neurobiology",
+  "rad-c1": "rad-chest-xray-interpretation-silhouette-sign",
+  "anes-c1": "anes-general-anesthesia-triad-mac-stages",
+  "aetcom-c1": "aetcom-bioethics-four-principles-informed-consent",
+  "aetcom-c2": "aetcom-doctor-patient-communication-breaking-bad-news",
+
+  // Critical care
   "hemodynamics": "critical-care-adv-hemodynamics-oxygen-delivery",
   "ards": "critical-care-adv-ards-mechanical-ventilation",
   "mechanical-ventilation": "critical-care-adv-ards-mechanical-ventilation",
@@ -206,19 +260,35 @@ const SLUG_ALIASES: Record<string, string> = {
 const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 function findStaticModule(slugOrId: string) {
-  const normalized = slugOrId.toLowerCase().trim();
-  const targetId = SLUG_ALIASES[normalized] || normalized;
+  const raw = slugOrId.toLowerCase().trim();
+  const normalizedWithDashes = raw.replace(/_/g, "-");
+  const targetId = SLUG_ALIASES[raw] || SLUG_ALIASES[normalizedWithDashes] || normalizedWithDashes;
 
-  return ALL_STATIC_MODULES.find((item: any) => {
+  // 1. Direct match on ID, unitCode, or alias
+  const exact = ALL_STATIC_MODULES.find((item: any) => {
     const id = (item?.id || "").toLowerCase();
     const unitCode = (item?.unitCode || item?.code || "").toLowerCase();
-    const title = (item?.title || item?.name || "").toLowerCase();
     return (
       id === targetId ||
-      id === normalized ||
+      id === normalizedWithDashes ||
+      id === raw ||
       unitCode === targetId ||
-      unitCode === normalized ||
-      title.includes(normalized)
+      unitCode === normalizedWithDashes ||
+      unitCode === raw
+    );
+  });
+
+  if (exact) return exact;
+
+  // 2. Substring match on ID or Title
+  return ALL_STATIC_MODULES.find((item: any) => {
+    const id = (item?.id || "").toLowerCase();
+    const title = (item?.title || item?.name || "").toLowerCase();
+    return (
+      id.includes(targetId) ||
+      id.includes(normalizedWithDashes) ||
+      title.includes(targetId) ||
+      title.includes(normalizedWithDashes)
     );
   });
 }
@@ -302,7 +372,21 @@ export async function GET(
     });
   }
 
-  // 3. Fallback: Return honest 404 for unmapped/unauthored chapters
+  // 3. Resolve against 22 Domain Scaffolds
+  const scaffoldLesson = resolveScaffoldLesson(chapterId);
+  if (scaffoldLesson) {
+    return NextResponse.json({
+      title: scaffoldLesson.title,
+      markdownContent: scaffoldLesson.markdownContent,
+      difficulty: scaffoldLesson.difficulty || "Intermediate",
+      estimatedMinutes: scaffoldLesson.estimatedMinutes || 40,
+      section: `${scaffoldLesson.subjectTitle}${scaffoldLesson.competencyCode ? ` (${scaffoldLesson.competencyCode})` : ""}`,
+      isStatic: true,
+      topics: [],
+    });
+  }
+
+  // 4. Fallback: Return honest 404 for unmapped/unauthored chapters
   return NextResponse.json(
     {
       error: "Chapter not found",
