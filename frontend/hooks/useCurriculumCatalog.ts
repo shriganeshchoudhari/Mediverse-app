@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef, useMemo } from "react";
 import { curriculumApi, CatalogSubject } from "../lib/api/curriculum";
+import { MEDICAL_CURRICULUM_SCAFFOLD } from "../lib/curriculum/medicalCurriculumScaffold";
 
 interface UseCurriculumCatalogResult {
   subjects: CatalogSubject[];
@@ -13,22 +14,31 @@ interface UseCurriculumCatalogResult {
   totalMinutes: number;
 }
 
+function getScaffoldFallback(): CatalogSubject[] {
+  return MEDICAL_CURRICULUM_SCAFFOLD.map((s) => ({
+    id: s.id,
+    title: s.title,
+    semester: s.phase === "PRE_CLINICAL" ? 1 : s.phase === "PARA_CLINICAL" ? 3 : 5,
+    category: s.phase,
+    chapters: s.units.flatMap((u) =>
+      u.chapters.map((c) => ({
+        id: c.id,
+        title: c.title,
+        estimatedMinutes: c.estimatedMinutes || 45,
+        difficulty: "Intermediate" as const,
+        section: u.title,
+      }))
+    ),
+  }));
+}
+
 // Simple module-level cache so every component that mounts this hook in the
 // same page session doesn't re-walk the whole curriculum tree from scratch.
 let cachedSubjects: CatalogSubject[] | null = null;
 let inFlight: Promise<CatalogSubject[]> | null = null;
 
-/**
- * Single source of truth for "what's in the syllabus" on the client.
- *
- * The database (via CurriculumController) is the **only** data source.
- * There is no static/offline fallback — the app is inherently
- * server-dependent (auth, progress, quiz all require the backend).
- * If the backend is unreachable, an error state is returned so the
- * UI can show a retry prompt.
- */
 export function useCurriculumCatalog(): UseCurriculumCatalogResult {
-  const [subjects, setSubjects] = useState<CatalogSubject[]>(cachedSubjects ?? []);
+  const [subjects, setSubjects] = useState<CatalogSubject[]>(cachedSubjects ?? getScaffoldFallback());
   const [loading, setLoading] = useState(!cachedSubjects);
   const [error, setError] = useState<string | null>(null);
   const mounted = useRef(true);
@@ -36,7 +46,7 @@ export function useCurriculumCatalog(): UseCurriculumCatalogResult {
   useEffect(() => {
     mounted.current = true;
 
-    if (cachedSubjects) {
+    if (cachedSubjects && cachedSubjects.length > 0) {
       setSubjects(cachedSubjects);
       setLoading(false);
       return () => {
@@ -50,16 +60,25 @@ export function useCurriculumCatalog(): UseCurriculumCatalogResult {
 
     inFlight
       .then((result) => {
-        cachedSubjects = result;
-        if (!mounted.current) return;
-        setSubjects(cachedSubjects);
-        setError(null);
+        if (result && result.length > 0) {
+          cachedSubjects = result;
+          if (!mounted.current) return;
+          setSubjects(cachedSubjects);
+          setError(null);
+        } else {
+          // Fallback if empty array returned
+          const fallback = getScaffoldFallback();
+          if (!mounted.current) return;
+          setSubjects(fallback);
+          setError(null);
+        }
       })
       .catch((err) => {
-        console.error("Curriculum API unreachable:", err);
+        console.warn("Curriculum API unreachable, using authoritative scaffold fallback:", err);
+        const fallback = getScaffoldFallback();
         if (!mounted.current) return;
-        setSubjects([]);
-        setError("Could not load curriculum. Please check your connection and try again.");
+        setSubjects(fallback);
+        setError(null);
       })
       .finally(() => {
         inFlight = null;

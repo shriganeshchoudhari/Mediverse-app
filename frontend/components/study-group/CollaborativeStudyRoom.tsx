@@ -44,7 +44,12 @@ export function CollaborativeStudyRoom({
     toggleScreenShare,
   } = useCollaborativeRoom({ roomId, userId, userName });
 
-  const [activeTab, setActiveTab] = useState<'chat' | 'roster' | 'notes'>('chat');
+  const [activeTab, setActiveTab] = useState<'chat' | 'roster' | 'notes' | 'battle'>('chat');
+  const [battleScore, setBattleScore] = useState(0);
+  const [battleStreak, setBattleStreak] = useState(0);
+  const [currentBattleIndex, setCurrentBattleIndex] = useState(0);
+  const [selectedBattleOption, setSelectedBattleOption] = useState<number | null>(null);
+  const [hasAnsweredBattle, setHasAnsweredBattle] = useState(false);
   const [chatInput, setChatInput] = useState('');
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
@@ -394,6 +399,12 @@ export function CollaborativeStudyRoom({
             >
               📌 Clinical Pearls
             </button>
+            <button
+              className={`${styles.tabBtn} ${activeTab === 'battle' ? styles.tabBtnActive : ''}`}
+              onClick={() => setActiveTab('battle')}
+            >
+              ⚡ Flashcard Duel
+            </button>
           </div>
 
           {activeTab === 'chat' && (
@@ -458,6 +469,84 @@ export function CollaborativeStudyRoom({
               <div style={{ background: '#0f172a', padding: '0.5rem', borderRadius: '0.375rem' }}>
                 <strong>Mitral Valve Closure:</strong> Corresponds to S1 heart sound and isovolumetric contraction phase.
               </div>
+            </div>
+          )}
+
+          {activeTab === 'battle' && (
+            <div style={{ padding: '0.75rem', fontSize: '0.8125rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', overflowY: 'auto' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#0f172a', padding: '0.5rem 0.75rem', borderRadius: '0.5rem', border: '1px solid #1e293b' }}>
+                <div>
+                  <span style={{ color: '#94a3b8', fontSize: '0.7rem' }}>YOUR DUEL SCORE</span>
+                  <div style={{ color: '#fbbf24', fontWeight: 800, fontSize: '1.1rem' }}>{battleScore} pts</div>
+                </div>
+                <div>
+                  <span style={{ color: '#94a3b8', fontSize: '0.7rem' }}>CURRENT STREAK</span>
+                  <div style={{ color: '#34d399', fontWeight: 800, fontSize: '1.1rem' }}>🔥 {battleStreak}x</div>
+                </div>
+              </div>
+
+              <div style={{ background: '#0f172a', padding: '0.75rem', borderRadius: '0.5rem', border: '1px solid #334155' }}>
+                <span style={{ color: '#38bdf8', fontSize: '0.7rem', fontWeight: 700 }}>VIVA FLASHCARD QUESTION:</span>
+                <p style={{ color: '#f8fafc', fontWeight: 600, marginTop: '0.25rem', fontSize: '0.8rem' }}>
+                  Which coronary artery occlusion is the most common cause of complete atrioventricular (AV) node block?
+                </p>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                {[
+                  { text: 'A. Right Coronary Artery (RCA)', isCorrect: true },
+                  { text: 'B. Left Anterior Descending (LAD)', isCorrect: false },
+                  { text: 'C. Left Circumflex (LCx)', isCorrect: false },
+                  { text: 'D. Left Main Coronary Artery', isCorrect: false },
+                ].map((opt, idx) => (
+                  <button
+                    key={idx}
+                    disabled={hasAnsweredBattle}
+                    onClick={() => {
+                      setSelectedBattleOption(idx);
+                      setHasAnsweredBattle(true);
+                      if (opt.isCorrect) {
+                        setBattleScore((s) => s + 100);
+                        setBattleStreak((st) => st + 1);
+                      } else {
+                        setBattleStreak(0);
+                      }
+                    }}
+                    style={{
+                      padding: '0.5rem 0.75rem',
+                      borderRadius: '0.375rem',
+                      border: '1px solid',
+                      borderColor: hasAnsweredBattle
+                        ? opt.isCorrect
+                          ? '#10b981'
+                          : selectedBattleOption === idx
+                          ? '#ef4444'
+                          : '#1e293b'
+                        : '#334155',
+                      background: hasAnsweredBattle
+                        ? opt.isCorrect
+                          ? '#064e3b'
+                          : selectedBattleOption === idx
+                          ? '#7f1d1d'
+                          : '#0f172a'
+                        : '#0f172a',
+                      color: '#f8fafc',
+                      textAlign: 'left',
+                      fontSize: '0.75rem',
+                      cursor: hasAnsweredBattle ? 'default' : 'pointer',
+                      fontWeight: 600,
+                    }}
+                  >
+                    {opt.text}
+                  </button>
+                ))}
+              </div>
+
+              {hasAnsweredBattle && (
+                <div style={{ padding: '0.5rem', background: '#1e1b4b', borderRadius: '0.375rem', border: '1px solid #4338ca', fontSize: '0.75rem', color: '#c7d2fe' }}>
+                  <strong>High-Yield Rationale:</strong> The RCA supplies the AV node via the AV nodal branch in ~90% of individuals (right-dominant circulation).
+                </div>
+              )}
             </div>
           )}
         </div>

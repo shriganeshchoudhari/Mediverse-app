@@ -17,8 +17,11 @@ import {
   Stethoscope,
 } from "lucide-react";
 
+import InteractiveOSCERunner from "../../components/exam/InteractiveOSCERunner";
+
 export default function OsceLabPage() {
   const [selectedModuleId, setSelectedModuleId] = useState<string>("osce-cardiovascular-neurological-stations");
+  const [activeTab, setActiveTab] = useState<"lab" | "runner">("lab");
 
   const activeModule = getOsceModuleById(selectedModuleId) || OSCE_CORE_MODULES[0];
 
@@ -57,10 +60,37 @@ export default function OsceLabPage() {
       </div>
 
       {/* Main Content Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Left Column: Interactive OSCE Lab Viewer (8 Cols) */}
-        <div className="lg:col-span-8 flex flex-col gap-6">
-          <OsceLabViewer height="560px" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-8 flex flex-col gap-6">
+        <div className="flex gap-3 border-b border-slate-800 pb-3">
+          <button
+            onClick={() => setActiveTab("lab")}
+            className={`px-4 py-2 rounded-xl text-xs font-bold transition ${
+              activeTab === "lab"
+                ? "bg-indigo-600 text-white shadow-md shadow-indigo-500/20"
+                : "bg-slate-900 text-slate-400 hover:text-white"
+            }`}
+          >
+            🔬 3D Clinical Examination Lab
+          </button>
+          <button
+            onClick={() => setActiveTab("runner")}
+            className={`px-4 py-2 rounded-xl text-xs font-bold transition ${
+              activeTab === "runner"
+                ? "bg-indigo-600 text-white shadow-md shadow-indigo-500/20"
+                : "bg-slate-900 text-slate-400 hover:text-white"
+            }`}
+          >
+            ⏱️ Timed OSCE Checklist Simulation
+          </button>
+        </div>
+
+        {activeTab === "runner" ? (
+          <InteractiveOSCERunner />
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* Left Column: Interactive OSCE Lab Viewer (8 Cols) */}
+            <div className="lg:col-span-8 flex flex-col gap-6">
+              <OsceLabViewer height="560px" />
 
           {/* Module Text Reader Card */}
           <div className="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-xl">
@@ -155,6 +185,8 @@ export default function OsceLabPage() {
           </div>
         </div>
       </div>
-    </div>
+    )}
+  </div>
+</div>
   );
 }

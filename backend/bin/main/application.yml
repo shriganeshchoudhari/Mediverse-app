@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5433/physiology_db}
-    username: ${SPRING_DATASOURCE_USERNAME:physiology_user}
-    password: ${SPRING_DATASOURCE_PASSWORD:physiology_secure_password123}
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5434/mediverse_db}
+    username: ${SPRING_DATASOURCE_USERNAME:mediverse_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:mediverse_secure_password123}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:

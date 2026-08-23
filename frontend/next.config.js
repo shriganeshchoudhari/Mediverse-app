@@ -13,7 +13,7 @@ const withPWA = require('@ducanh2912/next-pwa').default({
 
 const nextConfig = {
   async rewrites() {
-    const backendUrl = process.env.BACKEND_URL || 'http://localhost:8085';
+    const backendUrl = process.env.BACKEND_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8085';
     return [
       {
         source: '/api/:path*',
