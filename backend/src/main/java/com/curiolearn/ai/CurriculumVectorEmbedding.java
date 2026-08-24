@@ -35,6 +35,13 @@ public class CurriculumVectorEmbedding {
     @Column(name = "domain", length = 50)
     private String domain;
 
+    // Using String to map the vector array to Postgres pgvector type natively via Hibernate's CAST
+    // Alternatively can map to float[] if hypersistence-utils is present.
+    // For now we map to String (e.g. "[0.1, 0.2, ...]") and cast it in native SQL inserts if needed,
+    // or just use native SQL to update it.
+    @Column(name = "embedding", columnDefinition = "vector(384)")
+    private String embedding;
+
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;

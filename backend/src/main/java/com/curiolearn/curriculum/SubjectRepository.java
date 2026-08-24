@@ -7,5 +7,7 @@ import java.util.UUID;
 
 public interface SubjectRepository extends JpaRepository<Subject, UUID> {
     List<Subject> findBySemesterId(UUID semesterId);
+    java.util.Optional<Subject> findByCodeIgnoreCase(String code);
+    java.util.Optional<Subject> findByTitleIgnoreCase(String title);
 }
 

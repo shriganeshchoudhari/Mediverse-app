@@ -23,4 +23,12 @@ public interface CurriculumVectorEmbeddingRepository extends JpaRepository<Curri
                    "WHERE chunk_text ILIKE %:keyword% OR heading ILIKE %:keyword% " +
                    "LIMIT :limit", nativeQuery = true)
     List<CurriculumVectorEmbedding> searchKeywordFallback(@Param("keyword") String keyword, @Param("limit") int limit);
+
+    // Phase 5: True Dense Vector Search using pgvector cosine distance (<=>)
+    // NOTE: This requires the :embedding vector string to be passed formatted as '[0.1, 0.2, ...]'
+    @Query(value = "SELECT * FROM curriculum_vector_embeddings " +
+                   "WHERE embedding IS NOT NULL " +
+                   "ORDER BY embedding <=> CAST(:embedding AS vector) " +
+                   "LIMIT :limit", nativeQuery = true)
+    List<CurriculumVectorEmbedding> searchByVectorSimilarity(@Param("embedding") String embeddingVectorString, @Param("limit") int limit);
 }

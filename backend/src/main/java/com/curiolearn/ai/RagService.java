@@ -25,17 +25,20 @@ public class RagService {
     private final ElasticsearchOperations elasticsearchOperations;
     private final LessonRepository lessonRepository;
     private final CurriculumVectorEmbeddingRepository vectorEmbeddingRepository;
+    private final EmbeddingService embeddingService;
 
     private static final int RRF_K = 60;
 
     public RagService(@org.springframework.beans.factory.annotation.Autowired(required = false) TextbookChunkRepository textbookChunkRepository, 
                       @org.springframework.beans.factory.annotation.Autowired(required = false) ElasticsearchOperations elasticsearchOperations,
                       LessonRepository lessonRepository,
-                      @org.springframework.beans.factory.annotation.Autowired(required = false) CurriculumVectorEmbeddingRepository vectorEmbeddingRepository) {
+                      @org.springframework.beans.factory.annotation.Autowired(required = false) CurriculumVectorEmbeddingRepository vectorEmbeddingRepository,
+                      EmbeddingService embeddingService) {
         this.textbookChunkRepository = textbookChunkRepository;
         this.elasticsearchOperations = elasticsearchOperations;
         this.lessonRepository = lessonRepository;
         this.vectorEmbeddingRepository = vectorEmbeddingRepository;
+        this.embeddingService = embeddingService;
     }
 
     private static class RankedDocument {
@@ -104,6 +107,20 @@ public class RagService {
                     RankedDocument doc = docMap.computeIfAbsent(id, k -> new RankedDocument(id, emb.getHeading(), emb.getChunkText()));
                     doc.rrfScore += 1.0 / (RRF_K + rank);
                     rank++;
+                }
+
+                // 3. Retrieve from PostgreSQL (Dense Vector Search via Gemini Embeddings)
+                List<Double> promptEmbedding = embeddingService.getEmbedding(userPrompt);
+                if (!promptEmbedding.isEmpty()) {
+                    String vectorString = promptEmbedding.toString(); // e.g. "[0.1, 0.2, ...]"
+                    List<CurriculumVectorEmbedding> vectorHits = vectorEmbeddingRepository.searchByVectorSimilarity(vectorString, 5);
+                    rank = 1;
+                    for (CurriculumVectorEmbedding emb : vectorHits) {
+                        String id = emb.getId() != null ? emb.getId().toString() : emb.getChunkText().substring(0, Math.min(30, emb.getChunkText().length()));
+                        RankedDocument doc = docMap.computeIfAbsent(id, k -> new RankedDocument(id, emb.getHeading(), emb.getChunkText()));
+                        doc.rrfScore += 1.0 / (RRF_K + rank); // Stack the RRF score
+                        rank++;
+                    }
                 }
             } catch (Exception ignored) {}
         }
@@ -202,13 +219,18 @@ public class RagService {
                                 }
 
                                 if (vectorEmbeddingRepository != null) {
-                                    vectorBatch.add(CurriculumVectorEmbedding.builder()
+                                    CurriculumVectorEmbedding emb = CurriculumVectorEmbedding.builder()
                                             .lessonId(lesson.getId())
                                             .blockId(block.getId())
                                             .heading(conceptTitle)
                                             .chunkText(text.trim())
-                                            .domain("ALLOPATHIC")
-                                            .build());
+                                            .domain(lesson.getConcept() != null ? "CLINICAL" : "BASIC")
+                                            .build();
+                                    List<Double> vector = embeddingService.getEmbedding(text.trim());
+                                    if (!vector.isEmpty()) {
+                                        emb.setEmbedding(vector.toString());
+                                    }
+                                    vectorBatch.add(emb);
                                 }
                             }
                         }
@@ -233,13 +255,18 @@ public class RagService {
                             }
 
                             if (vectorEmbeddingRepository != null) {
-                                vectorBatch.add(CurriculumVectorEmbedding.builder()
+                                CurriculumVectorEmbedding emb = CurriculumVectorEmbedding.builder()
                                         .lessonId(lesson.getId())
                                         .blockId(block.getId())
                                         .heading("Clinical Case: " + conceptTitle)
                                         .chunkText(caseText.toString())
-                                        .domain("ALLOPATHIC")
-                                        .build());
+                                        .domain(lesson.getConcept() != null ? "CLINICAL" : "BASIC")
+                                        .build();
+                                List<Double> vector = embeddingService.getEmbedding(caseText.toString());
+                                if (!vector.isEmpty()) {
+                                    emb.setEmbedding(vector.toString());
+                                }
+                                vectorBatch.add(emb);
                             }
                         }
                     }

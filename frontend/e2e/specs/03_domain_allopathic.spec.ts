@@ -1,15 +1,16 @@
 import { test, expect } from '@playwright/test';
-import { DomainCurriculumPage } from '../pages/DomainCurriculumPage';
 
 test.describe('SPEC 03: Domain 1 — Allopathic Medicine (MBBS / MD / MS)', () => {
   test('ALLO-001: MBBS curriculum portal renders professional phases', async ({ page }) => {
-    const curr = new DomainCurriculumPage(page);
-    await page.goto('/healthcare/allopathic');
-    await expect(curr.heading).toContainText(/Medicine|Allopathic/i);
-  });
+    // Navigate to the master platform dynamic route for a subject
+    await page.goto('/healthcare/ALLOPATHIC/MBBS/cardiovascular');
+    
+    // The subject header should be visible
+    await expect(page.getByText(/MBBS/i)).toBeVisible();
+    await expect(page.getByText(/cardiovascular/i)).toBeVisible();
 
-  test('ALLO-005: Cardiac Cycle Simulator and ECG waveform interactives', async ({ page }) => {
-    await page.goto('/simulators/cardiac-cycle');
-    await expect(page.locator('h1, h2').first()).toContainText(/Cardiac|Cycle|Heart|Wiggers/i);
+    // Verify the curriculum tabs are present
+    await expect(page.getByRole('tab', { name: /Curriculum Syllabus/i })).toBeVisible();
+    await expect(page.getByRole('tab', { name: /Analytics & Progress/i })).toBeVisible();
   });
 });

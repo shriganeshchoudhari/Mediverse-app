@@ -37,6 +37,11 @@ public class CurriculumController {
         return ResponseEntity.ok(curriculumService.getSubjects(semesterId));
     }
 
+    @GetMapping("/subjects/all")
+    public ResponseEntity<List<Subject>> getAllSubjects() {
+        return ResponseEntity.ok(curriculumService.getAllSubjects());
+    }
+
     @GetMapping("/subjects/{subjectId}/units")
     public ResponseEntity<List<Unit>> getUnits(@PathVariable UUID subjectId) {
         return ResponseEntity.ok(curriculumService.getUnits(subjectId));
@@ -84,6 +89,20 @@ public class CurriculumController {
     @GetMapping("/concepts/{conceptId}/references")
     public ResponseEntity<List<Reference>> getReferences(@PathVariable UUID conceptId) {
         return ResponseEntity.ok(curriculumService.getReferences(conceptId));
+    }
+
+    @GetMapping("/subjects/by-code/{code}/tree")
+    public ResponseEntity<SubjectTreeDto> getSubjectTreeByCode(@PathVariable String code) {
+        return curriculumService.getSubjectTreeByCode(code)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/subjects/{subjectId}/tree")
+    public ResponseEntity<SubjectTreeDto> getSubjectTreeById(@PathVariable UUID subjectId) {
+        return curriculumService.getSubjectTreeById(subjectId)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 }
 

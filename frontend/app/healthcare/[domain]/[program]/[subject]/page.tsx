@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { BookOpen, Sparkles, ArrowLeft, Clock, Award, ArrowRight } from "lucide-react";
-import { getUnifiedDomainCatalog, UnifiedDomainSubject } from "@/lib/curriculum/unifiedDomainCatalog";
+import { BookOpen, Sparkles, ArrowLeft, ArrowRight, Loader2, AlertTriangle, List } from "lucide-react";
+import { getUnifiedDomainCatalog } from "@/lib/curriculum/unifiedDomainCatalog";
 
 export default function CanonicalSubjectViewerPage() {
   const params = useParams();
@@ -14,26 +14,47 @@ export default function CanonicalSubjectViewerPage() {
   const program = (params.program as string) || "mbbs";
   const subjectId = (params.subject as string) || "";
 
-  // Lookup domain catalog
+  // Lookup domain catalog just for breadcrumbs
   const domainInfo = getUnifiedDomainCatalog(domain);
 
-  // Find subject across stages
-  let foundSubject: UnifiedDomainSubject | null = null;
-  let foundStage: any = null;
+  const [subjectTree, setSubjectTree] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  for (const stage of domainInfo.stages) {
-    for (const subj of stage.subjects) {
-      if (subj.id.toLowerCase() === subjectId.toLowerCase() || subj.code.toLowerCase() === subjectId.toLowerCase()) {
-        foundSubject = subj;
-        foundStage = stage;
-        break;
+  useEffect(() => {
+    async function fetchTree() {
+      try {
+        const response = await fetch(`http://localhost:8085/api/v1/curriculum/subjects/by-code/${subjectId}/tree`);
+        if (!response.ok) {
+           if(response.status === 404) {
+             throw new Error("Subject not found in database.");
+           }
+           throw new Error("Failed to fetch curriculum tree from backend API");
+        }
+        const data = await response.json();
+        setSubjectTree(data);
+      } catch (err: any) {
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
       }
     }
-    if (foundSubject) break;
-  }
+    fetchTree();
+  }, [subjectId]);
 
-  const subjectTitle = foundSubject ? foundSubject.title : subjectId.replace(/[-_]/g, " ").replace(/\b\w/g, c => c.toUpperCase());
-  const chapters = foundSubject ? foundSubject.chapters : [];
+  const subjectTitle = subjectTree ? subjectTree.title : subjectId.replace(/[-_]/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+
+  // Flatten chapters for easy viewing
+  const flatChapters = [];
+  if (subjectTree && subjectTree.units) {
+     for (const unit of subjectTree.units) {
+        if (unit.chapters) {
+           for (const chap of unit.chapters) {
+              flatChapters.push({ ...chap, parentUnit: unit.title });
+           }
+        }
+     }
+  }
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 pb-20">
@@ -49,78 +70,133 @@ export default function CanonicalSubjectViewerPage() {
 
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30 text-xs font-bold uppercase tracking-wider mb-2">
-                <Sparkles size={13} /> {foundStage ? foundStage.title : "Core Curriculum Subject"}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-[10px] font-bold uppercase tracking-widest mb-3">
+                <Sparkles size={12} /> Canonical Curriculum Engine
               </div>
               <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
                 {subjectTitle}
               </h1>
-              <p className="text-slate-400 text-sm max-w-2xl mt-1">
-                Canonical competency-mapped curriculum modules and interactive clinical case studies for {domainInfo.domainName}.
-              </p>
-            </div>
-
-            <div className="flex gap-2">
-              <span className="px-3.5 py-1.5 rounded-xl bg-slate-800 border border-slate-700 text-xs font-medium text-slate-300">
-                {chapters.length} Interactive Modules
-              </span>
+              {subjectTree?.code && (
+                <p className="text-slate-400 font-mono text-sm mt-2">
+                  Code: {subjectTree.code} | Category: {subjectTree.category || 'Core'}
+                </p>
+              )}
             </div>
           </div>
         </div>
       </div>
 
-      {/* Chapters Grid */}
-      <div className="max-w-6xl mx-auto px-6 py-10">
-        <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-          <BookOpen size={20} className="text-blue-400" /> Syllabus Chapters &amp; Competencies
-        </h2>
-
-        {chapters.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {chapters.map((chap: any, idx: number) => (
-              <Link
-                key={chap.id || idx}
-                href={`/healthcare/${domain}/${program}/${subjectId}/${chap.id}`}
-                className="group p-5 rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-900 transition flex flex-col justify-between shadow-lg space-y-4"
-              >
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-blue-400 tracking-wider">
-                      {chap.competencyCode || `MODULE ${idx + 1}`}
-                    </span>
-                    {chap.hasSim && (
-                      <span className="px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 text-[10px] font-bold">
-                        3D / Sim
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="text-base font-bold text-white group-hover:text-blue-400 transition leading-snug">
-                    {chap.title}
-                  </h3>
-                </div>
-
-                <div className="flex items-center justify-between pt-2 border-t border-slate-800/80 text-xs text-slate-400">
-                  <span className="flex items-center gap-1">
-                    <Clock size={12} /> {chap.estimatedMinutes || 45} mins
-                  </span>
-                  <span className="inline-flex items-center gap-1 text-blue-400 font-semibold group-hover:translate-x-1 transition">
-                    Study Lesson <ArrowRight size={13} />
-                  </span>
-                </div>
-              </Link>
-            ))}
+      {/* Main Content Area */}
+      <div className="max-w-6xl mx-auto px-6 pt-10">
+        
+        {isLoading ? (
+          <div className="p-20 flex flex-col items-center justify-center rounded-2xl bg-slate-900/40 border border-slate-800">
+             <Loader2 className="animate-spin text-blue-500 mb-4" size={32} />
+             <p className="text-slate-400 font-medium">Loading {subjectTitle} syllabus from Mediverse Database...</p>
+          </div>
+        ) : error ? (
+          <div className="p-16 flex flex-col items-center justify-center rounded-2xl bg-red-950/20 border border-red-900/40 text-center">
+             <AlertTriangle className="text-red-500 mb-4" size={32} />
+             <p className="text-red-400 font-bold mb-2">Subject Missing or Offline</p>
+             <p className="text-red-300/70 text-sm max-w-md">{error}</p>
+             <Link href={`/healthcare/${domain}/${program}`} className="mt-6 px-4 py-2 bg-slate-800 text-slate-300 text-sm rounded-lg hover:bg-slate-700 transition">
+               Go Back
+             </Link>
           </div>
         ) : (
-          <div className="p-8 rounded-3xl bg-slate-900/50 border border-slate-800 text-center space-y-3">
-            <p className="text-slate-400 text-sm">
-              All chapters for this subject are available in the master syllabus.
-            </p>
-            <Link
-              href="/"
-              className="inline-block px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs transition"
-            >
-              Browse Syllabus Grid
-            </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            {/* Left Col: Units & Chapters List */}
+            <div className="lg:col-span-8 flex flex-col gap-6">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+                <h2 className="text-xl font-bold flex items-center gap-2">
+                  <List size={20} className="text-blue-400" /> Syllabus Content
+                </h2>
+                <div className="text-sm font-semibold text-slate-400">
+                  {subjectTree.units?.length || 0} Units &bull; {flatChapters.length} Chapters
+                </div>
+              </div>
+              
+              {subjectTree.units?.length === 0 ? (
+                <div className="p-10 text-center rounded-xl bg-slate-900/50 border border-slate-800">
+                  <p className="text-slate-400">No curriculum units defined for this subject yet.</p>
+                </div>
+              ) : (
+                <div className="flex flex-col gap-8">
+                  {subjectTree.units?.map((unit: any, idx: number) => (
+                    <div key={unit.id} className="relative">
+                      {/* Unit Header */}
+                      <div className="sticky top-0 bg-slate-950/90 backdrop-blur-sm z-10 py-3 mb-3 border-b border-slate-800/60">
+                        <div className="flex items-center gap-3">
+                          <span className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 flex items-center justify-center font-bold text-xs">
+                            {idx + 1}
+                          </span>
+                          <h3 className="text-lg font-bold text-slate-100">{unit.title}</h3>
+                        </div>
+                      </div>
+                      
+                      {/* Chapters in Unit */}
+                      <div className="flex flex-col gap-3 pl-11">
+                        {unit.chapters?.length === 0 ? (
+                          <p className="text-sm text-slate-500 italic">No chapters in this unit.</p>
+                        ) : (
+                          unit.chapters?.map((chap: any, cIdx: number) => (
+                            <Link 
+                              key={chap.id}
+                              href={`/healthcare/${domain}/${program}/${subjectId}/${chap.id}`}
+                              className="group p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-800/80 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+                            >
+                              <div>
+                                <div className="text-[10px] font-bold text-blue-400/80 uppercase tracking-widest mb-1">
+                                  Chapter {cIdx + 1}
+                                </div>
+                                <h4 className="font-semibold text-slate-200 group-hover:text-blue-300 transition-colors">
+                                  {chap.title}
+                                </h4>
+                                <div className="mt-2 flex gap-3 text-xs text-slate-500 font-medium">
+                                  <span className="flex items-center gap-1">
+                                    <BookOpen size={12} /> {chap.topics?.length || 0} Topics
+                                  </span>
+                                </div>
+                              </div>
+                              <div className="flex-shrink-0 self-start sm:self-center">
+                                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-500/10 text-blue-400 text-xs font-bold border border-blue-500/20 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                                  Study <ArrowRight size={14} />
+                                </span>
+                              </div>
+                            </Link>
+                          ))
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+            
+            {/* Right Col: Stats/Info */}
+            <div className="lg:col-span-4 flex flex-col gap-4">
+              <div className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-xl">
+                 <h3 className="text-sm font-bold text-white mb-4">Subject Metadata</h3>
+                 <div className="space-y-4">
+                    <div>
+                      <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Total Chapters</div>
+                      <div className="text-2xl font-bold text-blue-400">{flatChapters.length}</div>
+                    </div>
+                    <div>
+                      <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Subject UUID</div>
+                      <div className="text-xs font-mono text-slate-400 break-all bg-slate-950 p-2 rounded">{subjectTree.id}</div>
+                    </div>
+                    {subjectTree.semesterId && (
+                      <div>
+                        <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Semester UUID</div>
+                        <div className="text-xs font-mono text-slate-400 break-all bg-slate-950 p-2 rounded">{subjectTree.semesterId}</div>
+                      </div>
+                    )}
+                 </div>
+              </div>
+            </div>
+            
           </div>
         )}
       </div>

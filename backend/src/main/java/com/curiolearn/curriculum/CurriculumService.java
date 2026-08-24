@@ -40,6 +40,10 @@ public class CurriculumService {
         return subjectRepository.findBySemesterId(semesterId);
     }
 
+    public List<Subject> getAllSubjects() {
+        return subjectRepository.findAll();
+    }
+
     public List<Unit> getUnits(UUID subjectId) {
         return unitRepository.findBySubjectIdOrderBySortOrderAsc(subjectId);
     }
@@ -74,6 +78,76 @@ public class CurriculumService {
 
     public List<Reference> getReferences(UUID conceptId) {
         return referenceRepository.findByConceptId(conceptId);
+    }
+
+    public Optional<SubjectTreeDto> getSubjectTreeByCode(String code) {
+        return subjectRepository.findByCodeIgnoreCase(code)
+                .or(() -> subjectRepository.findByTitleIgnoreCase(code))
+                .map(this::buildSubjectTree);
+    }
+
+    public Optional<SubjectTreeDto> getSubjectTreeById(UUID subjectId) {
+        return subjectRepository.findById(subjectId)
+                .map(this::buildSubjectTree);
+    }
+
+    private SubjectTreeDto buildSubjectTree(Subject subject) {
+        List<Unit> units = unitRepository.findBySubjectIdOrderBySortOrderAsc(subject.getId());
+        List<SubjectTreeDto.UnitTreeDto> unitDtos = new ArrayList<>();
+
+        for (Unit unit : units) {
+            List<Chapter> chapters = chapterRepository.findByUnitIdOrderBySortOrderAsc(unit.getId());
+            List<SubjectTreeDto.ChapterTreeDto> chapterDtos = new ArrayList<>();
+
+            for (Chapter chapter : chapters) {
+                List<Topic> topics = topicRepository.findByChapterIdOrderBySortOrderAsc(chapter.getId());
+                List<SubjectTreeDto.TopicTreeDto> topicDtos = new ArrayList<>();
+
+                for (Topic topic : topics) {
+                    List<Concept> concepts = conceptRepository.findByTopicIdOrderBySortOrderAsc(topic.getId());
+                    List<SubjectTreeDto.ConceptTreeDto> conceptDtos = new ArrayList<>();
+
+                    for (Concept concept : concepts) {
+                        Lesson lesson = lessonRepository.findByConceptId(concept.getId()).orElse(null);
+                        conceptDtos.add(SubjectTreeDto.ConceptTreeDto.builder()
+                                .id(concept.getId())
+                                .title(concept.getTitle())
+                                .sortOrder(concept.getSortOrder())
+                                .lesson(lesson)
+                                .build());
+                    }
+
+                    topicDtos.add(SubjectTreeDto.TopicTreeDto.builder()
+                            .id(topic.getId())
+                            .title(topic.getTitle())
+                            .sortOrder(topic.getSortOrder())
+                            .concepts(conceptDtos)
+                            .build());
+                }
+
+                chapterDtos.add(SubjectTreeDto.ChapterTreeDto.builder()
+                        .id(chapter.getId())
+                        .title(chapter.getTitle())
+                        .sortOrder(chapter.getSortOrder())
+                        .topics(topicDtos)
+                        .build());
+            }
+
+            unitDtos.add(SubjectTreeDto.UnitTreeDto.builder()
+                    .id(unit.getId())
+                    .title(unit.getTitle())
+                    .sortOrder(unit.getSortOrder())
+                    .chapters(chapterDtos)
+                    .build());
+        }
+
+        return SubjectTreeDto.builder()
+                .id(subject.getId())
+                .title(subject.getTitle())
+                .code(subject.getCode())
+                .category(subject.getCategory())
+                .units(unitDtos)
+                .build();
     }
 }
 

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/config/AuthContext";
 import { cmsApi } from "@/lib/api/cms";
+import CurriculumAnchorModal from "@/.gemini/skills/CurriculumAnchorModal";
 import {
   FileText,
   HelpCircle,
@@ -17,7 +18,8 @@ import {
   ArrowLeft,
   Sparkles,
   CheckCircle2,
-  AlertCircle
+  AlertCircle,
+  Link as LinkIcon
 } from "lucide-react";
 
 type BlockType = "EXPLANATION" | "QUIZ" | "FLASHCARD" | "CLINICAL_CASE";
@@ -52,6 +54,9 @@ export default function CMSEditorStudioPage() {
 
   const [title, setTitle] = useState("");
   const [difficulty, setDifficulty] = useState("Intermediate");
+  const [conceptId, setConceptId] = useState<string | null>(null);
+  const [conceptBreadcrumb, setConceptBreadcrumb] = useState<string | null>(null);
+  const [showAnchorModal, setShowAnchorModal] = useState(false);
   const [blocks, setBlocks] = useState<BlockItem[]>([
     {
       id: generateId(),
@@ -242,6 +247,7 @@ export default function CMSEditorStudioPage() {
 
       const res = await cmsApi.createLesson({
         title,
+        conceptId: conceptId || undefined,
         difficulty,
         blocks: formattedBlocks
       });
@@ -355,6 +361,37 @@ export default function CMSEditorStudioPage() {
                 <option value="Advanced">Advanced (Postgraduate)</option>
               </select>
             </div>
+          </div>
+
+          {/* Curriculum Anchor */}
+          <div className="pt-3 border-t border-slate-800/80">
+            <label className="text-xs font-semibold text-slate-400 block mb-2">Curriculum Placement Anchor</label>
+            {conceptId ? (
+              <div className="flex items-center justify-between p-3 rounded-xl bg-blue-900/10 border border-blue-500/20">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-blue-500/20 text-blue-400 rounded-lg">
+                    <LinkIcon size={16} />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-blue-100">Anchored to Curriculum</p>
+                    <p className="text-xs text-blue-300/70 truncate max-w-xl">{conceptBreadcrumb}</p>
+                  </div>
+                </div>
+                <button 
+                  onClick={() => setShowAnchorModal(true)}
+                  className="text-xs font-bold text-blue-400 hover:text-blue-300 px-3 py-1.5 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 transition"
+                >
+                  Change
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={() => setShowAnchorModal(true)}
+                className="w-full flex items-center justify-center gap-2 p-4 rounded-xl border border-dashed border-slate-600 bg-slate-900/50 hover:bg-slate-800 text-slate-400 hover:text-slate-300 transition"
+              >
+                <Plus size={16} /> Select Canonical Concept to Anchor Lesson
+              </button>
+            )}
           </div>
         </div>
 
@@ -558,6 +595,16 @@ export default function CMSEditorStudioPage() {
           </div>
         </div>
       </div>
+      
+      <CurriculumAnchorModal
+        isOpen={showAnchorModal}
+        onClose={() => setShowAnchorModal(false)}
+        onSelectConcept={(id, breadcrumb) => {
+          setConceptId(id);
+          setConceptBreadcrumb(breadcrumb);
+          setShowAnchorModal(false);
+        }}
+      />
     </div>
   );
 }
