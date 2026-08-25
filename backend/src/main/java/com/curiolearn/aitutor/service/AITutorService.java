@@ -29,11 +29,16 @@ public class AITutorService {
     private final RestTemplate restTemplate;
     private final ObjectMapper objectMapper;
     private final RagService ragService;
+    private final com.curiolearn.common.SimpleCircuitBreaker circuitBreaker;
 
     public AITutorService(RagService ragService) {
-        this.restTemplate = new RestTemplate();
+        org.springframework.http.client.SimpleClientHttpRequestFactory factory = new org.springframework.http.client.SimpleClientHttpRequestFactory();
+        factory.setConnectTimeout(3000);
+        factory.setReadTimeout(6000);
+        this.restTemplate = new RestTemplate(factory);
         this.objectMapper = new ObjectMapper();
         this.ragService = ragService;
+        this.circuitBreaker = new com.curiolearn.common.SimpleCircuitBreaker("GeminiLLM", 3, 30000);
     }
 
     public boolean isEmergency(String prompt) {
@@ -65,13 +70,18 @@ public class AITutorService {
 
         // Check if Gemini API key is valid
         if (geminiApiKey != null && !geminiApiKey.isEmpty() && !geminiApiKey.equals("your_api_key_here") && !geminiApiKey.contains("${")) {
-            try {
-                String geminiResponse = callGemini(prompt, request.getContext(), request.getHistory());
-                emitTokenStream(emitter, geminiResponse);
-                return;
-            } catch (Exception e) {
-                // Fall back to built-in Socratic engine on connection failure
-            }
+            String responseText = circuitBreaker.execute(
+                    () -> {
+                        try {
+                            return callGemini(prompt, request.getContext(), request.getHistory());
+                        } catch (Exception e) {
+                            throw new RuntimeException("Gemini API invocation failed", e);
+                        }
+                    },
+                    () -> generateSocraticPedagogicalResponse(prompt, request.getContext())
+            );
+            emitTokenStream(emitter, responseText);
+            return;
         }
 
         // Built-in intelligent Socratic reasoning engine
@@ -138,6 +148,95 @@ public class AITutorService {
         String lower = prompt.toLowerCase();
         String ctx = (context != null) ? context.toLowerCase() : "";
 
+        // 1. DENTAL DOMAIN
+        if (lower.contains("tooth") || lower.contains("dental") || lower.contains("ian block") || lower.contains("periodont") || lower.contains("cephalometric") || ctx.contains("dental") || ctx.contains("bds")) {
+            return "### Dental Science & Stomatological Analysis: " + (context != null ? context : "Oral & Maxillofacial Principles") + "\n\n" +
+                    "**Clinical Principle**:\n" +
+                    "1. **Anatomical Triad**: Dental procedures depend on precise spatial understanding of the alveolar arch, neurovascular pathways (e.g., Inferior Alveolar Nerve entering the mandibular foramen bounded by the lingula), and periodontal ligament proprioception.\n" +
+                    "2. **Biomechanics of Mastication**: Occlusal forces are transmitted through the enamel prisms and dentinal tubules to the alveolar bone, governing restorative material selection and orthodontic vector planning.\n" +
+                    "3. **Pulp-Dentin Complex**: Odontoblast processes maintain dentin tubule fluid flow; hydrodynamic fluid movement triggers A-delta nerve fiber firing during hypersensitivity.\n\n" +
+                    "💡 *Socratic Question for You*: During an Inferior Alveolar Nerve (IAN) block, if you contact bone too early (<15 mm penetration), what anatomical error was made in your syringe orientation across the contralateral premolars?\n\n" +
+                    "📖 *References: Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed's Handbook of Local Anesthesia.*";
+        }
+
+        // 2. PHARMACY DOMAIN
+        if (lower.contains("pkpd") || lower.contains("pharmacokinetics") || lower.contains("half-life") || lower.contains("clearance") || lower.contains("volume of distribution") || lower.contains("cytochrome") || ctx.contains("pharmacy") || ctx.contains("pharmd") || ctx.contains("bpharm")) {
+            return "### Pharmacokinetics & Clinical Pharmacology: " + (context != null ? context : "PK/PD Kinetics") + "\n\n" +
+                    "**Core Mathematical & Mechanistic Framework**:\n" +
+                    "1. **Volume of Distribution ($V_d$)**: Relates total drug amount in the body ($D$) to plasma concentration ($C_p$): $V_d = D / C_p$. High lipophilicity results in extensive tissue sequestration and extremely large apparent $V_d$.\n" +
+                    "2. **Elimination Kinetics**: First-order elimination rate constant $k_e = \\text{Clearance} / V_d$, yielding elimination half-life $t_{1/2} = (0.693 \\times V_d) / \\text{CL}$.\n" +
+                    "3. **Steady-State ($C_{ss}$)**: Reached after $4-5$ half-lives during constant-rate IV infusion ($C_{ss} = R_0 / \\text{CL}$).\n\n" +
+                    "💡 *Socratic Question for You*: If a patient with acute renal failure experiences a 50% drop in renal clearance for a hydrophilic drug that is 100% renally cleared, how must you adjust the maintenance dose and the loading dose?\n\n" +
+                    "📖 *References: Goodman & Gilman's The Pharmacological Basis of Therapeutics (14th ed.); Shargel's Applied Biopharmaceutics & Pharmacokinetics.*";
+        }
+
+        // 3. NURSING DOMAIN
+        if (lower.contains("news2") || lower.contains("iv drip") || lower.contains("braden") || lower.contains("wound staging") || lower.contains("triage") || ctx.contains("nursing") || ctx.contains("bscnursing")) {
+            return "### Nursing Clinical Decision-Making: " + (context != null ? context : "Patient Care & Escalation Protocol") + "\n\n" +
+                    "**Evidence-Based Clinical Protocol**:\n" +
+                    "1. **Vital Sign Synthesis (NEWS2)**: Physiologic deterioration follows predictable trajectories. An aggregate NEWS2 score $\\ge 5$ or a single extreme parameter score of 3 triggers immediate bedside escalation and critical care alert.\n" +
+                    "2. **Drip Rate Formula**: For gravity IV infusions: $\\text{Drop Rate (gtt/min)} = [\\text{Volume (mL)} \\times \\text{Drop Factor (gtt/mL)}] / \\text{Time (min)}$.\n" +
+                    "3. **Skin Integrity (Braden Scale)**: Quantifies sensory perception, moisture, activity, mobility, nutrition, and friction/shear. Scores $\\le 12$ mandate high-risk pressure injury prevention bundles.\n\n" +
+                    "💡 *Socratic Question for You*: In a post-operative patient whose respiratory rate drops to 8 breaths/min with an SpO2 of 88% on room air while receiving patient-controlled analgesia (PCA morphine), what is your immediate first nursing action before calling the rapid response team?\n\n" +
+                    "📖 *References: Potter & Perry's Fundamentals of Nursing; Royal College of Physicians NEWS2 Standard.*";
+        }
+
+        // 4. PHYSIOTHERAPY DOMAIN
+        if (lower.contains("gait") || lower.contains("biomechanics") || lower.contains("joint kinematics") || lower.contains("pnf") || lower.contains("trendelenburg") || ctx.contains("physiotherapy") || ctx.contains("bpt") || ctx.contains("mpt")) {
+            return "### Physiotherapy & Kinesiological Biomechanics: " + (context != null ? context : "Movement & Rehabilitation Science") + "\n\n" +
+                    "**Movement Science Framework**:\n" +
+                    "1. **Gait Cycle Phases**: Stance (60%) and Swing (40%) phases require synchronized concentric acceleration, eccentric deceleration, and isometric stabilization.\n" +
+                    "2. **Pathomechanics**: Weakness in the gluteus medius produces a **Trendelenburg gait** (pelvic drop of the contralateral unweighted limb during single-leg stance).\n" +
+                    "3. **Proprioceptive Neuromuscular Facilitation (PNF)**: Uses spiral and diagonal movement patterns combined with reciprocal innervation to restore motor control.\n\n" +
+                    "💡 *Socratic Question for You*: In a patient post-stroke exhibiting right-sided foot drop due to anterior tibialis paresis, which abnormal compensatory gait deviation (e.g. circumduction or high-steppage) prevents toe dragging during swing phase?\n\n" +
+                    "📖 *References: Magee's Orthopedic Physical Assessment; Perry's Gait Analysis: Normal and Pathological Function.*";
+        }
+
+        // 5. AYUSH DOMAIN
+        if (lower.contains("dosha") || lower.contains("prakriti") || lower.contains("vata") || lower.contains("pitta") || lower.contains("kapha") || lower.contains("panchakarma") || lower.contains("marma") || ctx.contains("ayush") || ctx.contains("bams") || ctx.contains("bhms")) {
+            return "### AYUSH Holistic Science & Tridosha Dynamics: " + (context != null ? context : "Fundamental Ayurvedic Principles") + "\n\n" +
+                    "**Classical Pedagogical Framework**:\n" +
+                    "1. **Tridosha Equilibrium**: Health (*Swastha*) is defined by balanced functional energies: *Vata* (kinetic/neuronal), *Pitta* (thermal/metabolic), and *Kapha* (structural/anabolic).\n" +
+                    "2. **Dravyaguna Pharmacology**: Herbs and formulations are evaluated based on *Rasa* (taste), *Guna* (qualities), *Virya* (potency/energy), *Vipaka* (post-digestive effect), and *Prabhava* (specific therapeutic affinity).\n" +
+                    "3. **Panchakarma Detoxification**: Sequential preparatory (*Purvakarma*: Snehana, Swedana), main eliminative (*Pradhanakarma*: Vamana, Virechana, Basti, Nasya, Raktamokshana), and post-procedural dietary rehabilitation (*Paschatkarma*).\n\n" +
+                    "💡 *Socratic Question for You*: In an individual with chronic joint stiffness that worsens in cold and windy conditions (aggravated *Vata*), which quality (*Guna*) and temperature (*Virya*) of therapeutic oil must be chosen for Abhyanga?\n\n" +
+                    "📖 *References: Charaka Samhita (Sutra Sthana); Sushruta Samhita (Sharira Sthana); CCIM Curriculum Framework.*";
+        }
+
+        // 6. ALLIED HEALTH DOMAIN
+        if (lower.contains("ecmo") || lower.contains("dialysis") || lower.contains("kt/v") || lower.contains("hounsfield") || lower.contains("ct window") || lower.contains("sterilization") || ctx.contains("allied") || ctx.contains("ot") || ctx.contains("perfusion")) {
+            return "### Allied Health & Clinical Technology: " + (context != null ? context : "Advanced Technology & Instrumentation") + "\n\n" +
+                    "**Instrumentation & Quantitative Mechanics**:\n" +
+                    "1. **Extracorporeal Circuits (ECMO/CPB)**: VA-ECMO provides hemodynamic cardiac support + gas exchange; VV-ECMO provides isolated pulmonary gas exchange. Flow is determined by cannulation resistance and pump RPM.\n" +
+                    "2. **Hemodialysis Clearance ($Kt/V$)**: Measures fractional urea clearance ($K = \\text{dialyzer clearance mL/min}, t = \\text{treatment time min}, V = \\text{urea distribution volume}$). Target single-pool $Kt/V \\ge 1.2$.\n" +
+                    "3. **Radiological Hounsfield Units (HU)**: Quantifies tissue x-ray attenuation relative to water (0 HU), bone (+1000 HU), and air (-1000 HU).\n\n" +
+                    "💡 *Socratic Question for You*: During a brain CT scan, why is a narrow Window Width (WW: 80, WL: 40) chosen for soft tissue stroke evaluation rather than the wide window used for bone fracture assessment (WW: 2000, WL: 500)?\n\n" +
+                    "📖 *References: Daugirdas' Handbook of Dialysis; Gravlee's Cardiopulmonary Bypass: Principles and Practice.*";
+        }
+
+        // 7. VETERINARY DOMAIN
+        if (lower.contains("ruminant") || lower.contains("rumen") || lower.contains("reticulum") || lower.contains("bovine") || lower.contains("equine") || lower.contains("canine") || lower.contains("zoonosis") || ctx.contains("veterinary") || ctx.contains("bvsc") || ctx.contains("mvsc")) {
+            return "### Veterinary Medical Science: " + (context != null ? context : "Comparative Physiology & One Health") + "\n\n" +
+                    "**Comparative & Clinical Principles**:\n" +
+                    "1. **Ruminant Digestion**: Microbial fermentation in the reticulorumen produces Volatile Fatty Acids (acetate, propionate, butyrate) as primary energy substrates. Forage-concentrate ratios dictate rumen pH and prevent Subacute Ruminal Acidosis (SARA, pH < 5.5).\n" +
+                    "2. **Comparative Anatomy**: Monogastric carnivores (canine/feline) possess a zonary placenta and simple stomach; equines are hindgut cecal fermenters prone to pelvic flexure colic; bovines utilize a 4-chambered stomach and cotyledonary placenta.\n" +
+                    "3. **One Health & Zoonotic Transmission**: Cross-species spillover (Rabies, Anthrax, Brucellosis, Avian Influenza) requires strict biosecurity, vector control, and vaccination.\n\n" +
+                    "💡 *Socratic Question for You*: In a high-producing dairy cow transitioned rapidly to high-starch concentrate grain, what biochemical shift in the acetate:propionate ratio occurs, and how does lactic acid accumulation precipitate ruminitis?\n\n" +
+                    "📖 *References: Cunningham's Textbook of Veterinary Physiology (6th ed.); Radostits' Veterinary Medicine (10th ed.).*";
+        }
+
+        // 8. PUBLIC HEALTH DOMAIN
+        if (lower.contains("epidemiol") || lower.contains("r0") || lower.contains("seir") || lower.contains("ayushman") || lower.contains("pm-jay") || lower.contains("icer") || lower.contains("qaly") || lower.contains("nabh") || ctx.contains("public-health") || ctx.contains("mph") || ctx.contains("mha")) {
+            return "### Public Health & Health Systems Administration: " + (context != null ? context : "Epidemiology & Policy Science") + "\n\n" +
+                    "**Epidemiological & Economic Principles**:\n" +
+                    "1. **Mathematical Infectious Disease Modeling (SEIR)**: Basic Reproduction Number ($R_0$) defines the average secondary infections from an index case in a fully susceptible population. Herd Immunity Threshold = $1 - 1/R_0$.\n" +
+                    "2. **Health Economics (ICER)**: Incremental Cost-Effectiveness Ratio $\\text{ICER} = (\\text{Cost}_B - \\text{Cost}_A) / (\\text{QALY}_B - \\text{QALY}_A)$. Interventions with $\\text{ICER} < 1 \\times \\text{GDP per capita}$ are highly cost-effective.\n" +
+                    "3. **Universal Health Coverage (PM-JAY)**: Pre-authorized tertiary care packages and cashless hospital network accreditation (NABH standards) mitigate catastrophic health expenditures.\n\n" +
+                    "💡 *Socratic Question for You*: If a novel respiratory pathogen has an $R_0 = 4.0$, what percentage of the population must be effectively immunized to achieve herd immunity and halt epidemic transmission in the absence of non-pharmaceutical interventions?\n\n" +
+                    "📖 *References: Gordis Epidemiology (6th ed.); Drummond's Methods for the Economic Evaluation of Health Care Programmes.*";
+        }
+
+        // 9. ALLOPATHIC / MBBS CARDIOPULMONARY & PHYSIOLOGICAL PRINCIPLES
         if (lower.contains("frank-starling") || lower.contains("starling") || lower.contains("preload") || lower.contains("edv")) {
             return "### The Frank-Starling Law of the Heart & Preload\n\n" +
                     "The **Frank-Starling mechanism** establishes that the force of ventricular contraction is directly proportional to the initial length of the cardiac muscle fibers (sarcomeres) at the end of diastole (**End-Diastolic Volume / Preload**).\n\n" +
@@ -208,13 +307,13 @@ public class AITutorService {
         }
 
         // Default Socratic response
-        return "### Physiological Analysis: " + (context != null ? context : "Medical Physiology") + "\n\n" +
-                "Let us analyze this physiological question step-by-step:\n\n" +
-                "1. **Homeostatic Principle**: Every physiological system operates through tightly coupled sensory afferents, central integrating controllers, and effector organs utilizing negative feedback.\n" +
-                "2. **Governing Biophysical Law**: When analyzing your question (*\"" + prompt.replace("\n", " ") + "\"*), consider how fluid dynamics, electrochemical gradients, and membrane transport kinetics govern the response.\n" +
-                "3. **Clinical Correlation**: Alterations in these basal mechanisms lead directly to characteristic pathophysiological compensation states.\n\n" +
-                "💡 *Socratic Exploration*: What is the primary initial stimulus or variable being perturbed here, and what is the body's immediate counter-regulatory reflex?\n\n" +
-                "📖 *References: Guyton and Hall Textbook of Medical Physiology (14th ed.); Costanzo Physiology (7th ed.).*";
+        return "### Medical & Health Sciences Pedagogical Analysis: " + (context != null ? context : "Healthcare Sciences") + "\n\n" +
+                "Let us analyze this clinical and scientific concept step-by-step:\n\n" +
+                "1. **First-Principles Foundation**: Every biological and health system operates through fundamental chemical, physiological, or pathological equilibrium states.\n" +
+                "2. **Systemic Mechanism**: When analyzing (*\"" + prompt.replace("\n", " ") + "\"*), consider how structural morphology, functional kinetics, and regulatory homeostatic loops interact.\n" +
+                "3. **Clinical Application**: Deviations from baseline parameters produce characteristic clinical signs, laboratory alterations, and diagnostic indicators.\n\n" +
+                "💡 *Socratic Exploration*: What is the primary underlying anatomical, pharmacological, or physiological variable governing this presentation?\n\n" +
+                "📖 *References: Standard Competency Curriculum Guidelines (NMC, DCI, PCI, INC, IAP, NCAHP, VCI, CCIM).*";
     }
 
     private void emitTokenStream(ResponseBodyEmitter emitter, String fullText) throws IOException {

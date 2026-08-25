@@ -172,6 +172,36 @@ export default function DialysisClearanceSimulator() {
                 className={styles.rangeSlider}
               />
             </div>
+
+            <div style={{ marginTop: '1.5rem' }}>
+              <button
+                type="button"
+                onClick={async () => {
+                  const { recordSimulationRun } = await import('@/lib/simulations/simulationPersistence');
+                  const success = await recordSimulationRun(
+                    'HEMODIALYSIS_KTV',
+                    { bloodFlowQb, dialysateFlowQd, durationHours, preBUN, postBUN, ultrafiltrationL, postWeightKg },
+                    results
+                  );
+                  if (success) {
+                    alert('Simulation telemetry saved to clinical portfolio!');
+                  }
+                }}
+                style={{
+                  width: '100%',
+                  padding: '0.625rem 1rem',
+                  backgroundColor: '#0284c7',
+                  color: '#ffffff',
+                  border: 'none',
+                  borderRadius: '0.5rem',
+                  fontWeight: 600,
+                  fontSize: '0.875rem',
+                  cursor: 'pointer'
+                }}
+              >
+                Log to Clinical Portfolio (Telemetry Sync)
+              </button>
+            </div>
           </div>
         </div>
       </div>

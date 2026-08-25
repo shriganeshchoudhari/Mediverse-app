@@ -33,17 +33,20 @@ public class AuthController {
 
     private final UserRepository userRepository;
     private final PasswordResetTokenRepository tokenRepository;
+    private final RefreshTokenRepository refreshTokenRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final EmailService emailService;
 
     public AuthController(UserRepository userRepository, 
                           PasswordResetTokenRepository tokenRepository,
+                          RefreshTokenRepository refreshTokenRepository,
                           PasswordEncoder passwordEncoder, 
                           JwtService jwtService,
                           EmailService emailService) {
         this.userRepository = userRepository;
         this.tokenRepository = tokenRepository;
+        this.refreshTokenRepository = refreshTokenRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
         this.emailService = emailService;
@@ -189,6 +192,46 @@ public class AuthController {
 
         return ResponseEntity.ok(
             java.util.Map.of("message", "Password successfully reset")
+        );
+    }
+
+    @PostMapping("/refresh")
+    public ResponseEntity<AuthResponseDto> refreshToken(@RequestBody java.util.Map<String, String> request) {
+        String tokenStr = request.get("refreshToken");
+        if (tokenStr == null || tokenStr.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Refresh token is required");
+        }
+
+        RefreshToken refreshToken = refreshTokenRepository.findByToken(tokenStr)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid or expired refresh token"));
+
+        if (refreshToken.getExpiresAt().isBefore(LocalDateTime.now())) {
+            refreshTokenRepository.delete(refreshToken);
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Refresh token has expired");
+        }
+
+        User user = refreshToken.getUser();
+        org.springframework.security.core.userdetails.User springUser = 
+                new org.springframework.security.core.userdetails.User(
+                        user.getEmail(),
+                        user.getPasswordHash(),
+                        Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + user.getRole()))
+                );
+
+        String newAccessToken = jwtService.generateToken(springUser);
+
+        return ResponseEntity.ok(
+                AuthResponseDto.builder()
+                        .token(newAccessToken)
+                        .refreshToken(refreshToken.getToken())
+                        .userId(user.getId())
+                        .email(user.getEmail())
+                        .firstName(user.getFirstName())
+                        .lastName(user.getLastName())
+                        .role(user.getRole())
+                        .currentXp(user.getCurrentXp())
+                        .dailyStreak(user.getDailyStreak())
+                        .build()
         );
     }
 }

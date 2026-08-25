@@ -1,16 +1,25 @@
 spring:
+  application:
+    name: mediverse-backend
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5434/mediverse_db}
     username: ${SPRING_DATASOURCE_USERNAME:mediverse_user}
     password: ${SPRING_DATASOURCE_PASSWORD:mediverse_secure_password123}
     driver-class-name: org.postgresql.Driver
+    hikari:
+      pool-name: MediverseHikariCP
+      maximum-pool-size: ${DB_POOL_MAX_SIZE:20}
+      minimum-idle: ${DB_POOL_MIN_IDLE:5}
+      idle-timeout: 300000
+      connection-timeout: 20000
+      max-lifetime: 1800000
   jpa:
     hibernate:
       ddl-auto: validate
-    show-sql: true
+    show-sql: ${SPRING_JPA_SHOW_SQL:false}
     properties:
       hibernate:
-        format_sql: true
+        format_sql: false
         dialect: org.hibernate.dialect.PostgreSQLDialect
   jackson:
     serialization:
@@ -27,7 +36,7 @@ spring:
   flyway:
     enabled: true
     baseline-on-migrate: true
-    validate-on-migrate: false
+    validate-on-migrate: ${FLYWAY_VALIDATE_ON_MIGRATE:true}
   mail:
     host: localhost
     port: 1025
@@ -50,7 +59,7 @@ management:
       show-details: when-authorized
   metrics:
     tags:
-      application: curiolearn-backend
+      application: mediverse-backend
 
 server:
   port: ${PORT:8085}
@@ -76,4 +85,3 @@ springdoc:
     operationsSorter: method
     tagsSorter: alpha
     tryItOutEnabled: true
-

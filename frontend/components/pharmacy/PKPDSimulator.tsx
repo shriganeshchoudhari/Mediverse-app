@@ -278,6 +278,36 @@ export default function PKPDSimulator() {
               <span className={styles.metricValue}>{pkParams.eliminationRateKe.toFixed(3)} <small>h⁻¹</small></span>
             </div>
           </div>
+
+          <div style={{ marginTop: '1.25rem' }}>
+            <button
+              type="button"
+              onClick={async () => {
+                const { recordSimulationRun } = await import('@/lib/simulations/simulationPersistence');
+                const success = await recordSimulationRun(
+                  'PHARMACOKINETICS_PKPD',
+                  { selectedDrug: selectedDrug.name, doseMg, clearance, vd, ka, tau, route, dosesCount },
+                  { steadyState, pkParams }
+                );
+                if (success) {
+                  alert('Pharmacokinetic Curve & PK/PD Steady State logged to Clinical Portfolio!');
+                }
+              }}
+              style={{
+                width: '100%',
+                padding: '0.625rem 1rem',
+                backgroundColor: '#9333ea',
+                color: '#ffffff',
+                border: 'none',
+                borderRadius: '0.5rem',
+                fontWeight: 600,
+                fontSize: '0.875rem',
+                cursor: 'pointer'
+              }}
+            >
+              Log PK/PD Curve to Clinical Portfolio
+            </button>
+          </div>
         </div>
       </div>
     </div>

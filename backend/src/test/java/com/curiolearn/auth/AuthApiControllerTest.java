@@ -40,6 +40,9 @@ class AuthApiControllerTest {
     private PasswordResetTokenRepository tokenRepository;
 
     @Mock
+    private RefreshTokenRepository refreshTokenRepository;
+
+    @Mock
     private PasswordEncoder passwordEncoder;
 
     @Mock
@@ -55,6 +58,7 @@ class AuthApiControllerTest {
         AuthController authController = new AuthController(
                 userRepository,
                 tokenRepository,
+                refreshTokenRepository,
                 passwordEncoder,
                 jwtService,
                 emailService

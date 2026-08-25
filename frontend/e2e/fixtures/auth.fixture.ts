@@ -9,7 +9,7 @@ export const test = base.extend<AuthFixtures>({
   authenticatedPage: async ({ page }, use) => {
     await page.goto('/auth/login');
     await page.evaluate(() => {
-      localStorage.setItem('token', 'mock-jwt-student-token-2026');
+      localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdHVkZW50QG1lZGl2ZXJzZS5lZHUiLCJleHAiOjk5OTk5OTk5OTl9.mockStudentSignature');
       localStorage.setItem('user', JSON.stringify({
         userId: 'student-e2e-01',
         email: 'student@mediverse.edu',
@@ -27,7 +27,7 @@ export const test = base.extend<AuthFixtures>({
   adminPage: async ({ page }, use) => {
     await page.goto('/auth/login');
     await page.evaluate(() => {
-      localStorage.setItem('token', 'mock-jwt-admin-token-2026');
+      localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBtZWRpdmVyc2UuZWR1IiwiZXhwIjo5OTk5OTk5OTk5fQ.mockAdminSignature');
       localStorage.setItem('user', JSON.stringify({
         userId: 'admin-e2e-01',
         email: 'admin@mediverse.edu',

@@ -18,5 +18,6 @@ public class AuthResponseDto {
     private String role;
     private int currentXp;
     private int dailyStreak;
+    private String refreshToken;
 }
 

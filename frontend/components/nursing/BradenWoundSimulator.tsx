@@ -225,6 +225,36 @@ export default function BradenWoundSimulator() {
                 <strong>Recommended Dressing Protocol:</strong>
                 <p>{currentWound.dressing}</p>
               </div>
+
+              <div style={{ marginTop: '1.25rem' }}>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    const { recordSimulationRun } = await import('@/lib/simulations/simulationPersistence');
+                    const success = await recordSimulationRun(
+                      'BRADEN_WOUND_ASSESSMENT',
+                      { scores, selectedWoundStage },
+                      { totalScore, riskCategory: riskAssessment.label, recommendations: riskAssessment }
+                    );
+                    if (success) {
+                      alert('Braden Assessment logged to Clinical Portfolio!');
+                    }
+                  }}
+                  style={{
+                    width: '100%',
+                    padding: '0.625rem 1rem',
+                    backgroundColor: '#0284c7',
+                    color: '#ffffff',
+                    border: 'none',
+                    borderRadius: '0.5rem',
+                    fontWeight: 600,
+                    fontSize: '0.875rem',
+                    cursor: 'pointer'
+                  }}
+                >
+                  Log Assessment to Clinical Portfolio
+                </button>
+              </div>
             </div>
           </div>
         </div>

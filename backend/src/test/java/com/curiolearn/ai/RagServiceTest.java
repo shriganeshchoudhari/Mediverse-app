@@ -33,6 +33,9 @@ class RagServiceTest {
     @Mock
     private CurriculumVectorEmbeddingRepository vectorEmbeddingRepository;
 
+    @Mock
+    private EmbeddingService embeddingService;
+
     private RagService ragService;
 
     @BeforeEach
@@ -41,7 +44,8 @@ class RagServiceTest {
                 textbookChunkRepository,
                 elasticsearchOperations,
                 lessonRepository,
-                vectorEmbeddingRepository
+                vectorEmbeddingRepository,
+                embeddingService
         );
     }
 

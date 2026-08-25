@@ -237,6 +237,36 @@ export default function NEWS2Simulator() {
                 <span className={styles.sbarTag}>R (Recommendation)</span>
                 <p>{sbar.recommendation}</p>
               </div>
+
+              <div style={{ marginTop: '1.25rem' }}>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    const { recordSimulationRun } = await import('@/lib/simulations/simulationPersistence');
+                    const success = await recordSimulationRun(
+                      'NEWS2_CLINICAL_ESCALATION',
+                      { rr, spo2, isHypercapnic, onOxygen, sbp, hr, consciousness, temp },
+                      { totalScore, riskTier, escalationProtocol, sbar }
+                    );
+                    if (success) {
+                      alert('NEWS2 Vital Signs & SBAR Handover logged to Clinical Portfolio!');
+                    }
+                  }}
+                  style={{
+                    width: '100%',
+                    padding: '0.625rem 1rem',
+                    backgroundColor: '#0284c7',
+                    color: '#ffffff',
+                    border: 'none',
+                    borderRadius: '0.5rem',
+                    fontWeight: 600,
+                    fontSize: '0.875rem',
+                    cursor: 'pointer'
+                  }}
+                >
+                  Log SBAR & NEWS2 to Clinical Portfolio
+                </button>
+              </div>
             </div>
           </div>
         </div>
