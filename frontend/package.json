@@ -29,6 +29,7 @@
     "@ducanh2912/next-pwa": "^10.2.9",
     "@react-three/drei": "^9.97.9",
     "@react-three/fiber": "^8.15.16",
+    "@react-three/xr": "^6.6.30",
     "@tiptap/extension-placeholder": "^3.27.3",
     "@tiptap/react": "^3.27.3",
     "@tiptap/starter-kit": "^3.27.3",

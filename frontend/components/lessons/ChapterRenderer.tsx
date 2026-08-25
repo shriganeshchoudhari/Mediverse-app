@@ -17,7 +17,6 @@ import PomodoroTimer from "./PomodoroTimer";
 import NotesDrawer from "./NotesDrawer";
 import ContentBlockRenderer from "./ContentBlockRenderer";
 import SimulationCalloutCard from "./SimulationCalloutCard";
-import { PHYSIOLOGY_CORE_MODULES } from "../../lib/curriculum/content/physiology";
 
 interface PedagogyStep {
   name: string;
@@ -377,7 +376,7 @@ export default function ChapterRenderer({ title, markdownContent, chapterId, top
         {/* Dynamic Simulation Lab Integration Callout */}
         {(() => {
           const t = (title + " " + chapterId).toLowerCase();
-          const matchingSim = PHYSIOLOGY_CORE_MODULES.find(m => {
+          const matchingSim = [{id:"phys-cardiac-cycle",title:"Cardiac Cycle Simulator",simulatorRoute:"/simulators/cardiac-cycle",unitCode:"CV-1",simulatorParams:{},organ3dTarget:"heart"},{id:"phys-respiratory-vq",title:"Respiratory Simulator",simulatorRoute:"/simulators/respiratory",unitCode:"RS-1",simulatorParams:{},organ3dTarget:"lungs"}].find((m: any) => {
             if (m.id === "phys-cardiac-cycle") return t.includes("cardiac") || t.includes("wiggers") || t.includes("pv-loop") || t.includes("section4");
             if (m.id === "phys-respiratory-vq") return t.includes("respiratory") || t.includes("alveolar") || t.includes("gas") || t.includes("v/q") || t.includes("section5");
             if (m.id === "phys-renal-filtration") return t.includes("renal") || t.includes("filtration") || t.includes("gfr") || t.includes("clearance");
@@ -873,3 +872,5 @@ function MarkdownBlock({ content }: { content: string }) {
     </ReactMarkdown>
   );
 }
+
+

@@ -1,7 +1,8 @@
 "use client";
 
 import React, { Suspense, useState, useMemo, useRef, useEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame } from '@react-three/fiber';
+import { VRButton, XR, Controllers, Hands } from '@react-three/xr';
 import { OrbitControls, Stage, Html } from "@react-three/drei";
 import * as THREE from "three";
 import {
@@ -39,6 +40,8 @@ interface ThreeCanvasProps {
   height?: string;
   initialPresetId?: string;
 }
+
+const store = createXRStore();
 
 export default function ThreeCanvas({
   chapterId,
@@ -126,7 +129,8 @@ export default function ThreeCanvas({
         }}
         shadows
       >
-        <ambientLight intensity={0.65} />
+        <XR store={store}>
+            <ambientLight intensity={0.65} />
         {/* Dual Cinematic Stage Lights */}
         <pointLight position={[-10, -8, -10]} intensity={0.45} color={currentPreset.themeColors.secondary} />
         <pointLight position={[10, 10, 10]} intensity={0.85} color={currentPreset.themeColors.primary} />
@@ -184,7 +188,8 @@ export default function ThreeCanvas({
           maxDistance={8.5}
           makeDefault
         />
-      </Canvas>
+      </XR>
+        </Canvas>
 
       {/* Top Left: Organ & Preset Selector Overlay */}
       <div className="absolute top-4 left-4 z-20 flex flex-col gap-2 max-w-xs md:max-w-sm pointer-events-auto">
@@ -1514,3 +1519,6 @@ function ExerciseGeometry({ clippingPlanes }: { clippingPlanes: THREE.Plane[] })
     </group>
   );
 }
+
+
+
