@@ -7,11 +7,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/leaderboards")
-public class LeaderboardController {
+public class OsceLeaderboardController {
     
     private final OsceScoreRepository osceScoreRepository;
 
-    public LeaderboardController(OsceScoreRepository osceScoreRepository) {
+    public OsceLeaderboardController(OsceScoreRepository osceScoreRepository) {
         this.osceScoreRepository = osceScoreRepository;
     }
 
@@ -20,3 +20,4 @@ public class LeaderboardController {
         return osceScoreRepository.findTop50ByScenarioIdOrderByScorePercentageDescCompletionTimeSecondsAsc(scenarioId);
     }
 }
+
