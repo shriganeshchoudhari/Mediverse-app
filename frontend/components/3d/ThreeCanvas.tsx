@@ -2,7 +2,7 @@
 
 import React, { Suspense, useState, useMemo, useRef, useEffect } from "react";
 import { Canvas, useFrame } from '@react-three/fiber';
-import { VRButton, XR, Controllers, Hands } from '@react-three/xr';
+import { XR, createXRStore } from '@react-three/xr';
 import { OrbitControls, Stage, Html } from "@react-three/drei";
 import * as THREE from "three";
 import {
@@ -1519,6 +1519,8 @@ function ExerciseGeometry({ clippingPlanes }: { clippingPlanes: THREE.Plane[] })
     </group>
   );
 }
+
+
 
 
 
