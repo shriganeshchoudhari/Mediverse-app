@@ -40,9 +40,11 @@ public class CurriculumVectorEmbedding {
     // For now we map to String (e.g. "[0.1, 0.2, ...]") and cast it in native SQL inserts if needed,
     // or just use native SQL to update it.
     @Column(name = "embedding", columnDefinition = "vector(384)")
+    @org.hibernate.annotations.ColumnTransformer(write = "?::vector")
     private String embedding;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 }
+
