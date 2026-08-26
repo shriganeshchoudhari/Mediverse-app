@@ -38,16 +38,16 @@ spring:
     baseline-on-migrate: true
     validate-on-migrate: ${FLYWAY_VALIDATE_ON_MIGRATE:true}
   mail:
-    host: localhost
-    port: 1025
-    username: dummy
-    password: dummy
+    host: ${SPRING_MAIL_HOST:localhost}
+    port: ${SPRING_MAIL_PORT:1025}
+    username: ${SPRING_MAIL_USERNAME:dummy}
+    password: ${SPRING_MAIL_PASSWORD:dummy}
     properties:
       mail:
         smtp:
-          auth: false
+          auth: ${SPRING_MAIL_AUTH:false}
           starttls:
-            enable: false
+            enable: ${SPRING_MAIL_STARTTLS:false}
 
 management:
   endpoints:

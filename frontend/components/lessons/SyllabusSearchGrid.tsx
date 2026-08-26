@@ -81,7 +81,7 @@ export default function SyllabusSearchGrid() {
   useEffect(() => {
     if (authLoading) return;
     if (token) {
-      fetch("http://localhost:8085/api/v1/progress", {
+      fetch("/api/v1/progress", {
         headers: { Authorization: `Bearer ${token}` }
       })
         .then(res => res.json())

@@ -24,7 +24,7 @@ export default function CanonicalSubjectViewerPage() {
   useEffect(() => {
     async function fetchTree() {
       try {
-        const response = await fetch(`http://localhost:8085/api/v1/curriculum/subjects/by-code/${subjectId}/tree`);
+        const response = await fetch(`/api/v1/curriculum/subjects/by-code/${subjectId}/tree`);
         if (!response.ok) {
            if(response.status === 404) {
              throw new Error("Subject not found in database.");

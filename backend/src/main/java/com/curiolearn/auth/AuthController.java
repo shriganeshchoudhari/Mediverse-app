@@ -79,10 +79,18 @@ public class AuthController {
                 );
 
         String token = jwtService.generateToken(springUser);
+        String refreshTokenStr = UUID.randomUUID().toString();
+        RefreshToken refreshToken = RefreshToken.builder()
+                .token(refreshTokenStr)
+                .user(user)
+                .expiresAt(LocalDateTime.now().plusDays(30))
+                .build();
+        refreshTokenRepository.save(refreshToken);
 
         return ResponseEntity.ok(
                 AuthResponseDto.builder()
                         .token(token)
+                        .refreshToken(refreshTokenStr)
                         .userId(user.getId())
                         .email(user.getEmail())
                         .firstName(user.getFirstName())
@@ -109,10 +117,18 @@ public class AuthController {
                 );
 
         String token = jwtService.generateToken(springUser);
+        String refreshTokenStr = UUID.randomUUID().toString();
+        RefreshToken refreshToken = RefreshToken.builder()
+                .token(refreshTokenStr)
+                .user(user)
+                .expiresAt(LocalDateTime.now().plusDays(30))
+                .build();
+        refreshTokenRepository.save(refreshToken);
 
         return ResponseEntity.ok(
                 AuthResponseDto.builder()
                         .token(token)
+                        .refreshToken(refreshTokenStr)
                         .userId(user.getId())
                         .email(user.getEmail())
                         .firstName(user.getFirstName())

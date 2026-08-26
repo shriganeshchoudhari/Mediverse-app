@@ -1,0 +1,7 @@
+﻿apiVersion: v1
+kind: Namespace
+metadata:
+  name: mediverse
+  labels:
+    app.kubernetes.io/name: mediverse
+    app.kubernetes.io/part-of: mediverse-platform

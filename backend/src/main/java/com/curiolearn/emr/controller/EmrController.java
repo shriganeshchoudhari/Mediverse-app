@@ -3,6 +3,7 @@ package com.curiolearn.emr.controller;
 import com.curiolearn.emr.model.Patient;
 import com.curiolearn.emr.model.ClinicalNote;
 import com.curiolearn.emr.service.EmrService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
@@ -10,6 +11,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/emr")
+@PreAuthorize("hasAnyRole('STUDENT', 'FACULTY', 'ADMIN', 'SUPER_ADMIN')")
 public class EmrController {
     private final EmrService emrService;
     

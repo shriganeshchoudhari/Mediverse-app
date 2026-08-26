@@ -1,3 +1,21 @@
+terraform {
+  required_version = ">= 1.5.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+
+  backend "s3" {
+    bucket         = "mediverse-terraform-state-prod"
+    key            = "environments/prod/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "mediverse-terraform-locks-prod"
+    encrypt        = true
+  }
+}
+
 module "vpc" {
   source = "../../modules/vpc"
   environment     = "prod"

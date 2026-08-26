@@ -85,6 +85,14 @@ public class CmsReviewService {
         return lessonRepository.save(lesson);
     }
 
+    @Transactional
+    public Lesson rollback(UUID lessonId, String reviewerEmail) {
+        Lesson lesson = getLesson(lessonId);
+        recordDecision(lesson, reviewerEmail, "ROLLBACK", "Reverted lesson to prior draft status for corrections");
+        lesson.setStatus(LessonStatus.DRAFT);
+        return lessonRepository.save(lesson);
+    }
+
     public List<ContentReview> history(UUID lessonId) {
         return contentReviewRepository.findByLessonIdOrderByCreatedAtDesc(lessonId);
     }

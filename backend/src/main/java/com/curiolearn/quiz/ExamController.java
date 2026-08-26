@@ -4,6 +4,7 @@ import com.curiolearn.quiz.ExamSession;
 import com.curiolearn.quiz.ExamService;
 import lombok.Data;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +16,7 @@ import com.curiolearn.quiz.QuizQuestionDto;
 
 @RestController
 @RequestMapping("/api/v1/exam")
+@PreAuthorize("isAuthenticated()")
 public class ExamController {
 
     private final ExamService examService;

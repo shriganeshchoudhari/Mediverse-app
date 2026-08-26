@@ -119,7 +119,7 @@
           "specs": [
             {
               "title": "AUTH-001 & NAV-001: Header Topbar is unique and renders branding cleanly",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -132,18 +132,58 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3164,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 3089,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/\", waiting until \"load\"\u001b[22m\n\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\01_auth_navigation.spec.ts:7:16",
+                        "location": {
+                          "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\01_auth_navigation.spec.ts",
+                          "column": 16,
+                          "line": 7
+                        },
+                        "snippet": "\u001b[0m \u001b[90m  5 |\u001b[39m   test(\u001b[32m'AUTH-001 & NAV-001: Header Topbar is unique and renders branding cleanly'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m  6 |\u001b[39m     \u001b[36mconst\u001b[39m base \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mBasePage\u001b[39m(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  8 |\u001b[39m\n \u001b[90m  9 |\u001b[39m     \u001b[90m// 1. Strict Cardinality: Guarantee EXACTLY ONE topbar/navbar exists (no duplicates)\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m expect(base\u001b[33m.\u001b[39mnavbar)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\01_auth_navigation.spec.ts",
+                            "column": 16,
+                            "line": 7
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/\", waiting until \"load\"\u001b[22m\n\n\n   5 |   test('AUTH-001 & NAV-001: Header Topbar is unique and renders branding cleanly', async ({ page }) => {\n   6 |     const base = new BasePage(page);\n>  7 |     await page.goto('/');\n     |                ^\n   8 |\n   9 |     // 1. Strict Cardinality: Guarantee EXACTLY ONE topbar/navbar exists (no duplicates)\n  10 |     await expect(base.navbar).toHaveCount(1);\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\01_auth_navigation.spec.ts:7:16"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-25T18:49:21.263Z",
+                      "startTime": "2026-08-26T17:22:23.869Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\01_auth_navigation-SPEC-01-6d9c4-nd-renders-branding-cleanly-Desktop-Chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\01_auth_navigation-SPEC-01-6d9c4-nd-renders-branding-cleanly-Desktop-Chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\01_auth_navigation-SPEC-01-6d9c4-nd-renders-branding-cleanly-Desktop-Chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\01_auth_navigation.spec.ts",
+                        "column": 16,
+                        "line": 7
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "a22ca8284089a4eefe2b-d831de29b270bde3f29d",
@@ -170,7 +210,7 @@
           "specs": [
             {
               "title": "SEARCH-001 & SOC-001: Global search keyboard shortcut triggers modal",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -181,20 +221,60 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 2509,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 2650,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/dashboard\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/dashboard\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/dashboard\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/dashboard\", waiting until \"load\"\u001b[22m\n\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\02_global_search_socratic.spec.ts:7:16",
+                        "location": {
+                          "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\02_global_search_socratic.spec.ts",
+                          "column": 16,
+                          "line": 7
+                        },
+                        "snippet": "\u001b[0m \u001b[90m  5 |\u001b[39m   test(\u001b[32m'SEARCH-001 & SOC-001: Global search keyboard shortcut triggers modal'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m  6 |\u001b[39m     \u001b[36mconst\u001b[39m base \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mBasePage\u001b[39m(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/dashboard'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  8 |\u001b[39m\n \u001b[90m  9 |\u001b[39m     \u001b[90m// 1. Topbar is singular on dashboard too\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m expect(base\u001b[33m.\u001b[39mnavbar)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\02_global_search_socratic.spec.ts",
+                            "column": 16,
+                            "line": 7
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/dashboard\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/dashboard\", waiting until \"load\"\u001b[22m\n\n\n   5 |   test('SEARCH-001 & SOC-001: Global search keyboard shortcut triggers modal', async ({ page }) => {\n   6 |     const base = new BasePage(page);\n>  7 |     await page.goto('/dashboard');\n     |                ^\n   8 |\n   9 |     // 1. Topbar is singular on dashboard too\n  10 |     await expect(base.navbar).toHaveCount(1);\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\02_global_search_socratic.spec.ts:7:16"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-25T18:49:24.834Z",
+                      "startTime": "2026-08-26T17:22:30.398Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\02_global_search_socratic--6947a-ard-shortcut-triggers-modal-Desktop-Chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\02_global_search_socratic--6947a-ard-shortcut-triggers-modal-Desktop-Chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\02_global_search_socratic--6947a-ard-shortcut-triggers-modal-Desktop-Chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\02_global_search_socratic.spec.ts",
+                        "column": 16,
+                        "line": 7
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "e197a62f9fd0514e17eb-b207e55ca9a52ed701ce",
@@ -221,7 +301,7 @@
           "specs": [
             {
               "title": "ALLO-001: MBBS curriculum portal renders professional phases",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -232,20 +312,60 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 2,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3974,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 2536,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/allopathic\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/allopathic\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/allopathic\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/allopathic\", waiting until \"load\"\u001b[22m\n\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\03_domain_allopathic.spec.ts:6:16",
+                        "location": {
+                          "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\03_domain_allopathic.spec.ts",
+                          "column": 16,
+                          "line": 6
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 4 |\u001b[39m   test(\u001b[32m'ALLO-001: MBBS curriculum portal renders professional phases'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 5 |\u001b[39m     \u001b[90m// Navigate to the master platform dynamic route for allopathic medicine\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/healthcare/allopathic'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 7 |\u001b[39m     \n \u001b[90m 8 |\u001b[39m     \u001b[90m// The domain header and program tabs should be visible\u001b[39m\n \u001b[90m 9 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'heading'\u001b[39m\u001b[33m,\u001b[39m { level\u001b[33m:\u001b[39m \u001b[35m1\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\03_domain_allopathic.spec.ts",
+                            "column": 16,
+                            "line": 6
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/allopathic\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/allopathic\", waiting until \"load\"\u001b[22m\n\n\n  4 |   test('ALLO-001: MBBS curriculum portal renders professional phases', async ({ page }) => {\n  5 |     // Navigate to the master platform dynamic route for allopathic medicine\n> 6 |     await page.goto('/healthcare/allopathic');\n    |                ^\n  7 |     \n  8 |     // The domain header and program tabs should be visible\n  9 |     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\03_domain_allopathic.spec.ts:6:16"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-25T18:49:27.415Z",
+                      "startTime": "2026-08-26T17:22:34.256Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\03_domain_allopathic-SPEC--7abaa-renders-professional-phases-Desktop-Chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\03_domain_allopathic-SPEC--7abaa-renders-professional-phases-Desktop-Chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\03_domain_allopathic-SPEC--7abaa-renders-professional-phases-Desktop-Chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\03_domain_allopathic.spec.ts",
+                        "column": 16,
+                        "line": 6
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "2f8a74a0884d71528a5f-a179f0ea7f9d94c8795b",
@@ -272,7 +392,7 @@
           "specs": [
             {
               "title": "DENT-001 & DENT-004: BDS portal and 3D Tooth Morphology",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -283,20 +403,60 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 1658,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 2596,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/dental/tooth-morphology\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/dental/tooth-morphology\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/dental/tooth-morphology\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/dental/tooth-morphology\", waiting until \"load\"\u001b[22m\n\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\04_domain_dental.spec.ts:5:16",
+                        "location": {
+                          "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\04_domain_dental.spec.ts",
+                          "column": 16,
+                          "line": 5
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m'SPEC 04: Domain 2 — Dental Sciences (BDS / MDS)'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m 4 |\u001b[39m   test(\u001b[32m'DENT-001 & DENT-004: BDS portal and 3D Tooth Morphology'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/healthcare/dental/tooth-morphology'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1, h2'\u001b[39m)\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoContainText(\u001b[35m/Tooth|Incisor|Dental|Maxillary/i\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 7 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'button:has-text(\"UR1\"), button:has-text(\"Labial\"), button:has-text(\"Enamel\")'\u001b[39m)\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\04_domain_dental.spec.ts",
+                            "column": 16,
+                            "line": 5
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/dental/tooth-morphology\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/dental/tooth-morphology\", waiting until \"load\"\u001b[22m\n\n\n  3 | test.describe('SPEC 04: Domain 2 — Dental Sciences (BDS / MDS)', () => {\n  4 |   test('DENT-001 & DENT-004: BDS portal and 3D Tooth Morphology', async ({ page }) => {\n> 5 |     await page.goto('/healthcare/dental/tooth-morphology');\n    |                ^\n  6 |     await expect(page.locator('h1, h2').first()).toContainText(/Tooth|Incisor|Dental|Maxillary/i);\n  7 |     await expect(page.locator('button:has-text(\"UR1\"), button:has-text(\"Labial\"), button:has-text(\"Enamel\")').first()).toBeVisible();\n  8 |   });\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\04_domain_dental.spec.ts:5:16"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-25T18:49:31.449Z",
+                      "startTime": "2026-08-26T17:22:37.719Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\04_domain_dental-SPEC-04-D-95a24-tal-and-3D-Tooth-Morphology-Desktop-Chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\04_domain_dental-SPEC-04-D-95a24-tal-and-3D-Tooth-Morphology-Desktop-Chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\04_domain_dental-SPEC-04-D-95a24-tal-and-3D-Tooth-Morphology-Desktop-Chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\04_domain_dental.spec.ts",
+                        "column": 16,
+                        "line": 5
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "d5b7b3774ed2b3a3ff47-2e7bfa52706fc181ea4d",
@@ -323,7 +483,7 @@
           "specs": [
             {
               "title": "AYUSH-001 & AYUSH-007: BAMS portal and Prakriti assessment",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -334,20 +494,60 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 4,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 1859,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 2619,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/ayush/prakriti-assessment\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/ayush/prakriti-assessment\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/ayush/prakriti-assessment\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/ayush/prakriti-assessment\", waiting until \"load\"\u001b[22m\n\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\05_domain_ayush.spec.ts:5:16",
+                        "location": {
+                          "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\05_domain_ayush.spec.ts",
+                          "column": 16,
+                          "line": 5
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m'SPEC 05: Domain 3 — AYUSH (BAMS, BHMS, BNYS, BUMS, BSMS)'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m 4 |\u001b[39m   test(\u001b[32m'AYUSH-001 & AYUSH-007: BAMS portal and Prakriti assessment'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/healthcare/ayush/prakriti-assessment'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1, h2'\u001b[39m)\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoContainText(\u001b[35m/Prakriti/i\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 7 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\05_domain_ayush.spec.ts",
+                            "column": 16,
+                            "line": 5
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/ayush/prakriti-assessment\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/ayush/prakriti-assessment\", waiting until \"load\"\u001b[22m\n\n\n  3 | test.describe('SPEC 05: Domain 3 — AYUSH (BAMS, BHMS, BNYS, BUMS, BSMS)', () => {\n  4 |   test('AYUSH-001 & AYUSH-007: BAMS portal and Prakriti assessment', async ({ page }) => {\n> 5 |     await page.goto('/healthcare/ayush/prakriti-assessment');\n    |                ^\n  6 |     await expect(page.locator('h1, h2').first()).toContainText(/Prakriti/i);\n  7 |   });\n  8 | });\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\05_domain_ayush.spec.ts:5:16"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-25T18:49:33.159Z",
+                      "startTime": "2026-08-26T17:22:41.095Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\05_domain_ayush-SPEC-05-Do-126a5-tal-and-Prakriti-assessment-Desktop-Chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\05_domain_ayush-SPEC-05-Do-126a5-tal-and-Prakriti-assessment-Desktop-Chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\05_domain_ayush-SPEC-05-Do-126a5-tal-and-Prakriti-assessment-Desktop-Chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\05_domain_ayush.spec.ts",
+                        "column": 16,
+                        "line": 5
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "2cebb2ec1af9268f0f36-7c9e9d5ac91c2e696816",
@@ -374,7 +574,7 @@
           "specs": [
             {
               "title": "PHARM-001 & PHARM-004: B.Pharm portal and Drug Interaction analyzer",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -385,20 +585,60 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 5,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 1904,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 2665,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/pharmacy/drug-interactions\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/pharmacy/drug-interactions\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/pharmacy/drug-interactions\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/pharmacy/drug-interactions\", waiting until \"load\"\u001b[22m\n\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\06_domain_pharmacy.spec.ts:5:16",
+                        "location": {
+                          "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\06_domain_pharmacy.spec.ts",
+                          "column": 16,
+                          "line": 5
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m'SPEC 06: Domain 4 — Pharmacy (B.Pharm, M.Pharm, Pharm.D)'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m 4 |\u001b[39m   test(\u001b[32m'PHARM-001 & PHARM-004: B.Pharm portal and Drug Interaction analyzer'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/healthcare/pharmacy/drug-interactions'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1, h2'\u001b[39m)\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoContainText(\u001b[35m/Drug Interaction/i\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 7 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\06_domain_pharmacy.spec.ts",
+                            "column": 16,
+                            "line": 5
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/pharmacy/drug-interactions\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/pharmacy/drug-interactions\", waiting until \"load\"\u001b[22m\n\n\n  3 | test.describe('SPEC 06: Domain 4 — Pharmacy (B.Pharm, M.Pharm, Pharm.D)', () => {\n  4 |   test('PHARM-001 & PHARM-004: B.Pharm portal and Drug Interaction analyzer', async ({ page }) => {\n> 5 |     await page.goto('/healthcare/pharmacy/drug-interactions');\n    |                ^\n  6 |     await expect(page.locator('h1, h2').first()).toContainText(/Drug Interaction/i);\n  7 |   });\n  8 | });\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\06_domain_pharmacy.spec.ts:5:16"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-25T18:49:35.084Z",
+                      "startTime": "2026-08-26T17:22:44.780Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\06_domain_pharmacy-SPEC-06-59366-d-Drug-Interaction-analyzer-Desktop-Chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\06_domain_pharmacy-SPEC-06-59366-d-Drug-Interaction-analyzer-Desktop-Chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\06_domain_pharmacy-SPEC-06-59366-d-Drug-Interaction-analyzer-Desktop-Chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\06_domain_pharmacy.spec.ts",
+                        "column": 16,
+                        "line": 5
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "1e81edc150ae004b5bbe-1f6c5a95922648e33762",
@@ -425,7 +665,7 @@
           "specs": [
             {
               "title": "NURS-001 & NURS-003: Nursing portal and NEWS2 Deterioration Score",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -436,20 +676,60 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 6,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 2033,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 2618,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/nursing/news2-escalation\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/nursing/news2-escalation\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/nursing/news2-escalation\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/nursing/news2-escalation\", waiting until \"load\"\u001b[22m\n\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\07_domain_nursing.spec.ts:5:16",
+                        "location": {
+                          "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\07_domain_nursing.spec.ts",
+                          "column": 16,
+                          "line": 5
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m'SPEC 07: Domain 5 — Nursing Sciences (B.Sc / M.Sc Nursing)'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m 4 |\u001b[39m   test(\u001b[32m'NURS-001 & NURS-003: Nursing portal and NEWS2 Deterioration Score'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/healthcare/nursing/news2-escalation'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1, h2'\u001b[39m)\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoContainText(\u001b[35m/NEWS2|Escalation/i\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 7 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\07_domain_nursing.spec.ts",
+                            "column": 16,
+                            "line": 5
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/nursing/news2-escalation\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/nursing/news2-escalation\", waiting until \"load\"\u001b[22m\n\n\n  3 | test.describe('SPEC 07: Domain 5 — Nursing Sciences (B.Sc / M.Sc Nursing)', () => {\n  4 |   test('NURS-001 & NURS-003: Nursing portal and NEWS2 Deterioration Score', async ({ page }) => {\n> 5 |     await page.goto('/healthcare/nursing/news2-escalation');\n    |                ^\n  6 |     await expect(page.locator('h1, h2').first()).toContainText(/NEWS2|Escalation/i);\n  7 |   });\n  8 | });\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\07_domain_nursing.spec.ts:5:16"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-25T18:49:37.089Z",
+                      "startTime": "2026-08-26T17:22:48.601Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\07_domain_nursing-SPEC-07--b8cee-d-NEWS2-Deterioration-Score-Desktop-Chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\07_domain_nursing-SPEC-07--b8cee-d-NEWS2-Deterioration-Score-Desktop-Chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\07_domain_nursing-SPEC-07--b8cee-d-NEWS2-Deterioration-Score-Desktop-Chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\07_domain_nursing.spec.ts",
+                        "column": 16,
+                        "line": 5
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "f2efc2bfde41c0aaf43e-f2778d5b7db2448c6bdc",
@@ -476,7 +756,7 @@
           "specs": [
             {
               "title": "PT-001 & PT-003: BPT portal and Gait Cycle pathological simulator",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -487,20 +767,60 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 7,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 1876,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 2689,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/physiotherapy/gait-analysis\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/physiotherapy/gait-analysis\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/physiotherapy/gait-analysis\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/physiotherapy/gait-analysis\", waiting until \"load\"\u001b[22m\n\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\08_domain_physiotherapy.spec.ts:5:16",
+                        "location": {
+                          "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\08_domain_physiotherapy.spec.ts",
+                          "column": 16,
+                          "line": 5
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m'SPEC 08: Domain 6 — Physiotherapy & Rehabilitation (BPT / MPT)'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m 4 |\u001b[39m   test(\u001b[32m'PT-001 & PT-003: BPT portal and Gait Cycle pathological simulator'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/healthcare/physiotherapy/gait-analysis'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1, h2'\u001b[39m)\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoContainText(\u001b[35m/Gait/i\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 7 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\08_domain_physiotherapy.spec.ts",
+                            "column": 16,
+                            "line": 5
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/physiotherapy/gait-analysis\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/physiotherapy/gait-analysis\", waiting until \"load\"\u001b[22m\n\n\n  3 | test.describe('SPEC 08: Domain 6 — Physiotherapy & Rehabilitation (BPT / MPT)', () => {\n  4 |   test('PT-001 & PT-003: BPT portal and Gait Cycle pathological simulator', async ({ page }) => {\n> 5 |     await page.goto('/healthcare/physiotherapy/gait-analysis');\n    |                ^\n  6 |     await expect(page.locator('h1, h2').first()).toContainText(/Gait/i);\n  7 |   });\n  8 | });\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\08_domain_physiotherapy.spec.ts:5:16"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-25T18:49:39.227Z",
+                      "startTime": "2026-08-26T17:22:52.455Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\08_domain_physiotherapy-SP-b38fe-ycle-pathological-simulator-Desktop-Chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\08_domain_physiotherapy-SP-b38fe-ycle-pathological-simulator-Desktop-Chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\08_domain_physiotherapy-SP-b38fe-ycle-pathological-simulator-Desktop-Chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\08_domain_physiotherapy.spec.ts",
+                        "column": 16,
+                        "line": 5
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "d3a3146c9a4bc4e00dff-707bae97bc8a677769a3",
@@ -527,7 +847,7 @@
           "specs": [
             {
               "title": "ALLIED-001 & ALLIED-002: Allied Health curriculum and ECMO circuit simulator",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -538,20 +858,60 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 8,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 1882,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 2661,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/allied/ecmo-circuit\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/allied/ecmo-circuit\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/allied/ecmo-circuit\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/allied/ecmo-circuit\", waiting until \"load\"\u001b[22m\n\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\09_domain_allied_health.spec.ts:5:16",
+                        "location": {
+                          "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\09_domain_allied_health.spec.ts",
+                          "column": 16,
+                          "line": 5
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m'SPEC 09: Domain 7 — Allied Health (Perfusion, Radiology, Dialysis, OT)'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m 4 |\u001b[39m   test(\u001b[32m'ALLIED-001 & ALLIED-002: Allied Health curriculum and ECMO circuit simulator'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/healthcare/allied/ecmo-circuit'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1, h2'\u001b[39m)\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoContainText(\u001b[35m/ECMO|Perfusion/i\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 7 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\09_domain_allied_health.spec.ts",
+                            "column": 16,
+                            "line": 5
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/allied/ecmo-circuit\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/allied/ecmo-circuit\", waiting until \"load\"\u001b[22m\n\n\n  3 | test.describe('SPEC 09: Domain 7 — Allied Health (Perfusion, Radiology, Dialysis, OT)', () => {\n  4 |   test('ALLIED-001 & ALLIED-002: Allied Health curriculum and ECMO circuit simulator', async ({ page }) => {\n> 5 |     await page.goto('/healthcare/allied/ecmo-circuit');\n    |                ^\n  6 |     await expect(page.locator('h1, h2').first()).toContainText(/ECMO|Perfusion/i);\n  7 |   });\n  8 | });\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\09_domain_allied_health.spec.ts:5:16"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-25T18:49:41.172Z",
+                      "startTime": "2026-08-26T17:22:56.404Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\09_domain_allied_health-SP-e0302--and-ECMO-circuit-simulator-Desktop-Chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\09_domain_allied_health-SP-e0302--and-ECMO-circuit-simulator-Desktop-Chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\09_domain_allied_health-SP-e0302--and-ECMO-circuit-simulator-Desktop-Chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\09_domain_allied_health.spec.ts",
+                        "column": 16,
+                        "line": 5
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "172ed2476afe592685d6-b93c0f12b56d07f4746c",
@@ -578,7 +938,7 @@
           "specs": [
             {
               "title": "VET-001 & VET-003: BVSc portal and Comparative Anatomy multi-species viewer",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -589,20 +949,60 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 9,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 1594,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 3048,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/veterinary/comparative-anatomy\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/veterinary/comparative-anatomy\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/veterinary/comparative-anatomy\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/veterinary/comparative-anatomy\", waiting until \"load\"\u001b[22m\n\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\10_domain_veterinary.spec.ts:5:16",
+                        "location": {
+                          "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\10_domain_veterinary.spec.ts",
+                          "column": 16,
+                          "line": 5
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m'SPEC 10: Domain 8 — Veterinary Science (BVSc & AH / MVSc)'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m 4 |\u001b[39m   test(\u001b[32m'VET-001 & VET-003: BVSc portal and Comparative Anatomy multi-species viewer'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/healthcare/veterinary/comparative-anatomy'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1, h2'\u001b[39m)\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoContainText(\u001b[35m/Comparative.*Anatomy|Veterinary/i\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 7 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\10_domain_veterinary.spec.ts",
+                            "column": 16,
+                            "line": 5
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/veterinary/comparative-anatomy\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/veterinary/comparative-anatomy\", waiting until \"load\"\u001b[22m\n\n\n  3 | test.describe('SPEC 10: Domain 8 — Veterinary Science (BVSc & AH / MVSc)', () => {\n  4 |   test('VET-001 & VET-003: BVSc portal and Comparative Anatomy multi-species viewer', async ({ page }) => {\n> 5 |     await page.goto('/healthcare/veterinary/comparative-anatomy');\n    |                ^\n  6 |     await expect(page.locator('h1, h2').first()).toContainText(/Comparative.*Anatomy|Veterinary/i);\n  7 |   });\n  8 | });\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\10_domain_veterinary.spec.ts:5:16"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-25T18:49:43.109Z",
+                      "startTime": "2026-08-26T17:23:00.204Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\10_domain_veterinary-SPEC--7beab-natomy-multi-species-viewer-Desktop-Chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\10_domain_veterinary-SPEC--7beab-natomy-multi-species-viewer-Desktop-Chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\10_domain_veterinary-SPEC--7beab-natomy-multi-species-viewer-Desktop-Chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\10_domain_veterinary.spec.ts",
+                        "column": 16,
+                        "line": 5
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "dc1cc76b74c05abd9a81-9a0f1e8fca5afb827bfd",
@@ -629,7 +1029,7 @@
           "specs": [
             {
               "title": "PUB-001 & PUB-003: MPH portal and Epidemic Outbreak SEIR simulator",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -640,20 +1040,60 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 10,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 1730,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 3212,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/public-health/epidemic-outbreak\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/public-health/epidemic-outbreak\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/public-health/epidemic-outbreak\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/public-health/epidemic-outbreak\", waiting until \"load\"\u001b[22m\n\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\11_domain_public_health.spec.ts:5:16",
+                        "location": {
+                          "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\11_domain_public_health.spec.ts",
+                          "column": 16,
+                          "line": 5
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m'SPEC 11: Domain 9 — Public Health & Hospital Admin (MPH / MHA)'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m 4 |\u001b[39m   test(\u001b[32m'PUB-001 & PUB-003: MPH portal and Epidemic Outbreak SEIR simulator'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/healthcare/public-health/epidemic-outbreak'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1, h2'\u001b[39m)\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoContainText(\u001b[35m/Epidemic|Outbreak/i\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 7 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\11_domain_public_health.spec.ts",
+                            "column": 16,
+                            "line": 5
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/healthcare/public-health/epidemic-outbreak\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/healthcare/public-health/epidemic-outbreak\", waiting until \"load\"\u001b[22m\n\n\n  3 | test.describe('SPEC 11: Domain 9 — Public Health & Hospital Admin (MPH / MHA)', () => {\n  4 |   test('PUB-001 & PUB-003: MPH portal and Epidemic Outbreak SEIR simulator', async ({ page }) => {\n> 5 |     await page.goto('/healthcare/public-health/epidemic-outbreak');\n    |                ^\n  6 |     await expect(page.locator('h1, h2').first()).toContainText(/Epidemic|Outbreak/i);\n  7 |   });\n  8 | });\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\11_domain_public_health.spec.ts:5:16"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-25T18:49:44.756Z",
+                      "startTime": "2026-08-26T17:23:05.608Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\11_domain_public_health-SP-a7c5c-mic-Outbreak-SEIR-simulator-Desktop-Chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\11_domain_public_health-SP-a7c5c-mic-Outbreak-SEIR-simulator-Desktop-Chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\11_domain_public_health-SP-a7c5c-mic-Outbreak-SEIR-simulator-Desktop-Chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\11_domain_public_health.spec.ts",
+                        "column": 16,
+                        "line": 5
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "312c7fe2339720549995-519ff2b1b69458d0eeb0",
@@ -680,7 +1120,7 @@
           "specs": [
             {
               "title": "ROOM-001 & ROOM-002: Live study room entry, Presenter claim and chat",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -691,20 +1131,60 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 11,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 2023,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 3306,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/study-groups/cardio-cohort-01\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/study-groups/cardio-cohort-01\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/study-groups/cardio-cohort-01\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/study-groups/cardio-cohort-01\", waiting until \"load\"\u001b[22m\n\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\12_collaborative_study_rooms.spec.ts:9:16",
+                        "location": {
+                          "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\12_collaborative_study_rooms.spec.ts",
+                          "column": 16,
+                          "line": 9
+                        },
+                        "snippet": "\u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mawait\u001b[39m mockStudyRoomWebSocket(page)\u001b[33m;\u001b[39m\n \u001b[90m  8 |\u001b[39m     \u001b[36mconst\u001b[39m room \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mCollaborativeRoomPage\u001b[39m(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/study-groups/cardio-cohort-01'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m room\u001b[33m.\u001b[39menterLiveRoom()\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m     \u001b[36mawait\u001b[39m room\u001b[33m.\u001b[39mclaimPresenter()\u001b[33m;\u001b[39m\n \u001b[90m 12 |\u001b[39m     \u001b[36mawait\u001b[39m room\u001b[33m.\u001b[39msendChat(\u001b[32m'Reviewing coronary angiography'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\12_collaborative_study_rooms.spec.ts",
+                            "column": 16,
+                            "line": 9
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/study-groups/cardio-cohort-01\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/study-groups/cardio-cohort-01\", waiting until \"load\"\u001b[22m\n\n\n   7 |     await mockStudyRoomWebSocket(page);\n   8 |     const room = new CollaborativeRoomPage(page);\n>  9 |     await page.goto('/study-groups/cardio-cohort-01');\n     |                ^\n  10 |     await room.enterLiveRoom();\n  11 |     await room.claimPresenter();\n  12 |     await room.sendChat('Reviewing coronary angiography');\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\12_collaborative_study_rooms.spec.ts:9:16"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-25T18:49:46.556Z",
+                      "startTime": "2026-08-26T17:23:10.560Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\12_collaborative_study_roo-7a51e-ry-Presenter-claim-and-chat-Desktop-Chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\12_collaborative_study_roo-7a51e-ry-Presenter-claim-and-chat-Desktop-Chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\12_collaborative_study_roo-7a51e-ry-Presenter-claim-and-chat-Desktop-Chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\12_collaborative_study_rooms.spec.ts",
+                        "column": 16,
+                        "line": 9
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "ff137404586a8b2f29fd-efdec6ab926e42aa4f9b",
@@ -731,7 +1211,7 @@
           "specs": [
             {
               "title": "EXAM-001 & EXAM-003: OSCE Station evaluation and rubric scoring",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -742,20 +1222,60 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 12,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 1708,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 3272,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/exam/osce\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/exam/osce\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/exam/osce\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/exam/osce\", waiting until \"load\"\u001b[22m\n\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\13_exam_and_osce.spec.ts:6:16",
+                        "location": {
+                          "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\13_exam_and_osce.spec.ts",
+                          "column": 16,
+                          "line": 6
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 4 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m'SPEC 13: Assessment Engine & OSCE Stations'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m 5 |\u001b[39m   test(\u001b[32m'EXAM-001 & EXAM-003: OSCE Station evaluation and rubric scoring'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/exam/osce'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 7 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1, h2'\u001b[39m)\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoContainText(\u001b[35m/OSCE/i\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 9 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\13_exam_and_osce.spec.ts",
+                            "column": 16,
+                            "line": 6
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/exam/osce\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/exam/osce\", waiting until \"load\"\u001b[22m\n\n\n  4 | test.describe('SPEC 13: Assessment Engine & OSCE Stations', () => {\n  5 |   test('EXAM-001 & EXAM-003: OSCE Station evaluation and rubric scoring', async ({ page }) => {\n> 6 |     await page.goto('/exam/osce');\n    |                ^\n  7 |     await expect(page.locator('h1, h2').first()).toContainText(/OSCE/i);\n  8 |   });\n  9 | });\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\13_exam_and_osce.spec.ts:6:16"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-25T18:49:48.631Z",
+                      "startTime": "2026-08-26T17:23:15.901Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\13_exam_and_osce-SPEC-13-A-72a25-aluation-and-rubric-scoring-Desktop-Chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\13_exam_and_osce-SPEC-13-A-72a25-aluation-and-rubric-scoring-Desktop-Chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\13_exam_and_osce-SPEC-13-A-72a25-aluation-and-rubric-scoring-Desktop-Chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\13_exam_and_osce.spec.ts",
+                        "column": 16,
+                        "line": 6
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "01949f3bd31a99f2a33e-bed872b5e4ecd346f433",
@@ -782,7 +1302,7 @@
           "specs": [
             {
               "title": "CMS-001 & CMS-002: Curriculum Anchor Modal Workflow",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -793,20 +1313,60 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 13,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5757,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 3670,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/auth/login\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/auth/login\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/auth/login\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/auth/login\", waiting until \"load\"\u001b[22m\n\n    at Object.adminPage (F:\\Mediverse-app\\frontend\\e2e\\fixtures\\auth.fixture.ts:28:16)",
+                        "location": {
+                          "file": "F:\\Mediverse-app\\frontend\\e2e\\fixtures\\auth.fixture.ts",
+                          "column": 16,
+                          "line": 28
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\fixtures\\auth.fixture.ts:28\n\n\u001b[0m \u001b[90m 26 |\u001b[39m\n \u001b[90m 27 |\u001b[39m   adminPage\u001b[33m:\u001b[39m \u001b[36masync\u001b[39m ({ page }\u001b[33m,\u001b[39m use) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/auth/login'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m {\n \u001b[90m 30 |\u001b[39m       localStorage\u001b[33m.\u001b[39msetItem(\u001b[32m'token'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBtZWRpdmVyc2UuZWR1IiwiZXhwIjo5OTk5OTk5OTk5fQ.mockAdminSignature'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m       localStorage\u001b[33m.\u001b[39msetItem(\u001b[32m'user'\u001b[39m\u001b[33m,\u001b[39m \u001b[33mJSON\u001b[39m\u001b[33m.\u001b[39mstringify({\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "F:\\Mediverse-app\\frontend\\e2e\\fixtures\\auth.fixture.ts",
+                            "column": 16,
+                            "line": 28
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/auth/login\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/auth/login\", waiting until \"load\"\u001b[22m\n\n\n   at ..\\fixtures\\auth.fixture.ts:28\n\n  26 |\n  27 |   adminPage: async ({ page }, use) => {\n> 28 |     await page.goto('/auth/login');\n     |                ^\n  29 |     await page.evaluate(() => {\n  30 |       localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBtZWRpdmVyc2UuZWR1IiwiZXhwIjo5OTk5OTk5OTk5fQ.mockAdminSignature');\n  31 |       localStorage.setItem('user', JSON.stringify({\n    at Object.adminPage (F:\\Mediverse-app\\frontend\\e2e\\fixtures\\auth.fixture.ts:28:16)"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-25T18:49:50.407Z",
+                      "startTime": "2026-08-26T17:23:20.780Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\14_cms_curriculum_authorin-919df-culum-Anchor-Modal-Workflow-Desktop-Chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\14_cms_curriculum_authorin-919df-culum-Anchor-Modal-Workflow-Desktop-Chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\14_cms_curriculum_authorin-919df-culum-Anchor-Modal-Workflow-Desktop-Chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "F:\\Mediverse-app\\frontend\\e2e\\fixtures\\auth.fixture.ts",
+                        "column": 16,
+                        "line": 28
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "09648a05a7033cde1bce-de852f01946ff7f55d4b",
@@ -833,7 +1393,7 @@
           "specs": [
             {
               "title": "A11Y-001 & RESP-001: Mobile viewport responsive rendering",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -844,20 +1404,60 @@
                   "projectName": "Desktop Chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 14,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 1858,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 2930,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/\", waiting until \"load\"\u001b[22m\n\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\15_accessibility_and_responsive.spec.ts:6:16",
+                        "location": {
+                          "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\15_accessibility_and_responsive.spec.ts",
+                          "column": 16,
+                          "line": 6
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 4 |\u001b[39m   test(\u001b[32m'A11Y-001 & RESP-001: Mobile viewport responsive rendering'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 5 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39msetViewportSize({ width\u001b[33m:\u001b[39m \u001b[35m375\u001b[39m\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m \u001b[35m667\u001b[39m })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 7 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'main, nav, header, h1, h2, form, div'\u001b[39m)\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 8 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 9 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\15_accessibility_and_responsive.spec.ts",
+                            "column": 16,
+                            "line": 6
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3000/\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3000/\", waiting until \"load\"\u001b[22m\n\n\n  4 |   test('A11Y-001 & RESP-001: Mobile viewport responsive rendering', async ({ page }) => {\n  5 |     await page.setViewportSize({ width: 375, height: 667 });\n> 6 |     await page.goto('/');\n    |                ^\n  7 |     await expect(page.locator('main, nav, header, h1, h2, form, div').first()).toBeVisible();\n  8 |   });\n  9 | });\n    at F:\\Mediverse-app\\frontend\\e2e\\specs\\15_accessibility_and_responsive.spec.ts:6:16"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-25T18:49:56.233Z",
+                      "startTime": "2026-08-26T17:23:27.862Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\15_accessibility_and_respo-f362f-ewport-responsive-rendering-Desktop-Chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\15_accessibility_and_respo-f362f-ewport-responsive-rendering-Desktop-Chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "F:\\Mediverse-app\\frontend\\test-results\\15_accessibility_and_respo-f362f-ewport-responsive-rendering-Desktop-Chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "F:\\Mediverse-app\\frontend\\e2e\\specs\\15_accessibility_and_responsive.spec.ts",
+                        "column": 16,
+                        "line": 6
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "06cf40d0b65a21657618-af19791999953dd23ab0",
@@ -872,11 +1472,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-08-25T18:49:15.597Z",
-    "duration": 42806.289,
-    "expected": 15,
+    "startTime": "2026-08-26T17:22:22.826Z",
+    "duration": 69534.922,
+    "expected": 0,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 15,
     "flaky": 0
   }
 }

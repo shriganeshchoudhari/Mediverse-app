@@ -8,6 +8,7 @@ import com.curiolearn.user.UserRepository;
 import com.curiolearn.simulation.SimulationRunService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/simulations")
+@PreAuthorize("isAuthenticated()")
 public class SimulationRunController {
 
     private final SimulationRunService simulationRunService;

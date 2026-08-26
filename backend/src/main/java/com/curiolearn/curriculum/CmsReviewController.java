@@ -70,6 +70,14 @@ public class CmsReviewController {
         return ResponseEntity.ok(cmsReviewService.reject(lessonId, reviewer.getUsername(), comments));
     }
 
+    @PostMapping("/{lessonId}/rollback")
+    @PreAuthorize("hasAnyRole('SUPER_ADMIN','ADMIN','FACULTY','MEDICAL_REVIEWER','EDITOR')")
+    public ResponseEntity<Lesson> rollback(
+            @PathVariable UUID lessonId,
+            @AuthenticationPrincipal UserDetails reviewer) {
+        return ResponseEntity.ok(cmsReviewService.rollback(lessonId, reviewer.getUsername()));
+    }
+
     @GetMapping("/{lessonId}/history")
     @PreAuthorize("hasAnyRole('SUPER_ADMIN','ADMIN','FACULTY','CONTENT_WRITER','MEDICAL_REVIEWER','EDITOR')")
     public ResponseEntity<List<ContentReview>> history(@PathVariable UUID lessonId) {

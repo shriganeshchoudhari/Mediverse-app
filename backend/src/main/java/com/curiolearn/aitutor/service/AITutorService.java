@@ -68,24 +68,27 @@ public class AITutorService {
             return;
         }
 
+        // Sanitize and redact any student or patient PII before processing
+        String sanitizedPrompt = com.curiolearn.common.PiiRedactionUtil.redact(prompt);
+
         // Check if Gemini API key is valid
         if (geminiApiKey != null && !geminiApiKey.isEmpty() && !geminiApiKey.equals("your_api_key_here") && !geminiApiKey.contains("${")) {
             String responseText = circuitBreaker.execute(
                     () -> {
                         try {
-                            return callGemini(prompt, request.getContext(), request.getHistory());
+                            return callGemini(sanitizedPrompt, request.getContext(), request.getHistory());
                         } catch (Exception e) {
                             throw new RuntimeException("Gemini API invocation failed", e);
                         }
                     },
-                    () -> generateSocraticPedagogicalResponse(prompt, request.getContext())
+                    () -> generateSocraticPedagogicalResponse(sanitizedPrompt, request.getContext())
             );
             emitTokenStream(emitter, responseText);
             return;
         }
 
         // Built-in intelligent Socratic reasoning engine
-        String socraticAnswer = generateSocraticPedagogicalResponse(prompt, request.getContext());
+        String socraticAnswer = generateSocraticPedagogicalResponse(sanitizedPrompt, request.getContext());
         emitTokenStream(emitter, socraticAnswer);
     }
 

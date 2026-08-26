@@ -32,13 +32,17 @@ export default function LoginPage() {
       }
 
       const data = await res.json();
-      login(data.token, {
-        userId: data.userId,
-        email: data.email,
-        firstName: data.firstName,
-        lastName: data.lastName,
-        role: data.role,
-      });
+      login(
+        data.token,
+        {
+          userId: data.userId,
+          email: data.email,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          role: data.role,
+        },
+        data.refreshToken
+      );
 
       router.push("/");
     } catch (err: any) {

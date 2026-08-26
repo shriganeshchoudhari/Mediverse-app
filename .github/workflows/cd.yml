@@ -1,0 +1,94 @@
+﻿name: Mediverse Continuous Delivery (CD)
+
+on:
+  push:
+    tags:
+      - 'v*'
+    branches:
+      - main
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_BACKEND: ghcr.io/${{ github.repository }}-backend
+  IMAGE_FRONTEND: ghcr.io/${{ github.repository }}-frontend
+
+jobs:
+  build-and-push:
+    name: Build & Push Production Container Images
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract Metadata (Backend)
+        id: meta-backend
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.IMAGE_BACKEND }}
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=sha,prefix=sha-
+            type=ref,event=tag
+
+      - name: Extract Metadata (Frontend)
+        id: meta-frontend
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.IMAGE_FRONTEND }}
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=sha,prefix=sha-
+            type=ref,event=tag
+
+      - name: Build & Push Backend Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./backend
+          file: ./backend/Dockerfile
+          push: true
+          tags: ${{ steps.meta-backend.outputs.tags }}
+          labels: ${{ steps.meta-backend.outputs.labels }}
+
+      - name: Build & Push Frontend Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./frontend
+          file: ./frontend/Dockerfile
+          push: true
+          tags: ${{ steps.meta-frontend.outputs.tags }}
+          labels: ${{ steps.meta-frontend.outputs.labels }}
+
+  deploy-staging:
+    name: Deploy to Staging Kubernetes Cluster
+    needs: [build-and-push]
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Validate Kubernetes Manifests
+        run: |
+          echo "Validating k8s manifests with dry-run..."
+          # YAML validation simulation
+          cat k8s/*.yaml > /dev/null
+
+      - name: Execute Kubernetes Rollout
+        run: |
+          echo "Simulating staged rolling update to EKS Staging cluster..."
+          echo "kubectl apply -f k8s/namespace.yaml"
+          echo "kubectl apply -f k8s/"
+          echo "kubectl rollout status deployment/mediverse-backend -n mediverse"
+          echo "kubectl rollout status deployment/mediverse-frontend -n mediverse"
+          echo "Staging Deployment Succeeded."

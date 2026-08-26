@@ -1,0 +1,13 @@
+﻿apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mediverse-config
+  namespace: mediverse
+data:
+  SPRING_PROFILES_ACTIVE: "prod"
+  SERVER_PORT: "8085"
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://mediverse-postgres:5432/mediverse_db"
+  SPRING_DATA_REDIS_HOST: "mediverse-redis"
+  SPRING_DATA_REDIS_PORT: "6379"
+  SPRING_ELASTICSEARCH_URIS: "http://mediverse-elasticsearch:9200"
+  NEXT_PUBLIC_APP_URL: "https://mediverse.curiolearn.com"

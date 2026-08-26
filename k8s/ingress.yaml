@@ -1,0 +1,49 @@
+﻿apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mediverse-ingress
+  namespace: mediverse
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
+    nginx.ingress.kubernetes.io/websocket-services: "mediverse-backend"
+spec:
+  tls:
+    - hosts:
+        - mediverse.curiolearn.com
+      secretName: mediverse-tls-cert
+  rules:
+    - host: mediverse.curiolearn.com
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: mediverse-backend
+                port:
+                  number: 8085
+          - path: /ws
+            pathType: Prefix
+            backend:
+              service:
+                name: mediverse-backend
+                port:
+                  number: 8085
+          - path: /actuator
+            pathType: Prefix
+            backend:
+              service:
+                name: mediverse-backend
+                port:
+                  number: 8085
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: mediverse-frontend
+                port:
+                  number: 3000

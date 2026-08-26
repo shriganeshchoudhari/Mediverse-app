@@ -1,54 +1,48 @@
-# Interactive Physiology Learning Platform
+# Mediverse — Healthcare Education & Simulation Platform
 
-A production-quality interactive physiology learning ecosystem designed for MBBS, BDS, BAMS, nursing, and allied health students, as well as medical educators and NEET PG aspirants.
+A production-grade, multi-domain healthcare learning ecosystem designed for MBBS, BDS, BAMS/AYUSH, Nursing, Pharmacy, Physiotherapy, Allied Health, Veterinary, and Public Health students, as well as medical educators and postgraduate aspirants.
 
 ## Platform Pillars
-1. **Interactive 3D Atlas & Simulations**: Rotate, zoom, explode, and slice 3D organs (Heart, Kidney, Neurons) in real-time, or manipulate variables in physiological simulations.
-2. **Clinical Case Simulator & Labs**: Replicate classic physiology experiments (spirometry, ECG, frog muscle-nerve preparations) and diagnose virtual patients using laboratory workups.
-3. **Adaptive Learning & AI Tutor**: Built-in conversational AI assistant (MBBS Level) synced with medical knowledge graphs to guide study plans, adapt quizzes, and generate summaries.
-4. **Rich Pedagogy Model**: Standardized structure for every single topic:
-   * Introduction & Analogy
-   * Basic Concept & Anatomy Review
-   * Mechanism, Flowcharts & 3D Visualizations
-   * Clinical Correlation & Disorders
-   * Spaced Repetition (Flashcards & Quizzes)
+1. **Interactive 3D Atlas & Simulations**: Rotate, zoom, explode, and slice 3D anatomical structures in real-time, or manipulate variables in physiological solvers (acid-base, renal kinetics, ECMO circuit, PK/PD, etc.).
+2. **Clinical Case Simulator & Labs**: Replicate clinical workups and OSCE scenarios to diagnose virtual patients using laboratory investigations and diagnostic imaging.
+3. **Adaptive Learning & Socratic AI Tutor**: Intelligent pedagogical AI assistant with domain-specific curriculum grounding, RAG indexing, and automatic PII redaction.
+4. **Competency-Based Curriculum Framework**: Aligned with NMC, DCI, CCIM, PCI, INC, and VCI regulatory frameworks across 9 healthcare domains.
 
 ---
 
 ## Tech Stack
 
 ### Frontend
-- **Framework**: Next.js (App Router), React, TypeScript
-- **Styling & Components**: TailwindCSS, ShadCN UI, Framer Motion, GSAP
-- **3D Renderers**: Three.js, React Three Fiber (R3F), Drei, GLTF/GLB loaders
+- **Framework**: Next.js 14 (App Router), React, TypeScript
+- **Styling & UI**: TailwindCSS, Lucide Icons, Framer Motion
+- **3D & Visualizations**: Three.js, React Three Fiber (R3F), Mermaid, KaTeX
 
 ### Backend
-- **Core Engine**: Spring Boot (Java 21), Spring Security, Spring WebSockets
-- **Databases**: PostgreSQL (Relational & Core schemas), Redis (Caching & Session storage), Elasticsearch (Full-text & Vector Search for RAG)
-- **AI Integrations**: OpenAI GPT API, Text-to-Speech (TTS), Speech-to-Text (STT)
+- **Core Engine**: Spring Boot 3.5.x (Java 21), Spring Security, Spring WebSockets
+- **Databases**: PostgreSQL 16 (Relational & pgvector), Redis (Caching & Session broker), Elasticsearch 8.x (Full-text RAG search)
+- **AI Integrations**: Gemini API with circuit breaker fallback and Socratic pedagogical engine
 
 ### Infrastructure & DevOps
-- **Containerization**: Docker, Docker Compose, Kubernetes, NGINX
-- **IaC**: Terraform
-- **Monitoring**: Prometheus, Grafana, Loki
+- **Containerization**: Docker, Multi-Stage Dockerfiles, Docker Compose
+- **IaC**: Terraform (EKS, Aurora, ElastiCache, S3 Remote State)
+- **Observability**: Prometheus, Grafana, Loki, Promtail
 
 ---
 
 ## Workspace Structure
-- [frontend/](file:///f:/Physiology-app/frontend) - React/Next.js frontend application
-- [backend/](file:///f:/Physiology-app/backend) - Spring Boot Java backend API
-- [docs/](file:///f:/Physiology-app/docs) - Product and design specifications
-- [decisions/](file:///f:/Physiology-app/decisions) - Architecture Decision Records (ADRs)
+- [frontend/](./frontend) - Next.js frontend web application & PWA
+- [backend/](./backend) - Spring Boot Java backend API
+- [docs/](./docs) - Architecture, PRD, and compliance documentation
+- [terraform/](./terraform) - Infrastructure as Code definitions
+- [monitoring/](./monitoring) - Prometheus alert rules & Grafana dashboards
 
 ---
 
 ## Getting Started
 
 Refer to the following guides to learn more about the project specifications and development setup:
-- [Product Requirements Document (PRD)](file:///f:/Physiology-app/docs/prd.md)
-- [System Architecture Specification](file:///f:/Physiology-app/docs/architecture/Architecture.md)
-- [Database Schema Specification](file:///f:/Physiology-app/docs/database/Database.md)
-- [API Reference Document](file:///f:/Physiology-app/docs/api/API.md)
-- [Deployment Guide](file:///f:/Physiology-app/docs/deployment/Deployment.md)
-- [Roadmap & Tasks List](file:///f:/Physiology-app/ROADMAP.md)
-- [Contributing Guidelines](file:///f:/Physiology-app/CONTRIBUTING.md)
+- [Developer Setup Guide](./docs/DEVELOPER_SETUP.md)
+- [Product Requirements Document (PRD)](./docs/PRD.md)
+- [Data Privacy & DPDP Compliance Framework](./docs/compliance/data-privacy-and-governance.md)
+- [Roadmap & Architecture Decisions](./ROADMAP.md)
+- [Contributing Guidelines](./CONTRIBUTING.md)

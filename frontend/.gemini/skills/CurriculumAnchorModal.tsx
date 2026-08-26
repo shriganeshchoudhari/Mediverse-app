@@ -20,7 +20,7 @@ export default function CurriculumAnchorModal({ isOpen, onClose, onSelectConcept
   useEffect(() => {
     if (isOpen && subjects.length === 0) {
       setLoading(true);
-      fetch("http://localhost:8085/api/v1/curriculum/subjects/all")
+      fetch("/api/v1/curriculum/subjects/all")
         .then(res => res.json())
         .then(data => {
           setSubjects(data);
@@ -38,7 +38,7 @@ export default function CurriculumAnchorModal({ isOpen, onClose, onSelectConcept
     if (selectedSubjectId) {
       setLoading(true);
       setSubjectTree(null);
-      fetch(`http://localhost:8085/api/v1/curriculum/subjects/${selectedSubjectId}/tree`)
+      fetch(`/api/v1/curriculum/subjects/${selectedSubjectId}/tree`)
         .then(res => res.json())
         .then(data => {
           setSubjectTree(data);

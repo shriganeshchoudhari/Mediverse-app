@@ -20,19 +20,31 @@ interface ContentBlockRendererProps {
   chapterId: string;
 }
 
+function sanitizeMarkdownText(content: string): string {
+  if (!content) return "";
+  return content
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
+    .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, "")
+    .replace(/<object\b[^<]*(?:(?!<\/object>)<[^<]*)*<\/object>/gi, "")
+    .replace(/<embed\b[^>]*>/gi, "")
+    .replace(/\s+on\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "")
+    .replace(/href\s*=\s*("[^"]*javascript:[^"]*"|'[^']*javascript:[^']*')/gi, 'href="#"');
+}
+
 export default function ContentBlockRenderer({ block, chapterId }: ContentBlockRendererProps) {
   const type = block.type?.toUpperCase();
 
   switch (type) {
     case "EXPLANATION": {
       const text = block.metadata?.text || "";
+      const sanitizedText = sanitizeMarkdownText(text);
       return (
         <div className="prose prose-invert max-w-none prose-slate prose-headings:text-white prose-p:text-slate-300 prose-a:text-blue-400 prose-strong:text-white prose-code:text-indigo-200">
           <ReactMarkdown
             remarkPlugins={[remarkGfm, remarkMath]}
             rehypePlugins={[rehypeKatex, rehypeRaw]}
           >
-            {text}
+            {sanitizedText}
           </ReactMarkdown>
         </div>
       );
