@@ -41,6 +41,8 @@ dependencies {
     runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.5'
 
     // Databases
+    implementation "io.micrometer:micrometer-tracing-bridge-otel" // OpenTelemetry tracing bridge
+    implementation "io.opentelemetry:opentelemetry-exporter-otlp:1.64.0" // OTLP exporter
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'

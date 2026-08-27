@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: ${PROD_DB_URL}
+    username: ${PROD_DB_USERNAME}
+    password: ${PROD_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  data:
+    redis:
+      host: ${PROD_REDIS_HOST}
+      port: ${PROD_REDIS_PORT:6379}
+      password: ${PROD_REDIS_PASSWORD}
+  elasticsearch:
+    uris: ${PROD_ELASTICSEARCH_URIS}
+
+server:
+  port: ${PORT:8080}
+  
+jwt:
+  secret: ${PROD_JWT_SECRET}
+  expiration: 86400000
+
+logging:
+  level:
+    root: INFO
+    com.curiolearn: INFO
+    org.springframework.web: ERROR
+    org.hibernate: ERROR
