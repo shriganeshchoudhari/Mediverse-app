@@ -75,6 +75,9 @@ gemini:
 cors:
   allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://127.0.0.1:3000,http://localhost:3001}
 
+app:
+  base-url: ${APP_BASE_URL:http://localhost:3000}
+
 springdoc:
   api-docs:
     path: /v3/api-docs
