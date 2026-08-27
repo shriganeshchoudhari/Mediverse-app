@@ -286,10 +286,11 @@ export default function PKPDSimulator() {
                 const { recordSimulationRun } = await import('@/lib/simulations/simulationPersistence');
                 const success = await recordSimulationRun(
                   'PHARMACOKINETICS_PKPD',
-                  { selectedDrug: selectedDrug.name, doseMg, clearance, vd, ka, tau, route, dosesCount },
+                  { selectedDrug, doseMg: dose, clearance, vd, ka, tau, route, dosesCount },
                   { steadyState, pkParams }
                 );
                 if (success) {
+
                   alert('Pharmacokinetic Curve & PK/PD Steady State logged to Clinical Portfolio!');
                 }
               }}

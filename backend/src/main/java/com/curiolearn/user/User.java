@@ -56,6 +56,14 @@ public class User {
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
+        if (role == null || role.trim().isEmpty()) {
+            role = Roles.STUDENT;
+        }
+    }
+
+    public boolean hasRole(String targetRole) {
+        return role != null && role.equalsIgnoreCase(targetRole);
     }
 }
+
 

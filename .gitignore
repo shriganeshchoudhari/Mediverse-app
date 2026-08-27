@@ -42,3 +42,6 @@ Thumbs.db
 
 # Scratch and temporary scripts
 scratch/
+temp_*.txt
+*.tmp
+

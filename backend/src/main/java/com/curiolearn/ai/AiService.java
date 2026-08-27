@@ -1,5 +1,8 @@
 package com.curiolearn.ai;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -17,6 +20,9 @@ import java.util.regex.Pattern;
 
 @Service
 public class AiService {
+
+    private static final Logger log = LoggerFactory.getLogger(AiService.class);
+
 
     @Value("${gemini.api.key:}")
     private String geminiApiKey;
@@ -117,7 +123,9 @@ public class AiService {
             return "Unable to generate a response at this time. Please try again.";
 
         } catch (Exception e) {
-            return "AI Tutor service temporarily unavailable: " + e.getMessage();
+            log.error("AI Tutor service error: {}", e.getMessage(), e);
+            return "AI Tutor service temporarily unavailable. Please try again shortly.";
         }
     }
 }
+

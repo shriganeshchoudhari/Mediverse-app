@@ -27,9 +27,19 @@ jwt:
   secret: ${PROD_JWT_SECRET}
   expiration: 86400000
 
+app:
+  base-url: ${APP_BASE_URL:https://mediverse.app}
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+
 logging:
   level:
     root: INFO
     com.curiolearn: INFO
     org.springframework.web: ERROR
     org.hibernate: ERROR
+

@@ -12,6 +12,7 @@ import com.curiolearn.user.UserRepository;
 import com.curiolearn.common.EmailService;
 import com.curiolearn.auth.JwtService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -31,8 +32,12 @@ import java.util.UUID;
 @RequestMapping("/api/v1/auth")
 public class AuthController {
 
+    @Value("${app.base-url:http://localhost:3000}")
+    private String baseUrl;
+
     private final UserRepository userRepository;
     private final PasswordResetTokenRepository tokenRepository;
+
     private final RefreshTokenRepository refreshTokenRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
@@ -179,9 +184,10 @@ public class AuthController {
             tokenRepository.save(resetToken);
             
             // Construct reset link and send email
-            String resetLink = "http://localhost:3000/auth/reset-password/" + token;
+            String resetLink = (baseUrl != null ? baseUrl : "http://localhost:3000") + "/auth/reset-password/" + token;
             emailService.sendPasswordResetEmail(user.getEmail(), resetLink);
         }
+
         
         // Always return success to prevent email enumeration
         return ResponseEntity.ok(

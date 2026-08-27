@@ -4,6 +4,8 @@ import com.curiolearn.progress.RetentionSnapshot;
 import com.curiolearn.progress.RetentionSnapshotRepository;
 import com.curiolearn.user.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +15,8 @@ import java.time.LocalDate;
 @Service
 @RequiredArgsConstructor
 public class RetentionCronService {
+
+    private static final Logger log = LoggerFactory.getLogger(RetentionCronService.class);
 
     private final RetentionSnapshotRepository retentionSnapshotRepository;
     private final UserRepository userRepository;
@@ -34,7 +38,9 @@ public class RetentionCronService {
         );
 
         retentionSnapshotRepository.save(snapshot);
-        System.out.println("Generated daily retention snapshot for " + snapshot.getSnapshotDate());
+        log.info("Generated daily retention snapshot for {}: totalUsers={}, activeToday={}, avgXp={}, avgStreak={}",
+                snapshot.getSnapshotDate(), totalUsers, activeToday, avgXp, avgStreak);
     }
 }
+
 

@@ -6,10 +6,14 @@ const withPWA = require('@ducanh2912/next-pwa').default({
   aggressiveFrontEndNavCaching: true,
   reloadOnOnline: true,
   swcMinify: true,
+  fallbacks: {
+    document: '/offline.html',
+  },
   workboxOptions: {
     disableDevLogs: true,
   }
 });
+
 
 const nextConfig = {
   async rewrites() {

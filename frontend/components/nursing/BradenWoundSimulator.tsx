@@ -233,10 +233,11 @@ export default function BradenWoundSimulator() {
                     const { recordSimulationRun } = await import('@/lib/simulations/simulationPersistence');
                     const success = await recordSimulationRun(
                       'BRADEN_WOUND_ASSESSMENT',
-                      { scores, selectedWoundStage },
-                      { totalScore, riskCategory: riskAssessment.label, recommendations: riskAssessment }
+                      { scores: subscaleScores, selectedWoundStage },
+                      { totalScore, riskCategory: riskAssessment.level, recommendations: riskAssessment }
                     );
                     if (success) {
+
                       alert('Braden Assessment logged to Clinical Portfolio!');
                     }
                   }}

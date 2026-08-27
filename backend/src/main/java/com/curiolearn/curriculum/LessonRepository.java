@@ -7,5 +7,7 @@ import java.util.UUID;
 
 public interface LessonRepository extends JpaRepository<Lesson, UUID> {
     Optional<Lesson> findByConceptId(UUID conceptId);
+    List<Lesson> findByConceptIdIn(java.util.Collection<UUID> conceptIds);
     List<Lesson> findByStatusOrderByCreatedAtAsc(String status);
 }
+

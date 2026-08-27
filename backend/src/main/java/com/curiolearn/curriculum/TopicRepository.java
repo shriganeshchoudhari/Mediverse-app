@@ -7,5 +7,7 @@ import java.util.UUID;
 
 public interface TopicRepository extends JpaRepository<Topic, UUID> {
     List<Topic> findByChapterIdOrderBySortOrderAsc(UUID chapterId);
+    List<Topic> findByChapterIdInOrderBySortOrderAsc(java.util.Collection<UUID> chapterIds);
 }
+
 

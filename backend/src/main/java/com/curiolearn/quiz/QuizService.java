@@ -15,10 +15,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
+
 
 @Service
 public class QuizService {
@@ -126,28 +128,42 @@ public class QuizService {
     @Transactional
     public List<QuizQuestionDto> syncQuizQuestions(String lessonId, List<QuizQuestionSyncDto> reqQuestions) {
         List<QuizQuestion> existingQuestions = questionRepository.findByLessonId(lessonId);
-        
-        // Remove existing questions for full sync override
-        if (!existingQuestions.isEmpty()) {
-            questionRepository.deleteAll(existingQuestions);
+        List<QuizQuestion> toSave = new ArrayList<>();
+
+        int reqSize = reqQuestions.size();
+        int existSize = existingQuestions.size();
+
+        for (int i = 0; i < reqSize; i++) {
+            QuizQuestionSyncDto req = reqQuestions.get(i);
+            QuizQuestion q;
+            if (i < existSize) {
+                // Update existing record in-place to preserve question ID for past QuizAttempts
+                q = existingQuestions.get(i);
+            } else {
+                q = new QuizQuestion();
+                q.setLessonId(lessonId);
+            }
+            q.setQuestionText(req.getQuestionText());
+            q.setOptionA(req.getOptionA());
+            q.setOptionB(req.getOptionB());
+            q.setOptionC(req.getOptionC());
+            q.setOptionD(req.getOptionD());
+            q.setCorrectOption(req.getCorrectOption());
+            q.setExplanation(req.getExplanation());
+            q.setDifficulty(req.getDifficulty() == null ? "MEDIUM" : req.getDifficulty());
+            toSave.add(q);
         }
 
-        for (QuizQuestionSyncDto req : reqQuestions) {
-            QuizQuestion newQ = QuizQuestion.builder()
-                    .lessonId(lessonId)
-                    .questionText(req.getQuestionText())
-                    .optionA(req.getOptionA())
-                    .optionB(req.getOptionB())
-                    .optionC(req.getOptionC())
-                    .optionD(req.getOptionD())
-                    .correctOption(req.getCorrectOption())
-                    .explanation(req.getExplanation())
-                    .difficulty(req.getDifficulty() == null ? "MEDIUM" : req.getDifficulty())
-                    .build();
-            questionRepository.save(newQ);
+        questionRepository.saveAll(toSave);
+
+        // Remove any excess questions if payload has fewer items than before
+        if (existSize > reqSize) {
+            List<QuizQuestion> excess = existingQuestions.subList(reqSize, existSize);
+            questionRepository.deleteAll(excess);
         }
 
         return getQuizQuestions(lessonId);
     }
 }
+
 

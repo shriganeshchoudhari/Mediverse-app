@@ -54,11 +54,42 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
 
   try {
-    const res = await fetch(`${API_BASE_URL}${path}`, {
+    let res = await fetch(`${API_BASE_URL}${path}`, {
       ...rest,
       headers: finalHeaders,
       signal: controller.signal,
     });
+
+    // Gap 7.1: If 401 Unauthorized, attempt refresh token exchange once and retry
+    if (res.status === 401 && authenticated && typeof window !== "undefined" && !path.startsWith("/auth/")) {
+      const refreshToken = localStorage.getItem("refreshToken");
+      if (refreshToken) {
+        try {
+          const refreshRes = await fetch(`${API_BASE_URL}/auth/refresh`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ refreshToken }),
+          });
+          if (refreshRes.ok) {
+            const data = await refreshRes.json();
+            if (data && data.token) {
+              localStorage.setItem("token", data.token);
+              finalHeaders["Authorization"] = `Bearer ${data.token}`;
+              res = await fetch(`${API_BASE_URL}${path}`, {
+                ...rest,
+                headers: finalHeaders,
+                signal: controller.signal,
+              });
+            }
+          } else {
+            localStorage.removeItem("token");
+            localStorage.removeItem("refreshToken");
+          }
+        } catch {
+          // Ignore refresh error and proceed to throw ApiError below
+        }
+      }
+    }
 
     if (!res.ok) {
       throw new ApiError(`Request to ${path} failed with status ${res.status}`, res.status);
@@ -71,6 +102,7 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
     clearTimeout(timeout);
   }
 }
+
 
 export const apiClient = {
   get: <T>(path: string, options?: RequestOptions) => request<T>(path, { ...options, method: "GET" }),

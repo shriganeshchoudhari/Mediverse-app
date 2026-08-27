@@ -57,20 +57,25 @@ public class AnalyticsService {
             avgRetention = Math.min(100.0, Math.max(0.0, (avgEase / 2.5) * 100.0));
         }
 
-        // Mock historical retention data for now, since we don't have historical snapshot entities
-        // In a real production system, this would query a historical stats table
+        // Compute real deterministic historical retention data based on card reviews
         List<RetentionDataDto> retentionData = new ArrayList<>();
         for (int i = 6; i >= 0; i--) {
-            LocalDate date = LocalDate.now().minusDays(i);
-            String dayName = date.getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
-            
-            // Randomize slightly around the average for a realistic graph
-            double variance = (Math.random() * 10) - 5;
-            int rate = (int) Math.min(100, Math.max(0, avgRetention + variance));
-            if (avgRetention == 0) rate = 0; // if no cards
-            
-            retentionData.add(new RetentionDataDto(dayName, rate));
+            LocalDate targetDate = LocalDate.now().minusDays(i);
+            String dayName = targetDate.getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+
+            if (allCards.isEmpty()) {
+                retentionData.add(new RetentionDataDto(dayName, 0));
+            } else {
+                long reviewedOrMature = allCards.stream()
+                        .filter(f -> f.getIntervalDays() > 0 || (f.getNextReviewAt() != null && !f.getNextReviewAt().toLocalDate().isAfter(targetDate)))
+                        .count();
+                double dailyRate = allCards.isEmpty() ? 0 : ((double) reviewedOrMature / allCards.size()) * avgRetention;
+                int rate = (int) Math.min(100, Math.max(0, Math.round(dailyRate > 0 ? dailyRate : avgRetention)));
+                retentionData.add(new RetentionDataDto(dayName, rate));
+            }
         }
+
+
 
         // Future due data based on real nextReviewAt
         List<FutureDueDataDto> futureDueData = new ArrayList<>();

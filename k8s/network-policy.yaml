@@ -1,0 +1,44 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: mediverse-network-policy
+  namespace: mediverse
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: ingress-nginx
+    - podSelector:
+        matchLabels:
+          app: mediverse-frontend
+  - from:
+    - podSelector:
+        matchLabels:
+          app: mediverse-backend
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          app: mediverse-backend
+  - to:
+    - podSelector:
+        matchLabels:
+          app: mediverse-postgres
+  - to:
+    - podSelector:
+        matchLabels:
+          app: mediverse-redis
+  - to:
+    - podSelector:
+        matchLabels:
+          app: mediverse-elasticsearch
+  - ports:
+    - protocol: UDP
+      port: 53
+    - protocol: TCP
+      port: 53

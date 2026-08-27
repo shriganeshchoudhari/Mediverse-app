@@ -17,6 +17,8 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
+
 
 @Service
 public class EmbeddingService {
@@ -30,14 +32,40 @@ public class EmbeddingService {
 
     private final RestTemplate restTemplate;
     private final ObjectMapper objectMapper;
+    private final CurriculumVectorEmbeddingRepository vectorRepository;
 
-    public EmbeddingService() {
+    public EmbeddingService(@org.springframework.beans.factory.annotation.Autowired(required = false) CurriculumVectorEmbeddingRepository vectorRepository) {
         SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
         factory.setConnectTimeout(10000);
         factory.setReadTimeout(30000);
         this.restTemplate = new RestTemplate(factory);
         this.objectMapper = new ObjectMapper();
+        this.vectorRepository = vectorRepository;
     }
+
+    public void persistLessonChunk(UUID lessonId, UUID blockId, String heading, String chunkText, String domain) {
+        if (vectorRepository == null || chunkText == null || chunkText.trim().isEmpty()) {
+            return;
+        }
+        try {
+            List<Double> vector = getEmbedding(chunkText.trim());
+            CurriculumVectorEmbedding emb = CurriculumVectorEmbedding.builder()
+                    .lessonId(lessonId)
+                    .blockId(blockId)
+                    .heading(heading)
+                    .chunkText(chunkText.trim())
+                    .domain(domain != null ? domain : "CLINICAL")
+                    .build();
+            if (!vector.isEmpty()) {
+                emb.setEmbedding(vector.toString());
+            }
+            vectorRepository.save(emb);
+            log.info("Persisted vector embedding for lesson chunk: {}", heading);
+        } catch (Exception e) {
+            log.warn("Failed to persist vector embedding for chunk: {}", e.getMessage());
+        }
+    }
+
 
     public List<Double> getEmbedding(String text) {
         if (geminiApiKey == null || geminiApiKey.isEmpty() || geminiApiKey.equals("your_api_key_here") || geminiApiKey.contains("${")) {

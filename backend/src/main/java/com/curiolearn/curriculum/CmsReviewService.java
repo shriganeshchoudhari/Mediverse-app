@@ -8,6 +8,9 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.curiolearn.ai.EmbeddingService;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -25,6 +28,9 @@ public class CmsReviewService {
     private final UserRepository userRepository;
     private final ConceptRepository conceptRepository;
     private final ContentBlockRepository contentBlockRepository;
+    @Autowired(required = false)
+    private EmbeddingService embeddingService;
+
 
     @Transactional
     public Lesson createLesson(CreateLessonRequestDto request) {
@@ -73,9 +79,27 @@ public class CmsReviewService {
     public Lesson approve(UUID lessonId, String reviewerEmail, String comments) {
         Lesson lesson = requireInReview(lessonId);
         recordDecision(lesson, reviewerEmail, LessonStatus.APPROVED, comments);
+        lesson.setVersion(lesson.getVersion() + 1);
         lesson.setStatus(LessonStatus.PUBLISHED);
-        return lessonRepository.save(lesson);
+        Lesson saved = lessonRepository.save(lesson);
+
+
+        // Phase 5 / Gap 3.1: Trigger real-time vector embedding generation for approved lesson
+        if (embeddingService != null && saved.getContentBlocks() != null) {
+            String heading = saved.getConcept() != null ? saved.getConcept().getTitle() : saved.getTitle();
+            for (ContentBlock block : saved.getContentBlocks()) {
+                if (block.getMetadata() != null && block.getMetadata().containsKey("text")) {
+                    Object textVal = block.getMetadata().get("text");
+                    if (textVal instanceof String && ((String) textVal).length() > 50) {
+                        embeddingService.persistLessonChunk(saved.getId(), block.getId(), heading, (String) textVal, "CLINICAL");
+                    }
+                }
+            }
+        }
+
+        return saved;
     }
+
 
     @Transactional
     public Lesson reject(UUID lessonId, String reviewerEmail, String comments) {

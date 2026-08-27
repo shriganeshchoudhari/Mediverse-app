@@ -60,7 +60,8 @@ jobs:
       SPRING_DATASOURCE_PASSWORD: mediverse_secure_password123
       SPRING_DATA_REDIS_HOST: localhost
       REDIS_PORT: 6379
-      JWT_SECRET: c3VwZXItc2VjcmV0LWtleS1zaG91bGQtYmUtYXQtbGVhc3QtMjU2LWJpdHMtbG9uZy1mb3Itc2VjdXJpdHk=
+      JWT_SECRET: ${{ secrets.JWT_SECRET_CI || 'c3VwZXItc2VjcmV0LWtleS1zaG91bGQtYmUtYXQtbGVhc3QtMjU2LWJpdHMtbG9uZy1mb3Itc2VjdXJpdHk=' }}
+
 
     steps:
       - name: Checkout Code

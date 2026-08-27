@@ -7,5 +7,7 @@ import java.util.UUID;
 
 public interface ConceptRepository extends JpaRepository<Concept, UUID> {
     List<Concept> findByTopicIdOrderBySortOrderAsc(UUID topicId);
+    List<Concept> findByTopicIdInOrderBySortOrderAsc(java.util.Collection<UUID> topicIds);
 }
+
 
