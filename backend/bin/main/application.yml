@@ -37,6 +37,7 @@ spring:
     enabled: true
     baseline-on-migrate: true
     validate-on-migrate: ${FLYWAY_VALIDATE_ON_MIGRATE:true}
+    out-of-order: ${FLYWAY_OUT_OF_ORDER:true}
   mail:
     host: ${SPRING_MAIL_HOST:localhost}
     port: ${SPRING_MAIL_PORT:1025}
