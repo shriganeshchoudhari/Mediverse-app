@@ -49,3 +49,128 @@
 .animate-fade-in {
   animation: fadeIn 0.3s ease-out forwards;
 }
+
+/* ==========================================================================
+   Phase J: Accessibility, High-Contrast OLED & Font Scaling Overrides
+   ========================================================================== */
+
+/* 1. Font Size Scaling */
+html[data-font-size="standard"] {
+  font-size: 100%;
+}
+html[data-font-size="large"] {
+  font-size: 115%;
+}
+html[data-font-size="xlarge"] {
+  font-size: 130%;
+}
+
+/* 2. Reduced Motion (WCAG AAA vestibular support) */
+html[data-reduced-motion="true"] *,
+html[data-reduced-motion="true"] *::before,
+html[data-reduced-motion="true"] *::after,
+html.reduce-motion *,
+html.reduce-motion *::before,
+html.reduce-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* 3. Light Theme Mode (Clinical Clean Paper) */
+html[data-theme="light"],
+html.theme-light {
+  color-scheme: light;
+}
+
+html[data-theme="light"] body,
+html.theme-light body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html[data-theme="light"] .bg-slate-950,
+html.theme-light .bg-slate-950 {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html[data-theme="light"] .bg-slate-900,
+html[data-theme="light"] .bg-slate-900\/50,
+html[data-theme="light"] .bg-slate-900\/60,
+html[data-theme="light"] .bg-slate-900\/40,
+html.theme-light .bg-slate-900,
+html.theme-light .bg-slate-900\/50,
+html.theme-light .bg-slate-900\/60 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+html[data-theme="light"] .border-slate-800,
+html[data-theme="light"] .border-slate-800\/80,
+html[data-theme="light"] .border-slate-800\/90,
+html.theme-light .border-slate-800 {
+  border-color: #e2e8f0 !important;
+}
+
+html[data-theme="light"] .text-slate-400,
+html[data-theme="light"] .text-slate-500,
+html.theme-light .text-slate-400 {
+  color: #475569 !important;
+}
+
+html[data-theme="light"] .text-slate-300,
+html[data-theme="light"] .text-slate-200,
+html.theme-light .text-slate-300 {
+  color: #1e293b !important;
+}
+
+html[data-theme="light"] .text-white,
+html.theme-light .text-white {
+  color: #0f172a !important;
+}
+
+/* 4. High-Contrast OLED Theme (Deep #000000, Neon Cyan #00e5ff & Yellow #ffd600, WCAG AAA) */
+html[data-theme="high-contrast"],
+html.theme-high-contrast {
+  color-scheme: dark;
+}
+
+html[data-theme="high-contrast"] body,
+html.theme-high-contrast body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="high-contrast"] .bg-slate-950,
+html[data-theme="high-contrast"] .bg-slate-900,
+html[data-theme="high-contrast"] .bg-slate-900\/50,
+html[data-theme="high-contrast"] .bg-slate-900\/60,
+html[data-theme="high-contrast"] .bg-slate-900\/40,
+html[data-theme="high-contrast"] .bg-slate-800,
+html.theme-high-contrast .bg-slate-950,
+html.theme-high-contrast .bg-slate-900 {
+  background-color: #000000 !important;
+  border-color: #00e5ff !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="high-contrast"] .border-slate-800,
+html[data-theme="high-contrast"] .border-slate-700,
+html.theme-high-contrast .border-slate-800 {
+  border-color: #00e5ff !important;
+}
+
+html[data-theme="high-contrast"] .text-slate-400,
+html[data-theme="high-contrast"] .text-slate-500,
+html.theme-high-contrast .text-slate-400 {
+  color: #ffd600 !important;
+}
+
+html[data-theme="high-contrast"] .text-slate-300,
+html[data-theme="high-contrast"] .text-slate-200,
+html.theme-high-contrast .text-slate-300 {
+  color: #ffffff !important;
+}

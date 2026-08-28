@@ -86,6 +86,22 @@ export default function ClinicalExamPage() {
                   </div>
                 );
               })}
+              
+              {/* Custom Exam Builder Card */}
+              <a
+                href="/exam/builder"
+                className={`${styles.presetCard} hover:bg-slate-800/80 transition`}
+                style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
+              >
+                <div>
+                  <span className={styles.presetBadge} style={{ background: 'rgba(59, 130, 246, 0.1)', color: '#60a5fa', borderColor: 'rgba(59, 130, 246, 0.2)' }}>🛠️ Build Custom Exam</span>
+                  <h2 className={styles.presetTitle}>Custom Exam Builder</h2>
+                  <p className={styles.presetDescription}>Tailor a clinical examination session to your specific study goals, topics, and difficulty.</p>
+                </div>
+                <div className={styles.presetMeta} style={{ color: '#60a5fa', fontWeight: 'bold' }}>
+                  <span>Build Exam →</span>
+                </div>
+              </a>
             </div>
 
             {/* NMC CBME Competencies Covered */}

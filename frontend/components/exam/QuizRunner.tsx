@@ -359,18 +359,20 @@ export default function QuizRunner({
       </div>
 
       {/* Review Mode / Rationales */}
-      {isSubmitted && (
-        <div className={styles.rationaleCard}>
-          <div className="font-semibold text-white mb-2 flex items-center gap-2">
-            <span>💡</span>
-            <span>High-Yield Physiological Mechanism & Pathophysiology:</span>
-          </div>
-          <p className="text-slate-300 mb-3 leading-relaxed">{currentQ.rationale}</p>
-
+      {isSubmitted && selectedAnswers[currentIndex] !== undefined && currentQ?.rationale && (
+        <div style={{
+          marginTop: '1rem',
+          padding: '1rem 1.25rem',
+          background: 'rgba(15,23,42,0.8)',
+          border: '1px solid rgba(51,65,85,0.5)',
+          borderRadius: '0.75rem',
+        }}>
+          <div style={{ fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#64748b', marginBottom: '0.5rem' }}>📖 Teaching Point</div>
+          <p style={{ fontSize: '0.8rem', color: '#94a3b8', lineHeight: 1.65, margin: 0 }}>{currentQ.rationale}</p>
           {currentQ.clinicalPearl && (
-            <div className={styles.clinicalPearlCard}>
-              <span className="text-amber-400 font-bold">⭐ High-Yield Pearl:</span>
-              <span>{currentQ.clinicalPearl}</span>
+            <div style={{ marginTop: '0.75rem', padding: '0.625rem 0.875rem', background: 'rgba(20,184,166,0.08)', border: '1px solid rgba(20,184,166,0.25)', borderRadius: '0.5rem' }}>
+              <span style={{ fontSize: '0.65rem', fontWeight: 800, color: '#2dd4bf', letterSpacing: '0.06em', textTransform: 'uppercase' }}>💎 Clinical Pearl  </span>
+              <span style={{ fontSize: '0.775rem', color: '#ccfbf1' }}>{currentQ.clinicalPearl}</span>
             </div>
           )}
         </div>

@@ -81,6 +81,21 @@ export default function ThreeCanvas({
   const rootGroupRef = useRef<THREE.Group>(null);
   useThreeMemoryCleanup(rootGroupRef);
 
+  const [isLowBandwidth, setIsLowBandwidth] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const check = () => {
+      setIsLowBandwidth(localStorage.getItem("mediverse:low-bandwidth") === "true");
+    };
+    check();
+    const handler = (e: any) => {
+      setIsLowBandwidth(Boolean(e.detail?.enabled));
+    };
+    window.addEventListener("mediverse:low-bandwidth-changed", handler);
+    return () => window.removeEventListener("mediverse:low-bandwidth-changed", handler);
+  }, []);
+
   // Generate Three.js clipping planes for cross-section dissection
   const clippingPlanes = useMemo(() => {
     return createClippingPlanes(dissection);
@@ -118,78 +133,82 @@ export default function ThreeCanvas({
         isFullscreen ? "fixed inset-0 z-50 rounded-none border-none" : ""
       }`}
     >
-      {/* WebGL 3D Canvas */}
-      <Canvas
-        key={`${resetKey}-${currentPreset.id}`}
-        camera={{ position: currentPreset.cameraPosition, fov: 45 }}
-        gl={{
-          antialias: true,
-          preserveDrawingBuffer: true,
-          localClippingEnabled: true,
-        }}
-        shadows
-      >
-        <XR store={store}>
-            <ambientLight intensity={0.65} />
-        {/* Dual Cinematic Stage Lights */}
-        <pointLight position={[-10, -8, -10]} intensity={0.45} color={currentPreset.themeColors.secondary} />
-        <pointLight position={[10, 10, 10]} intensity={0.85} color={currentPreset.themeColors.primary} />
-        <directionalLight
-          position={[6, 9, 6]}
-          intensity={1.2}
-          castShadow
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
-          shadow-bias={-0.0001}
+      {/* WebGL 3D Canvas or Low-Bandwidth Vector SVG Diagram */}
+      {isLowBandwidth ? (
+        <LowBandwidthVectorScene
+          preset={currentPreset}
+          activePinId={activePinId}
+          onPinSelect={setActivePinId}
         />
-        <spotLight
-          position={[0, 10, 0]}
-          intensity={0.5}
-          angle={0.6}
-          penumbra={1}
-          castShadow
-        />
-
-        <Suspense
-          fallback={
-            <Html center>
-              <div className="text-white text-xs bg-slate-900/90 px-4 py-2.5 rounded-full border border-slate-700 backdrop-blur-md shadow-2xl flex items-center gap-2 animate-pulse font-mono">
-                <Activity className="w-3.5 h-3.5 text-blue-400 animate-spin" />
-                Initializing 3D Organ Canvas...
-              </div>
-            </Html>
-          }
+      ) : (
+        <Canvas
+          key={`${resetKey}-${currentPreset.id}`}
+          camera={{ position: currentPreset.cameraPosition, fov: 45 }}
+          gl={{
+            antialias: true,
+            preserveDrawingBuffer: true,
+            localClippingEnabled: true,
+          }}
+          shadows
         >
-          <Stage environment={null} intensity={0.5} adjustCamera={false}>
-            <group ref={rootGroupRef}>
-              {children || (
-                <OrganModelScene
-                  preset={currentPreset}
-                  activePinId={activePinId}
-                  setActivePinId={setActivePinId}
-                  clippingPlanes={clippingPlanes}
-                />
-              )}
+        <XR store={store}>
+          <directionalLight
+            position={[6, 9, 6]}
+            intensity={1.2}
+            castShadow
+            shadow-mapSize-width={1024}
+            shadow-mapSize-height={1024}
+            shadow-bias={-0.0001}
+          />
+          <spotLight
+            position={[0, 10, 0]}
+            intensity={0.5}
+            angle={0.6}
+            penumbra={1}
+            castShadow
+          />
 
-              {/* Cross-section visual cutting plane guide */}
-              {dissection.activePlane !== "none" && (
-                <ClippingPlaneGuide dissection={dissection} />
-              )}
-            </group>
-          </Stage>
-        </Suspense>
+          <Suspense
+            fallback={
+              <Html center>
+                <div className="text-white text-xs bg-slate-900/90 px-4 py-2.5 rounded-full border border-slate-700 backdrop-blur-md shadow-2xl flex items-center gap-2 animate-pulse font-mono">
+                  <Activity className="w-3.5 h-3.5 text-blue-400 animate-spin" />
+                  Initializing 3D Organ Canvas...
+                </div>
+              </Html>
+            }
+          >
+            <Stage environment={null} intensity={0.5} adjustCamera={false}>
+              <group ref={rootGroupRef}>
+                {children || (
+                  <OrganModelScene
+                    preset={currentPreset}
+                    activePinId={activePinId}
+                    setActivePinId={setActivePinId}
+                    clippingPlanes={clippingPlanes}
+                  />
+                )}
 
-        <OrbitControls
-          enableZoom={true}
-          enablePan={true}
-          autoRotate={isAutoRotate && !activePinId}
-          autoRotateSpeed={1.0}
-          minDistance={1.4}
-          maxDistance={8.5}
-          makeDefault
-        />
-      </XR>
-        </Canvas>
+                {/* Cross-section visual cutting plane guide */}
+                {dissection.activePlane !== "none" && (
+                  <ClippingPlaneGuide dissection={dissection} />
+                )}
+              </group>
+            </Stage>
+          </Suspense>
+
+          <OrbitControls
+            enableZoom={true}
+            enablePan={true}
+            autoRotate={isAutoRotate && !activePinId}
+            autoRotateSpeed={1.0}
+            minDistance={1.4}
+            maxDistance={8.5}
+            makeDefault
+          />
+        </XR>
+      </Canvas>
+    )}
 
       {/* Top Left: Organ & Preset Selector Overlay */}
       <div className="absolute top-4 left-4 z-20 flex flex-col gap-2 max-w-xs md:max-w-sm pointer-events-auto">
@@ -1520,7 +1539,160 @@ function ExerciseGeometry({ clippingPlanes }: { clippingPlanes: THREE.Plane[] })
   );
 }
 
+// ============================================================================
+// LOW-BANDWIDTH VECTOR SVG DIAGRAM SCENE (0 GPU Overhead)
+// ============================================================================
+interface LowBandwidthVectorSceneProps {
+  preset: OrganPreset;
+  activePinId: string | null;
+  onPinSelect: (id: string | null) => void;
+}
 
+function LowBandwidthVectorScene({ preset, activePinId, onPinSelect }: LowBandwidthVectorSceneProps) {
+  return (
+    <div className="w-full h-full flex flex-col items-center justify-center relative p-6 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      {/* Low-Bandwidth Mode Watermark */}
+      <div className="absolute top-4 right-4 z-20 flex items-center gap-2 bg-amber-950/80 border border-amber-500/40 px-3 py-1.5 rounded-xl text-[11px] text-amber-300 shadow-md">
+        <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+        <span>Low-Bandwidth Mode: Vector SVG Engine</span>
+      </div>
 
+      {/* SVG Canvas with Interactive Anatomy */}
+      <div className="w-full max-w-md aspect-square flex items-center justify-center relative">
+        <svg viewBox="0 0 400 400" className="w-full h-full drop-shadow-2xl">
+          {/* Organ-specific SVG outlines */}
+          {preset.id === "cardiovascular" && (
+            <g>
+              <defs>
+                <linearGradient id="lvGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#dc2626" />
+                  <stop offset="100%" stopColor="#991b1b" />
+                </linearGradient>
+                <linearGradient id="rvGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#ef4444" />
+                  <stop offset="100%" stopColor="#b91c1c" />
+                </linearGradient>
+                <linearGradient id="aortaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#f87171" />
+                  <stop offset="100%" stopColor="#dc2626" />
+                </linearGradient>
+              </defs>
+              <path d="M 190 140 C 190 70, 240 70, 240 120 C 240 150, 215 170, 200 190" fill="none" stroke="url(#aortaGrad)" strokeWidth="24" strokeLinecap="round" />
+              <path d="M 215 150 C 200 110, 160 110, 150 140" fill="none" stroke="#2563eb" strokeWidth="20" strokeLinecap="round" />
+              <path d="M 145 70 L 145 150" fill="none" stroke="#1d4ed8" strokeWidth="18" strokeLinecap="round" />
+              <path d="M 200 200 C 270 200, 290 280, 210 350 C 200 360, 195 360, 185 340 Z" fill="url(#lvGrad)" stroke="#7f1d1d" strokeWidth="3" />
+              <path d="M 140 210 C 120 250, 130 310, 185 340 C 190 280, 195 230, 200 200 Z" fill="url(#rvGrad)" stroke="#991b1b" strokeWidth="3" />
+              <circle cx="140" cy="180" r="32" fill="#3b82f6" opacity="0.85" stroke="#1e40af" strokeWidth="2" />
+              <circle cx="260" cy="180" r="30" fill="#ef4444" opacity="0.85" stroke="#b91c1c" strokeWidth="2" />
+            </g>
+          )}
 
+          {preset.id === "respiratory" && (
+            <g>
+              <defs>
+                <linearGradient id="lungGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#38bdf8" />
+                  <stop offset="100%" stopColor="#0369a1" />
+                </linearGradient>
+              </defs>
+              <rect x="188" y="50" width="24" height="90" rx="6" fill="#94a3b8" stroke="#475569" strokeWidth="2" />
+              <path d="M 200 140 L 150 180" fill="none" stroke="#94a3b8" strokeWidth="14" strokeLinecap="round" />
+              <path d="M 200 140 L 250 180" fill="none" stroke="#94a3b8" strokeWidth="14" strokeLinecap="round" />
+              <path d="M 145 170 C 100 170, 70 230, 70 300 C 70 340, 110 350, 155 340 C 165 300, 165 220, 145 170 Z" fill="url(#lungGrad)" opacity="0.85" stroke="#0284c7" strokeWidth="2" />
+              <path d="M 255 170 C 300 170, 330 230, 330 300 C 330 340, 290 350, 245 340 C 235 300, 240 250, 255 170 Z" fill="url(#lungGrad)" opacity="0.85" stroke="#0284c7" strokeWidth="2" />
+              <path d="M 50 370 Q 200 330, 350 370" fill="none" stroke="#f43f5e" strokeWidth="8" strokeLinecap="round" />
+            </g>
+          )}
 
+          {preset.id === "renal" && (
+            <g>
+              <defs>
+                <linearGradient id="renalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#f97316" />
+                  <stop offset="100%" stopColor="#9a3412" />
+                </linearGradient>
+              </defs>
+              <path d="M 200 80 C 290 80, 330 180, 310 270 C 290 340, 220 350, 170 330 C 130 310, 110 260, 130 200 C 145 160, 140 120, 200 80 Z" fill="url(#renalGrad)" stroke="#c2410c" strokeWidth="3" />
+              {[150, 200, 250].map((y, i) => (
+                <polygon key={i} points={`220,${y - 15} 255,${y} 220,${y + 15}`} fill="#ea580c" opacity="0.9" />
+              ))}
+              <path d="M 160 200 Q 140 240, 150 360" fill="none" stroke="#fbbf24" strokeWidth="12" strokeLinecap="round" />
+              <path d="M 160 180 L 100 170" stroke="#dc2626" strokeWidth="10" strokeLinecap="round" />
+              <path d="M 160 210 L 100 220" stroke="#2563eb" strokeWidth="10" strokeLinecap="round" />
+            </g>
+          )}
+
+          {preset.id === "neurophysiology" && (
+            <g>
+              <defs>
+                <linearGradient id="cortexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#c084fc" />
+                  <stop offset="100%" stopColor="#6b21a8" />
+                </linearGradient>
+              </defs>
+              <path d="M 120 220 C 80 180, 100 90, 200 80 C 310 70, 340 160, 320 230 C 300 260, 250 250, 220 250 C 180 250, 140 250, 120 220 Z" fill="url(#cortexGrad)" stroke="#a855f7" strokeWidth="3" />
+              <ellipse cx="270" cy="270" rx="40" ry="28" fill="#e879f9" opacity="0.9" stroke="#c026d3" strokeWidth="2" />
+              <path d="M 210 245 L 210 340" stroke="#fbbf24" strokeWidth="22" strokeLinecap="round" />
+            </g>
+          )}
+
+          {!["cardiovascular", "respiratory", "renal", "neurophysiology"].includes(preset.id) && (
+            <g>
+              <circle cx="200" cy="200" r="130" fill="#1e1b4b" stroke="#6366f1" strokeWidth="3" strokeDasharray="6 4" />
+              <circle cx="200" cy="200" r="85" fill="#312e81" stroke="#818cf8" strokeWidth="2" />
+              <text x="200" y="205" textAnchor="middle" fill="#c7d2fe" fontSize="14" fontFamily="monospace" fontWeight="bold">
+                {preset.title.toUpperCase()}
+              </text>
+            </g>
+          )}
+
+          {/* Interactive Landmark Pins as SVG Hotspots */}
+          {preset.landmarks.map((lm, idx) => {
+            const cx = Math.round(200 + (lm.position[0] || 0) * 110);
+            const cy = Math.round(200 - (lm.position[1] || 0) * 100);
+            const isSelected = activePinId === lm.id;
+
+            return (
+              <g
+                key={lm.id}
+                className="cursor-pointer transition-transform hover:scale-125"
+                onClick={() => onPinSelect(isSelected ? null : lm.id)}
+              >
+                <circle
+                  cx={cx}
+                  cy={cy}
+                  r={isSelected ? 14 : 9}
+                  fill={lm.color || "#38bdf8"}
+                  opacity={isSelected ? 0.4 : 0.2}
+                />
+                <circle
+                  cx={cx}
+                  cy={cy}
+                  r={isSelected ? 7 : 5}
+                  fill={lm.color || "#38bdf8"}
+                  stroke="#ffffff"
+                  strokeWidth="1.5"
+                />
+                <text
+                  x={cx}
+                  y={cy - 10}
+                  textAnchor="middle"
+                  fill="#ffffff"
+                  fontSize="10"
+                  fontFamily="sans-serif"
+                  fontWeight="bold"
+                >
+                  {idx + 1}
+                </text>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+
+      <div className="text-center text-xs text-slate-400 max-w-sm mt-2">
+        Click any landmark pin above (1–{preset.landmarks.length}) or choose from the tray below to inspect details.
+      </div>
+    </div>
+  );
+}

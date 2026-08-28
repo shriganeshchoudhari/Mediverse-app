@@ -15,6 +15,9 @@ import QuizScoreChart from "../../components/dashboard/QuizScoreChart";
 import ContinueLearningWidget from "../../components/dashboard/ContinueLearningWidget";
 import SectionProgressCards from "../../components/dashboard/SectionProgressCards";
 import PomodoroTimer from "../../components/lessons/PomodoroTimer";
+import SubjectMasteryRadar from '../../components/dashboard/SubjectMasteryRadar';
+import RetentionHeatmap from '../../components/dashboard/RetentionHeatmap';
+import AIWeeklyReport from '../../components/dashboard/AIWeeklyReport';
 
 interface ProgressItem {
   lessonId: string;
@@ -33,6 +36,7 @@ export default function DashboardPage() {
   const [weeklyData, setWeeklyData] = useState<any[]>([]);
   const [activityDays, setActivityDays] = useState<any>({});
   const [loading, setLoading] = useState(true);
+  const [masteryData, setMasteryData] = useState<{ subject: string; mastery: number }[]>([]);
 
   useEffect(() => {
     if (!token) {
@@ -91,6 +95,16 @@ export default function DashboardPage() {
         }
 
         setActivityDays(streakData || {});
+
+        // Compute subject mastery from progress
+        const allSubjects = subjects.slice(0, 8); // max 8 for radar readability
+        const computed = allSubjects.map(s => {
+          const chapIds = s.chapters?.map((c: any) => c.id) ?? [];
+          const done = chapIds.filter((id: string) => progressData?.find((p: any) => p.lessonId === id && p.completed)).length;
+          const mastery = chapIds.length > 0 ? Math.round((done / chapIds.length) * 100) : 0;
+          return { subject: s.title?.split(' ').slice(0,2).join(' ') ?? 'Subject', mastery };
+        });
+        setMasteryData(computed);
       })
       .catch(err => console.error("Error loading dashboard metrics", err))
       .finally(() => setLoading(false));
@@ -214,6 +228,9 @@ export default function DashboardPage() {
 
           {/* Right Column (Secondary Info) */}
           <div className="space-y-6">
+            <SubjectMasteryRadar data={masteryData} />
+            <RetentionHeatmap activityDays={activityDays} />
+            <AIWeeklyReport token={token} />
             <ContinueLearningWidget progressList={progressList} subjects={subjects} />
             <FlashcardsDueWidget dueCount={dueCardsCount} />
             <SectionProgressCards progressList={progressList} subjects={subjects} />

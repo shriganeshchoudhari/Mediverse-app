@@ -28,6 +28,16 @@ import {
   NORMAL_HCO3,
   NORMAL_AG,
 } from "../../../lib/simulations/acidBaseSolver";
+import SimulatorPresetPanel, { SimulatorPreset } from '../../../components/simulators/SimulatorPresetPanel';
+
+const ACID_BASE_PRESETS: SimulatorPreset[] = [
+  { id: 'normal', label: 'Normal ABG', icon: '💚', description: 'Normal arterial blood gas values.', values: { paco2: 40, hco3: 24, na: 140, cl: 104, albumin: 4.0 } },
+  { id: 'resp-acid', label: 'Resp. Acidosis', icon: '🔴', badge: 'Acute', description: 'Acute respiratory acidosis (COPD exacerbation). PaCO2 ↑, HCO3 normal.', values: { paco2: 70, hco3: 26, na: 140, cl: 104, albumin: 4.0 } },
+  { id: 'met-acid-ag', label: 'Met. Acidosis (AG+)', icon: '🟠', badge: 'High AG', description: 'High anion gap metabolic acidosis (e.g., DKA). Low HCO3, high AG.', values: { paco2: 28, hco3: 10, na: 138, cl: 100, albumin: 4.0 } },
+  { id: 'met-alk', label: 'Met. Alkalosis', icon: '🟡', badge: 'Vomiting', description: 'Metabolic alkalosis (prolonged vomiting). High HCO3, compensatory CO2 rise.', values: { paco2: 48, hco3: 36, na: 140, cl: 90, albumin: 4.0 } },
+  { id: 'resp-alk', label: 'Resp. Alkalosis', icon: '🔵', badge: 'Hyperventilation', description: 'Acute respiratory alkalosis (anxiety/PE). Low PaCO2, normal HCO3.', values: { paco2: 22, hco3: 22, na: 140, cl: 106, albumin: 4.0 } },
+  { id: 'mixed', label: 'Mixed Disorder', icon: '⚠️', badge: 'Complex', badgeColor: 'rgba(124,58,237,0.8)', description: 'Mixed met. acidosis + resp. alkalosis (sepsis, liver failure).', values: { paco2: 25, hco3: 12, na: 142, cl: 108, albumin: 2.5 } },
+];
 
 export default function AcidBaseSimulatorPage() {
   // Primary blood gas & electrolyte inputs
@@ -39,8 +49,17 @@ export default function AcidBaseSimulatorPage() {
   const [isChronic, setIsChronic] = useState<boolean>(false);
   const [showAlbumin, setShowAlbumin] = useState<boolean>(false);
 
-  // Active view tab: 'davenport' (Nomogram) | 'engine' (4-Step ABG Engine) | 'electrolytes' (Ion Balance)
+  // Active view tab: 'davenport' | 'engine' | 'electrolytes'
   const [activeTab, setActiveTab] = useState<"davenport" | "engine" | "electrolytes">("davenport");
+
+  const handleAcidBasePreset = (values: Record<string, number | boolean>) => {
+    if (typeof values.paco2 === 'number') setPaco2(values.paco2);
+    if (typeof values.hco3 === 'number') setHco3(values.hco3);
+    if (typeof values.na === 'number') setNa(values.na);
+    if (typeof values.cl === 'number') setCl(values.cl);
+    if (typeof values.albumin === 'number') setAlbumin(values.albumin);
+  };
+  const handleAcidBaseReset = () => { setPaco2(40); setHco3(24); setNa(140); setCl(104); setAlbumin(4.0); };
 
   // Clinical Case Presets
   const presets = [
@@ -271,6 +290,8 @@ export default function AcidBaseSimulatorPage() {
             </div>
           </div>
         </div>
+
+        <SimulatorPresetPanel presets={ACID_BASE_PRESETS} onApply={handleAcidBasePreset} onReset={handleAcidBaseReset} />
 
         {/* Clinical Presets Carousel / Quick-Select Bar */}
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 md:p-5 shadow-xl space-y-3">

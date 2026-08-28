@@ -9,6 +9,34 @@ import { ArrowLeft, BookOpen, Activity, Heart, RefreshCw } from 'lucide-react';
 import Link from 'next/link';
 import { solveCardiacCycle } from '@/lib/simulations/cardiacSolver';
 import { asBeatsPerMinute, asMilliliters, asMmHg } from '@/lib/simulations/types';
+import SimulatorPresetPanel, { SimulatorPreset } from '@/components/simulators/SimulatorPresetPanel';
+
+const CARDIAC_PRESETS: SimulatorPreset[] = [
+  {
+    id: 'normal', label: 'Normal Heart', icon: '💚', description: 'Healthy adult at rest. HR 70, normal preload/afterload.',
+    values: { heartRate: 70, preload: 120, afterload: 80, contractility: 2.0 },
+  },
+  {
+    id: 'hf-dcm', label: 'Dilated CMP', icon: '❤️', badge: 'HF', description: 'Dilated cardiomyopathy: low contractility, high preload, normal afterload.',
+    values: { heartRate: 95, preload: 180, afterload: 85, contractility: 0.8 },
+  },
+  {
+    id: 'hocm', label: 'HOCM', icon: '🫀', badge: 'Obstructive', description: 'Hypertrophic obstructive CMP: high contractility, small cavity, high afterload.',
+    values: { heartRate: 80, preload: 90, afterload: 110, contractility: 3.5 },
+  },
+  {
+    id: 'as', label: 'Aortic Stenosis', icon: '🔴', badge: 'Valvular', description: 'Severe AS: high afterload, compensatory hypertrophy (high contractility), low SV.',
+    values: { heartRate: 70, preload: 140, afterload: 150, contractility: 2.8 },
+  },
+  {
+    id: 'ar', label: 'Aortic Regurg', icon: '🟠', badge: 'Valvular', description: 'Chronic AR: high preload (volume overload), low diastolic BP (low afterload).',
+    values: { heartRate: 75, preload: 200, afterload: 55, contractility: 2.2 },
+  },
+  {
+    id: 'tamponade', label: 'Cardiac Tamponade', icon: '⚠️', badge: 'Emergency', badgeColor: 'rgba(220,38,38,0.8)', description: 'Pericardial tamponade: severely reduced preload, compensatory tachycardia.',
+    values: { heartRate: 115, preload: 70, afterload: 95, contractility: 1.8 },
+  },
+];
 
 export default function CardiacCycleSimulator() {
   const [heartRate, setHeartRate] = useState(70);
@@ -16,6 +44,20 @@ export default function CardiacCycleSimulator() {
   const [afterload, setAfterload] = useState(80); // Diastolic Aortic P
   const [contractility, setContractility] = useState(2.0);
   const [activeTab, setActiveTab] = useState<"wiggers" | "pvloop" | "starling">("wiggers");
+
+  const handlePresetApply = (values: Record<string, number | boolean>) => {
+    if (typeof values.heartRate === 'number') setHeartRate(values.heartRate);
+    if (typeof values.preload === 'number') setPreload(values.preload);
+    if (typeof values.afterload === 'number') setAfterload(values.afterload);
+    if (typeof values.contractility === 'number') setContractility(values.contractility);
+  };
+
+  const handlePresetReset = () => {
+    setHeartRate(70);
+    setPreload(120);
+    setAfterload(80);
+    setContractility(2.0);
+  };
 
   // Real-time Suga-Sagawa time-varying elastance physiological solver
   const results = useMemo(() => {
@@ -56,6 +98,8 @@ export default function CardiacCycleSimulator() {
           </div>
         </header>
 
+        <SimulatorPresetPanel presets={CARDIAC_PRESETS} onApply={handlePresetApply} onReset={handlePresetReset} />
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Controls Column */}
           <div className="lg:col-span-4 flex flex-col gap-6">
@@ -92,6 +136,29 @@ export default function CardiacCycleSimulator() {
                   <div className="text-2xl font-black text-white">{systolicPressure.toFixed(0)}/{afterload} <span className="text-xs font-medium text-slate-400">mmHg</span></div>
                 </div>
               </div>
+              <button
+                type="button"
+                onClick={() => {
+                  const msg = `Interpret these cardiac hemodynamics: HR=${heartRate} bpm, EDV=${preload}mL, Afterload=${afterload}mmHg, Contractility Ees=${contractility}. Calculated: SV=${Math.round(strokeVolume)}mL, EF=${Math.round(ejectionFraction)}%, CO=${cardiacOutput.toFixed(1)}L/min, SBP=${Math.round(systolicPressure)}/${Math.round(diastolicPressure)}mmHg. What does this pattern suggest clinically?`;
+                  window.dispatchEvent(new CustomEvent('mediverse:ask-ai', { detail: { text: msg } }));
+                }}
+                style={{
+                  display: 'flex', alignItems: 'center', gap: '0.5rem',
+                  padding: '0.625rem 1.25rem',
+                  background: 'rgba(59,130,246,0.1)',
+                  border: '1px solid rgba(59,130,246,0.3)',
+                  borderRadius: '0.625rem',
+                  color: '#60a5fa',
+                  fontSize: '0.75rem', fontWeight: 700,
+                  cursor: 'pointer',
+                  marginTop: '0.75rem',
+                  width: '100%',
+                  justifyContent: 'center',
+                  transition: 'all 0.15s',
+                }}
+              >
+                🤖 AI Interpret These Values
+              </button>
             </div>
           </div>
 

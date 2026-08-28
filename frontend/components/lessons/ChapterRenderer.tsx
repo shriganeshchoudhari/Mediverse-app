@@ -17,6 +17,8 @@ import PomodoroTimer from "./PomodoroTimer";
 import NotesDrawer from "./NotesDrawer";
 import ContentBlockRenderer from "./ContentBlockRenderer";
 import SimulationCalloutCard from "./SimulationCalloutCard";
+import CalloutBlock from './CalloutBlock';
+import XPToast from './XPToast';
 
 interface PedagogyStep {
   name: string;
@@ -70,6 +72,16 @@ function getStepAnchor(text: string): string | undefined {
   return undefined;
 }
 
+function parseCalloutBlocks(text: string): string {
+  // Replace :::pearl ... ::: with <div data-callout="pearl">...</div>
+  // Using a plain div so rehypeRaw passes it through and the div renderer can intercept it
+  return text
+    .replace(/:::pearl\n?([\s\S]*?):::/g, '<div data-callout="pearl">$1</div>')
+    .replace(/:::trap\n?([\s\S]*?):::/g, '<div data-callout="trap">$1</div>')
+    .replace(/:::highyield\n?([\s\S]*?):::/g, '<div data-callout="highyield">$1</div>')
+    .replace(/:::remember\n?([\s\S]*?):::/g, '<div data-callout="remember">$1</div>');
+}
+
 /** Dynamic parser to extract flashcards from step 18 */
 function parseMarkdownFlashcards(markdown: string): FlashcardItem[] {
   const cards: FlashcardItem[] = [];
@@ -113,6 +125,8 @@ export default function ChapterRenderer({ title, markdownContent, chapterId, top
   const [conversationHistory, setConversationHistory] = useState<{role: string, text: string}[]>([]);
   const [aiLoading, setAiLoading] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [xpToast, setXpToast] = useState<{ xp: number; label: string } | null>(null);
+  const [completedSteps, setCompletedSteps] = useState<Set<number>>(new Set());
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -245,15 +259,17 @@ export default function ChapterRenderer({ title, markdownContent, chapterId, top
   };
 
   // Preprocess LaTeX math delimiters to standard dollar signs for remark-math
-  const preprocessedContent = markdownContent
-    .replace(/\\\\\(/g, "$")
-    .replace(/\\\\\)/g, "$")
-    .replace(/\\\\\[/g, "$$")
-    .replace(/\\\\\]/g, "$$")
-    .replace(/\\\(/g, "$")
-    .replace(/\\\)/g, "$")
-    .replace(/\\\[/g, "$$")
-    .replace(/\\\]/g, "$$");
+  const preprocessedContent = parseCalloutBlocks(
+    markdownContent
+      .replace(/\\\\\(/g, "$")
+      .replace(/\\\\\)/g, "$")
+      .replace(/\\\\\[/g, "$$")
+      .replace(/\\\\\]/g, "$$")
+      .replace(/\\\(/g, "$")
+      .replace(/\\\)/g, "$")
+      .replace(/\\\[/g, "$$")
+      .replace(/\\\]/g, "$$")
+  );
 
   // Parse flashcards
   const parsedCards = parseMarkdownFlashcards(preprocessedContent);
@@ -291,6 +307,13 @@ export default function ChapterRenderer({ title, markdownContent, chapterId, top
   const estimatedTotalMins = Math.ceil(totalWords / 200); // 200 wpm
   const minsRemaining = Math.max(1, Math.ceil(estimatedTotalMins * (1 - (scrollProgress / 100))));
 
+  const handleStepComplete = (stepNum: number) => {
+    if (completedSteps.has(stepNum)) return;
+    setCompletedSteps(prev => new Set([...Array.from(prev), stepNum]));
+
+    setXpToast({ xp: 50, label: `Step ${stepNum} Complete` });
+  };
+
   return (
     <>
       {/* Top Progress Bar */}
@@ -311,18 +334,22 @@ export default function ChapterRenderer({ title, markdownContent, chapterId, top
           Pedagogy Model
         </h4>
         <nav className="flex lg:flex-col gap-1 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0">
-          {steps.map((step) => (
+          {steps.map((step, idx) => (
             <button
               key={step.anchor}
-              onClick={() => handleStepClick(step.anchor)}
+              onClick={() => {
+                handleStepClick(step.anchor);
+                handleStepComplete(idx + 1);
+              }}
               aria-current={activeStep === step.anchor ? "step" : undefined}
-              className={`text-left text-xs py-2 px-3 rounded-lg whitespace-nowrap transition duration-200 ${
+              className={`text-left text-xs py-2 px-3 rounded-lg whitespace-nowrap transition duration-200 flex items-center justify-between ${
                 activeStep === step.anchor
                   ? "bg-blue-600 text-white font-semibold shadow-md shadow-blue-900/40"
                   : "text-slate-400 hover:bg-slate-800/50 hover:text-slate-200"
               }`}
             >
-              {step.name}
+              <span>{step.name}</span>
+              {completedSteps.has(idx + 1) && <span className="text-emerald-400 ml-2">✓</span>}
             </button>
           ))}
         </nav>
@@ -336,6 +363,23 @@ export default function ChapterRenderer({ title, markdownContent, chapterId, top
             <Link href="/" className="inline-flex items-center text-xs text-slate-500 hover:text-blue-400 font-semibold mb-3 gap-1 transition">
               ← Back to Syllabus
             </Link>
+            {/* Step Progress Breadcrumb */}
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              fontSize: '0.7rem',
+              color: '#64748b',
+              marginBottom: '1rem',
+              fontWeight: 600,
+              letterSpacing: '0.03em',
+            }}>
+              <span style={{ color: '#3b82f6' }}>{title}</span>
+              <span>›</span>
+              <span>{completedSteps.size} of {steps.length} steps complete</span>
+              <span>•</span>
+              <span>~{Math.ceil(markdownContent.length / 1200)} min read</span>
+            </div>
             <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white mb-2">
               {title}
             </h1>
@@ -609,6 +653,13 @@ export default function ChapterRenderer({ title, markdownContent, chapterId, top
       </div>
       <PomodoroTimer />
       <NotesDrawer chapterId={chapterId} />
+      {xpToast && (
+        <XPToast
+          xp={xpToast.xp}
+          label={xpToast.label}
+          onDone={() => setXpToast(null)}
+        />
+      )}
     </>
   );
 }
@@ -866,6 +917,13 @@ function MarkdownBlock({ content }: { content: string }) {
             {children}
           </a>
         ),
+        div: ({ node, children, ...props }: any) => {
+          const calloutType = props['data-callout'];
+          if (calloutType) {
+            return <CalloutBlock type={calloutType}>{children}</CalloutBlock>;
+          }
+          return <div {...props}>{children}</div>;
+        },
       }}
     >
       {content}

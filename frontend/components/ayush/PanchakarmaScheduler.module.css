@@ -1,0 +1,1016 @@
+/* PanchakarmaScheduler.module.css */
+
+.schedulerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.75rem;
+  background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+  border: 1px solid #334155;
+  border-radius: 1rem;
+  color: #f1f5f9;
+  font-family: inherit;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+}
+
+/* Header & Controls */
+.headerSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 1.5rem;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.titleArea h2 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 0.35rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.sanskritSubtitle {
+  font-size: 0.95rem;
+  color: #38bdf8;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.actionButtonGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: #1e293b;
+  border: 1px solid #475569;
+  color: #e2e8f0;
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.actionBtn:hover {
+  background-color: #334155;
+  border-color: #64748b;
+  color: #ffffff;
+}
+
+.actionBtnPrimary {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  border-color: #10b981;
+  color: #ffffff;
+}
+
+.actionBtnPrimary:hover {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+}
+
+/* Control Selectors */
+.controlsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  background-color: rgba(15, 23, 42, 0.7);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid #1e293b;
+}
+
+.controlField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.controlLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.pillGroup {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.pillBtn {
+  flex: 1;
+  min-width: 65px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: 1px solid #334155;
+  background-color: #1e293b;
+  color: #cbd5e1;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.pillBtn:hover {
+  background-color: #334155;
+  color: #fff;
+}
+
+.pillActive {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  border-color: #38bdf8;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+.selectInput {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  color: #f1f5f9;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.selectInput:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+/* Patient Profile Banner */
+.patientProfileBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(30, 41, 59, 0.8);
+  border: 1px solid #334155;
+  border-radius: 0.6rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.patientMetaTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: #0f172a;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.375rem;
+  border: 1px solid #334155;
+}
+
+.patientMetaTag strong {
+  color: #e2e8f0;
+}
+
+/* Stages Overview Bar */
+.stagesBar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .stagesBar {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stageCard {
+  padding: 0.85rem 1rem;
+  border-radius: 0.65rem;
+  border: 1px solid;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.stagePurva {
+  background-color: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
+  color: #fbbf24;
+}
+
+.stagePradhana {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #f87171;
+}
+
+.stagePaschat {
+  background-color: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
+.stageCardActive {
+  box-shadow: 0 0 12px currentColor;
+}
+
+.stageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.stageDaysBadge {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+}
+
+.stageDesc {
+  font-size: 0.78rem;
+  color: #cbd5e1;
+  line-height: 1.3;
+}
+
+/* Day Timeline Calendar Ribbon */
+.timelineRibbonSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.ribbonHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ribbonTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.dayCarousel {
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  padding: 0.35rem 0.2rem 0.75rem 0.2rem;
+  scrollbar-width: thin;
+  scrollbar-color: #475569 #0f172a;
+}
+
+.dayCarousel::-webkit-scrollbar {
+  height: 6px;
+}
+
+.dayCarousel::-webkit-scrollbar-thumb {
+  background-color: #475569;
+  border-radius: 3px;
+}
+
+.dayCard {
+  flex: 0 0 125px;
+  min-height: 95px;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.65rem;
+  padding: 0.65rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+  user-select: none;
+  text-align: left;
+}
+
+.dayCard:hover {
+  background-color: #334155;
+  transform: translateY(-2px);
+  border-color: #64748b;
+}
+
+.dayCardSelected {
+  border-color: #38bdf8 !important;
+  background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%) !important;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+  transform: translateY(-2px);
+}
+
+.dayCardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dayNumber {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.dayStageTag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+}
+
+.tagPurva {
+  background-color: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.tagPradhana {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.tagPaschat {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.dayCardKarma {
+  font-size: 0.75rem;
+  color: #e2e8f0;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0.3rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.dayCardBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+.doshaMiniDots {
+  display: flex;
+  gap: 3px;
+}
+
+.miniDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.miniDotVata { background-color: #38bdf8; }
+.miniDotPitta { background-color: #f59e0b; }
+.miniDotKapha { background-color: #10b981; }
+
+/* Main Working Area: Split View */
+.mainWorkspaceGrid {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 1.25rem;
+}
+
+@media (max-width: 1024px) {
+  .mainWorkspaceGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Day Detail Panel */
+.dayDetailCard {
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 0.85rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.dayDetailHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.dayTitleWrap h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 0.2rem 0;
+}
+
+.daySubtitle {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.dayBadgeGroup {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Tabs inside Day Detail */
+.detailTabs {
+  display: flex;
+  gap: 0.4rem;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 0.2rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.detailTabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tabBtn {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 0.4rem 0.4rem 0 0;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.tabBtn:hover {
+  color: #e2e8f0;
+  background-color: rgba(51, 65, 85, 0.5);
+}
+
+.activeTabBtn {
+  color: #38bdf8;
+  background-color: rgba(56, 189, 248, 0.1);
+  border-bottom: 2px solid #38bdf8;
+}
+
+/* Tab Content Areas */
+.tabContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Procedure Workflow Timeline */
+.procedureTimeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.procItem {
+  display: flex;
+  gap: 1rem;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.65rem;
+  padding: 0.9rem;
+  transition: all 0.2s;
+}
+
+.procItem:hover {
+  border-color: #475569;
+  background-color: #243247;
+}
+
+.procTimeCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 75px;
+  border-right: 1px dashed #334155;
+  padding-right: 0.75rem;
+}
+
+.procTime {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.procDuration {
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+.procMainCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.procHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.procName {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.procSanskrit {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.procDesc {
+  font-size: 0.825rem;
+  color: #cbd5e1;
+  line-height: 1.4;
+}
+
+.procMetaList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.procMetaTag {
+  font-size: 0.725rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 0.25rem;
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  color: #94a3b8;
+}
+
+.procCompleteBtn {
+  align-self: center;
+  background: none;
+  border: 1px solid #475569;
+  color: #94a3b8;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.procCompleteBtn:hover {
+  border-color: #10b981;
+  color: #10b981;
+}
+
+.procCompleted {
+  background-color: #065f46 !important;
+  border-color: #10b981 !important;
+  color: #ffffff !important;
+}
+
+/* Formulation Grid */
+.formulationGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.85rem;
+}
+
+.formulationCard {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.65rem;
+  padding: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.formulationHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.formulationName {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.formulationTypeTag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15rem 0.45rem;
+  border-radius: 0.25rem;
+  background-color: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.formulationDoseRow {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  background-color: #0f172a;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.formulationPurpose {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  line-height: 1.35;
+}
+
+/* Samsarjana Diet Ladder Tab */
+.dietLadderView {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ladderSteps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .ladderSteps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.ladderStepItem {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #334155;
+  background-color: #1e293b;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  transition: all 0.2s;
+}
+
+.ladderActive {
+  background: linear-gradient(145deg, rgba(16, 185, 129, 0.25) 0%, rgba(5, 150, 105, 0.1) 100%);
+  border-color: #10b981;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+.ladderStepNum {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+.ladderStepTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.ladderStepRatio {
+  font-size: 0.725rem;
+  color: #38bdf8;
+}
+
+.mealPlanGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.mealCard {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+.mealName {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fbbf24;
+  margin-bottom: 0.25rem;
+}
+
+.mealItem {
+  font-size: 0.825rem;
+  color: #e2e8f0;
+  line-height: 1.35;
+}
+
+.dietNoticeBox {
+  background-color: rgba(245, 158, 11, 0.1);
+  border-left: 3px solid #f59e0b;
+  padding: 0.75rem 1rem;
+  border-radius: 0 0.375rem 0.375rem 0;
+  font-size: 0.8rem;
+  color: #fef3c7;
+}
+
+/* Vitals & Monitoring Tab */
+.vitalsMonitoringView {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.vitalsMetricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.75rem;
+}
+
+.vitalMetricBox {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.vitalMetricLabel {
+  font-size: 0.725rem;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-bottom: 0.25rem;
+}
+
+.vitalMetricValue {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.checklistSection {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+  padding: 0.9rem;
+}
+
+.checklistTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.checklistItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.825rem;
+  color: #cbd5e1;
+  padding: 0.35rem 0;
+}
+
+.checklistItem input[type="checkbox"] {
+  accent-color: #10b981;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.warningBox {
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-left: 4px solid #ef4444;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.8rem;
+  color: #fca5a5;
+}
+
+/* Right Sidebar: Visual Dosha Balance & Agni Meter */
+.sidebarSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.doshaMonitorCard {
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 0.85rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cardHeading {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+}
+
+.doshaGaugesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.doshaBarItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.doshaBarLabelRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.doshaBarTrack {
+  height: 8px;
+  background-color: #1e293b;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.doshaBarFill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.4s ease;
+}
+
+.fillVata { background: linear-gradient(90deg, #0284c7, #38bdf8); }
+.fillPitta { background: linear-gradient(90deg, #d97706, #fbbf24); }
+.fillKapha { background: linear-gradient(90deg, #059669, #34d399); }
+.fillAgni { background: linear-gradient(90deg, #ea580c, #f97316); }
+.fillAma { background: linear-gradient(90deg, #9333ea, #c084fc); }
+
+.doshaExplanationBox {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  font-size: 0.78rem;
+  color: #cbd5e1;
+  line-height: 1.35;
+}
+
+/* Snehapana Titration Chart Widget */
+.titrationCard {
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 0.85rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.titrationChartSvg {
+  width: 100%;
+  height: 110px;
+  background-color: #1e293b;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+/* Modal / Printable Summary */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1.5rem;
+  backdrop-filter: blur(4px);
+}
+
+.modalContent {
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 850px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #334155;
+}
+
+.modalBody {
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  color: #cbd5e1;
+  font-size: 0.875rem;
+}
+
+.modalCloseBtn {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  line-height: 1;
+}
+
+.modalCloseBtn:hover {
+  color: #ffffff;
+}
+
+/* Print Styles */
+@media print {
+  .schedulerContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: none;
+    box-shadow: none;
+  }
+  .actionButtonGroup, .detailTabs, .dayCarousel, .controlsGrid {
+    display: none !important;
+  }
+  .dayDetailCard, .formulationCard, .procItem, .doshaMonitorCard {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #cccccc !important;
+  }
+}
+

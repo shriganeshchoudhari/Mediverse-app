@@ -1,0 +1,655 @@
+.container {
+  padding: 24px;
+  background: #090d16;
+  border-radius: 14px;
+  color: #f1f5f9;
+  border: 1px solid #1e293b;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin-bottom: 32px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 16px;
+}
+
+.titleArea {
+  max-width: 750px;
+}
+
+.badgeRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.radBadge {
+  background: rgba(249, 115, 22, 0.15);
+  color: #fb923c;
+  border: 1px solid rgba(251, 146, 60, 0.3);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.alliedBadge {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 9999px;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #f8fafc;
+  margin: 0 0 6px 0;
+}
+
+.titleHighlight {
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 0.92rem;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Score / Streak Tracker Pill */
+.statsPill {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #111c2e;
+  border: 1px solid #1e3a5f;
+  border-radius: 10px;
+  padding: 10px 16px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statLabel {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.statValue {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+.statValueOrange {
+  color: #fb923c;
+}
+
+/* Case Selector Carousel / Tabs */
+.caseTabsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.caseTab {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 12px 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.caseTab:hover {
+  background: #1e293b;
+  border-color: #475569;
+}
+
+.caseTabActive {
+  background: #192638;
+  border-color: #f97316;
+  box-shadow: 0 0 0 1px #f97316, 0 4px 16px rgba(249, 115, 22, 0.2);
+}
+
+.caseTabTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.caseTag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.caseCategoryTag {
+  font-size: 0.68rem;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.catThorax { background: rgba(14, 165, 233, 0.2); color: #38bdf8; }
+.catNeuro { background: rgba(168, 85, 247, 0.2); color: #c084fc; }
+.catAbdomen { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+
+.caseTabName {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  line-height: 1.3;
+}
+
+.caseTabStatus {
+  font-size: 0.72rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.caseDone {
+  color: #10b981;
+}
+
+/* Main Grid Layout */
+.mainLayout {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .mainLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Left: Radiology Viewer Workstation */
+.viewerCard {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.viewerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 12px;
+}
+
+.viewerTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.modalityBadge {
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* DICOM Viewer Toolbar Controls */
+.toolbarRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: #080d17;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #1e293b;
+}
+
+.toggleGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.toolBtn {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+
+.toolBtn:hover {
+  background: #334155;
+  color: #ffffff;
+}
+
+.toolBtnActive {
+  background: #ea580c;
+  color: #ffffff;
+  border-color: #f97316;
+}
+
+.toolBtnActiveBlue {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #38bdf8;
+}
+
+/* Image Display Canvas Container */
+.canvasWrapper {
+  position: relative;
+  background: #000000;
+  border: 2px solid #1e293b;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 380px;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.9);
+}
+
+.canvasInverted {
+  filter: invert(1) hue-rotate(180deg) contrast(1.15);
+}
+
+.radiologySvg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+}
+
+/* DICOM Info Overlay (Corners) */
+.dicomOverlayTopLeft {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  font-family: monospace;
+  font-size: 0.72rem;
+  color: #38bdf8;
+  line-height: 1.35;
+  pointer-events: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.dicomOverlayTopRight {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-family: monospace;
+  font-size: 0.72rem;
+  color: #fb923c;
+  line-height: 1.35;
+  text-align: right;
+  pointer-events: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.dicomOverlayBottomLeft {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: #94a3b8;
+  pointer-events: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.dicomOverlayBottomRight {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: #94a3b8;
+  pointer-events: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* Landmark Tooltip Callout */
+.landmarkLegend {
+  background: #080e1a;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.landmarkLegendTitle {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #fb923c;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.landmarkItemsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 6px;
+}
+
+.landmarkChip {
+  font-size: 0.76rem;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Clinical Vignette Box */
+.vignetteCard {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-left: 4px solid #f97316;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.vignetteTitle {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fb923c;
+  margin: 0 0 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vignetteText {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Right: Interactive Diagnostic Quiz Station */
+.quizCard {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quizHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 12px;
+}
+
+.quizTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+/* Step Progress Indicator */
+.stepTracker {
+  display: flex;
+  gap: 6px;
+}
+
+.stepDot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: #1e293b;
+  color: #94a3b8;
+}
+
+.stepDotActive {
+  background: #f97316;
+  color: #ffffff;
+}
+
+.stepDotDone {
+  background: #10b981;
+  color: #ffffff;
+}
+
+/* Question Content */
+.questionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.questionPrompt {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.questionSub {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin: -6px 0 0 0;
+}
+
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.optionBtn {
+  background: #111b2b;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: #e2e8f0;
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.optionBtn:hover:not(:disabled) {
+  background: #1e293b;
+  border-color: #38bdf8;
+}
+
+.optionSelected {
+  border-color: #f97316;
+  background: #23160e;
+}
+
+.optionCorrect {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: #10b981;
+  color: #6ee7b7;
+}
+
+.optionIncorrect {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #ef4444;
+  color: #fca5a5;
+}
+
+/* Immediate Rationale / Rationale Box */
+.rationaleCard {
+  background: #08111e;
+  border: 1px solid #1e3a8a;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.rationaleHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #60a5fa;
+}
+
+.rationaleBody {
+  font-size: 0.84rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.pearlBox {
+  background: #141b0e;
+  border: 1px solid rgba(132, 204, 22, 0.3);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 0.8rem;
+  color: #bef264;
+  line-height: 1.45;
+}
+
+.pearlBox strong {
+  color: #a3e635;
+}
+
+.navButtonsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.nextBtn {
+  background: #ea580c;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.nextBtn:hover {
+  background: #f97316;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+.reviewCompletedCard {
+  background: #0b1a13;
+  border: 1px solid #059669;
+  border-radius: 10px;
+  padding: 18px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.completedTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #34d399;
+}
+
+.completedDesc {
+  font-size: 0.88rem;
+  color: #a7f3d0;
+  max-width: 420px;
+  line-height: 1.4;
+}

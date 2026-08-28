@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { usePathname } from 'next/navigation';
 import SocraticChat from './SocraticChat';
+import TextSelectionAskAI from './TextSelectionAskAI';
 import styles from './GlobalSocraticAssistant.module.css';
 
 interface TopicContext {
@@ -79,6 +80,7 @@ function resolveTopicContext(pathname: string): TopicContext {
 
 export default function GlobalSocraticAssistant() {
   const [isOpen, setIsOpen] = useState(false);
+  const [prefillText, setPrefillText] = useState<string>('');
   const pathname = usePathname();
 
   const currentTopic = useMemo(() => resolveTopicContext(pathname || ''), [pathname]);
@@ -94,6 +96,19 @@ export default function GlobalSocraticAssistant() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
 
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const text = (e as CustomEvent).detail?.text;
+      if (text) {
+        setPrefillText(text);
+        setIsOpen(true);
+        setTimeout(() => setPrefillText(''), 500);
+      }
+    };
+    window.addEventListener('mediverse:ask-ai', handler);
+    return () => window.removeEventListener('mediverse:ask-ai', handler);
+  }, []);
+
   // Prevent background scrolling when open on mobile
   useEffect(() => {
     if (isOpen) {
@@ -106,8 +121,16 @@ export default function GlobalSocraticAssistant() {
     };
   }, [isOpen]);
 
+  const handleTextSelectionAsk = (text: string) => {
+    setPrefillText(text);
+    setIsOpen(true);
+    setTimeout(() => setPrefillText(''), 500);
+  };
+
   return (
     <>
+      <TextSelectionAskAI onAskAI={handleTextSelectionAsk} />
+      
       {/* Floating Action Button */}
       <aside aria-label="Socratic AI Assistant Quick Access" className={styles.fabContainer}>
         {!isOpen && (
@@ -229,6 +252,7 @@ export default function GlobalSocraticAssistant() {
             key={currentTopic.chapterId}
             currentChapterId={currentTopic.chapterId}
             topicTitle={currentTopic.title}
+            prefillText={prefillText}
           />
         </div>
 

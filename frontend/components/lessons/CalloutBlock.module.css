@@ -1,0 +1,61 @@
+.callout {
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  border-left: 4px solid;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.icon { font-size: 1rem; }
+
+.label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.body {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: inherit;
+}
+
+/* Clinical Pearl — teal */
+.pearl {
+  background: rgba(20, 184, 166, 0.08);
+  border-color: #14b8a6;
+  color: #ccfbf1;
+}
+.pearl .label { color: #2dd4bf; }
+
+/* Exam Trap — amber */
+.trap {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: #f59e0b;
+  color: #fef3c7;
+}
+.trap .label { color: #fbbf24; }
+
+/* High-Yield — rose */
+.highyield {
+  background: rgba(244, 63, 94, 0.08);
+  border-color: #f43f5e;
+  color: #ffe4e6;
+}
+.highyield .label { color: #fb7185; }
+
+/* Remember — violet */
+.remember {
+  background: rgba(139, 92, 246, 0.08);
+  border-color: #8b5cf6;
+  color: #ede9fe;
+}
+.remember .label { color: #a78bfa; }

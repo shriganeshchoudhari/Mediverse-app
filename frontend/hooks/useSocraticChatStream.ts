@@ -15,7 +15,7 @@ export function useSocraticChatStream(endpointUrl: string = '/api/v1/ai-tutor/ch
   const [error, setError] = useState<string | null>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
 
-  const sendMessage = useCallback(async (userPrompt: string) => {
+  const sendMessage = useCallback(async (userPrompt: string, systemPrompt?: string) => {
     if (!userPrompt.trim() || isGenerating) return;
 
     const userMsgId = `user-${Date.now()}`;
@@ -47,7 +47,7 @@ export function useSocraticChatStream(endpointUrl: string = '/api/v1/ai-tutor/ch
       const response = await fetch(endpointUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userPrompt }),
+        body: JSON.stringify({ message: userPrompt, prompt: systemPrompt }),
         signal: controller.signal,
       });
 
@@ -124,6 +124,7 @@ export function useSocraticChatStream(endpointUrl: string = '/api/v1/ai-tutor/ch
 
   return {
     messages,
+    setMessages,
     isGenerating,
     error,
     sendMessage,

@@ -137,6 +137,9 @@ export default function CmsReviewQueuePage() {
                     {timeAgo(lesson.createdAt)}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm">
+                    <Link href={`/cms/author/${lesson.id}`} className="text-xs text-emerald-400 hover:text-emerald-300 font-semibold transition mr-4">
+                      ✏️ Author
+                    </Link>
                     <Link href={`/cms/${lesson.id}`} className="text-blue-600 hover:text-blue-800 font-medium">
                       Review &rarr;
                     </Link>

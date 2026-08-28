@@ -35,26 +35,41 @@ export default function AlliedPage() {
       </div>
 
       <h2 className="text-2xl font-bold mb-4">High-Tech Clinical Simulators</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-gradient-to-r from-blue-100 to-blue-50 p-6 rounded-lg shadow-sm border border-blue-200">
-          <h3 className="text-xl font-bold mb-2">ECMO / CPB Circuit Simulation</h3>
-          <p className="mb-4 text-sm">Interactive 3D circuit priming, oxygenator assembly, and pump control.</p>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded">Launch Simulator</button>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="bg-gradient-to-r from-orange-100 to-orange-50 p-6 rounded-lg shadow-sm border border-orange-200">
+          <h3 className="text-xl font-bold mb-2 text-orange-900">Radiology Pattern Recognition Station</h3>
+          <p className="mb-4 text-sm text-gray-700">Interactive case-based radiology challenge with normal vs pathological overlays, tension pneumo, EDH, lobar pneumonia, and more.</p>
+          <Link href="/healthcare/allied/pattern-recognition">
+            <button className="bg-orange-600 text-white px-4 py-2 rounded font-semibold hover:bg-orange-700 transition-colors">Launch Station</button>
+          </Link>
         </div>
         <div className="bg-gradient-to-r from-green-100 to-green-50 p-6 rounded-lg shadow-sm border border-green-200">
-          <h3 className="text-xl font-bold mb-2">CT / MRI 3D Slice Explorer</h3>
-          <p className="mb-4 text-sm">Volumetric rendering of DICOM datasets with interactive slice navigation.</p>
-          <button className="bg-green-600 text-white px-4 py-2 rounded">Launch Explorer</button>
+          <h3 className="text-xl font-bold mb-2 text-green-900">CT / MRI 3D Slice Explorer</h3>
+          <p className="mb-4 text-sm text-gray-700">Live Window Width (WW) and Window Level (WL) Hounsfield Unit adjustments.</p>
+          <Link href="/healthcare/allied/ct-slice-explorer">
+            <button className="bg-green-600 text-white px-4 py-2 rounded font-semibold hover:bg-green-700 transition-colors">Launch Explorer</button>
+          </Link>
+        </div>
+        <div className="bg-gradient-to-r from-blue-100 to-blue-50 p-6 rounded-lg shadow-sm border border-blue-200">
+          <h3 className="text-xl font-bold mb-2 text-blue-900">ECMO / CPB Circuit Simulation</h3>
+          <p className="mb-4 text-sm text-gray-700">Interactive 3D circuit priming, oxygenator assembly, and pump control.</p>
+          <Link href="/healthcare/allied/ecmo-circuit">
+            <button className="bg-blue-600 text-white px-4 py-2 rounded font-semibold hover:bg-blue-700 transition-colors">Launch Simulator</button>
+          </Link>
         </div>
         <div className="bg-gradient-to-r from-purple-100 to-purple-50 p-6 rounded-lg shadow-sm border border-purple-200">
-          <h3 className="text-xl font-bold mb-2">Operation Theatre Workflow</h3>
-          <p className="mb-4 text-sm">Sterile processing, anesthesia machine checks, and surgical instrumentation.</p>
-          <button className="bg-purple-600 text-white px-4 py-2 rounded">Launch Workflow</button>
+          <h3 className="text-xl font-bold mb-2 text-purple-900">Operation Theatre Workflow</h3>
+          <p className="mb-4 text-sm text-gray-700">Sterile processing, anesthesia machine checks, and surgical instrumentation.</p>
+          <Link href="/healthcare/allied/ot-workflows">
+            <button className="bg-purple-600 text-white px-4 py-2 rounded font-semibold hover:bg-purple-700 transition-colors">Launch Workflow</button>
+          </Link>
         </div>
         <div className="bg-gradient-to-r from-red-100 to-red-50 p-6 rounded-lg shadow-sm border border-red-200">
-          <h3 className="text-xl font-bold mb-2">Dialysis Machine Setup Protocol</h3>
-          <p className="mb-4 text-sm">Extracorporeal circuit setup, clearance monitoring, and alarm troubleshooting.</p>
-          <button className="bg-red-600 text-white px-4 py-2 rounded">Launch Protocol</button>
+          <h3 className="text-xl font-bold mb-2 text-red-900">Dialysis Machine Setup Protocol</h3>
+          <p className="mb-4 text-sm text-gray-700">Extracorporeal circuit setup, clearance monitoring, and alarm troubleshooting.</p>
+          <Link href="/healthcare/allied/dialysis-clearance">
+            <button className="bg-red-600 text-white px-4 py-2 rounded font-semibold hover:bg-red-700 transition-colors">Launch Protocol</button>
+          </Link>
         </div>
       </div>
     </div>

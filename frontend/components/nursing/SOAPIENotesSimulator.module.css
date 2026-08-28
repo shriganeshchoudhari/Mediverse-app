@@ -1,0 +1,887 @@
+.container {
+  padding: 24px;
+  background: #090d16;
+  border-radius: 14px;
+  color: #f1f5f9;
+  border: 1px solid #1e293b;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin-bottom: 32px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 16px;
+}
+
+.titleArea {
+  max-width: 750px;
+}
+
+.badgeRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.nursingBadge {
+  background: rgba(14, 165, 233, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.incBadge {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border: 1px solid rgba(192, 132, 252, 0.3);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 9999px;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #f8fafc;
+  margin: 0 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.titleHighlight {
+  background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 0.92rem;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.modeToggleGroup {
+  display: flex;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 3px;
+  gap: 4px;
+}
+
+.modeBtn {
+  padding: 8px 14px;
+  border-radius: 7px;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #94a3b8;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.modeBtnActive {
+  background: #0284c7;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+}
+
+.scenarioSelector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.scenarioCard {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 14px 16px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.scenarioCard:hover {
+  background: #1e293b;
+  border-color: #475569;
+  transform: translateY(-1px);
+}
+
+.scenarioCardActive {
+  background: #132238;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 1px #0284c7, 0 4px 16px rgba(2, 132, 199, 0.2);
+}
+
+.scenarioHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scenarioNumber {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #38bdf8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.scenarioAcuity {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.acuityHigh {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.acuityMod {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.acuityCritical {
+  background: rgba(220, 38, 38, 0.25);
+  color: #fca5a5;
+  border: 1px solid rgba(220, 38, 38, 0.5);
+  animation: pulseAcuity 2s infinite;
+}
+
+@keyframes pulseAcuity {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.75; }
+}
+
+.scenarioTitle {
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0;
+}
+
+.scenarioBrief {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Patient EHR Banner */
+.ehrBanner {
+  background: #111c2e;
+  border: 1px solid #1e3a5f;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.ehrHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #1e3a5f;
+}
+
+.ehrPatientMain {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.patientName {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.patientDemographics {
+  font-size: 0.85rem;
+  color: #93c5fd;
+  background: #1e3a8a33;
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid #1e3a8a66;
+}
+
+.ehrTags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tagAllergies {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.tagCodeStatus {
+  background: rgba(16, 185, 129, 0.15);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.tagMrn {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  background: #0f172a;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #334155;
+}
+
+/* EHR Vitals & Clinical Snapshot */
+.ehrVitalsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+.vitalCard {
+  background: #0a1120;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.vitalLabel {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.vitalValue {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #f8fafc;
+}
+
+.vitalAbnormal {
+  color: #f87171;
+}
+
+.vitalCritical {
+  color: #ef4444;
+  animation: pulseCritical 1.5s infinite;
+}
+
+@keyframes pulseCritical {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.vitalSub {
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+/* Clinical Brief Box */
+.briefingBox {
+  margin-top: 14px;
+  background: #0a101d;
+  border: 1px solid #1e293b;
+  border-left: 4px solid #0284c7;
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.briefingBox strong {
+  color: #38bdf8;
+}
+
+/* Main Workbench Layout */
+.workbenchLayout {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .workbenchLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Documentation Editor Column */
+.editorCard {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.editorHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 12px;
+}
+
+.editorTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.editorActionBtns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.secondaryBtn {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.secondaryBtn:hover {
+  background: #334155;
+  color: #ffffff;
+}
+
+.templateBtn {
+  background: rgba(14, 165, 233, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.templateBtn:hover {
+  background: rgba(14, 165, 233, 0.25);
+  color: #e0f2fe;
+}
+
+/* SOAPIE Input Sections */
+.sectionGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.soapieSection {
+  background: #111b2b;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  padding: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.soapieSection:focus-within {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 1px #0284c7;
+}
+
+.sectionHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.sectionLabelBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.letterBadge {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.badgeS { background: #3b82f6; color: #ffffff; }
+.badgeO { background: #10b981; color: #ffffff; }
+.badgeA { background: #f59e0b; color: #ffffff; }
+.badgeP { background: #8b5cf6; color: #ffffff; }
+.badgeI { background: #ec4899; color: #ffffff; }
+.badgeE { background: #06b6d4; color: #ffffff; }
+
+.sectionName {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.sectionScoreBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.scoreFull {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.scorePartial {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.scoreEmpty {
+  background: rgba(100, 116, 139, 0.2);
+  color: #94a3b8;
+  border: 1px solid rgba(100, 116, 139, 0.4);
+}
+
+.sectionHint {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.sectionTextarea {
+  width: 100%;
+  background: #090e18;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  color: #f8fafc;
+  padding: 10px 12px;
+  font-size: 0.88rem;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.sectionTextarea:focus {
+  outline: none;
+  border-color: #38bdf8;
+  background: #0c1424;
+}
+
+/* Quick Insert Phrase Bank */
+.phraseBank {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.phraseChip {
+  background: #1e293b;
+  border: 1px dashed #334155;
+  color: #94a3b8;
+  font-size: 0.74rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.phraseChip:hover {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  border-style: solid;
+}
+
+/* Right Column: Scorecard & Rubric Analysis */
+.analyticsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.scoreCard {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.scoreHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scoreHeader h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0;
+}
+
+.totalScoreDial {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #131f33;
+  border: 1px solid #1e3a5f;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.scoreCircle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.scoreCircleHigh {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  border: 3px solid #34d399;
+}
+
+.scoreCircleMed {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #ffffff;
+  border: 3px solid #fbbf24;
+}
+
+.scoreCircleLow {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #ffffff;
+  border: 3px solid #f87171;
+}
+
+.scoreValue {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.scoreTotalLabel {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.gradeDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.gradeText {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.gradeFeedback {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  line-height: 1.35;
+}
+
+/* Section Progress Bars */
+.sectionScoresList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.scoreRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.scoreRowHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.scoreRowName {
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.scoreRowPercent {
+  font-family: monospace;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.progressBarBg {
+  width: 100%;
+  height: 6px;
+  background: #1e293b;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+.progressFull { background: #10b981; }
+.progressPartial { background: #f59e0b; }
+.progressEmpty { background: #ef4444; }
+
+/* Critical Omissions Box */
+.omissionsCard {
+  background: #1f1315;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.omissionsTitle {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #fca5a5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 8px 0;
+}
+
+.omissionsList {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.8rem;
+  color: #fecaca;
+  line-height: 1.45;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Rubric Checklist */
+.rubricCard {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.rubricTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rubricList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rubricItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #0a101d;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 0.8rem;
+}
+
+.rubricIconPassed {
+  color: #10b981;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.rubricIconFailed {
+  color: #ef4444;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.rubricText {
+  color: #cbd5e1;
+  line-height: 1.35;
+}
+
+.rubricSectionTag {
+  font-weight: 700;
+  color: #38bdf8;
+  margin-right: 4px;
+}
+
+/* Model Exemplar Modal / Drawer */
+.exemplarCard {
+  background: #0d1b2a;
+  border: 1px solid #1e40af;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.exemplarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #1e40af;
+}
+
+.exemplarTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #60a5fa;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.exemplarContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.exemplarBlock {
+  background: #07101e;
+  border: 1px solid #1e3a8a;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #e2e8f0;
+}
+
+.exemplarBlock strong {
+  color: #93c5fd;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.signatureBlock {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed #334155;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.copySuccessBadge {
+  background: #10b981;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}

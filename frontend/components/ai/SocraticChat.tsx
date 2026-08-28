@@ -7,12 +7,43 @@ import styles from './SocraticChat.module.css';
 interface SocraticChatProps {
   currentChapterId?: string;
   topicTitle?: string;
+  prefillText?: string;
 }
 
-export default function SocraticChat({ currentChapterId = 'general', topicTitle = 'Physiology Tutor' }: SocraticChatProps) {
+export default function SocraticChat({ currentChapterId = 'general', topicTitle = 'Physiology Tutor', prefillText }: SocraticChatProps) {
   const [inputVal, setInputVal] = useState('');
-  const { messages, isGenerating, sendMessage, stopGeneration, clearChat } = useSocraticChatStream();
+  const [mode, setMode] = useState<'socratic' | 'direct'>('socratic');
+  const { messages, setMessages, isGenerating, sendMessage, stopGeneration, clearChat } = useSocraticChatStream();
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (prefillText) {
+      setInputVal(`Explain this to me: "${prefillText}"`);
+    }
+  }, [prefillText]);
+
+  // Save messages
+  useEffect(() => {
+    if (messages.length > 0) {
+      try {
+        localStorage.setItem(`socratic-chat-${currentChapterId}`, JSON.stringify(messages.slice(-30)));
+      } catch {}
+    }
+  }, [messages, currentChapterId]);
+
+  // Load messages on chapter change
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(`socratic-chat-${currentChapterId}`);
+      if (saved) {
+        setMessages(JSON.parse(saved));
+      } else {
+        setMessages([]);
+      }
+    } catch {
+      setMessages([]);
+    }
+  }, [currentChapterId, setMessages]);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -20,11 +51,23 @@ export default function SocraticChat({ currentChapterId = 'general', topicTitle 
     }
   }, [messages]);
 
+  const getSystemPrompt = () => {
+    if (mode === 'direct') {
+      return "You are a medical education assistant. Answer the student's question directly, clearly, and concisely with clinical accuracy.";
+    }
+    return undefined; // keep the existing Socratic prompt
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputVal.trim() || isGenerating) return;
-    sendMessage(inputVal);
+    sendMessage(inputVal, getSystemPrompt());
     setInputVal('');
+  };
+
+  const generateClinicalCase = () => {
+    if (isGenerating) return;
+    sendMessage(`Generate a clinical case scenario for: ${topicTitle}. Include: chief complaint, history, examination findings, key investigations, and the diagnosis.`, getSystemPrompt());
   };
 
   return (
@@ -42,6 +85,30 @@ export default function SocraticChat({ currentChapterId = 'general', topicTitle 
         </button>
       </div>
 
+      <div style={{ display: 'flex', gap: '0.5rem', padding: '0.5rem 0.75rem', borderBottom: '1px solid rgba(51,65,85,0.4)', justifyContent: 'space-between', alignItems: 'center' }}>
+        <span style={{ fontSize: '0.65rem', color: '#475569', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Mode</span>
+        <div style={{ display: 'flex', background: 'rgba(15,23,42,0.8)', borderRadius: '0.5rem', border: '1px solid rgba(51,65,85,0.5)', overflow: 'hidden' }}>
+          {(['socratic', 'direct'] as const).map(m => (
+            <button
+              key={m}
+              type="button"
+              onClick={() => setMode(m)}
+              style={{
+                padding: '0.25rem 0.75rem',
+                fontSize: '0.65rem',
+                fontWeight: 700,
+                textTransform: 'capitalize',
+                background: mode === m ? 'rgba(59,130,246,0.2)' : 'transparent',
+                color: mode === m ? '#60a5fa' : '#475569',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'all 0.15s',
+              }}
+            >{m}</button>
+          ))}
+        </div>
+      </div>
+
       <div className={styles.messageArea} ref={scrollRef}>
         {messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-center text-slate-400 p-6">
@@ -52,6 +119,13 @@ export default function SocraticChat({ currentChapterId = 'general', topicTitle 
             <p className="text-xs text-slate-400 mt-1 max-w-xs">
               Ask anything about physiological mechanisms, equations, or clinical correlations. I will guide your reasoning step-by-step.
             </p>
+            <button
+              type="button"
+              onClick={generateClinicalCase}
+              className="mt-4 px-4 py-2 bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 border border-blue-500/30 rounded-lg text-xs font-medium transition"
+            >
+              Generate Clinical Case
+            </button>
           </div>
         ) : (
           messages.map((msg) => (
