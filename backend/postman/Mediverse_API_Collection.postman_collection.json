@@ -1,0 +1,273 @@
+{
+  "info": {
+    "_postman_id": "mediverse-api-v1-collection",
+    "name": "Mediverse Platform API Collection (v1.0)",
+    "description": "Comprehensive REST API collection for Mediverse Medical & Healthcare Education Platform across 9 Healthcare Domains.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Authentication",
+      "item": [
+        {
+          "name": "Register Student",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"student.pilot@mediverse.edu\",\n  \"password\": \"SecurePassword123!\",\n  \"firstName\": \"Arjun\",\n  \"lastName\": \"Sharma\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login Student",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();",
+                  "if (jsonData.token) {",
+                  "    pm.environment.set('authToken', jsonData.token);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"student.pilot@mediverse.edu\",\n  \"password\": \"SecurePassword123!\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Login Admin",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();",
+                  "if (jsonData.token) {",
+                  "    pm.environment.set('adminToken', jsonData.token);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@physiombbs.com\",\n  \"password\": \"admin123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "login"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Healthcare Domains (9 Domains)",
+      "item": [
+        {
+          "name": "Get All 9 Healthcare Domains",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/healthcare/domains",
+              "host": ["{{baseUrl}}"],
+              "path": ["healthcare", "domains"]
+            }
+          }
+        },
+        {
+          "name": "Get Dental Domain Details",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/healthcare/domains/dental",
+              "host": ["{{baseUrl}}"],
+              "path": ["healthcare", "domains", "dental"]
+            }
+          }
+        },
+        {
+          "name": "Get AYUSH Domain Details",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/healthcare/domains/ayush",
+              "host": ["{{baseUrl}}"],
+              "path": ["healthcare", "domains", "ayush"]
+            }
+          }
+        },
+        {
+          "name": "Get Domains by Tier",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/healthcare/tiers/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["healthcare", "tiers", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Grounded AI Content Generator",
+      "item": [
+        {
+          "name": "Generate MCQ Quiz from Text",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"Ventricular action potential Phase 0 is mediated by fast voltage-gated Na+ channels.\",\n  \"count\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ai/generate/quiz",
+              "host": ["{{baseUrl}}"],
+              "path": ["ai", "generate", "quiz"]
+            }
+          }
+        },
+        {
+          "name": "Generate Cloze Flashcards",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"Propionate is the only volatile fatty acid in ruminants converted into glucose.\",\n  \"count\": 3\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ai/generate/flashcards",
+              "host": ["{{baseUrl}}"],
+              "path": ["ai", "generate", "flashcards"]
+            }
+          }
+        },
+        {
+          "name": "Generate Prescription Protocol Card",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"Acute STEMI first-line pharmacotherapy: Aspirin 300mg loading dose and Ticagrelor 180mg.\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ai/generate/rx-card",
+              "host": ["{{baseUrl}}"],
+              "path": ["ai", "generate", "rx-card"]
+            }
+          }
+        },
+        {
+          "name": "Generate Clinical Decision Tree",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"Anaphylaxis triage: Airway assessment followed by immediate IM adrenaline into anterolateral thigh.\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ai/generate/decision-tree",
+              "host": ["{{baseUrl}}"],
+              "path": ["ai", "generate", "decision-tree"]
+            }
+          }
+        },
+        {
+          "name": "Generate & Auto-Persist Block for Lesson",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ai/generate/lesson/{{lessonId}}/quiz?count=3",
+              "host": ["{{baseUrl}}"],
+              "path": ["ai", "generate", "lesson", "{{lessonId}}", "quiz"],
+              "query": [{ "key": "count", "value": "3" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Actuator & Observability",
+      "item": [
+        {
+          "name": "Health Status",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/actuator/health",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["actuator", "health"]
+            }
+          }
+        },
+        {
+          "name": "Prometheus Metrics",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/actuator/prometheus",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["actuator", "prometheus"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

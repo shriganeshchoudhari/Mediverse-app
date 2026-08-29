@@ -419,3 +419,67 @@ Accept: {{contentType}}
 GET {{baseUrl}}/admin/users
 Authorization: Bearer {{adminToken}}
 Accept: {{contentType}}
+
+
+###############################################################################
+# 10. GROUNDED AI CONTENT GENERATOR & MODALITIES (/api/v1/ai/generate)
+###############################################################################
+
+### 10.1 Generate Grounded MCQ Quiz from Medical Text
+# @name generateGroundedQuiz
+POST {{baseUrl}}/ai/generate/quiz
+Authorization: Bearer {{adminToken}}
+Content-Type: {{contentType}}
+
+{
+  "text": "The cardiac action potential in ventricular myocytes consists of Phase 0 (rapid Na+ influx), Phase 1 (transient outward K+), Phase 2 (plateau via L-type Ca2+ channel opening), Phase 3 (rapid repolarization via delayed rectifier K+ channels), and Phase 4 (resting potential maintained by IK1).",
+  "count": 3
+}
+
+### 10.2 Generate Cloze Deletion Flashcards
+# @name generateGroundedFlashcards
+POST {{baseUrl}}/ai/generate/flashcards
+Authorization: Bearer {{adminToken}}
+Content-Type: {{contentType}}
+
+{
+  "text": "Rancho Los Amigos gait cycle consists of 60% Stance Phase and 40% Swing Phase. Initial contact initiates heel rocker, while Loading Response features eccentric quadriceps contraction for shock absorption.",
+  "count": 4
+}
+
+### 10.3 Generate Structured Prescription Card (Rx Protocol)
+# @name generatePrescriptionCard
+POST {{baseUrl}}/ai/generate/rx-card
+Authorization: Bearer {{adminToken}}
+Content-Type: {{contentType}}
+
+{
+  "text": "Acute STEMI first-line pharmacotherapy: Dual Antiplatelet Therapy with Aspirin 300mg loading dose and Ticagrelor 180mg loading dose, plus IV Unfractionated Heparin bolus. Statins high-intensity Atorvastatin 80mg."
+}
+
+### 10.4 Generate Clinical Triage Decision Tree
+# @name generateDecisionTree
+POST {{baseUrl}}/ai/generate/decision-tree
+Authorization: Bearer {{adminToken}}
+Content-Type: {{contentType}}
+
+{
+  "text": "Anaphylaxis emergency resuscitation pathway: Assess airway, breathing, circulation. If stridor, wheeze, or hypotension present, administer immediate IM Adrenaline 1:1000 0.5mg into anterolateral thigh, establish IV access, and give 20 mL/kg crystalloid fluid bolus."
+}
+
+### 10.5 Generate Medical Mnemonic
+# @name generateMnemonic
+POST {{baseUrl}}/ai/generate/mnemonic
+Authorization: Bearer {{adminToken}}
+Content-Type: {{contentType}}
+
+{
+  "text": "Retroperitoneal organs: Suprarenal glands, Aorta/IVC, Duodenum (2nd-4th parts), Pancreas, Ureters, Colon (ascending and descending), Kidneys, Esophagus, Rectum."
+}
+
+### 10.6 Generate & Auto-Save Content Block for Specific Lesson (Draft Mode)
+# @name generateForLesson
+@lessonId = 00000000-0000-0000-0000-000000000001
+POST {{baseUrl}}/ai/generate/lesson/{{lessonId}}/quiz?count=3
+Authorization: Bearer {{adminToken}}
+Content-Type: {{contentType}}
