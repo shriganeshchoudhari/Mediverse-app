@@ -1,0 +1,128 @@
+name: Allure Report → GitHub Pages
+
+on:
+  workflow_run:
+    workflows:
+      - "QA Full Regression Suite"
+      - "QA Nightly Full Suite"
+    types:
+      - completed
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  publish-allure-report:
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ── Download all shard artifacts ───────────────────────────────────────
+      - name: Download Regression Shard 1
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: playwright-shard-1
+          path: allure-results-raw/shard-1
+
+      - name: Download Regression Shard 2
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: playwright-shard-2
+          path: allure-results-raw/shard-2
+
+      - name: Download Regression Shard 3
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: playwright-shard-3
+          path: allure-results-raw/shard-3
+
+      - name: Download Regression Shard 4
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: playwright-shard-4
+          path: allure-results-raw/shard-4
+
+      # ── Merge shard results ────────────────────────────────────────────────
+      - name: Merge Allure Results from All Shards
+        run: |
+          mkdir -p allure-results
+          find allure-results-raw -name "*.json" -o -name "*.xml" -o -name "*.png" \
+            | xargs -I {} cp {} allure-results/ 2>/dev/null || true
+          echo "Total result files: $(ls allure-results | wc -l)"
+
+      # ── Restore Allure history for trend charts ───────────────────────────
+      - name: Restore Allure History
+        run: |
+          git fetch origin gh-pages 2>/dev/null || true
+          git show origin/gh-pages:history 2>/dev/null | tar -xz -C allure-results/history 2>/dev/null || true
+
+      # ── Install Allure CLI ─────────────────────────────────────────────────
+      - name: Install Allure CLI
+        run: |
+          npm install -g allure-commandline@2.29.0 --silent
+
+      # ── Write environment.properties ──────────────────────────────────────
+      - name: Write Allure Environment Properties
+        run: |
+          cat > allure-results/environment.properties << EOF
+          Application=Mediverse Medical Education Platform
+          Environment=${{ github.ref_name }}
+          Branch=${{ github.ref_name }}
+          Commit=${{ github.sha }}
+          Run_ID=${{ github.run_id }}
+          Playwright_Version=1.47.x
+          Node_Version=20
+          EOF
+
+      # ── Generate Allure report ─────────────────────────────────────────────
+      - name: Generate Allure Report
+        run: |
+          allure generate allure-results --clean -o allure-report
+          echo "Report generated. Summary:"
+          ls allure-report/
+
+      # ── Save history for next run ──────────────────────────────────────────
+      - name: Archive History for Next Run
+        run: |
+          mkdir -p allure-results/history
+          cp -r allure-report/history/* allure-results/history/ 2>/dev/null || true
+          tar -czf allure-history.tar.gz -C allure-results history
+
+      # ── Deploy to GitHub Pages ─────────────────────────────────────────────
+      - name: Deploy Allure Report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report
+          destination_dir: reports/allure/${{ github.run_id }}
+          keep_files: true
+          commit_message: "ci: publish Allure report for run ${{ github.run_id }}"
+
+      # ── Post report URL to PR ──────────────────────────────────────────────
+      - name: Comment Allure Report Link on PR
+        if: github.event.workflow_run.event == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const reportUrl = `https://${{ github.repository_owner }}.github.io/Mediverse-app/reports/allure/${{ github.run_id }}/index.html`;
+            const prNumber = context.payload.workflow_run.pull_requests?.[0]?.number;
+            if (prNumber) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                body: `## 📊 Allure Test Report\n\n🔗 [View Full Report](${reportUrl})\n\n**Run ID:** \`${{ github.run_id }}\` | **Branch:** \`${{ github.ref_name }}\``
+              });
+            }

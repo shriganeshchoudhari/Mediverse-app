@@ -1,0 +1,109 @@
+name: QA Failure Notifications
+
+on:
+  workflow_run:
+    workflows:
+      - "QA Smoke Tests Gate"
+      - "QA Full Regression Suite"
+      - "QA Newman API Tests"
+      - "QA Nightly Full Suite"
+      - "QA Production Smoke"
+    types:
+      - completed
+
+jobs:
+  notify-on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+
+    steps:
+      - name: Build Failure Payload
+        id: payload
+        run: |
+          WORKFLOW="${{ github.event.workflow_run.name }}"
+          RUN_URL="${{ github.event.workflow_run.html_url }}"
+          BRANCH="${{ github.event.workflow_run.head_branch }}"
+          COMMIT="${{ github.event.workflow_run.head_sha }}"
+          SHORT_COMMIT="${COMMIT:0:8}"
+          REPO="${{ github.repository }}"
+          echo "workflow=$WORKFLOW" >> $GITHUB_OUTPUT
+          echo "run_url=$RUN_URL" >> $GITHUB_OUTPUT
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+          echo "short_commit=$SHORT_COMMIT" >> $GITHUB_OUTPUT
+          echo "repo=$REPO" >> $GITHUB_OUTPUT
+
+      # ── Slack Notification ─────────────────────────────────────────────────
+      - name: Send Slack Alert
+        if: ${{ secrets.SLACK_WEBHOOK_URL != '' }}
+        uses: slackapi/slack-github-action@v1.26.0
+        with:
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "🚨 QA Pipeline Failed — ${{ steps.payload.outputs.workflow }}",
+                    "emoji": true
+                  }
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    { "type": "mrkdwn", "text": "*Repository:*\n`${{ steps.payload.outputs.repo }}`" },
+                    { "type": "mrkdwn", "text": "*Branch:*\n`${{ steps.payload.outputs.branch }}`" },
+                    { "type": "mrkdwn", "text": "*Commit:*\n`${{ steps.payload.outputs.short_commit }}`" },
+                    { "type": "mrkdwn", "text": "*Status:*\n❌ FAILED" }
+                  ]
+                },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                      "type": "button",
+                      "text": { "type": "plain_text", "text": "🔍 View Run", "emoji": true },
+                      "url": "${{ steps.payload.outputs.run_url }}",
+                      "style": "danger"
+                    }
+                  ]
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
+      # ── GitHub Issue for S1 failures on main branch ───────────────────────
+      - name: Create Incident Issue for main-branch failure
+        if: ${{ github.event.workflow_run.head_branch == 'main' }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const workflow = "${{ steps.payload.outputs.workflow }}";
+            const runUrl = "${{ steps.payload.outputs.run_url }}";
+            const commit = "${{ steps.payload.outputs.short_commit }}";
+            const branch = "${{ steps.payload.outputs.branch }}";
+
+            // Check if an open incident already exists for this workflow
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'pipeline-failure,severity-S1',
+              state: 'open',
+            });
+
+            const alreadyOpen = existing.data.some(i =>
+              i.title.includes(workflow)
+            );
+
+            if (!alreadyOpen) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `🚨 [S1] Pipeline Failure: ${workflow} on ${branch} @ ${commit}`,
+                body: `## Pipeline Failure Incident\n\n**Workflow:** ${workflow}\n**Branch:** ${branch}\n**Commit:** ${commit}\n**Run:** ${runUrl}\n\n### Immediate Actions Required\n- [ ] Identify root cause\n- [ ] Fix failing test or code defect\n- [ ] Re-run pipeline to confirm fix\n- [ ] Close this issue with RCA comment\n\n> Auto-created by QA failure notification workflow.`,
+                labels: ['pipeline-failure', 'severity-S1', 'priority-P1', 'type-bug'],
+                assignees: [],
+              });
+            }

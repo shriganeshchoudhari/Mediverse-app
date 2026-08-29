@@ -24,29 +24,57 @@ export default defineConfig({
     navigationTimeout: 15000,
   },
   projects: [
+    // ── Auth Setup (runs first, saves session to disk) ─────────────────────
     {
       name: 'setup',
       testMatch: /.*\.setup\.ts/,
     },
+    // ── Smoke (unauthenticated pages only) ────────────────────────────────
+    {
+      name: 'chromium-smoke',
+      use: { ...devices['Desktop Chrome'] },
+      grep: /@smoke/,
+    },
+    // ── Authenticated browser projects ────────────────────────────────────
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: STORAGE_STATE,
+      },
+      dependencies: ['setup'],
     },
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: {
+        ...devices['Desktop Firefox'],
+        storageState: STORAGE_STATE,
+      },
+      dependencies: ['setup'],
     },
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      use: {
+        ...devices['Desktop Safari'],
+        storageState: STORAGE_STATE,
+      },
+      dependencies: ['setup'],
     },
     {
       name: 'Mobile Chrome',
-      use: { ...devices['Pixel 7'] },
+      use: {
+        ...devices['Pixel 7'],
+        storageState: STORAGE_STATE,
+      },
+      dependencies: ['setup'],
     },
     {
       name: 'Mobile Safari',
-      use: { ...devices['iPhone 14'] },
+      use: {
+        ...devices['iPhone 14'],
+        storageState: STORAGE_STATE,
+      },
+      dependencies: ['setup'],
     },
   ],
 });
