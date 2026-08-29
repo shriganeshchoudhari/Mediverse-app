@@ -15,6 +15,7 @@ jest.mock('next/navigation', () => ({
 jest.mock('../../hooks/useSocraticChatStream', () => ({
   useSocraticChatStream: () => ({
     messages: [],
+    setMessages: jest.fn(),
     isGenerating: false,
     error: null,
     sendMessage: jest.fn(),

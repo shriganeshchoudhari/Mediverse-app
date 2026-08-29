@@ -33,6 +33,7 @@ export default function SocraticChat({ currentChapterId = 'general', topicTitle 
 
   // Load messages on chapter change
   useEffect(() => {
+    if (typeof setMessages !== 'function') return;
     try {
       const saved = localStorage.getItem(`socratic-chat-${currentChapterId}`);
       if (saved) {

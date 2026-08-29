@@ -49,7 +49,17 @@ Content-Type: {{contentType}}
   "password": "SecurePassword123!"
 }
 
-### 1.4 Login with Invalid Password (Negative Test - Expects 401 Unauthorized)
+### 1.4 Login Admin Account
+# @name loginAdmin
+POST {{baseUrl}}/auth/login
+Content-Type: {{contentType}}
+
+{
+  "email": "admin@physiombbs.com",
+  "password": "admin123"
+}
+
+### 1.5 Login with Invalid Password (Negative Test - Expects 401 Unauthorized)
 # @name loginInvalidPassword
 POST {{baseUrl}}/auth/login
 Content-Type: {{contentType}}
@@ -59,12 +69,12 @@ Content-Type: {{contentType}}
   "password": "WrongPassword999!"
 }
 
-### 1.5 Get Current Authenticated User Profile (/me)
+### 1.6 Get Current Authenticated User Profile (/me)
 # @name getCurrentUser
 GET {{baseUrl}}/auth/me
 Authorization: Bearer {{authToken}}
 
-### 1.6 Request Password Reset Token
+### 1.7 Request Password Reset Token
 # @name forgotPassword
 POST {{baseUrl}}/auth/forgot-password
 Content-Type: {{contentType}}
@@ -73,7 +83,7 @@ Content-Type: {{contentType}}
   "email": "student.pilot@mediverse.edu"
 }
 
-### 1.7 Reset Password with Token
+### 1.8 Reset Password with Token
 # @name resetPassword
 POST {{baseUrl}}/auth/reset-password
 Content-Type: {{contentType}}
