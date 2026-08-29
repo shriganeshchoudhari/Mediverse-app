@@ -1,0 +1,50 @@
+name: Nightly Regression & Quality Audit
+
+on:
+  schedule:
+    - cron: '0 2 * * *' # 02:00 UTC Daily
+  workflow_dispatch:
+
+jobs:
+  nightly-test-suite:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Run Backend Unit & Integration
+        run: ./gradlew test
+
+      - name: Run Playwright Regression
+        working-directory: automation/playwright
+        run: |
+          npm ci || npm install
+          npx playwright install --with-deps
+          npx playwright test
+
+      - name: Generate Unified Allure Report
+        if: always()
+        run: |
+          npm install -g allure-commandline
+          allure generate automation/playwright/allure-results --clean -o allure-report
+
+      - name: Upload Allure Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nightly-allure-report
+          path: allure-report
+          retention-days: 30

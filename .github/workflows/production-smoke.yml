@@ -1,0 +1,32 @@
+name: Production Smoke & Synthetic Heartbeat
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/15 * * * *' # Every 15 minutes
+
+jobs:
+  production-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        working-directory: automation/playwright
+        run: |
+          npm ci || npm install
+          npx playwright install --with-deps chromium
+
+      - name: Execute Synthetic Health Check
+        working-directory: automation/playwright
+        env:
+          BASE_URL: 'https://mediverse.app'
+        run: npx playwright test tests/synthetic/production-heartbeat.spec.ts --project=chromium

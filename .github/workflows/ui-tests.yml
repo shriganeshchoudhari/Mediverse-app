@@ -1,0 +1,32 @@
+name: UI Cross-Browser Matrix
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  browser-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        browser: [chromium, firefox, webkit]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        working-directory: automation/playwright
+        run: |
+          npm ci || npm install
+          npx playwright install --with-deps ${{ matrix.browser }}
+
+      - name: Run Tests on ${{ matrix.browser }}
+        working-directory: automation/playwright
+        run: npx playwright test --project=${{ matrix.browser }}
