@@ -1,0 +1,32 @@
+name: "🔧 Bug Fix Verification"
+description: "Submit a resolved defect for QA retesting and automated regression verification"
+title: "[FIX]: "
+labels: ["type: bug-fix", "status: ready-for-qa"]
+body:
+  - type: input
+    id: defect-issue
+    attributes:
+      label: Defect Issue Reference
+      placeholder: Fixes #...
+    validations:
+      required: true
+
+  - type: textarea
+    id: root-cause-analysis
+    attributes:
+      label: Root Cause Analysis (RCA)
+      description: Why did this failure occur and how did the fix resolve it?
+      placeholder: E.g., The periodontal calculation algorithm failed to handle empty probing depth values in un-erupted teeth.
+    validations:
+      required: true
+
+  - type: textarea
+    id: test-evidence
+    attributes:
+      label: Verification & Test Proof
+      description: Link newly added automated unit/e2e tests and attach passing execution logs.
+      placeholder: |
+        - Unit test added: `PeriodontalCalculatorTest.java` (PASS)
+        - Playwright spec added: `04_domain_dental.spec.ts` (PASS)
+    validations:
+      required: true

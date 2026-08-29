@@ -1,0 +1,32 @@
+changelog:
+  categories:
+    - title: 🎯 Strategic Epics & Milestones
+      labels:
+        - "type: epic"
+    - title: 🚀 New Features & User Stories
+      labels:
+        - "type: story"
+        - "feature"
+    - title: 🐛 Defect Resolutions & Bug Fixes
+      labels:
+        - "type: bug"
+        - "type: bug-fix"
+        - "bug"
+    - title: 🧪 Quality Engineering & Test Automation
+      labels:
+        - "type: qa-task"
+        - "qa"
+        - "testing"
+    - title: 🔒 Security, HIPAA & Privacy Enhancements
+      labels:
+        - "type: security"
+        - "security"
+        - "compliance"
+    - title: 📚 Medical Curricula & Documentation
+      labels:
+        - "type: documentation"
+        - "documentation"
+    - title: ⚠️ Breaking Changes & Database Migrations
+      labels:
+        - "breaking-change"
+        - "migration"

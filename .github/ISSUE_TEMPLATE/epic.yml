@@ -1,0 +1,76 @@
+name: "🎯 Epic Specification"
+description: "Propose a multi-story strategic initiative, clinical domain module, or architectural capability"
+title: "[EPIC]: "
+labels: ["type: epic", "status: triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🏥 Mediverse Strategic Epic Definition
+        Use this template to define large-scale initiatives that span multiple user stories and sprints.
+
+  - type: textarea
+    id: executive-summary
+    attributes:
+      label: Executive Summary & Clinical Intent
+      description: What is the high-level business, clinical, or pedagogical goal of this epic?
+      placeholder: E.g., Implement the 5.5-Year MBBS CBME Curriculum with interactive clinical cases and organ simulations.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: medical-domain
+    attributes:
+      label: Primary Medical / Healthcare Domain
+      options:
+        - "Core Platform & Infrastructure"
+        - "Allopathic Medicine (MBBS / MD)"
+        - "Dental Surgery (BDS / MDS)"
+        - "AYUSH (Ayurveda, Yoga, Unani, Siddha, Homeopathy)"
+        - "Pharmacy (B.Pharm / Pharm.D)"
+        - "Nursing (B.Sc / M.Sc Nursing)"
+        - "Physiotherapy (BPT / MPT)"
+        - "Allied Health Sciences (NCAHP)"
+        - "Veterinary Medicine (BVSc & AH)"
+        - "Public Health & Epidemiology (MPH)"
+        - "Socratic AI Tutoring & Grounded Content"
+        - "OSCE & Clinical Assessment Engine"
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-stories
+    attributes:
+      label: Child User Stories & Capabilities Breakdown
+      description: List the planned user stories and functional modules belonging to this epic.
+      placeholder: |
+        - [ ] Story 1: #...
+        - [ ] Story 2: #...
+        - [ ] Story 3: #...
+    validations:
+      required: true
+
+  - type: textarea
+    id: architecture-impact
+    attributes:
+      label: Architectural & Compliance Impact
+      description: Note any changes to database schemas, Spring Boot services, Redis caches, or HIPAA/WCAG compliance.
+      placeholder: E.g., Introduces new Flyway migration V12__dental_periodontal_schema.sql; enforces WCAG 2.1 AA.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: epic-dod
+    attributes:
+      label: Epic Definition of Done (DoD) Gate
+      options:
+        - label: All child user stories implemented, tested, and closed
+          required: true
+        - label: Multi-domain Playwright regression tests passing (100%)
+          required: true
+        - label: API contract & Newman regression tests passing (100%)
+          required: true
+        - label: Zero open S1 (Critical) or S2 (High) defects
+          required: true
+        - label: Formal QA & Product Owner release sign-off recorded
+          required: true

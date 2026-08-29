@@ -1,0 +1,32 @@
+name: Critical Defect Triage & Alert
+
+on:
+  issues:
+    types: [opened, labeled]
+
+jobs:
+  critical-alert:
+    name: S1 Critical Defect Escalation
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'severity: S1-critical') || contains(github.event.issue.body, 'S1 - Critical')
+    steps:
+      - name: Post Critical Defect Notification
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const commentBody = `🚨 **CRITICAL S1 DEFECT DETECTED (SLA: < 4 Hours)**\n\nThis defect has been classified with critical severity. The QA Architect, SDET Lead, and On-Call Engineering Lead have been notified for immediate triage.\n\n- **Issue:** #${issue.number} - ${issue.title}\n- **Reported By:** @${issue.user.login}\n- **Triage Checklist:** Refer to [qa/16-runbooks/Failed-Test-Runbook.md](https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/qa/16-runbooks/Failed-Test-Runbook.md)`;
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              body: commentBody
+            });
+            
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              labels: ['severity: S1-critical', 'priority: P1-urgent', 'status: triage']
+            });

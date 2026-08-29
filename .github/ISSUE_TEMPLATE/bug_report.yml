@@ -1,0 +1,104 @@
+name: "🐛 Defect / Bug Report"
+description: "Report a software defect, unexpected failure, regression, or clinical data discrepancy"
+title: "[BUG]: "
+labels: ["type: bug", "status: triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🚨 Enterprise Defect Report
+        Provide accurate diagnostics, reproduction steps, and failure evidence.
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Defect Severity (SLA Impact)
+      description: Select the clinical, financial, or system impact severity.
+      options:
+        - "S1 - Critical (Crash, Data Loss, PHI Leak, Blocker - SLA <4h)"
+        - "S2 - High (Core Domain Feature Broken with No Workaround - SLA <24h)"
+        - "S3 - Medium (Secondary Feature Broken with Workaround - SLA <1 Sprint)"
+        - "S4 - Low (Cosmetic, Minor UI Misalignment, Typo - Backlog)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Defect Priority
+      options:
+        - "P1 - Urgent"
+        - "P2 - High"
+        - "P3 - Medium"
+        - "P4 - Low"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment Detected
+      options:
+        - "QA Environment (Continuous)"
+        - "Staging Environment (Release Candidate)"
+        - "Production (Live System)"
+        - "Local / Dev Environment"
+    validations:
+      required: true
+
+  - type: input
+    id: build-version
+    attributes:
+      label: Build Version / Git Commit SHA
+      placeholder: v2.4.0-rc2 (commit a1b2c3d)
+    validations:
+      required: true
+
+  - type: input
+    id: test-case-id
+    attributes:
+      label: Associated Test Case ID (from QA Suite)
+      placeholder: E.g., TC-DENT-006 or NAV-002
+    validations:
+      required: false
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Exact sequential actions required to trigger the bug.
+      placeholder: |
+        1. Log in as student `student.pilot@mediverse.edu`
+        2. Navigate to `/healthcare/dental/periodontal-charting`
+        3. Input 5mm probing depth in Sextant 5
+        4. Click 'Calculate CPITN'
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-actual
+    attributes:
+      label: Expected vs Actual Behavior
+      description: Contrast what should have occurred against what actually failed.
+      placeholder: |
+        **Expected Result:**
+        CPITN code 3 calculated with red pocket depth indicator.
+
+        **Actual Result:**
+        Console throws `TypeError: Cannot read property 'depth' of undefined`. UI hangs on spinner.
+    validations:
+      required: true
+
+  - type: textarea
+    id: diagnostic-evidence
+    attributes:
+      label: Diagnostic Logs & Evidence
+      description: Attach screenshots, Playwright trace links, backend stacktraces, or API request/responses.
+      placeholder: |
+        - Screenshot / Video link:
+        - Backend Log Stacktrace:
+        ```text
+        java.lang.NullPointerException: ...
+        ```
+    validations:
+      required: false

@@ -1,0 +1,177 @@
+[
+  {
+    "name": "type: epic",
+    "color": "3E4B9B",
+    "description": "Strategic multi-story initiative or domain capability"
+  },
+  {
+    "name": "type: story",
+    "color": "0E8A16",
+    "description": "Agile User story with Gherkin acceptance criteria"
+  },
+  {
+    "name": "type: bug",
+    "color": "D93F0B",
+    "description": "Software defect or unexpected failure"
+  },
+  {
+    "name": "type: bug-fix",
+    "color": "FBCA04",
+    "description": "Resolved defect awaiting QA retest"
+  },
+  {
+    "name": "type: qa-task",
+    "color": "5319E7",
+    "description": "Quality engineering or test automation task"
+  },
+  {
+    "name": "type: security",
+    "color": "B60205",
+    "description": "OWASP vulnerability or HIPAA security risk"
+  },
+  {
+    "name": "type: documentation",
+    "color": "0075CA",
+    "description": "Curriculum, architectural or QA documentation"
+  },
+  {
+    "name": "severity: S1-critical",
+    "color": "B60205",
+    "description": "S1: Blocker, Crash, PHI leak, SLA <4h"
+  },
+  {
+    "name": "severity: S2-high",
+    "color": "D93F0B",
+    "description": "S2: Major feature broken, no workaround, SLA <24h"
+  },
+  {
+    "name": "severity: S3-medium",
+    "color": "FBCA04",
+    "description": "S3: Minor feature broken with workaround, SLA 1 sprint"
+  },
+  {
+    "name": "severity: S4-low",
+    "color": "C5DEF5",
+    "description": "S4: Cosmetic or typo, backlog"
+  },
+  {
+    "name": "priority: P1-urgent",
+    "color": "B60205",
+    "description": "Urgent attention required"
+  },
+  {
+    "name": "priority: P2-high",
+    "color": "D93F0B",
+    "description": "High priority execution"
+  },
+  {
+    "name": "priority: P3-medium",
+    "color": "FBCA04",
+    "description": "Medium priority execution"
+  },
+  {
+    "name": "priority: P4-low",
+    "color": "C5DEF5",
+    "description": "Low priority execution"
+  },
+  {
+    "name": "domain: core-platform",
+    "color": "0052CC",
+    "description": "Core shell, identity, navigation, theme"
+  },
+  {
+    "name": "domain: allopathic",
+    "color": "1D76DB",
+    "description": "MBBS / MD Allopathic Medicine & Simulators"
+  },
+  {
+    "name": "domain: dental",
+    "color": "006B75",
+    "description": "BDS / MDS Dental Surgery & 3D Tooth"
+  },
+  {
+    "name": "domain: ayush",
+    "color": "228B22",
+    "description": "BAMS, BHMS, BNYS, BUMS, BSMS & Marma"
+  },
+  {
+    "name": "domain: pharmacy",
+    "color": "D4C5F9",
+    "description": "B.Pharm & Pharm.D PCI Curricula"
+  },
+  {
+    "name": "domain: nursing",
+    "color": "BFDADC",
+    "description": "B.Sc Nursing & SBAR Clinical Tool"
+  },
+  {
+    "name": "domain: physiotherapy",
+    "color": "C2E0C6",
+    "description": "BPT Biomechanics & Goniometer"
+  },
+  {
+    "name": "domain: allied-health",
+    "color": "FEF2C0",
+    "description": "BMLT, OTT, Dialysis NCAHP Curricula"
+  },
+  {
+    "name": "domain: veterinary",
+    "color": "E99695",
+    "description": "BVSc Animal Husbandry & 3D Canine"
+  },
+  {
+    "name": "domain: public-health",
+    "color": "F9D0C4",
+    "description": "MPH Outbreak & Epidemic Curve"
+  },
+  {
+    "name": "domain: socratic-ai",
+    "color": "6f42c1",
+    "description": "Socratic AI Tutor & Grounded RAG"
+  },
+  {
+    "name": "domain: osce-exam",
+    "color": "E11D48",
+    "description": "OSCE Clinical Stations & Question Bank"
+  },
+  {
+    "name": "status: triage",
+    "color": "EDEDED",
+    "description": "New item awaiting product/QA triage"
+  },
+  {
+    "name": "status: ready-for-dev",
+    "color": "C2E0C6",
+    "description": "Meets DoR, ready for sprint intake"
+  },
+  {
+    "name": "status: in-progress",
+    "color": "FEF2C0",
+    "description": "Currently under active development"
+  },
+  {
+    "name": "status: in-pr-review",
+    "color": "D4C5F9",
+    "description": "Pull request under code review"
+  },
+  {
+    "name": "status: ready-for-qa",
+    "color": "BFD4F2",
+    "description": "Deployed to QA, ready for testing"
+  },
+  {
+    "name": "status: in-qa-retest",
+    "color": "F9D0C4",
+    "description": "QA currently executing test verification"
+  },
+  {
+    "name": "status: blocked",
+    "color": "B60205",
+    "description": "Blocked by external dependency or environment"
+  },
+  {
+    "name": "status: done",
+    "color": "0E8A16",
+    "description": "Meets DoD, verified and closed"
+  }
+]

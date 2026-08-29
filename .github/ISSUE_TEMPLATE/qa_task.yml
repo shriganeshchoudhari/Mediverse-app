@@ -1,0 +1,27 @@
+name: "🧪 QA / Automation Task"
+description: "Define an exploratory test charter, Playwright automation suite, or performance benchmark"
+title: "[QA]: "
+labels: ["type: qa-task", "status: triage"]
+body:
+  - type: dropdown
+    id: qa-category
+    attributes:
+      label: Quality Engineering Category
+      options:
+        - "Playwright E2E Automation"
+        - "Newman / Postman API Contract Automation"
+        - "Charter-Based Exploratory Testing"
+        - "Performance & Load Testing (k6 / Prometheus)"
+        - "Security Vulnerability Scan (OWASP / SAST)"
+        - "Accessibility Audit (WCAG 2.1 AA)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: qa-objective
+    attributes:
+      label: Objective & Deliverables
+      description: What test artifacts or automation suites will be delivered?
+      placeholder: E.g., Author Playwright Page Object Model and spec for OSCE Clinical Station Timer with audio alerts.
+    validations:
+      required: true

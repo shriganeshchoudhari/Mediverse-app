@@ -1,0 +1,81 @@
+name: "✨ User Story"
+description: "Define a user-facing feature or capability following Agile INVEST & Gherkin standards"
+title: "[STORY]: "
+labels: ["type: story", "status: triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 📋 Agile User Story & Testability Contract
+
+  - type: textarea
+    id: user-narrative
+    attributes:
+      label: User Story Narrative
+      description: Describe the persona, intent, and benefit.
+      placeholder: |
+        **As a** Dental Student (BDS Year 2),
+        **I want to** interact with 3D Tooth Morphology models and adjust enamel transparency,
+        **So that** I can visualize internal pulp chamber anatomy before clinical restorative procedures.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: story-domain
+    attributes:
+      label: Medical Domain / Module
+      options:
+        - "Core Shell / Auth"
+        - "Allopathic (MBBS/MD)"
+        - "Dental (BDS/MDS)"
+        - "AYUSH (Ayurveda/Homeopathy)"
+        - "Pharmacy"
+        - "Nursing"
+        - "Physiotherapy"
+        - "Allied Health"
+        - "Veterinary"
+        - "Public Health"
+        - "Socratic AI Tutor"
+        - "OSCE Assessment"
+        - "CMS & Curriculum Authoring"
+    validations:
+      required: true
+
+  - type: textarea
+    id: gherkin-scenarios
+    attributes:
+      label: Acceptance Criteria (Gherkin Scenarios)
+      description: Mandatory Given-When-Then criteria for Happy Path, Validation/Negative, and Edge Cases.
+      placeholder: |
+        ```gherkin
+        Scenario: Adjusting enamel transparency reveals pulp cavity
+          Given the student is on the 3D Tooth Morphology viewer for Tooth #21
+          When the student drags the "Enamel Transparency" slider to 80%
+          Then the outer enamel mesh opacity is reduced to 0.2
+          And the red vascular pulp chamber and root canals become clearly visible
+        ```
+    validations:
+      required: true
+
+  - type: input
+    id: rtm-id
+    attributes:
+      label: Traceability Requirement ID (RTM)
+      description: Map to QA Requirements Traceability Matrix ID (e.g., REQ-DENT-002, REQ-SOC-001)
+      placeholder: REQ-DENT-002
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: story-dor
+    attributes:
+      label: Definition of Ready (DoR) Validation
+      options:
+        - label: Story follows INVEST criteria and is sized within 1 sprint
+          required: true
+        - label: Minimum 3 Gherkin scenarios defined (Happy, Negative, Boundary)
+          required: true
+        - label: UX / Figma mockups or UI specifications linked
+          required: true
+        - label: Test data requirements identified (Pure synthetic data)
+          required: true

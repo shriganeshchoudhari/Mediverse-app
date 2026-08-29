@@ -1,0 +1,39 @@
+# ==========================================
+# Mediverse Enterprise Code Ownership Matrix
+# ==========================================
+
+# Default Global Owners
+* @shriganeshchoudhari
+
+# Quality Assurance & Test Automation
+/qa/                                            @shriganeshchoudhari
+/automation/                                    @shriganeshchoudhari
+/frontend/e2e/                                  @shriganeshchoudhari
+/frontend/__tests__/                            @shriganeshchoudhari
+/backend/src/test/                              @shriganeshchoudhari
+
+# Backend Services, Microservices & Data Layer
+/backend/                                       @shriganeshchoudhari
+/backend/src/main/java/com/curiolearn/          @shriganeshchoudhari
+/backend/src/main/resources/db/migration/       @shriganeshchoudhari
+/backend/build.gradle                           @shriganeshchoudhari
+
+# Frontend Web Application & Components
+/frontend/                                      @shriganeshchoudhari
+/frontend/app/                                  @shriganeshchoudhari
+/frontend/components/                           @shriganeshchoudhari
+/frontend/package.json                          @shriganeshchoudhari
+
+# DevSecOps, Infrastructure & CI/CD
+/.github/workflows/                             @shriganeshchoudhari
+/.github/                                       @shriganeshchoudhari
+/k8s/                                           @shriganeshchoudhari
+/terraform/                                     @shriganeshchoudhari
+/docker-compose.yml                             @shriganeshchoudhari
+/monitoring/                                    @shriganeshchoudhari
+/Jenkinsfile                                    @shriganeshchoudhari
+
+# Medical Curricula, Documentation & Compliance
+/docs/                                          @shriganeshchoudhari
+/docs/curriculum/                               @shriganeshchoudhari
+/docs/compliance/                               @shriganeshchoudhari

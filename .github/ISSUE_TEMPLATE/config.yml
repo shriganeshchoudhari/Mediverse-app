@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Mediverse QA & Architecture Discussions
+    url: https://github.com/shriganeshchoudhari/Mediverse-app/discussions
+    about: Ask questions, discuss test architecture, or share ideas.
+  - name: 📖 Quality Engineering Documentation
+    url: https://github.com/shriganeshchoudhari/Mediverse-app/tree/main/qa
+    about: Read the enterprise QA governance, strategy, and runbooks.
