@@ -200,8 +200,8 @@ Change History:    v1.0.0 — Initial index of 94 artifacts
 | QA-CMP-002 | `Audit-Traceability.md` | Audit Traceability | APPROVED |
 | QA-CMP-003 | `Test-Data-Compliance.md` | Test Data Compliance | APPROVED |
 | QA-CMP-004 | `Test-Evidence-Management.md` | Test Evidence Management | APPROVED |
-| QA-CMP-005 | `HIPAA-PHI-Test-Checklist.md` | HIPAA/PHI Test Checklist | ❌ MISSING |
-| QA-CMP-006 | `WCAG-Accessibility-Checklist.md` | WCAG Accessibility Checklist | ❌ MISSING |
+| QA-CMP-005 | `HIPAA-PHI-Test-Checklist.md` | HIPAA/PHI Test Checklist | APPROVED |
+| QA-CMP-006 | `WCAG-Accessibility-Checklist.md` | WCAG Accessibility Checklist | APPROVED |
 
 ---
 
@@ -225,6 +225,7 @@ Change History:    v1.0.0 — Initial index of 94 artifacts
 | QA-RBK-003 | `Production-Smoke-Runbook.md` | Production Smoke Runbook | APPROVED |
 | QA-RBK-004 | `Environment-Failure-Runbook.md` | Environment Failure Runbook | APPROVED |
 | QA-RBK-005 | `QA-Onboarding-Runbook.md` | QA Onboarding Runbook | APPROVED |
+| QA-RBK-006 | `Flaky-Test-Register.md` | Flaky Test Register & Quarantine Log | ACTIVE |
 
 ---
 
@@ -237,8 +238,8 @@ Change History:    v1.0.0 — Initial index of 94 artifacts
 | ADR-003 | `ADR-003-github-actions.md` | GitHub Actions as Primary CI/CD | ACCEPTED |
 | ADR-004 | `ADR-004-allure.md` | Allure as Test Report Framework | ACCEPTED |
 | ADR-005 | `ADR-005-test-data-strategy.md` | Test Data Isolation Strategy | ACCEPTED |
-| ADR-006 | `ADR-006-jira-integration.md` | Jira Cloud as Secondary PM Platform | ❌ MISSING |
-| ADR-007 | `ADR-007-observability.md` | Prometheus/Grafana Observability Stack | ❌ MISSING |
+| ADR-006 | `ADR-006-jira-integration.md` | Jira Cloud as Secondary PM Platform | ACCEPTED |
+| ADR-007 | `ADR-007-observability.md` | Prometheus/Grafana Observability Stack | ACCEPTED |
 
 ---
 
@@ -246,7 +247,7 @@ Change History:    v1.0.0 — Initial index of 94 artifacts
 
 | Type | File/Dir | Description | Status |
 |---|---|---|---|
-| Playwright config | `automation/playwright/playwright.config.ts` | 5-project, Allure reporter | ✅ |
+| Playwright config | `automation/playwright/playwright.config.ts` | 5-project, Allure reporter, storageState | ✅ |
 | Playwright package | `automation/playwright/package.json` | Dependencies + scripts | ✅ |
 | BasePage | `automation/playwright/pages/BasePage.ts` | Abstract page helper | ✅ |
 | LoginPage | `automation/playwright/pages/LoginPage.ts` | Login POM | ✅ |
@@ -257,13 +258,21 @@ Change History:    v1.0.0 — Initial index of 94 artifacts
 | Auth smoke spec | `automation/playwright/tests/smoke/auth.smoke.spec.ts` | Auth smoke | ✅ |
 | Appointments spec | `automation/playwright/tests/regression/appointments.spec.ts` | Regression | ✅ |
 | Heartbeat spec | `automation/playwright/tests/synthetic/` | Production heartbeat | ✅ |
-| Auth setup file | `automation/playwright/tests/auth.setup.ts` | Saved auth state | ❌ MISSING |
-| E2E domain specs | `automation/playwright/tests/e2e/` | 9 domain E2E specs | ❌ MISSING |
-| Integration specs | `automation/playwright/tests/integration/` | Integration tests | ❌ MISSING |
-| Custom reporter | `automation/playwright/reporters/` | Custom Allure reporter | ❌ MISSING |
+| Auth setup file | `automation/playwright/tests/auth.setup.ts` | Saved auth state | ✅ |
+| Socratic AI E2E | `automation/playwright/tests/e2e/socratic-ai-tutor.e2e.spec.ts` | AI tutor E2E spec | ✅ |
+| OSCE Engine E2E | `automation/playwright/tests/e2e/osce-exam-engine.e2e.spec.ts` | Timed OSCE examination E2E | ✅ |
+| Allopathic MBBS E2E | `automation/playwright/tests/e2e/allopathic-domain.e2e.spec.ts` | MBBS clinical curriculum E2E | ✅ |
+| Dental BDS E2E | `automation/playwright/tests/e2e/dental-domain.e2e.spec.ts` | Dentistry & 3D tooth E2E | ✅ |
+| AYUSH E2E | `automation/playwright/tests/e2e/ayush-domain.e2e.spec.ts` | 5 traditional systems & Marma E2E | ✅ |
+| WebRTC Study Rooms E2E | `automation/playwright/tests/e2e/webrtc-study-rooms.e2e.spec.ts` | Study rooms & media controls E2E | ✅ |
+| Curriculum CMS E2E | `automation/playwright/tests/e2e/curriculum-cms.e2e.spec.ts` | CMS authoring & reviewer flow E2E | ✅ |
+| Accessibility E2E | `automation/playwright/tests/e2e/accessibility-axe.e2e.spec.ts` | WCAG 2.1 AA axe-core audit E2E | ✅ |
+| API Contract Integration | `automation/playwright/tests/integration/api-contract.spec.ts` | Microservices contract tests | ✅ |
 | Postman collection | `automation/postman/collections/*.json` | 5 API domain groups | ✅ |
 | Postman environment | `automation/postman/environments/*.json` | QA environment vars | ✅ |
-| Newman runner | `automation/postman/scripts/run-newman.sh` | Newman CLI runner | ❌ MISSING |
+| Newman runner | `automation/postman/scripts/run-newman.sh` | Newman CLI runner | ✅ |
+| k6 OSCE Load Test | `automation/k6/osce-load-test.js` | 50-100 VU OSCE load test | ✅ |
+| k6 Socratic AI Load Test | `automation/k6/socratic-ai-load-test.js` | AI RAG LLM spike & load test | ✅ |
 
 ---
 
@@ -281,8 +290,8 @@ Change History:    v1.0.0 — Initial index of 94 artifacts
 | `issue-triage.yml` | S1 escalation | ✅ |
 | `ci.yml` | Main CI (SAST, build) | ✅ |
 | `cd.yml` | CD pipeline | ✅ |
-| `allure-publish.yml` | Allure → GitHub Pages | ❌ MISSING |
-| `notify-failure.yml` | Slack failure notification | ❌ MISSING |
+| `allure-publish.yml` | Allure → GitHub Pages | ✅ |
+| `notify-failure.yml` | Slack failure notification | ✅ |
 
 ---
 
@@ -290,13 +299,13 @@ Change History:    v1.0.0 — Initial index of 94 artifacts
 
 | File | Description | Status |
 |---|---|---|
-| `prometheus.yml` | Prometheus scrape config | ✅ (minimal) |
+| `prometheus.yml` | Prometheus scrape config | ✅ |
 | `alerting_rules.yml` | Prometheus alert rules | ✅ |
 | `grafana-datasources.yml` | Grafana data sources | ✅ |
 | `loki-config.yml` | Loki log aggregation config | ✅ |
 | `promtail-config.yml` | Promtail log shipper | ✅ |
 | `dashboards/mediverse-overview.json` | App infrastructure dashboard | ✅ |
-| `dashboards/qa-metrics-dashboard.json` | QA KPI dashboard | ❌ MISSING |
+| `dashboards/qa-metrics-dashboard.json` | QA KPI dashboard (15 panels) | ✅ |
 
 ---
 
@@ -312,18 +321,18 @@ Change History:    v1.0.0 — Initial index of 94 artifacts
 | Test Cases | 7 | 7 | 0 | 0 |
 | Automation Docs | 7 | 7 | 0 | 0 |
 | API Testing | 4 | 4 | 0 | 0 |
-| Performance | 5 | 2 | 3 | 0 |
+| Performance | 5 | 5 | 0 | 0 |
 | Security | 4 | 4 | 0 | 0 |
 | Defect Mgmt | 4 | 4 | 0 | 0 |
 | CI/CD Docs | 5 | 5 | 0 | 0 |
-| Reporting | 6 | 1 | 3 | 2 |
-| Monitoring | 4 | 0 | 4 | 0 |
-| Compliance | 6 | 4 | 0 | 2 |
+| Reporting | 6 | 6 | 0 | 0 |
+| Monitoring | 4 | 4 | 0 | 0 |
+| Compliance | 6 | 6 | 0 | 0 |
 | Release | 4 | 4 | 0 | 0 |
-| Runbooks | 5 | 5 | 0 | 0 |
-| ADRs | 7 | 5 | 0 | 2 |
-| Automation Code | 19 | 11 | 0 | 8 |
-| CI/CD Workflows | 12 | 10 | 0 | 2 |
-| Monitoring Config | 7 | 6 | 0 | 1 |
-| **TOTAL** | **133** | **106** | **10** | **17** |
-| **% Complete** | | **80%** | **7%** | **13%** |
+| Runbooks | 6 | 6 | 0 | 0 |
+| ADRs | 7 | 7 | 0 | 0 |
+| Automation Code | 26 | 26 | 0 | 0 |
+| CI/CD Workflows | 12 | 12 | 0 | 0 |
+| Monitoring Config | 7 | 7 | 0 | 0 |
+| **TOTAL** | **142** | **142** | **0** | **0** |
+| **% Complete** | | **100%** | **0%** | **0%** |
