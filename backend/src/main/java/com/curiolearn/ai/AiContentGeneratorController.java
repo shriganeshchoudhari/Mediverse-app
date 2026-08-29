@@ -31,10 +31,31 @@ public class AiContentGeneratorController {
         return ResponseEntity.ok(generatorService.generateFlashcards(request.getText(), count));
     }
 
-    @PostMapping("/clinical-case")
+    @PostMapping("/lesson/{lessonId}/{modality}")
     @PreAuthorize("hasAnyRole('SUPER_ADMIN','ADMIN','FACULTY','CONTENT_WRITER')")
-    public ResponseEntity<Map<String, Object>> generateClinicalCase(@RequestBody GenerateRequest request) {
-        return ResponseEntity.ok(generatorService.generateClinicalCase(request.getText()));
+    public ResponseEntity<com.curiolearn.curriculum.ContentBlock> generateForLesson(
+            @PathVariable java.util.UUID lessonId,
+            @PathVariable String modality,
+            @RequestParam(defaultValue = "3") int count) {
+        return ResponseEntity.ok(generatorService.generateAndSaveForLesson(lessonId, modality, count));
+    }
+
+    @PostMapping("/rx-card")
+    @PreAuthorize("hasAnyRole('SUPER_ADMIN','ADMIN','FACULTY','CONTENT_WRITER')")
+    public ResponseEntity<Map<String, Object>> generateRxCard(@RequestBody GenerateRequest request) {
+        return ResponseEntity.ok(generatorService.generateRxCard(request.getText()));
+    }
+
+    @PostMapping("/decision-tree")
+    @PreAuthorize("hasAnyRole('SUPER_ADMIN','ADMIN','FACULTY','CONTENT_WRITER')")
+    public ResponseEntity<Map<String, Object>> generateDecisionTree(@RequestBody GenerateRequest request) {
+        return ResponseEntity.ok(generatorService.generateDecisionTree(request.getText()));
+    }
+
+    @PostMapping("/mnemonic")
+    @PreAuthorize("hasAnyRole('SUPER_ADMIN','ADMIN','FACULTY','CONTENT_WRITER')")
+    public ResponseEntity<Map<String, Object>> generateMnemonic(@RequestBody GenerateRequest request) {
+        return ResponseEntity.ok(generatorService.generateMnemonic(request.getText()));
     }
 
     @Data

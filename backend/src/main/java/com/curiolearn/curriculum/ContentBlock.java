@@ -40,6 +40,13 @@ public class ContentBlock {
     @Column(name = "metadata")
     private Map<String, Object> metadata;
 
+    @Column(name = "status", nullable = false)
+    @Builder.Default
+    private String status = "PUBLISHED"; // DRAFT, IN_REVIEW, PUBLISHED, ARCHIVED
+
+    @Column(name = "review_notes")
+    private String reviewNotes;
+
     @Column(name = "created_at", nullable = false, updatable = false)
     @Builder.Default
     private LocalDateTime createdAt = LocalDateTime.now();

@@ -107,11 +107,198 @@ export default function LessonAuthorPage() {
           <span className="text-xs text-slate-400">Author</span>
         </div>
 
-        <header className="mb-8">
+        <header className="mb-6">
           <div className="text-blue-400 text-xs font-bold tracking-wider uppercase mb-1">Content Block Editor</div>
           <h1 className="text-2xl font-black text-white mb-1">{lesson?.title ?? lessonId}</h1>
           <p className="text-slate-500 text-xs">{blocks.length} content blocks • Drag to reorder</p>
         </header>
+
+        {/* AI Grounded Generator Ribbon */}
+        <div className="bg-gradient-to-r from-blue-950/40 via-slate-900 to-indigo-950/40 border border-blue-800/40 rounded-xl p-4 mb-8">
+          <div className="flex items-center justify-between gap-2 mb-3">
+            <div className="flex items-center gap-2">
+              <span className="text-lg">✨</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-blue-300">AI Grounded Content Generator</span>
+            </div>
+            <span className="text-[10px] bg-blue-900/60 text-blue-200 px-2 py-0.5 rounded font-mono">Grounded in Lesson Text</span>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              disabled={saving}
+              onClick={async () => {
+                if (!token) return;
+                setSaving(true);
+                showToast('Generating grounded quiz from lesson text...');
+                try {
+                  const res = await fetch(`/api/v1/ai/generate/lesson/${lessonId}/quiz?count=3`, {
+                    method: 'POST',
+                    headers: { Authorization: `Bearer ${token}` }
+                  });
+                  if (res.ok) {
+                    const block = await res.json();
+                    setBlocks(prev => [...prev, {
+                      id: block.id,
+                      blockType: block.type,
+                      contentPayload: JSON.stringify(block.metadata),
+                      sortOrder: block.orderIndex
+                    }]);
+                    showToast('✅ Grounded Quiz generated (Saved as DRAFT)');
+                  } else {
+                    showToast('❌ Failed to generate quiz');
+                  }
+                } catch (e) {
+                  showToast('❌ Generation error');
+                } finally {
+                  setSaving(false);
+                }
+              }}
+              className="px-3 py-1.5 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/40 rounded-lg text-xs font-semibold text-blue-200 transition flex items-center gap-1.5"
+            >
+              <span>❓</span> Generate Grounded Quiz
+            </button>
+
+            <button
+              type="button"
+              disabled={saving}
+              onClick={async () => {
+                if (!token) return;
+                setSaving(true);
+                showToast('Generating active-recall flashcards...');
+                try {
+                  const res = await fetch(`/api/v1/ai/generate/lesson/${lessonId}/flashcards?count=4`, {
+                    method: 'POST',
+                    headers: { Authorization: `Bearer ${token}` }
+                  });
+                  if (res.ok) {
+                    const block = await res.json();
+                    setBlocks(prev => [...prev, {
+                      id: block.id,
+                      blockType: block.type,
+                      contentPayload: JSON.stringify(block.metadata),
+                      sortOrder: block.orderIndex
+                    }]);
+                    showToast('✅ Grounded Flashcards generated (Saved as DRAFT)');
+                  } else {
+                    showToast('❌ Failed to generate flashcards');
+                  }
+                } catch (e) {
+                  showToast('❌ Generation error');
+                } finally {
+                  setSaving(false);
+                }
+              }}
+              className="px-3 py-1.5 bg-purple-600/20 hover:bg-purple-600/30 border border-purple-500/40 rounded-lg text-xs font-semibold text-purple-200 transition flex items-center gap-1.5"
+            >
+              <span>🃏</span> Generate Flashcards
+            </button>
+
+            <button
+              type="button"
+              disabled={saving}
+              onClick={async () => {
+                if (!token) return;
+                setSaving(true);
+                showToast('Generating clinical vignette case...');
+                try {
+                  const res = await fetch(`/api/v1/ai/generate/lesson/${lessonId}/case`, {
+                    method: 'POST',
+                    headers: { Authorization: `Bearer ${token}` }
+                  });
+                  if (res.ok) {
+                    const block = await res.json();
+                    setBlocks(prev => [...prev, {
+                      id: block.id,
+                      blockType: block.type,
+                      contentPayload: JSON.stringify(block.metadata),
+                      sortOrder: block.orderIndex
+                    }]);
+                    showToast('✅ Clinical Case generated (Saved as DRAFT)');
+                  } else {
+                    showToast('❌ Failed to generate case');
+                  }
+                } catch (e) {
+                  showToast('❌ Generation error');
+                } finally {
+                  setSaving(false);
+                }
+              }}
+              className="px-3 py-1.5 bg-amber-600/20 hover:bg-amber-600/30 border border-amber-500/40 rounded-lg text-xs font-semibold text-amber-200 transition flex items-center gap-1.5"
+            >
+              <span>🩺</span> Generate Clinical Case
+            </button>
+
+            <button
+              type="button"
+              disabled={saving}
+              onClick={async () => {
+                if (!token) return;
+                setSaving(true);
+                showToast('Generating Rx & Therapeutics protocol card...');
+                try {
+                  const res = await fetch(`/api/v1/ai/generate/lesson/${lessonId}/rx`, {
+                    method: 'POST',
+                    headers: { Authorization: `Bearer ${token}` }
+                  });
+                  if (res.ok) {
+                    const block = await res.json();
+                    setBlocks(prev => [...prev, {
+                      id: block.id,
+                      blockType: block.type,
+                      contentPayload: JSON.stringify(block.metadata),
+                      sortOrder: block.orderIndex
+                    }]);
+                    showToast('✅ Rx Protocol Card generated (Saved as DRAFT)');
+                  } else {
+                    showToast('❌ Failed to generate Rx card');
+                  }
+                } catch (e) {
+                  showToast('❌ Generation error');
+                } finally {
+                  setSaving(false);
+                }
+              }}
+              className="px-3 py-1.5 bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/40 rounded-lg text-xs font-semibold text-emerald-200 transition flex items-center gap-1.5"
+            >
+              <span>💊</span> Generate Rx Card
+            </button>
+
+            <button
+              type="button"
+              disabled={saving}
+              onClick={async () => {
+                if (!token) return;
+                setSaving(true);
+                showToast('Generating interactive decision pathway...');
+                try {
+                  const res = await fetch(`/api/v1/ai/generate/lesson/${lessonId}/decision-tree`, {
+                    method: 'POST',
+                    headers: { Authorization: `Bearer ${token}` }
+                  });
+                  if (res.ok) {
+                    const block = await res.json();
+                    setBlocks(prev => [...prev, {
+                      id: block.id,
+                      blockType: block.type,
+                      contentPayload: JSON.stringify(block.metadata),
+                      sortOrder: block.orderIndex
+                    }]);
+                    showToast('✅ Decision Tree generated (Saved as DRAFT)');
+                  } else {
+                    showToast('❌ Failed to generate decision tree');
+                  }
+                } catch (e) {
+                  showToast('❌ Generation error');
+                } finally {
+                  setSaving(false);
+                }
+              }}
+              className="px-3 py-1.5 bg-cyan-600/20 hover:bg-cyan-600/30 border border-cyan-500/40 rounded-lg text-xs font-semibold text-cyan-200 transition flex items-center gap-1.5"
+            >
+              <span>🔀</span> Generate Decision Tree
+            </button>
+          </div>
+        </div>
 
         {/* Block list */}
         <div className="space-y-3 mb-6">
