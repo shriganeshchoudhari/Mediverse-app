@@ -1,0 +1,39 @@
+# Prometheus Alertmanager to Jira Service Management (JSM) Incident Webhook Config
+
+global:
+  resolve_timeout: 5m
+
+route:
+  group_by: ['alertname', 'cluster', 'service', 'severity']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 4h
+  receiver: 'jira-service-management'
+  routes:
+    - match:
+        severity: critical
+      receiver: 'jira-jsm-critical'
+      continue: true
+    - match:
+        severity: warning
+      receiver: 'jira-jsm-warning'
+
+receivers:
+  - name: 'jira-jsm-critical'
+    webhook_configs:
+      - url: 'https://shriiganesh.atlassian.net/rest/api/2/issue'
+        send_resolved: true
+        http_config:
+          basic_auth:
+            username: 'shriganesha0@gmail.com'
+            password: '${JIRA_API_TOKEN}'
+        max_alerts: 5
+
+  - name: 'jira-jsm-warning'
+    webhook_configs:
+      - url: 'https://shriiganesh.atlassian.net/rest/api/2/issue'
+        send_resolved: true
+        http_config:
+          basic_auth:
+            username: 'shriganesha0@gmail.com'
+            password: '${JIRA_API_TOKEN}'

@@ -1,0 +1,55 @@
+name: Jira Enterprise Bi-Directional Synchronization
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+  push:
+    branches:
+      - master
+      - develop
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  jira-sync:
+    name: Sync GitHub Event to Jira Cloud
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Extract Jira Issue Key
+        id: extract-jira-key
+        run: |
+          # Matches KAN-123 or MED-123 in branch name, PR title, or commit message
+          REF_STRING="${{ github.head_ref }} ${{ github.event.pull_request.title }} ${{ github.event.head_commit.message }}"
+          JIRA_KEY=$(echo "$REF_STRING" | grep -oE '(KAN|MED)-[0-9]+' | head -n 1 || true)
+          echo "Detected Jira Key: $JIRA_KEY"
+          echo "jira_key=$JIRA_KEY" >> $GITHUB_OUTPUT
+
+      - name: Post PR Status to Jira Issue
+        if: steps.extract-jira-key.outputs.jira_key != '' && env.JIRA_BASE_URL != ''
+        env:
+          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+          JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+          JIRA_KEY: ${{ steps.extract-jira-key.outputs.jira_key }}
+        run: |
+          echo "Syncing GitHub PR #${{ github.event.pull_request.number }} status to Jira Issue $JIRA_KEY..."
+          
+          PR_URL="${{ github.event.pull_request.html_url }}"
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          PR_STATE="${{ github.event.pull_request.state }}"
+          MERGED="${{ github.event.pull_request.merged }}"
+          COMMIT_SHA="${{ github.sha }}"
+
+          COMMENT_BODY="{\"body\": \"🔗 **GitHub CI/CD Traceability Sync**\\n\\n* **Repository:** [${{ github.repository }}](https://github.com/${{ github.repository }})\\n* **Event:** ${{ github.event_name }}\\n* **PR:** [${PR_TITLE}](${PR_URL})\\n* **Commit SHA:** \`${COMMIT_SHA}\`\\n* **Status:** \`${PR_STATE}\` (Merged: ${MERGED})\\n* **Timestamp:** $(date -u +'%Y-%m-%dT%H:%M:%SZ')\"}"
+
+          curl -s -X POST \
+            -H "Content-Type: application/json" \
+            -u "${JIRA_USER_EMAIL}:${JIRA_API_TOKEN}" \
+            "${JIRA_BASE_URL}/rest/api/2/issue/${JIRA_KEY}/comment" \
+            -d "$COMMENT_BODY" || echo "Note: Jira API token secret not configured on public runner."
