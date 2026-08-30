@@ -19,6 +19,9 @@ import ContentBlockRenderer from "./ContentBlockRenderer";
 import SimulationCalloutCard from "./SimulationCalloutCard";
 import CalloutBlock from './CalloutBlock';
 import XPToast from './XPToast';
+import ClinicalCalculatorWidget from './ClinicalCalculatorWidget';
+import HighYieldPearlCard from './HighYieldPearlCard';
+import { HIGH_YIELD_PEARL_REGISTRY } from '@/.gemini/skills/HighYieldClinicalPearls';
 
 interface PedagogyStep {
   name: string;
@@ -520,6 +523,26 @@ export default function ChapterRenderer({ title, markdownContent, chapterId, top
                 <CaseStudyInteractive content={step17Content} />
               </section>
             )}
+
+            {/* High-Yield Exam Pearl & Examiner Trap Box */}
+            <section id="high-yield-pearl" className="my-8 scroll-mt-24">
+              <HighYieldPearlCard pearl={
+                chapterId.includes('dent') ? HIGH_YIELD_PEARL_REGISTRY.dental[0] :
+                chapterId.includes('ayu') || chapterId.includes('bams') ? HIGH_YIELD_PEARL_REGISTRY.ayush[0] :
+                chapterId.includes('pharm') ? HIGH_YIELD_PEARL_REGISTRY.pharmacology[0] :
+                HIGH_YIELD_PEARL_REGISTRY.cardiovascular[0]
+              } />
+            </section>
+
+            {/* Interactive Point-of-Care Clinical Calculator Suite */}
+            <section id="clinical-calculator" className="my-8 scroll-mt-24">
+              <ClinicalCalculatorWidget defaultCalc={
+                chapterId.includes('pharm') ? 'PEDIATRIC' :
+                chapterId.includes('cardio') || chapterId.includes('nephro') ? 'CRCL' :
+                chapterId.includes('resp') || chapterId.includes('pulm') ? 'CURB65' :
+                'GCS'
+              } />
+            </section>
 
             {/* Markdown Content — Steps 18-19 */}
             {afterStep17 && (

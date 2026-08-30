@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Save, Sparkles, CheckCircle } from 'lucide-react';
-import { EVALUATE_SOAP_NOTE_CLIENT_MOCK, SoapGradingResult } from '@/frontend/.gemini/skills/SoapGradingRubric';
+import { EVALUATE_SOAP_NOTE_CLIENT_MOCK, SoapGradingResult } from '@/.gemini/skills/SoapGradingRubric';
 import ClinicalEvaluationReport from './ClinicalEvaluationReport';
 
 export default function SoapNoteWriter({ patientId, onSave }: { patientId: string; onSave: () => void }) {

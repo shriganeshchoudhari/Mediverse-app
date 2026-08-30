@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Award, CheckCircle, AlertTriangle, XCircle, FileText, Sparkles, ArrowRight } from 'lucide-react';
-import { SoapGradingResult } from '@/frontend/.gemini/skills/SoapGradingRubric';
+import { SoapGradingResult } from '@/.gemini/skills/SoapGradingRubric';
 
 export default function ClinicalEvaluationReport({
   result,

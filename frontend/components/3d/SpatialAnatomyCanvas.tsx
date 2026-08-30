@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Float, Sphere, Text } from '@react-three/drei';
 import { Glasses, Move3d, Sparkles, HelpCircle, Volume2 } from 'lucide-react';
-import { SPATIAL_DISSECTION_TOOLS, DEFAULT_MEDICAL_XR_CONFIG } from '@/frontend/.gemini/skills/3d/SpatialXRPresets';
+import { SPATIAL_DISSECTION_TOOLS, DEFAULT_MEDICAL_XR_CONFIG } from '@/.gemini/skills/3d/SpatialXRPresets';
 
 function HeartOrganModel({ isBeating = true }: { isBeating?: boolean }) {
   return (

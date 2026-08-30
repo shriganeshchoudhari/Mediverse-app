@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Mic, MicOff, AlertCircle, Volume2, Heart, Activity, User, Sparkles } from 'lucide-react';
-import { STANDARDIZED_PATIENTS, StandardizedPatientPersona } from '@/frontend/.gemini/skills/VoicePatientPersona';
+import { STANDARDIZED_PATIENTS, StandardizedPatientPersona } from '@/.gemini/skills/VoicePatientPersona';
 
 export default function AudioStreamer({ initialPersonaId = 'acute-appendicitis-01' }: { initialPersonaId?: string }) {
   const [selectedPersonaId, setSelectedPersonaId] = useState<string>(initialPersonaId);
