@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Trophy, Clock, Target, Medal, AlertCircle, Filter, Sparkles, Building2 } from 'lucide-react';
+import Link from 'next/link';
+import { Trophy, Clock, Target, Medal, AlertCircle, Filter, Sparkles, Building2, Play } from 'lucide-react';
 import StreakBadgeWidget from '@/components/gamification/StreakBadgeWidget';
 
 const SPECIALTY_OPTIONS = [
@@ -65,18 +66,28 @@ export default function OsceLeaderboardsPage() {
             <p className="text-xs text-slate-400 mt-1">Real-time clinical examination speed & diagnostic accuracy rankings.</p>
           </div>
 
-          {/* Specialty Scenario Selector */}
-          <div className="flex items-center gap-2 bg-slate-900 border border-slate-800 p-2 rounded-xl">
-            <Filter size={16} className="text-slate-400 ml-2" />
-            <select
-              value={selectedScenario}
-              onChange={(e) => setSelectedScenario(e.target.value)}
-              className="bg-slate-950 border border-slate-700 text-xs text-slate-200 rounded-lg px-3 py-2 outline-none focus:border-indigo-500 font-medium"
+          {/* Specialty Scenario Selector & Launch Exam */}
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="flex items-center gap-2 bg-slate-900 border border-slate-800 p-2 rounded-xl">
+              <Filter size={16} className="text-slate-400 ml-2" />
+              <select
+                value={selectedScenario}
+                onChange={(e) => setSelectedScenario(e.target.value)}
+                className="bg-slate-950 border border-slate-700 text-xs text-slate-200 rounded-lg px-3 py-2 outline-none focus:border-indigo-500 font-medium"
+              >
+                {SPECIALTY_OPTIONS.map((opt) => (
+                  <option key={opt.id} value={opt.id}>{opt.name}</option>
+                ))}
+              </select>
+            </div>
+
+            <Link
+              href="/exam/osce/osce-stemi-cardiology"
+              className="inline-flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white font-bold text-xs rounded-xl shadow-lg shadow-indigo-500/20 transition-all font-mono"
             >
-              {SPECIALTY_OPTIONS.map((opt) => (
-                <option key={opt.id} value={opt.id}>{opt.name}</option>
-              ))}
-            </select>
+              <Play size={15} className="fill-white" />
+              <span>START OSCE STATION</span>
+            </Link>
           </div>
         </div>
 

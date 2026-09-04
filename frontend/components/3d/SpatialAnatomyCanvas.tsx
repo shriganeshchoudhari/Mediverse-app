@@ -5,35 +5,12 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Float, Sphere, Text } from '@react-three/drei';
 import { Glasses, Move3d, Sparkles, HelpCircle, Volume2 } from 'lucide-react';
 import { SPATIAL_DISSECTION_TOOLS, DEFAULT_MEDICAL_XR_CONFIG } from '@/.gemini/skills/3d/SpatialXRPresets';
+import LifelikeHeartModel from './LifelikeHeartModel';
 
 function HeartOrganModel({ isBeating = true }: { isBeating?: boolean }) {
   return (
-    <Float speed={2} rotationIntensity={0.5} floatIntensity={0.8}>
-      <group position={[0, 0, 0]}>
-        {/* Left Ventricle Mesh */}
-        <mesh position={[-0.4, -0.2, 0]}>
-          <sphereGeometry args={[0.7, 32, 32]} />
-          <meshStandardMaterial color="#b91c1c" roughness={0.3} metalness={0.1} />
-        </mesh>
-
-        {/* Right Ventricle Mesh */}
-        <mesh position={[0.4, -0.2, 0]}>
-          <sphereGeometry args={[0.65, 32, 32]} />
-          <meshStandardMaterial color="#991b1b" roughness={0.3} metalness={0.1} />
-        </mesh>
-
-        {/* Ascending Aorta */}
-        <mesh position={[0, 0.8, 0]} rotation={[0, 0, 0.2]}>
-          <cylinderGeometry args={[0.25, 0.25, 0.9, 32]} />
-          <meshStandardMaterial color="#dc2626" roughness={0.2} metalness={0.3} />
-        </mesh>
-
-        {/* Superior Vena Cava */}
-        <mesh position={[0.6, 0.7, -0.1]}>
-          <cylinderGeometry args={[0.2, 0.2, 0.8, 32]} />
-          <meshStandardMaterial color="#1d4ed8" roughness={0.2} metalness={0.2} />
-        </mesh>
-      </group>
+    <Float speed={1.5} rotationIntensity={0.3} floatIntensity={0.5}>
+      <LifelikeHeartModel bpm={isBeating ? 72 : 0} isPaused={!isBeating} wetness={0.95} enableTorsion={true} />
     </Float>
   );
 }

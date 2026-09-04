@@ -11,6 +11,8 @@ out/
 build/
 backend/build/
 dist/
+bin/
+backend/bin/
 .gradle/
 backend/.gradle/
 

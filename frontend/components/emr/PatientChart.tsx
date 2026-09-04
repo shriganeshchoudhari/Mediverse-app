@@ -1,12 +1,13 @@
 'use client';
-
 import React, { useEffect, useState } from 'react';
 import SoapNoteWriter from './SoapNoteWriter';
-import { Activity, FlaskConical, FileText, User } from 'lucide-react';
+import TelemetryVitalsFlowsheet from './TelemetryVitalsFlowsheet';
+import CpoeOrderSystem from './CpoeOrderSystem';
+import { Activity, FlaskConical, FileText, User, ShoppingCart } from 'lucide-react';
 
 export default function PatientChart({ patientId }: { patientId: string }) {
   const [chartData, setChartData] = useState<any>(null);
-  const [activeTab, setActiveTab] = useState<'overview' | 'labs' | 'notes' | 'write'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'cpoe' | 'labs' | 'notes' | 'write'>('overview');
 
   const fetchChart = () => {
     fetch(`/api/v1/emr/patients/${patientId}/chart`)
@@ -41,25 +42,39 @@ export default function PatientChart({ patientId }: { patientId: string }) {
 
       {/* EMR Tabs Navigation */}
       <div className="bg-slate-900 border-b border-slate-800 px-6 pt-3 flex gap-2">
-        {['overview', 'labs', 'notes', 'write'].map(tab => (
-          <button 
-            key={tab}
-            onClick={() => setActiveTab(tab as any)}
-            className={`px-4 py-2 border-b-2 font-medium capitalize transition-colors ${activeTab === tab ? 'border-blue-500 text-blue-400' : 'border-transparent text-slate-500 hover:text-slate-300'}`}
-          >
-            {tab === 'write' ? 'New SOAP Note' : tab}
-          </button>
-        ))}
+        {['overview', 'cpoe', 'labs', 'notes', 'write'].map(tab => {
+          let label = tab;
+          if (tab === 'write') label = 'New SOAP Note';
+          else if (tab === 'cpoe') label = 'Orders & eMAR';
+          else if (tab === 'overview') label = 'Overview & Vitals';
+          else if (tab === 'labs') label = 'Lab Results';
+          else if (tab === 'notes') label = 'Clinical Notes';
+
+          return (
+            <button 
+              key={tab}
+              onClick={() => setActiveTab(tab as any)}
+              className={`px-4 py-2 border-b-2 font-medium capitalize transition-colors ${activeTab === tab ? 'border-blue-500 text-blue-400' : 'border-transparent text-slate-500 hover:text-slate-300'}`}
+            >
+              {label}
+            </button>
+          );
+        })}
       </div>
 
       {/* Tab Content */}
       <div className="flex-1 overflow-y-auto p-6 bg-slate-950">
         {activeTab === 'overview' && (
           <div className="space-y-6">
-            <div className="bg-slate-900 p-6 rounded-xl border border-slate-800">
-              <h3 className="text-lg font-bold text-slate-300 mb-4 flex items-center gap-2"><Activity size={18} /> Recent Vitals</h3>
-              <p className="text-slate-500 italic">No vitals recorded in the past 24 hours.</p>
-            </div>
+            <TelemetryVitalsFlowsheet />
+          </div>
+        )}
+
+        {activeTab === 'cpoe' && (
+          <div className="space-y-6">
+            <CpoeOrderSystem
+              patientName={`${patient.lastName}, ${patient.firstName} (MRN: ${patient.mrn})`}
+            />
           </div>
         )}
 

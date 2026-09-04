@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,6 +9,14 @@ export const metadata: Metadata = {
 };
 
 const SIMULATORS = [
+  {
+    id: 'lifelike-heart',
+    title: 'Photorealistic Living Heart 3D',
+    description: 'Explore living biological tissue shaders, dual-phase Wiggers pumping, apical wringing torsion, and cross-sectional dissection.',
+    icon: <Heart className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: '3D Biomechanics',
+    status: 'Available'
+  },
   {
     id: 'acid-base',
     title: 'Acid-Base & Davenport Nomogram',
