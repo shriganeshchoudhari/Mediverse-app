@@ -72,6 +72,30 @@ const SIMULATORS = [
     icon: <Stethoscope className="w-7 h-7 text-red-400" />,
     badge: 'Critical Care Lab',
     status: 'Available'
+  },
+  {
+    id: 'pharmacokinetics',
+    title: 'Pharmacokinetics PK/PD & TDM Solver',
+    description: 'Two-compartment Bateman PK model: plot plasma concentration curves, compute Cmax, AUC, Tmax across IV/Oral/IM routes with MTC/MEC safety windows.',
+    icon: <FlaskConical className="w-7 h-7 text-violet-400" />,
+    badge: 'Drug Kinetics',
+    status: 'Available'
+  },
+  {
+    id: 'ecg-rhythm',
+    title: '12-Lead ECG Rhythm Simulator',
+    description: 'Synthesize PQRST waveforms with adjustable PR, QRS, QT intervals. Identify normal sinus, AF, STEMI, LBBB, and bradycardia patterns.',
+    icon: <Activity className="w-7 h-7 text-green-400" />,
+    badge: 'Electrocardiology',
+    status: 'Available'
+  },
+  {
+    id: 'hemodynamics-shock',
+    title: 'Hemodynamic Shock Classifier',
+    description: 'Input Swan-Ganz catheter data (CO, SVR, PCWP, CVP, SvO₂) to auto-classify shock phenotype with treatment guidance and radar fingerprint.',
+    icon: <Stethoscope className="w-7 h-7 text-orange-400" />,
+    badge: 'Critical Care',
+    status: 'Available'
   }
 ];
 

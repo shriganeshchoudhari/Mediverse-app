@@ -9,6 +9,13 @@ import LifelikeHeartModel from "./LifelikeHeartModel";
 import LifelikeLungsModel from "./LifelikeLungsModel";
 import LifelikeKidneyModel from "./LifelikeKidneyModel";
 import LifelikeNeuronModel from "./LifelikeNeuronModel";
+import LifelikeEyeModel from "./LifelikeEyeModel";
+import LifelikeSarcomereModel from "./LifelikeSarcomereModel";
+import LifelikeLipidBilayerModel from "./LifelikeLipidBilayerModel";
+import LifelikeGITractModel from "./LifelikeGITractModel";
+import LifelikeEndocrineModel from "./LifelikeEndocrineModel";
+import LifelikeBloodCellModel from "./LifelikeBloodCellModel";
+import LifelikeReproductiveModel from "./LifelikeReproductiveModel";
 import {
   createClippingPlanes,
   DissectionPlaneType,
@@ -454,6 +461,18 @@ export default function ThreeCanvas({
                   <span className="text-slate-400 italic">{activeLandmark.histology}</span>
                 </div>
               )}
+
+              {/* Ask AI Button */}
+              <button
+                onClick={() => {
+                  const ctx = `Structure: ${activeLandmark.name}. ${activeLandmark.shortDescription} Physiological role: ${activeLandmark.physiologicalRole}. Clinical significance: ${activeLandmark.clinicalSignificance}.`;
+                  window.dispatchEvent(new CustomEvent('mediverse:open-ai-with-context', { detail: { context: ctx } }));
+                }}
+                className="mt-3 w-full flex items-center justify-center gap-2 px-3 py-2 bg-indigo-600/80 hover:bg-indigo-500 border border-indigo-500/60 text-white text-xs font-semibold rounded-lg transition"
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                Ask AI about this structure
+              </button>
             </div>
           </div>
         </div>
@@ -715,403 +734,49 @@ function NeurophysiologyGeometry({ clippingPlanes }: { clippingPlanes: THREE.Pla
 // 5. GASTROINTESTINAL 3D GEOMETRY
 // ============================================================================
 function GastrointestinalGeometry({ clippingPlanes }: { clippingPlanes: THREE.Plane[] }) {
-  const giRef = useRef<THREE.Group>(null);
-
-  useFrame((state) => {
-    if (giRef.current) {
-      // Subtle peristaltic wave motion
-      giRef.current.position.y = Math.sin(state.clock.elapsedTime * 1.5) * 0.02;
-    }
-  });
-
-  return (
-    <group ref={giRef} rotation={[0.2, 0.4, 0]}>
-      {/* Stomach Body & Fundus */}
-      <mesh position={[-0.25, 0.2, 0]} scale={[1.3, 0.85, 0.75]}>
-        <sphereGeometry args={[0.55, 32, 32]} />
-        <meshPhysicalMaterial
-          color="#f87171"
-          roughness={0.25}
-          clearcoat={0.7}
-          clearcoatRoughness={0.2}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-
-      {/* Esophageal Inflow */}
-      <mesh position={[-0.45, 0.75, 0]} rotation={[0, 0, 0.35]}>
-        <cylinderGeometry args={[0.07, 0.07, 0.65, 16]} />
-        <meshPhysicalMaterial
-          color="#fda4af"
-          roughness={0.2}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-
-      {/* Duodenal C-Loop (Intestine) */}
-      <mesh position={[0.38, -0.28, 0]} rotation={[0, 0, 1.25]}>
-        <torusGeometry args={[0.38, 0.09, 16, 32, Math.PI * 1.2]} />
-        <meshPhysicalMaterial
-          color="#fb923c"
-          roughness={0.3}
-          clearcoat={0.6}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-
-      {/* Microscopic Intestinal Villi projection cylinders */}
-      {[0.25, 0.38, 0.5].map((x, idx) => (
-        <mesh key={idx} position={[x, 0.02, 0.15]} rotation={[0.2, 0, 0]}>
-          <cylinderGeometry args={[0.03, 0.03, 0.22, 12]} />
-          <meshPhysicalMaterial
-            color="#fdba74"
-            roughness={0.2}
-            clearcoat={0.8}
-            clippingPlanes={clippingPlanes}
-            clipShadows
-          />
-        </mesh>
-      ))}
-
-      {/* Crypt of Lieberkühn base */}
-      <mesh position={[0.2, -0.42, 0.1]} scale={[0.4, 0.12, 0.2]}>
-        <boxGeometry />
-        <meshPhysicalMaterial
-          color="#a855f7"
-          roughness={0.3}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-    </group>
-  );
+  return <LifelikeGITractModel clippingPlanes={clippingPlanes} fastingState={false} peristalsisRate={1.0} />;
 }
 
 // ============================================================================
 // 6. ENDOCRINE 3D GEOMETRY
 // ============================================================================
 function EndocrineGeometry({ clippingPlanes }: { clippingPlanes: THREE.Plane[] }) {
-  return (
-    <group rotation={[0, 0.25, 0.08]}>
-      {/* Trachea behind Thyroid */}
-      <mesh position={[0, 0, -0.05]}>
-        <cylinderGeometry args={[0.22, 0.22, 1.9, 24]} />
-        <meshPhysicalMaterial
-          color="#e2e8f0"
-          roughness={0.3}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-
-      {/* Thyroid Left Lobe */}
-      <mesh position={[-0.28, 0.0, 0.12]} scale={[0.65, 1.25, 0.55]}>
-        <sphereGeometry args={[0.38, 24, 24]} />
-        <meshPhysicalMaterial
-          color="#b91c1c"
-          roughness={0.35}
-          clearcoat={0.6}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-
-      {/* Thyroid Right Lobe */}
-      <mesh position={[0.28, 0.0, 0.12]} scale={[0.65, 1.25, 0.55]}>
-        <sphereGeometry args={[0.38, 24, 24]} />
-        <meshPhysicalMaterial
-          color="#b91c1c"
-          roughness={0.35}
-          clearcoat={0.6}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-
-      {/* Thyroid Isthmus Connector */}
-      <mesh position={[0.0, -0.12, 0.2]} scale={[1.3, 0.32, 0.35]}>
-        <sphereGeometry args={[0.28, 24, 24]} />
-        <meshPhysicalMaterial
-          color="#991b1b"
-          roughness={0.35}
-          clearcoat={0.6}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-
-      {/* Thyroid Follicle Spherical Colloid unit */}
-      <mesh position={[0.0, -0.12, 0.26]}>
-        <sphereGeometry args={[0.08, 16, 16]} />
-        <meshPhysicalMaterial
-          color="#fca5a5"
-          roughness={0.1}
-          transmission={0.4}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-
-      {/* Adrenal Cortex Pyramidal Gland floating showcase */}
-      <mesh position={[0.38, 0.35, 0.15]} rotation={[0, 0, 0.2]}>
-        <coneGeometry args={[0.18, 0.35, 4]} />
-        <meshPhysicalMaterial
-          color="#ea580c"
-          roughness={0.25}
-          clearcoat={0.8}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-    </group>
-  );
+  return <LifelikeEndocrineModel clippingPlanes={clippingPlanes} tshLevel={2.0} cortisolPhase={0.3} />;
 }
 
 // ============================================================================
 // 7. CELL MEMBRANE & HOMEOSTASIS 3D GEOMETRY
 // ============================================================================
 function HomeostasisGeometry({ clippingPlanes }: { clippingPlanes: THREE.Plane[] }) {
-  const membraneRef = useRef<THREE.Group>(null);
-
-  useFrame((state) => {
-    if (membraneRef.current) {
-      membraneRef.current.position.y = Math.sin(state.clock.elapsedTime * 1.5) * 0.04;
-    }
-  });
-
-  return (
-    <group ref={membraneRef} rotation={[0.4, 0.35, 0]}>
-      {/* Top Phospholipid Monolayer */}
-      {[-1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5].map((x, i) => (
-        <group key={`top-${i}`} position={[x, 0.55, 0]}>
-          <mesh>
-            <sphereGeometry args={[0.15, 16, 16]} />
-            <meshPhysicalMaterial
-              color="#3b82f6"
-              roughness={0.1}
-              clearcoat={1.0}
-              clippingPlanes={clippingPlanes}
-              clipShadows
-            />
-          </mesh>
-          <mesh position={[0, -0.2, 0]}>
-            <cylinderGeometry args={[0.02, 0.02, 0.3, 8]} />
-            <meshPhysicalMaterial color="#f43f5e" roughness={0.3} clippingPlanes={clippingPlanes} clipShadows />
-          </mesh>
-        </group>
-      ))}
-
-      {/* Bottom Phospholipid Monolayer */}
-      {[-1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5].map((x, i) => (
-        <group key={`bot-${i}`} position={[x, -0.55, 0]}>
-          <mesh>
-            <sphereGeometry args={[0.15, 16, 16]} />
-            <meshPhysicalMaterial
-              color="#3b82f6"
-              roughness={0.1}
-              clearcoat={1.0}
-              clippingPlanes={clippingPlanes}
-              clipShadows
-            />
-          </mesh>
-          <mesh position={[0, 0.2, 0]}>
-            <cylinderGeometry args={[0.02, 0.02, 0.3, 8]} />
-            <meshPhysicalMaterial color="#f43f5e" roughness={0.3} clippingPlanes={clippingPlanes} clipShadows />
-          </mesh>
-        </group>
-      ))}
-
-      {/* Embedded Transmembrane Channel Protein */}
-      <mesh position={[0, 0, 0]}>
-        <cylinderGeometry args={[0.3, 0.3, 1.35, 32]} />
-        <meshPhysicalMaterial
-          color="#10b981"
-          roughness={0.2}
-          clearcoat={1.0}
-          transmission={0.4}
-          thickness={0.8}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-    </group>
-  );
+  return <LifelikeLipidBilayerModel clippingPlanes={clippingPlanes} temperature={37} cholesterolFraction={0.3} enableGPCRAnimation={true} />;
 }
 
 // ============================================================================
 // 8. BLOOD & RBC 3D GEOMETRY
 // ============================================================================
 function BloodCompositionGeometry({ clippingPlanes }: { clippingPlanes: THREE.Plane[] }) {
-  const rbcRef = useRef<THREE.Group>(null);
-
-  useFrame((state) => {
-    if (rbcRef.current) {
-      rbcRef.current.rotation.x = state.clock.elapsedTime * 0.4;
-      rbcRef.current.rotation.y = state.clock.elapsedTime * 0.25;
-    }
-  });
-
-  return (
-    <group ref={rbcRef} rotation={[0.4, 0.4, 0]}>
-      {/* Biconcave Torus Rim */}
-      <mesh castShadow>
-        <torusGeometry args={[0.75, 0.32, 20, 100]} />
-        <meshPhysicalMaterial
-          color="#dc2626"
-          roughness={0.2}
-          clearcoat={0.9}
-          clearcoatRoughness={0.15}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-      {/* Central Thin Dimple */}
-      <mesh scale={[0.82, 0.82, 0.18]}>
-        <sphereGeometry args={[0.65, 32, 32]} />
-        <meshPhysicalMaterial
-          color="#b91c1c"
-          roughness={0.3}
-          clearcoat={0.6}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-    </group>
-  );
+  return <LifelikeBloodCellModel clippingPlanes={clippingPlanes} oxygenSaturation={0.98} activationState="resting" />;
 }
 
 // ============================================================================
 // 9. SPECIAL SENSES (VISION) 3D GEOMETRY
 // ============================================================================
 function VisionGeometry({ clippingPlanes }: { clippingPlanes: THREE.Plane[] }) {
-  return (
-    <group rotation={[0, -1.2, 0.2]}>
-      {/* Sclera Eyeball Shell */}
-      <mesh>
-        <sphereGeometry args={[0.82, 32, 32]} />
-        <meshPhysicalMaterial
-          color="#f8fafc"
-          roughness={0.15}
-          clearcoat={1.0}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-      {/* Iris Ring */}
-      <mesh position={[0.76, 0, 0]} rotation={[0, Math.PI / 2, 0]}>
-        <cylinderGeometry args={[0.32, 0.32, 0.05, 32]} />
-        <meshPhysicalMaterial
-          color="#2563eb"
-          roughness={0.1}
-          clearcoat={0.9}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-      {/* Central Pupil */}
-      <mesh position={[0.79, 0, 0]} rotation={[0, Math.PI / 2, 0]}>
-        <cylinderGeometry args={[0.13, 0.13, 0.05, 32]} />
-        <meshPhysicalMaterial
-          color="#020617"
-          roughness={0.9}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-    </group>
-  );
+  return <LifelikeEyeModel clippingPlanes={clippingPlanes} ambientLux={500} accommodationDistanceCm={100} enablePLR={true} />;
 }
 
 // ============================================================================
 // 10. REPRODUCTIVE 3D GEOMETRY
 // ============================================================================
 function ReproductiveGeometry({ clippingPlanes }: { clippingPlanes: THREE.Plane[] }) {
-  return (
-    <group rotation={[0.1, 0, 0]}>
-      {/* Uterus Body (Pear cone) */}
-      <mesh position={[0, 0.1, 0]} rotation={[Math.PI, 0, 0]}>
-        <coneGeometry args={[0.48, 0.85, 32]} />
-        <meshPhysicalMaterial
-          color="#ec4899"
-          roughness={0.3}
-          clearcoat={0.8}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-      {/* Bilateral Ovaries */}
-      <mesh position={[-0.75, 0.18, 0]} scale={[1.2, 0.8, 0.8]}>
-        <sphereGeometry args={[0.13, 16, 16]} />
-        <meshPhysicalMaterial
-          color="#fbcfe8"
-          roughness={0.4}
-          clearcoat={0.5}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-      <mesh position={[0.75, 0.18, 0]} scale={[1.2, 0.8, 0.8]}>
-        <sphereGeometry args={[0.13, 16, 16]} />
-        <meshPhysicalMaterial
-          color="#fbcfe8"
-          roughness={0.4}
-          clearcoat={0.5}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-    </group>
-  );
+  return <LifelikeReproductiveModel clippingPlanes={clippingPlanes} cycleDay={14} animateCycle={false} />;
 }
 
 // ============================================================================
 // 11. EXERCISE & SARCOMERE 3D GEOMETRY
 // ============================================================================
 function ExerciseGeometry({ clippingPlanes }: { clippingPlanes: THREE.Plane[] }) {
-  return (
-    <group rotation={[0.4, 0.8, 0]}>
-      {/* Myofibril Outer Sheath */}
-      <mesh>
-        <cylinderGeometry args={[0.48, 0.48, 2.0, 16]} />
-        <meshPhysicalMaterial
-          color="#ef4444"
-          roughness={0.3}
-          transparent
-          opacity={0.6}
-          clearcoat={0.5}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-      {/* Actin Filaments */}
-      {[-0.2, 0.2].map((x, idx) => (
-        <mesh key={idx} position={[x, 0, 0.16]}>
-          <cylinderGeometry args={[0.04, 0.04, 1.8, 8]} />
-          <meshPhysicalMaterial
-            color="#dc2626"
-            roughness={0.15}
-            clippingPlanes={clippingPlanes}
-            clipShadows
-          />
-        </mesh>
-      ))}
-      {/* Myosin Thick Filament */}
-      <mesh position={[0, 0, -0.1]}>
-        <cylinderGeometry args={[0.09, 0.09, 1.4, 8]} />
-        <meshPhysicalMaterial
-          color="#fbbf24"
-          roughness={0.1}
-          metalness={0.6}
-          clearcoat={1.0}
-          clippingPlanes={clippingPlanes}
-          clipShadows
-        />
-      </mesh>
-    </group>
-  );
+  return <LifelikeSarcomereModel clippingPlanes={clippingPlanes} contractionFrequencyHz={2} fatigueLevel={0} />;
 }
 
 // ============================================================================
@@ -1211,7 +876,118 @@ function LowBandwidthVectorScene({ preset, activePinId, onPinSelect }: LowBandwi
             </g>
           )}
 
-          {!["cardiovascular", "respiratory", "renal", "neurophysiology"].includes(preset.id) && (
+          {/* 5. Gastrointestinal SVG */}
+          {preset.id === "gastrointestinal" && (
+            <g>
+              <ellipse cx="165" cy="185" rx="80" ry="65" fill="#f87171" opacity="0.85" stroke="#ef4444" strokeWidth="2"/>
+              <rect x="175" y="80" width="22" height="80" rx="8" fill="#fda4af" stroke="#f43f5e" strokeWidth="2"/>
+              <path d="M 245 195 C 295 195, 310 240, 295 285 C 280 320, 235 325, 220 310" fill="none" stroke="#fb923c" strokeWidth="18" strokeLinecap="round"/>
+              <circle cx="248" cy="200" r="14" fill="none" stroke="#fbbf24" strokeWidth="4"/>
+              <path d="M 80 100 C 60 120, 55 160, 80 175 C 105 190, 145 185, 155 165 C 135 145, 115 120, 80 100 Z" fill="#78350f" opacity="0.8"/>
+              <ellipse cx="162" cy="185" rx="12" ry="18" fill="#16a34a" opacity="0.8"/>
+              <path d="M 170 270 Q 200 280, 230 270" fill="none" stroke="#94a3b8" strokeWidth="2" strokeDasharray="6 3"/>
+            </g>
+          )}
+
+          {/* 6. Endocrine SVG */}
+          {preset.id === "endocrine" && (
+            <g>
+              <rect x="185" y="80" width="32" height="200" rx="10" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="2"/>
+              <ellipse cx="155" cy="205" rx="38" ry="58" fill="#b91c1c" opacity="0.85" stroke="#7f1d1d" strokeWidth="2"/>
+              <ellipse cx="247" cy="205" rx="38" ry="58" fill="#b91c1c" opacity="0.85" stroke="#7f1d1d" strokeWidth="2"/>
+              <rect x="155" y="215" width="92" height="22" rx="8" fill="#991b1b"/>
+              <circle cx="155" cy="185" r="8" fill="#fca5a5" opacity="0.7"/>
+              <circle cx="247" cy="195" r="7" fill="#fca5a5" opacity="0.7"/>
+              <polygon points="315,120 335,145 295,145" fill="#ea580c" opacity="0.9"/>
+              <circle cx="200" cy="55" r="14" fill="#fbbf24" opacity="0.9"/>
+              <circle cx="215" cy="56" r="11" fill="#a78bfa" opacity="0.9"/>
+              <line x1="200" y1="70" x2="200" y2="100" stroke="#64748b" strokeWidth="2" strokeDasharray="4 3"/>
+            </g>
+          )}
+
+          {/* 7. Cell Homeostasis SVG */}
+          {preset.id === "homeostasis" && (
+            <g>
+              <text x="200" y="65" textAnchor="middle" fill="#94a3b8" fontSize="11" fontFamily="monospace">EXTRACELLULAR</text>
+              <text x="200" y="345" textAnchor="middle" fill="#94a3b8" fontSize="11" fontFamily="monospace">CYTOPLASM</text>
+              {[100, 140, 180, 220, 260, 300].map((x, i) => <circle key={`th${i}`} cx={x} cy="140" r="14" fill="#3b82f6" opacity="0.85"/>)}
+              {[100, 140, 180, 220, 260, 300].map((x, i) => <line key={`tt${i}`} x1={x} y1="154" x2={x} y2="192" stroke="#f43f5e" strokeWidth="5" strokeLinecap="round"/>)}
+              {[100, 140, 180, 220, 260, 300].map((x, i) => <line key={`bt${i}`} x1={x} y1="210" x2={x} y2="248" stroke="#f43f5e" strokeWidth="5" strokeLinecap="round"/>)}
+              {[100, 140, 180, 220, 260, 300].map((x, i) => <circle key={`bh${i}`} cx={x} cy="262" r="14" fill="#3b82f6" opacity="0.85"/>)}
+              <rect x="188" y="138" width="26" height="126" rx="8" fill="#10b981" opacity="0.6"/>
+              <rect x="240" y="160" width="10" height="82" rx="3" fill="#fbbf24" opacity="0.7"/>
+            </g>
+          )}
+
+          {/* 8. Blood Composition SVG */}
+          {preset.id === "blood-composition" && (
+            <g>
+              <defs>
+                <linearGradient id="rbcGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#ef4444"/><stop offset="100%" stopColor="#991b1b"/></linearGradient>
+              </defs>
+              <circle cx="200" cy="200" r="150" fill="#fef3c7" opacity="0.2" stroke="#fde68a" strokeWidth="1"/>
+              <ellipse cx="190" cy="175" rx="52" ry="30" fill="url(#rbcGrad)"/>
+              <ellipse cx="190" cy="175" rx="30" ry="10" fill="#991b1b" opacity="0.8"/>
+              <ellipse cx="290" cy="220" rx="44" ry="25" fill="url(#rbcGrad)" transform="rotate(-20, 290, 220)"/>
+              <circle cx="140" cy="250" r="34" fill="#f0fdf4" opacity="0.9" stroke="#86efac" strokeWidth="2"/>
+              <circle cx="132" cy="248" r="11" fill="#7c3aed" opacity="0.7"/>
+              <circle cx="148" cy="242" r="9" fill="#7c3aed" opacity="0.7"/>
+              {[[250,150],[270,270],[170,300],[310,165]].map(([x,y],i) => <ellipse key={i} cx={x} cy={y} rx="10" ry="6" fill="#fbbf24" opacity="0.8"/>)}
+            </g>
+          )}
+
+          {/* 9. Vision SVG */}
+          {preset.id === "special-senses-vision" && (
+            <g>
+              <circle cx="200" cy="200" r="115" fill="#f1f5f9" stroke="#cbd5e1" strokeWidth="3"/>
+              <ellipse cx="295" cy="200" rx="35" ry="55" fill="white" opacity="0.6"/>
+              <circle cx="285" cy="200" r="44" fill="#2563eb" opacity="0.9"/>
+              <circle cx="285" cy="200" r="20" fill="#020617"/>
+              <path d="M 90 150 Q 70 200, 90 250" fill="none" stroke="#fda4af" strokeWidth="3"/>
+              <circle cx="95" cy="200" r="12" fill="#fef3c7" stroke="#fbbf24" strokeWidth="2"/>
+              <line x1="95" y1="200" x2="200" y2="170" stroke="#dc2626" strokeWidth="2"/>
+              <line x1="95" y1="200" x2="200" y2="230" stroke="#dc2626" strokeWidth="2"/>
+              <line x1="95" y1="200" x2="180" y2="200" stroke="#2563eb" strokeWidth="2"/>
+              <ellipse cx="250" cy="200" rx="18" ry="28" fill="white" opacity="0.5" stroke="#94a3b8" strokeWidth="1"/>
+              <circle cx="170" cy="200" r="70" fill="#e0f2fe" opacity="0.15"/>
+            </g>
+          )}
+
+          {/* 10. Reproductive SVG */}
+          {preset.id === "reproductive-cycles" && (
+            <g>
+              <path d="M 200 310 C 165 310, 140 280, 140 250 C 140 210, 160 185, 200 180 C 240 185, 260 210, 260 250 C 260 280, 235 310, 200 310 Z" fill="#ec4899" opacity="0.85" stroke="#be185d" strokeWidth="2"/>
+              <rect x="185" y="305" width="30" height="30" rx="8" fill="#f9a8d4"/>
+              <path d="M 140 215 C 110 215, 90 195, 75 210" fill="none" stroke="#f9a8d4" strokeWidth="8" strokeLinecap="round"/>
+              <path d="M 260 215 C 290 215, 310 195, 325 210" fill="none" stroke="#f9a8d4" strokeWidth="8" strokeLinecap="round"/>
+              <ellipse cx="65" cy="218" rx="20" ry="15" fill="#fbcfe8" stroke="#f9a8d4" strokeWidth="2"/>
+              <ellipse cx="335" cy="218" rx="20" ry="15" fill="#fbcfe8" stroke="#f9a8d4" strokeWidth="2"/>
+              <circle cx="325" cy="210" r="9" fill="#fef3c7" opacity="0.9" stroke="#fbbf24" strokeWidth="1.5"/>
+              <path d="M 200 295 C 170 295, 155 270, 155 250 C 155 220, 170 200, 200 196 C 230 200, 245 220, 245 250 C 245 270, 230 295, 200 295 Z" fill="#fda4af" opacity="0.6"/>
+            </g>
+          )}
+
+          {/* 11. Exercise / Sarcomere SVG */}
+          {preset.id === "integrated-exercise" && (
+            <g>
+              <rect x="70" y="145" width="16" height="110" rx="4" fill="#6d28d9"/>
+              <rect x="314" y="145" width="16" height="110" rx="4" fill="#6d28d9"/>
+              <rect x="192" y="165" width="16" height="70" rx="3" fill="#1e40af"/>
+              <rect x="86" y="170" width="90" height="10" rx="4" fill="#dc2626"/>
+              <rect x="86" y="220" width="90" height="10" rx="4" fill="#dc2626"/>
+              <rect x="224" y="170" width="90" height="10" rx="4" fill="#dc2626"/>
+              <rect x="224" y="220" width="90" height="10" rx="4" fill="#dc2626"/>
+              <rect x="110" y="188" width="180" height="14" rx="5" fill="#fbbf24"/>
+              <circle cx="130" cy="184" r="9" fill="#fbbf24" stroke="#d97706" strokeWidth="1.5"/>
+              <circle cx="270" cy="184" r="9" fill="#fbbf24" stroke="#d97706" strokeWidth="1.5"/>
+              <text x="200" y="135" textAnchor="middle" fill="#94a3b8" fontSize="11" fontFamily="monospace">A-band (myosin)</text>
+              <text x="105" y="280" textAnchor="middle" fill="#94a3b8" fontSize="10" fontFamily="monospace">I-band</text>
+              <text x="295" y="280" textAnchor="middle" fill="#94a3b8" fontSize="10" fontFamily="monospace">I-band</text>
+            </g>
+          )}
+
+          {/* Fallback for unlisted presets */}
+          {!["cardiovascular", "respiratory", "renal", "neurophysiology", "gastrointestinal", "endocrine", "homeostasis", "blood-composition", "special-senses-vision", "reproductive-cycles", "integrated-exercise"].includes(preset.id) && (
             <g>
               <circle cx="200" cy="200" r="130" fill="#1e1b4b" stroke="#6366f1" strokeWidth="3" strokeDasharray="6 4" />
               <circle cx="200" cy="200" r="85" fill="#312e81" stroke="#818cf8" strokeWidth="2" />

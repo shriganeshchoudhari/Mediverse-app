@@ -98,7 +98,8 @@ export default function GlobalSocraticAssistant() {
 
   useEffect(() => {
     const handler = (e: Event) => {
-      const text = (e as CustomEvent).detail?.text;
+      const customEvent = e as CustomEvent;
+      const text = customEvent.detail?.context || customEvent.detail?.text;
       if (text) {
         setPrefillText(text);
         setIsOpen(true);
@@ -106,7 +107,11 @@ export default function GlobalSocraticAssistant() {
       }
     };
     window.addEventListener('mediverse:ask-ai', handler);
-    return () => window.removeEventListener('mediverse:ask-ai', handler);
+    window.addEventListener('mediverse:open-ai-with-context', handler);
+    return () => {
+      window.removeEventListener('mediverse:ask-ai', handler);
+      window.removeEventListener('mediverse:open-ai-with-context', handler);
+    };
   }, []);
 
   // Prevent background scrolling when open on mobile

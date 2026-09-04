@@ -60,6 +60,39 @@ export default function GlobalSearch() {
     subject.chapters.map((ch) => ({ ...ch, subjectTitle: subject.title }))
   );
 
+  const ORGAN_QUICK_LINKS = [
+    { id: 'cardiovascular', name: 'Heart & Cardiovascular System (3D)', icon: '🫀', route: '/dissection', presetId: 'cardiovascular' },
+    { id: 'respiratory', name: 'Lungs & Respiratory Mechanics (3D)', icon: '🫁', route: '/dissection', presetId: 'respiratory' },
+    { id: 'renal', name: 'Kidney & Glomerular Filtration (3D)', icon: '🫘', route: '/dissection', presetId: 'renal' },
+    { id: 'neurophysiology', name: 'Neuron & Action Potentials (3D)', icon: '🧠', route: '/dissection', presetId: 'neurophysiology' },
+    { id: 'special-senses-vision', name: 'Eye, Cornea & Visual Pathway (3D)', icon: '👁️', route: '/dissection', presetId: 'special-senses-vision' },
+    { id: 'gastrointestinal', name: 'GI Tract, Stomach & Peristalsis (3D)', icon: '🫃', route: '/dissection', presetId: 'gastrointestinal' },
+    { id: 'endocrine', name: 'Thyroid, Adrenals & Endocrine (3D)', icon: '⚗️', route: '/dissection', presetId: 'endocrine' },
+    { id: 'blood-composition', name: 'Blood Cells, RBCs & Hemostasis (3D)', icon: '🩸', route: '/dissection', presetId: 'blood-composition' },
+    { id: 'reproductive-cycles', name: 'Uterus, Ovary & Ovarian Cycle (3D)', icon: '🔬', route: '/dissection', presetId: 'reproductive-cycles' },
+    { id: 'homeostasis', name: 'Lipid Bilayer & Fluid Mosaic Membrane (3D)', icon: '🫧', route: '/dissection', presetId: 'homeostasis' },
+    { id: 'integrated-exercise', name: 'Sarcomere & Huxley Sliding Filament (3D)', icon: '💪', route: '/dissection', presetId: 'integrated-exercise' },
+  ];
+
+  const SIMULATOR_QUICK_LINKS = [
+    { id: 'pharmacokinetics', name: 'Pharmacokinetics PK/PD & TDM Solver', icon: '💊', route: '/simulators/pharmacokinetics' },
+    { id: 'ecg-rhythm', name: '12-Lead ECG Rhythm Synthesizer', icon: '📈', route: '/simulators/ecg-rhythm' },
+    { id: 'hemodynamics-shock', name: 'Hemodynamic Shock & Swan-Ganz Classifier', icon: '🩺', route: '/simulators/hemodynamics-shock' },
+    { id: 'cardiac-cycle', name: 'Cardiac Cycle & Suga-Sagawa PV Loop', icon: '⚡', route: '/simulators/cardiac-cycle' },
+    { id: 'renal-filtration', name: 'Renal Clearance & GFR Solver', icon: '💧', route: '/simulators/renal-filtration' },
+    { id: 'respiratory-vq', name: 'V/Q Mismatch & Alveolar Gas Exchange', icon: '💨', route: '/simulators/respiratory-vq' },
+    { id: 'spirometry', name: 'Spirometry & Airway Flow-Volume Loop', icon: '📊', route: '/simulators/spirometry' },
+    { id: 'nerve-muscle', name: 'Nerve-Muscle Electrophysiology & GHK', icon: '⚡', route: '/simulators/nerve-muscle' },
+  ];
+
+  const matchedOrgans = query
+    ? ORGAN_QUICK_LINKS.filter((o) => o.name.toLowerCase().includes(query.toLowerCase()))
+    : [];
+
+  const matchedSimulators = query
+    ? SIMULATOR_QUICK_LINKS.filter((s) => s.name.toLowerCase().includes(query.toLowerCase()))
+    : [];
+
   const filteredChapters = query
     ? allChapters.filter((chapter) =>
         chapter.title.toLowerCase().includes(query.toLowerCase()) ||
@@ -119,31 +152,107 @@ export default function GlobalSearch() {
                   </li>
                 ))}
               </ul>
-            ) : filteredChapters.length > 0 ? (
-              <ul className="space-y-1">
-                {filteredChapters.map((chapter) => (
-                  <li key={chapter.id}>
-                    <button
-                      onClick={() => {
-                        setIsOpen(false);
-                        router.push(`/lessons/${chapter.id}`);
-                      }}
-                      className="w-full text-left flex items-center justify-between p-3 rounded-lg hover:bg-slate-800 transition-colors"
-                    >
-                      <div>
-                        <h4 className="text-white font-medium">{chapter.title}</h4>
-                        <span className="text-xs text-slate-500 uppercase">
-                          <span className="inline-block px-1.5 py-0.5 rounded bg-slate-800 mr-2 text-[10px]">Allopathic</span>
-                          {chapter.subjectTitle} • {chapter.section}
-                        </span>
-                      </div>
-                      <span className="text-xs font-bold text-blue-500 bg-blue-500/10 px-2 py-1 rounded">
-                        Jump to Chapter
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
+            ) : (filteredChapters.length > 0 || matchedOrgans.length > 0 || matchedSimulators.length > 0) ? (
+              <div className="space-y-4">
+                {/* 3D Organ Models Category */}
+                {matchedOrgans.length > 0 && (
+                  <div>
+                    <h5 className="text-[11px] font-bold uppercase tracking-wider text-cyan-400 px-3 py-1 flex items-center gap-1.5">
+                      🫀 3D Anatomical Organ Models
+                    </h5>
+                    <ul className="space-y-1 mt-1">
+                      {matchedOrgans.map((org) => (
+                        <li key={org.id}>
+                          <button
+                            onClick={() => {
+                              setIsOpen(false);
+                              router.push(`${org.route}?preset=${org.presetId}`);
+                            }}
+                            className="w-full text-left flex items-center justify-between p-2.5 rounded-lg hover:bg-slate-800 transition-colors"
+                          >
+                            <div className="flex items-center gap-2.5">
+                              <span className="text-base">{org.icon}</span>
+                              <div>
+                                <h4 className="text-white font-medium text-sm">{org.name}</h4>
+                                <span className="text-[10px] text-cyan-400/80 font-mono">Photorealistic 3D Living Model</span>
+                              </div>
+                            </div>
+                            <span className="text-xs font-bold text-cyan-400 bg-cyan-950/60 border border-cyan-800/40 px-2 py-0.5 rounded">
+                              View 3D Model
+                            </span>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Physiology Simulators Category */}
+                {matchedSimulators.length > 0 && (
+                  <div>
+                    <h5 className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 px-3 py-1 flex items-center gap-1.5">
+                      ⚡ Physiology Simulation Engines
+                    </h5>
+                    <ul className="space-y-1 mt-1">
+                      {matchedSimulators.map((sim) => (
+                        <li key={sim.id}>
+                          <button
+                            onClick={() => {
+                              setIsOpen(false);
+                              router.push(sim.route);
+                            }}
+                            className="w-full text-left flex items-center justify-between p-2.5 rounded-lg hover:bg-slate-800 transition-colors"
+                          >
+                            <div className="flex items-center gap-2.5">
+                              <span className="text-base">{sim.icon}</span>
+                              <div>
+                                <h4 className="text-white font-medium text-sm">{sim.name}</h4>
+                                <span className="text-[10px] text-emerald-400/80 font-mono">Interactive Solver Lab</span>
+                              </div>
+                            </div>
+                            <span className="text-xs font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-2 py-0.5 rounded">
+                              Launch Lab
+                            </span>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Chapters Category */}
+                {filteredChapters.length > 0 && (
+                  <div>
+                    <h5 className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-3 py-1">
+                      📖 Curriculum Chapters
+                    </h5>
+                    <ul className="space-y-1 mt-1">
+                      {filteredChapters.map((chapter) => (
+                        <li key={chapter.id}>
+                          <button
+                            onClick={() => {
+                              setIsOpen(false);
+                              router.push(`/lessons/${chapter.id}`);
+                            }}
+                            className="w-full text-left flex items-center justify-between p-2.5 rounded-lg hover:bg-slate-800 transition-colors"
+                          >
+                            <div>
+                              <h4 className="text-white font-medium text-sm">{chapter.title}</h4>
+                              <span className="text-xs text-slate-500 uppercase">
+                                <span className="inline-block px-1.5 py-0.5 rounded bg-slate-800 mr-2 text-[10px]">Allopathic</span>
+                                {chapter.subjectTitle} • {chapter.section}
+                              </span>
+                            </div>
+                            <span className="text-xs font-bold text-blue-500 bg-blue-500/10 px-2 py-1 rounded">
+                              Jump to Chapter
+                            </span>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
             ) : (
               <div className="p-8 text-center text-slate-500">
                 <p>No chapters found matching &quot;{query}&quot;.</p>
