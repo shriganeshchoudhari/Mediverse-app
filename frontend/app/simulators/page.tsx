@@ -82,6 +82,14 @@ const SIMULATORS = [
     status: 'Available'
   },
   {
+    id: 'icp-dynamics',
+    title: 'Neurocritical Care & ICP Dynamics',
+    description: 'Monro-Kellie volume-pressure elastance, P1-P3 pulse waveform morphology, Lundberg A/B/C waves, and Brain Trauma Foundation (BTF) tiered intracranial hypertension protocols.',
+    icon: <Brain className="w-7 h-7 text-purple-400" />,
+    badge: 'Neurocritical Care',
+    status: 'Available'
+  },
+  {
     id: 'cardiac-cycle',
     title: 'Cardiac Cycle & PV Loop',
     description: 'Manipulate preload, afterload, and contractility to instantly visualize Suga-Sagawa pressure-volume loops and Wiggers dynamics.',

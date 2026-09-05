@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'icp-dynamics', name: 'Neurocritical Care & Intracranial Pressure (ICP / TBI) Workstation', icon: '🧠', route: '/simulators/icp-dynamics' },
     { id: 'crrt', name: 'Continuous Renal Replacement Therapy (CRRT) & Blood Purification', icon: '💧', route: '/simulators/crrt' },
     { id: 'pharmacogenomics', name: 'Clinical Pharmacogenomics (PGx) & Precision Therapeutics', icon: '🧬', route: '/simulators/pharmacogenomics' },
     { id: 'anesthesia-machine', name: 'Anesthesia Delivery Workstation & Volatile Vaporizers', icon: '🎛️', route: '/simulators/anesthesia-machine' },
