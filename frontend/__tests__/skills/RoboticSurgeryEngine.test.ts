@@ -2,8 +2,9 @@ import {
   computePneumoperitoneumHemodynamics,
   computeThermalSpreadMm,
   ROBOTIC_SURGERY_PRESETS,
+  ROBOTIC_PRESETS,
   RoboticPresetId
-} from '@/../.gemini/skills/RoboticSurgeryEngine';
+} from '@/.gemini/skills/RoboticSurgeryEngine';
 
 describe('RoboticSurgeryEngine', () => {
   describe('Pneumoperitoneum & Table Tilt Hemodynamics', () => {

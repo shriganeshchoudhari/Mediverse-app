@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -287,6 +287,14 @@ const SIMULATORS = [
     description: 'da Vinci surgical console, EndoWrist 7-DOF kinematics, CO2 pneumoperitoneum hemodynamics, steep Trendelenburg mechanics, electrosurgical thermal spread, and laparoscopic emergencies.',
     icon: <Scissors className="w-7 h-7 text-emerald-400" />,
     badge: 'Robotic Surgery & Laparoscopy',
+    status: 'Available'
+  },
+  {
+    id: 'trauma-atls',
+    title: 'Trauma & ATLS Primary Survey',
+    description: 'Hemorrhagic shock classification (Class I–IV), FAST/eFAST exam with free-fluid visualization, massive transfusion protocol 1:1:1, damage control surgery decision tree, tension pneumothorax, and cardiac tamponade.',
+    icon: <ShieldAlert className="w-7 h-7 text-red-500 animate-pulse" />,
+    badge: 'Trauma Surgery & ATLS',
     status: 'Available'
   }
 ];

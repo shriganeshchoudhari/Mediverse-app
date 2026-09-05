@@ -40,13 +40,14 @@ describe('TEENavigationSimulator Component', () => {
     render(<TEENavigationSimulator />);
 
     // Click AS Solver tab with exact name
-    const asTabBtn = screen.getByRole('button', { name: 'AS Solver', exact: true });
+    const asTabBtn = screen.getByRole('button', { name: /AS Solver/i });
     fireEvent.click(asTabBtn);
     expect(screen.getByText(/Continuity Equation Solver/i)).toBeInTheDocument();
     expect(screen.getByText(/Aortic Valve Area \(AVA\):/i)).toBeInTheDocument();
 
-    // Click Diastology tab with exact name
-    const diastologyTabBtn = screen.getByRole('button', { name: 'Diastology', exact: true });
+    // Click Diastology tab
+    const diastologyButtons = screen.getAllByRole('button', { name: /Diastology/i });
+    const diastologyTabBtn = diastologyButtons.find(b => b.textContent?.trim() === 'Diastology') || diastologyButtons[diastologyButtons.length - 1];
     fireEvent.click(diastologyTabBtn);
     expect(screen.getByText(/Diastolic & Chamber Pressures/i)).toBeInTheDocument();
     expect(screen.getByText(/E \/ A Ratio:/i)).toBeInTheDocument();

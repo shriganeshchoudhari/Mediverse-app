@@ -77,6 +77,7 @@ export default function GlobalSearch() {
   const SIMULATOR_QUICK_LINKS = [
     { id: 'robotic-surgery', name: 'Minimally Invasive Surgery & Robotic Laparoscopy Workstation', icon: '✂️', route: '/simulators/robotic-surgery' },
     { id: 'ventricular-assist-device', name: 'Mechanical Circulatory Support & Percutaneous VAD Workstation', icon: '⚙️', route: '/simulators/ventricular-assist-device' },
+    { id: 'trauma-atls', name: 'Trauma & ATLS Primary Survey Workstation', icon: '🚑', route: '/simulators/trauma-atls' },
     { id: 'coronary-angiography', name: 'Cardiac Catheterization & Coronary Angiography Workstation', icon: '🫀', route: '/simulators/coronary-angiography' },
     { id: 'eeg-neurophysiology', name: 'Clinical Neurophysiology & Quantitative EEG (qEEG) Workstation', icon: '🧠', route: '/simulators/eeg-neurophysiology' },
     { id: 'bronchoscopy-navigation', name: 'Flexible Bronchoscopy & EBUS Staging Workstation', icon: '🫁', route: '/simulators/bronchoscopy-navigation' },
