@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'ventricular-assist-device', name: 'Mechanical Circulatory Support & Percutaneous VAD Workstation', icon: '⚙️', route: '/simulators/ventricular-assist-device' },
     { id: 'coronary-angiography', name: 'Cardiac Catheterization & Coronary Angiography Workstation', icon: '🫀', route: '/simulators/coronary-angiography' },
     { id: 'eeg-neurophysiology', name: 'Clinical Neurophysiology & Quantitative EEG (qEEG) Workstation', icon: '🧠', route: '/simulators/eeg-neurophysiology' },
     { id: 'bronchoscopy-navigation', name: 'Flexible Bronchoscopy & EBUS Staging Workstation', icon: '🫁', route: '/simulators/bronchoscopy-navigation' },

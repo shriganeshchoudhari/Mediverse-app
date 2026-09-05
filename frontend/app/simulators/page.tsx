@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -271,6 +271,14 @@ const SIMULATORS = [
     description: 'C-Arm fluoroscopy projections (Spider view, RAO Caudal/Cranial), 18-segment coronary tree, Gorlin equation Aortic Valve Area, FFR/iFR adenosine physiology, and TIMI flow grading.',
     icon: <Radio className="w-7 h-7 text-red-500 animate-pulse" />,
     badge: 'Interventional Cardiology',
+    status: 'Available'
+  },
+  {
+    id: 'ventricular-assist-device',
+    title: 'Mechanical Circulatory Support & Percutaneous VADs',
+    description: 'Microaxial transvalvular blood pumps (Impella CP, 5.5, RP), TandemHeart, and ECPELLA synergy: real-time PV-loop unloading dynamics, P-level kinetics, purge fluidics, and suction troubleshooting.',
+    icon: <Cpu className="w-7 h-7 text-cyan-400" />,
+    badge: 'Mechanical Support & VAD',
     status: 'Available'
   }
 ];
