@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -279,6 +279,14 @@ const SIMULATORS = [
     description: 'Microaxial transvalvular blood pumps (Impella CP, 5.5, RP), TandemHeart, and ECPELLA synergy: real-time PV-loop unloading dynamics, P-level kinetics, purge fluidics, and suction troubleshooting.',
     icon: <Cpu className="w-7 h-7 text-cyan-400" />,
     badge: 'Mechanical Support & VAD',
+    status: 'Available'
+  },
+  {
+    id: 'robotic-surgery',
+    title: 'Minimally Invasive Surgery & Robotic Laparoscopy',
+    description: 'da Vinci surgical console, EndoWrist 7-DOF kinematics, CO2 pneumoperitoneum hemodynamics, steep Trendelenburg mechanics, electrosurgical thermal spread, and laparoscopic emergencies.',
+    icon: <Scissors className="w-7 h-7 text-emerald-400" />,
+    badge: 'Robotic Surgery & Laparoscopy',
     status: 'Available'
   }
 ];
