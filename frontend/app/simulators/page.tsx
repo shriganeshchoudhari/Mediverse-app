@@ -122,6 +122,14 @@ const SIMULATORS = [
     status: 'Available'
   },
   {
+    id: 'cpb-perfusion',
+    title: 'Cardiopulmonary Bypass (CPB) & Perfusion',
+    description: 'Heart-lung machine hydraulics: roller vs centrifugal pumps, VAVD drainage, hypothermic gas strategies, cardioplegia arrest, and protamine stoichiometry.',
+    icon: <Heart className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Cardiothoracic CPB',
+    status: 'Available'
+  },
+  {
     id: 'cardiac-cycle',
     title: 'Cardiac Cycle & PV Loop',
     description: 'Manipulate preload, afterload, and contractility to instantly visualize Suga-Sagawa pressure-volume loops and Wiggers dynamics.',

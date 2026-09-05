@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'cpb-perfusion', name: 'Cardiopulmonary Bypass (CPB) Perfusion Workstation', icon: '🫀', route: '/simulators/cpb-perfusion' },
     { id: 'tee-navigation', name: 'Transesophageal Echocardiography (TEE) 28-View Workstation', icon: '🧭', route: '/simulators/tee-navigation' },
     { id: 'ecmo-dynamics', name: 'Extracorporeal Membrane Oxygenation (ECMO) Workstation', icon: '🫁', route: '/simulators/ecmo-dynamics' },
     { id: 'iabp-counterpulsation', name: 'Intra-Aortic Balloon Pump (IABP) Counterpulsation Workstation', icon: '🫀', route: '/simulators/iabp-counterpulsation' },
