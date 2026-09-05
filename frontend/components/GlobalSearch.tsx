@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'anesthesia-machine', name: 'Anesthesia Delivery Workstation & Volatile Vaporizers', icon: '🎛️', route: '/simulators/anesthesia-machine' },
     { id: 'cpet', name: 'Cardiopulmonary Exercise Testing (CPET) & Wasserman 9-Panel', icon: '🏃', route: '/simulators/cpet' },
     { id: 'pediatric-resuscitation', name: 'Pediatric & Neonatal Resuscitation (PALS / NRP)', icon: '👶', route: '/simulators/pediatric-resuscitation' },
     { id: 'mechanical-ventilation', name: 'Mechanical Ventilation & Respiratory Mechanics', icon: '💨', route: '/simulators/mechanical-ventilation' },

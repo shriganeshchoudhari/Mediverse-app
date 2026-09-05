@@ -58,6 +58,14 @@ const SIMULATORS = [
     status: 'Available'
   },
   {
+    id: 'anesthesia-machine',
+    title: 'Anesthesia Delivery & Vaporizer Workstation',
+    description: 'Circle breathing system physics, Link-25 hypoxic guard, low-flow anesthesia kinetics, age-adjusted MAC, FA/FI uptake curves, CO2 absorber exhaustion, and Malignant Hyperthermia Dantrolene protocol.',
+    icon: <Gauge className="w-7 h-7 text-amber-400" />,
+    badge: 'Anesthesiology & Critical Care',
+    status: 'Available'
+  },
+  {
     id: 'cardiac-cycle',
     title: 'Cardiac Cycle & PV Loop',
     description: 'Manipulate preload, afterload, and contractility to instantly visualize Suga-Sagawa pressure-volume loops and Wiggers dynamics.',
