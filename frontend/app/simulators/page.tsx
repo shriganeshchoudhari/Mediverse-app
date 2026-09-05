@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -47,6 +47,14 @@ const SIMULATORS = [
     description: 'Broselow tape weight estimation, pediatric endotracheal sizing, PALS weight-based emergency drug calculator, and NRP Golden Minute APGAR scoring.',
     icon: <Baby className="w-7 h-7 text-rose-400" />,
     badge: 'Pediatric Emergency',
+    status: 'Available'
+  },
+  {
+    id: 'cpet',
+    title: 'Cardiopulmonary Exercise Testing (CPET)',
+    description: 'Wasserman 9-panel diagnostic workstation: VO2 peak, anaerobic threshold (V-slope), ventilatory efficiency (VE/VCO2 slope), O2 pulse kinetics, breathing reserve, and exercise limitation classification.',
+    icon: <Flame className="w-7 h-7 text-amber-400" />,
+    badge: 'Metabolic Ergometry',
     status: 'Available'
   },
   {
