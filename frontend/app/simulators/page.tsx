@@ -96,6 +96,14 @@ const SIMULATORS = [
     icon: <Stethoscope className="w-7 h-7 text-orange-400" />,
     badge: 'Critical Care',
     status: 'Available'
+  },
+  {
+    id: 'clinical-case-branching',
+    title: 'Clinical Case Branching & AI OSCE Evaluator',
+    description: 'Interactive multi-branch patient encounters: manage acute RV STEMI, febrile neutropenia, dynamic hemodynamics, and receive 5-dimension AI rubric scoring with Attending Viva.',
+    icon: <Brain className="w-7 h-7 text-indigo-400" />,
+    badge: 'OSCE Clinical Exam',
+    status: 'Available'
   }
 ];
 
