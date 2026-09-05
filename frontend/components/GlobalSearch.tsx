@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'crrt', name: 'Continuous Renal Replacement Therapy (CRRT) & Blood Purification', icon: '💧', route: '/simulators/crrt' },
     { id: 'pharmacogenomics', name: 'Clinical Pharmacogenomics (PGx) & Precision Therapeutics', icon: '🧬', route: '/simulators/pharmacogenomics' },
     { id: 'anesthesia-machine', name: 'Anesthesia Delivery Workstation & Volatile Vaporizers', icon: '🎛️', route: '/simulators/anesthesia-machine' },
     { id: 'cpet', name: 'Cardiopulmonary Exercise Testing (CPET) & Wasserman 9-Panel', icon: '🏃', route: '/simulators/cpet' },

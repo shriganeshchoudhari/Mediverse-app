@@ -74,6 +74,14 @@ const SIMULATORS = [
     status: 'Available'
   },
   {
+    id: 'crrt',
+    title: 'Continuous Renal Replacement Therapy (CRRT)',
+    description: 'Extracorporeal blood purification: SCUF, CVVH, CVVHD, CVVHDF, TMP & filter clotting hydraulics, KDIGO effluent dosing, and regional citrate anticoagulation.',
+    icon: <Droplets className="w-7 h-7 text-sky-400" />,
+    badge: 'Critical Care Nephrology',
+    status: 'Available'
+  },
+  {
     id: 'cardiac-cycle',
     title: 'Cardiac Cycle & PV Loop',
     description: 'Manipulate preload, afterload, and contractility to instantly visualize Suga-Sagawa pressure-volume loops and Wiggers dynamics.',
