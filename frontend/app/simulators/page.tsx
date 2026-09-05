@@ -104,6 +104,14 @@ const SIMULATORS = [
     icon: <Brain className="w-7 h-7 text-indigo-400" />,
     badge: 'OSCE Clinical Exam',
     status: 'Available'
+  },
+  {
+    id: 'icu-telemetry',
+    title: 'ICU Central Telemetry Station',
+    description: 'Multi-bed real-time physiological waveforms (Lead II ECG, Pleth, Art Line), crisis alarm surveillance, 6-second caliper strips, and emergency bedside interventions.',
+    icon: <Activity className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Critical Care Telemetry',
+    status: 'Available'
   }
 ];
 

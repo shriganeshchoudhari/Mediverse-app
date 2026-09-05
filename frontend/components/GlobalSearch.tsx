@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'icu-telemetry', name: 'ICU Central Telemetry & Alarm Station', icon: '🚨', route: '/simulators/icu-telemetry' },
     { id: 'clinical-case-branching', name: 'Clinical Case Branching & AI OSCE Evaluator', icon: '🧠', route: '/simulators/clinical-case-branching' },
     { id: 'pharmacokinetics', name: 'Pharmacokinetics PK/PD & TDM Solver', icon: '💊', route: '/simulators/pharmacokinetics' },
     { id: 'ecg-rhythm', name: '12-Lead ECG Rhythm Synthesizer', icon: '📈', route: '/simulators/ecg-rhythm' },
