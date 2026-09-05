@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -111,6 +111,14 @@ const SIMULATORS = [
     description: 'VV & VA cannulation mechanics: sweep gas CO2 clearance, recirculation fraction, drainage chattering, Harlequin syndrome dual circulation, and ECPELLA LV venting.',
     icon: <Droplets className="w-7 h-7 text-sky-400" />,
     badge: 'Critical Care ECMO',
+    status: 'Available'
+  },
+  {
+    id: 'tee-navigation',
+    title: 'Transesophageal Echocardiography (TEE) Workstation',
+    description: 'ASE/SCA 28-view navigation, omniplane multiplane crystal rotation, aortic stenosis continuity equation, diastolic grading, and RVSP hemodynamics.',
+    icon: <Compass className="w-7 h-7 text-cyan-400" />,
+    badge: 'Cardiothoracic TEE',
     status: 'Available'
   },
   {
