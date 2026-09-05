@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'pediatric-resuscitation', name: 'Pediatric & Neonatal Resuscitation (PALS / NRP)', icon: '👶', route: '/simulators/pediatric-resuscitation' },
     { id: 'mechanical-ventilation', name: 'Mechanical Ventilation & Respiratory Mechanics', icon: '💨', route: '/simulators/mechanical-ventilation' },
     { id: 'lab-interpretation', name: 'Clinical Lab & Blood Gas (ABG/VBG) Solver', icon: '🔬', route: '/simulators/lab-interpretation' },
     { id: 'pocus', name: 'Point-of-Care Ultrasound (POCUS) & eFAST Station', icon: '📡', route: '/simulators/pocus' },

@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -39,6 +39,14 @@ const SIMULATORS = [
     description: 'Equation of motion solver: VCV/PCV waveforms, inspiratory hold mechanics (Pplat, Raw, Cstat), driving pressure, auto-PEEP, and ARDSNet PBW lung-protective titration.',
     icon: <Wind className="w-7 h-7 text-cyan-400" />,
     badge: 'Critical Care ICU',
+    status: 'Available'
+  },
+  {
+    id: 'pediatric-resuscitation',
+    title: 'Pediatric & Neonatal Resuscitation (PALS / NRP)',
+    description: 'Broselow tape weight estimation, pediatric endotracheal sizing, PALS weight-based emergency drug calculator, and NRP Golden Minute APGAR scoring.',
+    icon: <Baby className="w-7 h-7 text-rose-400" />,
+    badge: 'Pediatric Emergency',
     status: 'Available'
   },
   {
