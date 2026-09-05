@@ -232,6 +232,38 @@ const SIMULATORS = [
     icon: <Radio className="w-7 h-7 text-sky-400" />,
     badge: 'Acute Care Sonography',
     status: 'Available'
+  },
+  {
+    id: 'eeg-neurophysiology',
+    title: 'Clinical Neurophysiology & Quantitative EEG (qEEG)',
+    description: '16-channel electrophysiological tracing, International 10-20 montages (Double Banana, Transverse), 8 clinical presets (Absence 3Hz, PLEDs, Triphasic Waves, Burst Suppression), and FFT spectral analytics.',
+    icon: <Brain className="w-7 h-7 text-cyan-400" />,
+    badge: 'Clinical Neurophysiology',
+    status: 'Available'
+  },
+  {
+    id: 'bronchoscopy-navigation',
+    title: 'Flexible Bronchoscopy & EBUS Staging Workstation',
+    description: 'Tracheobronchial 18-segment navigation, IASLC lymph node map, EBUS-TBNA staging with ROSE cytology, BAL cell differentials, and massive hemoptysis balloon tamponade protocol.',
+    icon: <Wind className="w-7 h-7 text-teal-400" />,
+    badge: 'Interventional Pulmonology',
+    status: 'Available'
+  },
+  {
+    id: 'cpb-perfusion',
+    title: 'Cardiopulmonary Bypass (CPB) Perfusion Workstation',
+    description: 'Heart-lung machine hydraulics, roller vs centrifugal pump physics, alpha-stat vs pH-stat cooling, Del Nido vs Buckberg cardioplegia arrest, and protamine reversal stoichiometry.',
+    icon: <Heart className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Extracorporeal Perfusion',
+    status: 'Available'
+  },
+  {
+    id: 'tee-navigation',
+    title: 'Transesophageal Echocardiography (TEE) 28-View Workstation',
+    description: 'Master ASE/SCA 28 standard views across 4 depth zones, omniplane electronic crystal angle steering (0-180°), color flow Doppler, and continuity equation valve orifice hemodynamics.',
+    icon: <Compass className="w-7 h-7 text-emerald-400" />,
+    badge: 'Echocardiography Imaging',
+    status: 'Available'
   }
 ];
 

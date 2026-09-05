@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'eeg-neurophysiology', name: 'Clinical Neurophysiology & Quantitative EEG (qEEG) Workstation', icon: '🧠', route: '/simulators/eeg-neurophysiology' },
     { id: 'bronchoscopy-navigation', name: 'Flexible Bronchoscopy & EBUS Staging Workstation', icon: '🫁', route: '/simulators/bronchoscopy-navigation' },
     { id: 'cpb-perfusion', name: 'Cardiopulmonary Bypass (CPB) Perfusion Workstation', icon: '🫀', route: '/simulators/cpb-perfusion' },
     { id: 'tee-navigation', name: 'Transesophageal Echocardiography (TEE) 28-View Workstation', icon: '🧭', route: '/simulators/tee-navigation' },
