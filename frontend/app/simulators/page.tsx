@@ -34,6 +34,14 @@ const SIMULATORS = [
     status: 'Available'
   },
   {
+    id: 'mechanical-ventilation',
+    title: 'Mechanical Ventilation & Respiratory Mechanics',
+    description: 'Equation of motion solver: VCV/PCV waveforms, inspiratory hold mechanics (Pplat, Raw, Cstat), driving pressure, auto-PEEP, and ARDSNet PBW lung-protective titration.',
+    icon: <Wind className="w-7 h-7 text-cyan-400" />,
+    badge: 'Critical Care ICU',
+    status: 'Available'
+  },
+  {
     id: 'cardiac-cycle',
     title: 'Cardiac Cycle & PV Loop',
     description: 'Manipulate preload, afterload, and contractility to instantly visualize Suga-Sagawa pressure-volume loops and Wiggers dynamics.',
