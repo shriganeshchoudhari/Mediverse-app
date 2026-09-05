@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -87,6 +87,14 @@ const SIMULATORS = [
     description: 'Monro-Kellie volume-pressure elastance, P1-P3 pulse waveform morphology, Lundberg A/B/C waves, and Brain Trauma Foundation (BTF) tiered intracranial hypertension protocols.',
     icon: <Brain className="w-7 h-7 text-purple-400" />,
     badge: 'Neurocritical Care',
+    status: 'Available'
+  },
+  {
+    id: 'cardiac-pacing',
+    title: 'Temporary Pacemaker & Electrophysiology',
+    description: 'Transvenous EPG mechanics: NASPE/BPEG modes (VVI, DDD, VOO), capture/sensing thresholds, R-on-T VF prevention, and pacemaker syndrome hemodynamics.',
+    icon: <Zap className="w-7 h-7 text-amber-400" />,
+    badge: 'Cardiac Electrophysiology',
     status: 'Available'
   },
   {
