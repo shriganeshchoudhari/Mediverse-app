@@ -130,6 +130,14 @@ const SIMULATORS = [
     status: 'Available'
   },
   {
+    id: 'bronchoscopy-navigation',
+    title: 'Flexible Bronchoscopy & EBUS Staging',
+    description: '18-segment tracheobronchial navigation, EBUS mediastinal lymph node staging (Stations 2-11), TBNA needle aspiration, and massive hemoptysis emergencies.',
+    icon: <Wind className="w-7 h-7 text-cyan-400" />,
+    badge: 'Pulmonology & EBUS',
+    status: 'Available'
+  },
+  {
     id: 'cardiac-cycle',
     title: 'Cardiac Cycle & PV Loop',
     description: 'Manipulate preload, afterload, and contractility to instantly visualize Suga-Sagawa pressure-volume loops and Wiggers dynamics.',
