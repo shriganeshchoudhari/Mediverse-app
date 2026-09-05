@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -111,6 +111,14 @@ const SIMULATORS = [
     description: 'Multi-bed real-time physiological waveforms (Lead II ECG, Pleth, Art Line), crisis alarm surveillance, 6-second caliper strips, and emergency bedside interventions.',
     icon: <Activity className="w-7 h-7 text-rose-500 animate-pulse" />,
     badge: 'Critical Care Telemetry',
+    status: 'Available'
+  },
+  {
+    id: 'pocus',
+    title: 'Point-of-Care Ultrasound (POCUS) Station',
+    description: 'Virtual sonography: eFAST trauma survey, BLUE pleural protocol, 2D B-mode sector & M-mode sweeps, tissue attenuation physics, and electronic caliper mm measurement.',
+    icon: <Radio className="w-7 h-7 text-sky-400" />,
+    badge: 'Acute Care Sonography',
     status: 'Available'
   }
 ];
