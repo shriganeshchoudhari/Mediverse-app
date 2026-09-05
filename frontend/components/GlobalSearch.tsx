@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'iabp-counterpulsation', name: 'Intra-Aortic Balloon Pump (IABP) Counterpulsation Workstation', icon: '🫀', route: '/simulators/iabp-counterpulsation' },
     { id: 'cardiac-pacing', name: 'Cardiac Electrophysiology & Temporary Pacemaker Workstation', icon: '⚡', route: '/simulators/cardiac-pacing' },
     { id: 'icp-dynamics', name: 'Neurocritical Care & Intracranial Pressure (ICP / TBI) Workstation', icon: '🧠', route: '/simulators/icp-dynamics' },
     { id: 'crrt', name: 'Continuous Renal Replacement Therapy (CRRT) & Blood Purification', icon: '💧', route: '/simulators/crrt' },

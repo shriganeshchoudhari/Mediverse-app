@@ -98,6 +98,14 @@ const SIMULATORS = [
     status: 'Available'
   },
   {
+    id: 'iabp-counterpulsation',
+    title: 'Intra-Aortic Balloon Pump (IABP) Workstation',
+    description: 'Mechanical circulatory support: diastolic coronary augmentation, presystolic afterload reduction, dicrotic notch timing errors, and arterial line waveform analysis.',
+    icon: <Heart className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Mechanical Support',
+    status: 'Available'
+  },
+  {
     id: 'cardiac-cycle',
     title: 'Cardiac Cycle & PV Loop',
     description: 'Manipulate preload, afterload, and contractility to instantly visualize Suga-Sagawa pressure-volume loops and Wiggers dynamics.',
