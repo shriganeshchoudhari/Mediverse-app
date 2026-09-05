@@ -1,18 +1,32 @@
 /**
  * DrugInteractionEngine.ts
- * Enterprise Clinical Pharmacology Safety & Interaction Evaluation Engine
- * Evaluates Drug-Drug interactions, Drug-Allergy conflicts, and Renal Dose Adjustments.
+ * Enterprise Clinical Pharmacology Safety & Clinical Decision Support (CDS) Engine
+ * Evaluates Drug-Drug interactions, CYP450 metabolism, QTc prolongation risk,
+ * FDA pregnancy/teratogenicity, drug-allergy cross-reactivity, and renal dosing.
  * Location: frontend/.gemini/skills/DrugInteractionEngine.ts
  */
 
 export type SeverityLevel = 'FATAL_CONTRAINDICATION' | 'MAJOR_WARNING' | 'MODERATE_CAUTION' | 'MINOR_NOTE';
+
+export type PregnancyCategory = 'A' | 'B' | 'C' | 'D' | 'X';
+export type QtcRiskLevel = 'HIGH' | 'MODERATE' | 'LOW' | 'NONE';
+export type CypIsoenzyme = 'CYP3A4' | 'CYP2D6' | 'CYP2C19' | 'CYP2C9' | 'CYP1A2';
 
 export interface DrugRecord {
   id: string;
   name: string;
   genericName: string;
   drugClass: string;
-  category: 'CARDIOLOGY' | 'ANTIMICROBIAL' | 'ANALGESIC' | 'ENDOCRINE' | 'PULMONARY' | 'PSYCHIATRY' | 'HEMATOLOGY';
+  category:
+    | 'CARDIOLOGY'
+    | 'ANTIMICROBIAL'
+    | 'ANALGESIC'
+    | 'ENDOCRINE'
+    | 'PULMONARY'
+    | 'PSYCHIATRY'
+    | 'HEMATOLOGY'
+    | 'GASTROENTEROLOGY'
+    | 'CRITICAL_CARE';
   standardDose: string;
   routes: ('IV' | 'PO' | 'SC' | 'IM' | 'SUBLINGUAL' | 'INHALATION')[];
   renalAdjustmentThresholdEgfr?: number;
@@ -22,6 +36,13 @@ export interface DrugRecord {
     maxHeartRate?: number;
     minHeartRate?: number;
   };
+  pregnancyCategory?: PregnancyCategory;
+  pregnancyWarning?: string;
+  qtcRisk?: QtcRiskLevel;
+  cypSubstrates?: CypIsoenzyme[];
+  cypInhibitors?: CypIsoenzyme[];
+  cypInducers?: CypIsoenzyme[];
+  isSulfaContaining?: boolean;
 }
 
 export interface DrugInteractionRule {
@@ -54,6 +75,25 @@ export interface SafetyCheckResult {
     required: boolean;
     recommendation: string;
   };
+  qtcAlert?: {
+    risk: QtcRiskLevel;
+    additiveRisk: boolean;
+    recommendation: string;
+  };
+  pregnancyAlert?: {
+    category: PregnancyCategory;
+    isContraindicated: boolean;
+    description: string;
+  };
+}
+
+export interface PatientSafetyContext {
+  systolicBp?: number;
+  heartRate?: number;
+  eGfr?: number;
+  patientQtcMs?: number;
+  isPregnant?: boolean;
+  weightKg?: number;
 }
 
 /**
@@ -131,11 +171,65 @@ export const HIGH_RISK_INTERACTION_RULES: DrugInteractionRule[] = [
     mechanism: 'Potent CYP3A4 inhibition elevates statin AUC by 10-fold.',
     clinicalConsequence: 'Severe rhabdomyolysis, myoglobinuria, and acute tubular necrosis.',
     actionableGuidance: 'Temporarily hold Simvastatin while taking Clarithromycin or switch to Rosuvastatin / Azithromycin.'
+  },
+  {
+    id: 'DDI-009',
+    drugAClassOrName: 'Amiodarone',
+    drugBClassOrName: 'Simvastatin',
+    severity: 'MAJOR_WARNING',
+    mechanism: 'Amiodarone inhibits CYP3A4, dramatically increasing active statin plasma concentrations.',
+    clinicalConsequence: 'Severe toxic myopathy and rhabdomyolysis with acute kidney injury.',
+    actionableGuidance: 'Limit Simvastatin dose to max 20 mg/day or switch to Pravastatin / Rosuvastatin.'
+  },
+  {
+    id: 'DDI-010',
+    drugAClassOrName: 'Amiodarone',
+    drugBClassOrName: 'Warfarin',
+    severity: 'FATAL_CONTRAINDICATION',
+    mechanism: 'Inhibition of CYP2C9 and CYP3A4 decreases S-warfarin metabolism by 50%.',
+    clinicalConsequence: 'Severe INR prolongation (> 5.0), spontaneous gastrointestinal or fatal intracranial hemorrhage.',
+    actionableGuidance: 'Reduce Warfarin maintenance dose by 33% to 50% upon starting Amiodarone. Monitor INR every 48-72 hours.'
+  },
+  {
+    id: 'DDI-011',
+    drugAClassOrName: 'Azithromycin',
+    drugBClassOrName: 'Amiodarone',
+    severity: 'FATAL_CONTRAINDICATION',
+    mechanism: 'Dual synergistic blockade of ventricular rapid delayed rectifier potassium current (I_Kr).',
+    clinicalConsequence: 'Severe QTc prolongation (> 500 ms) triggering polymorphic VT (Torsades de Pointes) and cardiac arrest.',
+    actionableGuidance: 'Contraindicated combination. Use non-macrolide antibiotic (e.g., Doxycycline or Ceftriaxone) in patients on Amiodarone.'
+  },
+  {
+    id: 'DDI-012',
+    drugAClassOrName: 'Methotrexate',
+    drugBClassOrName: 'Aspirin',
+    severity: 'MAJOR_WARNING',
+    mechanism: 'Salicylates reduce renal tubular excretion of Methotrexate and displace it from plasma albumin binding sites.',
+    clinicalConsequence: 'Profound methotrexate toxicity, pancytopenia, acute renal failure, and hepatotoxicity.',
+    actionableGuidance: 'Avoid NSAIDs/Salicylates with high-dose methotrexate. Switch to Acetaminophen for pain control.'
+  },
+  {
+    id: 'DDI-013',
+    drugAClassOrName: 'Sulfamethoxazole-Trimethoprim',
+    drugBClassOrName: 'Warfarin',
+    severity: 'FATAL_CONTRAINDICATION',
+    mechanism: 'Trimethoprim-sulfamethoxazole potently inhibits CYP2C9 and displaces warfarin from albumin.',
+    clinicalConsequence: 'Exponential surge in free active warfarin, precipitating life-threatening internal bleeding.',
+    actionableGuidance: 'Avoid co-administration. If mandatory, preemptively reduce Warfarin dose by 50% and monitor daily INR.'
+  },
+  {
+    id: 'DDI-014',
+    drugAClassOrName: 'Piperacillin-Tazobactam',
+    drugBClassOrName: 'Vancomycin',
+    severity: 'MAJOR_WARNING',
+    mechanism: 'Synergistic oxidative stress and proximal tubule injury.',
+    clinicalConsequence: '3-fold increased incidence of acute kidney injury (AKI) compared to Vancomycin + Cefepime.',
+    actionableGuidance: 'Monitor serum creatinine daily. Switch Pip-Tazo to Cefepime or Meropenem in high-risk renal patients.'
   }
 ];
 
 /**
- * Standard Essential Formulary Records
+ * Standard Essential Formulary Records with Full CDS Annotations
  */
 export const CLINICAL_FORMULARY: DrugRecord[] = [
   {
@@ -146,24 +240,30 @@ export const CLINICAL_FORMULARY: DrugRecord[] = [
     category: 'CARDIOLOGY',
     standardDose: '300 mg chewable stat',
     routes: ['PO'],
+    pregnancyCategory: 'D',
+    pregnancyWarning: 'Contraindicated in 3rd trimester: premature closure of fetal ductus arteriosus and bleeding risk.',
   },
   {
     id: 'clopidogrel',
     name: 'Clopidogrel',
-    genericName: 'Clopidogrel',
-    drugClass: 'P2Y12 Inhibitor',
+    genericName: 'Clopidogrel bisulfate',
+    drugClass: 'P2Y12 Platelet Inhibitor',
     category: 'CARDIOLOGY',
     standardDose: '300-600 mg loading, then 75 mg daily',
     routes: ['PO'],
+    pregnancyCategory: 'B',
+    cypSubstrates: ['CYP2C19'],
   },
   {
     id: 'ticagrelor',
     name: 'Ticagrelor',
     genericName: 'Ticagrelor',
-    drugClass: 'P2Y12 Inhibitor',
+    drugClass: 'Direct P2Y12 Platelet Inhibitor',
     category: 'CARDIOLOGY',
     standardDose: '180 mg loading, then 90 mg BD',
     routes: ['PO'],
+    pregnancyCategory: 'C',
+    cypSubstrates: ['CYP3A4'],
   },
   {
     id: 'nitroglycerin',
@@ -174,6 +274,7 @@ export const CLINICAL_FORMULARY: DrugRecord[] = [
     standardDose: '0.4 mg SL every 5 min (max 3 doses)',
     routes: ['SUBLINGUAL', 'IV'],
     contraindicatedVitals: { minSystolicBp: 90 },
+    pregnancyCategory: 'C',
   },
   {
     id: 'sildenafil',
@@ -183,6 +284,7 @@ export const CLINICAL_FORMULARY: DrugRecord[] = [
     category: 'CARDIOLOGY',
     standardDose: '50 mg PO PRN',
     routes: ['PO'],
+    pregnancyCategory: 'B',
   },
   {
     id: 'metoprolol',
@@ -193,6 +295,8 @@ export const CLINICAL_FORMULARY: DrugRecord[] = [
     standardDose: '25-50 mg PO BD or 5 mg IV stat',
     routes: ['PO', 'IV'],
     contraindicatedVitals: { minSystolicBp: 100, minHeartRate: 60 },
+    pregnancyCategory: 'C',
+    cypSubstrates: ['CYP2D6'],
   },
   {
     id: 'lisinopril',
@@ -204,6 +308,8 @@ export const CLINICAL_FORMULARY: DrugRecord[] = [
     routes: ['PO'],
     renalAdjustmentThresholdEgfr: 30,
     renalDoseRecommendation: 'Reduce initial dose by 50% if eGFR < 30 mL/min/1.73m².',
+    pregnancyCategory: 'D',
+    pregnancyWarning: 'ABSOLUTE CONTRAINDICATION in 2nd/3rd trimester: causes fetal renal dysgenesis, oligohydramnios, skull hypoplasia, and fetal death.',
   },
   {
     id: 'spironolactone',
@@ -215,6 +321,8 @@ export const CLINICAL_FORMULARY: DrugRecord[] = [
     routes: ['PO'],
     renalAdjustmentThresholdEgfr: 30,
     renalDoseRecommendation: 'Contraindicated if eGFR < 30 mL/min or baseline K > 5.0 mEq/L.',
+    pregnancyCategory: 'C',
+    pregnancyWarning: 'Antiandrogenic activity may cause feminization of male fetus.',
   },
   {
     id: 'furosemide',
@@ -224,6 +332,8 @@ export const CLINICAL_FORMULARY: DrugRecord[] = [
     category: 'CARDIOLOGY',
     standardDose: '40-80 mg IV stat',
     routes: ['IV', 'PO'],
+    isSulfaContaining: true,
+    pregnancyCategory: 'C',
   },
   {
     id: 'enoxaparin',
@@ -235,24 +345,28 @@ export const CLINICAL_FORMULARY: DrugRecord[] = [
     routes: ['SC'],
     renalAdjustmentThresholdEgfr: 30,
     renalDoseRecommendation: 'Reduce to 1 mg/kg SC once daily if eGFR < 30 mL/min. Monitor Anti-Xa levels.',
+    pregnancyCategory: 'B',
   },
   {
     id: 'omeprazole',
     name: 'Omeprazole',
     genericName: 'Omeprazole',
     drugClass: 'Proton Pump Inhibitor (CYP2C19 inhibitor)',
-    category: 'GASTROENTEROLOGY' as any,
+    category: 'GASTROENTEROLOGY',
     standardDose: '40 mg IV/PO daily',
     routes: ['PO', 'IV'],
+    pregnancyCategory: 'C',
+    cypInhibitors: ['CYP2C19'],
   },
   {
     id: 'pantoprazole',
     name: 'Pantoprazole',
-    genericName: 'Pantoprazole',
+    genericName: 'Pantoprazole sodium',
     drugClass: 'Proton Pump Inhibitor (Minimal CYP2C19 inhibition)',
-    category: 'GASTROENTEROLOGY' as any,
+    category: 'GASTROENTEROLOGY',
     standardDose: '40 mg IV/PO daily',
     routes: ['PO', 'IV'],
+    pregnancyCategory: 'B',
   },
   {
     id: 'amoxicillin',
@@ -262,6 +376,7 @@ export const CLINICAL_FORMULARY: DrugRecord[] = [
     category: 'ANTIMICROBIAL',
     standardDose: '1.2 g IV q8h or 625 mg PO TDS',
     routes: ['PO', 'IV'],
+    pregnancyCategory: 'B',
   },
   {
     id: 'ceftriaxone',
@@ -271,6 +386,166 @@ export const CLINICAL_FORMULARY: DrugRecord[] = [
     category: 'ANTIMICROBIAL',
     standardDose: '2 g IV once daily',
     routes: ['IV', 'IM'],
+    pregnancyCategory: 'B',
+  },
+  {
+    id: 'piperacillin-tazobactam',
+    name: 'Piperacillin-Tazobactam (Zosyn)',
+    genericName: 'Piperacillin + Tazobactam',
+    drugClass: 'Antipseudomonal Penicillin / Beta-lactamase inhibitor',
+    category: 'ANTIMICROBIAL',
+    standardDose: '4.5 g IV q6h (extended 4h infusion)',
+    routes: ['IV'],
+    renalAdjustmentThresholdEgfr: 50,
+    renalDoseRecommendation: 'Reduce to 3.375 g IV q6h if eGFR 20-50, or 2.25 g IV q6h if eGFR < 20.',
+    pregnancyCategory: 'B',
+  },
+  {
+    id: 'vancomycin',
+    name: 'Vancomycin IV',
+    genericName: 'Vancomycin hydrochloride',
+    drugClass: 'Glycopeptide Antibiotic',
+    category: 'ANTIMICROBIAL',
+    standardDose: '25-30 mg/kg loading, then 15-20 mg/kg IV q8-12h',
+    routes: ['IV'],
+    renalAdjustmentThresholdEgfr: 50,
+    renalDoseRecommendation: 'Mandatory AUC-guided or trough (15-20 mcg/mL) TDM. Extend interval to q24-48h if eGFR < 30.',
+    pregnancyCategory: 'C',
+  },
+  {
+    id: 'norepinephrine',
+    name: 'Norepinephrine (Levophed)',
+    genericName: 'Norepinephrine bitartrate',
+    drugClass: 'Alpha-1 > Beta-1 Vasopressor',
+    category: 'CRITICAL_CARE',
+    standardDose: '0.02 - 1.0 mcg/kg/min IV infusion titrate for MAP >= 65',
+    routes: ['IV'],
+    pregnancyCategory: 'C',
+    contraindicatedVitals: { maxHeartRate: 180 },
+  },
+  {
+    id: 'atorvastatin',
+    name: 'Atorvastatin (Lipitor)',
+    genericName: 'Atorvastatin calcium',
+    drugClass: 'HMG-CoA Reductase Inhibitor (High-Intensity Statin)',
+    category: 'CARDIOLOGY',
+    standardDose: '80 mg PO STAT / daily',
+    routes: ['PO'],
+    pregnancyCategory: 'X',
+    pregnancyWarning: 'ABSOLUTE CONTRAINDICATION. Fetal cholesterol synthesis suppression causes congenital skeletal anomalies and embryopathy.',
+    cypSubstrates: ['CYP3A4'],
+  },
+  {
+    id: 'amiodarone',
+    name: 'Amiodarone IV/PO',
+    genericName: 'Amiodarone hydrochloride',
+    drugClass: 'Class III Antiarrhythmic',
+    category: 'CARDIOLOGY',
+    standardDose: '150-300 mg IV bolus, then 1 mg/min infusion',
+    routes: ['IV', 'PO'],
+    pregnancyCategory: 'D',
+    pregnancyWarning: 'Transplacental passage causes fetal goiter, profound congenital hypothyroidism, and bradycardia.',
+    qtcRisk: 'HIGH',
+    cypInhibitors: ['CYP3A4', 'CYP2D6', 'CYP2C9'],
+  },
+  {
+    id: 'azithromycin',
+    name: 'Azithromycin (Zithromax)',
+    genericName: 'Azithromycin dihydrate',
+    drugClass: 'Macrolide Antibiotic',
+    category: 'ANTIMICROBIAL',
+    standardDose: '500 mg IV/PO daily',
+    routes: ['IV', 'PO'],
+    pregnancyCategory: 'B',
+    qtcRisk: 'HIGH',
+    cypInhibitors: ['CYP3A4'],
+  },
+  {
+    id: 'clarithromycin',
+    name: 'Clarithromycin',
+    genericName: 'Clarithromycin',
+    drugClass: 'Macrolide Antibiotic',
+    category: 'ANTIMICROBIAL',
+    standardDose: '500 mg PO BD',
+    routes: ['PO'],
+    pregnancyCategory: 'C',
+    qtcRisk: 'HIGH',
+    cypInhibitors: ['CYP3A4'],
+  },
+  {
+    id: 'ondansetron',
+    name: 'Ondansetron (Zofran)',
+    genericName: 'Ondansetron hydrochloride',
+    drugClass: '5-HT3 Receptor Antagonist',
+    category: 'GASTROENTEROLOGY',
+    standardDose: '4-8 mg IV/PO q8h PRN',
+    routes: ['IV', 'PO'],
+    pregnancyCategory: 'B',
+    qtcRisk: 'MODERATE',
+  },
+  {
+    id: 'haloperidol',
+    name: 'Haloperidol (Haldol)',
+    genericName: 'Haloperidol lactate',
+    drugClass: 'First-Generation Antipsychotic',
+    category: 'PSYCHIATRY',
+    standardDose: '2.5-5 mg IV/IM q4-6h PRN',
+    routes: ['IV', 'IM', 'PO'],
+    pregnancyCategory: 'C',
+    qtcRisk: 'HIGH',
+    cypSubstrates: ['CYP3A4', 'CYP2D6'],
+  },
+  {
+    id: 'methotrexate',
+    name: 'Methotrexate',
+    genericName: 'Methotrexate sodium',
+    drugClass: 'Antifolate Antimetabolite',
+    category: 'HEMATOLOGY',
+    standardDose: '15-25 mg PO weekly',
+    routes: ['PO', 'SC', 'IM'],
+    pregnancyCategory: 'X',
+    pregnancyWarning: 'ABSOLUTE CONTRAINDICATION. Potent human teratogen and abortifacient causing cranial dysostosis, facial clefts, and fetal death.',
+    renalAdjustmentThresholdEgfr: 50,
+    renalDoseRecommendation: 'Reduce dose by 50% for eGFR 10-50 mL/min; contraindicated if eGFR < 10 mL/min.',
+  },
+  {
+    id: 'sulfamethoxazole-trimethoprim',
+    name: 'Sulfamethoxazole-Trimethoprim (Bactrim)',
+    genericName: 'Co-trimoxazole (SMX-TMP)',
+    drugClass: 'Sulfonamide Antimicrobial',
+    category: 'ANTIMICROBIAL',
+    standardDose: '1-2 DS tablets PO BID or 15 mg/kg IV',
+    routes: ['PO', 'IV'],
+    isSulfaContaining: true,
+    pregnancyCategory: 'D',
+    pregnancyWarning: 'Contraindicated at term: bilirubin displacement causes neonatal kernicterus. Antifolate teratogenesis in 1st trimester.',
+    renalAdjustmentThresholdEgfr: 30,
+    renalDoseRecommendation: 'Reduce dose by 50% if eGFR 15-30 mL/min; avoid if eGFR < 15 mL/min.',
+    cypInhibitors: ['CYP2C9'],
+  },
+  {
+    id: 'simvastatin',
+    name: 'Simvastatin (Zocor)',
+    genericName: 'Simvastatin',
+    drugClass: 'HMG-CoA Reductase Inhibitor',
+    category: 'CARDIOLOGY',
+    standardDose: '20-40 mg PO qHS',
+    routes: ['PO'],
+    pregnancyCategory: 'X',
+    pregnancyWarning: 'Contraindicated in pregnancy due to suppression of essential fetal sterol synthesis.',
+    cypSubstrates: ['CYP3A4'],
+  },
+  {
+    id: 'warfarin',
+    name: 'Warfarin (Coumadin)',
+    genericName: 'Warfarin sodium',
+    drugClass: 'Vitamin K Antagonist',
+    category: 'HEMATOLOGY',
+    standardDose: '2-5 mg PO daily adjusted to INR',
+    routes: ['PO'],
+    pregnancyCategory: 'X',
+    pregnancyWarning: 'Fetal Warfarin Syndrome: nasal hypoplasia, chondrodysplasia punctata, microcephaly, and optic atrophy.',
+    cypSubstrates: ['CYP2C9', 'CYP3A4'],
   }
 ];
 
@@ -289,33 +564,44 @@ export function calculateCrCl(
 }
 
 /**
- * Core Clinical Safety Check Engine
+ * Core Clinical Decision Support (CDS) Safety Engine
  */
 export function evaluatePrescriptionSafety(
   targetDrug: DrugRecord,
   activeMedications: DrugRecord[],
   allergies: AllergyProfile[],
   patientVitals?: { systolicBp?: number; heartRate?: number },
-  patientEgfr?: number
+  patientEgfr?: number,
+  additionalContext?: PatientSafetyContext
 ): SafetyCheckResult {
   const alerts: SafetyCheckResult['alerts'] = [];
 
-  // 1. Drug-Drug Interactions
+  // Helper to match drug against rule pattern (handles formulations like "Amiodarone IV/PO", brand names, generics)
+  const checkDrugMatch = (rulePattern: string, drug: DrugRecord) => {
+    const p = rulePattern.toLowerCase();
+    const dName = drug.name.toLowerCase();
+    const dGen = (drug.genericName || '').toLowerCase();
+    const dClass = drug.drugClass.toLowerCase();
+    const dId = drug.id.toLowerCase();
+    return (
+      dName.includes(p) ||
+      p.includes(dName) ||
+      dGen.includes(p) ||
+      p.includes(dGen) ||
+      dClass.includes(p) ||
+      p.includes(dClass) ||
+      dId.includes(p) ||
+      p.includes(dId)
+    );
+  };
+
+  // 1. Drug-Drug Interactions (Catalog Rules)
   activeMedications.forEach((activeDrug) => {
     HIGH_RISK_INTERACTION_RULES.forEach((rule) => {
-      const matchA =
-        rule.drugAClassOrName.toLowerCase() === targetDrug.name.toLowerCase() ||
-        rule.drugAClassOrName.toLowerCase() === targetDrug.drugClass.toLowerCase();
-      const matchB =
-        rule.drugBClassOrName.toLowerCase() === activeDrug.name.toLowerCase() ||
-        rule.drugBClassOrName.toLowerCase() === activeDrug.drugClass.toLowerCase();
-
-      const matchRevA =
-        rule.drugAClassOrName.toLowerCase() === activeDrug.name.toLowerCase() ||
-        rule.drugAClassOrName.toLowerCase() === activeDrug.drugClass.toLowerCase();
-      const matchRevB =
-        rule.drugBClassOrName.toLowerCase() === targetDrug.name.toLowerCase() ||
-        rule.drugBClassOrName.toLowerCase() === targetDrug.drugClass.toLowerCase();
+      const matchA = checkDrugMatch(rule.drugAClassOrName, targetDrug);
+      const matchB = checkDrugMatch(rule.drugBClassOrName, activeDrug);
+      const matchRevA = checkDrugMatch(rule.drugAClassOrName, activeDrug);
+      const matchRevB = checkDrugMatch(rule.drugBClassOrName, targetDrug);
 
       if ((matchA && matchB) || (matchRevA && matchRevB)) {
         alerts.push({
@@ -329,7 +615,7 @@ export function evaluatePrescriptionSafety(
     });
   });
 
-  // 2. Drug-Allergy & Cross-Reactivity Check
+  // 2. Drug-Allergy & Cross-Reactivity Checks
   allergies.forEach((allergy) => {
     const allergen = allergy.allergen.toLowerCase();
     const drugName = targetDrug.name.toLowerCase();
@@ -351,58 +637,220 @@ export function evaluatePrescriptionSafety(
       alerts.push({
         ruleId: 'ALLERGY-CROSS',
         severity: allergy.severity === 'SEVERE' ? 'MAJOR_WARNING' : 'MODERATE_CAUTION',
-        title: `Cross-Reactivity Alert: Penicillin Allergy $\\leftrightarrow$ Cephalosporin`,
-        description: `Up to 2-5% cross-reactivity exists due to shared beta-lactam side chains.`,
+        title: `Cross-Reactivity Alert: Penicillin Allergy <-> Cephalosporin`,
+        description: `Up to 2-5% cross-reactivity exists due to shared beta-lactam core structure.`,
         recommendation: 'Use with extreme caution. Contraindicated if patient had severe IgE-mediated anaphylaxis or Stevens-Johnson syndrome.',
+      });
+    }
+
+    // Sulfonamide / Sulfa Hypersensitivity Check
+    if (
+      (allergen.includes('sulfa') || allergen.includes('sulfonamide')) &&
+      targetDrug.isSulfaContaining
+    ) {
+      alerts.push({
+        ruleId: 'ALLERGY-SULFA',
+        severity: allergy.severity === 'SEVERE' ? 'FATAL_CONTRAINDICATION' : 'MAJOR_WARNING',
+        title: `Sulfonamide Allergy Alert: ${targetDrug.name}`,
+        description: `Patient has a documented Sulfa allergy. ${targetDrug.name} contains a sulfonamide moiety capable of triggering life-threatening anaphylaxis or toxic epidermal necrolysis.`,
+        recommendation: 'DO NOT ADMINISTER. Switch to non-sulfonamide antimicrobial or non-sulfa diuretic.',
       });
     }
   });
 
-  // 3. Hemodynamic Vitals Contraindications
-  if (patientVitals && targetDrug.contraindicatedVitals) {
+  // 3. QTc Prolongation Risk Scoring
+  let qtcAlert: SafetyCheckResult['qtcAlert'];
+  const patientQtc = additionalContext?.patientQtcMs;
+  const targetQtcRisk = targetDrug.qtcRisk;
+
+  // Check baseline QTc threshold (>= 500 ms is critical torsades danger threshold)
+  if (targetQtcRisk && targetQtcRisk !== 'NONE') {
+    if (patientQtc && patientQtc >= 500) {
+      alerts.push({
+        ruleId: 'QTC-BASELINE-CRITICAL',
+        severity: 'FATAL_CONTRAINDICATION',
+        title: `Malignant Baseline QTc Prolongation (${patientQtc} ms)`,
+        description: `Patient baseline QTc is >= 500 ms (high danger threshold for Torsades de Pointes). Administering ${targetDrug.name} risks immediate fatal polymorphic ventricular tachycardia.`,
+        recommendation: 'ABSOLUTE CONTRAINDICATION. Hold all QT-prolonging drugs. Verify serum K+ >= 4.0 mEq/L and Mg2+ >= 2.0 mg/dL.',
+      });
+      qtcAlert = {
+        risk: 'HIGH',
+        additiveRisk: true,
+        recommendation: 'Baseline QTc >= 500 ms — withhold all torsadogenic agents.',
+      };
+    } else if (patientQtc && patientQtc >= 460) {
+      alerts.push({
+        ruleId: 'QTC-BASELINE-BORDERLINE',
+        severity: 'MAJOR_WARNING',
+        title: `Borderline Baseline QTc Prolongation (${patientQtc} ms)`,
+        description: `Patient baseline QTc is prolonged (>= 460 ms). ${targetDrug.name} may push QTc past the 500 ms critical boundary.`,
+        recommendation: 'Monitor continuous telemetry and obtain daily 12-lead ECG. Recheck electrolytes.',
+      });
+    }
+
+    // Additive QTc risk from concurrent active meds
+    const concurrentQtcMeds = activeMedications.filter(
+      (m) => m.qtcRisk === 'HIGH' || m.qtcRisk === 'MODERATE'
+    );
+    if (concurrentQtcMeds.length > 0) {
+      const isHighAdditive = targetQtcRisk === 'HIGH' && concurrentQtcMeds.some((m) => m.qtcRisk === 'HIGH');
+      alerts.push({
+        ruleId: 'QTC-ADDITIVE-RISK',
+        severity: isHighAdditive ? 'FATAL_CONTRAINDICATION' : 'MAJOR_WARNING',
+        title: `Additive QTc Prolongation: ${targetDrug.name} + ${concurrentQtcMeds.map((m) => m.name).join(', ')}`,
+        description: `Combined blockade of myocardial hERG potassium channels exponentially escalates ventricular repolarization delay.`,
+        recommendation: 'Avoid combination if possible. If mandatory, initiate continuous cardiac telemetry and frequent ECG tracing.',
+      });
+      qtcAlert = {
+        risk: isHighAdditive ? 'HIGH' : 'MODERATE',
+        additiveRisk: true,
+        recommendation: `Additive risk with ${concurrentQtcMeds.map((m) => m.name).join(', ')}.`,
+      };
+    }
+  }
+
+  // 4. Cytochrome P450 (CYP) Competitive Inhibition
+  if (targetDrug.cypSubstrates && targetDrug.cypSubstrates.length > 0) {
+    activeMedications.forEach((activeDrug) => {
+      if (activeDrug.cypInhibitors && activeDrug.cypInhibitors.length > 0) {
+        const sharedIsoenzymes = targetDrug.cypSubstrates!.filter((iso) =>
+          activeDrug.cypInhibitors!.includes(iso)
+        );
+
+        if (sharedIsoenzymes.length > 0) {
+          // Avoid duplicate if already triggered by a catalog rule
+          const isCatalogCovered = alerts.some((a) =>
+            a.title.includes(targetDrug.name) && a.title.includes(activeDrug.name)
+          );
+          if (!isCatalogCovered) {
+            alerts.push({
+              ruleId: `CYP-INHIBITION-${sharedIsoenzymes[0]}`,
+              severity: 'MAJOR_WARNING',
+              title: `CYP450 Inhibition: ${activeDrug.name} inhibits metabolism of ${targetDrug.name}`,
+              description: `${activeDrug.name} is a potent inhibitor of ${sharedIsoenzymes.join(', ')}, decreasing the clearance of ${targetDrug.name} and causing dangerous drug accumulation.`,
+              recommendation: `Reduce ${targetDrug.name} dose or monitor clinical serum levels closely.`,
+            });
+          }
+        }
+      }
+    });
+  }
+
+  // 5. FDA Teratogenicity & Pregnancy Contraindications
+  let pregnancyAlert: SafetyCheckResult['pregnancyAlert'];
+  if (additionalContext?.isPregnant && targetDrug.pregnancyCategory) {
+    if (targetDrug.pregnancyCategory === 'X') {
+      alerts.push({
+        ruleId: 'PREGNANCY-CATEGORY-X',
+        severity: 'FATAL_CONTRAINDICATION',
+        title: `FDA Category X: ABSOLUTE CONTRAINDICATION in Pregnancy`,
+        description: targetDrug.pregnancyWarning || `${targetDrug.name} causes proven human fetal death or severe malformations. Risks clearly outweigh any conceivable benefit.`,
+        recommendation: 'DO NOT PRESCRIBE. Absolute contraindication in pregnancy. Immediately cancel order.',
+      });
+      pregnancyAlert = {
+        category: 'X',
+        isContraindicated: true,
+        description: targetDrug.pregnancyWarning || 'Absolute fetal contraindication.',
+      };
+    } else if (targetDrug.pregnancyCategory === 'D') {
+      alerts.push({
+        ruleId: 'PREGNANCY-CATEGORY-D',
+        severity: 'MAJOR_WARNING',
+        title: `FDA Category D: Documented Fetal Risk in Pregnancy`,
+        description: targetDrug.pregnancyWarning || `Positive evidence of human fetal risk. Reserve solely for life-threatening emergencies where safer drugs cannot be used.`,
+        recommendation: 'Evaluate risk vs benefit. Consult Maternal-Fetal Medicine (MFM) and obtain formal informed consent.',
+      });
+      pregnancyAlert = {
+        category: 'D',
+        isContraindicated: false,
+        description: targetDrug.pregnancyWarning || 'Documented human fetal risk.',
+      };
+    } else if (targetDrug.pregnancyCategory === 'C') {
+      alerts.push({
+        ruleId: 'PREGNANCY-CATEGORY-C',
+        severity: 'MODERATE_CAUTION',
+        title: `FDA Category C: Caution in Pregnancy`,
+        description: `Animal reproduction studies show adverse fetal effects and adequate human studies are lacking. Use only if potential benefit justifies potential fetal risk.`,
+        recommendation: 'Review indication with attending obstetrician.',
+      });
+      pregnancyAlert = {
+        category: 'C',
+        isContraindicated: false,
+        description: 'Animal fetal risk or unestablished human safety.',
+      };
+    }
+  }
+
+  // 6. Hemodynamic Vitals Contraindications
+  const vitals = patientVitals || additionalContext;
+  if (vitals && targetDrug.contraindicatedVitals) {
     if (
       targetDrug.contraindicatedVitals.minSystolicBp &&
-      patientVitals.systolicBp &&
-      patientVitals.systolicBp < targetDrug.contraindicatedVitals.minSystolicBp
+      vitals.systolicBp &&
+      vitals.systolicBp < targetDrug.contraindicatedVitals.minSystolicBp
     ) {
       alerts.push({
         ruleId: 'VITALS-HYPOTENSION',
         severity: 'FATAL_CONTRAINDICATION',
-        title: `Hemodynamic Contraindication: Hypotension`,
-        description: `${targetDrug.name} requires SBP $\\ge$ ${targetDrug.contraindicatedVitals.minSystolicBp} mmHg. Current SBP is ${patientVitals.systolicBp} mmHg.`,
-        recommendation: `Withhold ${targetDrug.name} immediately. Administration risks precipitous cardiovascular collapse.`,
+        title: `Hemodynamic Contraindication: Severe Hypotension`,
+        description: `${targetDrug.name} requires SBP >= ${targetDrug.contraindicatedVitals.minSystolicBp} mmHg. Current SBP is ${vitals.systolicBp} mmHg.`,
+        recommendation: `Withhold ${targetDrug.name} immediately. Administration risks precipitous cardiovascular collapse and refractory shock.`,
       });
     }
 
     if (
       targetDrug.contraindicatedVitals.minHeartRate &&
-      patientVitals.heartRate &&
-      patientVitals.heartRate < targetDrug.contraindicatedVitals.minHeartRate
+      vitals.heartRate &&
+      vitals.heartRate < targetDrug.contraindicatedVitals.minHeartRate
     ) {
       alerts.push({
         ruleId: 'VITALS-BRADYCARDIA',
         severity: 'MAJOR_WARNING',
-        title: `Hemodynamic Contraindication: Bradycardia`,
-        description: `${targetDrug.name} requires HR $\\ge$ ${targetDrug.contraindicatedVitals.minHeartRate} bpm. Current HR is ${patientVitals.heartRate} bpm.`,
-        recommendation: `Hold dose. Assess cardiac rhythm on telemetry.`,
+        title: `Hemodynamic Contraindication: Sinus Bradycardia`,
+        description: `${targetDrug.name} requires HR >= ${targetDrug.contraindicatedVitals.minHeartRate} bpm. Current HR is ${vitals.heartRate} bpm.`,
+        recommendation: `Hold dose. Assess cardiac telemetry rhythm and AV conduction.`,
+      });
+    }
+
+    if (
+      targetDrug.contraindicatedVitals.maxHeartRate &&
+      vitals.heartRate &&
+      vitals.heartRate > targetDrug.contraindicatedVitals.maxHeartRate
+    ) {
+      alerts.push({
+        ruleId: 'VITALS-TACHYCARDIA',
+        severity: 'MAJOR_WARNING',
+        title: `Hemodynamic Caution: Severe Tachycardia (${vitals.heartRate} bpm)`,
+        description: `${targetDrug.name} should be used with extreme caution with HR > ${targetDrug.contraindicatedVitals.maxHeartRate} bpm.`,
+        recommendation: `Ensure adequate volume resuscitation prior to initiating infusion.`,
       });
     }
   }
 
-  // 4. Renal Dose Adjustment
+  // 7. Renal Dose Adjustments (eGFR threshold)
+  const egfr = patientEgfr !== undefined ? patientEgfr : additionalContext?.eGfr;
   let renalAlert: SafetyCheckResult['renalAlert'];
   if (
-    patientEgfr !== undefined &&
+    egfr !== undefined &&
     targetDrug.renalAdjustmentThresholdEgfr &&
-    patientEgfr < targetDrug.renalAdjustmentThresholdEgfr
+    egfr < targetDrug.renalAdjustmentThresholdEgfr
   ) {
     renalAlert = {
       required: true,
-      recommendation: targetDrug.renalDoseRecommendation || `eGFR is ${patientEgfr} mL/min (threshold: ${targetDrug.renalAdjustmentThresholdEgfr}). Dose reduction mandatory.`,
+      recommendation:
+        targetDrug.renalDoseRecommendation ||
+        `eGFR is ${egfr} mL/min (threshold: ${targetDrug.renalAdjustmentThresholdEgfr}). Dose reduction mandatory.`,
     };
+    alerts.push({
+      ruleId: 'RENAL-THRESHOLD-EXCEEDED',
+      severity: 'MAJOR_WARNING',
+      title: `Renal Impairment Warning (eGFR ${egfr} mL/min)`,
+      description: `${targetDrug.name} requires renal dosage modification when eGFR < ${targetDrug.renalAdjustmentThresholdEgfr} mL/min.`,
+      recommendation: renalAlert.recommendation,
+    });
   }
 
-  // Highest severity ranking
+  // Determine overall highest severity
   let highestSeverity: SafetyCheckResult['highestSeverity'] = 'SAFE';
   if (alerts.some((a) => a.severity === 'FATAL_CONTRAINDICATION')) {
     highestSeverity = 'FATAL_CONTRAINDICATION';
@@ -419,5 +867,7 @@ export function evaluatePrescriptionSafety(
     highestSeverity,
     alerts,
     renalAlert,
+    qtcAlert,
+    pregnancyAlert,
   };
 }
