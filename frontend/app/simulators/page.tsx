@@ -106,6 +106,14 @@ const SIMULATORS = [
     status: 'Available'
   },
   {
+    id: 'ecmo-dynamics',
+    title: 'Extracorporeal Membrane Oxygenation (ECMO)',
+    description: 'VV & VA cannulation mechanics: sweep gas CO2 clearance, recirculation fraction, drainage chattering, Harlequin syndrome dual circulation, and ECPELLA LV venting.',
+    icon: <Droplets className="w-7 h-7 text-sky-400" />,
+    badge: 'Critical Care ECMO',
+    status: 'Available'
+  },
+  {
     id: 'cardiac-cycle',
     title: 'Cardiac Cycle & PV Loop',
     description: 'Manipulate preload, afterload, and contractility to instantly visualize Suga-Sagawa pressure-volume loops and Wiggers dynamics.',

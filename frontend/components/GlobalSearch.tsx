@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'ecmo-dynamics', name: 'Extracorporeal Membrane Oxygenation (ECMO) Workstation', icon: '🫁', route: '/simulators/ecmo-dynamics' },
     { id: 'iabp-counterpulsation', name: 'Intra-Aortic Balloon Pump (IABP) Counterpulsation Workstation', icon: '🫀', route: '/simulators/iabp-counterpulsation' },
     { id: 'cardiac-pacing', name: 'Cardiac Electrophysiology & Temporary Pacemaker Workstation', icon: '⚡', route: '/simulators/cardiac-pacing' },
     { id: 'icp-dynamics', name: 'Neurocritical Care & Intracranial Pressure (ICP / TBI) Workstation', icon: '🧠', route: '/simulators/icp-dynamics' },
