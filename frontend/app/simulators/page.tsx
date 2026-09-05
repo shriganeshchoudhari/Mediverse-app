@@ -304,6 +304,14 @@ const SIMULATORS = [
     icon: <Baby className="w-7 h-7 text-rose-400" />,
     badge: 'Obstetrics & Maternal-Fetal Medicine',
     status: 'Available'
+  },
+  {
+    id: 'infectious-disease',
+    title: 'Infectious Disease & Antibiogram Solver',
+    description: 'CLSI/EUCAST breakpoint interpretation, PK/PD target attainment (%T>MIC, AUC/MIC, Cmax/MIC), MDRO resistance mechanisms (MRSA, VRE, ESBL, CRE NDM-1), Cockcroft-Gault CrCl dosing, and Surviving Sepsis 1-hour bundle.',
+    icon: <Microscope className="w-7 h-7 text-emerald-400" />,
+    badge: 'Clinical Microbiology & ID',
+    status: 'Available'
   }
 ];
 
