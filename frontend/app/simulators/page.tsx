@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -63,6 +63,14 @@ const SIMULATORS = [
     description: 'Circle breathing system physics, Link-25 hypoxic guard, low-flow anesthesia kinetics, age-adjusted MAC, FA/FI uptake curves, CO2 absorber exhaustion, and Malignant Hyperthermia Dantrolene protocol.',
     icon: <Gauge className="w-7 h-7 text-amber-400" />,
     badge: 'Anesthesiology & Critical Care',
+    status: 'Available'
+  },
+  {
+    id: 'pharmacogenomics',
+    title: 'Clinical Pharmacogenomics (PGx) & Precision Therapeutics',
+    description: 'Star allele diplotype calling, CPIC Level 1A CDS rules (Clopidogrel, Codeine, 6-MP, 5-FU, Abacavir HLA-B*57:01), IWPC precision warfarin dosing, and 14-day INR kinetics.',
+    icon: <Dna className="w-7 h-7 text-indigo-400" />,
+    badge: 'Precision Therapeutics',
     status: 'Available'
   },
   {
