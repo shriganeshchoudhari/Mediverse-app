@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -23,6 +23,14 @@ const SIMULATORS = [
     description: 'Solve Henderson-Hasselbalch, analyze Anion Gap & Winter\'s compensation, and explore live 2D Davenport buffer lines.',
     icon: <FlaskConical className="w-7 h-7 text-teal-400" />,
     badge: 'Acid-Base Engine',
+    status: 'Available'
+  },
+  {
+    id: 'lab-interpretation',
+    title: 'Diagnostic Lab & Blood Gas (ABG/VBG) Solver',
+    description: 'Solve complex multi-disorder acid-base disturbances, Winter\'s formula, Delta-Delta ratios, microcytic/macrocytic anemia, osmolar gap, and 1:1 coagulation mixing studies.',
+    icon: <Microscope className="w-7 h-7 text-emerald-400" />,
+    badge: 'Diagnostic Laboratory',
     status: 'Available'
   },
   {

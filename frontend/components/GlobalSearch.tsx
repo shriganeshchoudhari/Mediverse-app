@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'lab-interpretation', name: 'Clinical Lab & Blood Gas (ABG/VBG) Solver', icon: '🔬', route: '/simulators/lab-interpretation' },
     { id: 'pocus', name: 'Point-of-Care Ultrasound (POCUS) & eFAST Station', icon: '📡', route: '/simulators/pocus' },
     { id: 'icu-telemetry', name: 'ICU Central Telemetry & Alarm Station', icon: '🚨', route: '/simulators/icu-telemetry' },
     { id: 'clinical-case-branching', name: 'Clinical Case Branching & AI OSCE Evaluator', icon: '🧠', route: '/simulators/clinical-case-branching' },
