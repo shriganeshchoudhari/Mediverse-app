@@ -41,7 +41,9 @@ import {
   Info,
   ShieldAlert,
   ArrowRight,
+  Mic,
 } from 'lucide-react';
+import SimulatedPatientVoiceStation from '@/components/cases/SimulatedPatientVoiceStation';
 
 export type EncounterStage =
   | 'TRIAGE'
@@ -532,6 +534,20 @@ Current Encounter Stage: ${activeStage}.`;
                 <p className="text-sm text-slate-200 leading-relaxed font-sans">
                   {activeCase.historyOfPresentIllness}
                 </p>
+              </div>
+
+              {/* Interactive Bedside Voice History-Taking Station */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+                    <Mic className="w-4 h-4 text-rose-400" />
+                    Bedside Voice History-Taking &amp; Patient Interview
+                  </h3>
+                  <span className="text-[11px] font-mono text-blue-400 font-semibold">
+                    SOCRATES / OLD CARTS AI Engine
+                  </span>
+                </div>
+                <SimulatedPatientVoiceStation caseId={activeCaseId} />
               </div>
 
               {/* Patient Demographics & Risk Factors Grid */}

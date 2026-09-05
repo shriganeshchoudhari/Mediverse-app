@@ -37,7 +37,9 @@ import {
   MessageSquare,
   Activity,
   Check,
+  Mic,
 } from 'lucide-react';
+import SimulatedPatientVoiceStation from '@/components/cases/SimulatedPatientVoiceStation';
 
 interface OSCECircuitStationProps {
   station: OsceStation;
@@ -80,6 +82,7 @@ export default function OSCECircuitStation({
   const [revealedActorCues, setRevealedActorCues] = useState<Set<number>>(new Set());
   const [examSubmitted, setExamSubmitted] = useState<boolean>(false);
   const [twoMinuteWarningFired, setTwoMinuteWarningFired] = useState<boolean>(false);
+  const [actorMode, setActorMode] = useState<'VOICE' | 'CARDS'>('CARDS');
 
   // Reset when station changes
   useEffect(() => {
@@ -476,25 +479,59 @@ Model Answers / Guidance: ${station.examinerGuidance.join('; ')}`;
         {/* ============================================================ */}
         {activeTab === 'ACTOR_CUES' && (
           <div className="space-y-4 animate-fade-in">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-950/60 p-3 rounded-xl border border-slate-800">
               <div>
-                <h3 className="text-sm font-bold text-white">Standardized Simulated Actor Dialogue</h3>
+                <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                  <Mic className="w-4 h-4 text-rose-400" />
+                  Standardized Simulated Actor Dialogue
+                </h3>
                 <p className="text-xs text-slate-400">
-                  Simulate history-taking questions and physical exam maneuvers to uncover patient responses.
+                  Interview the simulated actor in open voice/text or inspect standardized cue triggers.
                 </p>
               </div>
-              <button
-                onClick={() => {
-                  const allIndices = station.actorCues.map((_, i) => i);
-                  setRevealedActorCues(new Set(allIndices));
-                }}
-                className="text-xs text-blue-400 hover:text-blue-300 underline font-semibold"
-              >
-                Reveal All Cues
-              </button>
+
+              {/* Mode Toggle Pills */}
+              <div className="flex items-center gap-1.5 bg-slate-900 p-1 rounded-lg border border-slate-800 self-start sm:self-auto">
+                <button
+                  onClick={() => setActorMode('VOICE')}
+                  className={`px-3 py-1 rounded text-xs font-bold transition flex items-center gap-1.5 ${
+                    actorMode === 'VOICE'
+                      ? 'bg-blue-600 text-white'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  <Mic className="w-3.5 h-3.5" />
+                  AI Voice Actor
+                </button>
+                <button
+                  onClick={() => setActorMode('CARDS')}
+                  className={`px-3 py-1 rounded text-xs font-bold transition flex items-center gap-1.5 ${
+                    actorMode === 'CARDS'
+                      ? 'bg-blue-600 text-white'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  <MessageSquare className="w-3.5 h-3.5" />
+                  Cue Cards ({station.actorCues.length})
+                </button>
+              </div>
             </div>
 
-            <div className="space-y-3">
+            {actorMode === 'VOICE' ? (
+              <SimulatedPatientVoiceStation caseId={station.id} />
+            ) : (
+              <div className="space-y-3">
+                <div className="flex justify-end">
+                  <button
+                    onClick={() => {
+                      const allIndices = station.actorCues.map((_, i) => i);
+                      setRevealedActorCues(new Set(allIndices));
+                    }}
+                    className="text-xs text-blue-400 hover:text-blue-300 underline font-semibold"
+                  >
+                    Reveal All Cues
+                  </button>
+                </div>
               {station.actorCues.map((cue, idx) => {
                 const isRevealed = revealedActorCues.has(idx);
                 return (
@@ -534,7 +571,8 @@ Model Answers / Guidance: ${station.examinerGuidance.join('; ')}`;
                   </div>
                 );
               })}
-            </div>
+              </div>
+            )}
           </div>
         )}
 
