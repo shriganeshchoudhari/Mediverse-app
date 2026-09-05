@@ -8,6 +8,11 @@ import { ALLIED_HEALTH_MAJORS } from './alliedHealthCurriculumScaffold';
 import { BVSC_CURRICULUM } from './bvscCurriculumScaffold';
 import { MPH_CURRICULUM } from './mphCurriculumScaffold';
 import { MHA_CURRICULUM } from './mhaCurriculumScaffold';
+import { BHMS_CURRICULUM } from './bhmsCurriculumScaffold';
+import { BUMS_CURRICULUM } from './bumsCurriculumScaffold';
+import { BSMS_CURRICULUM } from './bsmsCurriculumScaffold';
+import { BNYS_CURRICULUM } from './bnysCurriculumScaffold';
+import { PHARMD_CURRICULUM } from './pharmdCurriculumScaffold';
 
 export interface UnifiedDomainChapter {
   id: string;
@@ -287,6 +292,145 @@ export function getUnifiedDomainCatalog(domainId: string): DomainCatalog {
             })),
           },
         ],
+      };
+
+    case 'bhms':
+      return {
+        domainId: 'bhms',
+        domainName: 'BHMS Homoeopathic Medicine',
+        icon: '🌿',
+        stages: BHMS_CURRICULUM.map((yr) => ({
+          key: `Year ${yr.year}`,
+          label: yr.title,
+          subjects: yr.subjects.map((subj) => ({
+            id: subj.id,
+            code: subj.code,
+            title: subj.name,
+            category: 'Homoeopathic Sciences',
+            description: subj.description,
+            chapters: subj.lessons.map((l) => ({
+              id: l.id,
+              title: l.title,
+              estimatedMinutes: 45,
+              difficulty: 'Intermediate' as const,
+              section: subj.name,
+              competencyCode: l.cchCode,
+              has3D: l.has3DContent,
+              hasSimulation: l.hasSimulation,
+            })),
+          })),
+        })),
+      };
+
+    case 'bums': {
+      const years = [1, 2, 3, 4, 5];
+      return {
+        domainId: 'bums',
+        domainName: 'BUMS Unani Medicine & Surgery',
+        icon: '🏺',
+        stages: years
+          .map((yr) => ({
+            key: `Year ${yr}`,
+            label: `Professional Year ${yr}`,
+            subjects: BUMS_CURRICULUM.filter((s) => s.year === yr).map((subj) => ({
+              id: subj.id,
+              code: subj.code,
+              title: subj.title,
+              category: 'Unani Medicine',
+              chapters: subj.lessons.map((l) => ({
+                id: l.id,
+                title: l.title,
+                estimatedMinutes: 45,
+                difficulty: 'Intermediate' as const,
+                section: subj.title,
+              })),
+            })),
+          }))
+          .filter((stage) => stage.subjects.length > 0),
+      };
+    }
+
+    case 'bsms': {
+      const years = [1, 2, 3, 4, 5];
+      return {
+        domainId: 'bsms',
+        domainName: 'BSMS Siddha Medicine & Surgery',
+        icon: '🍃',
+        stages: years
+          .map((yr) => ({
+            key: `Year ${yr}`,
+            label: `Professional Year ${yr}`,
+            subjects: BSMS_CURRICULUM.filter((s) => s.year === yr).map((subj) => ({
+              id: subj.id,
+              code: subj.code,
+              title: subj.title,
+              category: 'Siddha Medicine',
+              chapters: subj.lessons.map((l) => ({
+                id: l.id,
+                title: l.title,
+                estimatedMinutes: 45,
+                difficulty: 'Intermediate' as const,
+                section: subj.title,
+              })),
+            })),
+          }))
+          .filter((stage) => stage.subjects.length > 0),
+      };
+    }
+
+    case 'bnys': {
+      const years = [1, 2, 3, 4, 5];
+      return {
+        domainId: 'bnys',
+        domainName: 'BNYS Naturopathy & Yogic Sciences',
+        icon: '🧘',
+        stages: years
+          .map((yr) => ({
+            key: `Year ${yr}`,
+            label: `Professional Year ${yr}`,
+            subjects: BNYS_CURRICULUM.filter((s) => s.year === yr).map((subj) => ({
+              id: subj.id,
+              code: subj.code,
+              title: subj.title,
+              category: 'Naturopathy & Yoga',
+              chapters: subj.lessons.map((l) => ({
+                id: l.id,
+                title: l.title,
+                estimatedMinutes: 45,
+                difficulty: 'Intermediate' as const,
+                section: subj.title,
+              })),
+            })),
+          }))
+          .filter((stage) => stage.subjects.length > 0),
+      };
+    }
+
+    case 'pharmd':
+      return {
+        domainId: 'pharmd',
+        domainName: 'Pharm.D Doctor of Pharmacy',
+        icon: '💊',
+        stages: PHARMD_CURRICULUM.map((yr) => ({
+          key: `Year ${yr.year}`,
+          label: yr.title,
+          subjects: yr.subjects.map((subj) => ({
+            id: subj.id,
+            code: subj.code,
+            title: subj.name,
+            category: 'Clinical Pharmacy',
+            description: subj.description,
+            chapters: subj.lessons.map((l) => ({
+              id: l.id,
+              title: l.title,
+              estimatedMinutes: 50,
+              difficulty: 'Intermediate' as const,
+              section: subj.name,
+              competencyCode: l.pciCode,
+              hasSimulation: l.hasSimulation,
+            })),
+          })),
+        })),
       };
 
     default:

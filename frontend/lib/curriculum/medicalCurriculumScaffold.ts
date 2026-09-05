@@ -114,6 +114,22 @@ export const MEDICAL_CURRICULUM_SCAFFOLD: MedicalSubject[] = [
             estimatedMinutes: 110,
             highYieldTopics: ["Nernst Equilibrium Potential", "Na+ Channel Inactivation", "Saltatory Conduction"],
             competencies: ["PY1.3", "PY1.4"]
+          },
+          {
+            id: "phys-c1b",
+            title: "Skeletal, Smooth & Cardiac Muscle Physiology",
+            description: "Cross-bridge kinetics, troponin-calcium coupling, length-tension relationship, tetanic summation, and smooth muscle latch mechanism distinguishing phasic from tonic contractions.",
+            estimatedMinutes: 95,
+            highYieldTopics: ["Frank-Starling Mechanism & Preload", "Smooth Muscle Gap Junctions & Multi-unit vs Single-unit Types", "Rigor Mortis Mechanism"],
+            competencies: ["PY3.1", "PY3.2"]
+          },
+          {
+            id: "phys-c1c",
+            title: "Autonomic Nervous System & Visceral Control",
+            description: "Sympathetic and parasympathetic pre/post-ganglionic transmission, autonomic receptor pharmacology (alpha-1/2, beta-1/2/3, M1-M3), enteric nervous system plexuses, and autonomic dysreflexia.",
+            estimatedMinutes: 90,
+            highYieldTopics: ["Muscarinic vs Nicotinic Receptor Tissue Distribution", "Sympathetic Splanchnic Nerve Adrenal Medulla Innervation", "Horner Syndrome Triad (Ptosis, Miosis, Anhidrosis)"],
+            competencies: ["PY4.1", "PY4.2"]
           }
         ]
       },
@@ -167,6 +183,75 @@ export const MEDICAL_CURRICULUM_SCAFFOLD: MedicalSubject[] = [
             estimatedMinutes: 100,
             highYieldTopics: ["High Anion Gap Metabolic Acidosis", "Davenport Buffer Slopes", "Delta Gap Dynamics"],
             competencies: ["PY7.3", "PY7.4"]
+          }
+        ]
+      },
+      {
+        id: "phys-u5",
+        title: "Endocrine Physiology",
+        system: "ENDOCRINE",
+        chapters: [
+          {
+            id: "phys-c7",
+            title: "Hypothalamic-Pituitary Axis & Feedback Loops",
+            description: "Hypothalamic releasing/inhibiting hormones (TRH, CRH, GHRH, GnRH), pituitary tropic hormone regulation, long-loop vs short-loop negative feedback, and anterior vs posterior pituitary embryology.",
+            estimatedMinutes: 100,
+            highYieldTopics: ["Somatotroph GH Pulsatile Secretion", "ADH Osmoreceptor vs Baroreceptor Pathways", "Prolactin Inhibition by Dopamine"],
+            competencies: ["PY8.1", "PY8.2"]
+          },
+          {
+            id: "phys-c8",
+            title: "Thyroid, Adrenal Cortex & Pancreatic Islets",
+            description: "T3/T4 synthesis organification steps, cortisol circadian ACTH pulses, adrenal zona division (Glomerulosa/Fasciculata/Reticularis), insulin secretion first/second phase kinetics, and glucagon counterregulation.",
+            estimatedMinutes: 110,
+            highYieldTopics: ["Wolff-Chaikoff Effect (Iodine Excess)", "11-Beta Hydroxylase Deficiency Aldosterone vs Cortisol Loss", "Glucose-Stimulated Insulin Release KATP Channel Mechanism"],
+            competencies: ["PY8.3", "PY8.4"]
+          }
+        ]
+      },
+      {
+        id: "phys-u6",
+        title: "Reproductive & Developmental Physiology",
+        system: "REPRODUCTIVE",
+        chapters: [
+          {
+            id: "phys-c9",
+            title: "Menstrual Cycle, Ovulation & Fertilization",
+            description: "FSH/LH surge-driven folliculogenesis, estradiol-mediated positive feedback mid-cycle, corpus luteum progesterone secretion, endometrial proliferative vs secretory phases, and implantation window.",
+            estimatedMinutes: 95,
+            highYieldTopics: ["LH Surge Trigger Point (Day 14)", "hCG Rescue of Corpus Luteum in Pregnancy", "Inhibin B vs Activin A Granulosa Feedback"],
+            competencies: ["PY9.1", "PY9.2"]
+          },
+          {
+            id: "phys-c10",
+            title: "Fetal Circulation & Neonatal Adaptation",
+            description: "Fetal shunts (foramen ovale, ductus arteriosus, ductus venosus), oxygen-hemoglobin dissociation curve right-shift at birth, surfactant maturation, and neonatal thermoregulation.",
+            estimatedMinutes: 90,
+            highYieldTopics: ["Ductus Arteriosus Indomethacin Closure", "Fetal HbF Oxygen Affinity vs Adult HbA", "Neonatal Respiratory Distress Syndrome (Type II Pneumocyte Immaturity)"],
+            competencies: ["PY9.3", "PY9.4"]
+          }
+        ]
+      },
+      {
+        id: "phys-u7",
+        title: "Neurophysiology & Special Senses",
+        system: "NEUROLOGY",
+        chapters: [
+          {
+            id: "phys-c11",
+            title: "Spinal Cord Reflexes, Tracts & Upper Motor Neuron Lesions",
+            description: "Corticospinal vs extrapyramidal tract functions, Ia afferent stretch reflex arc, Renshaw interneuron inhibition, UMN vs LMN lesion clinical differentiation, and spinal shock phenomenon.",
+            estimatedMinutes: 100,
+            highYieldTopics: ["UMN Signs: Spasticity, Hyperreflexia, Babinski", "LMN Signs: Flaccidity, Fasciculations, Atrophy", "Brown-Séquard Syndrome Contralateral Loss Pattern"],
+            competencies: ["PY10.1", "PY10.2"]
+          },
+          {
+            id: "phys-c12",
+            title: "Visual & Auditory Signal Transduction",
+            description: "Phototransduction (rhodopsin → cGMP phosphodiesterase → hyperpolarization), retinal ganglion cell receptive fields, visual cortex ocular dominance columns, cochlear basilar membrane tonotopy, and organ of Corti hair cell mechanotransduction.",
+            estimatedMinutes: 85,
+            highYieldTopics: ["Presbyopia vs Presbycusis Mechanism", "Macular Sparing in PCA Infarcts", "Conductive vs Sensorineural Audiogram Patterns"],
+            competencies: ["PY11.1", "PY11.2"]
           }
         ]
       }
@@ -242,6 +327,44 @@ export const MEDICAL_CURRICULUM_SCAFFOLD: MedicalSubject[] = [
             competencies: ["AN30.1", "AN30.2"]
           }
         ]
+      },
+      {
+        id: "anat-u4",
+        title: "Abdomen & Pelvis",
+        system: "GASTROINTESTINAL",
+        chapters: [
+          {
+            id: "anat-c4",
+            title: "Inguinal Canal, Hernia Types & Abdominal Layers",
+            description: "Deep vs superficial inguinal rings, spermatic cord contents, direct vs indirect hernia differentiating landmarks, Hesselbach's triangle anatomy, and McBurney's point for appendix localization.",
+            estimatedMinutes: 110,
+            highYieldTopics: ["Hesselbach Triangle (Inferior Epigastric Vessels, Inguinal Ligament, Rectus Abdominis)", "Direct vs Indirect Hernia: Medial vs Lateral to Inferior Epigastric", "Femoral Canal Contents & Femoral Hernia Risk"],
+            competencies: ["AN15.1", "AN15.2"]
+          },
+          {
+            id: "anat-c5",
+            title: "Portal Venous System & Portosystemic Anastomoses",
+            description: "Portal vein formation (SMV + splenic), portosystemic collateral channels in cirrhosis (esophageal varices, caput medusae, hemorrhoids), and hepatic segmental anatomy (Couinaud segments I-VIII).",
+            estimatedMinutes: 95,
+            highYieldTopics: ["Esophageal Varices: Left Gastric vein ↔ Azygos", "Caput Medusae: Paraumbilical ↔ Epigastric Veins", "Couinaud Segment VIII Hepatocellular Carcinoma Resection"],
+            competencies: ["AN16.1", "AN16.2"]
+          }
+        ]
+      },
+      {
+        id: "anat-u5",
+        title: "Peripheral Nerves & Clinical Nerve Injuries",
+        system: "NEUROLOGY",
+        chapters: [
+          {
+            id: "anat-c6",
+            title: "Lumbar & Sacral Plexus — Sciatic, Femoral & Peroneal Nerves",
+            description: "Lumbar plexus (L1-L4): femoral, obturator, lateral cutaneous; sacral plexus (L4-S3): sciatic, superior/inferior gluteal; common peroneal vs tibial nerve injury patterns and foot drop mechanism.",
+            estimatedMinutes: 110,
+            highYieldTopics: ["Foot Drop: Common Peroneal Nerve at Fibular Neck", "Meralgia Paraesthetica: Lateral Cutaneous Femoral Nerve", "Piriformis Syndrome vs True Sciatic Entrapment"],
+            competencies: ["AN18.1", "AN18.2"]
+          }
+        ]
       }
     ],
     keyCompetencies: [
@@ -289,6 +412,52 @@ export const MEDICAL_CURRICULUM_SCAFFOLD: MedicalSubject[] = [
             estimatedMinutes: 85,
             highYieldTopics: ["ApoB-100 vs ApoE Receptors", "Statin HMG-CoA Reductase Inhibition", "Atherosclerotic Foam Cells"],
             competencies: ["BI4.1", "BI4.2"]
+          }
+        ]
+      },
+      {
+        id: "bioc-u2",
+        title: "Molecular Biology & DNA Metabolism",
+        system: "GENERAL",
+        chapters: [
+          {
+            id: "bioc-c3",
+            title: "DNA Replication, Repair & Recombination",
+            description: "Leading vs lagging strand synthesis, Okazaki fragment ligation, nucleotide excision repair (NER) in Xeroderma Pigmentosum, mismatch repair in Lynch syndrome, and homologous recombination in BRCA1/2 cancers.",
+            estimatedMinutes: 95,
+            highYieldTopics: ["Xeroderma Pigmentosum: NER Defect → UV Carcinoma", "Lynch Syndrome: MMR Gene (MLH1, MSH2) Defect → CRC", "BRCA1/2: HRR Defect → Breast/Ovarian Cancer Radiosensitivity"],
+            competencies: ["BI5.1", "BI5.2"]
+          },
+          {
+            id: "bioc-c4",
+            title: "Transcription, Translation & Post-Translational Modifications",
+            description: "Prokaryotic vs eukaryotic RNA polymerases, sigma factor promoter recognition, ribosomal A/P/E site tRNA movement, signal peptide ER targeting, ubiquitin-proteasome degradation, and glycoprotein N-linked vs O-linked glycosylation.",
+            estimatedMinutes: 90,
+            highYieldTopics: ["Antimicrobials Targeting Prokaryotic 30S vs 50S Ribosomal Subunits", "N-terminal Signal Peptide Cleavage in ER Translocation", "Ubiquitin-26S Proteasome in Cyclins & Cell Cycle Regulation"],
+            competencies: ["BI5.3", "BI5.4"]
+          }
+        ]
+      },
+      {
+        id: "bioc-u3",
+        title: "Clinical Nutrition & Vitamins",
+        system: "GENERAL",
+        chapters: [
+          {
+            id: "bioc-c5",
+            title: "Fat-Soluble Vitamins (A, D, E, K) — Deficiencies & Toxicities",
+            description: "Retinol retinoic acid visual cycle (11-cis-retinal), Vitamin D3 hydroxylation (25-OHase liver, 1-alpha-OHase kidney), Vitamin K gamma-carboxylation of clotting factors II, VII, IX, X, and Vitamin E tocopherol antioxidant chain-breaking.",
+            estimatedMinutes: 85,
+            highYieldTopics: ["Vitamin A Teratogenicity & Night Blindness", "Vitamin D Deficiency Rickets vs Osteomalacia vs Osteoporosis", "Warfarin Mechanism: Vitamin K Epoxide Reductase Inhibition"],
+            competencies: ["BI6.1", "BI6.2"]
+          },
+          {
+            id: "bioc-c6",
+            title: "Water-Soluble Vitamins — B-complex & Vitamin C",
+            description: "Thiamine TPP coenzyme in PDH/alpha-KG/transketolase reactions, Niacin NAD+ electron carrier in redox, Pyridoxine PLP transamination, Folic acid THF one-carbon transfer in DNA synthesis, Cobalamin methylmalonyl-CoA mutase, and Vitamin C hydroxylation of proline/lysine in collagen.",
+            estimatedMinutes: 90,
+            highYieldTopics: ["Wernicke-Korsakoff: Thiamine Deficiency in Alcoholism", "Megaloblastic Anemia: B12 vs Folate — Subacute Combined Degeneration distinguishes", "Scurvy: Vitamin C Deficiency → Perifollicular Hemorrhage & Corkscrew Hairs"],
+            competencies: ["BI6.3", "BI6.4"]
           }
         ]
       }
@@ -358,6 +527,52 @@ export const MEDICAL_CURRICULUM_SCAFFOLD: MedicalSubject[] = [
             competencies: ["PA16.1", "PA16.2"]
           }
         ]
+      },
+      {
+        id: "path-u3",
+        title: "Hematopathology",
+        system: "HEMATOLOGY",
+        chapters: [
+          {
+            id: "path-c4",
+            title: "Anemia Classification & Peripheral Smear Interpretation",
+            description: "MCV-based classification (microcytic: IDA/thalassemia, normocytic: ACD/hemolysis, macrocytic: B12/folate), reticulocyte index correction, RBC morphology (spherocytes, target cells, schistocytes, Howell-Jolly bodies), and bone marrow erythroid hyperplasia patterns.",
+            estimatedMinutes: 100,
+            highYieldTopics: ["Iron Deficiency vs Anemia of Chronic Disease: Serum Ferritin", "Microangiopathic Anemia Schistocytes in TTP/HUS", "Howell-Jolly Bodies in Functional Asplenia (Sickle Cell)"],
+            competencies: ["PA20.1", "PA20.2"]
+          },
+          {
+            id: "path-c5",
+            title: "Leukemias & Lymphomas — WHO Classification",
+            description: "AML vs ALL blasts (Auer rods, TdT+), CML Philadelphia chromosome t(9;22) BCR-ABL, Hodgkin vs Non-Hodgkin lymphoma Reed-Sternberg cells, B-cell vs T-cell immunophenotyping, and bone marrow biopsy interpretation.",
+            estimatedMinutes: 110,
+            highYieldTopics: ["Philadelphia Chromosome CML → Imatinib (Gleevec) Target", "Reed-Sternberg CD15+/CD30+ in Classical Hodgkin", "Burkitt Lymphoma t(8;14) MYC-IGH Starry Sky Pattern"],
+            competencies: ["PA21.1", "PA21.2"]
+          }
+        ]
+      },
+      {
+        id: "path-u4",
+        title: "Organ-Specific Systemic Pathology",
+        system: "RESPIRATORY",
+        chapters: [
+          {
+            id: "path-c6",
+            title: "COPD, Asthma & Interstitial Lung Diseases",
+            description: "Emphysema centriacinar vs panacinar, chronic bronchitis Reid index (mucous gland/bronchial wall ratio >0.4), asthma Curschmann spirals and Charcot-Leyden crystals, UIP pattern in IPF, and sarcoidosis non-caseating granulomas.",
+            estimatedMinutes: 105,
+            highYieldTopics: ["Pink Puffer (Emphysema) vs Blue Bloater (Chronic Bronchitis)", "Asthma Reversible vs COPD Irreversible Obstruction (FEV1 Response)", "Sarcoidosis: Elevated ACE, Hypercalcemia, Bilateral Hilar Lymphadenopathy"],
+            competencies: ["PA18.1", "PA18.2"]
+          },
+          {
+            id: "path-c7",
+            title: "Glomerulonephritis & Nephrotic/Nephritic Syndromes",
+            description: "Pattern recognition of nephritic (hematuria, hypertension, RBC casts) vs nephrotic (massive proteinuria, hypoalbuminemia, edema, lipiduria), MPGN tram-track basement membrane on EM, minimal change disease podocyte effacement, and focal segmental glomerulosclerosis association with HIV.",
+            estimatedMinutes: 110,
+            highYieldTopics: ["Nephritic Pattern: Post-Streptococcal GN Subepithelial Humps", "Nephrotic Pattern: Minimal Change Disease Podocyte Fusion on EM", "Rapidly Progressive GN (RPGN) Crescents on Biopsy"],
+            competencies: ["PA19.1", "PA19.2"]
+          }
+        ]
       }
     ],
     keyCompetencies: [
@@ -412,6 +627,52 @@ export const MEDICAL_CURRICULUM_SCAFFOLD: MedicalSubject[] = [
             estimatedMinutes: 95,
             highYieldTopics: ["MRSA PBP2a Mutation", "Streptococcus Pyogenes M-Protein", "Clostridial Neurotoxins"],
             competencies: ["MI2.1", "MI2.2"]
+          }
+        ]
+      },
+      {
+        id: "micr-u3",
+        title: "Virology — DNA & RNA Viral Pathogens",
+        system: "IMMUNOLOGY",
+        chapters: [
+          {
+            id: "micr-c3",
+            title: "HIV Pathogenesis, Diagnosis & HAART",
+            description: "HIV gp120-CD4/CCR5 attachment, reverse transcriptase single-stranded RNA → proviral DNA integration, CD4+ T cell depletion mechanisms, WHO CD4 threshold for ART initiation, NRTI/NNRTI/PI/INSTI drug classes, and AIDS-defining illness spectrum.",
+            estimatedMinutes: 110,
+            highYieldTopics: ["HIV Western Blot Confirmatory Test", "CD4 <200 cells/µL: Initiate PCP Prophylaxis (TMP-SMX)", "Immune Reconstitution Inflammatory Syndrome (IRIS)"],
+            competencies: ["MI5.1", "MI5.2"]
+          },
+          {
+            id: "micr-c4",
+            title: "Hepatitis Viruses A-E — Serology & Clinical Profiles",
+            description: "HAV/HEV fecal-oral (no chronicity), HBV Dane particle serology (HBsAg, anti-HBc IgM/IgG, HBeAg, anti-HBs), HCV NS5B polymerase inhibitors (Sofosbuvir), HDV superinfection/coinfection with HBV, and fulminant hepatic failure management.",
+            estimatedMinutes: 100,
+            highYieldTopics: ["HBsAg Window Period (Anti-HBc IgM Positive Only)", "HCV Genotype 1a/1b: 90%+ SVR with Direct-Acting Antivirals", "HEV Highest Mortality in Pregnancy (Fulminant)"],
+            competencies: ["MI5.3", "MI5.4"]
+          }
+        ]
+      },
+      {
+        id: "micr-u4",
+        title: "Parasitology & Antimicrobial Resistance",
+        system: "IMMUNOLOGY",
+        chapters: [
+          {
+            id: "micr-c5",
+            title: "Plasmodium, Entamoeba & Intestinal Helminths",
+            description: "Plasmodium life cycle (sporozoite → hepatocyte exoerythrocytic → RBC erythrocytic schizogony → gametocyte), P. falciparum cerebral malaria sequestration, Entamoeba histolytica trophozoite vs cyst, Giardia cyst-mediated secretory diarrhea, and Ascaris pneumonitis Löffler syndrome.",
+            estimatedMinutes: 95,
+            highYieldTopics: ["Plasmodium vivax Hypnozoites & Primaquine Radical Cure", "Amoebic Liver Abscess Anchovy Sauce Pus", "Strongyloides Hyperinfection in Immunocompromised"],
+            competencies: ["MI6.1", "MI6.2"]
+          },
+          {
+            id: "micr-c6",
+            title: "Antimicrobial Resistance Mechanisms & Stewardship",
+            description: "Beta-lactamase ESBL/KPC/NDM-1 plasmid-mediated resistance, MRSA PBP2a altered penicillin-binding protein, Vancomycin VRE D-Ala/D-Lac alteration, aminoglycoside acetyltransferase enzymes, and antimicrobial stewardship program (ASP) de-escalation principles.",
+            estimatedMinutes: 90,
+            highYieldTopics: ["MRSA Treatment: Vancomycin / Linezolid / Daptomycin", "ESBL-Producing E. coli: Carbapenem Required", "CRE (Carbapenem-Resistant Enterobacteriaceae): Polymyxin Last Resort"],
+            competencies: ["MI7.1", "MI7.2"]
           }
         ]
       }
@@ -476,6 +737,52 @@ export const MEDICAL_CURRICULUM_SCAFFOLD: MedicalSubject[] = [
             estimatedMinutes: 110,
             highYieldTopics: ["Vaughan Williams Class III Potassium Blockers", "Furosemide Ototoxicity/Hypokalemia", "Digoxin NCX Toxicity"],
             competencies: ["PH2.1", "PH2.2"]
+          }
+        ]
+      },
+      {
+        id: "pharm-u3",
+        title: "CNS Pharmacology",
+        system: "NEUROLOGY",
+        chapters: [
+          {
+            id: "pharm-c4",
+            title: "Antidepressants, Antipsychotics & Mood Stabilizers",
+            description: "TCA mechanism (monoamine reuptake inhibition) and anticholinergic/antihistaminergic side-effects, SSRI serotonin syndrome and SIADH, atypical antipsychotics D2/5-HT2A antagonism and metabolic syndrome, lithium therapeutic index and thyroid/renal toxicity monitoring.",
+            estimatedMinutes: 105,
+            highYieldTopics: ["Serotonin Syndrome Triad vs Neuroleptic Malignant Syndrome", "Clozapine Agranulocytosis: Weekly CBC Monitoring", "Lithium Toxicity: Tremor, Polyuria, Thyroid → Levels >1.5 mEq/L"],
+            competencies: ["PH3.1", "PH3.2"]
+          },
+          {
+            id: "pharm-c5",
+            title: "Anticonvulsants & Anesthetic Agents",
+            description: "Valproate broad-spectrum mechanism (Na+ channel + GABA), Phenytoin zero-order kinetics and gingival hyperplasia, Carbamazepine enzyme induction (CYP3A4) and SIADH, IV anesthetics (Propofol GABA potentiation, Ketamine NMDA dissociative) and volatile agents MAC values.",
+            estimatedMinutes: 100,
+            highYieldTopics: ["Valproate Teratogenicity: Neural Tube Defects (Spina Bifida)", "Phenytoin Fosphenytoin for Status Epilepticus", "Ketamine Emergence Reaction — Midazolam Pretreatment"],
+            competencies: ["PH3.3", "PH3.4"]
+          }
+        ]
+      },
+      {
+        id: "pharm-u4",
+        title: "Chemotherapy & Immunopharmacology",
+        system: "IMMUNOLOGY",
+        chapters: [
+          {
+            id: "pharm-c6",
+            title: "Antineoplastic Agents — Cell Cycle Specific & Nonspecific",
+            description: "Alkylating agents (cyclophosphamide hemorrhagic cystitis + MESNA rescue), antimetabolites (Methotrexate DHFR inhibition, Leucovorin rescue), vinca alkaloids spindle poison, taxanes microtubule stabilization, and topoisomerase I/II inhibitors.",
+            estimatedMinutes: 110,
+            highYieldTopics: ["Doxorubicin Cardiotoxicity (Dilated Cardiomyopathy, Limit 550 mg/m²)", "Bleomycin Pulmonary Fibrosis", "Cisplatin Nephrotoxicity and Peripheral Neuropathy"],
+            competencies: ["PH4.1", "PH4.2"]
+          },
+          {
+            id: "pharm-c7",
+            title: "Immunosuppressants, Monoclonal Antibodies & Biologics",
+            description: "Calcineurin inhibitors (Cyclosporine/Tacrolimus NFAT inhibition, nephrotoxicity), mTOR inhibitors (Sirolimus/Everolimus), anti-TNF agents (Infliximab, Adalimumab — TB reactivation risk), and anti-CD20 Rituximab mechanism.",
+            estimatedMinutes: 95,
+            highYieldTopics: ["Cyclosporine: Hirsutism, Gingival Hyperplasia, Hypertension, Nephrotoxicity", "Infliximab/Adalimumab: Screen Latent TB (Quantiferon-Gold) Before Starting", "Rituximab: PML Risk (JC Virus Reactivation)"],
+            competencies: ["PH4.3", "PH4.4"]
           }
         ]
       }
@@ -616,6 +923,52 @@ export const MEDICAL_CURRICULUM_SCAFFOLD: MedicalSubject[] = [
             estimatedMinutes: 110,
             highYieldTopics: ["DKA Anion Gap Resolution Criteria", "Continuous IV Insulin Protocol", "Microvascular vs Macrovascular Complications"],
             competencies: ["IM8.1", "IM8.2"]
+          }
+        ]
+      },
+      {
+        id: "med-u3",
+        title: "Nephrology & Fluid-Electrolyte",
+        system: "RENAL",
+        chapters: [
+          {
+            id: "med-c3",
+            title: "Chronic Kidney Disease Staging, Uremia & RRT",
+            description: "KDIGO CKD staging (GFR categories G1-G5), uremic toxin accumulation (creatinine, BUN, middle molecules), indications for renal replacement therapy (uremic pericarditis, fluid overload, hyperkalemia, pH <7.1), hemodialysis vs peritoneal dialysis principles.",
+            estimatedMinutes: 110,
+            highYieldTopics: ["CKD-MBD: Secondary Hyperparathyroidism Mechanism", "Erythropoietin Deficiency Normochromic Normocytic Anemia", "Dialysis Disequilibrium Syndrome Prevention"],
+            competencies: ["IM9.1", "IM9.2"]
+          },
+          {
+            id: "med-c4",
+            title: "Hyponatremia, Hyperkalemia & Metabolic Emergencies",
+            description: "Euvolemic vs hypovolemic vs hypervolemic hyponatremia (SIADH, hypothyroidism, cirrhosis, CHF), correction rate in symptomatic hyponatremia (max 8-10 mEq/L/24h to prevent osmotic demyelination), hyperkalemia ECG changes (peaked T → sine wave), and TTKG for differentiation.",
+            estimatedMinutes: 100,
+            highYieldTopics: ["Osmotic Demyelination Syndrome: Too-Rapid Hyponatremia Correction", "Hyperkalemia Emergency: Calcium Gluconate (Membrane Stabilization) → Insulin-Dextrose → Kayexalate", "TTKG <3 in Hypoaldosteronism"],
+            competencies: ["IM9.3", "IM9.4"]
+          }
+        ]
+      },
+      {
+        id: "med-u4",
+        title: "Neurology & Infectious Diseases",
+        system: "NEUROLOGY",
+        chapters: [
+          {
+            id: "med-c5",
+            title: "Ischemic Stroke, TIA & Hemorrhagic Stroke Management",
+            description: "NIHSS scoring, CT/MRI ischemic vs hemorrhagic differentiation, tPA thrombolysis eligibility (4.5-hour window, contraindications), mechanical thrombectomy up to 24 hours, blood pressure targets in ischemic vs hemorrhagic stroke, and secondary prevention (antiplatelet vs anticoagulation in AF).",
+            estimatedMinutes: 120,
+            highYieldTopics: ["TOAST Classification Ischemic Stroke Etiology", "DWI/ADC MRI: Cytotoxic Edema (Acute Ischemia)", "tPA Contraindications: Recent Surgery, INR>1.7, Platelets <100k"],
+            competencies: ["IM10.1", "IM10.2"]
+          },
+          {
+            id: "med-c6",
+            title: "Sepsis, Septic Shock & Surviving Sepsis Campaign Bundles",
+            description: "Sepsis-3 definition (SOFA score ≥2 + suspected infection), qSOFA screening tool (altered mentation, RR≥22, SBP≤100), septic shock vasopressor targets (MAP≥65 mmHg with Norepinephrine), SSC 1-hour bundle (lactate, blood cultures ×2, broad-spectrum ABx, 30 mL/kg crystalloid, vasopressors if MAP<65).",
+            estimatedMinutes: 110,
+            highYieldTopics: ["Norepinephrine First-Line Vasopressor in Septic Shock", "Steroids (Hydrocortisone 200 mg/day) for Refractory Septic Shock", "Lactate-Guided Resuscitation: Lactate >4 mmol/L = High Mortality"],
+            competencies: ["IM11.1", "IM11.2"]
           }
         ]
       }
@@ -843,7 +1196,8 @@ export const MEDICAL_CURRICULUM_SCAFFOLD: MedicalSubject[] = [
     },
     icon: "👂",
     has3DCanvas: true,
-    hasSimulators: false,
+    hasSimulators: true,
+    defaultSimulatorRoute: "/simulators/anatomy-dissection",
     units: [
       {
         id: "ent-u1",
@@ -923,7 +1277,8 @@ export const MEDICAL_CURRICULUM_SCAFFOLD: MedicalSubject[] = [
     },
     icon: "🧠",
     has3DCanvas: false,
-    hasSimulators: false,
+    hasSimulators: true,
+    defaultSimulatorRoute: "/simulators/nerve-muscle",
     units: [
       {
         id: "psych-u1",
@@ -963,7 +1318,8 @@ export const MEDICAL_CURRICULUM_SCAFFOLD: MedicalSubject[] = [
     },
     icon: "☢️",
     has3DCanvas: true,
-    hasSimulators: false,
+    hasSimulators: true,
+    defaultSimulatorRoute: "/simulators/anatomy-dissection",
     units: [
       {
         id: "rad-u1",
@@ -1047,7 +1403,8 @@ export const MEDICAL_CURRICULUM_SCAFFOLD: MedicalSubject[] = [
     },
     icon: "🤝",
     has3DCanvas: false,
-    hasSimulators: false,
+    hasSimulators: true,
+    defaultSimulatorRoute: "/simulators/clinical-case-branching",
     units: [
       {
         id: "aet-u1",

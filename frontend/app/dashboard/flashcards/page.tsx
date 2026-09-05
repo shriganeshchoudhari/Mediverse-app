@@ -81,150 +81,15 @@ const cardToRecord = (c: Card): FlashcardReviewRecord => ({
   retentionHistory: c.retentionHistory || [],
 });
 
-const DOMAINS = [
-  "All Decks",
-  "Cardiovascular",
-  "Renal",
-  "Respiratory",
-  "Pharmacology",
-  "Neuroanatomy",
-  "Clinical High-Yield"
-] as const;
+import {
+  FLASHCARD_DECK_LIBRARY,
+  FLASHCARD_DOMAINS,
+} from "../../../.gemini/skills/FlashcardDeckLibrary";
 
-const INITIAL_CARDS: Card[] = [
-  {
-    id: 1,
-    deck: "Cardiovascular",
-    type: "cloze",
-    front: "In cardiac muscle contraction, the {{c1::A band}} remains constant in length, while the {{c2::I band}} and {{c3::H zone}} shorten.",
-    back: "In cardiac muscle contraction, the {{c1::A band}} remains constant in length, while the {{c2::I band}} and {{c3::H zone}} shorten.",
-    mnemonic: "HIZ shrink, A stays: H-zone, I-band, and Z-lines move closer during sarcomere shortening; A-band is Always the same length.",
-    audioPrompt: "In cardiac muscle contraction, which sarcomere band remains constant in length, and which bands shorten?",
-    interval: 1,
-    repetition: 0,
-    ef: 2.5,
-    lapses: 0
-  },
-  {
-    id: 2,
-    deck: "Renal",
-    type: "standard",
-    front: "Which nephron segment and transporter are inhibited by Loop Diuretics (e.g. Furosemide), and what metabolic derangement do they induce?",
-    back: "Loop diuretics inhibit the Na+/K+/2Cl- (NKCC2) cotransporter in the Thick Ascending Limb (TAL) of Henle's loop. They induce Hypokalemic Hypochloremic Metabolic Alkalosis and hypercalciuria.",
-    mnemonic: "Loops Lose Calcium (hypercalciuria), Thiazides Take Calcium (hypercalcemia/hypocalciuria).",
-    audioPrompt: "Which nephron segment and transporter are inhibited by loop diuretics, and what metabolic derangement do they induce?",
-    interval: 1,
-    repetition: 0,
-    ef: 2.5,
-    lapses: 0
-  },
-  {
-    id: 3,
-    deck: "Respiratory",
-    type: "cloze",
-    front: "Pulmonary surfactant is synthesized by {{c1::Type II pneumocytes}} starting around week 26 of gestation, composed primarily of {{c2::dipalmitoylphosphatidylcholine (DPPC)}}.",
-    back: "Pulmonary surfactant is synthesized by {{c1::Type II pneumocytes}} starting around week 26 of gestation, composed primarily of {{c2::dipalmitoylphosphatidylcholine (DPPC)}}.",
-    mnemonic: "Type II cells have 2 crucial roles: produce surfactant to decrease alveolar surface tension, and act as progenitor stem cells for Type I pneumocytes.",
-    audioPrompt: "What cells synthesize pulmonary surfactant and what is its primary phospholipid constituent?",
-    interval: 1,
-    repetition: 0,
-    ef: 2.5,
-    lapses: 0
-  },
-  {
-    id: 4,
-    deck: "Pharmacology",
-    type: "standard",
-    front: "What are the classic clinical manifestations of Anticholinergic Toxicity (e.g., Atropine or Scopolamine toxicity)?",
-    back: "Tachycardia, anhidrosis (dry mouth/skin), mydriasis with cycloplegia, fever/hyperthermia, flushed skin, urinary retention, and acute delirium or hallucinations.",
-    mnemonic: "Hot as a hare (fever), Blind as a bat (cycloplegia/mydriasis), Dry as a bone (anhidrosis), Red as a beet (vasodilation), Mad as a hatter (delirium), Full as a flask (urinary retention).",
-    audioPrompt: "What are the classic clinical manifestations of anticholinergic toxicity?",
-    interval: 1,
-    repetition: 0,
-    ef: 2.5,
-    lapses: 0
-  },
-  {
-    id: 5,
-    deck: "Neuroanatomy",
-    type: "image",
-    front: "Identify the vascular anatomy of the Circle of Willis and explain the presentation of an Anterior Communicating Artery (ACom) aneurysm rupture vs compression.",
-    back: "ACom aneurysm rupture causes Subarachnoid Hemorrhage ('worst headache of life'). Compression of the central optic chiasm leads to Bitemporal Hemianopsia without motor deficits.",
-    imageUrl: "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=1200&q=80",
-    mnemonic: "ACom = Anterior optic chiasm compression (Bitemporal visual field loss). PCom = Posterior CN III palsy (blown pupil, 'down and out' eye).",
-    audioPrompt: "What are the clinical consequences of an anterior communicating artery aneurysm rupture and compression?",
-    interval: 1,
-    repetition: 0,
-    ef: 2.5,
-    lapses: 0
-  },
-  {
-    id: 6,
-    deck: "Clinical High-Yield",
-    type: "standard",
-    front: "What constitutes Beck's Triad, and what acute life-threatening cardiovascular emergency does it diagnose?",
-    back: "Beck's Triad diagnoses Acute Cardiac Tamponade. The triad consists of: 1) Hypotension / Decreased arterial BP, 2) Distended jugular veins (Elevated JVP), 3) Muffled / Distant heart sounds.",
-    mnemonic: "3 D's of Beck: Distant heart sounds, Distended jugular veins, Decreased arterial blood pressure (plus pulsus paradoxus).",
-    audioPrompt: "What is Beck's Triad and what condition does it diagnose?",
-    interval: 1,
-    repetition: 0,
-    ef: 2.5,
-    lapses: 0
-  },
-  {
-    id: 7,
-    deck: "Cardiovascular",
-    type: "standard",
-    front: "What is the physiological mechanism of an S3 heart sound, and what clinical conditions does a pathological S3 indicate?",
-    back: "Caused by sudden deceleration of rapid ventricular passive filling into an overcompliant or volume-overloaded ventricle during early diastole. Pathological in systolic heart failure (dilated cardiomyopathy, mitral/aortic regurgitation).",
-    mnemonic: "S3 = Ken-tuck-y (SLOSH'-ing-in, early diastole volume overload). S4 = Ten-nes-see (STIFF'-wall, late diastole atrial kick against hypertrophy).",
-    audioPrompt: "What is the physiological mechanism of an S3 heart sound and what does it indicate?",
-    interval: 1,
-    repetition: 0,
-    ef: 2.5,
-    lapses: 0
-  },
-  {
-    id: 8,
-    deck: "Pharmacology",
-    type: "cloze",
-    front: "Warfarin inhibits {{c1::VKOR (Vitamin K epoxide reductase)}}, depleting active clotting factors {{c2::II, VII, IX, X, Protein C, Protein S}}, monitored via {{c3::PT / INR}}.",
-    back: "Warfarin inhibits {{c1::VKOR (Vitamin K epoxide reductase)}}, depleting active clotting factors {{c2::II, VII, IX, X, Protein C, Protein S}}, monitored via {{c3::PT / INR}}.",
-    mnemonic: "Vitamin K-dependent clotting factors: 1972 (10, 9, 7, 2) + anticoagulant Proteins C & S. Rapid reversal is 4-Factor Prothrombin Complex Concentrate (PCC) + IV Vitamin K.",
-    audioPrompt: "What enzyme is inhibited by Warfarin and which coagulation factors are depleted?",
-    interval: 1,
-    repetition: 0,
-    ef: 2.5,
-    lapses: 0
-  },
-  {
-    id: 9,
-    deck: "Renal",
-    type: "cloze",
-    front: "Renin is released by {{c1::Juxtaglomerular (JG) cells}} in response to renal hypoperfusion, sympathetic beta-1 stimulation, and decreased {{c2::NaCl delivery}} sensed by the {{c3::Macula Densa}}.",
-    back: "Renin is released by {{c1::Juxtaglomerular (JG) cells}} in response to renal hypoperfusion, sympathetic beta-1 stimulation, and decreased {{c2::NaCl delivery}} sensed by the {{c3::Macula Densa}}.",
-    mnemonic: "Macula Densa = Sodium Chemosensor in distal convoluted tubule; JG Cells = Modified vascular smooth muscle baroreceptors producing renin.",
-    audioPrompt: "What anatomical structures and physiologic signals stimulate the release of renin?",
-    interval: 1,
-    repetition: 0,
-    ef: 2.5,
-    lapses: 0
-  },
-  {
-    id: 10,
-    deck: "Clinical High-Yield",
-    type: "image",
-    front: "What clinical findings define Charcot's Triad and Reynolds' Pentad in Acute Ascending Cholangitis?",
-    back: "Charcot's Triad: 1) RUQ abdominal pain, 2) Fever/chills, 3) Jaundice.\nReynolds' Pentad: Charcot's Triad + 4) Hypotension/Septic shock + 5) Altered mental status.",
-    imageUrl: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80",
-    mnemonic: "Charcot = Pain + Fever + Jaundice. Reynolds adds Shock + Confusion (indicates suppurative cholangitis requiring emergent biliary decompression).",
-    audioPrompt: "What clinical findings define Charcot's Triad and Reynolds' Pentad for acute cholangitis?",
-    interval: 1,
-    repetition: 0,
-    ef: 2.5,
-    lapses: 0
-  }
-];
+const DOMAINS = FLASHCARD_DOMAINS;
+
+const INITIAL_CARDS: Card[] = FLASHCARD_DECK_LIBRARY as Card[];
+
 
 // Helper: Cloze Front Formatter (replaces {{c1::answer}} with styled masked [...])
 function renderClozeFront(text: string): React.ReactNode {

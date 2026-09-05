@@ -52,17 +52,23 @@ try {
 
 ## Subject: ${subject.title} (${subject.code}) — ${unit.title}
 
-### Curriculum Overview
+### Curriculum Overview & Core Rationale
 ${chapter.description || 'Comprehensive clinical and theoretical coverage adhering to statutory medical council requirements.'}
 
 ### High-Yield Learning Objectives
 ${(chapter.highYieldTopics || []).map((t: string) => `- **${t}**: Core physiological, anatomical, or clinical mechanism with diagnostic and therapeutic correlations.`).join('\n') || '- Core curriculum competency objectives\n- Diagnostic criteria and laboratory profiling\n- Protocolized medical and surgical management'}
 
-### Verified Competencies
+### Verified Competencies & Integration Track
 ${(chapter.competencies || []).map((c: string) => `- \`${c}\`: Miller Level Competency mapped to horizontal & vertical integration tracks.`).join('\n') || '- Integrated pre-clinical and clinical milestones.'}
 
-### Clinical Pearl & Exam Focus
+### Clinical Relevance & Real-World Case Correlate
+- **Diagnostic Sensitivity**: Correlate laboratory profiling, imaging landmarks, and clinical signs with the underlying pathophysiologic substrate.
+- **Therapeutic Windows**: Critical timing rules (e.g. door-to-balloon, thrombolysis window, electrolyte repletion rates) to minimize iatrogenic harm.
+- **Interdisciplinary Team Action**: Co-management between primary physicians, nurses, clinical pharmacists, and physical therapists.
+
+### Board-Style Exam Tips & Common Pitfalls
 > **High-Yield Examination Note**: Master the key pathophysiology, landmark clinical trials, diagnostic algorithms, and first-line treatment protocols for board and residency examinations.
+> **Common Pitfall**: Avoid confusing initial compensatory mechanisms with decompensated organ failure states.
 `;
         const item: ResolvedScaffoldLesson = {
           id: chapter.id,
@@ -100,7 +106,7 @@ function registerList(lessons: any[], subjectName: string, programName: string) 
 ## Program: ${programName}
 ### Subject: ${subjectName} ${compCode ? `(\`${compCode}\`)` : ''}
 
-### Learning Objectives
+### Learning Objectives & Scope
 ${desc}
 
 ### Key Curriculum Principles
@@ -108,7 +114,11 @@ ${desc}
 - **Applied & Practical Integration**: Step-by-step clinical decision making, laboratory profiling, and evidence-based interventions.
 - **Safety & Quality Standards**: Adverse event prevention, contraindicated therapies, and regulatory adherence.
 
-### Clinical & Academic High-Yield Pearls
+### Clinical & Evidence-Based Relevance
+- **Etiology to Presentation**: Connect the cellular, physiological, or structural anomalies directly to the presenting signs and symptoms.
+- **Protocolized Management**: Follow statutory council guidelines (NMC, PCI, INC, CCIM, VCI) for safe and validated interventions.
+
+### Board-Style Exam Pearls
 > **Core Concept**: Systematically correlate clinical signs with foundational science to establish differential diagnoses and targeted therapeutic strategies.
 `;
 
