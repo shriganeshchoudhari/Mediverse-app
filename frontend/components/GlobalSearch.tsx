@@ -87,12 +87,33 @@ export default function GlobalSearch() {
     { id: 'nerve-muscle', name: 'Nerve-Muscle Electrophysiology & GHK', icon: '⚡', route: '/simulators/nerve-muscle' },
   ];
 
+  const CLINICAL_CASE_QUICK_LINKS = [
+    { id: 'case-mbbs-01', name: 'Acute Anterior STEMI & Shock (MBBS)', icon: '🩺', route: '/cases', caseId: 'case-mbbs-01', domain: 'Allopathic' },
+    { id: 'case-mbbs-02', name: 'Systemic Lupus & Lupus Nephritis (MBBS)', icon: '🩺', route: '/cases', caseId: 'case-mbbs-02', domain: 'Allopathic' },
+    { id: 'case-bds-01', name: 'Irreversible Pulpitis & Apical Abscess (BDS)', icon: '🦷', route: '/cases', caseId: 'case-bds-01', domain: 'Dental' },
+    { id: 'case-bds-02', name: 'Localized Aggressive Periodontitis (BDS)', icon: '🦷', route: '/cases', caseId: 'case-bds-02', domain: 'Dental' },
+    { id: 'case-bams-01', name: 'Amavata Rheumatoid Arthritis (BAMS)', icon: '🌿', route: '/cases', caseId: 'case-bams-01', domain: 'Ayurveda' },
+    { id: 'case-bams-02', name: 'Medoroga Metabolic Syndrome (BAMS)', icon: '🌿', route: '/cases', caseId: 'case-bams-02', domain: 'Ayurveda' },
+    { id: 'case-bpharm-01', name: 'Warfarin CYP2C9 Bleed Interaction (BPharm)', icon: '💊', route: '/cases', caseId: 'case-bpharm-01', domain: 'Pharmacy' },
+    { id: 'case-nursing-01', name: 'Post-CABG Atrial Fibrillation RVR (Nursing)', icon: '💉', route: '/cases', caseId: 'case-nursing-01', domain: 'Nursing' },
+    { id: 'case-bpt-01', name: 'L4-L5 Disc Herniation & Foot Drop (BPT)', icon: '🏃', route: '/cases', caseId: 'case-bpt-01', domain: 'Physiotherapy' },
+    { id: 'case-bvsc-01', name: 'Canine Diabetic Ketoacidosis (BVSc)', icon: '🐾', route: '/cases', caseId: 'case-bvsc-01', domain: 'Veterinary' },
+  ];
+
   const matchedOrgans = query
     ? ORGAN_QUICK_LINKS.filter((o) => o.name.toLowerCase().includes(query.toLowerCase()))
     : [];
 
   const matchedSimulators = query
     ? SIMULATOR_QUICK_LINKS.filter((s) => s.name.toLowerCase().includes(query.toLowerCase()))
+    : [];
+
+  const matchedCases = query
+    ? CLINICAL_CASE_QUICK_LINKS.filter((c) =>
+        c.name.toLowerCase().includes(query.toLowerCase()) ||
+        c.domain.toLowerCase().includes(query.toLowerCase()) ||
+        c.caseId.toLowerCase().includes(query.toLowerCase())
+      )
     : [];
 
   const filteredChapters = query
@@ -154,8 +175,40 @@ export default function GlobalSearch() {
                   </li>
                 ))}
               </ul>
-            ) : (filteredChapters.length > 0 || matchedOrgans.length > 0 || matchedSimulators.length > 0) ? (
+            ) : (filteredChapters.length > 0 || matchedOrgans.length > 0 || matchedSimulators.length > 0 || matchedCases.length > 0) ? (
               <div className="space-y-4">
+                {/* Clinical Grand Rounds Cases Category */}
+                {matchedCases.length > 0 && (
+                  <div>
+                    <h5 className="text-[11px] font-bold uppercase tracking-wider text-rose-400 px-3 py-1 flex items-center gap-1.5">
+                      🩺 Clinical Case Solver &amp; Grand Rounds
+                    </h5>
+                    <ul className="space-y-1 mt-1">
+                      {matchedCases.map((c) => (
+                        <li key={c.id}>
+                          <button
+                            onClick={() => {
+                              setIsOpen(false);
+                              router.push(`${c.route}?caseId=${c.caseId}`);
+                            }}
+                            className="w-full text-left flex items-center justify-between p-2.5 rounded-lg hover:bg-slate-800 transition-colors"
+                          >
+                            <div className="flex items-center gap-2.5">
+                              <span className="text-base">{c.icon}</span>
+                              <div>
+                                <h4 className="text-white font-medium text-sm">{c.name}</h4>
+                                <span className="text-[10px] text-rose-400/80 font-mono">{c.domain} Domain • 5-Stage Patient Encounter</span>
+                              </div>
+                            </div>
+                            <span className="text-xs font-bold text-rose-400 bg-rose-950/60 border border-rose-800/40 px-2 py-0.5 rounded">
+                              Solve Case
+                            </span>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
                 {/* 3D Organ Models Category */}
                 {matchedOrgans.length > 0 && (
                   <div>

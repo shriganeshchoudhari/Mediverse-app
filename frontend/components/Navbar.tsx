@@ -203,10 +203,22 @@ export default function Navbar() {
               </button>
 
               {activeDropdown === "simulators" && (
-                <div className="absolute left-0 top-full mt-2 w-72 rounded-xl bg-slate-900 border border-slate-800 shadow-2xl p-2 space-y-1 animate-fade-in z-50">
+                <div className="absolute left-0 top-full mt-2 w-72 rounded-xl bg-slate-900 border border-slate-800 shadow-2xl p-2 space-y-1 animate-fade-in z-50 max-h-[75vh] overflow-y-auto">
                   <Link href="/simulators" onClick={closeAll} className="flex items-center justify-between px-3 py-2 rounded-lg bg-blue-950/40 text-blue-300 border border-blue-800/40 font-bold mb-1 hover:bg-blue-900/50 transition">
                     <span>Virtual Physiology Labs</span>
-                    <span className="text-[10px] bg-blue-500/20 px-1.5 py-0.5 rounded">All 8</span>
+                    <span className="text-[10px] bg-blue-500/20 px-1.5 py-0.5 rounded">All Labs →</span>
+                  </Link>
+                  <Link href="/simulators/icu-telemetry" onClick={closeAll} className="block px-3 py-1.5 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
+                    📟 ICU Central Telemetry
+                  </Link>
+                  <Link href="/simulators/pharmacokinetics" onClick={closeAll} className="block px-3 py-1.5 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
+                    💊 Pharmacokinetics PK/PD
+                  </Link>
+                  <Link href="/simulators/ecg-rhythm" onClick={closeAll} className="block px-3 py-1.5 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
+                    📈 12-Lead ECG Synthesizer
+                  </Link>
+                  <Link href="/simulators/hemodynamics-shock" onClick={closeAll} className="block px-3 py-1.5 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
+                    🩺 Hemodynamic Shock
                   </Link>
                   <Link href="/simulators/cardiac-cycle" onClick={closeAll} className="block px-3 py-1.5 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
                     ❤️ Suga-Sagawa PV Loops
@@ -220,11 +232,8 @@ export default function Navbar() {
                   <Link href="/simulators/respiratory-vq" onClick={closeAll} className="block px-3 py-1.5 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
                     🫁 Alveolar Gas &amp; V/Q Matching
                   </Link>
-                  <Link href="/simulators/nerve-muscle" onClick={closeAll} className="block px-3 py-1.5 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
-                    ⚡ Goldman-Hodgkin-Katz Biophysics
-                  </Link>
-                  <Link href="/simulators/patient-emergency" onClick={closeAll} className="block px-3 py-1.5 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
-                    🚨 Emergency Resuscitation Lab
+                  <Link href="/simulators/clinical-case-branching" onClick={closeAll} className="block px-3 py-1.5 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
+                    🔀 Clinical Case Branching &amp; OSCE
                   </Link>
                 </div>
               )}
@@ -248,13 +257,21 @@ export default function Navbar() {
 
               {activeDropdown === "assessments" && (
                 <div className="absolute left-0 top-full mt-2 w-64 rounded-xl bg-slate-900 border border-slate-800 shadow-2xl p-2 space-y-1 animate-fade-in z-50">
+                  <Link href="/cases" onClick={closeAll} className="block px-3 py-2 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
+                    <div className="font-bold">🩺 Clinical Case Solver</div>
+                    <div className="text-[10px] text-slate-400">10 Multi-Domain Grand Rounds Encounters</div>
+                  </Link>
                   <Link href="/exam" onClick={closeAll} className="block px-3 py-2 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
                     <div className="font-bold">📝 Clinical Mock Exam</div>
                     <div className="text-[10px] text-slate-400">USMLE Step 1 / NMC CBME Timed Vignettes</div>
                   </Link>
-                  <Link href="/osce" onClick={closeAll} className="block px-3 py-2 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
-                    <div className="font-bold">🩺 OSCE Clinical Stations</div>
+                  <Link href="/exam/osce" onClick={closeAll} className="block px-3 py-2 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
+                    <div className="font-bold">📋 OSCE Clinical Stations</div>
                     <div className="text-[10px] text-slate-400">Interactive Clinical Case Workflows</div>
+                  </Link>
+                  <Link href="/flashcards" onClick={closeAll} className="block px-3 py-2 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
+                    <div className="font-bold">🧠 Spaced Repetition Decks</div>
+                    <div className="text-[10px] text-slate-400">SM-2 High-Yield Medical Flashcards</div>
                   </Link>
                   <Link href="/formulas" onClick={closeAll} className="block px-3 py-2 rounded hover:bg-slate-800 text-slate-200 hover:text-white transition">
                     <div className="font-bold">📐 Formulas &amp; Equations</div>
@@ -424,13 +441,19 @@ export default function Navbar() {
 
           <div className="space-y-1 border-t border-slate-900 pt-3">
             <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-2 py-1">
-              Examinations &amp; Community
+              Examinations &amp; Case Solvers
             </div>
+            <Link href="/cases" onClick={closeAll} className="block px-3 py-2 rounded-lg hover:bg-slate-900 text-blue-400 font-bold">
+              🩺 Clinical Case Solver (Grand Rounds)
+            </Link>
+            <Link href="/flashcards" onClick={closeAll} className="block px-3 py-2 rounded-lg hover:bg-slate-900 text-slate-200">
+              🧠 Spaced Repetition Flashcards
+            </Link>
             <Link href="/exam" onClick={closeAll} className="block px-3 py-2 rounded-lg hover:bg-slate-900 text-slate-200">
               📝 Clinical Mock Exam (USMLE/CBME)
             </Link>
-            <Link href="/osce" onClick={closeAll} className="block px-3 py-2 rounded-lg hover:bg-slate-900 text-slate-200">
-              🩺 OSCE Stations
+            <Link href="/exam/osce" onClick={closeAll} className="block px-3 py-2 rounded-lg hover:bg-slate-900 text-slate-200">
+              📋 OSCE Clinical Stations
             </Link>
             <Link href="/formulas" onClick={closeAll} className="block px-3 py-2 rounded-lg hover:bg-slate-900 text-slate-200">
               📐 Formulas &amp; Equations
