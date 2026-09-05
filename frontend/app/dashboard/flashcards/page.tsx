@@ -31,6 +31,9 @@ import {
 import {
   LineChart,
   Line,
+  BarChart,
+  Bar,
+  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -38,6 +41,15 @@ import {
   ResponsiveContainer
 } from "recharts";
 import DeckImporterModal, { ImportedCard } from "@/components/flashcards/DeckImporterModal";
+import {
+  ReviewQuality,
+  FlashcardReviewRecord,
+  processReview,
+  getDueCards,
+  computeSessionStats,
+  getIntervalHistogramData,
+  SessionStats,
+} from "../../../.gemini/skills/SpacedRepetitionEngine";
 
 export interface Card {
   id: number;
@@ -52,7 +64,22 @@ export interface Card {
   audioPrompt?: string;
   mnemonic?: string;
   lapses?: number;
+  nextReviewDate?: string | Date;
+  lastReviewDate?: string | Date | null;
+  totalReviews?: number;
+  retentionHistory?: ReviewQuality[];
 }
+
+const cardToRecord = (c: Card): FlashcardReviewRecord => ({
+  cardId: String(c.id),
+  easinessFactor: c.ef || 2.5,
+  intervalDays: c.interval || 1,
+  repetitions: c.repetition || 0,
+  nextReviewDate: c.nextReviewDate ? new Date(c.nextReviewDate) : new Date(Date.now() - 3600000),
+  lastReviewDate: c.lastReviewDate ? new Date(c.lastReviewDate) : null,
+  totalReviews: c.totalReviews || 0,
+  retentionHistory: c.retentionHistory || [],
+});
 
 const DOMAINS = [
   "All Decks",
@@ -291,6 +318,8 @@ export default function FlashcardsDashboard() {
   const [expandedImage, setExpandedImage] = useState<{ url: string; caption: string } | null>(null);
   const [aiToast, setAiToast] = useState<string | null>(null);
   const [isHydrated, setIsHydrated] = useState<boolean>(false);
+  const [reviewMode, setReviewMode] = useState<"all" | "due">("all");
+  const [sessionResults, setSessionResults] = useState<{ cardId: string; quality: ReviewQuality }[]>([]);
 
   // Initialize and persist cards to localStorage
   useEffect(() => {
@@ -323,9 +352,25 @@ export default function FlashcardsDashboard() {
     }
   }, [cards, xp, streak, isHydrated]);
 
-  // Filter cards by deck and search query
+  // Compute all SM-2 review records, due cards, and session statistics
+  const allRecords = useMemo(() => cards.map(cardToRecord), [cards]);
+  const dueRecords = useMemo(() => getDueCards(allRecords), [allRecords]);
+  const dueCardIds = useMemo(() => new Set(dueRecords.map((r) => r.cardId)), [dueRecords]);
+
+  const sessionStats = useMemo(() => {
+    return computeSessionStats(allRecords, sessionResults);
+  }, [allRecords, sessionResults]);
+
+  const histogramData = useMemo(() => {
+    return getIntervalHistogramData(allRecords);
+  }, [allRecords]);
+
+  // Filter cards by deck, search query, and review mode
   const filteredCards = useMemo(() => {
     return cards.filter((c) => {
+      if (reviewMode === "due" && !dueCardIds.has(String(c.id))) {
+        return false;
+      }
       const matchesDeck = activeDeck === "All Decks" || c.deck === activeDeck;
       const q = searchQuery.toLowerCase().trim();
       const matchesQuery =
@@ -336,7 +381,7 @@ export default function FlashcardsDashboard() {
         (c.mnemonic && c.mnemonic.toLowerCase().includes(q));
       return matchesDeck && matchesQuery;
     });
-  }, [cards, activeDeck, searchQuery]);
+  }, [cards, activeDeck, searchQuery, reviewMode, dueCardIds]);
 
   const currentCard = filteredCards[currentCardIdx] || null;
 
@@ -434,51 +479,40 @@ export default function FlashcardsDashboard() {
     [currentCard, isFlipped, isSpeaking, stopTTS]
   );
 
-  // Spaced Repetition (SM-2) Grading
+  // Spaced Repetition (SuperMemo SM-2) Grading
   const handleGrade = useCallback(
-    (quality: number) => {
+    (quality: ReviewQuality) => {
       if (!currentCard) return;
 
       stopTTS();
 
-      let nextInterval = 1;
-      let nextRepetition = currentCard.repetition;
-      let nextEf = currentCard.ef + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02));
-      nextEf = Math.max(1.3, nextEf);
-      let nextLapses = currentCard.lapses || 0;
-
-      if (quality < 3) {
-        // Lapse occurred: Reset interval & increment lapses
-        nextInterval = 1;
-        nextRepetition = 0;
-        nextLapses += 1;
-      } else {
-        if (currentCard.repetition === 0) {
-          nextInterval = quality === 5 ? 3 : 1;
-        } else if (currentCard.repetition === 1) {
-          nextInterval = quality === 5 ? 8 : 6;
-        } else {
-          const bonus = quality === 5 ? 1.3 : 1.0;
-          nextInterval = Math.round(currentCard.interval * nextEf * bonus);
-        }
-        nextRepetition += 1;
-        setXp((prev) => prev + (quality === 5 ? 25 : 15));
-      }
+      const record = cardToRecord(currentCard);
+      const updatedRecord = processReview(record, quality);
 
       setCards((prev) =>
         prev.map((c) => {
           if (c.id === currentCard.id) {
             return {
               ...c,
-              interval: nextInterval,
-              repetition: nextRepetition,
-              ef: Number(nextEf.toFixed(2)),
-              lapses: nextLapses
+              interval: updatedRecord.intervalDays,
+              repetition: updatedRecord.repetitions,
+              ef: updatedRecord.easinessFactor,
+              nextReviewDate: updatedRecord.nextReviewDate,
+              lastReviewDate: updatedRecord.lastReviewDate,
+              totalReviews: updatedRecord.totalReviews,
+              retentionHistory: updatedRecord.retentionHistory,
+              lapses: quality < 3 ? (c.lapses || 0) + 1 : (c.lapses || 0),
             };
           }
           return c;
         })
       );
+
+      setSessionResults((prev) => [
+        ...prev,
+        { cardId: String(currentCard.id), quality },
+      ]);
+      setXp((prev) => prev + (quality >= 4 ? 20 : quality === 3 ? 10 : 5));
 
       setIsFlipped(false);
 
@@ -537,9 +571,14 @@ export default function FlashcardsDashboard() {
       } else if (e.key === "2") {
         if (isFlipped) {
           e.preventDefault();
-          handleGrade(4);
+          handleGrade(3);
         }
       } else if (e.key === "3") {
+        if (isFlipped) {
+          e.preventDefault();
+          handleGrade(4);
+        }
+      } else if (e.key === "4") {
         if (isFlipped) {
           e.preventDefault();
           handleGrade(5);
@@ -613,21 +652,12 @@ export default function FlashcardsDashboard() {
     ];
   }, [cards]);
 
-  // Interval preview helpers for grading buttons
-  const getNextInterval = (grade: number, card: Card | null) => {
+  // Interval preview helpers for grading buttons using SM-2
+  const getNextInterval = (grade: ReviewQuality, card: Card | null) => {
     if (!card) return "1d";
-    if (grade === 1) return "1d";
-    if (grade === 4) {
-      if (card.repetition === 0) return "1d";
-      if (card.repetition === 1) return "6d";
-      return `${Math.round(card.interval * card.ef)}d`;
-    }
-    if (grade === 5) {
-      if (card.repetition === 0) return "3d";
-      if (card.repetition === 1) return "8d";
-      return `${Math.round(card.interval * card.ef * 1.3)}d`;
-    }
-    return "1d";
+    const record = cardToRecord(card);
+    const updated = processReview(record, grade);
+    return `${updated.intervalDays}d`;
   };
 
   return (
@@ -714,6 +744,55 @@ export default function FlashcardsDashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Left Column: Deck Filters & Search */}
           <div className="lg:col-span-3 flex flex-col gap-4">
+            {/* SRS Review Mode Selector */}
+            <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-xl backdrop-blur-md">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                  <Brain className="w-3.5 h-3.5 text-indigo-400" /> Study Queue
+                </span>
+                <span
+                  data-testid="due-queue-badge"
+                  className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                    dueRecords.length > 0
+                      ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
+                      : "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
+                  }`}
+                >
+                  {dueRecords.length} Due Now
+                </span>
+              </div>
+              <div className="grid grid-cols-2 gap-2 mt-2">
+                <button
+                  onClick={() => {
+                    setReviewMode("all");
+                    setCurrentCardIdx(0);
+                    setIsFlipped(false);
+                  }}
+                  className={`py-2 px-2.5 rounded-xl border text-xs font-semibold transition text-center ${
+                    reviewMode === "all"
+                      ? "bg-indigo-600 border-indigo-500 text-white shadow-md shadow-indigo-950/50"
+                      : "bg-slate-950/60 border-slate-800 text-slate-400 hover:text-slate-200"
+                  }`}
+                >
+                  All ({cards.length})
+                </button>
+                <button
+                  onClick={() => {
+                    setReviewMode("due");
+                    setCurrentCardIdx(0);
+                    setIsFlipped(false);
+                  }}
+                  className={`py-2 px-2.5 rounded-xl border text-xs font-semibold transition text-center ${
+                    reviewMode === "due"
+                      ? "bg-amber-600 border-amber-500 text-white shadow-md shadow-amber-950/50"
+                      : "bg-slate-950/60 border-slate-800 text-slate-400 hover:text-slate-200"
+                  }`}
+                >
+                  Due Only ({dueRecords.length})
+                </button>
+              </div>
+            </div>
+
             <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 shadow-xl backdrop-blur-md">
               <div className="flex items-center justify-between mb-3">
                 <h2 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
@@ -809,11 +888,12 @@ export default function FlashcardsDashboard() {
                   <kbd className="px-1.5 py-0.5 bg-slate-950 border border-slate-700 rounded text-slate-300 font-mono text-[10px]">Space / ↵</kbd>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span>Grade Card (Again / Good / Easy)</span>
+                  <span>Grade Card (Again / Hard / Good / Easy)</span>
                   <div className="flex gap-1">
                     <kbd className="px-1 py-0.5 bg-slate-950 border border-slate-700 rounded text-red-300 font-mono text-[10px]">1</kbd>
-                    <kbd className="px-1 py-0.5 bg-slate-950 border border-slate-700 rounded text-sky-300 font-mono text-[10px]">2</kbd>
-                    <kbd className="px-1 py-0.5 bg-slate-950 border border-slate-700 rounded text-emerald-300 font-mono text-[10px]">3</kbd>
+                    <kbd className="px-1 py-0.5 bg-slate-950 border border-slate-700 rounded text-amber-300 font-mono text-[10px]">2</kbd>
+                    <kbd className="px-1 py-0.5 bg-slate-950 border border-slate-700 rounded text-sky-300 font-mono text-[10px]">3</kbd>
+                    <kbd className="px-1 py-0.5 bg-slate-950 border border-slate-700 rounded text-emerald-300 font-mono text-[10px]">4</kbd>
                   </div>
                 </div>
                 <div className="flex justify-between items-center">
@@ -1029,13 +1109,13 @@ export default function FlashcardsDashboard() {
 
                 {/* Bottom Grading & Action Controls */}
                 {isFlipped ? (
-                  <div className="grid grid-cols-3 gap-3 animate-in fade-in slide-in-from-bottom-2">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 animate-in fade-in slide-in-from-bottom-2">
                     {/* Grade 1: Again */}
                     <button
                       onClick={() => handleGrade(1)}
-                      className="py-3 px-3 bg-red-650 hover:bg-red-600 text-white rounded-2xl text-xs font-bold transition flex flex-col items-center gap-1 shadow-lg shadow-red-950/40 border border-red-500/40 active:scale-98"
+                      className="py-3 px-2 bg-red-650 hover:bg-red-600 text-white rounded-2xl text-xs font-bold transition flex flex-col items-center gap-1 shadow-lg shadow-red-950/40 border border-red-500/40 active:scale-98"
                     >
-                      <div className="flex items-center gap-1.5">
+                      <div className="flex items-center gap-1">
                         <span>Again</span>
                         <kbd className="px-1.5 py-0.5 bg-red-800/80 rounded text-[10px] font-mono">[1]</kbd>
                       </div>
@@ -1044,14 +1124,28 @@ export default function FlashcardsDashboard() {
                       </span>
                     </button>
 
+                    {/* Grade 3: Hard */}
+                    <button
+                      onClick={() => handleGrade(3)}
+                      className="py-3 px-2 bg-amber-650 hover:bg-amber-600 text-white rounded-2xl text-xs font-bold transition flex flex-col items-center gap-1 shadow-lg shadow-amber-950/40 border border-amber-500/40 active:scale-98"
+                    >
+                      <div className="flex items-center gap-1">
+                        <span>Hard</span>
+                        <kbd className="px-1.5 py-0.5 bg-amber-800/80 rounded text-[10px] font-mono">[2]</kbd>
+                      </div>
+                      <span className="text-[10px] text-amber-200 font-medium">
+                        Next: {getNextInterval(3, currentCard)}
+                      </span>
+                    </button>
+
                     {/* Grade 4: Good */}
                     <button
                       onClick={() => handleGrade(4)}
-                      className="py-3 px-3 bg-sky-650 hover:bg-sky-600 text-white rounded-2xl text-xs font-bold transition flex flex-col items-center gap-1 shadow-lg shadow-sky-950/40 border border-sky-500/40 active:scale-98"
+                      className="py-3 px-2 bg-sky-650 hover:bg-sky-600 text-white rounded-2xl text-xs font-bold transition flex flex-col items-center gap-1 shadow-lg shadow-sky-950/40 border border-sky-500/40 active:scale-98"
                     >
-                      <div className="flex items-center gap-1.5">
+                      <div className="flex items-center gap-1">
                         <span>Good</span>
-                        <kbd className="px-1.5 py-0.5 bg-sky-800/80 rounded text-[10px] font-mono">[2]</kbd>
+                        <kbd className="px-1.5 py-0.5 bg-sky-800/80 rounded text-[10px] font-mono">[3]</kbd>
                       </div>
                       <span className="text-[10px] text-sky-200 font-medium">
                         Next: {getNextInterval(4, currentCard)}
@@ -1061,11 +1155,11 @@ export default function FlashcardsDashboard() {
                     {/* Grade 5: Easy */}
                     <button
                       onClick={() => handleGrade(5)}
-                      className="py-3 px-3 bg-emerald-650 hover:bg-emerald-600 text-white rounded-2xl text-xs font-bold transition flex flex-col items-center gap-1 shadow-lg shadow-emerald-950/40 border border-emerald-500/40 active:scale-98"
+                      className="py-3 px-2 bg-emerald-650 hover:bg-emerald-600 text-white rounded-2xl text-xs font-bold transition flex flex-col items-center gap-1 shadow-lg shadow-emerald-950/40 border border-emerald-500/40 active:scale-98"
                     >
-                      <div className="flex items-center gap-1.5">
+                      <div className="flex items-center gap-1">
                         <span>Easy</span>
-                        <kbd className="px-1.5 py-0.5 bg-emerald-800/80 rounded text-[10px] font-mono">[3]</kbd>
+                        <kbd className="px-1.5 py-0.5 bg-emerald-800/80 rounded text-[10px] font-mono">[4]</kbd>
                       </div>
                       <span className="text-[10px] text-emerald-200 font-medium">
                         Next: {getNextInterval(5, currentCard)}
@@ -1117,6 +1211,76 @@ export default function FlashcardsDashboard() {
 
           {/* Right Column: Spaced Repetition Analytics & Retention Curve */}
           <div className="lg:col-span-3 flex flex-col gap-4">
+            {/* Live Review Session Analytics */}
+            <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-xl backdrop-blur-md">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
+                  <Flame className="w-4 h-4 text-amber-400" /> Active Session Analytics
+                </h3>
+                <span className="text-[10px] bg-indigo-500/20 text-indigo-300 font-mono px-2 py-0.5 rounded">
+                  SM-2 Live
+                </span>
+              </div>
+              <div className="grid grid-cols-2 gap-3 text-center">
+                <div className="p-2.5 bg-slate-950/80 border border-slate-800 rounded-xl">
+                  <div className="text-[10px] text-slate-400 font-semibold uppercase">Reviewed</div>
+                  <div data-testid="session-reviewed-count" className="text-lg font-black text-slate-100 font-mono mt-0.5">
+                    {sessionStats.cardsReviewed}
+                  </div>
+                </div>
+                <div className="p-2.5 bg-slate-950/80 border border-slate-800 rounded-xl">
+                  <div className="text-[10px] text-slate-400 font-semibold uppercase">Retention</div>
+                  <div data-testid="session-retention-rate" className="text-lg font-black text-emerald-400 font-mono mt-0.5">
+                    {sessionStats.retentionRate}%
+                  </div>
+                </div>
+                <div className="p-2.5 bg-slate-950/80 border border-slate-800 rounded-xl">
+                  <div className="text-[10px] text-slate-400 font-semibold uppercase">Avg Quality</div>
+                  <div data-testid="session-avg-quality" className="text-lg font-black text-sky-400 font-mono mt-0.5">
+                    {sessionStats.averageQuality} <span className="text-xs text-slate-400 font-normal">/ 5</span>
+                  </div>
+                </div>
+                <div className="p-2.5 bg-slate-950/80 border border-slate-800 rounded-xl">
+                  <div className="text-[10px] text-slate-400 font-semibold uppercase">Due Queue</div>
+                  <div data-testid="session-due-count" className="text-lg font-black text-amber-400 font-mono mt-0.5">
+                    {dueRecords.length}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Empirical Interval Distribution Histogram */}
+            <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-xl backdrop-blur-md flex flex-col">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
+                  <BarChart2 className="w-4 h-4 text-indigo-400" /> Interval Histogram
+                </h3>
+                <span className="text-[10px] text-indigo-400 font-mono">SM-2 Spacing</span>
+              </div>
+              <p className="text-[11px] text-slate-400 mb-3">
+                Distribution of card recall intervals across standard memory clusters.
+              </p>
+              <div className="h-40 w-full" data-testid="interval-histogram">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={histogramData} margin={{ top: 5, right: 5, left: -25, bottom: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
+                    <XAxis dataKey="interval" stroke="#64748b" fontSize={9} />
+                    <YAxis stroke="#64748b" fontSize={9} allowDecimals={false} />
+                    <Tooltip
+                      contentStyle={{
+                        backgroundColor: "#0f172a",
+                        borderColor: "#1e293b",
+                        borderRadius: "8px",
+                        color: "#fff",
+                        fontSize: "11px",
+                      }}
+                    />
+                    <Bar dataKey="count" name="Cards" fill="#6366f1" radius={[4, 4, 0, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+
             {/* Retention Curve Chart */}
             <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-xl backdrop-blur-md flex flex-col">
               <div className="flex items-center justify-between mb-3">

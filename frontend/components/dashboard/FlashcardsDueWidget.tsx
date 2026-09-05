@@ -25,7 +25,7 @@ export default function FlashcardsDueWidget({ dueCount }: FlashcardsDueWidgetPro
         </div>
         {dueCount > 0 ? (
           <Link
-            href="/lessons/homeostasis#step-18"
+            href="/dashboard/flashcards"
             className="text-[10px] px-3 py-1.5 bg-blue-600 hover:bg-blue-500 rounded font-bold text-white transition shadow-md shadow-blue-900/25"
           >
             Review Now →
