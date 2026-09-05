@@ -296,6 +296,14 @@ const SIMULATORS = [
     icon: <ShieldAlert className="w-7 h-7 text-red-500 animate-pulse" />,
     badge: 'Trauma Surgery & ATLS',
     status: 'Available'
+  },
+  {
+    id: 'fetal-monitoring',
+    title: 'Fetal Monitoring & Cardiotocography (CTG)',
+    description: 'ACOG/NICHD 3-tier fetal heart rate interpretation, deceleration biophysics (early, late, variable, prolonged, sinusoidal), Montevideo units (MVU), intrauterine resuscitation, and modified Bishop induction scoring.',
+    icon: <Baby className="w-7 h-7 text-rose-400" />,
+    badge: 'Obstetrics & Maternal-Fetal Medicine',
+    status: 'Available'
   }
 ];
 
