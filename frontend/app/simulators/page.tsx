@@ -312,6 +312,14 @@ const SIMULATORS = [
     icon: <Microscope className="w-7 h-7 text-emerald-400" />,
     badge: 'Clinical Microbiology & ID',
     status: 'Available'
+  },
+  {
+    id: 'endoscopy-gi',
+    title: 'Upper GI Endoscopy & ERCP Workstation',
+    description: 'Peptic ulcer Forrest classification, dual endoscopic hemostasis (epinephrine + hemoclips), variceal band ligation, ERCP biliary cannulation, electrosurgical sphincterotomy, and post-ERCP pancreatitis prevention.',
+    icon: <Compass className="w-7 h-7 text-amber-400" />,
+    badge: 'Interventional Gastroenterology & ERCP',
+    status: 'Available'
   }
 ];
 
