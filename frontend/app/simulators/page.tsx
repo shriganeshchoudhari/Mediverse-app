@@ -264,6 +264,14 @@ const SIMULATORS = [
     icon: <Compass className="w-7 h-7 text-emerald-400" />,
     badge: 'Echocardiography Imaging',
     status: 'Available'
+  },
+  {
+    id: 'coronary-angiography',
+    title: 'Cardiac Catheterization & Coronary Angiography',
+    description: 'C-Arm fluoroscopy projections (Spider view, RAO Caudal/Cranial), 18-segment coronary tree, Gorlin equation Aortic Valve Area, FFR/iFR adenosine physiology, and TIMI flow grading.',
+    icon: <Radio className="w-7 h-7 text-red-500 animate-pulse" />,
+    badge: 'Interventional Cardiology',
+    status: 'Available'
   }
 ];
 
