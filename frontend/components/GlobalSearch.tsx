@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'toxicology-antidote', name: 'Clinical Toxicology, Toxidromes & Antidote Precision Workstation', icon: '☠️', route: '/simulators/toxicology-antidote' },
     { id: 'robotic-surgery', name: 'Minimally Invasive Surgery & Robotic Laparoscopy Workstation', icon: '✂️', route: '/simulators/robotic-surgery' },
     { id: 'ventricular-assist-device', name: 'Mechanical Circulatory Support & Percutaneous VAD Workstation', icon: '⚙️', route: '/simulators/ventricular-assist-device' },
     { id: 'trauma-atls', name: 'Trauma & ATLS Primary Survey Workstation', icon: '🚑', route: '/simulators/trauma-atls' },

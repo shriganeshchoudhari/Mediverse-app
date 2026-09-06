@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -375,6 +375,14 @@ const SIMULATORS = [
     description: 'Intrapleural pressure swings, 3-chamber water seal drainage (collection, water seal, suction), tidaling, air leak grading, ATLS massive hemothorax thoracotomy triggers, and Light\'s criteria.',
     icon: <Wind className="w-7 h-7 text-sky-400" />,
     badge: 'Pulmonology & Trauma',
+    status: 'Available'
+  },
+  {
+    id: 'toxicology-antidote',
+    title: 'Clinical Toxicology, Toxidromes & Antidote Precision',
+    description: 'Toxidrome multi-system matrix (Hunter Serotonin vs Sympathomimetic, Cholinergic Killer Bs), Rumack-Matthew APAP nomogram solver, Osmolar/Anion gap diagnostics, and targeted antidote titration.',
+    icon: <Skull className="w-7 h-7 text-rose-400" />,
+    badge: 'Medical Toxicology',
     status: 'Available'
   }
 ];
