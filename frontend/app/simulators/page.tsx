@@ -528,6 +528,14 @@ const SIMULATORS = [
     icon: <ShieldAlert className="w-7 h-7 text-indigo-400" />,
     badge: 'Anesthesiology & Airway',
     status: 'Available'
+  },
+  {
+    id: 'arterial-line-hemodynamics',
+    title: 'Arterial Line Hemodynamics & PPV Workstation',
+    description: 'Continuous arterial blood pressure, Pulse Pressure Variation (PPV), Dynamic Arterial Elastance (Ea_dyn), and Fast-Flush Square Wave Damping Analysis.',
+    icon: <Activity className="w-7 h-7 text-rose-500" />,
+    badge: 'Critical Care & Hemodynamics',
+    status: 'Available'
   }
 ];
 
