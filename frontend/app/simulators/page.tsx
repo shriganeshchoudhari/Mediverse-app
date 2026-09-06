@@ -560,6 +560,14 @@ const SIMULATORS = [
     icon: <Droplets className="w-7 h-7 text-sky-400" />,
     badge: 'Nephrology & Critical Care',
     status: 'Available'
+  },
+  {
+    id: 'preeclampsia-eclampsia-mgso4',
+    title: 'Preeclampsia, Eclampsia & MgSO4 Workstation',
+    description: 'ACOG severe feature classification, Zuspan/Pritchard Magnesium Sulfate kinetics, toxicity monitoring, 10% Calcium Gluconate antidote, and emergent antihypertensives.',
+    icon: <Baby className="w-7 h-7 text-rose-400" />,
+    badge: 'Obstetrics & Critical Care',
+    status: 'Available'
   }
 ];
 

@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'preeclampsia-eclampsia-mgso4', name: 'Preeclampsia, Eclampsia & MgSO4 Workstation', icon: '👶', route: '/simulators/preeclampsia-eclampsia-mgso4' },
     { id: 'dysnatremia-osmotherapy', name: 'Dysnatremia, Hyponatremia & Osmotherapy Workstation', icon: '💧', route: '/simulators/dysnatremia-osmotherapy' },
     { id: 'neuraxial-spinal-epidural', name: 'Neuraxial Anesthesia, Spinal/Epidural & LAST Workstation', icon: '💉', route: '/simulators/neuraxial-spinal-epidural' },
     { id: 'neonatal-hfov-ventilation', name: 'Neonatal HFOV & Surfactant Kinematics Workstation', icon: '👶', route: '/simulators/neonatal-hfov-ventilation' },
