@@ -608,6 +608,14 @@ const SIMULATORS = [
     icon: <Droplets className="w-7 h-7 text-rose-500 animate-pulse" />,
     badge: 'Trauma & Critical Care',
     status: 'Available'
+  },
+  {
+    id: 'neuromuscular-blockade-tof',
+    title: 'Neuromuscular Blockade, Train-of-Four & Reversal Workstation',
+    description: 'Quantitative acceleromyography (TOF ratio >= 0.90), post-tetanic count (PTC), post-operative residual curarization (PORC) defense, and precision Sugammadex vs Neostigmine reversal protocols.',
+    icon: <Zap className="w-7 h-7 text-emerald-400" />,
+    badge: 'Anesthesiology & Critical Care',
+    status: 'Available'
   }
 ];
 
