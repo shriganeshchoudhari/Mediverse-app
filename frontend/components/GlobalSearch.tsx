@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'difficult-airway-intubation', name: 'Difficult Airway & Awake Fiberoptic Intubation Workstation', icon: '🛡️', route: '/simulators/difficult-airway-intubation' },
     { id: 'peritoneal-dialysis-pet', name: 'Peritoneal Dialysis (PD), Adequacy & PET Workstation', icon: '💧', route: '/simulators/peritoneal-dialysis-pet' },
     { id: 'hematology-morphology', name: 'Hematology Smear & Bone Marrow Morphology Workstation', icon: '🔬', route: '/simulators/hematology-morphology' },
     { id: 'right-heart-catheterization', name: 'Right Heart Catheterization (RHC) & Fick Workstation', icon: '🫁', route: '/simulators/right-heart-catheterization' },

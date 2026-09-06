@@ -520,6 +520,14 @@ const SIMULATORS = [
     icon: <Droplets className="w-7 h-7 text-sky-400" />,
     badge: 'Nephrology & Dialysis',
     status: 'Available'
+  },
+  {
+    id: 'difficult-airway-intubation',
+    title: 'Difficult Airway & Awake Intubation Workstation',
+    description: 'Mallampati & Cormack-Lehane scoring, STOP-BANG OSA risk, DAS 2015 Plan A–D algorithm, and CICO emergency scalpel-bougie cricothyroidotomy protocol.',
+    icon: <ShieldAlert className="w-7 h-7 text-indigo-400" />,
+    badge: 'Anesthesiology & Airway',
+    status: 'Available'
   }
 ];
 
