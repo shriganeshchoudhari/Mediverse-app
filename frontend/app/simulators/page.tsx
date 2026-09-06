@@ -488,6 +488,14 @@ const SIMULATORS = [
     icon: <Baby className="w-7 h-7 text-rose-400" />,
     badge: 'Neonatology & Resuscitation',
     status: 'Available'
+  },
+  {
+    id: 'aortic-stenosis-valve',
+    title: 'Aortic Stenosis & Valve Hemodynamics Workstation',
+    description: 'Doppler continuity equation, invasive Gorlin and Hakki equation solver, Energy Loss Index (ELI), Valvuloarterial Impedance (Zva), and ACC/AHA Heart Team TAVI vs SAVR decision tree.',
+    icon: <Heart className="w-7 h-7 text-red-500 animate-pulse" />,
+    badge: 'Cardiology & Valve Hemodynamics',
+    status: 'Available'
   }
 ];
 
