@@ -584,6 +584,14 @@ const SIMULATORS = [
     icon: <Flame className="w-7 h-7 text-rose-400" />,
     badge: 'Gastroenterology & Hepatology',
     status: 'Available'
+  },
+  {
+    id: 'adrenal-crisis-steroid',
+    title: 'Acute Adrenal Crisis, Cosyntropin & Steroid Equivalency Workstation',
+    description: 'High-dose 250 mcg Cosyntropin stimulation test, steroid potency & mineralocorticoid cross-talk equivalency solver, stress-dose escalation regimens, and emergency crisis resuscitation.',
+    icon: <Zap className="w-7 h-7 text-amber-400" />,
+    badge: 'Endocrinology & Critical Care',
+    status: 'Available'
   }
 ];
 

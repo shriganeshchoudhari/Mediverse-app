@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'adrenal-crisis-steroid', name: 'Acute Adrenal Crisis, Cosyntropin & Steroid Equivalency Workstation', icon: '⚡', route: '/simulators/adrenal-crisis-steroid' },
     { id: 'upper-gi-bleeding-hemostasis', name: 'Acute Upper GI Bleeding, Rockall & Hemostasis Workstation', icon: '🔥', route: '/simulators/upper-gi-bleeding-hemostasis' },
     { id: 'pulmonary-embolism-thrombolysis', name: 'Pulmonary Embolism, RV Strain & Thrombolysis (CDT) Workstation', icon: '🫁', route: '/simulators/pulmonary-embolism-thrombolysis' },
     { id: 'preeclampsia-eclampsia-mgso4', name: 'Preeclampsia, Eclampsia & MgSO4 Workstation', icon: '👶', route: '/simulators/preeclampsia-eclampsia-mgso4' },
