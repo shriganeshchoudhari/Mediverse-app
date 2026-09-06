@@ -432,6 +432,14 @@ const SIMULATORS = [
     icon: <Stethoscope className="w-7 h-7 text-amber-400" />,
     badge: 'Hepatology & Gastroenterology',
     status: 'Available'
+  },
+  {
+    id: 'labor-partogram',
+    title: 'Labor Care Guide, Partogram & Bishop Score Solver',
+    description: 'WHO Partogram Alert/Action curves, Calder Modified Bishop Score pre-induction ripening, Montevideo Units (MVU), oxytocin tachysystole resuscitation, and CPD diagnostics.',
+    icon: <Baby className="w-7 h-7 text-rose-400" />,
+    badge: 'Obstetrics & Intrapartum Care',
+    status: 'Available'
   }
 ];
 

@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'labor-partogram', name: 'Labor Care Guide, Partogram & Bishop Score Workstation', icon: '👶', route: '/simulators/labor-partogram' },
     { id: 'cirrhosis-portal-hypertension', name: 'Cirrhosis Decompensation, MELD-Na & HVPG Workstation', icon: '🩺', route: '/simulators/cirrhosis-portal-hypertension' },
     { id: 'urea-kinetic-dialysis', name: 'Hemodialysis Urea Kinetic Modeling (Kt/V) Workstation', icon: '💧', route: '/simulators/urea-kinetic-dialysis' },
     { id: 'autoantibody-ana', name: 'Autoantibody Profiling & ANA HEp-2 IFA Workstation', icon: '🔬', route: '/simulators/autoantibody-ana' },
