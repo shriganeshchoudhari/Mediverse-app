@@ -83,6 +83,7 @@ export default function GlobalSearch() {
     { id: 'endoscopy-gi', name: 'Upper GI Endoscopy (EGD) & ERCP Workstation', icon: '🔬', route: '/simulators/endoscopy-gi' },
     { id: 'compartment-syndrome', name: 'Orthopedic Surgery & Compartment Syndrome Workstation', icon: '🩻', route: '/simulators/compartment-syndrome' },
     { id: 'slit-lamp-tonometry', name: 'Ophthalmology Slit Lamp & Goldmann Tonometry Workstation', icon: '👁️', route: '/simulators/slit-lamp-tonometry' },
+    { id: 'neurosurgery-evd', name: 'Neurosurgery EVD & Ventriculostomy Workstation', icon: '🧠', route: '/simulators/neurosurgery-evd' },
     { id: 'coronary-angiography', name: 'Cardiac Catheterization & Coronary Angiography Workstation', icon: '🫀', route: '/simulators/coronary-angiography' },
     { id: 'eeg-neurophysiology', name: 'Clinical Neurophysiology & Quantitative EEG (qEEG) Workstation', icon: '🧠', route: '/simulators/eeg-neurophysiology' },
     { id: 'bronchoscopy-navigation', name: 'Flexible Bronchoscopy & EBUS Staging Workstation', icon: '🫁', route: '/simulators/bronchoscopy-navigation' },

@@ -336,6 +336,14 @@ const SIMULATORS = [
     icon: <Eye className="w-7 h-7 text-sky-400" />,
     badge: 'Ophthalmology & Optics',
     status: 'Available'
+  },
+  {
+    id: 'neurosurgery-evd',
+    title: 'Neurosurgery EVD & Ventriculostomy Workstation',
+    description: 'Kocher\'s point stereotactic trajectory, Foramen of Monro frontal horn cannulation, EVD graduated burette hydrodynamics, tragus zero leveling, slit ventricle prevention, and intrathecal thrombolysis.',
+    icon: <Brain className="w-7 h-7 text-purple-400" />,
+    badge: 'Neurosurgery & Critical Care',
+    status: 'Available'
   }
 ];
 
