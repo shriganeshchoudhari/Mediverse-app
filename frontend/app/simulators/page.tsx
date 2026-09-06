@@ -368,6 +368,14 @@ const SIMULATORS = [
     icon: <Ear className="w-7 h-7 text-teal-400" />,
     badge: 'Otolaryngology & Audiology',
     status: 'Available'
+  },
+  {
+    id: 'chest-tube-pleural',
+    title: 'Pleural Dynamics & Chest Tube Thoracostomy Workstation',
+    description: 'Intrapleural pressure swings, 3-chamber water seal drainage (collection, water seal, suction), tidaling, air leak grading, ATLS massive hemothorax thoracotomy triggers, and Light\'s criteria.',
+    icon: <Wind className="w-7 h-7 text-sky-400" />,
+    badge: 'Pulmonology & Trauma',
+    status: 'Available'
   }
 ];
 

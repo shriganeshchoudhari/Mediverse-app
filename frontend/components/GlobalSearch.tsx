@@ -87,6 +87,7 @@ export default function GlobalSearch() {
     { id: 'dermoscopy', name: 'Dermatology Dermoscopy & Wood\'s Lamp Workstation', icon: '🔬', route: '/simulators/dermoscopy' },
     { id: 'stewart-acid-base', name: 'Nephrology & Acid-Base Stewart SID Workstation', icon: '🧪', route: '/simulators/stewart-acid-base' },
     { id: 'audiometry-ent', name: 'Pure Tone Audiometry & Tympanometry Workstation', icon: '👂', route: '/simulators/audiometry-ent' },
+    { id: 'chest-tube-pleural', name: 'Pleural Dynamics & Chest Tube Thoracostomy Workstation', icon: '🫁', route: '/simulators/chest-tube-pleural' },
     { id: 'coronary-angiography', name: 'Cardiac Catheterization & Coronary Angiography Workstation', icon: '🫀', route: '/simulators/coronary-angiography' },
     { id: 'eeg-neurophysiology', name: 'Clinical Neurophysiology & Quantitative EEG (qEEG) Workstation', icon: '🧠', route: '/simulators/eeg-neurophysiology' },
     { id: 'bronchoscopy-navigation', name: 'Flexible Bronchoscopy & EBUS Staging Workstation', icon: '🫁', route: '/simulators/bronchoscopy-navigation' },
