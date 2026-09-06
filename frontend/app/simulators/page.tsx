@@ -416,6 +416,14 @@ const SIMULATORS = [
     icon: <Microscope className="w-7 h-7 text-emerald-400" />,
     badge: 'Rheumatology & Immunology',
     status: 'Available'
+  },
+  {
+    id: 'urea-kinetic-dialysis',
+    title: 'Hemodialysis Urea Kinetic Modeling (Kt/V) Workstation',
+    description: 'Daugirdas second-generation spKt/V & eKt/V, intracellular urea rebound, URR %, nPCR protein nutrition, vascular access recirculation (AR%), and ultrafiltration rate risk monitoring.',
+    icon: <Droplets className="w-7 h-7 text-sky-400" />,
+    badge: 'Nephrology & Dialysis',
+    status: 'Available'
   }
 ];
 
