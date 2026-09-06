@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -359,6 +359,14 @@ const SIMULATORS = [
     description: 'Physico-chemical Stewart approach: apparent vs effective SID, Strong Ion Gap (SIG), Gamblegram ion balance stacks, normal saline dilutional acidosis, and Figge-Jabor-Kazda albumin correction.',
     icon: <FlaskConical className="w-7 h-7 text-teal-400" />,
     badge: 'Nephrology & Acid-Base',
+    status: 'Available'
+  },
+  {
+    id: 'audiometry-ent',
+    title: 'Pure Tone Audiometry & Tympanometry Workstation',
+    description: 'Octave pure tone air/bone conduction audiograms, Jerger middle ear compliance curves (Type A, As, Ad, B, C), speech discrimination rollover, stapedial acoustic reflexes, and otology clinical pathways.',
+    icon: <Ear className="w-7 h-7 text-teal-400" />,
+    badge: 'Otolaryngology & Audiology',
     status: 'Available'
   }
 ];
