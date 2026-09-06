@@ -448,6 +448,14 @@ const SIMULATORS = [
     icon: <Microscope className="w-7 h-7 text-purple-400" />,
     badge: 'Infectious Disease & HIV',
     status: 'Available'
+  },
+  {
+    id: 'visual-field-perimetry',
+    title: 'Humphrey Automated Perimetry & Glaucoma Workstation',
+    description: 'HFA 24-2 SITA-Standard testing, decibel threshold mapping, Glaucoma Hemifield Test (GHT), Hodapp-Anderson-Parrish (HAP) staging, corneal pachymetry CCT-adjusted IOP, and target IOP solver.',
+    icon: <Eye className="w-7 h-7 text-cyan-400" />,
+    badge: 'Ophthalmology & Glaucoma',
+    status: 'Available'
   }
 ];
 
