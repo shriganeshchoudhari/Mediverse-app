@@ -392,6 +392,14 @@ const SIMULATORS = [
     icon: <Flame className="w-7 h-7 text-amber-400" />,
     badge: 'Endocrinology & Metabolism',
     status: 'Available'
+  },
+  {
+    id: 'teg-hemostasis',
+    title: 'Thromboelastography (TEG / ROTEM) & Transfusion Solver',
+    description: 'Viscoelastic clot dynamics (R, K, alpha, MA, LY30), differential ROTEM assays (FIBTEM, HEPTEM, APTEM), and goal-directed transfusion algorithms.',
+    icon: <Droplets className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Hematology & Transfusion',
+    status: 'Available'
   }
 ];
 

@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'teg-hemostasis', name: 'Thromboelastography (TEG / ROTEM) & Transfusion Solver', icon: '🩸', route: '/simulators/teg-hemostasis' },
     { id: 'endocrine-clamp', name: 'Hyperinsulinemic Glucose Clamp & HOMA2 Precision Solver', icon: '🔥', route: '/simulators/endocrine-clamp' },
     { id: 'toxicology-antidote', name: 'Clinical Toxicology, Toxidromes & Antidote Precision Workstation', icon: '☠️', route: '/simulators/toxicology-antidote' },
     { id: 'robotic-surgery', name: 'Minimally Invasive Surgery & Robotic Laparoscopy Workstation', icon: '✂️', route: '/simulators/robotic-surgery' },
