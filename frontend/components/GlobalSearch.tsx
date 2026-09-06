@@ -81,6 +81,7 @@ export default function GlobalSearch() {
     { id: 'fetal-monitoring', name: 'Fetal Monitoring & Cardiotocography (CTG) Workstation', icon: '👶', route: '/simulators/fetal-monitoring' },
     { id: 'infectious-disease', name: 'Infectious Disease & Antibiogram Solver', icon: '🧫', route: '/simulators/infectious-disease' },
     { id: 'endoscopy-gi', name: 'Upper GI Endoscopy (EGD) & ERCP Workstation', icon: '🔬', route: '/simulators/endoscopy-gi' },
+    { id: 'compartment-syndrome', name: 'Orthopedic Surgery & Compartment Syndrome Workstation', icon: '🩻', route: '/simulators/compartment-syndrome' },
     { id: 'coronary-angiography', name: 'Cardiac Catheterization & Coronary Angiography Workstation', icon: '🫀', route: '/simulators/coronary-angiography' },
     { id: 'eeg-neurophysiology', name: 'Clinical Neurophysiology & Quantitative EEG (qEEG) Workstation', icon: '🧠', route: '/simulators/eeg-neurophysiology' },
     { id: 'bronchoscopy-navigation', name: 'Flexible Bronchoscopy & EBUS Staging Workstation', icon: '🫁', route: '/simulators/bronchoscopy-navigation' },

@@ -320,6 +320,14 @@ const SIMULATORS = [
     icon: <Compass className="w-7 h-7 text-amber-400" />,
     badge: 'Interventional Gastroenterology & ERCP',
     status: 'Available'
+  },
+  {
+    id: 'compartment-syndrome',
+    title: 'Orthopedic Surgery & Compartment Syndrome',
+    description: 'Intracompartmental pressure manometry, Whitesides / McQueen Delta P perfusion calculation (DBP - ICP <= 30 mmHg), lower leg 4-compartment anatomy, emergent 2-incision fasciotomy, and Volkmann ischemia prevention.',
+    icon: <Scissors className="w-7 h-7 text-cyan-400" />,
+    badge: 'Orthopedic Traumatology',
+    status: 'Available'
   }
 ];
 
