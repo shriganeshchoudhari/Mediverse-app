@@ -400,6 +400,14 @@ const SIMULATORS = [
     icon: <Droplets className="w-7 h-7 text-rose-500 animate-pulse" />,
     badge: 'Hematology & Transfusion',
     status: 'Available'
+  },
+  {
+    id: 'tci-anesthesia',
+    title: 'Target-Controlled Infusion (TCI) & Volatile MAC Workstation',
+    description: 'Marsh & Schnider Propofol 3-compartment kinetics, Minto Remifentanil pharmacodynamics, Mapleson age-corrected volatile MAC, Emax BIS monitoring, and context-sensitive half-time.',
+    icon: <Brain className="w-7 h-7 text-indigo-400" />,
+    badge: 'Anesthesiology & TCI',
+    status: 'Available'
   }
 ];
 
