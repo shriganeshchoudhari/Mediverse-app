@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'autoantibody-ana', name: 'Autoantibody Profiling & ANA HEp-2 IFA Workstation', icon: '🔬', route: '/simulators/autoantibody-ana' },
     { id: 'tci-anesthesia', name: 'Target-Controlled Infusion (TCI) & Volatile MAC Workstation', icon: '💉', route: '/simulators/tci-anesthesia' },
     { id: 'teg-hemostasis', name: 'Thromboelastography (TEG / ROTEM) & Transfusion Solver', icon: '🩸', route: '/simulators/teg-hemostasis' },
     { id: 'endocrine-clamp', name: 'Hyperinsulinemic Glucose Clamp & HOMA2 Precision Solver', icon: '🔥', route: '/simulators/endocrine-clamp' },

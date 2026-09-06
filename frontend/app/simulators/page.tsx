@@ -408,6 +408,14 @@ const SIMULATORS = [
     icon: <Brain className="w-7 h-7 text-indigo-400" />,
     badge: 'Anesthesiology & TCI',
     status: 'Available'
+  },
+  {
+    id: 'autoantibody-ana',
+    title: 'Autoantibody Profiling & ANA HEp-2 IFA Workstation',
+    description: 'ICAP standardized HEp-2 IFA patterns (AC-1 to AC-29), end-point titer kinetics, ENA multiplex panel, ANCA dual-fluorescence differential, and 2019 ACR/EULAR criteria solvers.',
+    icon: <Microscope className="w-7 h-7 text-emerald-400" />,
+    badge: 'Rheumatology & Immunology',
+    status: 'Available'
   }
 ];
 
