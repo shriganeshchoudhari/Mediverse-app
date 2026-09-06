@@ -552,6 +552,14 @@ const SIMULATORS = [
     icon: <ShieldAlert className="w-7 h-7 text-indigo-400" />,
     badge: 'Anesthesiology & Obstetrics',
     status: 'Available'
+  },
+  {
+    id: 'dysnatremia-osmotherapy',
+    title: 'Dysnatremia, Hyponatremia & Osmotherapy Workstation',
+    description: 'Adrogué-Madias fluid kinetics, Osmotic Demyelination Syndrome (ODS) prevention, 3% hypertonic saline bolus, DDAVP clamp, and neuro-osmotherapy.',
+    icon: <Droplets className="w-7 h-7 text-sky-400" />,
+    badge: 'Nephrology & Critical Care',
+    status: 'Available'
   }
 ];
 
