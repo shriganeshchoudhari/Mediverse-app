@@ -616,6 +616,14 @@ const SIMULATORS = [
     icon: <Zap className="w-7 h-7 text-emerald-400" />,
     badge: 'Anesthesiology & Critical Care',
     status: 'Available'
+  },
+  {
+    id: 'renal-tubular-acidosis-gap',
+    title: 'Renal Tubular Acidosis (RTA) & Urine Anion Gap Workstation',
+    description: 'Normal Anion Gap Metabolic Acidosis (NAGMA) differential solver, RTA Types 1, 2, and 4 categorization, Urine Anion Gap (UAG) & Osmolal Gap ammonium excretion, and precision alkali dosing.',
+    icon: <FlaskConical className="w-7 h-7 text-teal-400" />,
+    badge: 'Nephrology & Acid-Base',
+    status: 'Available'
   }
 ];
 
