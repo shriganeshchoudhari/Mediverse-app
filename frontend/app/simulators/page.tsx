@@ -504,6 +504,14 @@ const SIMULATORS = [
     icon: <Activity className="w-7 h-7 text-sky-400" />,
     badge: 'Pulmonology & Critical Care',
     status: 'Available'
+  },
+  {
+    id: 'hematology-morphology',
+    title: 'Hematology Smear & Bone Marrow Morphology Workstation',
+    description: 'Peripheral blood smear poikilocytosis, bone marrow M:E ratio calculation, WHO 2022 leukemia classification, and Cairo-Bishop tumor lysis syndrome triage.',
+    icon: <Microscope className="w-7 h-7 text-purple-400" />,
+    badge: 'Hematology & Pathology',
+    status: 'Available'
   }
 ];
 
