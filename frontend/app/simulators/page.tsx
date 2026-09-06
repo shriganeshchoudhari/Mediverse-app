@@ -344,6 +344,14 @@ const SIMULATORS = [
     icon: <Brain className="w-7 h-7 text-purple-400" />,
     badge: 'Neurosurgery & Critical Care',
     status: 'Available'
+  },
+  {
+    id: 'dermoscopy',
+    title: 'Dermatology Dermoscopy & Wood\'s Lamp Workstation',
+    description: 'Polarized vs immersion epiluminescence microscopy, 365 nm UVA Wood\'s fluorescence, Argenziano 7-point melanoma checklist, BCC arborizing vessels, and excisional biopsy planning.',
+    icon: <Microscope className="w-7 h-7 text-amber-400" />,
+    badge: 'Dermatology & Oncology',
+    status: 'Available'
   }
 ];
 
