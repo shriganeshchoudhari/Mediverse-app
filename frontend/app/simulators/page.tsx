@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -327,6 +327,14 @@ const SIMULATORS = [
     description: 'Intracompartmental pressure manometry, Whitesides / McQueen Delta P perfusion calculation (DBP - ICP <= 30 mmHg), lower leg 4-compartment anatomy, emergent 2-incision fasciotomy, and Volkmann ischemia prevention.',
     icon: <Scissors className="w-7 h-7 text-cyan-400" />,
     badge: 'Orthopedic Traumatology',
+    status: 'Available'
+  },
+  {
+    id: 'slit-lamp-tonometry',
+    title: 'Ophthalmology Slit Lamp & Goldmann Tonometry',
+    description: 'Optical slit beam biomicroscopy, Goldmann applanation tonometry (GAT) Imbert-Fick mechanics, CCT pachymetry corrections, Van Herick angle grading, and acute angle-closure emergency deck.',
+    icon: <Eye className="w-7 h-7 text-sky-400" />,
+    badge: 'Ophthalmology & Optics',
     status: 'Available'
   }
 ];
