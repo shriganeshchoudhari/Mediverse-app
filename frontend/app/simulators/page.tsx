@@ -472,6 +472,14 @@ const SIMULATORS = [
     icon: <Droplets className="w-7 h-7 text-orange-400" />,
     badge: 'Trauma & Critical Care',
     status: 'Available'
+  },
+  {
+    id: 'acute-stroke-thrombolysis',
+    title: 'Acute Stroke Thrombolysis & Thrombectomy Workstation',
+    description: 'NIH Stroke Scale (NIHSS) scoring, ASPECTS 10-region CT mapping, Tenecteplase/Alteplase precision dosing, BP thresholds, and Large Vessel Occlusion (LVO) mechanical thrombectomy solver.',
+    icon: <Brain className="w-7 h-7 text-purple-400" />,
+    badge: 'Neurology & Neurocritical Care',
+    status: 'Available'
   }
 ];
 
