@@ -568,6 +568,14 @@ const SIMULATORS = [
     icon: <Baby className="w-7 h-7 text-rose-400" />,
     badge: 'Obstetrics & Critical Care',
     status: 'Available'
+  },
+  {
+    id: 'pulmonary-embolism-thrombolysis',
+    title: 'Pulmonary Embolism, RV Strain & Thrombolysis (CDT) Workstation',
+    description: 'ESC/AHA risk stratification, sPESI prognostic scoring, echocardiographic RV strain, systemic Alteplase, and EKOS catheter-directed thrombolysis.',
+    icon: <Heart className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Interventional Cardiology',
+    status: 'Available'
   }
 ];
 

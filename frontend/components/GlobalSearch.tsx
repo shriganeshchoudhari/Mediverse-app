@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'pulmonary-embolism-thrombolysis', name: 'Pulmonary Embolism, RV Strain & Thrombolysis (CDT) Workstation', icon: '🫁', route: '/simulators/pulmonary-embolism-thrombolysis' },
     { id: 'preeclampsia-eclampsia-mgso4', name: 'Preeclampsia, Eclampsia & MgSO4 Workstation', icon: '👶', route: '/simulators/preeclampsia-eclampsia-mgso4' },
     { id: 'dysnatremia-osmotherapy', name: 'Dysnatremia, Hyponatremia & Osmotherapy Workstation', icon: '💧', route: '/simulators/dysnatremia-osmotherapy' },
     { id: 'neuraxial-spinal-epidural', name: 'Neuraxial Anesthesia, Spinal/Epidural & LAST Workstation', icon: '💉', route: '/simulators/neuraxial-spinal-epidural' },
