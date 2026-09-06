@@ -384,6 +384,14 @@ const SIMULATORS = [
     icon: <Skull className="w-7 h-7 text-rose-400" />,
     badge: 'Medical Toxicology',
     status: 'Available'
+  },
+  {
+    id: 'endocrine-clamp',
+    title: 'Hyperinsulinemic Glucose Clamp & HOMA2 Solver',
+    description: 'DeFronzo gold-standard clamp dynamics, whole-body glucose disposal (M value), HOMA2-IR / HOMA2-Beta indices, and DKA two-bag transition protocols.',
+    icon: <Flame className="w-7 h-7 text-amber-400" />,
+    badge: 'Endocrinology & Metabolism',
+    status: 'Available'
   }
 ];
 
