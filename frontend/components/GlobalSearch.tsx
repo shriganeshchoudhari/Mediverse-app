@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'thyroid-storm-crisis', name: 'Thyroid Storm & Myxedema Coma Crisis Workstation', icon: '🔥', route: '/simulators/thyroid-storm-crisis' },
     { id: 'visual-field-perimetry', name: 'Humphrey Automated Perimetry & Glaucoma Workstation', icon: '👁️', route: '/simulators/visual-field-perimetry' },
     { id: 'hiv-antiretroviral', name: 'HIV Antiretroviral & CD4 Prophylaxis Workstation', icon: '💊', route: '/simulators/hiv-antiretroviral' },
     { id: 'labor-partogram', name: 'Labor Care Guide, Partogram & Bishop Score Workstation', icon: '👶', route: '/simulators/labor-partogram' },

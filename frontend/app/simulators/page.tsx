@@ -456,6 +456,14 @@ const SIMULATORS = [
     icon: <Eye className="w-7 h-7 text-cyan-400" />,
     badge: 'Ophthalmology & Glaucoma',
     status: 'Available'
+  },
+  {
+    id: 'thyroid-storm-crisis',
+    title: 'Thyroid Storm & Myxedema Coma Crisis Workstation',
+    description: 'Burch-Wartofsky Point Scale (BWPS) scoring, 1-hour thionamide-to-iodine pharmacotherapy timing sequencer, and Popoveniuc Myxedema Coma triage and resuscitation protocols.',
+    icon: <Flame className="w-7 h-7 text-amber-400" />,
+    badge: 'Endocrinology Emergencies',
+    status: 'Available'
   }
 ];
 
