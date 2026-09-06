@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'neuraxial-spinal-epidural', name: 'Neuraxial Anesthesia, Spinal/Epidural & LAST Workstation', icon: '💉', route: '/simulators/neuraxial-spinal-epidural' },
     { id: 'neonatal-hfov-ventilation', name: 'Neonatal HFOV & Surfactant Kinematics Workstation', icon: '👶', route: '/simulators/neonatal-hfov-ventilation' },
     { id: 'arterial-line-hemodynamics', name: 'Arterial Line Hemodynamics, PPV & Fluid Responsiveness Workstation', icon: '📈', route: '/simulators/arterial-line-hemodynamics' },
     { id: 'difficult-airway-intubation', name: 'Difficult Airway & Awake Fiberoptic Intubation Workstation', icon: '🛡️', route: '/simulators/difficult-airway-intubation' },

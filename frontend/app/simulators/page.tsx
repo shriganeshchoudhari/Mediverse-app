@@ -544,6 +544,14 @@ const SIMULATORS = [
     icon: <Baby className="w-7 h-7 text-cyan-400" />,
     badge: 'Neonatology & HFOV',
     status: 'Available'
+  },
+  {
+    id: 'neuraxial-spinal-epidural',
+    title: 'Neuraxial Anesthesia, Spinal/Epidural & LAST Workstation',
+    description: 'Dermatome sensory level mapping (T4-S5), Modified Bromage motor score, high/total spinal Bezold-Jarisch resuscitation, epidural test dose, and ASRA 20% Lipid Emulsion rescue.',
+    icon: <ShieldAlert className="w-7 h-7 text-indigo-400" />,
+    badge: 'Anesthesiology & Obstetrics',
+    status: 'Available'
   }
 ];
 
