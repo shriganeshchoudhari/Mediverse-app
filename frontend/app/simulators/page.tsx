@@ -512,6 +512,14 @@ const SIMULATORS = [
     icon: <Microscope className="w-7 h-7 text-purple-400" />,
     badge: 'Hematology & Pathology',
     status: 'Available'
+  },
+  {
+    id: 'peritoneal-dialysis-pet',
+    title: 'Peritoneal Dialysis, Adequacy & PET Workstation',
+    description: 'Twardowski 4-hour PET transport curves, Three-Pore Model aquaporin-1 sodium sieving, Weekly Kt/V adequacy, Ultrafiltration Failure (UFF Type I-IV), and 2022 ISPD Peritonitis guidelines.',
+    icon: <Droplets className="w-7 h-7 text-sky-400" />,
+    badge: 'Nephrology & Dialysis',
+    status: 'Available'
   }
 ];
 
