@@ -352,6 +352,14 @@ const SIMULATORS = [
     icon: <Microscope className="w-7 h-7 text-amber-400" />,
     badge: 'Dermatology & Oncology',
     status: 'Available'
+  },
+  {
+    id: 'stewart-acid-base',
+    title: 'Nephrology & Acid-Base Stewart SID Workstation',
+    description: 'Physico-chemical Stewart approach: apparent vs effective SID, Strong Ion Gap (SIG), Gamblegram ion balance stacks, normal saline dilutional acidosis, and Figge-Jabor-Kazda albumin correction.',
+    icon: <FlaskConical className="w-7 h-7 text-teal-400" />,
+    badge: 'Nephrology & Acid-Base',
+    status: 'Available'
   }
 ];
 
