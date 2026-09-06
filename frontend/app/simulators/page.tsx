@@ -480,6 +480,14 @@ const SIMULATORS = [
     icon: <Brain className="w-7 h-7 text-purple-400" />,
     badge: 'Neurology & Neurocritical Care',
     status: 'Available'
+  },
+  {
+    id: 'neonatal-resuscitation-nrp',
+    title: 'Neonatal Resuscitation Program (NRP 8th Ed.) Workstation',
+    description: 'NRP 8th Edition decision tree, interactive APGAR scoring board, pre-ductal target SpO2 nomogram, MR. SOPA sequence, weight-based epinephrine/saline dosing, and Sarnat HIE cooling triage.',
+    icon: <Baby className="w-7 h-7 text-rose-400" />,
+    badge: 'Neonatology & Resuscitation',
+    status: 'Available'
   }
 ];
 

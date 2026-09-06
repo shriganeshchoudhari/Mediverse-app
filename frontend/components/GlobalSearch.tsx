@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'neonatal-resuscitation-nrp', name: 'Neonatal Resuscitation Program (NRP 8th Ed.) Workstation', icon: '👶', route: '/simulators/neonatal-resuscitation-nrp' },
     { id: 'acute-stroke-thrombolysis', name: 'Acute Stroke Thrombolysis & Thrombectomy Workstation', icon: '🧠', route: '/simulators/acute-stroke-thrombolysis' },
     { id: 'burns-resuscitation', name: 'Emergency Burns Resuscitation & Fluid Shift Workstation', icon: '🔥', route: '/simulators/burns-resuscitation' },
     { id: 'thyroid-storm-crisis', name: 'Thyroid Storm & Myxedema Coma Crisis Workstation', icon: '🔥', route: '/simulators/thyroid-storm-crisis' },
