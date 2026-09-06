@@ -464,6 +464,14 @@ const SIMULATORS = [
     icon: <Flame className="w-7 h-7 text-amber-400" />,
     badge: 'Endocrinology Emergencies',
     status: 'Available'
+  },
+  {
+    id: 'burns-resuscitation',
+    title: 'Burns Resuscitation & Fluid Shift Workstation',
+    description: 'Wallace Rule of Nines TBSA mapping, Parkland and ABA Consensus formulas, hourly urine output (UOP) titration, carboxyhemoglobin kinetics, and Ivy index fluid creep surveillance.',
+    icon: <Droplets className="w-7 h-7 text-orange-400" />,
+    badge: 'Trauma & Critical Care',
+    status: 'Available'
   }
 ];
 
