@@ -424,6 +424,14 @@ const SIMULATORS = [
     icon: <Droplets className="w-7 h-7 text-sky-400" />,
     badge: 'Nephrology & Dialysis',
     status: 'Available'
+  },
+  {
+    id: 'cirrhosis-portal-hypertension',
+    title: 'Cirrhosis Decompensation, MELD-Na & HVPG Solver',
+    description: '2016 UNOS MELD-Na, Child-Turcotte-Pugh (CTP), Maddrey DF for alcoholic hepatitis, transjugular HVPG gradient, diagnostic paracentesis SAAG, SBP, and HRS-AKI protocols.',
+    icon: <Stethoscope className="w-7 h-7 text-amber-400" />,
+    badge: 'Hepatology & Gastroenterology',
+    status: 'Available'
   }
 ];
 
