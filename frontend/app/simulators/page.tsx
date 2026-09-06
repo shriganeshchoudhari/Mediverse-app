@@ -536,6 +536,14 @@ const SIMULATORS = [
     icon: <Activity className="w-7 h-7 text-rose-500" />,
     badge: 'Critical Care & Hemodynamics',
     status: 'Available'
+  },
+  {
+    id: 'neonatal-hfov-ventilation',
+    title: 'Neonatal HFOV & Surfactant Workstation',
+    description: 'High-Frequency Oscillatory Ventilation (HFOV), sub-dead-space gas transport (Taylor dispersion, Pendelluft), Open-Lung hysteresis, and LISA surfactant kinetics.',
+    icon: <Baby className="w-7 h-7 text-cyan-400" />,
+    badge: 'Neonatology & HFOV',
+    status: 'Available'
   }
 ];
 
