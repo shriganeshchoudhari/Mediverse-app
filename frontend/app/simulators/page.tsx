@@ -496,6 +496,14 @@ const SIMULATORS = [
     icon: <Heart className="w-7 h-7 text-red-500 animate-pulse" />,
     badge: 'Cardiology & Valve Hemodynamics',
     status: 'Available'
+  },
+  {
+    id: 'right-heart-catheterization',
+    title: 'Right Heart Catheterization (RHC) & Fick Workstation',
+    description: 'Swan-Ganz catheterization pressure waveforms, direct and indirect Fick cardiac output, Pulmonary Vascular Resistance (PVR), 2022 ESC/ERS PH Phenotyping, and acute vasoreactivity challenge testing.',
+    icon: <Activity className="w-7 h-7 text-sky-400" />,
+    badge: 'Pulmonology & Critical Care',
+    status: 'Available'
   }
 ];
 

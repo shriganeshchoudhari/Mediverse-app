@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'right-heart-catheterization', name: 'Right Heart Catheterization (RHC) & Fick Workstation', icon: '🫁', route: '/simulators/right-heart-catheterization' },
     { id: 'aortic-stenosis-valve', name: 'Aortic Stenosis & Valve Hemodynamics Workstation', icon: '🫀', route: '/simulators/aortic-stenosis-valve' },
     { id: 'neonatal-resuscitation-nrp', name: 'Neonatal Resuscitation Program (NRP 8th Ed.) Workstation', icon: '👶', route: '/simulators/neonatal-resuscitation-nrp' },
     { id: 'acute-stroke-thrombolysis', name: 'Acute Stroke Thrombolysis & Thrombectomy Workstation', icon: '🧠', route: '/simulators/acute-stroke-thrombolysis' },
