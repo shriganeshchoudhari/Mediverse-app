@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'massive-transfusion-dcr', name: 'Massive Transfusion Protocol (MTP) & DCR Workstation', icon: '🩸', route: '/simulators/massive-transfusion-dcr' },
     { id: 'synovial-fluid-gout-microscopy', name: 'Synovial Fluid Polarized Microscopy & Gout Workstation', icon: '🔬', route: '/simulators/synovial-fluid-gout-microscopy' },
     { id: 'adrenal-crisis-steroid', name: 'Acute Adrenal Crisis, Cosyntropin & Steroid Equivalency Workstation', icon: '⚡', route: '/simulators/adrenal-crisis-steroid' },
     { id: 'upper-gi-bleeding-hemostasis', name: 'Acute Upper GI Bleeding, Rockall & Hemostasis Workstation', icon: '🔥', route: '/simulators/upper-gi-bleeding-hemostasis' },

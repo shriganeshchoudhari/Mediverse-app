@@ -600,6 +600,14 @@ const SIMULATORS = [
     icon: <Microscope className="w-7 h-7 text-rose-400" />,
     badge: 'Rheumatology & Immunology',
     status: 'Available'
+  },
+  {
+    id: 'massive-transfusion-dcr',
+    title: 'Massive Transfusion Protocol (MTP) & DCR Workstation',
+    description: 'Damage Control Resuscitation (DCR), balanced 1:1:1 blood product ratio cooler dispatch, ABC Score activation, Lethal Triad biophysics, permissive hypotension, and viscoelastic TEG hemostatic guidance.',
+    icon: <Droplets className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Trauma & Critical Care',
+    status: 'Available'
   }
 ];
 
