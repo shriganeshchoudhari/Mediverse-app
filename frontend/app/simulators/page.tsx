@@ -440,6 +440,14 @@ const SIMULATORS = [
     icon: <Baby className="w-7 h-7 text-rose-400" />,
     badge: 'Obstetrics & Intrapartum Care',
     status: 'Available'
+  },
+  {
+    id: 'hiv-antiretroviral',
+    title: 'HIV Antiretroviral & CD4 Prophylaxis Solver',
+    description: 'DHHS/WHO first-line ART regimens, CD4 T-cell opportunistic infection prophylaxis (PCP, Toxoplasmosis, MAC), HLA-B*5701 hypersensitivity, HBV/TB interactions, and IRIS timing.',
+    icon: <Microscope className="w-7 h-7 text-purple-400" />,
+    badge: 'Infectious Disease & HIV',
+    status: 'Available'
   }
 ];
 
