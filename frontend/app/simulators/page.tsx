@@ -592,6 +592,14 @@ const SIMULATORS = [
     icon: <Zap className="w-7 h-7 text-amber-400" />,
     badge: 'Endocrinology & Critical Care',
     status: 'Available'
+  },
+  {
+    id: 'synovial-fluid-gout-microscopy',
+    title: 'Synovial Fluid Polarized Microscopy & Gout Workstation',
+    description: 'Compensated Polarized Light Microscopy (CPLM 530 nm red plate), MSU vs CPPD birefringence kinetics, arthrocentesis sepsis triaging, 2015 ACR/EULAR criteria, and HLA-B*5801 precision pharmacotherapy.',
+    icon: <Microscope className="w-7 h-7 text-rose-400" />,
+    badge: 'Rheumatology & Immunology',
+    status: 'Available'
   }
 ];
 
