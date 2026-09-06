@@ -576,6 +576,14 @@ const SIMULATORS = [
     icon: <Heart className="w-7 h-7 text-rose-500 animate-pulse" />,
     badge: 'Interventional Cardiology',
     status: 'Available'
+  },
+  {
+    id: 'upper-gi-bleeding-hemostasis',
+    title: 'Acute Upper GI Bleeding, Rockall & Hemostasis Workstation',
+    description: 'Glasgow-Blatchford Score (GBS) triage, Full Rockall scoring, Forrest ulcer classification, vasoactive octreotide/terlipressin infusions, endoscopic dual therapy, and salvage Sengstaken-Blakemore balloon tamponade.',
+    icon: <Flame className="w-7 h-7 text-rose-400" />,
+    badge: 'Gastroenterology & Hepatology',
+    status: 'Available'
   }
 ];
 
