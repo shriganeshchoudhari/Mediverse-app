@@ -728,6 +728,14 @@ const SIMULATORS = [
     icon: <Pill className="w-7 h-7 text-emerald-400" />,
     badge: 'Toxicology & Hepatology',
     status: 'Available'
+  },
+  {
+    id: 'acs-heart-troponin',
+    title: 'ACS Risk Stratification, HEART & hs-cTn Delta Workstation',
+    description: 'Emergency Medicine & Cardiology: Model HEART Score, TIMI, GRACE 2.0, European Society of Cardiology (ESC) 0/1h and 0/2h high-sensitivity troponin rapid algorithms, and evidence-based revascularization timing.',
+    icon: <Heart className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Emergency & Cardiology',
+    status: 'Available'
   }
 ];
 
