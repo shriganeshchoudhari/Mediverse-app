@@ -632,6 +632,14 @@ const SIMULATORS = [
     icon: <ShieldAlert className="w-7 h-7 text-amber-400" />,
     badge: 'Critical Care & Stewardship',
     status: 'Available'
+  },
+  {
+    id: 'pupil-anisocoria-horner',
+    title: 'Anisocoria, Pupillary Light Reflex & Horner Syndrome Workstation',
+    description: 'Neuro-ophthalmologic pupil dynamics: light vs dark anisocoria, 3-neuron Horner localization, compressive CN III palsy, Adie tonic pupil, and Apraclonidine/Pilocarpine pharmacology.',
+    icon: <Eye className="w-7 h-7 text-cyan-400" />,
+    badge: 'Neuro-Ophthalmology',
+    status: 'Available'
   }
 ];
 

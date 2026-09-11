@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'pupil-anisocoria-horner', name: 'Anisocoria, Pupillary Light Reflex & Horner Workstation', icon: '👁️', route: '/simulators/pupil-anisocoria-horner' },
     { id: 'sepsis-antibiotic-pkpd', name: 'Sepsis Bundles (SEP-1), Antibiotic PK/PD & Procalcitonin Workstation', icon: '🛡️', route: '/simulators/sepsis-antibiotic-pkpd' },
     { id: 'renal-tubular-acidosis-gap', name: 'Renal Tubular Acidosis (RTA) & Urine Anion Gap Workstation', icon: '🧪', route: '/simulators/renal-tubular-acidosis-gap' },
     { id: 'neuromuscular-blockade-tof', name: 'Neuromuscular Blockade, Train-of-Four & Reversal Workstation', icon: '⚡', route: '/simulators/neuromuscular-blockade-tof' },
