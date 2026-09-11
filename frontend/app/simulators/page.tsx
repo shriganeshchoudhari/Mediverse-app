@@ -640,6 +640,14 @@ const SIMULATORS = [
     icon: <Eye className="w-7 h-7 text-cyan-400" />,
     badge: 'Neuro-Ophthalmology',
     status: 'Available'
+  },
+  {
+    id: 'toxic-alcohols-osmolal-gap',
+    title: 'Toxic Alcohols, Osmolal Gap & Fomepizole Precision Solver',
+    description: 'Critical care toxicology: Osmolal gap vs HAGMA crossover, Methanol snowstorm blindness, Ethylene Glycol calcium oxalate nephrocalcinosis, and Fomepizole/dialysis protocols.',
+    icon: <FlaskConical className="w-7 h-7 text-emerald-400" />,
+    badge: 'Toxicology & Critical Care',
+    status: 'Available'
   }
 ];
 
