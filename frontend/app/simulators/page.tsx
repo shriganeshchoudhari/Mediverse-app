@@ -752,6 +752,14 @@ const SIMULATORS = [
     icon: <Zap className="w-7 h-7 text-rose-500 animate-pulse" />,
     badge: 'Neurocritical Care',
     status: 'Available'
+  },
+  {
+    id: 'heart-failure-stevenson',
+    title: 'ADHF Stevenson Profiles & Inotropes Workstation',
+    description: 'Cardiology & ICU: Model Stevenson-Nohria Forrester profiles (Warm/Cold, Wet/Dry), congestive nephropathy backpressure mechanics (RPP = MAP - CVP), DOSE trial diuretic titration, and inotrope/vasodilator safety interlocks.',
+    icon: <Heart className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Cardiology & ICU',
+    status: 'Available'
   }
 ];
 
