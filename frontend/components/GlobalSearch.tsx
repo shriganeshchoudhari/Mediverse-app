@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'aki-kdigo-fst', name: 'AKI KDIGO Staging, FeNa/FeUrea & Furosemide Stress Test (FST)', icon: '💧', route: '/simulators/aki-kdigo-fst' },
     { id: 'acs-heart-troponin', name: 'ACS Risk Stratification, HEART & hs-cTn Delta Workstation', icon: '🫀', route: '/simulators/acs-heart-troponin' },
     { id: 'acetaminophen-toxicity-nac', name: 'Acetaminophen Toxicity, Rumack-Matthew & NAC Workstation', icon: '💊', route: '/simulators/acetaminophen-toxicity-nac' },
     { id: 'ards-driving-pressure', name: 'ARDS Berlin, Driving Pressure & Mechanical Power', icon: '🫁', route: '/simulators/ards-driving-pressure' },

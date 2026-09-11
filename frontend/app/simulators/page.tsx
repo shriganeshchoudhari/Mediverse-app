@@ -736,6 +736,14 @@ const SIMULATORS = [
     icon: <Heart className="w-7 h-7 text-rose-500 animate-pulse" />,
     badge: 'Emergency & Cardiology',
     status: 'Available'
+  },
+  {
+    id: 'aki-kdigo-fst',
+    title: 'Acute Kidney Injury (AKI) & FST Precision Workstation',
+    description: 'Nephrology & Critical Care: Model KDIGO 2024 dynamic AKI staging, FeNa vs FeUrea differentiation with loop diuretic correction, Renal Angina Index (RAI), Chawla Furosemide Stress Test (FST), and fluid overload kinetics.',
+    icon: <Droplets className="w-7 h-7 text-cyan-400" />,
+    badge: 'Nephrology & ICU',
+    status: 'Available'
   }
 ];
 
