@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'acute-pancreatitis-fluid-resuscitation', name: 'Acute Pancreatitis, Atlanta & WATERFALL Resuscitation', icon: '🩺', route: '/simulators/acute-pancreatitis-fluid-resuscitation' },
     { id: 'dka-hhs-two-bag', name: 'DKA, HHS & Two-Bag Fluid Titration Workstation', icon: '🔥', route: '/simulators/dka-hhs-two-bag' },
     { id: 'salicylate-toxicity-alkalinization', name: 'Salicylate Toxicity, Ion Trapping & EXTRIP Dialysis Workstation', icon: '🧪', route: '/simulators/salicylate-toxicity-alkalinization' },
     { id: 'ttm-cardiac-arrest-neuro', name: 'Targeted Temperature Management (TTM) & Neuroprognostication', icon: '❄️', route: '/simulators/ttm-cardiac-arrest-neuro' },

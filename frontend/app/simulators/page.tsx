@@ -704,6 +704,14 @@ const SIMULATORS = [
     icon: <Flame className="w-7 h-7 text-rose-500 animate-pulse" />,
     badge: 'Endocrinology & ICU',
     status: 'Available'
+  },
+  {
+    id: 'acute-pancreatitis-fluid-resuscitation',
+    title: 'Acute Pancreatitis, Atlanta & WATERFALL Resuscitation',
+    description: 'Gastroenterology & ICU: Model Revised Atlanta 2012 severity, Modified Marshall organ failure matrix, BISAP mortality index, and NEJM WATERFALL goal-directed fluid titration.',
+    icon: <Activity className="w-7 h-7 text-amber-400" />,
+    badge: 'Gastroenterology & ICU',
+    status: 'Available'
   }
 ];
 
