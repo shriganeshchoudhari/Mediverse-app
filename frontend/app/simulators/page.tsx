@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -679,6 +679,14 @@ const SIMULATORS = [
     description: 'Cardiovascular toxicology: Model Na+/K+-ATPase blockade, hyperkalemia mortality risk (Smith curve), DigiFab antibody fragment neutralization stoichiometry, and Salvador Dalí scooped ST changes.',
     icon: <FlaskConical className="w-7 h-7 text-amber-400" />,
     badge: 'Cardiovascular Toxicology',
+    status: 'Available'
+  },
+  {
+    id: 'ttm-cardiac-arrest-neuro',
+    title: 'Targeted Temperature Management (TTM) & Neuroprognostication',
+    description: 'Resuscitation & neurocritical care: Model core hypothermia induction (32-36°C), shivering metabolic surge, controlled rewarming electrolyte shifts, and Day 3 multimodal neuroprognostication (SSEP N20, continuous EEG, NSE, and CT GWR).',
+    icon: <Thermometer className="w-7 h-7 text-sky-400" />,
+    badge: 'Resuscitation & Neuro-ICU',
     status: 'Available'
   }
 ];
