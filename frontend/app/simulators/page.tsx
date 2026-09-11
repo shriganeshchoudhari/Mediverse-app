@@ -672,6 +672,14 @@ const SIMULATORS = [
     icon: <Wind className="w-7 h-7 text-cyan-400" />,
     badge: 'Pulmonology & Critical Care',
     status: 'Available'
+  },
+  {
+    id: 'digoxin-toxicity-fab',
+    title: 'Digoxin Toxicity & DigiFab Stoichiometry Workstation',
+    description: 'Cardiovascular toxicology: Model Na+/K+-ATPase blockade, hyperkalemia mortality risk (Smith curve), DigiFab antibody fragment neutralization stoichiometry, and Salvador Dalí scooped ST changes.',
+    icon: <FlaskConical className="w-7 h-7 text-amber-400" />,
+    badge: 'Cardiovascular Toxicology',
+    status: 'Available'
   }
 ];
 

@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'digoxin-toxicity-fab', name: 'Digoxin Toxicity & DigiFab Stoichiometry Workstation', icon: '💊', route: '/simulators/digoxin-toxicity-fab' },
     { id: 'ino-pulmonary-vasoreactivity', name: 'Inhaled Nitric Oxide (iNO) & Pulmonary Vasoreactivity Workstation', icon: '💨', route: '/simulators/ino-pulmonary-vasoreactivity' },
     { id: 'hdfn-rhogam-kleihauer', name: 'HDFN, RhIg (RhoGAM) & Kleihauer-Betke Precision Workstation', icon: '👶', route: '/simulators/hdfn-rhogam-kleihauer' },
     { id: 'last-lipid-rescue', name: 'Local Anesthetic Toxicity (LAST) & Lipid Rescue Workstation', icon: '💉', route: '/simulators/last-lipid-rescue' },
