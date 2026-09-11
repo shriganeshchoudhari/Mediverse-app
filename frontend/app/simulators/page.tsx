@@ -712,6 +712,14 @@ const SIMULATORS = [
     icon: <Activity className="w-7 h-7 text-amber-400" />,
     badge: 'Gastroenterology & ICU',
     status: 'Available'
+  },
+  {
+    id: 'ards-driving-pressure',
+    title: 'ARDS Berlin, Driving Pressure & Mechanical Power',
+    description: 'Pulmonology & ICU: Model Berlin ARDS definitions, Amato driving pressure, Gattinoni mechanical power ergotrauma, and PROSEVA prone positioning protocols.',
+    icon: <Wind className="w-7 h-7 text-cyan-400 animate-pulse" />,
+    badge: 'Pulmonology & ICU',
+    status: 'Available'
   }
 ];
 

@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'ards-driving-pressure', name: 'ARDS Berlin, Driving Pressure & Mechanical Power', icon: '🫁', route: '/simulators/ards-driving-pressure' },
     { id: 'acute-pancreatitis-fluid-resuscitation', name: 'Acute Pancreatitis, Atlanta & WATERFALL Resuscitation', icon: '🩺', route: '/simulators/acute-pancreatitis-fluid-resuscitation' },
     { id: 'dka-hhs-two-bag', name: 'DKA, HHS & Two-Bag Fluid Titration Workstation', icon: '🔥', route: '/simulators/dka-hhs-two-bag' },
     { id: 'salicylate-toxicity-alkalinization', name: 'Salicylate Toxicity, Ion Trapping & EXTRIP Dialysis Workstation', icon: '🧪', route: '/simulators/salicylate-toxicity-alkalinization' },
