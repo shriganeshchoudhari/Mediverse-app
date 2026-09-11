@@ -688,6 +688,14 @@ const SIMULATORS = [
     icon: <Thermometer className="w-7 h-7 text-sky-400" />,
     badge: 'Resuscitation & Neuro-ICU',
     status: 'Available'
+  },
+  {
+    id: 'salicylate-toxicity-alkalinization',
+    title: 'Salicylate Toxicity, Ion Trapping & EXTRIP Dialysis Workstation',
+    description: 'Toxicology & nephrology: Model mitochondrial uncoupling, mixed respiratory alkalosis + HAGMA, blood-brain barrier ion trapping biophysics, hypokalemic paradoxical aciduria, and EXTRIP emergent hemodialysis indications.',
+    icon: <FlaskConical className="w-7 h-7 text-emerald-400" />,
+    badge: 'Toxicology & Nephrology',
+    status: 'Available'
   }
 ];
 
