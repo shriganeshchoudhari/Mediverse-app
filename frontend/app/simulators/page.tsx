@@ -648,6 +648,14 @@ const SIMULATORS = [
     icon: <FlaskConical className="w-7 h-7 text-emerald-400" />,
     badge: 'Toxicology & Critical Care',
     status: 'Available'
+  },
+  {
+    id: 'last-lipid-rescue',
+    title: 'Local Anesthetic Systemic Toxicity (LAST) & 20% Lipid Rescue Workstation',
+    description: 'ASRA regional anesthesia crisis management: Bupivacaine Nav1.5 cardiotoxicity, QRS widening, 20% lipid emulsion dual-mechanism sink kinetics, and reduced-dose epinephrine.',
+    icon: <Heart className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Anesthesiology & Critical Care',
+    status: 'Available'
   }
 ];
 
