@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -719,6 +719,14 @@ const SIMULATORS = [
     description: 'Pulmonology & ICU: Model Berlin ARDS definitions, Amato driving pressure, Gattinoni mechanical power ergotrauma, and PROSEVA prone positioning protocols.',
     icon: <Wind className="w-7 h-7 text-cyan-400 animate-pulse" />,
     badge: 'Pulmonology & ICU',
+    status: 'Available'
+  },
+  {
+    id: 'acetaminophen-toxicity-nac',
+    title: 'Acetaminophen Toxicity, Rumack-Matthew & NAC Workstation',
+    description: 'Toxicology & hepatology: Model Rumack-Matthew nomogram, CYP2E1 NAPQI glutathione kinetics, 21-hour IV NAC protocols, and King\'s College emergency transplant criteria.',
+    icon: <Pill className="w-7 h-7 text-emerald-400" />,
+    badge: 'Toxicology & Hepatology',
     status: 'Available'
   }
 ];

@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'acetaminophen-toxicity-nac', name: 'Acetaminophen Toxicity, Rumack-Matthew & NAC Workstation', icon: '💊', route: '/simulators/acetaminophen-toxicity-nac' },
     { id: 'ards-driving-pressure', name: 'ARDS Berlin, Driving Pressure & Mechanical Power', icon: '🫁', route: '/simulators/ards-driving-pressure' },
     { id: 'acute-pancreatitis-fluid-resuscitation', name: 'Acute Pancreatitis, Atlanta & WATERFALL Resuscitation', icon: '🩺', route: '/simulators/acute-pancreatitis-fluid-resuscitation' },
     { id: 'dka-hhs-two-bag', name: 'DKA, HHS & Two-Bag Fluid Titration Workstation', icon: '🔥', route: '/simulators/dka-hhs-two-bag' },
