@@ -696,6 +696,14 @@ const SIMULATORS = [
     icon: <FlaskConical className="w-7 h-7 text-emerald-400" />,
     badge: 'Toxicology & Nephrology',
     status: 'Available'
+  },
+  {
+    id: 'dka-hhs-two-bag',
+    title: 'DKA, HHS & Two-Bag Fluid Titration Workstation',
+    description: 'Endocrinology & critical care: Model DKA vs HHS glycemic crisis criteria, potassium safety interlock, dynamic two-bag dextrose titration, and osmotic cerebral edema prevention.',
+    icon: <Flame className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Endocrinology & ICU',
+    status: 'Available'
   }
 ];
 
