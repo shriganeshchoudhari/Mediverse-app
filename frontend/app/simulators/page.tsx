@@ -624,6 +624,14 @@ const SIMULATORS = [
     icon: <FlaskConical className="w-7 h-7 text-teal-400" />,
     badge: 'Nephrology & Acid-Base',
     status: 'Available'
+  },
+  {
+    id: 'sepsis-antibiotic-pkpd',
+    title: 'Sepsis Bundles (SEP-1), Antibiotic PK/PD & Procalcitonin Workstation',
+    description: 'Surviving Sepsis Campaign Hour-1 bundle protocol adherence, time-dependent beta-lactam %fT>MIC extended infusions, Augmented Renal Clearance (ARC) detection, and serial procalcitonin de-escalation kinetics.',
+    icon: <ShieldAlert className="w-7 h-7 text-amber-400" />,
+    badge: 'Critical Care & Stewardship',
+    status: 'Available'
   }
 ];
 
