@@ -664,6 +664,14 @@ const SIMULATORS = [
     icon: <Baby className="w-7 h-7 text-rose-400" />,
     badge: 'Maternal-Fetal Medicine',
     status: 'Available'
+  },
+  {
+    id: 'ino-pulmonary-vasoreactivity',
+    title: 'Inhaled Nitric Oxide (iNO) & Acute Vasoreactivity Workstation',
+    description: 'Pulmonology & critical care: Model selective pulmonary vasodilation, ESC/ERS acute vasoreactivity testing (Sitbon criteria), PVR/SVR hemodynamics, rebound pulmonary hypertension, and MetHb/NO2 toxicity.',
+    icon: <Wind className="w-7 h-7 text-cyan-400" />,
+    badge: 'Pulmonology & Critical Care',
+    status: 'Available'
   }
 ];
 
