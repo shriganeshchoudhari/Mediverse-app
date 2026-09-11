@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'status-epilepticus-protocol', name: 'Status Epilepticus (AES / NCS) Emergency Protocol Workstation', icon: '⚡', route: '/simulators/status-epilepticus-protocol' },
     { id: 'aki-kdigo-fst', name: 'AKI KDIGO Staging, FeNa/FeUrea & Furosemide Stress Test (FST)', icon: '💧', route: '/simulators/aki-kdigo-fst' },
     { id: 'acs-heart-troponin', name: 'ACS Risk Stratification, HEART & hs-cTn Delta Workstation', icon: '🫀', route: '/simulators/acs-heart-troponin' },
     { id: 'acetaminophen-toxicity-nac', name: 'Acetaminophen Toxicity, Rumack-Matthew & NAC Workstation', icon: '💊', route: '/simulators/acetaminophen-toxicity-nac' },

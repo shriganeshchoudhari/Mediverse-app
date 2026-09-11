@@ -744,6 +744,14 @@ const SIMULATORS = [
     icon: <Droplets className="w-7 h-7 text-cyan-400" />,
     badge: 'Nephrology & ICU',
     status: 'Available'
+  },
+  {
+    id: 'status-epilepticus-protocol',
+    title: 'Status Epilepticus Emergency Protocol Workstation',
+    description: 'Neurology & Critical Care: Model AES/NCS time-critical first-line benzodiazepine dosing, ESETT trial second-line ASMs (Keppra, Fosphenytoin, Valproate), refractory burst suppression, and Salzburg NCSE criteria.',
+    icon: <Zap className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Neurocritical Care',
+    status: 'Available'
   }
 ];
 
