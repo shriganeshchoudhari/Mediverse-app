@@ -656,6 +656,14 @@ const SIMULATORS = [
     icon: <Heart className="w-7 h-7 text-rose-500 animate-pulse" />,
     badge: 'Anesthesiology & Critical Care',
     status: 'Available'
+  },
+  {
+    id: 'hdfn-rhogam-kleihauer',
+    title: 'HDFN, RhIg (RhoGAM) & Kleihauer-Betke Precision Workstation',
+    description: 'Maternal-fetal medicine & transfusion immunohematology: Model RhD alloimmunization, Kleihauer-Betke acid-elution FMH quantification, AABB precision RhoGAM dosing, and Fetal MCA Doppler PSV screening.',
+    icon: <Baby className="w-7 h-7 text-rose-400" />,
+    badge: 'Maternal-Fetal Medicine',
+    status: 'Available'
   }
 ];
 

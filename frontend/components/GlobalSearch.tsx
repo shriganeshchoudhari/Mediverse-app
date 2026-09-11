@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'hdfn-rhogam-kleihauer', name: 'HDFN, RhIg (RhoGAM) & Kleihauer-Betke Precision Workstation', icon: '👶', route: '/simulators/hdfn-rhogam-kleihauer' },
     { id: 'last-lipid-rescue', name: 'Local Anesthetic Toxicity (LAST) & Lipid Rescue Workstation', icon: '💉', route: '/simulators/last-lipid-rescue' },
     { id: 'toxic-alcohols-osmolal-gap', name: 'Toxic Alcohols, Osmolal Gap & Fomepizole Solver', icon: '🧪', route: '/simulators/toxic-alcohols-osmolal-gap' },
     { id: 'pupil-anisocoria-horner', name: 'Anisocoria, Pupillary Light Reflex & Horner Workstation', icon: '👁️', route: '/simulators/pupil-anisocoria-horner' },
