@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'therapeutic-plasma-exchange-tpe',
+    title: 'Therapeutic Plasma Exchange (TPE) Workstation',
+    description: 'ASFA 2023 Guidelines: Plasma volume calculation, first-order exponential solute removal, 5% albumin vs FFP replacement, dilutional coagulopathy, and ACD-A citrate / calcium titration.',
+    icon: <Droplets className="w-7 h-7 text-indigo-400 animate-pulse" />,
+    badge: 'Hematology & Apheresis Medicine',
+    status: 'Available'
+  },
+  {
     id: 'brain-death-apnea-testing',
     title: 'Brain Death & Apnea Testing Workstation',
     description: 'AAN 2023 Guidelines: Prerequisites verification, complete cranial nerve brainstem reflexes, apnea testing gas kinetics (PaCO2 rise ~3 mmHg/min), ancillary testing, and organ donor resuscitation.',
