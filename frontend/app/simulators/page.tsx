@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill, Syringe, Database, Move3d, Users, Truck } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill, Syringe, Database, Move3d, Users, Truck, HeartPulse } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,6 +9,14 @@ export const metadata: Metadata = {
 };
 
 const SIMULATORS = [
+  {
+    id: 'acls-megacode-resuscitation',
+    title: 'ACLS Megacode & Cardiac Arrest Resuscitation Simulator',
+    description: 'AHA 2020/2025 Adult Cardiac Arrest Algorithms: shockable (VF/pVT) and non-shockable (PEA/Asystole) pathways, biphasic defibrillation, CPR quality metrics, quantitative waveform capnography, and reversible H\'s & T\'s.',
+    icon: <HeartPulse className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Advanced Cardiac Life Support (ACLS)',
+    status: 'Available'
+  },
   {
     id: 'disaster-triage-mci',
     title: 'Disaster Triage & Mass Casualty Incident (MCI) Command Station',
