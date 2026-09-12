@@ -760,6 +760,14 @@ const SIMULATORS = [
     icon: <Heart className="w-7 h-7 text-rose-500 animate-pulse" />,
     badge: 'Cardiology & ICU',
     status: 'Available'
+  },
+  {
+    id: 'hit-4ts-argatroban',
+    title: 'HIT 4Ts Score & Argatroban Workstation',
+    description: 'Hematology & Critical Care: Model Warkentin 4Ts score stratification, anti-PF4 ELISA optical density vs SRA functional testing, organ-adjusted DTI dosing (Argatroban vs Bivalirudin), and Warfarin gangrene safeguards.',
+    icon: <ShieldAlert className="w-7 h-7 text-amber-500 animate-pulse" />,
+    badge: 'Hematology & ICU',
+    status: 'Available'
   }
 ];
 
