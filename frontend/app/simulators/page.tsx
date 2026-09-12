@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill, Syringe, Database } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill, Syringe, Database, Move3d } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,6 +9,14 @@ export const metadata: Metadata = {
 };
 
 const SIMULATORS = [
+  {
+    id: 'webxr-procedural-theater',
+    title: 'WebXR Spatial Anatomy & Procedural Intervention Theater',
+    description: 'Interactive 3D spatial computing, real-time multiplanar ultrasound simulation, and 6-DoF catheter trajectory planning for Central Venous Lines, Pericardiocentesis, and Lumbar Puncture.',
+    icon: <Move3d className="w-7 h-7 text-indigo-400" />,
+    badge: 'Spatial Computing & WebXR',
+    status: 'Available'
+  },
   {
     id: 'emr',
     title: 'Inpatient Electronic Medical Record (EMR) & Hospital Charting Simulator',
