@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'pediatric-septic-shock',
+    title: 'Pediatric Septic Shock & Resuscitation Workstation',
+    description: 'Surviving Sepsis Campaign Pediatric (2020) & Phoenix Sepsis Criteria (2024): cold vs warm shock phenotyping, Vasoactive-Inotropic Score (VIS), FEAST-informed fluid titration, and CIRCI stress-dose hydrocortisone rescue.',
+    icon: <Baby className="w-7 h-7 text-indigo-400 animate-pulse" />,
+    badge: 'Pediatric Critical Care & PALS',
+    status: 'Available'
+  },
+  {
     id: 'postpartum-hemorrhage-pph',
     title: 'Postpartum Hemorrhage (PPH) & Bakri Tamponade Simulator',
     description: 'CMQCC/ACOG 4-stage protocol: quantitative blood loss (QBL), maternal shock index, contraindication-guarded uterotonics (Oxytocin, Methergine, Hemabate, Misoprostol, TXA), and Bakri balloon tamponade.',
