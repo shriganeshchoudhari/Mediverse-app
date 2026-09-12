@@ -824,6 +824,14 @@ const SIMULATORS = [
     icon: <Brain className="w-7 h-7 text-cyan-400 animate-pulse" />,
     badge: 'Neurology & Stroke Code',
     status: 'Available'
+  },
+  {
+    id: 'tbi-icp-monroe-kellie',
+    title: 'Traumatic Brain Injury & ICP Dynamics Workstation',
+    description: 'Neurocritical Care & Neurosurgery: Monroe-Kellie volume-pressure doctrine, dynamic Lundberg A/B/C wave rhythms, Cerebral Perfusion Pressure (CPP) optimization, hyperosmolar therapy titration (Mannitol vs 23.4% Saline), and surgical decompressive craniectomy decision-making.',
+    icon: <Brain className="w-7 h-7 text-indigo-400 animate-pulse" />,
+    badge: 'Neurocritical Care & TBI',
+    status: 'Available'
   }
 ];
 
