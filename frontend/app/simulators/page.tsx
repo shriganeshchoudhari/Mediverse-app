@@ -816,6 +816,14 @@ const SIMULATORS = [
     icon: <Activity className="w-7 h-7 text-rose-500 animate-pulse" />,
     badge: 'Critical Care & Neuroprotection',
     status: 'Available'
+  },
+  {
+    id: 'stroke-nihss-thrombolysis',
+    title: 'Acute Ischemic Stroke, NIHSS & Thrombolysis Workstation',
+    description: 'Neurology & Neurocritical Care: Complete 11-item NIHSS examination scoring, 10-region ASPECTS neuroimaging, AHA/ASA IV Thrombolysis (Tenecteplase / Alteplase) eligibility & weight-adjusted dosing, LVO Endovascular Thrombectomy (EVT) triage, and permissive blood pressure guardrails.',
+    icon: <Brain className="w-7 h-7 text-cyan-400 animate-pulse" />,
+    badge: 'Neurology & Stroke Code',
+    status: 'Available'
   }
 ];
 
