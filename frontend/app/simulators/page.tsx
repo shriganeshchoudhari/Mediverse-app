@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill, Syringe, Database, Move3d } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill, Syringe, Database, Move3d, Users } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,6 +9,14 @@ export const metadata: Metadata = {
 };
 
 const SIMULATORS = [
+  {
+    id: 'virtual-operating-room-crm',
+    title: 'Virtual OR & Surgical Airway Team Dynamics Simulator',
+    description: 'Interprofessional Operating Room Crisis Resource Management (CRM), Difficult Airway Society (DAS 2015) algorithm execution, closed-loop callout-checkbacks, and emergency scalpel-bougie-tube cricothyroidotomy.',
+    icon: <Users className="w-7 h-7 text-rose-400" />,
+    badge: 'Crisis Resource Management & Surgical Airway',
+    status: 'Available'
+  },
   {
     id: 'webxr-procedural-theater',
     title: 'WebXR Spatial Anatomy & Procedural Intervention Theater',
