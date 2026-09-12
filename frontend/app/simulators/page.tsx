@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'brain-death-apnea-testing',
+    title: 'Brain Death & Apnea Testing Workstation',
+    description: 'AAN 2023 Guidelines: Prerequisites verification, complete cranial nerve brainstem reflexes, apnea testing gas kinetics (PaCO2 rise ~3 mmHg/min), ancillary testing, and organ donor resuscitation.',
+    icon: <Brain className="w-7 h-7 text-indigo-400 animate-pulse" />,
+    badge: 'Neurocritical Care & Organ Donation',
+    status: 'Available'
+  },
+  {
     id: 'co-cyanide-poisoning',
     title: 'CO & Cyanide Smoke Inhalation Workstation',
     description: 'Carboxyhemoglobin multi-mode elimination kinetics, pulse oximetry pitfall, Complex IV histotoxic hypoxia, Hydroxocobalamin (Cyanokit) stoichiometry, and Hyperbaric Oxygen (HBO2).',
