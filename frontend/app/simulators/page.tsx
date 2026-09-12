@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'elbw-nicu-resuscitation',
+    title: 'ELBW NICU Resuscitation Workstation',
+    description: 'Micropremie (< 1000g) fluid & electrolyte thermodynamics, high insensible water loss (IWL), TPN & Glucose Infusion Rate (GIR), hsPDA ductal steal, and RDS surfactant weaning.',
+    icon: <Baby className="w-7 h-7 text-sky-400 animate-pulse" />,
+    badge: 'Neonatal Intensive Care (NICU)',
+    status: 'Available'
+  },
+  {
     id: 'pediatric-septic-shock',
     title: 'Pediatric Septic Shock & Resuscitation Workstation',
     description: 'Surviving Sepsis Campaign Pediatric (2020) & Phoenix Sepsis Criteria (2024): cold vs warm shock phenotyping, Vasoactive-Inotropic Score (VIS), FEAST-informed fluid titration, and CIRCI stress-dose hydrocortisone rescue.',
