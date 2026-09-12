@@ -776,6 +776,14 @@ const SIMULATORS = [
     icon: <Thermometer className="w-7 h-7 text-cyan-400 animate-pulse" />,
     badge: 'Endocrine & ICU',
     status: 'Available'
+  },
+  {
+    id: 'thyroid-storm-burch-wartofsky',
+    title: 'Thyroid Storm & Burch-Wartofsky Workstation',
+    description: 'Endocrine & Critical Care: Model Burch-Wartofsky Point Scale (>=45 storm), Japan Thyroid Association (Akamizu) criteria, 5-stage multimodal blockade, Wolff-Chaikoff 60-minute iodine delay, and Aspirin TBG displacement hazards.',
+    icon: <Flame className="w-7 h-7 text-amber-400 animate-pulse" />,
+    badge: 'Endocrine & ICU',
+    status: 'Available'
   }
 ];
 
