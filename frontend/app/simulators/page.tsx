@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'lvad-hemodynamic-ramp',
+    title: 'LVAD & RAMP Protocol Workstation',
+    description: 'HeartMate 3 continuous-flow MagLev kinetics, echocardiographic RAMP test protocol (LVEDD unloading slope), apical suction recovery, and post-LVAD RV failure.',
+    icon: <Cpu className="w-7 h-7 text-rose-400 animate-pulse" />,
+    badge: 'Mechanical Circulatory Support & Echo',
+    status: 'Available'
+  },
+  {
     id: 'elbw-nicu-resuscitation',
     title: 'ELBW NICU Resuscitation Workstation',
     description: 'Micropremie (< 1000g) fluid & electrolyte thermodynamics, high insensible water loss (IWL), TPN & Glucose Infusion Rate (GIR), hsPDA ductal steal, and RDS surfactant weaning.',
