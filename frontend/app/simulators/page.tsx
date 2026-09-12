@@ -768,6 +768,14 @@ const SIMULATORS = [
     icon: <ShieldAlert className="w-7 h-7 text-amber-500 animate-pulse" />,
     badge: 'Hematology & ICU',
     status: 'Available'
+  },
+  {
+    id: 'myxedema-coma-thyroid',
+    title: 'Myxedema Coma & Thyroid Crisis Workstation',
+    description: 'Endocrine & Neurocritical Care: Model Popoveniuc diagnostic score (>=60 diagnostic), mandatory "Steroids-Before-Thyroid" adrenal crisis interlock, IV T4 vs T3 hormone titration, and passive rewarming vs vasodilatory collapse hazards.',
+    icon: <Thermometer className="w-7 h-7 text-cyan-400 animate-pulse" />,
+    badge: 'Endocrine & ICU',
+    status: 'Available'
   }
 ];
 

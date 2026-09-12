@@ -75,6 +75,7 @@ export default function GlobalSearch() {
   ];
 
   const SIMULATOR_QUICK_LINKS = [
+    { id: 'myxedema-coma-thyroid', name: 'Myxedema Coma, Popoveniuc Score & Thyroid Hormone Titration', icon: '🌡️', route: '/simulators/myxedema-coma-thyroid' },
     { id: 'hit-4ts-argatroban', name: 'HIT (Heparin-Induced Thrombocytopenia), 4Ts & Argatroban Workstation', icon: '🩸', route: '/simulators/hit-4ts-argatroban' },
     { id: 'heart-failure-stevenson', name: 'Heart Failure (ADHF), Stevenson Profiles & Inotrope Titration', icon: '🫀', route: '/simulators/heart-failure-stevenson' },
     { id: 'status-epilepticus-protocol', name: 'Status Epilepticus (AES / NCS) Emergency Protocol Workstation', icon: '⚡', route: '/simulators/status-epilepticus-protocol' },
