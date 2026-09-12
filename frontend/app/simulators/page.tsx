@@ -792,6 +792,14 @@ const SIMULATORS = [
     icon: <Syringe className="w-7 h-7 text-rose-400 animate-pulse" />,
     badge: 'Toxicology & ICU',
     status: 'Available'
+  },
+  {
+    id: 'status-asthmaticus-mechanics',
+    title: 'Status Asthmaticus & Mechanics Workstation',
+    description: 'Pulmonology & Critical Care: Model GINA 2024 severe exacerbations, Peak Expiratory Flow kinetics, dynamic hyperinflation / intrinsic Auto-PEEP, venous return depression, multimodal bronchodilator escalation (Continuous SABA, SAMA, Steroids, IV Magnesium), and permissive hypercapnia mechanical ventilation.',
+    icon: <Wind className="w-7 h-7 text-cyan-400 animate-pulse" />,
+    badge: 'Pulmonology & ICU',
+    status: 'Available'
   }
 ];
 
