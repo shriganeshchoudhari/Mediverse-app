@@ -832,6 +832,14 @@ const SIMULATORS = [
     icon: <Brain className="w-7 h-7 text-indigo-400 animate-pulse" />,
     badge: 'Neurocritical Care & TBI',
     status: 'Available'
+  },
+  {
+    id: 'malignant-hyperthermia-dantrolene',
+    title: 'Malignant Hyperthermia & Hypermetabolic Crisis Workstation',
+    description: 'Anesthesiology & Critical Care: Ryanodine receptor (RYR1) calcium kinetics, differential triage between MH, NMS & Serotonin Syndrome (Hunter Criteria), Ryanodex vs Traditional Dantrium reconstitution stoichiometry, and MHAUS emergency rescue protocols.',
+    icon: <Flame className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Anesthesiology & Crisis',
+    status: 'Available'
   }
 ];
 
