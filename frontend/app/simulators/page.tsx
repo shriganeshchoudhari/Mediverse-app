@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill, Syringe, Database, Move3d, Users } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill, Syringe, Database, Move3d, Users, Truck } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,6 +9,14 @@ export const metadata: Metadata = {
 };
 
 const SIMULATORS = [
+  {
+    id: 'disaster-triage-mci',
+    title: 'Disaster Triage & Mass Casualty Incident (MCI) Command Station',
+    description: 'START and JumpSTART pediatric triage algorithms, rapid point-of-injury lifesaving interventions (tourniquet, needle decompression), and Hospital Incident Command System (HICS) surge logistics.',
+    icon: <Truck className="w-7 h-7 text-amber-400" />,
+    badge: 'Disaster Medicine & Incident Command',
+    status: 'Available'
+  },
   {
     id: 'virtual-operating-room-crm',
     title: 'Virtual OR & Surgical Airway Team Dynamics Simulator',
