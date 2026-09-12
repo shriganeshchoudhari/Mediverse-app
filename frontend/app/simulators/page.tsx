@@ -848,6 +848,14 @@ const SIMULATORS = [
     icon: <Wind className="w-7 h-7 text-sky-400 animate-pulse" />,
     badge: 'Critical Care & Pulmonology',
     status: 'Available'
+  },
+  {
+    id: 'telehealth',
+    title: 'Standardized Patient & Voice AI Telehealth Workstation',
+    description: 'Clinical Simulation & Voice AI: Conduct live verbal patient history interviews with interactive standardized patients, perform targeted bedside physical exam maneuvers, order STAT diagnostic investigations, and receive automated evidence-based OSCE SOAP note evaluations.',
+    icon: <Stethoscope className="w-7 h-7 text-emerald-400 animate-pulse" />,
+    badge: 'Voice AI & OSCE',
+    status: 'Available'
   }
 ];
 
