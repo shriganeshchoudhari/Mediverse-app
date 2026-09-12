@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'transfusion-antibody-id',
+    title: 'Transfusion Medicine & 11-Cell Antibody ID Simulator',
+    description: 'AABB 11-cell reagent red blood cell antibody identification panel, dosage effect resolution (homozygous vs heterozygous rule-outs), ficin/papain proteolytic enzyme differential, and antigen-negative donor crossmatching.',
+    icon: <Droplets className="w-7 h-7 text-red-500 animate-pulse" />,
+    badge: 'Immunohematology & Transfusion Medicine',
+    status: 'Available'
+  },
+  {
     id: 'acls-megacode-resuscitation',
     title: 'ACLS Megacode & Cardiac Arrest Resuscitation Simulator',
     description: 'AHA 2020/2025 Adult Cardiac Arrest Algorithms: shockable (VF/pVT) and non-shockable (PEA/Asystole) pathways, biphasic defibrillation, CPR quality metrics, quantitative waveform capnography, and reversible H\'s & T\'s.',
