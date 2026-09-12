@@ -808,6 +808,14 @@ const SIMULATORS = [
     icon: <Zap className="w-7 h-7 text-amber-400 animate-pulse" />,
     badge: 'Toxicology & ICU',
     status: 'Available'
+  },
+  {
+    id: 'hypertensive-crisis-titration',
+    title: 'Hypertensive Crisis & IV Titration Workstation',
+    description: 'Cardiovascular Critical Care: Emergency vs Urgency triage, acute target organ damage stratification, cerebral autoregulation curve shifts (20-25% MAP drop ceiling), and precision parenteral pharmacotherapy bench (Nicardipine, Clevidipine, Labetalol, Esmolol, Nitroprusside, Nitroglycerin).',
+    icon: <Activity className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Critical Care & Neuroprotection',
+    status: 'Available'
   }
 ];
 
