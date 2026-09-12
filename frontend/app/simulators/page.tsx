@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill, Syringe } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -783,6 +783,14 @@ const SIMULATORS = [
     description: 'Endocrine & Critical Care: Model Burch-Wartofsky Point Scale (>=45 storm), Japan Thyroid Association (Akamizu) criteria, 5-stage multimodal blockade, Wolff-Chaikoff 60-minute iodine delay, and Aspirin TBG displacement hazards.',
     icon: <Flame className="w-7 h-7 text-amber-400 animate-pulse" />,
     badge: 'Endocrine & ICU',
+    status: 'Available'
+  },
+  {
+    id: 'ccb-beta-blocker-hiet',
+    title: 'CCB & Beta-Blocker Poisoning / HIET Workstation',
+    description: 'Toxicology & Critical Care: Model High-Dose Insulin Euglycemia Therapy (HIET) titration (1-10 U/kg/h), dextrose clamp safety, potassium shifting defense, IV calcium salt stoichiometry (Chloride vs Gluconate), and 20% Lipid Emulsion / VA-ECMO refractory rescue protocols.',
+    icon: <Syringe className="w-7 h-7 text-rose-400 animate-pulse" />,
+    badge: 'Toxicology & ICU',
     status: 'Available'
   }
 ];
