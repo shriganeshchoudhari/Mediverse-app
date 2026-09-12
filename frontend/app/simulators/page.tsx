@@ -800,6 +800,14 @@ const SIMULATORS = [
     icon: <Wind className="w-7 h-7 text-cyan-400 animate-pulse" />,
     badge: 'Pulmonology & ICU',
     status: 'Available'
+  },
+  {
+    id: 'tca-toxicity-bicarbonate',
+    title: 'TCA Overdose & Bicarbonate Workstation',
+    description: 'Toxicology & Critical Care: Model Nav1.5 fast sodium-channel blockade, terminal R wave in aVR (> 3 mm), QRS duration risk stratification (100 ms seizure / 160 ms VT thresholds), hypertonic 8.4% NaHCO3 titration, absolute Physostigmine contraindications, and 20% Lipid Emulsion rescue.',
+    icon: <Zap className="w-7 h-7 text-amber-400 animate-pulse" />,
+    badge: 'Toxicology & ICU',
+    status: 'Available'
   }
 ];
 
