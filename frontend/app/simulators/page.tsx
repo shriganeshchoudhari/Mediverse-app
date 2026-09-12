@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'postpartum-hemorrhage-pph',
+    title: 'Postpartum Hemorrhage (PPH) & Bakri Tamponade Simulator',
+    description: 'CMQCC/ACOG 4-stage protocol: quantitative blood loss (QBL), maternal shock index, contraindication-guarded uterotonics (Oxytocin, Methergine, Hemabate, Misoprostol, TXA), and Bakri balloon tamponade.',
+    icon: <Baby className="w-7 h-7 text-rose-400 animate-pulse" />,
+    badge: 'Obstetric Emergencies & Critical Care',
+    status: 'Available'
+  },
+  {
     id: 'transfusion-antibody-id',
     title: 'Transfusion Medicine & 11-Cell Antibody ID Simulator',
     description: 'AABB 11-cell reagent red blood cell antibody identification panel, dosage effect resolution (homozygous vs heterozygous rule-outs), ficin/papain proteolytic enzyme differential, and antigen-negative donor crossmatching.',
