@@ -840,6 +840,14 @@ const SIMULATORS = [
     icon: <Flame className="w-7 h-7 text-rose-500 animate-pulse" />,
     badge: 'Anesthesiology & Crisis',
     status: 'Available'
+  },
+  {
+    id: 'shunt-hypoxemia-vq-mismatch',
+    title: 'Hypoxemic & Hypercapnic Respiratory Failure Workstation',
+    description: 'Pulmonology, Critical Care & Respiratory Physiology: Alveolar Gas Equation (PAO2), A-a gradient, classic Berggren shunt fraction (Qs/Qt), 5 mechanisms of hypoxemia classifier, 100% O2 hyperoxia test bench, and DO2/VO2 oxygen delivery & consumption dynamics.',
+    icon: <Wind className="w-7 h-7 text-sky-400 animate-pulse" />,
+    badge: 'Critical Care & Pulmonology',
+    status: 'Available'
   }
 ];
 
