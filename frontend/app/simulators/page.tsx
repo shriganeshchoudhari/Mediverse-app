@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'cardiac-tamponade-pericardiocentesis',
+    title: 'Cardiac Tamponade & Pericardiocentesis Workstation',
+    description: 'Pericardial pressure-volume elastance, Beck\'s triad, pulsus paradoxus respiro-phasic Doppler interdependence, diastolic pressure equalization, and ultrasound-guided needle decompression.',
+    icon: <Heart className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Critical Care Cardiology & POCUS',
+    status: 'Available'
+  },
+  {
     id: 'lvad-hemodynamic-ramp',
     title: 'LVAD & RAMP Protocol Workstation',
     description: 'HeartMate 3 continuous-flow MagLev kinetics, echocardiographic RAMP test protocol (LVEDD unloading slope), apical suction recovery, and post-LVAD RV failure.',
