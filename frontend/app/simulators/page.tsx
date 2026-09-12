@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'co-cyanide-poisoning',
+    title: 'CO & Cyanide Smoke Inhalation Workstation',
+    description: 'Carboxyhemoglobin multi-mode elimination kinetics, pulse oximetry pitfall, Complex IV histotoxic hypoxia, Hydroxocobalamin (Cyanokit) stoichiometry, and Hyperbaric Oxygen (HBO2).',
+    icon: <Flame className="w-7 h-7 text-amber-400 animate-pulse" />,
+    badge: 'Toxicology & Hyperbaric Medicine',
+    status: 'Available'
+  },
+  {
     id: 'cardiac-tamponade-pericardiocentesis',
     title: 'Cardiac Tamponade & Pericardiocentesis Workstation',
     description: 'Pericardial pressure-volume elastance, Beck\'s triad, pulsus paradoxus respiro-phasic Doppler interdependence, diastolic pressure equalization, and ultrasound-guided needle decompression.',
