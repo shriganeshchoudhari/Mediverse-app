@@ -1,55 +1,66 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import PatientChart from '@/components/emr/PatientChart';
+import React from 'react';
+import Link from 'next/link';
+import InpatientEmrWorkstation from '@/components/emr/InpatientEmrWorkstation';
+import {
+  Activity,
+  ArrowLeft,
+  ChevronRight,
+  Database,
+  Pill,
+  ShieldCheck,
+} from 'lucide-react';
 
 export default function EmrSandboxPage() {
-  const [patients, setPatients] = useState<any[]>([]);
-  const [selectedPatientId, setSelectedPatientId] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetch('/api/v1/emr/patients')
-      .then(res => res.json())
-      .then(data => {
-        setPatients(data);
-        if (data.length > 0) setSelectedPatientId(data[0].id);
-      })
-      .catch(console.error);
-  }, []);
-
   return (
-    <div className="flex h-screen bg-slate-950 text-slate-200 font-sans">
-      {/* Sidebar: Patient List */}
-      <div className="w-80 bg-slate-900 border-r border-slate-800 flex flex-col">
-        <div className="p-4 bg-slate-950 border-b border-slate-800">
-          <h2 className="text-xl font-bold text-white font-mono tracking-tight">Mock EMR</h2>
-          <p className="text-xs text-slate-400">Student Sandbox Environment</p>
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
+      {/* Top Breadcrumb & Station Context Bar */}
+      <div className="bg-slate-900/90 border-b border-slate-800 px-6 py-2.5 flex items-center justify-between text-xs flex-shrink-0">
+        <div className="flex items-center gap-2 text-slate-400">
+          <Link
+            href="/simulators"
+            className="hover:text-indigo-400 flex items-center gap-1 font-medium transition"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            Clinical Simulators
+          </Link>
+          <ChevronRight className="w-3 h-3 text-slate-600" />
+          <span className="text-slate-200 font-semibold flex items-center gap-1.5">
+            <Database className="w-3.5 h-3.5 text-indigo-400" />
+            Inpatient Electronic Medical Record (EMR) &amp; Hospital Charting Simulator
+          </span>
         </div>
-        <div className="flex-1 overflow-y-auto p-3 space-y-2">
-          {patients.map(p => (
-            <button 
-              key={p.id}
-              onClick={() => setSelectedPatientId(p.id)}
-              className={`w-full text-left p-3 rounded-lg border transition-all ${selectedPatientId === p.id ? 'bg-blue-900/40 border-blue-500' : 'bg-slate-800/50 border-slate-700 hover:bg-slate-800 hover:border-slate-600'}`}
-            >
-              <div className="font-bold text-slate-100">{p.lastName}, {p.firstName}</div>
-              <div className="text-xs text-slate-400 mt-1">MRN: {p.mrn} | {p.gender} | DOB: {p.dateOfBirth}</div>
-            </button>
-          ))}
-          {patients.length === 0 && <div className="text-slate-500 text-sm p-4 text-center">Loading patients...</div>}
+        <div className="flex items-center gap-3">
+          <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-indigo-950 border border-indigo-500/40 text-indigo-300 flex items-center gap-1">
+            <ShieldCheck className="w-3 h-3 text-indigo-400" />
+            Track B2 &bull; Enterprise Hospital CIS
+          </span>
         </div>
       </div>
 
-      {/* Main Area: Patient Chart */}
-      <div className="flex-1 flex flex-col overflow-hidden relative">
-        {selectedPatientId ? (
-          <PatientChart patientId={selectedPatientId} />
-        ) : (
-          <div className="flex-1 flex items-center justify-center text-slate-500">
-            Select a patient from the roster to view their chart.
-          </div>
-        )}
+      {/* Main Full-Height Workstation */}
+      <div className="flex-1 flex flex-col overflow-hidden">
+        <InpatientEmrWorkstation />
       </div>
+
+      {/* Pedagogical Footer */}
+      <footer className="bg-slate-900 border-t border-slate-800 px-6 py-3 flex-shrink-0 text-xs text-slate-400 flex flex-wrap items-center justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <span className="flex items-center gap-1.5 text-slate-300 font-medium">
+            <Pill className="w-3.5 h-3.5 text-indigo-400" />
+            Point-of-Care eMAR Barcode Scanning &bull; 5-Rights Verification &bull; High-Alert Dual Sign-Off
+          </span>
+          <span className="text-slate-600">&bull;</span>
+          <span className="flex items-center gap-1.5 text-slate-300 font-medium">
+            <Activity className="w-3.5 h-3.5 text-emerald-400" />
+            Hourly Inpatient Flowsheet &bull; Shift I&amp;O Fluid Balancing &bull; Oliguria Alerts
+          </span>
+        </div>
+        <div className="text-[11px] text-slate-500 font-mono">
+          Mediverse Hospital Information System (HIS/EMR) &bull; AAMC Core EPAs Aligned
+        </div>
+      </footer>
     </div>
   );
 }
