@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'genomics-oncology-targeted-therapy',
+    title: 'Clinical Genomics, Somatic Oncology NGS & Precision Targeted Therapy Workstation',
+    description: 'Precision molecular oncology workstation modeling somatic NGS gene panels, Variant Allele Fraction (VAF %) deconvolution, AMP/ASCO/CAP 4-tier actionability, and targeted TKI clonal resistance dynamics.',
+    icon: <Dna className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Precision Oncology & Genomics',
+    status: 'Available'
+  },
+  {
     id: 'bayesian-diagnostic-reasoning',
     title: 'Clinical Diagnostic Reasoning & Bayesian Likelihood Ratio (LR) Workstation',
     description: 'Evidence-based diagnostic decision support modeling pre-test odds, multi-step Bayesian probability cascades, Fagan nomogram vector rays, 2x2 natural frequency matrices, and Pauker-Kassirer treatment thresholds.',
