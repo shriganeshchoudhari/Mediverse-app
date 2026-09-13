@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'smart-infusion-pump-ders',
+    title: 'Smart Infusion Pump Guardrails & Dose Error Reduction System (DERS)',
+    description: 'Biomedical smart infusion pump simulator featuring hard and soft DERS guardrails, downstream occlusion pressure transduction, secondary piggyback hydrostatic height physics, and tenfold decimal error prevention.',
+    icon: <Syringe className="w-7 h-7 text-cyan-400 animate-pulse" />,
+    badge: 'Biomedical Engineering & Safety',
+    status: 'Available'
+  },
+  {
     id: 'multiuser-code-team-crm',
     title: 'Multi-User Code Team & Virtual OR Crisis Resource Management (CRM) Workstation',
     description: 'Interprofessional resuscitation command station modeling 6 clinical code roles, AHA ACLS 2-minute cycle loops, closed-loop communication verification, and reversible H and T etiologies.',
