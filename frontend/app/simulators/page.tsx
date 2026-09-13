@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'compartment-syndrome-fasciotomy',
+    title: 'Acute Compartment Syndrome & Fasciotomy Workstation',
+    description: 'Intracompartmental pressure transduction, McQueen Delta Pressure criteria (ΔP ≤ 30 mmHg), two-incision four-compartment decompression, and crush syndrome rhabdomyolysis nephroprotection.',
+    icon: <Activity className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Trauma & Orthopedic Surgery',
+    status: 'Available'
+  },
+  {
     id: 'massive-hemoptysis-isolation',
     title: 'Massive Hemoptysis & Endobronchial Isolation Workstation',
     description: 'Asphyxiation risk vs exsanguination, "bad lung down" positioning, endobronchial blocker isolation, bronchial artery embolization (BAE), and Artery of Adamkiewicz spinal safety.',
