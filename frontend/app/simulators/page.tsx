@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'ventilator-weaning-sbt',
+    title: 'Difficult Ventilator Weaning & SBT Workstation',
+    description: 'Rapid shallow breathing index (Yang-Tobin RSBI & dynamic rate-of-rise), P0.1 neuro-ventilatory drive, diaphragmatic ultrasound (TFdi & excursion), low-level PSV vs T-piece trials, and cuff leak stridor risk.',
+    icon: <Wind className="w-7 h-7 text-cyan-400 animate-pulse" />,
+    badge: 'Pulmonology & Critical Care',
+    status: 'Available'
+  },
+  {
     id: 'subarachnoid-hemorrhage-vasospasm',
     title: 'Subarachnoid Hemorrhage & Vasospasm Workstation',
     description: 'Aneurysmal SAH (Hunt & Hess, Modified Fisher), Transcranial Doppler (TCD) Lindegaard ratio, EVD leveling and CSF overdrainage safety, and euvolemic induced hypertension.',
