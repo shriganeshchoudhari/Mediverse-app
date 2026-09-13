@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'amniotic-fluid-embolism-afe',
+    title: 'Amniotic Fluid Embolism (AFE) & Collapse Workstation',
+    description: 'Clark diagnostic criteria (SMFM 2016), biphasic RV acute cor pulmonale vs consumptive hyperfibrinolytic DIC, A-OK protocol, inhaled prostacyclin, and VA-ECMO triage.',
+    icon: <Baby className="w-7 h-7 text-pink-400 animate-pulse" />,
+    badge: 'Obstetrics & Critical Care',
+    status: 'Available'
+  },
+  {
     id: 'reboa-aortic-occlusion',
     title: 'REBOA & Aortic Occlusion Workstation',
     description: 'Aortic occlusion zones (Zone 1 thoracic vs Zone 2 no-fly vs Zone 3 infrarenal), partial REBOA (pREBOA) micro-titration, ischemic safe windows, dual arterial lines, and damage control resuscitation.',
