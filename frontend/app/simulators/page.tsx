@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill, Syringe, Database, Move3d, Users, Truck, HeartPulse, Layers } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill, Syringe, Database, Move3d, Users, Truck, HeartPulse, Layers, Filter } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,6 +9,14 @@ export const metadata: Metadata = {
 };
 
 const SIMULATORS = [
+  {
+    id: 'crrt-citrate-clearance',
+    title: 'CRRT Kinetics & Regional Citrate Anticoagulation Workstation',
+    description: 'Continuous renal replacement modalities (CVVH, CVVHD, CVVHDF, SCUF), convective vs diffusive solute clearance, filtration fraction, KDIGO effluent dosing, and citrate lock surveillance.',
+    icon: <Filter className="w-7 h-7 text-teal-400 animate-pulse" />,
+    badge: 'Nephrology & Critical Care',
+    status: 'Available'
+  },
   {
     id: 'dic-sepsis-coagulopathy',
     title: 'DIC & Sepsis-Induced Coagulopathy (SIC) Workstation',
