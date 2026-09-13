@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'tma-ttp-ahus-plasmic',
+    title: 'Thrombotic Microangiopathies (TMA): TTP vs aHUS Workstation',
+    description: 'PLASMIC score (0-7), ADAMTS13 activity kinetics (<10% vs ≥10%), alternative complement pathway overactivation, platelet transfusion contraindication hazard, and emergent TPE / Caplacizumab / Eculizumab.',
+    icon: <Microscope className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Hematology & Critical Care',
+    status: 'Available'
+  },
+  {
     id: 'hypothermia-accidental-rewarming',
     title: 'Severe Accidental Hypothermia & ECLS Rewarming Workstation',
     description: 'Swiss clinical staging (HT I-IV), "not dead until warm and dead" rule (32-35°C), afterdrop biophysical hazard, Osborn (J) wave arrhythmias, modified ACLS, and extracorporeal VA-ECMO with HOPE survival score.',
