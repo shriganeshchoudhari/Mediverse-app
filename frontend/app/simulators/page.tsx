@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'multiuser-code-team-crm',
+    title: 'Multi-User Code Team & Virtual OR Crisis Resource Management (CRM) Workstation',
+    description: 'Interprofessional resuscitation command station modeling 6 clinical code roles, AHA ACLS 2-minute cycle loops, closed-loop communication verification, and reversible H and T etiologies.',
+    icon: <Users className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Critical Care & Resuscitation',
+    status: 'Available'
+  },
+  {
     id: 'pharmacogenomics-cpic-precision',
     title: 'Clinical Pharmacogenomics (PGx) & CPIC Precision Drug Dosing Station',
     description: 'Precision pharmacogenomics workstation featuring star-allele genotype translation (CYP2D6, CYP2C19, CYP2C9, VKORC1, DPYD, SLCO1B1, HLA), IWPC warfarin dosing algorithms, and real-time CPIC Level A clinical decision support.',
