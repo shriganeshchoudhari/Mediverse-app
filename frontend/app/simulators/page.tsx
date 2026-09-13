@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'acute-mesenteric-ischemia',
+    title: 'Acute Mesenteric Ischemia (AMI) & Revascularization Workstation',
+    description: 'SMA embolism vs thrombosis vs NOMI vs MVT, pain out of proportion, biphasic CTA, serum lactate false-negative trap, intra-arterial papaverine, and second-look laparotomy.',
+    icon: <Activity className="w-7 h-7 text-amber-400 animate-pulse" />,
+    badge: 'Vascular Surgery & Critical Care',
+    status: 'Available'
+  },
+  {
     id: 'spinal-cord-injury-neurogenic-shock',
     title: 'Acute Spinal Cord Injury & Neurogenic Shock Workstation',
     description: 'AANS/CNS MAP augmentation (85-90 mmHg), neurogenic vs spinal shock, bulbocavernosus reflex (S2-S4), phenylephrine bradycardia hazard, ASIA impairment scale, and autonomic dysreflexia crisis.',
