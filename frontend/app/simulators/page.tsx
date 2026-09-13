@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'severe-burn-parkland-resuscitation',
+    title: 'Severe Burn Resuscitation & Fluid Creep Workstation',
+    description: 'Parkland vs Modified Brooke, urine output titration (0.5 mL/kg/h), fluid creep & abdominal compartment syndrome (ACS), albumin rescue, and circumferential escharotomy.',
+    icon: <Flame className="w-7 h-7 text-amber-500 animate-pulse" />,
+    badge: 'Burn Surgery & Critical Care',
+    status: 'Available'
+  },
+  {
     id: 'ecmo-cannulation-harlequin',
     title: 'ECMO Cannulation & Harlequin Syndrome Workstation',
     description: 'VV vs VA vs VAV hybrid ECMO, Harlequin (North-South) dual circulation, right radial arterial line rule, ECPELLA LV unloading, and distal perfusion catheters.',
