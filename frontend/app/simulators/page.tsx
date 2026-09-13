@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'spinal-cord-injury-neurogenic-shock',
+    title: 'Acute Spinal Cord Injury & Neurogenic Shock Workstation',
+    description: 'AANS/CNS MAP augmentation (85-90 mmHg), neurogenic vs spinal shock, bulbocavernosus reflex (S2-S4), phenylephrine bradycardia hazard, ASIA impairment scale, and autonomic dysreflexia crisis.',
+    icon: <Brain className="w-7 h-7 text-indigo-400 animate-pulse" />,
+    badge: 'Neurotrauma & Neurocritical Care',
+    status: 'Available'
+  },
+  {
     id: 'compartment-syndrome-fasciotomy',
     title: 'Acute Compartment Syndrome & Fasciotomy Workstation',
     description: 'Intracompartmental pressure transduction, McQueen Delta Pressure criteria (ΔP ≤ 30 mmHg), two-incision four-compartment decompression, and crush syndrome rhabdomyolysis nephroprotection.',
