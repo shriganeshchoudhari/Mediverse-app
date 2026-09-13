@@ -1248,6 +1248,14 @@ const SIMULATORS = [
     icon: <Cpu className="w-7 h-7 text-indigo-400 animate-pulse" />,
     badge: 'Grand Capstone Omnisuite',
     status: 'Available'
+  },
+  {
+    id: 'fhir-hl7-interoperability-sandbox',
+    title: 'FHIR R4 & HL7 Interoperability Sandbox',
+    description: 'Health Informatics & Interoperability: Explore clinical FHIR R4 JSON bundles, simulate SMART on FHIR OAuth 2.0 app authorization, transform legacy HL7 v2 pipe-delimited messages, and query LOINC, SNOMED CT, and RxNorm ontologies.',
+    icon: <Database className="w-7 h-7 text-blue-400 animate-pulse" />,
+    badge: 'Health Informatics & Interoperability',
+    status: 'Available'
   }
 ];
 
