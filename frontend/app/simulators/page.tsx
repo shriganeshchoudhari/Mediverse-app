@@ -10,6 +10,30 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'spatial-auscultation-stethoscope',
+    title: '3D Spatial Auscultation & Directional Phonocardiogram Workstation',
+    description: 'Precision physical examination workstation featuring spatial chest acoustic mapping, inverse-square attenuation, dynamic maneuvers (Carvallo, Valsalva, Handgrip), and synchronized PCG / Lead II ECG wave synthesis.',
+    icon: <Stethoscope className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Cardiology & Physical Diagnosis',
+    status: 'Available'
+  },
+  {
+    id: 'dicom-pacs-radiology-viewer',
+    title: 'Advanced DICOM Radiology PACS Viewer & Multi-Planar Reconstruction (MPR)',
+    description: 'Web-native clinical PACS viewer with dynamic Hounsfield Unit (HU) windowing, orthogonal multi-planar reconstruction (Axial, Coronal, Sagittal), distance calipers, and ROI radiodensity probes.',
+    icon: <Layers className="w-7 h-7 text-cyan-400 animate-pulse" />,
+    badge: 'Radiology & Medical Imaging',
+    status: 'Available'
+  },
+  {
+    id: 'fhir-hl7-interoperability-sandbox',
+    title: 'Fast Healthcare Interoperability Resources (FHIR R4) & HL7 Sandbox',
+    description: 'Clinical interoperability sandbox with FHIR R4 resource modeling (Patient, Observation, Condition, MedicationRequest), SMART on FHIR OAuth 2.0 token exchange, and bidirectional HL7 v2 ADT/ORU transformer.',
+    icon: <Database className="w-7 h-7 text-emerald-400 animate-pulse" />,
+    badge: 'Health Informatics & EHR',
+    status: 'Available'
+  },
+  {
     id: 'severe-burn-parkland-resuscitation',
     title: 'Severe Burn Resuscitation & Fluid Creep Workstation',
     description: 'Parkland vs Modified Brooke, urine output titration (0.5 mL/kg/h), fluid creep & abdominal compartment syndrome (ACS), albumin rescue, and circumferential escharotomy.',
