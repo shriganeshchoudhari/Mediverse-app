@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'hfnc-rox-failure-prediction',
+    title: 'High-Flow Nasal Cannula & ROX Trajectory Workstation',
+    description: 'Anatomical dead space washout, entrainment dilution, PEEP generation, Roca ROX index trajectory validation (2h/6h/12h cutoffs), and P-SILI lung strain mitigation.',
+    icon: <Wind className="w-7 h-7 text-cyan-400 animate-pulse" />,
+    badge: 'Critical Care & Pulmonology',
+    status: 'Available'
+  },
+  {
     id: 'therapeutic-plasma-exchange-tpe',
     title: 'Therapeutic Plasma Exchange (TPE) Workstation',
     description: 'ASFA 2023 Guidelines: Plasma volume calculation, first-order exponential solute removal, 5% albumin vs FFP replacement, dilutional coagulopathy, and ACD-A citrate / calcium titration.',
