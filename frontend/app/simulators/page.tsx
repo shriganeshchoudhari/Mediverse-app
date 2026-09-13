@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'reboa-aortic-occlusion',
+    title: 'REBOA & Aortic Occlusion Workstation',
+    description: 'Aortic occlusion zones (Zone 1 thoracic vs Zone 2 no-fly vs Zone 3 infrarenal), partial REBOA (pREBOA) micro-titration, ischemic safe windows, dual arterial lines, and damage control resuscitation.',
+    icon: <Layers className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Trauma & Emergency Care',
+    status: 'Available'
+  },
+  {
     id: 'ventilator-weaning-sbt',
     title: 'Difficult Ventilator Weaning & SBT Workstation',
     description: 'Rapid shallow breathing index (Yang-Tobin RSBI & dynamic rate-of-rise), P0.1 neuro-ventilatory drive, diaphragmatic ultrasound (TFdi & excursion), low-level PSV vs T-piece trials, and cuff leak stridor risk.',
