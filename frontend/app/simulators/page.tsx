@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'subarachnoid-hemorrhage-vasospasm',
+    title: 'Subarachnoid Hemorrhage & Vasospasm Workstation',
+    description: 'Aneurysmal SAH (Hunt & Hess, Modified Fisher), Transcranial Doppler (TCD) Lindegaard ratio, EVD leveling and CSF overdrainage safety, and euvolemic induced hypertension.',
+    icon: <Brain className="w-7 h-7 text-indigo-400 animate-pulse" />,
+    badge: 'Neurosurgery & Critical Care',
+    status: 'Available'
+  },
+  {
     id: 'cardiogenic-shock-mcs-escalation',
     title: 'Cardiogenic Shock & MCS Escalation Workstation',
     description: 'SCAI Shock classification (Stages A to E), invasive Swan-Ganz hemodynamics (CPO < 0.60W, PAPi < 0.90, SVR, PVR), RV failure phenotyping, and MCS device escalation (IABP, Impella CP/5.5, VA-ECMO, ECPELLA).',
