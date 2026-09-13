@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'acute-limb-ischemia-rutherford',
+    title: 'Acute Limb Ischemia & Rutherford Staging Workstation',
+    description: 'Rutherford classification (I, IIa, IIb, III), The 6 Ps, Fogarty embolectomy vs CDT timing trap, reperfusion compartment syndrome (Delta Pressure), and lethal washout catastrophe.',
+    icon: <Scissors className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Vascular Surgery & Critical Care',
+    status: 'Available'
+  },
+  {
     id: 'pheochromocytoma-alpha-blockade',
     title: 'Pheochromocytoma & Paraganglioma (PPGL) Workstation',
     description: 'The Alpha-Blocker First Rule, Roizen Preoperative Criteria, intraoperative catecholamine storm vs post-ligation vasoplegic collapse, plasma free metanephrines, and SDHB/VHL/RET genetics.',
