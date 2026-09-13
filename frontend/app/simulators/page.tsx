@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'acute-liver-failure-kings',
+    title: "Acute Liver Failure & King's College Criteria Workstation",
+    description: "King's College & Clichy emergency transplant listing rules, hyperacute vs subacute latency phenotypes, arterial ammonia astrocytic glutamine swelling, ICP neurocritical bundle, and rebalanced hemostasis.",
+    icon: <Activity className="w-7 h-7 text-amber-500 animate-pulse" />,
+    badge: 'Hepatology & Critical Care',
+    status: 'Available'
+  },
+  {
     id: 'anaphylaxis-epinephrine-shock',
     title: 'Anaphylaxis & Refractory Vasoplegic Shock Workstation',
     description: 'WAO/EAACI criteria, Vastus Lateralis IM Epinephrine absorption kinetics, continuous IV infusion titration, Glucagon in beta-blocker shock, Methylene Blue in vasoplegia, and Biphasic reaction scoring.',
