@@ -1,9 +1,15 @@
-'use client';
-
+import type { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
 import LayeredDissectionViewer from '@/components/3d/LayeredDissectionViewer';
 import { ArrowLeft, Scissors, Sparkles } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Volumetric 3D Layered Human Anatomy & Virtual Dissection Theater | Mediverse',
+  description: 'Multi-layer human anatomy dissection lab exploring stratified tissue architecture, fascial planes, skeletal anatomy, and neurovascular bundles in 3D WebGL.',
+};
+
+export const dynamic = 'force-static';
 
 export default function AnatomyDissectionPage() {
   return (

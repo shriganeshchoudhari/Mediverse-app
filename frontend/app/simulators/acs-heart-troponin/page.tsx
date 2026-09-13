@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Comprehensive Acute Coronary Syndrome risk stratification workstation modeling the HEART Score, TIMI, GRACE 2.0, European Society of Cardiology (ESC) 0/1h and 0/2h high-sensitivity troponin algorithms, and evidence-based revascularization timing.',
 };
 
+
+export const dynamic = 'force-static';
 export default function AcsRiskTroponinPage() {
   return <AcsRiskSimulator />;
 }

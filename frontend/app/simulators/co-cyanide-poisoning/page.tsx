@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     'Simulate smoke inhalation dual toxicity: carboxyhemoglobin multi-mode elimination kinetics, pulse oximetry pitfall, mitochondrial Complex IV cyanide shutdown, Hydroxocobalamin (Cyanokit) stoichiometry, and Hyperbaric Oxygen (HBO2) protocols.',
 };
 
+
+export const dynamic = 'force-static';
 export default function CoCyanidePoisoningPage() {
   return (
     <main className="min-h-screen bg-slate-950 py-8">

@@ -21,6 +21,8 @@ export const metadata: Metadata = {
     'American Academy of Neurology (AAN 2023) Guidelines: Prerequisites, Complete Brainstem Reflexes, Apnea Testing Kinetics, Ancillary Modalities & Organ Donor Resuscitation.',
 };
 
+
+export const dynamic = 'force-static';
 export default function BrainDeathApneaPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description: 'Complete 11-item NIHSS examination scoring, 10-region ASPECTS neuroimaging, AHA/ASA IV Thrombolysis (Tenecteplase / Alteplase) eligibility & weight-adjusted dosing, LVO Endovascular Thrombectomy (EVT) triage, and permissive hemodynamic guardrails.'
 };
 
+
+export const dynamic = 'force-static';
 export default function StrokeNihssThrombolysisPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">

@@ -18,6 +18,8 @@ export const metadata: Metadata = {
     'Comprehensive VV & VA ECMO simulation: gas exchange kinetics, sweep gas titration, recirculation fraction, Harlequin syndrome dual circulation, and LV venting mechanics.',
 };
 
+
+export const dynamic = 'force-static';
 export default function ECMODynamicsPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

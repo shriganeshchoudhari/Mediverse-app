@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: 'Clinical dermoscopy workstation: polarized vs contact non-polarized optical microscopy, 365 nm UVA Wood\'s lamp fluorescence, Argenziano 7-point melanoma checklist, basal cell carcinoma arborizing vessels, and excisional biopsy planning.',
 };
 
+
+export const dynamic = 'force-static';
 export default function DermoscopyPage() {
   return (
     <main>

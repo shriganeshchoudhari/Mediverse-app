@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Interactive neurology and neurocritical care simulator: Monro-Kellie doctrine, CSF volume depletion, orthostatic headache mechanics, DHE-triptan 24h vasospasm contraindication, subdural hygroma burr hole hazard, and epidural blood patch.',
 };
 
+
+export const dynamic = 'force-static';
 export default function StatusMigrainosusCSFLeakPage() {
   return <StatusMigrainosusCSFLeakSimulator />;
 }

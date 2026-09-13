@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Advanced Toxicology, Critical Care & Emergency Medicine workstation modeling Tricyclic Antidepressant (TCA) overdose, myocardial Nav1.5 fast sodium-channel blockade, terminal R wave in aVR (> 3 mm), QRS duration risk stratification, hypertonic sodium bicarbonate (8.4% NaHCO3) titration, absolute Physostigmine contraindication traps, and 20% Lipid Emulsion rescue protocols.',
 };
 
+
+export const dynamic = 'force-static';
 export default function TcaToxicityPage() {
   return <TcaToxicityBicarbonateSimulator />;
 }

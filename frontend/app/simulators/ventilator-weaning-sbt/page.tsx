@@ -10,6 +10,8 @@ export const metadata: Metadata = {
     'Pulmonology and critical care simulation of difficult mechanical ventilator liberation, Yang-Tobin RSBI kinetics, P0.1 neuro-ventilatory drive, diaphragmatic ultrasound (TFdi & excursion), PSV vs T-piece trials, and cuff leak laryngeal edema screening.',
 };
 
+
+export const dynamic = 'force-static';
 export default function VentilatorWeaningPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

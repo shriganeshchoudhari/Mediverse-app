@@ -9,6 +9,8 @@ export const metadata = {
     'CMQCC / ACOG 4-stage obstetric hemorrhage simulation: quantitative blood loss (QBL), maternal shock index, contraindication-guarded uterotonics, and Bakri intrauterine balloon tamponade.',
 };
 
+
+export const dynamic = 'force-static';
 export default function PostpartumHemorrhagePage() {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100">

@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: 'Viscoelastic coagulation and hemostasis workstation: TEG clot kinetics (R, K, alpha, MA, LY30), ROTEM 5-assay differential diagnostics (FIBTEM, HEPTEM, APTEM), and goal-directed targeted transfusion algorithms.',
 };
 
+
+export const dynamic = 'force-static';
 export default function TegHemostasisPage() {
   return (
     <main>

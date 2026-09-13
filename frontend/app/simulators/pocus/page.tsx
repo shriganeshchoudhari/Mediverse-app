@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   description: 'Interactive virtual sonography workstation: eFAST trauma survey, BLUE acute respiratory protocol, 2D B-mode and M-mode sweeps, tissue attenuation physics, and electronic caliper measurement.',
 };
 
+
+export const dynamic = 'force-static';
 export default function PocusSimulatorPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Comprehensive endocrinology and critical care workstation modeling Diabetic Ketoacidosis (DKA) vs Hyperosmolar Hyperglycemic State (HHS), potassium safety interlock, two-bag dextrose titration, and osmotic cerebral edema prevention.',
 };
 
+
+export const dynamic = 'force-static';
 export default function DkaHhsPage() {
   return <DkaHhsSimulator />;
 }

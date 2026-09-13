@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Nephrology clinical workstation: Twardowski 4-hour Peritoneal Equilibration Test (PET), Three-Pore Model aquaporin-1 sodium sieving, Weekly Kt/V adequacy, Ultrafiltration Failure (UFF Type I-IV), and 2022 ISPD Peritonitis guidelines.',
 };
 
+
+export const dynamic = 'force-static';
 export default function PeritonealDialysisPage() {
   return (
     <main>

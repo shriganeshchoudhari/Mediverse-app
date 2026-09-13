@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Comprehensive Cardiology, Critical Care & Hemodynamic workstation modeling Stevenson-Nohria Forrester profiles (A, B, L, C), congestive nephropathy backpressure mechanics (RPP = MAP - CVP), DOSE trial diuretic titration, and inotrope/vasodilator safety interlocks.',
 };
 
+
+export const dynamic = 'force-static';
 export default function HeartFailureStevensonPage() {
   return <HeartFailureStevensonSimulator />;
 }

@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     "Interactive clinical hematology & critical care simulation for thrombotic microangiopathies: TTP vs aHUS vs STEC-HUS, PLASMIC score (0-7), ADAMTS13 kinetics, alternative complement C5b-9 overactivation, platelet transfusion contraindication hazard, and emergent TPE, Caplacizumab, and Eculizumab therapy.",
 };
 
+
+export const dynamic = 'force-static';
 export default function TmaTtpAhusPage() {
   return <TmaTtpAhusSimulator />;
 }

@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Obstetrics & Maternal-Fetal Medicine clinical workstation: ACOG diagnostic classification, Zuspan/Pritchard Magnesium Sulfate kinetics, toxicity monitoring, 10% Calcium Gluconate antidote, and emergent antihypertensives.',
 };
 
+
+export const dynamic = 'force-static';
 export default function PreeclampsiaEclampsiaPage() {
   return (
     <main>

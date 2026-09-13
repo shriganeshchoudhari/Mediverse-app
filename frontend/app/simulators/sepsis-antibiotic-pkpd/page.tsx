@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     'Interactive Surviving Sepsis Campaign Hour-1 (SEP-1) protocol adherence, antimicrobial PK/PD optimization, Augmented Renal Clearance (ARC) detection, and procalcitonin-guided de-escalation engine.',
 };
 
+
+export const dynamic = 'force-static';
 export default function SepsisAntibioticPage() {
   return <SepsisAntibioticSimulator />;
 }

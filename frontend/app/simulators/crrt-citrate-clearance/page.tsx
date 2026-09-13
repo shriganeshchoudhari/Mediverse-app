@@ -10,6 +10,8 @@ export const metadata: Metadata = {
     'Advanced biophysical simulation of Continuous Renal Replacement Therapy (CRRT: CVVH, CVVHD, CVVHDF, SCUF), convective vs diffusive solute clearance, filtration fraction, KDIGO effluent dosing, and Regional Citrate Anticoagulation (RCA).',
 };
 
+
+export const dynamic = 'force-static';
 export default function CrrtCitrateClearancePage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

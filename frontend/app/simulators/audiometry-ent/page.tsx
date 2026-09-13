@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: 'ENT & audiological medicine workstation: octave pure tone air/bone conduction audiograms, Jerger middle ear compliance curves (Type A, As, Ad, B, C), speech discrimination rollover, and stapedial reflex testing.',
 };
 
+
+export const dynamic = 'force-static';
 export default function AudiometryEntPage() {
   return (
     <main>

@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   ]
 };
 
+
+export const dynamic = 'force-static';
 export default function TelehealthPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">

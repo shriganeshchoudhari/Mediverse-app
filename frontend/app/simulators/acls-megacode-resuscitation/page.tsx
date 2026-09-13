@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     "AHA 2020/2025 Advanced Cardiovascular Life Support (ACLS) megacode simulation: shockable (VF/pVT) and non-shockable (PEA/Asystole) algorithms, biphasic defibrillation, quantitative waveform capnography, and the 10 reversible causes (H's and T's).",
 };
 
+
+export const dynamic = 'force-static';
 export default function AclsMegacodePage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">

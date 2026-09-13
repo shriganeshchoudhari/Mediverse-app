@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     'Interactive Normal Anion Gap Metabolic Acidosis (NAGMA) solver, RTA Types 1, 2, and 4 differentiation, Urine Anion Gap (UAG), Urine Osmolal Gap (UOG), and precision alkali pharmacotherapy.',
 };
 
+
+export const dynamic = 'force-static';
 export default function RenalTubularAcidosisPage() {
   return <RenalTubularAcidosisSimulator />;
 }

@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: 'Critical care pulmonology and trauma workstation: intrapleural pressure dynamics, 3-chamber water seal drainage (collection, water seal, suction), air leak grading, and ATLS massive hemothorax emergency protocols.',
 };
 
+
+export const dynamic = 'force-static';
 export default function ChestTubePleuralPage() {
   return (
     <main>

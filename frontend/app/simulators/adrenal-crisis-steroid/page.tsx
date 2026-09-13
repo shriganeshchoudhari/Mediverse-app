@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     'Interactive Addisonian crisis resuscitation, Cosyntropin (ACTH) stimulation testing, stress-dose protocols, and synthetic glucocorticoid/mineralocorticoid pharmacokinetics.',
 };
 
+
+export const dynamic = 'force-static';
 export default function AdrenalCrisisPage() {
   return <AdrenalCrisisSimulator />;
 }

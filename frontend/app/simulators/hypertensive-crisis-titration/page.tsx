@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description: 'Emergency vs Urgency triage, acute target organ damage stratification, cerebral autoregulation curve shifts, and precision pharmacotherapy bench (Nicardipine, Clevidipine, Labetalol, Esmolol, Nitroprusside, Nitroglycerin).'
 };
 
+
+export const dynamic = 'force-static';
 export default function HypertensiveCrisisPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">

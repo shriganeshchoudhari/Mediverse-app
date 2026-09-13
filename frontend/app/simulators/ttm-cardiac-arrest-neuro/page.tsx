@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Interactive resuscitation and neurocritical care workstation modeling core hypothermia induction (32-36°C), shivering metabolic surge, controlled rewarming electrolyte shifts, and Day 3 multimodal neuroprognostication (SSEP N20, continuous EEG, NSE, and CT GWR).',
 };
 
+
+export const dynamic = 'force-static';
 export default function TtmCardiacArrestPage() {
   return <TtmCardiacArrestSimulator />;
 }

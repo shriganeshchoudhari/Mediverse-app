@@ -9,6 +9,8 @@ export const metadata = {
     'Interactive 11-cell reagent red blood cell antibody identification panel, dosage effect resolution, proteolytic enzyme treatment, and antigen-negative donor unit crossmatch simulator.',
 };
 
+
+export const dynamic = 'force-static';
 export default function TransfusionAntibodyIdPage() {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100">

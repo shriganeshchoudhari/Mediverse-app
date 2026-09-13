@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   description: 'Cardiology, critical care, and cardiac surgery simulation of post-cardiopulmonary bypass localized hematomas, TEE vs TTE acoustic shadowing, blunted pulsus paradoxus, diastolic pressure equalization, and CALS emergency resternotomy.'
 };
 
+
+export const dynamic = 'force-static';
 export default function PostOpTamponadePage() {
   return <PostOpTamponadeSimulator />;
 }

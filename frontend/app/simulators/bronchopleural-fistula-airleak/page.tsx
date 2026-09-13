@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     "Interactive pulmonology & thoracic critical care simulation for bronchopleural fistula (BPF) and persistent air leak (PAL), Cerfolio classification (C/I/E/F), ventilatory steal mechanics, dual-ventilator independent lung ventilation (ILV), pleural suction dilemma, and one-way endobronchial valves (EBV).",
 };
 
+
+export const dynamic = 'force-static';
 export default function BronchopleuralFistulaPage() {
   return <BronchopleuralFistulaSimulator />;
 }

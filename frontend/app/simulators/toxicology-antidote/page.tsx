@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: 'Interactive medical toxicology workstation: toxidrome pattern recognition (Hunter Serotonin vs Sympathomimetic, Cholinergic Killer Bs), Rumack-Matthew APAP nomogram solver, Osmolar/Anion gap diagnostics, and targeted antidote titration.',
 };
 
+
+export const dynamic = 'force-static';
 export default function ToxicologyAntidotePage() {
   return (
     <main>

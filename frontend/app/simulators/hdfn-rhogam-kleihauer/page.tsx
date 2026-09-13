@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Interactive maternal-fetal medicine and transfusion immunohematology workstation for modeling RhD alloimmunization, Kleihauer-Betke acid-elution fetomaternal hemorrhage (FMH) quantification, AABB precision RhoGAM dosing, and Fetal MCA Doppler PSV screening.',
 };
 
+
+export const dynamic = 'force-static';
 export default function HdfnRhogamPage() {
   return <HdfnRhogamSimulator />;
 }

@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: 'Ophthalmology biomicroscopy workstation: optical slit beam cross-sectioning, Goldmann applanation tonometry (GAT) Imbert-Fick physics, CCT pachymetry correction, Van Herick anterior chamber depth grading, and acute angle-closure crisis management.',
 };
 
+
+export const dynamic = 'force-static';
 export default function SlitLampTonometryPage() {
   return (
     <main>

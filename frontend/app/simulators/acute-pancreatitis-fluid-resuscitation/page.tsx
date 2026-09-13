@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Interactive gastroenterology and critical care workstation modeling the Revised Atlanta 2012 classification, Modified Marshall organ failure scoring, BISAP mortality index, and the NEJM WATERFALL goal-directed fluid resuscitation protocol.',
 };
 
+
+export const dynamic = 'force-static';
 export default function AcutePancreatitisPage() {
   return <AcutePancreatitisSimulator />;
 }

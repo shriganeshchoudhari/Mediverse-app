@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   description: 'Neurotrauma, neurocritical care, and emergency medicine simulation of acute traumatic spinal cord injury (SCI), neurogenic shock vs spinal shock, AANS/CNS MAP augmentation (85-90 mmHg), bulbocavernosus reflex (S2-S4), ASIA impairment scale, and autonomic dysreflexia.'
 };
 
+
+export const dynamic = 'force-static';
 export default function SpinalCordInjuryPage() {
   return <SpinalCordInjurySimulator />;
 }

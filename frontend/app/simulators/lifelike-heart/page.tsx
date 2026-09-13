@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   description: 'Photorealistic 3D human heart simulation featuring living biological tissue shaders, dual-phase Wiggers pumping, apical wringing, and surgical dissection.',
 };
 
+
+export const dynamic = 'force-static';
 export default function LifelikeHeartPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-6 lg:p-8 flex flex-col items-center">

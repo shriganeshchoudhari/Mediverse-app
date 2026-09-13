@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Hepatology and portal hypertension clinical workstation: 2016 UNOS MELD-Na, Child-Turcotte-Pugh (CTP) score, Maddrey Discriminant Function for alcoholic hepatitis, hepatic venous pressure gradient (HVPG) hemodynamics, diagnostic paracentesis SAAG, spontaneous bacterial peritonitis (SBP), and hepatorenal syndrome (HRS-AKI).',
 };
 
+
+export const dynamic = 'force-static';
 export default function CirrhosisPortalHypertensionPage() {
   return (
     <main>

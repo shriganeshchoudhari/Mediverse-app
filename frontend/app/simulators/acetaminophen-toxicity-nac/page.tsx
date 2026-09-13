@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Interactive toxicology and hepatology workstation modeling the Rumack-Matthew nomogram, NAPQI glutathione depletion kinetics, N-Acetylcysteine (NAC) precision protocols, and King\'s College emergency liver transplant criteria.',
 };
 
+
+export const dynamic = 'force-static';
 export default function AcetaminophenToxicityPage() {
   return <AcetaminophenSimulator />;
 }

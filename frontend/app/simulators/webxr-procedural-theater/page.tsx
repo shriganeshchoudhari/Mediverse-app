@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     'Interactive 3D spatial computing, real-time multiplanar ultrasound simulation, and 6-DoF catheter trajectory planning for Central Venous Lines, Pericardiocentesis, and Lumbar Puncture.',
 };
 
+
+export const dynamic = 'force-static';
 export default function WebXrProceduralTheaterPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">

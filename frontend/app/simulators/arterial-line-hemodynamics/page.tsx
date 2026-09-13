@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Critical Care & Anesthesiology workstation: Invasive arterial blood pressure monitoring, Pulse Pressure Variation (PPV), Stroke Volume Variation (SVV), Dynamic Arterial Elastance (Ea_dyn), and Fast-Flush Square Wave Test damping analysis.',
 };
 
+
+export const dynamic = 'force-static';
 export default function ArterialLineHemodynamicsPage() {
   return (
     <main>

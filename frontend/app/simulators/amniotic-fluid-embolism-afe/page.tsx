@@ -10,6 +10,8 @@ export const metadata: Metadata = {
     'Obstetric critical care simulation of Amniotic Fluid Embolism (AFE), Clark diagnostic criteria (SMFM 2016), biphasic right ventricular failure and consumptive hyperfibrinolytic DIC, A-OK protocol, inhaled epoprostenol, and VA-ECMO salvage.',
 };
 
+
+export const dynamic = 'force-static';
 export default function AmnioticFluidEmbolismPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

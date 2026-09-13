@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Interactive pulmonology and critical care workstation modeling selective pulmonary vasodilation, ESC/ERS acute vasoreactivity testing (Sitbon criteria), PVR/SVR hemodynamics, rebound pulmonary hypertension, and MetHb/NO2 toxicity.',
 };
 
+
+export const dynamic = 'force-static';
 export default function InoPulmonaryVasoreactivityPage() {
   return <InoVasoreactivitySimulator />;
 }

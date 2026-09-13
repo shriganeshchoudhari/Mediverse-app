@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: 'Interventional gastroenterology simulator: Forrest classification of peptic ulcer bleeding, dual endoscopic hemostasis, variceal band ligation, ERCP biliary cannulation, and post-ERCP pancreatitis prophylaxis.',
 };
 
+
+export const dynamic = 'force-static';
 export default function GIEndoscopyPage() {
   return (
     <main>

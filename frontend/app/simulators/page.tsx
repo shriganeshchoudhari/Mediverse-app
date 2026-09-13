@@ -10,6 +10,22 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'anatomy-dissection',
+    title: 'Volumetric 3D Layered Human Anatomy & Virtual Dissection Theater',
+    description: 'Explore multi-planar anatomical layers from superficial epidermis through fascial planes, skeletal architecture, and neurovascular bundles with spatial dissection tools.',
+    icon: <Scissors className="w-7 h-7 text-emerald-400 animate-pulse" />,
+    badge: 'Gross Anatomy & Morphology',
+    status: 'Available'
+  },
+  {
+    id: 'virtual-patient',
+    title: 'Dynamic Virtual Patient Clinical Encounter & Voice Socratic Simulator',
+    description: 'Real-time conversational medical history taking, chief complaint exploration, ROS branching, and evidence-based clinical reasoning with simulated patient personas.',
+    icon: <Stethoscope className="w-7 h-7 text-indigo-400 animate-pulse" />,
+    badge: 'Clinical Skills & OSCE',
+    status: 'Available'
+  },
+  {
     id: 'hospital-ward-command-center',
     title: 'Virtual Hospital Ward & Operational Command Center Omnisuite',
     description: 'Enterprise hospital operations workstation modeling multi-unit inpatient bed capacity, ED boarding, nurse-to-patient staffing ratios, HAC quality surveillance, and hospital surge mitigation.',
@@ -467,10 +483,10 @@ const SIMULATORS = [
   },
   {
     id: 'acid-base',
-    title: 'Acid-Base & Davenport Nomogram',
+    title: 'Classical Acid-Base & Davenport Nomogram',
     description: 'Solve Henderson-Hasselbalch, analyze Anion Gap & Winter\'s compensation, and explore live 2D Davenport buffer lines.',
     icon: <FlaskConical className="w-7 h-7 text-teal-400" />,
-    badge: 'Acid-Base Engine',
+    badge: 'Classical Acid-Base',
     status: 'Available'
   },
   {
@@ -559,30 +575,6 @@ const SIMULATORS = [
     description: 'VV & VA cannulation mechanics: sweep gas CO2 clearance, recirculation fraction, drainage chattering, Harlequin syndrome dual circulation, and ECPELLA LV venting.',
     icon: <Droplets className="w-7 h-7 text-sky-400" />,
     badge: 'Critical Care ECMO',
-    status: 'Available'
-  },
-  {
-    id: 'tee-navigation',
-    title: 'Transesophageal Echocardiography (TEE) Workstation',
-    description: 'ASE/SCA 28-view navigation, omniplane multiplane crystal rotation, aortic stenosis continuity equation, diastolic grading, and RVSP hemodynamics.',
-    icon: <Compass className="w-7 h-7 text-cyan-400" />,
-    badge: 'Cardiothoracic TEE',
-    status: 'Available'
-  },
-  {
-    id: 'cpb-perfusion',
-    title: 'Cardiopulmonary Bypass (CPB) & Perfusion',
-    description: 'Heart-lung machine hydraulics: roller vs centrifugal pumps, VAVD drainage, hypothermic gas strategies, cardioplegia arrest, and protamine stoichiometry.',
-    icon: <Heart className="w-7 h-7 text-rose-500 animate-pulse" />,
-    badge: 'Cardiothoracic CPB',
-    status: 'Available'
-  },
-  {
-    id: 'bronchoscopy-navigation',
-    title: 'Flexible Bronchoscopy & EBUS Staging',
-    description: '18-segment tracheobronchial navigation, EBUS mediastinal lymph node staging (Stations 2-11), TBNA needle aspiration, and massive hemoptysis emergencies.',
-    icon: <Wind className="w-7 h-7 text-cyan-400" />,
-    badge: 'Pulmonology & EBUS',
     status: 'Available'
   },
   {
@@ -1329,22 +1321,6 @@ const SIMULATORS = [
     badge: 'Grand Capstone Omnisuite',
     status: 'Available'
   },
-  {
-    id: 'fhir-hl7-interoperability-sandbox',
-    title: 'FHIR R4 & HL7 Interoperability Sandbox',
-    description: 'Health Informatics & Interoperability: Explore clinical FHIR R4 JSON bundles, simulate SMART on FHIR OAuth 2.0 app authorization, transform legacy HL7 v2 pipe-delimited messages, and query LOINC, SNOMED CT, and RxNorm ontologies.',
-    icon: <Database className="w-7 h-7 text-blue-400 animate-pulse" />,
-    badge: 'Health Informatics & Interoperability',
-    status: 'Available'
-  },
-  {
-    id: 'dicom-pacs-radiology-viewer',
-    title: 'DICOM Radiology PACS & MPR Workstation',
-    description: 'Diagnostic Radiology & Imaging: Navigate volumetric CT slice stacks, adjust Hounsfield Unit (HU) Window/Level presets (Brain, Subdural, Lung, Bone, Soft Tissue), reconstruct orthogonal Axial, Coronal, and Sagittal planes, and measure with electronic calipers.',
-    icon: <Radio className="w-7 h-7 text-cyan-400 animate-pulse" />,
-    badge: 'Radiology & Medical Imaging',
-    status: 'Available'
-  }
 ];
 
 export default function SimulatorsPage() {

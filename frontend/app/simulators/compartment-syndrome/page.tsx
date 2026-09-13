@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: 'Orthopedic traumatology simulator: Whitesides intracompartmental pressure manometry, Delta P perfusion calculation, lower leg 4-compartment anatomy, 2-incision emergent fasciotomy, and Volkmann ischemic contracture prevention.',
 };
 
+
+export const dynamic = 'force-static';
 export default function OrthopedicCompartmentPage() {
   return (
     <main>

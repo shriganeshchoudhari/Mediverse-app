@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   description: 'Circle breathing system physics, Link-25 hypoxic guard, low-flow anesthesia kinetics, age-adjusted MAC, FA/FI uptake curves, CO2 absorber exhaustion, and Malignant Hyperthermia Dantrolene protocol.',
 };
 
+
+export const dynamic = 'force-static';
 export default function AnesthesiaMachinePage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

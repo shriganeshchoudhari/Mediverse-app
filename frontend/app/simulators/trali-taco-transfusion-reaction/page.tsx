@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Immunohematology & critical care simulator: Acute hemolytic transfusion reaction (ABO incompatibility, DAT, haptoglobin, Coca-Cola urine, pigment nephropathy) and the TRALI vs TACO differential matrix.',
 };
 
+
+export const dynamic = 'force-static';
 export default function TransfusionReactionPage() {
   return <TransfusionReactionSimulator />;
 }

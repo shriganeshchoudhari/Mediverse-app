@@ -10,6 +10,8 @@ export const metadata: Metadata = {
     'Trauma and critical care simulation of Resuscitative Endovascular Balloon Occlusion of the Aorta (REBOA), Zone 1 vs Zone 3 occlusion, partial REBOA (pREBOA) titration, ischemia-reperfusion windows, and damage control resuscitation.',
 };
 
+
+export const dynamic = 'force-static';
 export default function ReboaPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

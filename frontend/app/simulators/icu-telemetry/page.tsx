@@ -1,5 +1,4 @@
-'use client';
-
+import type { Metadata } from 'next';
 /**
  * ICU Central Telemetry Station & Multi-Bed Alarm Simulator Page
  * Location: frontend/app/simulators/icu-telemetry/page.tsx
@@ -9,6 +8,13 @@ import React from 'react';
 import Link from 'next/link';
 import MultiBedIcuCentralStation from '@/components/emr/MultiBedIcuCentralStation';
 import { ArrowLeft, ShieldCheck, Activity } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'ICU Central Station Telemetry & Multi-Bed Alarm Simulator | Mediverse',
+  description: 'Real-time multi-patient intensive care central station modeling 12-lead telemetry waveforms, arterial line hemodynamics, and alarm surveillance.',
+};
+
+export const dynamic = 'force-static';
 
 export default function IcuTelemetryPage() {
   return (

@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Cardiology and interventional valve hemodynamics workstation: Doppler continuity equation, invasive Gorlin and Hakki equation solver, Energy Loss Index (ELI), Valvuloarterial Impedance (Zva), ACC/AHA 2020 Stage A-D3 classification, and Heart Team TAVI vs SAVR decision matrix.',
 };
 
+
+export const dynamic = 'force-static';
 export default function AorticStenosisValvePage() {
   return (
     <main>

@@ -1,9 +1,15 @@
-'use client';
-
+import type { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
 import VirtualPatientSimulator from '@/components/clinical/VirtualPatientSimulator';
 import { ArrowLeft, Stethoscope, Sparkles } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Dynamic Virtual Patient Clinical Encounter & Voice Socratic Simulator | Mediverse',
+  description: 'Interactive virtual patient encounter featuring conversational history taking, targeted physical examination, laboratory ordering, and clinical reasoning.',
+};
+
+export const dynamic = 'force-static';
 
 export default function VirtualPatientPage() {
   return (

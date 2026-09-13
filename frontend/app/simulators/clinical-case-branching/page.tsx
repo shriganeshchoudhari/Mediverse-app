@@ -1,5 +1,4 @@
-'use client';
-
+import type { Metadata } from 'next';
 /**
  * Clinical Case Branching & AI OSCE Evaluator Simulator Page
  * Location: frontend/app/simulators/clinical-case-branching/page.tsx
@@ -9,6 +8,13 @@ import React from 'react';
 import Link from 'next/link';
 import ClinicalCaseBranchingSimulator from '@/components/osce/ClinicalCaseBranchingSimulator';
 import { ArrowLeft, Brain, ShieldCheck } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Clinical Case Branching & Standardized OSCE Patient Simulator | Mediverse',
+  description: 'Evidence-based clinical encounter branching, diagnostic workup pathways, and automated OSCE rubric scoring aligned with USMLE Step 2 CS and MRCP PACES.',
+};
+
+export const dynamic = 'force-static';
 
 export default function ClinicalCaseBranchingPage() {
   return (

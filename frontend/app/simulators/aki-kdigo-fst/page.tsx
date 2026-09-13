@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Comprehensive Nephrology and ICU workstation modeling KDIGO 2024 dynamic AKI staging, FeNa vs FeUrea tubular differentiation with loop diuretic correction, the Renal Angina Index (RAI), Chawla Furosemide Stress Test (FST), and quantitative fluid overload kinetics.',
 };
 
+
+export const dynamic = 'force-static';
 export default function AkiKdigoFstPage() {
   return <AkiKdigoSimulator />;
 }

@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Endocrine emergency simulation workstation: Burch-Wartofsky Point Scale (BWPS) scoring for Thyroid Storm, 1-hour thionamide-to-iodine pharmacotherapy timing sequencer, and Popoveniuc Myxedema Coma triage and resuscitation protocols.',
 };
 
+
+export const dynamic = 'force-static';
 export default function ThyroidStormCrisisPage() {
   return (
     <main>

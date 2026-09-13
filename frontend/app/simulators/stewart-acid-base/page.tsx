@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: 'Nephrology & ICU acid-base simulator: Peter Stewart physico-chemical approach, Strong Ion Difference (SID), Total Weak Acids (Atot), Strong Ion Gap (SIG), and dilutional normal saline hyperchloremic acidosis.',
 };
 
+
+export const dynamic = 'force-static';
 export default function StewartAcidBasePage() {
   return (
     <main>

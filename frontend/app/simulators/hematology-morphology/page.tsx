@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Clinical hematology and pathology workstation: Peripheral blood smear (PBS) red cell poikilocytosis (schistocytes, target cells, tear drops), bone marrow myeloid-to-erythroid (M:E) ratio, WHO 2022 acute and chronic leukemia classification, and Cairo-Bishop Tumor Lysis Syndrome emergency triage.',
 };
 
+
+export const dynamic = 'force-static';
 export default function HematologyMorphologyPage() {
   return (
     <main>

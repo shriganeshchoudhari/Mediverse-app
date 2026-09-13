@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: 'Biophysical metabolic workstation: DeFronzo hyperinsulinemic-euglycemic clamp dynamics, whole-body glucose disposal (M value), HOMA2-IR, HOMA2-Beta, and DKA two-bag transition protocols.',
 };
 
+
+export const dynamic = 'force-static';
 export default function EndocrineClampPage() {
   return (
     <main>

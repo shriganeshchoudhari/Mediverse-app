@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Hemodialysis adequacy and Urea Kinetic Modeling (UKM) biophysical workstation: Daugirdas second-generation variable-volume spKt/V, equilibrated eKt/V with intracellular urea rebound, URR %, nPCR nutritional surveillance, vascular access recirculation (AR%), and ultrafiltration rate cardiovascular risk monitoring.',
 };
 
+
+export const dynamic = 'force-static';
 export default function UreaKineticDialysisPage() {
   return (
     <main>

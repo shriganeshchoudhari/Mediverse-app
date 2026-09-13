@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Neonatal & Pediatric Critical Care workstation: High-Frequency Oscillatory Ventilation (HFOV), sub-dead-space gas transport (Taylor dispersion, Pendelluft), Open-Lung hysteresis recruitment, and exogenous surfactant kinetics (LISA/MIST).',
 };
 
+
+export const dynamic = 'force-static';
 export default function NeonatalHfovPage() {
   return (
     <main>

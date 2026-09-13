@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Nephrology & Critical Care clinical workstation: Adrogué-Madias fluid dynamics, Osmotic Demyelination Syndrome (ODS) prevention, 3% hypertonic saline bolus, DDAVP clamp, and neuro-osmotherapy.',
 };
 
+
+export const dynamic = 'force-static';
 export default function DysnatremiaOsmotherapyPage() {
   return (
     <main>

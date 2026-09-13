@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Emergency burn care and critical care fluid resuscitation simulator: Wallace Rule of Nines, Lund-Browder pediatric age adjustments, Parkland and ABA Consensus formulas, hourly urine output (UOP) titration, carboxyhemoglobin kinetics, and Ivy index fluid creep surveillance.',
 };
 
+
+export const dynamic = 'force-static';
 export default function BurnsResuscitationPage() {
   return (
     <main>

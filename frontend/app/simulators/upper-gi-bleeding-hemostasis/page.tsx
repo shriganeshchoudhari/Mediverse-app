@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     'Interactive Glasgow-Blatchford Score (GBS) triage, Full Rockall scoring, Forrest ulcer classification, vasoactive octreotide/terlipressin infusions, endoscopic dual therapy, and salvage Sengstaken-Blakemore balloon tamponade.',
 };
 
+
+export const dynamic = 'force-static';
 export default function UpperGiBleedingPage() {
   return <UpperGiBleedingSimulator />;
 }

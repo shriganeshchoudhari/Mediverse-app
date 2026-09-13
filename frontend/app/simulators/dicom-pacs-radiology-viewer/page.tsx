@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   ]
 };
 
+
+export const dynamic = 'force-static';
 export default function DicomPacsPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 py-8 px-4 sm:px-6 lg:px-8">

@@ -18,6 +18,8 @@ export const metadata: Metadata = {
     'Interactive Monro-Kellie volume-pressure elastance, P1-P3 pulse waveform morphology, Lundberg waves, Brain Trauma Foundation tiered therapy, and herniation dynamics.',
 };
 
+
+export const dynamic = 'force-static';
 export default function ICPDynamicsPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

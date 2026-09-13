@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     'High-fidelity simulation of microaxial transvalvular blood pumps (Impella CP, 5.5, RP), TandemHeart, and ECPELLA synergy. Real-time PV-loop unloading dynamics, P-level kinetics, purge fluidics, and suction troubleshooting.',
 };
 
+
+export const dynamic = 'force-static';
 export default function VentricularAssistPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

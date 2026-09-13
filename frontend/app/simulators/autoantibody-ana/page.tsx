@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Diagnostic rheumatology and clinical immunology workstation: ICAP standardized HEp-2 IFA patterns (AC-1 to AC-29), quantitative end-point titer kinetics, ENA multiplex profiling, ANCA dual-fluorescence differential, and 2019 ACR/EULAR classification criteria solvers.',
 };
 
+
+export const dynamic = 'force-static';
 export default function AutoantibodyAnaPage() {
   return (
     <main>

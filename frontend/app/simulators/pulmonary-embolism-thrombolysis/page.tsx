@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Interventional Cardiology & Critical Care clinical workstation: ESC/AHA risk stratification, sPESI prognostic scoring, echocardiographic RV strain, systemic Alteplase, and EKOS catheter-directed thrombolysis.',
 };
 
+
+export const dynamic = 'force-static';
 export default function PulmonaryEmbolismPage() {
   return (
     <main>

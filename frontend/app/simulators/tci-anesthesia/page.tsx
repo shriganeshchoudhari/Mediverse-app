@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Target-Controlled Infusion (TCI) and Age-Corrected Volatile MAC simulator: Marsh & Schnider 3-compartment Propofol kinetics, Minto Remifentanil pharmacodynamics, Mapleson age decay, BIS electrocortical depth monitoring, and context-sensitive half-time.',
 };
 
+
+export const dynamic = 'force-static';
 export default function TciAnesthesiaPage() {
   return (
     <main>

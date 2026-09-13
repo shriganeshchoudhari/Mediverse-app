@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   description: 'CPIC Level 1A gene-drug interaction clinical decision support (CDS), star allele diplotype calling, IWPC precision warfarin algorithm, and 14-day INR kinetics.',
 };
 
+
+export const dynamic = 'force-static';
 export default function PharmacogenomicsPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

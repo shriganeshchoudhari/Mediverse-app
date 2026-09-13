@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     "Interactive critical care simulation for severe accidental hypothermia, Swiss clinical staging (HT I-IV), warm and dead rule (32-35°C), afterdrop biophysics, Osborn (J) wave arrhythmias, modified ACLS, and extracorporeal VA-ECMO rewarming with HOPE score.",
 };
 
+
+export const dynamic = 'force-static';
 export default function AccidentalHypothermiaPage() {
   return <AccidentalHypothermiaSimulator />;
 }

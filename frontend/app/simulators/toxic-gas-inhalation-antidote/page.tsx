@@ -10,6 +10,8 @@ export const metadata: Metadata = {
     'Clinical toxicology and hazmat simulation of toxic gas and chemical warfare inhalation injuries: Cyanide, Hydrogen Sulfide (H2S), Chlorine, and Phosgene. Mitochondrial Complex IV arrest, Hydroxocobalamin, Nitrite contraindication in smoke/CO, Nebulized Bicarbonate, and latent ARDS.',
 };
 
+
+export const dynamic = 'force-static';
 export default function ToxicGasInhalationPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

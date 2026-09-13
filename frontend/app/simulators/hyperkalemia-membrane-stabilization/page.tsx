@@ -10,6 +10,8 @@ export const metadata: Metadata = {
     'Biophysical electrophysiology simulation of Nernst resting membrane potential shift, Nav1.5 fast sodium channel inactivation, Calcium Gluconate vs Chloride stoichiometry, transcellular shift kinetics (Insulin/Dextrose, Albuterol, Bicarbonate), and definitive elimination.',
 };
 
+
+export const dynamic = 'force-static';
 export default function HyperkalemiaShiftPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

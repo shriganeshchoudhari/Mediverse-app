@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Anesthesiology & Critical Care clinical workstation: Mallampati Class I–IV, Cormack-Lehane Grade 1–4, POGO score, STOP-BANG OSA risk, DAS 2015 Plan A–D algorithm, and CICO emergency scalpel-bougie cricothyroidotomy protocol.',
 };
 
+
+export const dynamic = 'force-static';
 export default function DifficultAirwayPage() {
   return (
     <main>

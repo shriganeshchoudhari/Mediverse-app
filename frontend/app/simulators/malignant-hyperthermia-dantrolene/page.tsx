@@ -1,9 +1,15 @@
-"use client";
-
+import type { Metadata } from 'next';
 import React from "react";
 import Link from "next/link";
 import { ArrowLeft, Flame, Shield, BookOpen, AlertCircle, FileText, CheckCircle2 } from "lucide-react";
 import MalignantHyperthermiaSimulator from "../../../components/simulators/MalignantHyperthermiaSimulator";
+
+export const metadata: Metadata = {
+  title: 'Malignant Hyperthermia & Dantrolene Resuscitation Workstation | Mediverse',
+  description: 'Operating room crisis management modeling volatile anesthetic triggers, RYR1 receptor calcium efflux, hypermetabolism kinetics, and rapid dantrolene reversal.',
+};
+
+export const dynamic = 'force-static';
 
 export default function MalignantHyperthermiaPage() {
   return (

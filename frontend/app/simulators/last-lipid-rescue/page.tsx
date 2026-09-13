@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     'Interactive ASRA resuscitation solver for Local Anesthetic Systemic Toxicity (LAST). Simulate Bupivacaine cardiotoxicity, QRS widening, 20% Lipid Emulsion bolus and infusion, reduced-dose epinephrine, and ECMO alerts.',
 };
 
+
+export const dynamic = 'force-static';
 export default function LastLipidRescuePage() {
   return <LastLipidRescueSimulator />;
 }

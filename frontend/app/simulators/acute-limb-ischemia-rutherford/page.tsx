@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Interactive vascular surgery and critical care simulator: Rutherford classification (I, IIa, IIb, III), The 6 Ps, Fogarty balloon catheter embolectomy, Catheter-Directed Thrombolysis (CDT) timing traps, reperfusion compartment syndrome (Delta Pressure), and the lethal washout catastrophe.',
 };
 
+
+export const dynamic = 'force-static';
 export default function AcuteLimbIschemiaPage() {
   return <AcuteLimbIschemiaSimulator />;
 }

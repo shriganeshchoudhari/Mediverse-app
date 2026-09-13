@@ -21,6 +21,8 @@ export const metadata: Metadata = {
   description: 'Wasserman 9-panel diagnostic CPET workstation: VO2 peak, anaerobic threshold (V-slope), ventilatory efficiency (VE/VCO2 slope), oxygen pulse kinetics, breathing reserve, and exercise limitation classification.',
 };
 
+
+export const dynamic = 'force-static';
 export default function CPETPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

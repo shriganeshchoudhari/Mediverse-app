@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Interactive critical care and mechanical ventilation workstation modeling Berlin ARDS definitions, Amato driving pressure, Gattinoni mechanical power, and PROSEVA prone positioning protocols.',
 };
 
+
+export const dynamic = 'force-static';
 export default function ArdsDrivingPressurePage() {
   return <ArdsSimulator />;
 }

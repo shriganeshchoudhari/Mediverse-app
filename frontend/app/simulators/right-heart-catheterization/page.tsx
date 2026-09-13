@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Pulmonology, critical care, and interventional cardiology workstation: Swan-Ganz catheter pressure waveforms, direct and indirect Fick cardiac output, Pulmonary Vascular Resistance (PVR), 2022 ESC/ERS Pulmonary Hypertension Phenotyping (Pre-capillary, Ipc-PH, Cpc-PH), and acute vasoreactivity challenge testing.',
 };
 
+
+export const dynamic = 'force-static';
 export default function RightHeartCatheterizationPage() {
   return (
     <main>

@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     'Simulate acute cardiac tamponade, Beck\'s triad, respiro-phasic ventricular interdependence (pulsus paradoxus), invasive diastolic pressure equalization, and emergency ultrasound-guided pericardiocentesis.',
 };
 
+
+export const dynamic = 'force-static';
 export default function CardiacTamponadePericardiocentesisPage() {
   return (
     <main className="min-h-screen bg-slate-950 py-8">

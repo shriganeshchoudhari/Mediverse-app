@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Interactive ESC/AHA/CHEST clinical simulator for massive & submassive pulmonary embolism: RV death spiral biomechanics, echocardiographic strain markers (McConnell, 60/60 sign, TAPSE), judicious fluid restriction (<500 mL), vasopressor titration, systemic thrombolysis, catheter-directed therapies (EKOS/Inari), and ECMO.',
 };
 
+
+export const dynamic = 'force-static';
 export default function MassivePulmonaryEmbolismPage() {
   return <MassivePulmonaryEmbolismSimulator />;
 }

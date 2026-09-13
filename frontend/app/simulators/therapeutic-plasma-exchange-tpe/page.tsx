@@ -22,6 +22,8 @@ export const metadata: Metadata = {
     'American Society for Apheresis (ASFA 2023) Guidelines: Plasma Volume Kinetics, First-Order Solute Removal, 5% Albumin vs FFP Replacement, ACD-A Citrate & Calcium Titration.',
 };
 
+
+export const dynamic = 'force-static';
 export default function TherapeuticPlasmaExchangePage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

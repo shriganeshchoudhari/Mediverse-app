@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   description: 'Enterprise multi-disorder acid-base, anemia differentiation, electrolyte osmolar gap, and coagulation cascade interpretation workstation.',
 };
 
+
+export const dynamic = 'force-static';
 export default function ClinicalLabInterpretationPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

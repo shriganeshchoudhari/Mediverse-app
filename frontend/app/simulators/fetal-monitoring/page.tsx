@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: 'Cardiotocography (CTG) biophysical simulator: NICHD 3-tier categories, early/late/variable/sinusoidal decelerations, Montevideo units, Bishop score, and intrauterine resuscitation protocols.',
 };
 
+
+export const dynamic = 'force-static';
 export default function FetalMonitoringPage() {
   return (
     <main>

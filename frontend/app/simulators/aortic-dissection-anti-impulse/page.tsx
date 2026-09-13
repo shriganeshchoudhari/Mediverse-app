@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Interactive cardiovascular surgery and critical care simulator: Stanford Type A vs B, Anti-Impulse Therapy (dP/dt reduction: beta-blocker first rule [HR < 60 bpm] before vasodilators [SBP 100-120 mmHg]), branch vessel malperfusion, cardiac tamponade pericardiocentesis dilemma, and TEVAR.',
 };
 
+
+export const dynamic = 'force-static';
 export default function AorticDissectionPage() {
   return <AorticDissectionSimulator />;
 }

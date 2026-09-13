@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Interactive clinical toxicology and nephrology workstation modeling mitochondrial uncoupling, mixed respiratory alkalosis + HAGMA, blood-brain barrier ion trapping biophysics, hypokalemic paradoxical aciduria, and EXTRIP emergent hemodialysis indications.',
 };
 
+
+export const dynamic = 'force-static';
 export default function SalicylateToxicityPage() {
   return <SalicylateToxicitySimulator />;
 }

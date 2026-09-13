@@ -1,5 +1,4 @@
-'use client';
-
+import type { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
 import InpatientEmrWorkstation from '@/components/emr/InpatientEmrWorkstation';
@@ -11,6 +10,13 @@ import {
   Pill,
   ShieldCheck,
 } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Inpatient Electronic Medical Record (EMR) & Hospital Charting Simulator | Mediverse',
+  description: 'Enterprise hospital clinical information system featuring computerized physician order entry (CPOE), eMAR barcode scanning, and shift fluid balancing.',
+};
+
+export const dynamic = 'force-static';
 
 export default function EmrSandboxPage() {
   return (

@@ -1,9 +1,15 @@
-"use client";
-
+import type { Metadata } from 'next';
 import React from "react";
 import Link from "next/link";
 import { ArrowLeft, Brain, Shield, BookOpen, AlertCircle, FileText, CheckCircle2 } from "lucide-react";
 import TbiIcpSimulator from "../../../components/simulators/TbiIcpSimulator";
+
+export const metadata: Metadata = {
+  title: 'Traumatic Brain Injury & Monro-Kellie ICP Dynamics Workstation | Mediverse',
+  description: 'Neurocritical care workstation modeling intracranial compliance curves, cerebral perfusion pressure (CPP), hyperosmolar therapy, and herniation syndromes.',
+};
+
+export const dynamic = 'force-static';
 
 export default function TbiIcpMonroeKelliePage() {
   return (

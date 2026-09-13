@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Obstetrics and intrapartum care simulation workstation: Modified WHO Partogram (Alert and Action lines), Calder Modified Bishop Score for pre-induction cervical ripening, Montevideo Units (MVU) IUPC contraction physics, oxytocin tachysystole resuscitation, and cephalopelvic disproportion (CPD) diagnostics.',
 };
 
+
+export const dynamic = 'force-static';
 export default function LaborPartogramPage() {
   return (
     <main>

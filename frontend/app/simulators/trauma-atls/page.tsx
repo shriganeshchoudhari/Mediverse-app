@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: 'Advanced Trauma Life Support simulation: hemorrhagic shock classification (Class I–IV), FAST/eFAST exam, massive transfusion protocol 1:1:1, damage control surgery, tension pneumothorax, and cardiac tamponade.',
 };
 
+
+export const dynamic = 'force-static';
 export default function TraumaATLSPage() {
   return (
     <main>

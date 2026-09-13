@@ -10,6 +10,8 @@ export const metadata: Metadata = {
     'Biophysical simulation of WAO/EAACI diagnostic criteria, Vastus Lateralis IM Epinephrine pharmacokinetics, Refractory Vasoplegic Shock protocols (Continuous IV Epinephrine, Glucagon in Beta-Blocker patients, Methylene Blue), Biphasic Reactions, and Serum Tryptase validation.',
 };
 
+
+export const dynamic = 'force-static';
 export default function AnaphylaxisResuscitationPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

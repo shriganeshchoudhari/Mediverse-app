@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Activity, Heart, Zap, ShieldAlert, Sliders } from 'lucide-react';
 

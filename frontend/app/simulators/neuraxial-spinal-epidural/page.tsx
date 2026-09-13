@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Anesthesiology & Obstetric clinical workstation: dermatome sensory level mapping, Bromage motor score, high/total spinal Bezold-Jarisch resuscitation, epidural test dose, and ASRA 20% Lipid Emulsion rescue.',
 };
 
+
+export const dynamic = 'force-static';
 export default function NeuraxialSpinalEpiduralPage() {
   return (
     <main>

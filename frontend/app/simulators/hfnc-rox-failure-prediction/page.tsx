@@ -10,6 +10,8 @@ export const metadata: Metadata = {
     'Advanced biophysical simulation of High-Flow Nasal Cannula (HFNC), anatomical dead space washout, entrainment dilution, Roca ROX index validation, dynamic trajectory modeling, and P-SILI prevention.',
 };
 
+
+export const dynamic = 'force-static';
 export default function HfncRoxFailurePage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

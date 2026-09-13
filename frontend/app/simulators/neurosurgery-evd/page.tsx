@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: 'Neurosurgical ventriculostomy workstation: Kocher\'s point stereotactic trajectory, Foramen of Monro frontal horn cannulation, EVD graduated burette hydrodynamics, tragus zero leveling, slit ventricle prevention, and intrathecal thrombolysis.',
 };
 
+
+export const dynamic = 'force-static';
 export default function NeurosurgeryEVDPage() {
   return (
     <main>

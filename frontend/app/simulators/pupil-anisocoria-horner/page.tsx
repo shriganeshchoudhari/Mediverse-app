@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     'Interactive neuro-ophthalmology solver for anisocoria, Horner syndrome 3-neuron localization, Compressive CN III palsy, Adie tonic pupil, swinging flashlight RAPD, and Apraclonidine/Cocaine/Pilocarpine pharmacology.',
 };
 
+
+export const dynamic = 'force-static';
 export default function PupilAnisocoriaHornerPage() {
   return <PupilAnisocoriaHornerSimulator />;
 }

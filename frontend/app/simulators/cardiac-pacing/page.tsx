@@ -17,6 +17,8 @@ export const metadata: Metadata = {
     'Transvenous and transcutaneous cardiac pacing mechanics, NASPE/BPEG pacing modes (VVI, DDD, VOO), capture and sensing threshold dials, R-on-T prevention, and pacemaker syndrome.',
 };
 
+
+export const dynamic = 'force-static';
 export default function CardiacPacingPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

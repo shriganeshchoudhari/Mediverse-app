@@ -10,6 +10,8 @@ export const metadata: Metadata = {
     "Biophysical hepatology simulation of King's College Hospital & Clichy emergency liver transplantation criteria, hyperacute vs subacute latency phenotypes, arterial ammonia astrocytic glutamine swelling, ICP neurocritical bundle, and rebalanced hemostasis.",
 };
 
+
+export const dynamic = 'force-static';
 export default function AcuteLiverFailurePage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

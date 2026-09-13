@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Pediatrics & neonatology delivery room resuscitation simulator: NRP 8th Edition step-by-step algorithm, interactive APGAR score calculator, pre-ductal target SpO2 nomogram, MR. SOPA ventilation troubleshooting, weight-based epinephrine dosing, and Sarnat HIE hypothermia criteria.',
 };
 
+
+export const dynamic = 'force-static';
 export default function NeonatalResuscitationPage() {
   return (
     <main>

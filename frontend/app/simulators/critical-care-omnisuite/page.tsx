@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'The Grand Capstone Workstation: Swan-Ganz thermodilution, mechanical circulatory support (VA/VV/VAV ECMO, ECPELLA Impella), neurocritical Monro-Kellie dynamics, ARDS driving pressure mechanics, and abdominal compartment resuscitation.',
 };
 
+
+export const dynamic = 'force-static';
 export default function CriticalCareOmnisuitePage() {
   return <CriticalCareOmnisuiteSimulator />;
 }

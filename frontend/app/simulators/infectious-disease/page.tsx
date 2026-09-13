@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: 'Clinical microbiology and antimicrobial stewardship simulator: CLSI/EUCAST MIC breakpoints, PK/PD target attainment, MDRO resistance mechanisms (MRSA, VRE, ESBL, CRE), and Surviving Sepsis 1-hour bundle.',
 };
 
+
+export const dynamic = 'force-static';
 export default function InfectiousDiseasePage() {
   return (
     <main>

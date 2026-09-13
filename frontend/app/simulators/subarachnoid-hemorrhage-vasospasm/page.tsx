@@ -10,6 +10,8 @@ export const metadata: Metadata = {
     'Biophysical neurocritical care simulation of aneurysmal subarachnoid hemorrhage (aSAH), Hunt & Hess / Modified Fisher grading, Transcranial Doppler (TCD) Lindegaard ratio, EVD dynamics, and euvolemic induced hypertension.',
 };
 
+
+export const dynamic = 'force-static';
 export default function SubarachnoidHemorrhagePage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

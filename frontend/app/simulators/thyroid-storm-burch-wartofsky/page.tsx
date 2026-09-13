@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Comprehensive Endocrine & Neurocritical Care workstation modeling the Burch-Wartofsky Point Scale (BWPS), Japan Thyroid Association (Akamizu) diagnostic criteria, 5-Stage Multimodal Pharmacotherapy chain, mandatory Wolff-Chaikoff 60-minute iodine delay, and Aspirin TBG displacement hazards.',
 };
 
+
+export const dynamic = 'force-static';
 export default function ThyroidStormPage() {
   return <ThyroidStormSimulator />;
 }

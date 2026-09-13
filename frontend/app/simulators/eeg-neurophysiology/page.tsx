@@ -18,6 +18,8 @@ export const metadata: Metadata = {
     'Comprehensive 16-channel electrophysiological tracing, International 10-20 montages, physiological frequency bands, epileptiform discharges, and FFT quantitative spectral analytics.',
 };
 
+
+export const dynamic = 'force-static';
 export default function EEGNeurophysiologyPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

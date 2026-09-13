@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     "Interprofessional Operating Room Crisis Resource Management (CRM), Difficult Airway Society (DAS 2015) algorithm execution, and emergency scalpel-bougie-tube cricothyroidotomy procedural simulation.",
 };
 
+
+export const dynamic = 'force-static';
 export default function VirtualOrTeamCrmPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">

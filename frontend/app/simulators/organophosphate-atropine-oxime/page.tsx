@@ -10,6 +10,8 @@ export const metadata: Metadata = {
     'Biophysical toxicology simulation of Acetylcholinesterase (AChE) aging kinetics, muscarinic Killer B\'s vs nicotinic motor collapse, Atropine doubling resuscitation endpoints, Pralidoxime (2-PAM) nucleophilic reactivation, and Intermediate Syndrome (IMS).',
 };
 
+
+export const dynamic = 'force-static';
 export default function OrganophosphateToxPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

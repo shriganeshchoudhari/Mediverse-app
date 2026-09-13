@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Neurology emergency and acute stroke simulation workstation: NIH Stroke Scale (NIHSS) assessment, Alberta Stroke Program Early CT Score (ASPECTS) mapping, Tenecteplase (TNK-tPA) and Alteplase (rtPA) precision dosing, blood pressure thresholds, and Large Vessel Occlusion (LVO) mechanical thrombectomy criteria.',
 };
 
+
+export const dynamic = 'force-static';
 export default function AcuteStrokeThrombolysisPage() {
   return (
     <main>

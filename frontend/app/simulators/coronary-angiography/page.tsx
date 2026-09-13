@@ -18,6 +18,8 @@ export const metadata: Metadata = {
     'Comprehensive C-arm fluoroscopy projections, 18-segment coronary tree, Gorlin equation Aortic Valve Area, FFR/iFR adenosine physiology, and TIMI flow grading.',
 };
 
+
+export const dynamic = 'force-static';
 export default function CoronaryAngiographyPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

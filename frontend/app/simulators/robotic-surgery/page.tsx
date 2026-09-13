@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     'High-fidelity simulation of da Vinci robotic surgery, EndoWrist 7-DOF kinematics, CO2 pneumoperitoneum hemodynamics, steep Trendelenburg respiratory mechanics, electrosurgical thermal spread, and laparoscopic emergencies.',
 };
 
+
+export const dynamic = 'force-static';
 export default function RoboticSurgeryPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     "START & JumpSTART pediatric disaster triage, point-of-injury lifesaving interventions, and Hospital Incident Command System (HICS) surge capacity logistics simulation.",
 };
 
+
+export const dynamic = 'force-static';
 export default function DisasterTriageMciPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">

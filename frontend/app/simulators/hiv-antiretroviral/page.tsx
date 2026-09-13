@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Infectious disease and HIV pharmacotherapy workstation: DHHS/WHO first-line ART regimens (Biktarvy, Triumeq, Dovato), CD4 T-cell opportunistic infection prophylaxis thresholds (PCP, Toxoplasmosis, MAC), HLA-B*5701 hypersensitivity pharmacogenomics, HBV/TB drug interactions, and Immune Reconstitution Inflammatory Syndrome (IRIS) timing.',
 };
 
+
+export const dynamic = 'force-static';
 export default function HivAntiretroviralPage() {
   return (
     <main>

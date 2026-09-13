@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   description: 'Trauma and critical care simulation of tension pneumothorax, obstructive shock hemodynamics, needle vs finger vs tube thoracostomy, 3-bottle drainage, and massive hemothorax autotransfusion.'
 };
 
+
+export const dynamic = 'force-static';
 export default function TensionPneumothoraxPage() {
   return <TensionPneumothoraxSimulator />;
 }

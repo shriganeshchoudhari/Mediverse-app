@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Ophthalmology visual field perimetry simulator: Humphrey Field Analyzer (HFA) 24-2 SITA-Standard testing, decibel sensitivity mapping, Glaucoma Hemifield Test (GHT), Hodapp-Anderson-Parrish (HAP) glaucoma staging, corneal pachymetry CCT-adjusted IOP, and target IOP solver.',
 };
 
+
+export const dynamic = 'force-static';
 export default function VisualFieldPerimetryPage() {
   return (
     <main>

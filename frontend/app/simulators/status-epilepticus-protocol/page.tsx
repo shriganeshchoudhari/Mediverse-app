@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Comprehensive Neurocritical Care & Emergency Medicine workstation modeling the American Epilepsy Society (AES) & Neurocritical Care Society (NCS) status epilepticus protocol, ESETT trial second-line ASMs, refractory burst suppression, and Salzburg NCSE criteria.',
 };
 
+
+export const dynamic = 'force-static';
 export default function StatusEpilepticusPage() {
   return <StatusEpilepticusSimulator />;
 }

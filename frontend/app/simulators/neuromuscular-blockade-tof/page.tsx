@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     'Interactive Train-of-Four (TOF) acceleromyography, Post-Tetanic Count (PTC), Postoperative Residual Curarization (PORC) defense, and precision Sugammadex vs Neostigmine reversal protocols.',
 };
 
+
+export const dynamic = 'force-static';
 export default function NeuromuscularBlockadePage() {
   return <NeuromuscularBlockadeSimulator />;
 }

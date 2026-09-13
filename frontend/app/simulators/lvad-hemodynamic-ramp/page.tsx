@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     'Simulate HeartMate 3 Left Ventricular Assist Device (LVAD) speed optimization, echocardiographic RAMP test protocol, apical suction event recovery, and post-implant RV failure hemodynamics.',
 };
 
+
+export const dynamic = 'force-static';
 export default function LvadHemodynamicRampPage() {
   return (
     <main className="min-h-screen bg-slate-950 py-8">

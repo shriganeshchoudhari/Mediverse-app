@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Comprehensive Endocrine & Neurocritical Care workstation modeling the Popoveniuc Diagnostic Scoring System, mandatory Steroids-Before-Thyroid adrenal crisis prevention, IV Levothyroxine (T4) vs Liothyronine (T3) titration, and passive rewarming vs vasodilatory shock mechanics.',
 };
 
+
+export const dynamic = 'force-static';
 export default function MyxedemaComaPage() {
   return <MyxedemaComaSimulator />;
 }

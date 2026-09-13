@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     'Critical care toxicology simulation for methanol, ethylene glycol, and isopropanol ingestions. Model osmolal gap vs anion gap crossover, calcium oxalate crystals, fomepizole dosing, and emergent hemodialysis.',
 };
 
+
+export const dynamic = 'force-static';
 export default function ToxicAlcoholsPage() {
   return <ToxicAlcoholsSimulator />;
 }

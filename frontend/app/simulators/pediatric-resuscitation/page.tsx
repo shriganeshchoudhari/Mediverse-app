@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   description: 'Enterprise virtual PALS and NRP simulation suite: Broselow tape weight estimation, endotracheal tube sizing, emergency pharmacology dosing, and neonatal Golden Minute APGAR scoring.',
 };
 
+
+export const dynamic = 'force-static';
 export default function PediatricResuscitationPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8">

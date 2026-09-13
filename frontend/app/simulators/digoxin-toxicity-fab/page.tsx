@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     'Interactive cardiovascular toxicology workstation modeling myocardial Na+/K+-ATPase paralysis, hyperkalemia prognostic mortality curve, DigiFab antibody fragment neutralization stoichiometry, and Salvador Dalí scooped ST depressions.',
 };
 
+
+export const dynamic = 'force-static';
 export default function DigoxinToxicityPage() {
   return <DigoxinToxicitySimulator />;
 }

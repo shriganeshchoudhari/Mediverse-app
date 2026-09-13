@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     'Interactive Damage Control Resuscitation (DCR), Massive Transfusion Protocol (MTP) cooler dispatch, ABC Score activation, Lethal Triad biophysics, permissive hypotension, and viscoelastic TEG hemostatic guidance.',
 };
 
+
+export const dynamic = 'force-static';
 export default function MassiveTransfusionDcrPage() {
   return <MassiveTransfusionDcrSimulator />;
 }
