@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill, Syringe, Database, Move3d, Users, Truck, HeartPulse } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill, Syringe, Database, Move3d, Users, Truck, HeartPulse, Layers } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,6 +9,14 @@ export const metadata: Metadata = {
 };
 
 const SIMULATORS = [
+  {
+    id: 'dic-sepsis-coagulopathy',
+    title: 'DIC & Sepsis-Induced Coagulopathy (SIC) Workstation',
+    description: 'ISTH Diagnostic Scoring (Overt vs Non-Overt), Sepsis-3 SIC criteria, microvascular thrombosis vs consumption hemorrhage, and component replacement (Platelets, Cryoprecipitate, FFP).',
+    icon: <Layers className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Hematology & Critical Care',
+    status: 'Available'
+  },
   {
     id: 'hfnc-rox-failure-prediction',
     title: 'High-Flow Nasal Cannula & ROX Trajectory Workstation',
