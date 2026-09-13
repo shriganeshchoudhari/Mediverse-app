@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill, Syringe, Database, Move3d, Users, Truck, HeartPulse, Layers, Filter, ShieldCheck, ClipboardList, Scale } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill, Syringe, Database, Move3d, Users, Truck, HeartPulse, Layers, Filter, ShieldCheck, ClipboardList, Scale, Building2 } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,6 +9,14 @@ export const metadata: Metadata = {
 };
 
 const SIMULATORS = [
+  {
+    id: 'hospital-ward-command-center',
+    title: 'Virtual Hospital Ward & Operational Command Center Omnisuite',
+    description: 'Enterprise hospital operations workstation modeling multi-unit inpatient bed capacity, ED boarding, nurse-to-patient staffing ratios, HAC quality surveillance, and hospital surge mitigation.',
+    icon: <Building2 className="w-7 h-7 text-indigo-400 animate-pulse" />,
+    badge: 'Hospital Operations & Systems',
+    status: 'Available'
+  },
   {
     id: 'genomics-oncology-targeted-therapy',
     title: 'Clinical Genomics, Somatic Oncology NGS & Precision Targeted Therapy Workstation',
