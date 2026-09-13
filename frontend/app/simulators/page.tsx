@@ -1240,6 +1240,14 @@ const SIMULATORS = [
     icon: <Droplets className="w-7 h-7 text-rose-500 animate-pulse" />,
     badge: 'Transfusion & Critical Care',
     status: 'Available'
+  },
+  {
+    id: 'critical-care-omnisuite',
+    title: 'Critical Care & Extracorporeal Resuscitation Omnisuite',
+    description: 'Grand Capstone Workstation: Swan-Ganz thermodilution, mechanical circulatory support (VA/VV/VAV ECMO, ECPELLA Impella), neurocritical Monro-Kellie dynamics, ARDS driving pressure mechanics, and abdominal compartment resuscitation.',
+    icon: <Cpu className="w-7 h-7 text-indigo-400 animate-pulse" />,
+    badge: 'Grand Capstone Omnisuite',
+    status: 'Available'
   }
 ];
 
