@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'cardiogenic-shock-mcs-escalation',
+    title: 'Cardiogenic Shock & MCS Escalation Workstation',
+    description: 'SCAI Shock classification (Stages A to E), invasive Swan-Ganz hemodynamics (CPO < 0.60W, PAPi < 0.90, SVR, PVR), RV failure phenotyping, and MCS device escalation (IABP, Impella CP/5.5, VA-ECMO, ECPELLA).',
+    icon: <HeartPulse className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Cardiology & Critical Care',
+    status: 'Available'
+  },
+  {
     id: 'acute-liver-failure-kings',
     title: "Acute Liver Failure & King's College Criteria Workstation",
     description: "King's College & Clichy emergency transplant listing rules, hyperacute vs subacute latency phenotypes, arterial ammonia astrocytic glutamine swelling, ICP neurocritical bundle, and rebalanced hemostasis.",
