@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'pharmacogenomics-cpic-precision',
+    title: 'Clinical Pharmacogenomics (PGx) & CPIC Precision Drug Dosing Station',
+    description: 'Precision pharmacogenomics workstation featuring star-allele genotype translation (CYP2D6, CYP2C19, CYP2C9, VKORC1, DPYD, SLCO1B1, HLA), IWPC warfarin dosing algorithms, and real-time CPIC Level A clinical decision support.',
+    icon: <Dna className="w-7 h-7 text-indigo-400 animate-pulse" />,
+    badge: 'Genetics & Precision Medicine',
+    status: 'Available'
+  },
+  {
     id: 'spatial-auscultation-stethoscope',
     title: '3D Spatial Auscultation & Directional Phonocardiogram Workstation',
     description: 'Precision physical examination workstation featuring spatial chest acoustic mapping, inverse-square attenuation, dynamic maneuvers (Carvallo, Valsalva, Handgrip), and synchronized PCG / Lead II ECG wave synthesis.',
