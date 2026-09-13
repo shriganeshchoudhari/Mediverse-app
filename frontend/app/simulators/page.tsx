@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'bronchopleural-fistula-airleak',
+    title: 'Bronchopleural Fistula (BPF) & Persistent Air Leak Workstation',
+    description: 'Cerfolio air leak classification (C/I/E/F), ventilatory steal mechanics, dual-ventilator independent lung ventilation (ILV), pleural suction dilemma, and one-way endobronchial valves (EBV).',
+    icon: <Wind className="w-7 h-7 text-cyan-400 animate-pulse" />,
+    badge: 'Thoracic Surgery & Critical Care',
+    status: 'Available'
+  },
+  {
     id: 'tma-ttp-ahus-plasmic',
     title: 'Thrombotic Microangiopathies (TMA): TTP vs aHUS Workstation',
     description: 'PLASMIC score (0-7), ADAMTS13 activity kinetics (<10% vs ≥10%), alternative complement pathway overactivation, platelet transfusion contraindication hazard, and emergent TPE / Caplacizumab / Eculizumab.',
