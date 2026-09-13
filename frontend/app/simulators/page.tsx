@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'hypothermia-accidental-rewarming',
+    title: 'Severe Accidental Hypothermia & ECLS Rewarming Workstation',
+    description: 'Swiss clinical staging (HT I-IV), "not dead until warm and dead" rule (32-35°C), afterdrop biophysical hazard, Osborn (J) wave arrhythmias, modified ACLS, and extracorporeal VA-ECMO with HOPE survival score.',
+    icon: <Thermometer className="w-7 h-7 text-sky-400 animate-pulse" />,
+    badge: 'Critical Care & Resuscitation',
+    status: 'Available'
+  },
+  {
     id: 'acute-mesenteric-ischemia',
     title: 'Acute Mesenteric Ischemia (AMI) & Revascularization Workstation',
     description: 'SMA embolism vs thrombosis vs NOMI vs MVT, pain out of proportion, biphasic CTA, serum lactate false-negative trap, intra-arterial papaverine, and second-look laparotomy.',
