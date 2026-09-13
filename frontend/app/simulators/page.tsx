@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'massive-pe-rv-strain',
+    title: 'Massive Pulmonary Embolism & RV Resuscitation Workstation',
+    description: 'ESC/AHA risk stratification, RV death spiral biomechanics (RV/LV ≥ 1.0, TAPSE < 16 mm, McConnell & 60/60 sign), RCA perfusion gradient, fluid restriction (<500 mL) guardrail, systemic tPA vs CDT vs Inari vs ECMO.',
+    icon: <Heart className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Critical Care & Cardiology',
+    status: 'Available'
+  },
+  {
     id: 'bronchopleural-fistula-airleak',
     title: 'Bronchopleural Fistula (BPF) & Persistent Air Leak Workstation',
     description: 'Cerfolio air leak classification (C/I/E/F), ventilatory steal mechanics, dual-ventilator independent lung ventilation (ILV), pleural suction dilemma, and one-way endobronchial valves (EBV).',
