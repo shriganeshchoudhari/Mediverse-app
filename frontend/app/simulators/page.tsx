@@ -1232,6 +1232,14 @@ const SIMULATORS = [
     icon: <Layers className="w-7 h-7 text-cyan-400 animate-pulse" />,
     badge: 'Anesthesiology & Resuscitation',
     status: 'Available'
+  },
+  {
+    id: 'trali-taco-transfusion-reaction',
+    title: 'AHTR & TRALI vs TACO Workstation',
+    description: 'Transfusion Medicine & Critical Care: Model acute hemolytic transfusion reaction (ABO incompatibility, DAT, haptoglobin, Coca-Cola urine, pigment nephropathy) and the TRALI vs TACO differential matrix.',
+    icon: <Droplets className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Transfusion & Critical Care',
+    status: 'Available'
   }
 ];
 
