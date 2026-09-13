@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'hepatorenal-syndrome-terlipressin',
+    title: 'Hepatorenal Syndrome (HRS-AKI), SBP & Terlipressin Workstation',
+    description: 'ICA-AKI staging (1-3), 48h albumin challenge, splanchnic vasodilation, Terlipressin vs pressors, CONFIRM trial hypoxemic warning, LVP/PPCD albumin dosing, and SBP Sort protocol.',
+    icon: <Droplets className="w-7 h-7 text-amber-400 animate-pulse" />,
+    badge: 'Hepatology & Nephrology',
+    status: 'Available'
+  },
+  {
     id: 'massive-pe-rv-strain',
     title: 'Massive Pulmonary Embolism & RV Resuscitation Workstation',
     description: 'ESC/AHA risk stratification, RV death spiral biomechanics (RV/LV ≥ 1.0, TAPSE < 16 mm, McConnell & 60/60 sign), RCA perfusion gradient, fluid restriction (<500 mL) guardrail, systemic tPA vs CDT vs Inari vs ECMO.',
