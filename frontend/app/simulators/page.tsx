@@ -1256,6 +1256,14 @@ const SIMULATORS = [
     icon: <Database className="w-7 h-7 text-blue-400 animate-pulse" />,
     badge: 'Health Informatics & Interoperability',
     status: 'Available'
+  },
+  {
+    id: 'dicom-pacs-radiology-viewer',
+    title: 'DICOM Radiology PACS & MPR Workstation',
+    description: 'Diagnostic Radiology & Imaging: Navigate volumetric CT slice stacks, adjust Hounsfield Unit (HU) Window/Level presets (Brain, Subdural, Lung, Bone, Soft Tissue), reconstruct orthogonal Axial, Coronal, and Sagittal planes, and measure with electronic calipers.',
+    icon: <Radio className="w-7 h-7 text-cyan-400 animate-pulse" />,
+    badge: 'Radiology & Medical Imaging',
+    status: 'Available'
   }
 ];
 
