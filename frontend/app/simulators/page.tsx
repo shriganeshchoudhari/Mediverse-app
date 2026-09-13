@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'cdh-pphn-neonatal',
+    title: 'Neonatal CDH & PPHN Workstation',
+    description: 'Congenital Diaphragmatic Hernia & PPHN: Pre- vs post-ductal SpO2 gradient, CDH EURO Consortium gentle ventilation, permissive hypercapnia, iNO titration, and neonatal ECMO criteria.',
+    icon: <Baby className="w-7 h-7 text-teal-400 animate-pulse" />,
+    badge: 'Neonatology & PICU',
+    status: 'Available'
+  },
+  {
     id: 'toxic-gas-inhalation-antidote',
     title: 'Toxic Gas & Chemical Inhalation Workstation',
     description: 'Cellular asphyxiants (Cyanide vs H2S) & irritants (Chlorine vs Phosgene), Cytochrome c Oxidase inhibition, Hydroxocobalamin, Nitrite contraindication in smoke/CO, and latent ARDS.',
