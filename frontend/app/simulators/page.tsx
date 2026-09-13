@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'pheochromocytoma-alpha-blockade',
+    title: 'Pheochromocytoma & Paraganglioma (PPGL) Workstation',
+    description: 'The Alpha-Blocker First Rule, Roizen Preoperative Criteria, intraoperative catecholamine storm vs post-ligation vasoplegic collapse, plasma free metanephrines, and SDHB/VHL/RET genetics.',
+    icon: <Zap className="w-7 h-7 text-amber-400 animate-pulse" />,
+    badge: 'Endocrinology & Anesthesiology',
+    status: 'Available'
+  },
+  {
     id: 'aortic-dissection-anti-impulse',
     title: 'Acute Aortic Syndromes & Aortic Dissection Workstation',
     description: 'Stanford Type A vs B, Anti-Impulse Therapy (dP/dt: beta-blocker first rule [HR < 60] before vasodilators [SBP 100-120]), dynamic vs static malperfusion, tamponade pericardiocentesis dilemma, and TEVAR.',
