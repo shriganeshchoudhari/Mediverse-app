@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'post-op-tamponade-resternotomy',
+    title: 'Post-Op Cardiac Tamponade vs Restrictive Physiology',
+    description: 'Post-CPB localized posterior hematomas, TEE vs TTE acoustic shadowing, blunted pulsus paradoxus, diastolic pressure equalization (CVP ≈ PAD ≈ PCWP), and CALS emergency resternotomy.',
+    icon: <HeartPulse className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Cardiac Surgery & Critical Care',
+    status: 'Available'
+  },
+  {
     id: 'tension-pneumothorax-decompression',
     title: 'Tension Pneumothorax & Decompression Workstation',
     description: 'Obstructive shock hemodynamics, needle (2nd ICS MCL vs 5th ICS AAL) vs finger vs tube thoracostomy, 3-bottle chest drainage, and massive hemothorax autotransfusion.',
