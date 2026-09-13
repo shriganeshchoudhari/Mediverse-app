@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'aortic-dissection-anti-impulse',
+    title: 'Acute Aortic Syndromes & Aortic Dissection Workstation',
+    description: 'Stanford Type A vs B, Anti-Impulse Therapy (dP/dt: beta-blocker first rule [HR < 60] before vasodilators [SBP 100-120]), dynamic vs static malperfusion, tamponade pericardiocentesis dilemma, and TEVAR.',
+    icon: <ShieldAlert className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Vascular Surgery & Cardiology',
+    status: 'Available'
+  },
+  {
     id: 'hepatorenal-syndrome-terlipressin',
     title: 'Hepatorenal Syndrome (HRS-AKI), SBP & Terlipressin Workstation',
     description: 'ICA-AKI staging (1-3), 48h albumin challenge, splanchnic vasodilation, Terlipressin vs pressors, CONFIRM trial hypoxemic warning, LVP/PPCD albumin dosing, and SBP Sort protocol.',
