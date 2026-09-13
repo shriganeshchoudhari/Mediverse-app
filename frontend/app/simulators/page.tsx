@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill, Syringe, Database, Move3d, Users, Truck, HeartPulse, Layers, Filter, ShieldCheck } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill, Syringe, Database, Move3d, Users, Truck, HeartPulse, Layers, Filter, ShieldCheck, ClipboardList } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,6 +9,14 @@ export const metadata: Metadata = {
 };
 
 const SIMULATORS = [
+  {
+    id: 'bedside-flowsheet-early-warning',
+    title: 'Advanced Bedside Flowsheet, Fluid Balance & Early Warning Deterioration (NEWS2)',
+    description: 'Inpatient ICU and surgical ward flowsheet modeling 24-hour vital trends, Royal College of Physicians NEWS2 escalation pathways, cumulative fluid balance, and percent fluid overload (%FO).',
+    icon: <ClipboardList className="w-7 h-7 text-emerald-400 animate-pulse" />,
+    badge: 'Nursing & Critical Care',
+    status: 'Available'
+  },
   {
     id: 'smart-infusion-pump-ders',
     title: 'Smart Infusion Pump Guardrails & Dose Error Reduction System (DERS)',
