@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'anaphylaxis-epinephrine-shock',
+    title: 'Anaphylaxis & Refractory Vasoplegic Shock Workstation',
+    description: 'WAO/EAACI criteria, Vastus Lateralis IM Epinephrine absorption kinetics, continuous IV infusion titration, Glucagon in beta-blocker shock, Methylene Blue in vasoplegia, and Biphasic reaction scoring.',
+    icon: <Flame className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Allergy & Critical Care',
+    status: 'Available'
+  },
+  {
     id: 'hyperkalemia-membrane-stabilization',
     title: 'Severe Hyperkalemia & Membrane Stabilization Workstation',
     description: 'Nernst potential shift, fast sodium channel (Nav1.5) depolarization block, Calcium Gluconate vs Chloride stoichiometry, transcellular shifts (Insulin, Albuterol, Bicarbonate), and dialysis elimination.',
