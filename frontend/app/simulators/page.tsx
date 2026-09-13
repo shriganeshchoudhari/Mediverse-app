@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'ecmo-cannulation-harlequin',
+    title: 'ECMO Cannulation & Harlequin Syndrome Workstation',
+    description: 'VV vs VA vs VAV hybrid ECMO, Harlequin (North-South) dual circulation, right radial arterial line rule, ECPELLA LV unloading, and distal perfusion catheters.',
+    icon: <Heart className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Cardiothoracic & Critical Care',
+    status: 'Available'
+  },
+  {
     id: 'status-migrainosus-csf-leak',
     title: 'Status Migrainosus & Intracranial Hypotension Workstation',
     description: 'Monro-Kellie doctrine, CSF volume depletion, orthostatic headache mechanics, DHE-triptan 24h vasospasm contraindication, subdural hygroma burr hole hazard, and epidural blood patch.',
