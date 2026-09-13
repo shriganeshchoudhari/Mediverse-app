@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'methemoglobinemia-methylene-blue',
+    title: 'Methemoglobinemia & Sulfhemoglobinemia Workstation',
+    description: 'Pulse oximetry saturation gap (~85% plateau on 100% FiO2), multi-wavelength co-oximetry, Methylene Blue kinetics, G6PD hemolysis hazard, and exchange transfusion.',
+    icon: <Droplets className="w-7 h-7 text-cyan-400 animate-pulse" />,
+    badge: 'Toxicology & Hematology',
+    status: 'Available'
+  },
+  {
     id: 'cdh-pphn-neonatal',
     title: 'Neonatal CDH & PPHN Workstation',
     description: 'Congenital Diaphragmatic Hernia & PPHN: Pre- vs post-ductal SpO2 gradient, CDH EURO Consortium gentle ventilation, permissive hypercapnia, iNO titration, and neonatal ECMO criteria.',
