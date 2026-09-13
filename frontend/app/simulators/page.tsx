@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'organophosphate-atropine-oxime',
+    title: 'Organophosphate & Carbamate Toxicology Workstation',
+    description: 'Biophysical simulation of Acetylcholinesterase (AChE) aging kinetics, muscarinic Killer B\'s vs nicotinic collapse, Atropine doubling endpoints, Pralidoxime (2-PAM) reactivation, and Intermediate Syndrome (IMS).',
+    icon: <Skull className="w-7 h-7 text-emerald-400 animate-pulse" />,
+    badge: 'Toxicology & Critical Care',
+    status: 'Available'
+  },
+  {
     id: 'crrt-citrate-clearance',
     title: 'CRRT Kinetics & Regional Citrate Anticoagulation Workstation',
     description: 'Continuous renal replacement modalities (CVVH, CVVHD, CVVHDF, SCUF), convective vs diffusive solute clearance, filtration fraction, KDIGO effluent dosing, and citrate lock surveillance.',
