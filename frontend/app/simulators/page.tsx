@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'tension-pneumothorax-decompression',
+    title: 'Tension Pneumothorax & Decompression Workstation',
+    description: 'Obstructive shock hemodynamics, needle (2nd ICS MCL vs 5th ICS AAL) vs finger vs tube thoracostomy, 3-bottle chest drainage, and massive hemothorax autotransfusion.',
+    icon: <Wind className="w-7 h-7 text-amber-400 animate-pulse" />,
+    badge: 'Trauma & Critical Care',
+    status: 'Available'
+  },
+  {
     id: 'methemoglobinemia-methylene-blue',
     title: 'Methemoglobinemia & Sulfhemoglobinemia Workstation',
     description: 'Pulse oximetry saturation gap (~85% plateau on 100% FiO2), multi-wavelength co-oximetry, Methylene Blue kinetics, G6PD hemolysis hazard, and exchange transfusion.',
