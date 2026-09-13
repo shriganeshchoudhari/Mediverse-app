@@ -1224,6 +1224,14 @@ const SIMULATORS = [
     icon: <Stethoscope className="w-7 h-7 text-emerald-400 animate-pulse" />,
     badge: 'Voice AI & OSCE',
     status: 'Available'
+  },
+  {
+    id: 'high-spinal-anesthesia-total',
+    title: 'High Spinal & Total Spinal Workstation',
+    description: 'Anesthesiology & Obstetric Crises: Model cephalad local anesthetic spread, sympathetic cardioaccelerator denervation (T1–T4), Bezold-Jarisch reflex asystolic collapse, the Phenylephrine pressor trap, and emergent airway intubation.',
+    icon: <Layers className="w-7 h-7 text-cyan-400 animate-pulse" />,
+    badge: 'Anesthesiology & Resuscitation',
+    status: 'Available'
   }
 ];
 
