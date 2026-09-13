@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill, Syringe, Database, Move3d, Users, Truck, HeartPulse, Layers, Filter, ShieldCheck, ClipboardList } from 'lucide-react';
+import { Activity, Wind, Brain, Droplets, FlaskConical, Stethoscope, Gauge, Heart, Radio, Microscope, Baby, Flame, Dna, Zap, Compass, Cpu, Scissors, ShieldAlert, Eye, Ear, Skull, Thermometer, Pill, Syringe, Database, Move3d, Users, Truck, HeartPulse, Layers, Filter, ShieldCheck, ClipboardList, Scale } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,6 +9,14 @@ export const metadata: Metadata = {
 };
 
 const SIMULATORS = [
+  {
+    id: 'bayesian-diagnostic-reasoning',
+    title: 'Clinical Diagnostic Reasoning & Bayesian Likelihood Ratio (LR) Workstation',
+    description: 'Evidence-based diagnostic decision support modeling pre-test odds, multi-step Bayesian probability cascades, Fagan nomogram vector rays, 2x2 natural frequency matrices, and Pauker-Kassirer treatment thresholds.',
+    icon: <Scale className="w-7 h-7 text-indigo-400 animate-pulse" />,
+    badge: 'Evidence-Based Medicine',
+    status: 'Available'
+  },
   {
     id: 'bedside-flowsheet-early-warning',
     title: 'Advanced Bedside Flowsheet, Fluid Balance & Early Warning Deterioration (NEWS2)',
