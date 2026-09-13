@@ -203,7 +203,7 @@ export default function PediatricResuscitationSimulator() {
                   {ageMonths < 12 ? `${ageMonths} months` : `${(ageMonths / 12).toFixed(1)} years`}
                 </span>
               </div>
-              <input
+              <input aria-label="Patient Age"
                 type="range"
                 min="0"
                 max="144"
@@ -235,7 +235,7 @@ export default function PediatricResuscitationSimulator() {
                   {isManualWeight ? 'Use Estimated' : 'Manual Override'}
                 </button>
               </div>
-              <input
+              <input aria-label="Effective Weight Kg"
                 type="range"
                 min="2.5"
                 max="50.0"

@@ -530,7 +530,7 @@ export default function NerveMuscleSimulator() {
                           <span className="text-slate-400">[K+] Inside</span>
                           <span className="text-white font-bold">{kInside} mM</span>
                         </div>
-                        <input
+                        <input aria-label="[K+] Inside"
                           type="range"
                           min="50"
                           max="200"
@@ -546,7 +546,7 @@ export default function NerveMuscleSimulator() {
                           <span className="text-slate-400">[K+] Outside</span>
                           <span className="text-sky-300 font-bold">{kOutside} mM</span>
                         </div>
-                        <input
+                        <input aria-label="[K+] Outside"
                           type="range"
                           min="1.0"
                           max="12.0"
@@ -562,7 +562,7 @@ export default function NerveMuscleSimulator() {
                           <span className="text-slate-400">P_K (Relative)</span>
                           <span className="text-white font-bold">{kPerm.toFixed(2)}</span>
                         </div>
-                        <input
+                        <input aria-label="P_K (Relative)"
                           type="range"
                           min="0.1"
                           max="2.0"
@@ -588,7 +588,7 @@ export default function NerveMuscleSimulator() {
                           <span className="text-slate-400">[Na+] Inside</span>
                           <span className="text-white font-bold">{naInside} mM</span>
                         </div>
-                        <input
+                        <input aria-label="[Na+] Inside"
                           type="range"
                           min="2"
                           max="40"
@@ -604,7 +604,7 @@ export default function NerveMuscleSimulator() {
                           <span className="text-slate-400">[Na+] Outside</span>
                           <span className="text-rose-300 font-bold">{naOutside} mM</span>
                         </div>
-                        <input
+                        <input aria-label="[Na+] Outside"
                           type="range"
                           min="80"
                           max="180"
@@ -620,7 +620,7 @@ export default function NerveMuscleSimulator() {
                           <span className="text-slate-400">P_Na (Relative)</span>
                           <span className="text-white font-bold">{naPerm.toFixed(2)}</span>
                         </div>
-                        <input
+                        <input aria-label="P_Na (Relative)"
                           type="range"
                           min="0.01"
                           max="25.0"
@@ -646,7 +646,7 @@ export default function NerveMuscleSimulator() {
                           <span className="text-slate-400">[Cl-] Inside</span>
                           <span className="text-white font-bold">{clInside} mM</span>
                         </div>
-                        <input
+                        <input aria-label="[Cl-] Inside"
                           type="range"
                           min="1"
                           max="20"
@@ -662,7 +662,7 @@ export default function NerveMuscleSimulator() {
                           <span className="text-slate-400">[Cl-] Outside</span>
                           <span className="text-emerald-300 font-bold">{clOutside} mM</span>
                         </div>
-                        <input
+                        <input aria-label="[Cl-] Outside"
                           type="range"
                           min="80"
                           max="150"
@@ -678,7 +678,7 @@ export default function NerveMuscleSimulator() {
                           <span className="text-slate-400">P_Cl (Relative)</span>
                           <span className="text-white font-bold">{clPerm.toFixed(2)}</span>
                         </div>
-                        <input
+                        <input aria-label="P_Cl (Relative)"
                           type="range"
                           min="0.05"
                           max="1.0"
@@ -854,7 +854,7 @@ export default function NerveMuscleSimulator() {
                           {voltage.toFixed(1)} V
                         </span>
                       </div>
-                      <input
+                      <input aria-label="Voltage (V)"
                         type="range"
                         min="0.0"
                         max="10.0"
@@ -877,7 +877,7 @@ export default function NerveMuscleSimulator() {
                           {frequency} Hz
                         </span>
                       </div>
-                      <input
+                      <input aria-label="Frequency (Hz)"
                         type="range"
                         min="1"
                         max="100"

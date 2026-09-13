@@ -6,8 +6,19 @@ import OrganophosphateToxSimulator from '../../../components/simulators/Organoph
 
 export const metadata: Metadata = {
   title: 'Organophosphate & Carbamate Poisoning, Atropine Titration & Oximes | Mediverse Simulators',
-  description:
-    'Biophysical toxicology simulation of Acetylcholinesterase (AChE) aging kinetics, muscarinic Killer B\'s vs nicotinic motor collapse, Atropine doubling resuscitation endpoints, Pralidoxime (2-PAM) nucleophilic reactivation, and Intermediate Syndrome (IMS).',
+  description: 'Biophysical toxicology simulation of Acetylcholinesterase (AChE) aging kinetics, muscarinic Killer B\'s vs nicotinic motor collapse, Atropine doubling resuscitation endpoints, Pralidoxime (2-PAM) nucleophilic reactivation, and Intermediate Syndrome (IMS).',
+  openGraph: {
+    title: 'Organophosphate & Carbamate Poisoning, Atropine Titration & Oximes | Mediverse Simulators',
+    description: 'Biophysical toxicology simulation of Acetylcholinesterase (AChE) aging kinetics, muscarinic Killer B\'s vs nicotinic motor collapse, Atropine doubling resuscitation endpoints, Pralidoxime (2-PAM) nucleophilic reactivation, and Intermediate Syndrome (IMS).',
+    url: 'https://mediverse.app/simulators/organophosphate-atropine-oxime',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Organophosphate & Carbamate Poisoning, Atropine Titration & Oximes | Mediverse Simulators',
+    description: 'Biophysical toxicology simulation of Acetylcholinesterase (AChE) aging kinetics, muscarinic Killer B\'s vs nicotinic motor collapse, Atropine doubling resuscitation endpoints, Pralidoxime (2-PAM) nucleophilic reactivation, and Intermediate Syndrome (IMS).',
+  },
 };
 
 

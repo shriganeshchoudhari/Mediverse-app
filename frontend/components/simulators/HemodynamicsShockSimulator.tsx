@@ -261,7 +261,7 @@ export default function HemodynamicsShockSimulator() {
                 <span className="text-slate-300">Cardiac Output (CO)</span>
                 <span className="font-mono text-emerald-400 font-bold">{co.toFixed(1)} L/min</span>
               </div>
-              <input
+              <input aria-label="Cardiac Output (CO)"
                 type="range"
                 min="1.0"
                 max="10.0"
@@ -279,7 +279,7 @@ export default function HemodynamicsShockSimulator() {
                 <span className="text-slate-300">Systemic Vascular Resistance (SVR)</span>
                 <span className="font-mono text-blue-400 font-bold">{svr} dyn·s/cm⁵</span>
               </div>
-              <input
+              <input aria-label="Systemic Vascular Resistance (SVR)"
                 type="range"
                 min="300"
                 max="2800"
@@ -297,7 +297,7 @@ export default function HemodynamicsShockSimulator() {
                 <span className="text-slate-300">Pulmonary Capillary Wedge (PCWP)</span>
                 <span className="font-mono text-purple-400 font-bold">{pcwp} mmHg</span>
               </div>
-              <input
+              <input aria-label="Pulmonary Capillary Wedge (PCWP)"
                 type="range"
                 min="2"
                 max="32"
@@ -315,7 +315,7 @@ export default function HemodynamicsShockSimulator() {
                 <span className="text-slate-300">Central Venous Pressure (CVP)</span>
                 <span className="font-mono text-cyan-400 font-bold">{cvp} mmHg</span>
               </div>
-              <input
+              <input aria-label="Central Venous Pressure (CVP)"
                 type="range"
                 min="0"
                 max="22"
@@ -333,7 +333,7 @@ export default function HemodynamicsShockSimulator() {
                 <span className="text-slate-300">Mixed Venous Saturation (SvO₂)</span>
                 <span className="font-mono text-rose-400 font-bold">{svo2}%</span>
               </div>
-              <input
+              <input aria-label="Mixed Venous Saturation (SvO₂)"
                 type="range"
                 min="30"
                 max="88"

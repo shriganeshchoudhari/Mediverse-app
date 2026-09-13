@@ -15,6 +15,18 @@ import PharmacogenomicsSimulator from '@/components/simulators/PharmacogenomicsS
 export const metadata: Metadata = {
   title: 'Clinical Pharmacogenomics (PGx) & Precision Therapeutics Workstation | Mediverse',
   description: 'CPIC Level 1A gene-drug interaction clinical decision support (CDS), star allele diplotype calling, IWPC precision warfarin algorithm, and 14-day INR kinetics.',
+  openGraph: {
+    title: 'Clinical Pharmacogenomics (PGx) & Precision Therapeutics Workstation | Mediverse',
+    description: 'CPIC Level 1A gene-drug interaction clinical decision support (CDS), star allele diplotype calling, IWPC precision warfarin algorithm, and 14-day INR kinetics.',
+    url: 'https://mediverse.app/simulators/pharmacogenomics',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Clinical Pharmacogenomics (PGx) & Precision Therapeutics Workstation | Mediverse',
+    description: 'CPIC Level 1A gene-drug interaction clinical decision support (CDS), star allele diplotype calling, IWPC precision warfarin algorithm, and 14-day INR kinetics.',
+  },
 };
 
 

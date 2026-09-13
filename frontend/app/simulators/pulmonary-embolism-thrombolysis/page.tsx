@@ -4,8 +4,19 @@ import PulmonaryEmbolismSimulator from '@/components/simulators/PulmonaryEmbolis
 
 export const metadata: Metadata = {
   title: 'Pulmonary Embolism Severity, RV Strain & Thrombolysis (CDT) Workstation | Mediverse',
-  description:
-    'Interventional Cardiology & Critical Care clinical workstation: ESC/AHA risk stratification, sPESI prognostic scoring, echocardiographic RV strain, systemic Alteplase, and EKOS catheter-directed thrombolysis.',
+  description: 'Interventional Cardiology & Critical Care clinical workstation: ESC/AHA risk stratification, sPESI prognostic scoring, echocardiographic RV strain, systemic Alteplase, and EKOS catheter-directed thrombolysis.',
+  openGraph: {
+    title: 'Pulmonary Embolism Severity, RV Strain & Thrombolysis (CDT) Workstation | Mediverse',
+    description: 'Interventional Cardiology & Critical Care clinical workstation: ESC/AHA risk stratification, sPESI prognostic scoring, echocardiographic RV strain, systemic Alteplase, and EKOS catheter-directed thrombolysis.',
+    url: 'https://mediverse.app/simulators/pulmonary-embolism-thrombolysis',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pulmonary Embolism Severity, RV Strain & Thrombolysis (CDT) Workstation | Mediverse',
+    description: 'Interventional Cardiology & Critical Care clinical workstation: ESC/AHA risk stratification, sPESI prognostic scoring, echocardiographic RV strain, systemic Alteplase, and EKOS catheter-directed thrombolysis.',
+  },
 };
 
 

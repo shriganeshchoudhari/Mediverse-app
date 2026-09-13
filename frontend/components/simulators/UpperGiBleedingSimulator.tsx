@@ -273,7 +273,7 @@ return (
             <div className="grid grid-cols-2 gap-2">
               <div>
                 <label className="text-slate-400">Age: {ageYears} yr</label>
-                <input
+                <input aria-label="Age: {ageYears} yr"
                   type="range"
                   min="18"
                   max="95"
@@ -304,7 +304,7 @@ return (
             <div className="grid grid-cols-2 gap-2">
               <div>
                 <label className="text-slate-400">Systolic BP: {systolicBp} mmHg</label>
-                <input
+                <input aria-label="Systolic BP: {systolicBp} mmHg"
                   type="range"
                   min="50"
                   max="170"
@@ -315,7 +315,7 @@ return (
               </div>
               <div>
                 <label className="text-slate-400">Heart Rate: {heartRate} bpm</label>
-                <input
+                <input aria-label="Heart Rate: {heartRate} bpm"
                   type="range"
                   min="45"
                   max="160"
@@ -329,7 +329,7 @@ return (
             <div className="grid grid-cols-2 gap-2">
               <div>
                 <label className="text-slate-400">BUN: {bun} mg/dL</label>
-                <input
+                <input aria-label="BUN: {bun} mg/dL"
                   type="range"
                   min="5"
                   max="90"
@@ -341,7 +341,7 @@ return (
               </div>
               <div>
                 <label className="text-slate-400">Hemoglobin: {hemoglobin} g/dL</label>
-                <input
+                <input aria-label="Hemoglobin: {hemoglobin} g/dL"
                   type="range"
                   min="4.0"
                   max="17.0"
@@ -652,7 +652,7 @@ return (
                 <div className="p-2.5 bg-rose-950/40 border border-rose-800/60 rounded-lg space-y-2 text-[11px]">
                   <div>
                     <label className="text-slate-300">Gastric Balloon Vol: {gastricBalloonVolume} mL (Target 250-300)</label>
-                    <input
+                    <input aria-label="Gastric Balloon Volume"
                       type="range"
                       min="100"
                       max="400"
@@ -663,7 +663,7 @@ return (
                   </div>
                   <div>
                     <label className="text-slate-300">Esophageal Balloon: {esophagealBalloonPressure} mmHg (Safe 30-45)</label>
-                    <input
+                    <input aria-label="Esophageal Balloon Pressure"
                       type="range"
                       min="15"
                       max="65"

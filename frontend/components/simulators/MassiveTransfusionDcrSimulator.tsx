@@ -314,7 +314,7 @@ export default function MassiveTransfusionDcrSimulator() {
                     <span className="text-slate-400">Systolic BP:</span>
                     <span className="font-mono text-rose-400 font-bold">{vitals.systolicBpMmHg} mmHg</span>
                   </div>
-                  <input
+                  <input aria-label="Systolic BP"
                     type="range"
                     min="50"
                     max="140"
@@ -336,7 +336,7 @@ export default function MassiveTransfusionDcrSimulator() {
                     <span className="text-slate-400">Heart Rate:</span>
                     <span className="font-mono text-rose-400 font-bold">{vitals.heartRateBpm} bpm</span>
                   </div>
-                  <input
+                  <input aria-label="Heart Rate"
                     type="range"
                     min="60"
                     max="160"
@@ -357,7 +357,7 @@ export default function MassiveTransfusionDcrSimulator() {
                       {vitals.temperatureCelsius.toFixed(1)} &deg;C
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Temperature Celsius"
                     type="range"
                     min="31.0"
                     max="37.5"
@@ -376,7 +376,7 @@ export default function MassiveTransfusionDcrSimulator() {
                       pH {vitals.arterialPh.toFixed(2)} (BD -{vitals.baseDeficitMeqL})
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Arterial Ph"
                     type="range"
                     min="6.90"
                     max="7.45"
@@ -395,7 +395,7 @@ export default function MassiveTransfusionDcrSimulator() {
                       {vitals.serumFibrinogenMgDl} mg/dL
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Serum Fibrinogen"
                     type="range"
                     min="50"
                     max="350"
@@ -481,7 +481,7 @@ export default function MassiveTransfusionDcrSimulator() {
                     <span className="text-slate-400">Packed Red Blood Cells (pRBC):</span>
                     <span className="font-mono text-rose-400 font-bold">{fluids.prbcUnits} Units</span>
                   </div>
-                  <input
+                  <input aria-label="Packed Red Blood Cells (pRBC)"
                     type="range"
                     min="0"
                     max="18"
@@ -498,7 +498,7 @@ export default function MassiveTransfusionDcrSimulator() {
                     <span className="text-slate-400">Fresh Frozen Plasma (FFP):</span>
                     <span className="font-mono text-amber-400 font-bold">{fluids.ffpUnits} Units</span>
                   </div>
-                  <input
+                  <input aria-label="Fresh Frozen Plasma (FFP)"
                     type="range"
                     min="0"
                     max="18"
@@ -515,7 +515,7 @@ export default function MassiveTransfusionDcrSimulator() {
                     <span className="text-slate-400">Apheresis Platelets (1 = ~6 pooled):</span>
                     <span className="font-mono text-emerald-400 font-bold">{fluids.plateletPheresisUnits} Pack</span>
                   </div>
-                  <input
+                  <input aria-label="Apheresis Platelets (1 = ~6 pooled)"
                     type="range"
                     min="0"
                     max="3"
@@ -534,7 +534,7 @@ export default function MassiveTransfusionDcrSimulator() {
                       {fluids.crystalloidNormalSalineLiters.toFixed(1)} Liters
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Crystalloid Normal Saline Liters"
                     type="range"
                     min="0"
                     max="5.0"
@@ -672,7 +672,7 @@ export default function MassiveTransfusionDcrSimulator() {
                     <span className="text-slate-400">R-Time (Factor activity):</span>
                     <span className="font-mono text-rose-400 font-bold">{visco.rTimeMinutes} min</span>
                   </div>
-                  <input
+                  <input aria-label="R-Time (Factor activity)"
                     type="range"
                     min="3.0"
                     max="20.0"
@@ -692,7 +692,7 @@ export default function MassiveTransfusionDcrSimulator() {
                     <span className="text-slate-400">Alpha Angle (Fibrinogen):</span>
                     <span className="font-mono text-rose-400 font-bold">{visco.alphaAngleDegrees}&deg;</span>
                   </div>
-                  <input
+                  <input aria-label="Alpha Angle (Fibrinogen)"
                     type="range"
                     min="30"
                     max="78"
@@ -712,7 +712,7 @@ export default function MassiveTransfusionDcrSimulator() {
                     <span className="text-slate-400">Maximum Amplitude (Platelets):</span>
                     <span className="font-mono text-rose-400 font-bold">{visco.maximumAmplitudeMm} mm</span>
                   </div>
-                  <input
+                  <input aria-label="Maximum Amplitude (Platelets)"
                     type="range"
                     min="25"
                     max="75"
@@ -732,7 +732,7 @@ export default function MassiveTransfusionDcrSimulator() {
                     <span className="text-slate-400">LY30 (Fibrinolysis):</span>
                     <span className="font-mono text-rose-400 font-bold">{visco.ly30Percent}%</span>
                   </div>
-                  <input
+                  <input aria-label="LY30 (Fibrinolysis)"
                     type="range"
                     min="0"
                     max="20"

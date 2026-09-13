@@ -193,7 +193,7 @@ export default function SalicylateToxicitySimulator() {
                     {salicylateLevel} mg/dL ({(salicylateLevel * 0.0724).toFixed(1)} mmol/L)
                   </strong>
                 </div>
-                <input
+                <input aria-label="Salicylate Level"
                   type="range"
                   min="10"
                   max="140"
@@ -215,7 +215,7 @@ export default function SalicylateToxicitySimulator() {
                   <span className="text-slate-400">Arterial PaCO2 (Ventilatory Drive):</span>
                   <strong className="text-sky-400 font-mono font-bold">{pco2} mmHg</strong>
                 </div>
-                <input
+                <input aria-label="Arterial PaCO2 (Ventilatory Drive)"
                   type="range"
                   min="12"
                   max="50"
@@ -235,7 +235,7 @@ export default function SalicylateToxicitySimulator() {
                   <span className="text-slate-400">Serum Bicarbonate (HCO3-):</span>
                   <strong className="text-amber-400 font-mono font-bold">{hco3} mEq/L</strong>
                 </div>
-                <input
+                <input aria-label="Serum Bicarbonate (HCO3-)"
                   type="range"
                   min="6"
                   max="30"
@@ -325,7 +325,7 @@ export default function SalicylateToxicitySimulator() {
                     pH {urinePh.toFixed(1)}
                   </strong>
                 </div>
-                <input
+                <input aria-label="Urine Ph"
                   type="range"
                   min="5.0"
                   max="8.5"
@@ -353,7 +353,7 @@ export default function SalicylateToxicitySimulator() {
                     {potassium} mEq/L
                   </strong>
                 </div>
-                <input
+                <input aria-label="Potassium"
                   type="range"
                   min="2.5"
                   max="5.5"

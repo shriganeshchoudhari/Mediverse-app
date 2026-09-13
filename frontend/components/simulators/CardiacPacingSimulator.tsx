@@ -422,7 +422,7 @@ Active Warnings: ${pacingResult.warnings.join('; ') || 'None'}`;
               <span>Pacing Rate</span>
               <span className="font-mono text-amber-400 font-bold">{rateBpm} ppm (bpm)</span>
             </div>
-            <input
+            <input aria-label="Pacing Rate"
               type="range"
               min={30}
               max={150}
@@ -444,7 +444,7 @@ Active Warnings: ${pacingResult.warnings.join('; ') || 'None'}`;
               <span className="font-semibold text-amber-300">Ventricular Output</span>
               <span className="font-mono text-amber-400 font-bold">{ventricularOutputMa.toFixed(1)} mA</span>
             </div>
-            <input
+            <input aria-label="Ventricular Output"
               type="range"
               min={0.1}
               max={20.0}
@@ -471,7 +471,7 @@ Active Warnings: ${pacingResult.warnings.join('; ') || 'None'}`;
               <span className="font-semibold text-sky-300">Ventricular Sensitivity</span>
               <span className="font-mono text-sky-400 font-bold">{ventricularSensitivityMv.toFixed(1)} mV</span>
             </div>
-            <input
+            <input aria-label="Ventricular Sensitivity"
               type="range"
               min={0.5}
               max={20.0}
@@ -499,7 +499,7 @@ Active Warnings: ${pacingResult.warnings.join('; ') || 'None'}`;
                     <span>Atrial Output</span>
                     <span className="font-mono text-purple-400">{atrialOutputMa.toFixed(1)} mA</span>
                   </div>
-                  <input
+                  <input aria-label="Atrial Output"
                     type="range"
                     min={0.1}
                     max={15.0}
@@ -514,7 +514,7 @@ Active Warnings: ${pacingResult.warnings.join('; ') || 'None'}`;
                     <span>AV Delay</span>
                     <span className="font-mono text-purple-400">{avDelayMs} ms</span>
                   </div>
-                  <input
+                  <input aria-label="AV Delay"
                     type="range"
                     min={60}
                     max={280}

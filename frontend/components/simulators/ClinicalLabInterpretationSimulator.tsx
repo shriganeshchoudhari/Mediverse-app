@@ -407,7 +407,7 @@ export default function ClinicalLabInterpretationSimulator() {
                   <span className="font-semibold text-slate-200">Arterial pH</span>
                   <span className="font-mono font-bold text-emerald-400">{abgParams.pH.toFixed(2)}</span>
                 </div>
-                <input
+                <input aria-label="Arterial pH"
                   type="range"
                   min="6.80"
                   max="7.80"
@@ -429,7 +429,7 @@ export default function ClinicalLabInterpretationSimulator() {
                   <span className="font-semibold text-slate-200">PaCO2 (mmHg)</span>
                   <span className="font-mono font-bold text-emerald-400">{abgParams.paCO2} mmHg</span>
                 </div>
-                <input
+                <input aria-label="PaCO2 (mmHg)"
                   type="range"
                   min="10"
                   max="100"
@@ -451,7 +451,7 @@ export default function ClinicalLabInterpretationSimulator() {
                   <span className="font-semibold text-slate-200">Serum HCO3- (mEq/L)</span>
                   <span className="font-mono font-bold text-emerald-400">{abgParams.hco3} mEq/L</span>
                 </div>
-                <input
+                <input aria-label="Serum HCO3- (mEq/L)"
                   type="range"
                   min="2"
                   max="55"
@@ -506,7 +506,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">PaO2</span>
                     <span className="font-mono text-emerald-400">{abgParams.paO2} mmHg</span>
                   </div>
-                  <input
+                  <input aria-label="PaO2"
                     type="range"
                     min="30"
                     max="300"
@@ -521,7 +521,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">FiO2</span>
                     <span className="font-mono text-emerald-400">{Math.round((abgParams.fiO2 ?? 0.21) * 100)}%</span>
                   </div>
-                  <input
+                  <input aria-label="FiO2"
                     type="range"
                     min="0.21"
                     max="1.00"
@@ -535,7 +535,7 @@ export default function ClinicalLabInterpretationSimulator() {
 
               <div className="text-[11px] text-slate-400 flex items-center justify-between pt-1">
                 <span>Patient Age: {abgParams.patientAge} yrs</span>
-                <input
+                <input aria-label="Patient Age: {abgParams.patientAge} yrs"
                   type="range"
                   min="18"
                   max="90"
@@ -578,7 +578,7 @@ export default function ClinicalLabInterpretationSimulator() {
                   <span className="font-semibold text-slate-200">Hemoglobin (Hb)</span>
                   <span className="font-mono font-bold text-emerald-400">{cbcParams.hemoglobin.toFixed(1)} g/dL</span>
                 </div>
-                <input
+                <input aria-label="Hemoglobin (Hb)"
                   type="range"
                   min="3.0"
                   max="20.0"
@@ -601,7 +601,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">Hematocrit (%)</span>
                     <span className="font-mono text-emerald-400">{cbcParams.hematocrit}%</span>
                   </div>
-                  <input
+                  <input aria-label="Hematocrit (%)"
                     type="range"
                     min="12"
                     max="60"
@@ -616,7 +616,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">RBC (x10^6)</span>
                     <span className="font-mono text-emerald-400">{cbcParams.rbc.toFixed(1)}</span>
                   </div>
-                  <input
+                  <input aria-label="RBC (x10^6)"
                     type="range"
                     min="1.0"
                     max="8.0"
@@ -635,7 +635,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">MCV (fL)</span>
                     <span className="font-mono text-emerald-400">{cbcParams.mcv} fL</span>
                   </div>
-                  <input
+                  <input aria-label="MCV (fL)"
                     type="range"
                     min="50"
                     max="130"
@@ -655,7 +655,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">RDW (%)</span>
                     <span className="font-mono text-emerald-400">{cbcParams.rdw.toFixed(1)}%</span>
                   </div>
-                  <input
+                  <input aria-label="RDW (%)"
                     type="range"
                     min="10.0"
                     max="26.0"
@@ -677,7 +677,7 @@ export default function ClinicalLabInterpretationSimulator() {
                   <span className="text-slate-300">Reticulocyte Count (%)</span>
                   <span className="font-mono text-emerald-400">{cbcParams.reticulocytePercent?.toFixed(1) ?? '1.0'}%</span>
                 </div>
-                <input
+                <input aria-label="Reticulocyte Count (%)"
                   type="range"
                   min="0.1"
                   max="20.0"
@@ -695,7 +695,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">WBC (x10^3)</span>
                     <span className="font-mono text-emerald-400">{cbcParams.wbc.toFixed(1)}</span>
                   </div>
-                  <input
+                  <input aria-label="WBC (x10^3)"
                     type="range"
                     min="0.5"
                     max="35.0"
@@ -710,7 +710,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">Platelets (x10^3)</span>
                     <span className="font-mono text-emerald-400">{cbcParams.platelets}</span>
                   </div>
-                  <input
+                  <input aria-label="Platelets (x10^3)"
                     type="range"
                     min="10"
                     max="800"
@@ -733,7 +733,7 @@ export default function ClinicalLabInterpretationSimulator() {
                   <span className="font-semibold text-slate-200">Serum Glucose (mg/dL)</span>
                   <span className="font-mono font-bold text-emerald-400">{cmpParams.glucose} mg/dL</span>
                 </div>
-                <input
+                <input aria-label="Serum Glucose (mg/dL)"
                   type="range"
                   min="40"
                   max="800"
@@ -756,7 +756,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">Sodium (mEq/L)</span>
                     <span className="font-mono text-emerald-400">{cmpParams.sodium}</span>
                   </div>
-                  <input
+                  <input aria-label="Sodium (mEq/L)"
                     type="range"
                     min="115"
                     max="165"
@@ -771,7 +771,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">Potassium (mEq/L)</span>
                     <span className="font-mono text-emerald-400">{cmpParams.potassium.toFixed(1)}</span>
                   </div>
-                  <input
+                  <input aria-label="Potassium (mEq/L)"
                     type="range"
                     min="1.5"
                     max="8.0"
@@ -790,7 +790,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">BUN (mg/dL)</span>
                     <span className="font-mono text-emerald-400">{cmpParams.bun}</span>
                   </div>
-                  <input
+                  <input aria-label="BUN (mg/dL)"
                     type="range"
                     min="5"
                     max="100"
@@ -805,7 +805,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">Creatinine (mg/dL)</span>
                     <span className="font-mono text-emerald-400">{cmpParams.creatinine.toFixed(1)}</span>
                   </div>
-                  <input
+                  <input aria-label="Creatinine (mg/dL)"
                     type="range"
                     min="0.4"
                     max="12.0"
@@ -824,7 +824,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">Total Calcium</span>
                     <span className="font-mono text-emerald-400">{cmpParams.calcium.toFixed(1)}</span>
                   </div>
-                  <input
+                  <input aria-label="Total Calcium"
                     type="range"
                     min="5.0"
                     max="15.0"
@@ -839,7 +839,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">Albumin (g/dL)</span>
                     <span className="font-mono text-emerald-400">{cmpParams.albumin.toFixed(1)}</span>
                   </div>
-                  <input
+                  <input aria-label="Albumin (g/dL)"
                     type="range"
                     min="1.0"
                     max="5.5"
@@ -857,7 +857,7 @@ export default function ClinicalLabInterpretationSimulator() {
                   <span className="text-slate-300">Measured Serum Osmolality</span>
                   <span className="font-mono text-emerald-400">{cmpParams.measuredOsmolality ?? 'None'} mOsm/kg</span>
                 </div>
-                <input
+                <input aria-label="Measured Serum Osmolality"
                   type="range"
                   min="260"
                   max="380"
@@ -880,7 +880,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">PT (sec) / INR</span>
                     <span className="font-mono text-emerald-400">{coagParams.pt.toFixed(1)}s ({coagParams.inr.toFixed(2)})</span>
                   </div>
-                  <input
+                  <input aria-label="PT (sec) / INR"
                     type="range"
                     min="10.0"
                     max="35.0"
@@ -899,7 +899,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">aPTT (sec)</span>
                     <span className="font-mono text-emerald-400">{coagParams.aptt.toFixed(1)}s</span>
                   </div>
-                  <input
+                  <input aria-label="aPTT (sec)"
                     type="range"
                     min="20.0"
                     max="100.0"
@@ -919,7 +919,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     {coagParams.mixingStudyAptt ? `${coagParams.mixingStudyAptt.toFixed(1)}s` : 'Not Done'}
                   </span>
                 </div>
-                <input
+                <input aria-label="1:1 Mixing Study aPTT"
                   type="range"
                   min="24.0"
                   max="80.0"
@@ -951,7 +951,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">Fibrinogen</span>
                     <span className="font-mono text-emerald-400">{coagParams.fibrinogen}</span>
                   </div>
-                  <input
+                  <input aria-label="Fibrinogen"
                     type="range"
                     min="50"
                     max="600"
@@ -966,7 +966,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">D-Dimer</span>
                     <span className="font-mono text-emerald-400">{coagParams.dDimer}</span>
                   </div>
-                  <input
+                  <input aria-label="D-Dimer"
                     type="range"
                     min="100"
                     max="4000"
@@ -985,7 +985,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">AST (U/L)</span>
                     <span className="font-mono text-emerald-400">{coagParams.ast}</span>
                   </div>
-                  <input
+                  <input aria-label="AST (U/L)"
                     type="range"
                     min="10"
                     max="600"
@@ -1000,7 +1000,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">ALT (U/L)</span>
                     <span className="font-mono text-emerald-400">{coagParams.alt}</span>
                   </div>
-                  <input
+                  <input aria-label="ALT (U/L)"
                     type="range"
                     min="10"
                     max="600"
@@ -1019,7 +1019,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">ALP (U/L)</span>
                     <span className="font-mono text-emerald-400">{coagParams.alp}</span>
                   </div>
-                  <input
+                  <input aria-label="ALP (U/L)"
                     type="range"
                     min="20"
                     max="500"
@@ -1034,7 +1034,7 @@ export default function ClinicalLabInterpretationSimulator() {
                     <span className="text-slate-300">GGT (U/L)</span>
                     <span className="font-mono text-emerald-400">{coagParams.ggt}</span>
                   </div>
-                  <input
+                  <input aria-label="GGT (U/L)"
                     type="range"
                     min="5"
                     max="400"

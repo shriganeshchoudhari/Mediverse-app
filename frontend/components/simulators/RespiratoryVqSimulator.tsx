@@ -80,7 +80,7 @@ export default function RespiratoryVqSimulator() {
                     <span>Fraction Inspired O₂ (FiO₂)</span>
                     <span className="font-mono text-cyan-400">{(fiO2 * 100).toFixed(0)}%</span>
                   </div>
-                  <input
+                  <input aria-label="Fraction Inspired O₂ (FiO₂)"
                     type="range"
                     min="0.21"
                     max="1.0"
@@ -101,7 +101,7 @@ export default function RespiratoryVqSimulator() {
                     <span>Arterial PCO₂ (PaCO₂)</span>
                     <span className="font-mono text-cyan-400">{paCO2} mmHg</span>
                   </div>
-                  <input
+                  <input aria-label="Arterial PCO₂ (PaCO₂)"
                     type="range"
                     min="15"
                     max="80"
@@ -122,7 +122,7 @@ export default function RespiratoryVqSimulator() {
                     <span>Barometric Pressure (P_b)</span>
                     <span className="font-mono text-cyan-400">{barometricPressure} mmHg</span>
                   </div>
-                  <input
+                  <input aria-label="Barometric Pressure (P_b)"
                     type="range"
                     min="250"
                     max="760"
@@ -143,7 +143,7 @@ export default function RespiratoryVqSimulator() {
                     <label className="text-[11px] text-slate-400 font-medium block mb-1">
                       Tidal Volume: {tidalVolume} mL
                     </label>
-                    <input
+                    <input aria-label="Tidal Volume"
                       type="range"
                       min="200"
                       max="800"
@@ -157,7 +157,7 @@ export default function RespiratoryVqSimulator() {
                     <label className="text-[11px] text-slate-400 font-medium block mb-1">
                       Resp Rate: {respiratoryRate} /min
                     </label>
-                    <input
+                    <input aria-label="Respiratory Rate"
                       type="range"
                       min="6"
                       max="35"

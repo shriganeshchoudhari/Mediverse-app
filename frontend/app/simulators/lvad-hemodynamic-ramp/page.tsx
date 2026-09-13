@@ -3,8 +3,19 @@ import LvadHemodynamicRampSimulator from '../../../components/simulators/LvadHem
 
 export const metadata: Metadata = {
   title: 'LVAD & RAMP Protocol Workstation | Mediverse',
-  description:
-    'Simulate HeartMate 3 Left Ventricular Assist Device (LVAD) speed optimization, echocardiographic RAMP test protocol, apical suction event recovery, and post-implant RV failure hemodynamics.',
+  description: 'Simulate HeartMate 3 Left Ventricular Assist Device (LVAD) speed optimization, echocardiographic RAMP test protocol, apical suction event recovery, and post-implant RV failure hemodynamics.',
+  openGraph: {
+    title: 'LVAD & RAMP Protocol Workstation | Mediverse',
+    description: 'Simulate HeartMate 3 Left Ventricular Assist Device (LVAD) speed optimization, echocardiographic RAMP test protocol, apical suction event recovery, and post-implant RV failure hemodynamics.',
+    url: 'https://mediverse.app/simulators/lvad-hemodynamic-ramp',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'LVAD & RAMP Protocol Workstation | Mediverse',
+    description: 'Simulate HeartMate 3 Left Ventricular Assist Device (LVAD) speed optimization, echocardiographic RAMP test protocol, apical suction event recovery, and post-implant RV failure hemodynamics.',
+  },
 };
 
 

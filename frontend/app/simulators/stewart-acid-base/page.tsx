@@ -5,6 +5,18 @@ import StewartAcidBaseSimulator from '@/components/simulators/StewartAcidBaseSim
 export const metadata: Metadata = {
   title: 'Stewart Physico-Chemical Acid-Base & SID | Mediverse',
   description: 'Nephrology & ICU acid-base simulator: Peter Stewart physico-chemical approach, Strong Ion Difference (SID), Total Weak Acids (Atot), Strong Ion Gap (SIG), and dilutional normal saline hyperchloremic acidosis.',
+  openGraph: {
+    title: 'Stewart Physico-Chemical Acid-Base & SID | Mediverse',
+    description: 'Nephrology & ICU acid-base simulator: Peter Stewart physico-chemical approach, Strong Ion Difference (SID), Total Weak Acids (Atot), Strong Ion Gap (SIG), and dilutional normal saline hyperchloremic acidosis.',
+    url: 'https://mediverse.app/simulators/stewart-acid-base',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Stewart Physico-Chemical Acid-Base & SID | Mediverse',
+    description: 'Nephrology & ICU acid-base simulator: Peter Stewart physico-chemical approach, Strong Ion Difference (SID), Total Weak Acids (Atot), Strong Ion Gap (SIG), and dilutional normal saline hyperchloremic acidosis.',
+  },
 };
 
 

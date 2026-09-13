@@ -4,8 +4,19 @@ import AcetaminophenSimulator from '../../../components/simulators/Acetaminophen
 
 export const metadata: Metadata = {
   title: 'Acetaminophen Toxicity, Rumack-Matthew & NAC Precision Workstation | Mediverse',
-  description:
-    'Interactive toxicology and hepatology workstation modeling the Rumack-Matthew nomogram, NAPQI glutathione depletion kinetics, N-Acetylcysteine (NAC) precision protocols, and King\'s College emergency liver transplant criteria.',
+  description: 'Interactive toxicology and hepatology workstation modeling the Rumack-Matthew nomogram, NAPQI glutathione depletion kinetics, N-Acetylcysteine (NAC) precision protocols, and King\'s College emergency liver transplant criteria.',
+  openGraph: {
+    title: 'Acetaminophen Toxicity, Rumack-Matthew & NAC Precision Workstation | Mediverse',
+    description: 'Interactive toxicology and hepatology workstation modeling the Rumack-Matthew nomogram, NAPQI glutathione depletion kinetics, N-Acetylcysteine (NAC) precision protocols, and King\'s College emergency liver transplant criteria.',
+    url: 'https://mediverse.app/simulators/acetaminophen-toxicity-nac',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Acetaminophen Toxicity, Rumack-Matthew & NAC Precision Workstation | Mediverse',
+    description: 'Interactive toxicology and hepatology workstation modeling the Rumack-Matthew nomogram, NAPQI glutathione depletion kinetics, N-Acetylcysteine (NAC) precision protocols, and King\'s College emergency liver transplant criteria.',
+  },
 };
 
 

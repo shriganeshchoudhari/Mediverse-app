@@ -496,7 +496,7 @@ export default function TbiIcpSimulator() {
                   <span className="text-slate-300 font-medium">Mass Lesion (Hematoma / Contusion)</span>
                   <span className="font-mono text-indigo-300 font-bold">{state.compartments.massLesionVolumeMl} mL</span>
                 </div>
-                <input
+                <input aria-label="Mass Lesion (Hematoma / Contusion)"
                   type="range"
                   min={0}
                   max={120}
@@ -518,7 +518,7 @@ export default function TbiIcpSimulator() {
                   <span className="text-slate-300 font-medium">Vasogenic & Cytotoxic Edema</span>
                   <span className="font-mono text-cyan-300 font-bold">{state.compartments.vasogenicEdemaMl} mL</span>
                 </div>
-                <input
+                <input aria-label="Vasogenic & Cytotoxic Edema"
                   type="range"
                   min={0}
                   max={80}
@@ -540,7 +540,7 @@ export default function TbiIcpSimulator() {
                   <span className="text-slate-300 font-medium">Head of Bed (HOB) Angle</span>
                   <span className="font-mono text-emerald-300 font-bold">{state.headOfBedAngleDeg}&deg;</span>
                 </div>
-                <input
+                <input aria-label="Head of Bed (HOB) Angle"
                   type="range"
                   min={0}
                   max={60}
@@ -562,7 +562,7 @@ export default function TbiIcpSimulator() {
                   <span className="text-slate-300 font-medium">Mean Arterial Pressure (MAP)</span>
                   <span className="font-mono text-amber-300 font-bold">{state.meanArterialPressureMmhg} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Mean Arterial Pressure (MAP)"
                   type="range"
                   min={50}
                   max={130}
@@ -592,7 +592,7 @@ export default function TbiIcpSimulator() {
                   <span className="text-slate-300 font-medium">CT Midline Shift</span>
                   <span className="font-mono text-rose-300 font-bold">{state.midlineShiftMm} mm</span>
                 </div>
-                <input
+                <input aria-label="CT Midline Shift"
                   type="range"
                   min={0}
                   max={20}
@@ -629,7 +629,7 @@ export default function TbiIcpSimulator() {
                       <span>Drainage Rate:</span>
                       <span className="font-mono font-bold text-emerald-400">{state.evdDrainageRateMlHr} mL/h</span>
                     </div>
-                    <input
+                    <input aria-label="Drainage Rate"
                       type="range"
                       min={1}
                       max={25}
@@ -934,7 +934,7 @@ export default function TbiIcpSimulator() {
                     <span className="text-slate-300">Mannitol Dose</span>
                     <span className="font-mono text-indigo-300 font-bold">{osmoDose} g/kg</span>
                   </div>
-                  <input
+                  <input aria-label="Mannitol Dose"
                     type="range"
                     min={0.25}
                     max={1.0}
@@ -957,7 +957,7 @@ export default function TbiIcpSimulator() {
                     <span className="text-slate-300">3% Hypertonic Saline Bolus Volume</span>
                     <span className="font-mono text-cyan-300 font-bold">{osmoDose} mL</span>
                   </div>
-                  <input
+                  <input aria-label="3% Hypertonic Saline Bolus Volume"
                     type="range"
                     min={150}
                     max={500}
@@ -1026,7 +1026,7 @@ export default function TbiIcpSimulator() {
                   <span className="text-slate-300">Arterial PaCO2 (Target 35-40, Mild Hypocapnia 30-35)</span>
                   <span className={`font-mono font-bold ${paco2 < 30 ? "text-red-400" : "text-cyan-300"}`}>{paco2} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Arterial PaCO2 (Target 35-40, Mild Hypocapnia 30-35)"
                   type="range"
                   min={20}
                   max={50}

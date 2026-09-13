@@ -993,7 +993,7 @@ export default function MassiveHemoptysisSimulator() {
                   <span className="text-slate-400">Coagulopathy (INR):</span>
                   <span className="font-bold text-amber-300">{params.coagulopathyPresentInr.toFixed(1)}</span>
                 </div>
-                <input
+                <input aria-label="Coagulopathy (INR)"
                   type="range"
                   min="1.0"
                   max="3.0"
@@ -1007,7 +1007,7 @@ export default function MassiveHemoptysisSimulator() {
                   <span className="text-slate-400">Platelet Count:</span>
                   <span className="font-bold text-cyan-300">{params.plateletCountK}k /µL</span>
                 </div>
-                <input
+                <input aria-label="Platelet Count"
                   type="range"
                   min="20"
                   max="300"

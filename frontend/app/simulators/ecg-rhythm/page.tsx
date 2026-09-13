@@ -5,6 +5,18 @@ import EcgRhythmSimulator from '@/components/simulators/EcgRhythmSimulator';
 export const metadata: Metadata = {
   title: '12-Lead ECG Rhythm & Arrhythmia Synthesizer | Mediverse',
   description: 'Interactive electrophysiology workstation synthesizing PQRST intervals, PR/QRS/QTc calculations, and acute pathology waveforms (STEMI, LBBB, AF, VT).',
+  openGraph: {
+    title: '12-Lead ECG Rhythm & Arrhythmia Synthesizer | Mediverse',
+    description: 'Interactive electrophysiology workstation synthesizing PQRST intervals, PR/QRS/QTc calculations, and acute pathology waveforms (STEMI, LBBB, AF, VT).',
+    url: 'https://mediverse.app/simulators/ecg-rhythm',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '12-Lead ECG Rhythm & Arrhythmia Synthesizer | Mediverse',
+    description: 'Interactive electrophysiology workstation synthesizing PQRST intervals, PR/QRS/QTc calculations, and acute pathology waveforms (STEMI, LBBB, AF, VT).',
+  },
 };
 
 export const dynamic = 'force-static';

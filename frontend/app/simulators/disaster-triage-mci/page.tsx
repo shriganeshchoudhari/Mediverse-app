@@ -15,8 +15,19 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Disaster Triage & Mass Casualty Incident (MCI) Command Station | Mediverse",
-  description:
-    "START & JumpSTART pediatric disaster triage, point-of-injury lifesaving interventions, and Hospital Incident Command System (HICS) surge capacity logistics simulation.",
+  description: "START & JumpSTART pediatric disaster triage, point-of-injury lifesaving interventions, and Hospital Incident Command System (HICS) surge capacity logistics simulation.",
+  openGraph: {
+    title: "Disaster Triage & Mass Casualty Incident (MCI) Command Station | Mediverse",
+    description: "START & JumpSTART pediatric disaster triage, point-of-injury lifesaving interventions, and Hospital Incident Command System (HICS) surge capacity logistics simulation.",
+    url: 'https://mediverse.app/simulators/disaster-triage-mci',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Disaster Triage & Mass Casualty Incident (MCI) Command Station | Mediverse",
+    description: "START & JumpSTART pediatric disaster triage, point-of-injury lifesaving interventions, and Hospital Incident Command System (HICS) surge capacity logistics simulation.",
+  },
 };
 
 

@@ -419,7 +419,7 @@ export default function BrainDeathApneaSimulator() {
                     </span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <input
+                    <input aria-label="Core Temp C"
                       type="range"
                       min={33.0}
                       max={39.0}
@@ -455,7 +455,7 @@ export default function BrainDeathApneaSimulator() {
                     </span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <input
+                    <input aria-label="Systolic Bp"
                       type="range"
                       min={60}
                       max={160}
@@ -1569,7 +1569,7 @@ export default function BrainDeathApneaSimulator() {
                       {donorState.systolicBP} mmHg (MAP {donorState.meanArterialPressure} mmHg)
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Systolic B P"
                     type="range"
                     min={70}
                     max={140}
@@ -1606,7 +1606,7 @@ export default function BrainDeathApneaSimulator() {
                       {donorState.urineOutputMlHr > 250 && '(Diabetes Insipidus!)'}
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Urine Output Ml Hr"
                     type="range"
                     min={20}
                     max={600}
@@ -1636,7 +1636,7 @@ export default function BrainDeathApneaSimulator() {
                       {donorState.serumSodium} mEq/L
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Serum Sodium"
                     type="range"
                     min={125}
                     max={165}
@@ -1662,7 +1662,7 @@ export default function BrainDeathApneaSimulator() {
                       {donorState.vasopressinDoseUnitsHr.toFixed(1)} units/hr
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Vasopressin Dose Units Hr"
                     type="range"
                     min={0.0}
                     max={3.0}

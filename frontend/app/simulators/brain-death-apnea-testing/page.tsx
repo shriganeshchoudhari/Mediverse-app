@@ -17,8 +17,19 @@ import BrainDeathApneaSimulator from '@/components/simulators/BrainDeathApneaSim
 
 export const metadata: Metadata = {
   title: 'Brain Death Determination & Apnea Testing Workstation | Mediverse',
-  description:
-    'American Academy of Neurology (AAN 2023) Guidelines: Prerequisites, Complete Brainstem Reflexes, Apnea Testing Kinetics, Ancillary Modalities & Organ Donor Resuscitation.',
+  description: 'American Academy of Neurology (AAN 2023) Guidelines: Prerequisites, Complete Brainstem Reflexes, Apnea Testing Kinetics, Ancillary Modalities & Organ Donor Resuscitation.',
+  openGraph: {
+    title: 'Brain Death Determination & Apnea Testing Workstation | Mediverse',
+    description: 'American Academy of Neurology (AAN 2023) Guidelines: Prerequisites, Complete Brainstem Reflexes, Apnea Testing Kinetics, Ancillary Modalities & Organ Donor Resuscitation.',
+    url: 'https://mediverse.app/simulators/brain-death-apnea-testing',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Brain Death Determination & Apnea Testing Workstation | Mediverse',
+    description: 'American Academy of Neurology (AAN 2023) Guidelines: Prerequisites, Complete Brainstem Reflexes, Apnea Testing Kinetics, Ancillary Modalities & Organ Donor Resuscitation.',
+  },
 };
 
 

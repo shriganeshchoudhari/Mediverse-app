@@ -15,8 +15,19 @@ import RoboticSurgerySimulator from '@/components/simulators/RoboticSurgerySimul
 
 export const metadata: Metadata = {
   title: 'Minimally Invasive Surgery & Robotic Laparoscopy Workstation | Mediverse',
-  description:
-    'High-fidelity simulation of da Vinci robotic surgery, EndoWrist 7-DOF kinematics, CO2 pneumoperitoneum hemodynamics, steep Trendelenburg respiratory mechanics, electrosurgical thermal spread, and laparoscopic emergencies.',
+  description: 'High-fidelity simulation of da Vinci robotic surgery, EndoWrist 7-DOF kinematics, CO2 pneumoperitoneum hemodynamics, steep Trendelenburg respiratory mechanics, electrosurgical thermal spread, and laparoscopic emergencies.',
+  openGraph: {
+    title: 'Minimally Invasive Surgery & Robotic Laparoscopy Workstation | Mediverse',
+    description: 'High-fidelity simulation of da Vinci robotic surgery, EndoWrist 7-DOF kinematics, CO2 pneumoperitoneum hemodynamics, steep Trendelenburg respiratory mechanics, electrosurgical thermal spread, and laparoscopic emergencies.',
+    url: 'https://mediverse.app/simulators/robotic-surgery',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Minimally Invasive Surgery & Robotic Laparoscopy Workstation | Mediverse',
+    description: 'High-fidelity simulation of da Vinci robotic surgery, EndoWrist 7-DOF kinematics, CO2 pneumoperitoneum hemodynamics, steep Trendelenburg respiratory mechanics, electrosurgical thermal spread, and laparoscopic emergencies.',
+  },
 };
 
 

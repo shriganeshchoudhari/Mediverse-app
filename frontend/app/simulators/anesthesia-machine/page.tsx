@@ -16,6 +16,18 @@ import AnesthesiaMachineSimulator from '@/components/simulators/AnesthesiaMachin
 export const metadata: Metadata = {
   title: 'Anesthesia Delivery Workstation & Volatile Vaporizer Engine | Mediverse',
   description: 'Circle breathing system physics, Link-25 hypoxic guard, low-flow anesthesia kinetics, age-adjusted MAC, FA/FI uptake curves, CO2 absorber exhaustion, and Malignant Hyperthermia Dantrolene protocol.',
+  openGraph: {
+    title: 'Anesthesia Delivery Workstation & Volatile Vaporizer Engine | Mediverse',
+    description: 'Circle breathing system physics, Link-25 hypoxic guard, low-flow anesthesia kinetics, age-adjusted MAC, FA/FI uptake curves, CO2 absorber exhaustion, and Malignant Hyperthermia Dantrolene protocol.',
+    url: 'https://mediverse.app/simulators/anesthesia-machine',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Anesthesia Delivery Workstation & Volatile Vaporizer Engine | Mediverse',
+    description: 'Circle breathing system physics, Link-25 hypoxic guard, low-flow anesthesia kinetics, age-adjusted MAC, FA/FI uptake curves, CO2 absorber exhaustion, and Malignant Hyperthermia Dantrolene protocol.',
+  },
 };
 
 

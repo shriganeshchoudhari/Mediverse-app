@@ -18,6 +18,18 @@ import PediatricResuscitationSimulator from '@/components/simulators/PediatricRe
 export const metadata: Metadata = {
   title: 'Pediatric & Neonatal Resuscitation (PALS / NRP) Workstation | Mediverse',
   description: 'Enterprise virtual PALS and NRP simulation suite: Broselow tape weight estimation, endotracheal tube sizing, emergency pharmacology dosing, and neonatal Golden Minute APGAR scoring.',
+  openGraph: {
+    title: 'Pediatric & Neonatal Resuscitation (PALS / NRP) Workstation | Mediverse',
+    description: 'Enterprise virtual PALS and NRP simulation suite: Broselow tape weight estimation, endotracheal tube sizing, emergency pharmacology dosing, and neonatal Golden Minute APGAR scoring.',
+    url: 'https://mediverse.app/simulators/pediatric-resuscitation',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pediatric & Neonatal Resuscitation (PALS / NRP) Workstation | Mediverse',
+    description: 'Enterprise virtual PALS and NRP simulation suite: Broselow tape weight estimation, endotracheal tube sizing, emergency pharmacology dosing, and neonatal Golden Minute APGAR scoring.',
+  },
 };
 
 

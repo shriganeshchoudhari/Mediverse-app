@@ -272,7 +272,7 @@ export default function AdrenalCrisisSimulator() {
               <div className="grid grid-cols-2 gap-2 pt-1 border-t border-slate-800">
                 <div>
                   <label className="text-slate-400">Systolic BP: {systolicBp} mmHg</label>
-                  <input
+                  <input aria-label="Systolic BP: {systolicBp} mmHg"
                     type="range"
                     min="50"
                     max="150"
@@ -283,7 +283,7 @@ export default function AdrenalCrisisSimulator() {
                 </div>
                 <div>
                   <label className="text-slate-400">Heart Rate: {heartRate} bpm</label>
-                  <input
+                  <input aria-label="Heart Rate: {heartRate} bpm"
                     type="range"
                     min="45"
                     max="160"
@@ -297,7 +297,7 @@ export default function AdrenalCrisisSimulator() {
               <div className="grid grid-cols-3 gap-2">
                 <div>
                   <label className="text-slate-400">Na: {sodium}</label>
-                  <input
+                  <input aria-label="Na: {sodium}"
                     type="range"
                     min="110"
                     max="145"
@@ -308,7 +308,7 @@ export default function AdrenalCrisisSimulator() {
                 </div>
                 <div>
                   <label className="text-slate-400">K+: {potassium}</label>
-                  <input
+                  <input aria-label="K+: {potassium}"
                     type="range"
                     min="3.0"
                     max="7.5"
@@ -320,7 +320,7 @@ export default function AdrenalCrisisSimulator() {
                 </div>
                 <div>
                   <label className="text-slate-400">Glucose: {glucose}</label>
-                  <input
+                  <input aria-label="Glucose: {glucose}"
                     type="range"
                     min="30"
                     max="140"
@@ -334,7 +334,7 @@ export default function AdrenalCrisisSimulator() {
               <div className="grid grid-cols-2 gap-2 pt-1 border-t border-slate-800">
                 <div>
                   <label className="text-slate-400">Cortisol: {cortisol} mcg/dL</label>
-                  <input
+                  <input aria-label="Cortisol: {cortisol} mcg/dL"
                     type="range"
                     min="0.5"
                     max="25.0"
@@ -346,7 +346,7 @@ export default function AdrenalCrisisSimulator() {
                 </div>
                 <div>
                   <label className="text-slate-400">ACTH: {acth} pg/mL</label>
-                  <input
+                  <input aria-label="ACTH: {acth} pg/mL"
                     type="range"
                     min="2"
                     max="500"
@@ -495,7 +495,7 @@ export default function AdrenalCrisisSimulator() {
               <div className="grid grid-cols-2 gap-2">
                 <div>
                   <label className="text-slate-400">IV Bolus Hydrocortisone: {ivBolusHydrocortisone} mg</label>
-                  <input
+                  <input aria-label="IV Bolus Hydrocortisone: {ivBolusHydrocortisone} mg"
                     type="range"
                     min="0"
                     max="100"
@@ -507,7 +507,7 @@ export default function AdrenalCrisisSimulator() {
                 </div>
                 <div>
                   <label className="text-slate-400">24h Infusion: {infusionHydrocortisone} mg/d</label>
-                  <input
+                  <input aria-label="24h Infusion: {infusionHydrocortisone} mg/d"
                     type="range"
                     min="0"
                     max="300"
@@ -521,7 +521,7 @@ export default function AdrenalCrisisSimulator() {
 
               <div>
                 <label className="text-slate-400">0.9% Normal Saline (First 24h): {salineLiters} L</label>
-                <input
+                <input aria-label="0.9% Normal Saline (First 24h): {salineLiters} L"
                   type="range"
                   min="0.5"
                   max="5.0"

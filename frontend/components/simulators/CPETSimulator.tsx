@@ -229,7 +229,7 @@ Please explain the underlying pathophysiology, differential diagnosis, and manag
         <div className="p-4 bg-slate-900/90 border border-slate-800 rounded-2xl grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 text-xs animate-in fade-in duration-200">
           <div>
             <label className="text-slate-400 font-medium">Age: {customAge} yrs</label>
-            <input
+            <input aria-label="Age: {customAge} yrs"
               type="range"
               min={18}
               max={85}
@@ -240,7 +240,7 @@ Please explain the underlying pathophysiology, differential diagnosis, and manag
           </div>
           <div>
             <label className="text-slate-400 font-medium">Weight: {customWeight} kg</label>
-            <input
+            <input aria-label="Weight: {customWeight} kg"
               type="range"
               min={45}
               max={130}
@@ -251,7 +251,7 @@ Please explain the underlying pathophysiology, differential diagnosis, and manag
           </div>
           <div>
             <label className="text-slate-400 font-medium">Height: {customHeight} cm</label>
-            <input
+            <input aria-label="Height: {customHeight} cm"
               type="range"
               min={140}
               max={205}
@@ -262,7 +262,7 @@ Please explain the underlying pathophysiology, differential diagnosis, and manag
           </div>
           <div>
             <label className="text-slate-400 font-medium">FEV1: {customFev1.toFixed(2)} L (MVV: {(customFev1 * 40).toFixed(0)} L/m)</label>
-            <input
+            <input aria-label="Custom Fev1"
               type="range"
               min={1.0}
               max={6.0}
@@ -274,7 +274,7 @@ Please explain the underlying pathophysiology, differential diagnosis, and manag
           </div>
           <div>
             <label className="text-slate-400 font-medium">Ramp Rate: {customRampRate} W/min</label>
-            <input
+            <input aria-label="Ramp Rate: {customRampRate} W/min"
               type="range"
               min={5}
               max={35}
@@ -451,7 +451,7 @@ Please explain the underlying pathophysiology, differential diagnosis, and manag
               <strong className="text-cyan-400">{currentPoint.spo2Percent || 98}%</strong>
             </span>
           </div>
-          <input
+          <input aria-label="Current Time Index"
             type="range"
             min={0}
             max={data.length - 1}

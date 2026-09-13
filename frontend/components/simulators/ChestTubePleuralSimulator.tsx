@@ -712,7 +712,7 @@ export default function ChestTubePleuralSimulator() {
                     <span>Pleural Air Volume:</span>
                     <span className="font-mono text-sky-400">{params.pleuralAirVolumeMl} mL</span>
                   </div>
-                  <input
+                  <input aria-label="Pleural Air Volume"
                     type="range"
                     min="0"
                     max="2000"
@@ -728,7 +728,7 @@ export default function ChestTubePleuralSimulator() {
                     <span>Pleural Fluid Volume:</span>
                     <span className="font-mono text-amber-400">{params.pleuralFluidVolumeMl} mL</span>
                   </div>
-                  <input
+                  <input aria-label="Pleural Fluid Volume"
                     type="range"
                     min="0"
                     max="2500"
@@ -744,7 +744,7 @@ export default function ChestTubePleuralSimulator() {
                     <span>Wall Suction Pressure:</span>
                     <span className="font-mono text-sky-400">{params.suctionPressureCmH2O} cmH2O</span>
                   </div>
-                  <input
+                  <input aria-label="Wall Suction Pressure"
                     type="range"
                     min="-40"
                     max="-10"
@@ -760,7 +760,7 @@ export default function ChestTubePleuralSimulator() {
                     <span>Air Leak Grade (Water Seal Bubbles):</span>
                     <span className="font-mono text-rose-400">Grade {params.airLeakGrade} / 5</span>
                   </div>
-                  <input
+                  <input aria-label="Grade {params.airLeakGrade} / 5"
                     type="range"
                     min="0"
                     max="5"

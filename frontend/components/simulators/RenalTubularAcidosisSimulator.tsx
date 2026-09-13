@@ -232,7 +232,7 @@ export default function RenalTubularAcidosisSimulator() {
                     <span className="text-slate-400">Serum Sodium (Na+):</span>
                     <span className="font-mono text-teal-400 font-bold">{serum.sodiumMeqL} mEq/L</span>
                   </div>
-                  <input
+                  <input aria-label="Serum Sodium (Na+)"
                     type="range"
                     min="120"
                     max="155"
@@ -255,7 +255,7 @@ export default function RenalTubularAcidosisSimulator() {
                       {serum.potassiumMeqL.toFixed(1)} mEq/L ({rtaOutcome.hypokalemiaOrHyperkalemia})
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Potassium Meq L"
                     type="range"
                     min="2.0"
                     max="7.0"
@@ -276,7 +276,7 @@ export default function RenalTubularAcidosisSimulator() {
                     <span className="text-slate-400">Serum Chloride (Cl-):</span>
                     <span className="font-mono text-teal-400 font-bold">{serum.chlorideMeqL} mEq/L</span>
                   </div>
-                  <input
+                  <input aria-label="Serum Chloride (Cl-)"
                     type="range"
                     min="90"
                     max="125"
@@ -296,7 +296,7 @@ export default function RenalTubularAcidosisSimulator() {
                     <span className="text-slate-400">Serum Bicarbonate (HCO3-):</span>
                     <span className="font-mono text-amber-400 font-bold">{serum.bicarbonateMeqL} mEq/L</span>
                   </div>
-                  <input
+                  <input aria-label="Serum Bicarbonate (HCO3-)"
                     type="range"
                     min="8"
                     max="30"
@@ -315,7 +315,7 @@ export default function RenalTubularAcidosisSimulator() {
                       {serum.arterialPh.toFixed(2)}
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Arterial pH"
                     type="range"
                     min="7.10"
                     max="7.48"
@@ -369,7 +369,7 @@ export default function RenalTubularAcidosisSimulator() {
                       {urine.urinePh.toFixed(1)} {urine.urinePh > 5.3 ? '(Inability to Acidify)' : '(Preserved)'}
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Urine Ph"
                     type="range"
                     min="4.5"
                     max="7.8"

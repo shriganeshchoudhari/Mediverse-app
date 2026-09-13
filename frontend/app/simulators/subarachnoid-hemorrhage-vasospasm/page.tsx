@@ -6,8 +6,19 @@ import SubarachnoidHemorrhageSimulator from '../../../components/simulators/Suba
 
 export const metadata: Metadata = {
   title: 'Subarachnoid Hemorrhage, Vasospasm & TCD Lindegaard Ratio | Mediverse Simulators',
-  description:
-    'Biophysical neurocritical care simulation of aneurysmal subarachnoid hemorrhage (aSAH), Hunt & Hess / Modified Fisher grading, Transcranial Doppler (TCD) Lindegaard ratio, EVD dynamics, and euvolemic induced hypertension.',
+  description: 'Biophysical neurocritical care simulation of aneurysmal subarachnoid hemorrhage (aSAH), Hunt & Hess / Modified Fisher grading, Transcranial Doppler (TCD) Lindegaard ratio, EVD dynamics, and euvolemic induced hypertension.',
+  openGraph: {
+    title: 'Subarachnoid Hemorrhage, Vasospasm & TCD Lindegaard Ratio | Mediverse Simulators',
+    description: 'Biophysical neurocritical care simulation of aneurysmal subarachnoid hemorrhage (aSAH), Hunt & Hess / Modified Fisher grading, Transcranial Doppler (TCD) Lindegaard ratio, EVD dynamics, and euvolemic induced hypertension.',
+    url: 'https://mediverse.app/simulators/subarachnoid-hemorrhage-vasospasm',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Subarachnoid Hemorrhage, Vasospasm & TCD Lindegaard Ratio | Mediverse Simulators',
+    description: 'Biophysical neurocritical care simulation of aneurysmal subarachnoid hemorrhage (aSAH), Hunt & Hess / Modified Fisher grading, Transcranial Doppler (TCD) Lindegaard ratio, EVD dynamics, and euvolemic induced hypertension.',
+  },
 };
 
 

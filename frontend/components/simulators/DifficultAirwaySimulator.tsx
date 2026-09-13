@@ -413,7 +413,7 @@ export default function DifficultAirwaySimulator() {
                       {anatomy.thyromentalDistanceCm.toFixed(1)} cm
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Thyromental Distance (TMD)"
                     type="range"
                     min="3.0"
                     max="9.0"
@@ -434,7 +434,7 @@ export default function DifficultAirwaySimulator() {
                       {anatomy.interIncisorGapCm.toFixed(1)} cm
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Inter-incisor Gap (Mouth Opening)"
                     type="range"
                     min="1.0"
                     max="6.0"
@@ -455,7 +455,7 @@ export default function DifficultAirwaySimulator() {
                       {anatomy.cervicalMobilityDeg}&deg;
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Atlanto-Occipital Extension"
                     type="range"
                     min="10"
                     max="60"
@@ -476,7 +476,7 @@ export default function DifficultAirwaySimulator() {
                       {anatomy.neckCircumferenceCm} cm
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Neck Circumference"
                     type="range"
                     min="30"
                     max="55"

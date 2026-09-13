@@ -5,6 +5,18 @@ import GIEndoscopySimulator from '@/components/simulators/GIEndoscopySimulator';
 export const metadata: Metadata = {
   title: 'Upper GI Endoscopy (EGD) & ERCP Workstation | Mediverse',
   description: 'Interventional gastroenterology simulator: Forrest classification of peptic ulcer bleeding, dual endoscopic hemostasis, variceal band ligation, ERCP biliary cannulation, and post-ERCP pancreatitis prophylaxis.',
+  openGraph: {
+    title: 'Upper GI Endoscopy (EGD) & ERCP Workstation | Mediverse',
+    description: 'Interventional gastroenterology simulator: Forrest classification of peptic ulcer bleeding, dual endoscopic hemostasis, variceal band ligation, ERCP biliary cannulation, and post-ERCP pancreatitis prophylaxis.',
+    url: 'https://mediverse.app/simulators/endoscopy-gi',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Upper GI Endoscopy (EGD) & ERCP Workstation | Mediverse',
+    description: 'Interventional gastroenterology simulator: Forrest classification of peptic ulcer bleeding, dual endoscopic hemostasis, variceal band ligation, ERCP biliary cannulation, and post-ERCP pancreatitis prophylaxis.',
+  },
 };
 
 

@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { Layers, Eye, EyeOff, Scissors, Sparkles, Compass, BookOpen } from 'lucide-react';
+import WebGLErrorBoundary from '../WebGLErrorBoundary';
 
 export interface AnatomicalLayer {
   id: string;
@@ -204,10 +205,12 @@ export default function LayeredDissectionViewer() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* 3D WebGL Canvas (7 Cols) */}
         <div className="lg:col-span-7 flex flex-col gap-4">
-          <div
-            ref={containerRef}
-            className="w-full h-[480px] rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden relative shadow-inner"
-          />
+          <WebGLErrorBoundary fallbackTitle="Layered Anatomy Dissection Unavailable">
+            <div
+              ref={containerRef}
+              className="w-full h-[480px] rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden relative shadow-inner"
+            />
+          </WebGLErrorBoundary>
 
           {/* Dissection Depth Slider */}
           <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">

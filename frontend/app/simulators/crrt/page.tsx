@@ -16,6 +16,18 @@ import CRRTSimulator from '@/components/simulators/CRRTSimulator';
 export const metadata: Metadata = {
   title: 'Continuous Renal Replacement Therapy (CRRT) Workstation | Mediverse',
   description: 'Extracorporeal blood purification, SCUF, CVVH, CVVHD, CVVHDF, TMP hydraulics, KDIGO effluent dosing, and regional citrate anticoagulation (RCA).',
+  openGraph: {
+    title: 'Continuous Renal Replacement Therapy (CRRT) Workstation | Mediverse',
+    description: 'Extracorporeal blood purification, SCUF, CVVH, CVVHD, CVVHDF, TMP hydraulics, KDIGO effluent dosing, and regional citrate anticoagulation (RCA).',
+    url: 'https://mediverse.app/simulators/crrt',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Continuous Renal Replacement Therapy (CRRT) Workstation | Mediverse',
+    description: 'Extracorporeal blood purification, SCUF, CVVH, CVVHD, CVVHDF, TMP hydraulics, KDIGO effluent dosing, and regional citrate anticoagulation (RCA).',
+  },
 };
 
 

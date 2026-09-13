@@ -3,8 +3,19 @@ import CoCyanidePoisoningSimulator from '../../../components/simulators/CoCyanid
 
 export const metadata: Metadata = {
   title: 'CO & Cyanide Poisoning Workstation | Mediverse',
-  description:
-    'Simulate smoke inhalation dual toxicity: carboxyhemoglobin multi-mode elimination kinetics, pulse oximetry pitfall, mitochondrial Complex IV cyanide shutdown, Hydroxocobalamin (Cyanokit) stoichiometry, and Hyperbaric Oxygen (HBO2) protocols.',
+  description: 'Simulate smoke inhalation dual toxicity: carboxyhemoglobin multi-mode elimination kinetics, pulse oximetry pitfall, mitochondrial Complex IV cyanide shutdown, Hydroxocobalamin (Cyanokit) stoichiometry, and Hyperbaric Oxygen (HBO2) protocols.',
+  openGraph: {
+    title: 'CO & Cyanide Poisoning Workstation | Mediverse',
+    description: 'Simulate smoke inhalation dual toxicity: carboxyhemoglobin multi-mode elimination kinetics, pulse oximetry pitfall, mitochondrial Complex IV cyanide shutdown, Hydroxocobalamin (Cyanokit) stoichiometry, and Hyperbaric Oxygen (HBO2) protocols.',
+    url: 'https://mediverse.app/simulators/co-cyanide-poisoning',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CO & Cyanide Poisoning Workstation | Mediverse',
+    description: 'Simulate smoke inhalation dual toxicity: carboxyhemoglobin multi-mode elimination kinetics, pulse oximetry pitfall, mitochondrial Complex IV cyanide shutdown, Hydroxocobalamin (Cyanokit) stoichiometry, and Hyperbaric Oxygen (HBO2) protocols.',
+  },
 };
 
 

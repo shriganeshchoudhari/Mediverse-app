@@ -628,7 +628,7 @@ export default function AkiKdigoSimulator() {
                     <span className="text-slate-400">Baseline Serum Creatinine</span>
                     <span className="font-mono font-bold text-white">{baselineCr} mg/dL</span>
                   </div>
-                  <input
+                  <input aria-label="Baseline Serum Creatinine"
                     type="range"
                     min={0.4}
                     max={3.0}
@@ -644,7 +644,7 @@ export default function AkiKdigoSimulator() {
                     <span className="text-slate-400">Current Serum Creatinine</span>
                     <span className="font-mono font-bold text-cyan-400">{currentCr} mg/dL</span>
                   </div>
-                  <input
+                  <input aria-label="Current Serum Creatinine"
                     type="range"
                     min={0.4}
                     max={8.0}
@@ -660,7 +660,7 @@ export default function AkiKdigoSimulator() {
                     <span className="text-slate-400">Time Window of Creatinine Rise</span>
                     <span className="font-mono font-bold text-white">{crTimeHours} hours</span>
                   </div>
-                  <input
+                  <input aria-label="Time Window of Creatinine Rise"
                     type="range"
                     min={6}
                     max={168}
@@ -701,7 +701,7 @@ export default function AkiKdigoSimulator() {
                     <span className="text-slate-400">Urine Flow Rate</span>
                     <span className="font-mono font-bold text-cyan-400">{urineOutputRate} mL/kg/h</span>
                   </div>
-                  <input
+                  <input aria-label="Urine Flow Rate"
                     type="range"
                     min={0.0}
                     max={2.0}
@@ -717,7 +717,7 @@ export default function AkiKdigoSimulator() {
                     <span className="text-slate-400">Duration of Oliguria / Anuria</span>
                     <span className="font-mono font-bold text-white">{oliguriaHours} hours</span>
                   </div>
-                  <input
+                  <input aria-label="Duration of Oliguria / Anuria"
                     type="range"
                     min={0}
                     max={36}
@@ -934,7 +934,7 @@ export default function AkiKdigoSimulator() {
                     <span className="text-slate-400">Patient Weight</span>
                     <span className="font-mono font-bold text-white">{weightKg} kg</span>
                   </div>
-                  <input
+                  <input aria-label="Patient Weight"
                     type="range"
                     min={40}
                     max={140}
@@ -989,7 +989,7 @@ export default function AkiKdigoSimulator() {
                     <span className="text-slate-400">Cumulative Urine at 2 Hours</span>
                     <span className="font-mono font-bold text-cyan-400">{twoHourUrineMl} mL</span>
                   </div>
-                  <input
+                  <input aria-label="Cumulative Urine at 2 Hours"
                     type="range"
                     min={0}
                     max={1000}
@@ -1093,7 +1093,7 @@ export default function AkiKdigoSimulator() {
                     <span className="text-slate-400">Total Cumulative Fluid Intake</span>
                     <span className="font-mono font-bold text-white">{fluidInLiters} Liters</span>
                   </div>
-                  <input
+                  <input aria-label="Total Cumulative Fluid Intake"
                     type="range"
                     min={1}
                     max={40}
@@ -1109,7 +1109,7 @@ export default function AkiKdigoSimulator() {
                     <span className="text-slate-400">Total Cumulative Fluid Output</span>
                     <span className="font-mono font-bold text-white">{fluidOutLiters} Liters</span>
                   </div>
-                  <input
+                  <input aria-label="Total Cumulative Fluid Output"
                     type="range"
                     min={0.5}
                     max={30}

@@ -267,7 +267,7 @@ export default function NeuromuscularBlockadeSimulator() {
                     <span className="text-slate-400">Patient Weight (Actual Body Weight):</span>
                     <span className="font-mono text-emerald-400 font-bold">{patient.weightKg} kg</span>
                   </div>
-                  <input
+                  <input aria-label="Patient Weight (Actual Body Weight)"
                     type="range"
                     min="40"
                     max="140"
@@ -286,7 +286,7 @@ export default function NeuromuscularBlockadeSimulator() {
                     </span>
                     <span className="font-mono text-cyan-400 font-bold">{patient.minutesSinceDosing} min</span>
                   </div>
-                  <input
+                  <input aria-label="Minutes Since Dosing"
                     type="range"
                     min="1"
                     max="110"
@@ -312,7 +312,7 @@ export default function NeuromuscularBlockadeSimulator() {
                       {patient.coreTemperatureCelsius.toFixed(1)} &deg;C
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Core Temperature Celsius"
                     type="range"
                     min="32.0"
                     max="37.5"

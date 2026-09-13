@@ -5,6 +5,18 @@ import TraumaATLSSimulator from '@/components/simulators/TraumaATLSSimulator';
 export const metadata: Metadata = {
   title: 'Trauma & ATLS Primary Survey | Mediverse',
   description: 'Advanced Trauma Life Support simulation: hemorrhagic shock classification (Class I–IV), FAST/eFAST exam, massive transfusion protocol 1:1:1, damage control surgery, tension pneumothorax, and cardiac tamponade.',
+  openGraph: {
+    title: 'Trauma & ATLS Primary Survey | Mediverse',
+    description: 'Advanced Trauma Life Support simulation: hemorrhagic shock classification (Class I–IV), FAST/eFAST exam, massive transfusion protocol 1:1:1, damage control surgery, tension pneumothorax, and cardiac tamponade.',
+    url: 'https://mediverse.app/simulators/trauma-atls',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Trauma & ATLS Primary Survey | Mediverse',
+    description: 'Advanced Trauma Life Support simulation: hemorrhagic shock classification (Class I–IV), FAST/eFAST exam, massive transfusion protocol 1:1:1, damage control surgery, tension pneumothorax, and cardiac tamponade.',
+  },
 };
 
 

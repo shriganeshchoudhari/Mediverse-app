@@ -3,8 +3,19 @@ import PericardialTamponadeSimulator from '../../../components/simulators/Perica
 
 export const metadata: Metadata = {
   title: 'Cardiac Tamponade & Pericardiocentesis Workstation | Mediverse',
-  description:
-    'Simulate acute cardiac tamponade, Beck\'s triad, respiro-phasic ventricular interdependence (pulsus paradoxus), invasive diastolic pressure equalization, and emergency ultrasound-guided pericardiocentesis.',
+  description: 'Simulate acute cardiac tamponade, Beck\'s triad, respiro-phasic ventricular interdependence (pulsus paradoxus), invasive diastolic pressure equalization, and emergency ultrasound-guided pericardiocentesis.',
+  openGraph: {
+    title: 'Cardiac Tamponade & Pericardiocentesis Workstation | Mediverse',
+    description: 'Simulate acute cardiac tamponade, Beck\'s triad, respiro-phasic ventricular interdependence (pulsus paradoxus), invasive diastolic pressure equalization, and emergency ultrasound-guided pericardiocentesis.',
+    url: 'https://mediverse.app/simulators/cardiac-tamponade-pericardiocentesis',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cardiac Tamponade & Pericardiocentesis Workstation | Mediverse',
+    description: 'Simulate acute cardiac tamponade, Beck\'s triad, respiro-phasic ventricular interdependence (pulsus paradoxus), invasive diastolic pressure equalization, and emergency ultrasound-guided pericardiocentesis.',
+  },
 };
 
 

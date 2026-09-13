@@ -545,7 +545,7 @@ export default function PediatricSepticShockSimulator() {
                     {patientState.vasoactiveRates.epinephrineMcgKgMin.toFixed(2)} mcg/kg/min
                   </span>
                 </div>
-                <input
+                <input aria-label="Epinephrine Mcg Kg Min"
                   type="range"
                   min="0"
                   max="1.0"
@@ -572,7 +572,7 @@ export default function PediatricSepticShockSimulator() {
                     {patientState.vasoactiveRates.norepinephrineMcgKgMin.toFixed(2)} mcg/kg/min
                   </span>
                 </div>
-                <input
+                <input aria-label="Norepinephrine Mcg Kg Min"
                   type="range"
                   min="0"
                   max="1.0"
@@ -599,7 +599,7 @@ export default function PediatricSepticShockSimulator() {
                     {patientState.vasoactiveRates.milrinoneMcgKgMin.toFixed(2)} mcg/kg/min
                   </span>
                 </div>
-                <input
+                <input aria-label="Milrinone Mcg Kg Min"
                   type="range"
                   min="0"
                   max="0.75"
@@ -626,7 +626,7 @@ export default function PediatricSepticShockSimulator() {
                     {patientState.vasoactiveRates.vasopressinUnitsKgMin.toFixed(4)} U/kg/min
                   </span>
                 </div>
-                <input
+                <input aria-label="Vasopressin Units Kg Min"
                   type="range"
                   min="0"
                   max="0.002"

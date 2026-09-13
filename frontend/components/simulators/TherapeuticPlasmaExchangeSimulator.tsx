@@ -468,7 +468,7 @@ export default function TherapeuticPlasmaExchangeSimulator() {
                     {(settings.targetPvMultiplier * pvCalculated).toFixed(0)} mL)
                   </span>
                 </div>
-                <input
+                <input aria-label="Target Pv Multiplier"
                   type="range"
                   min={0.8}
                   max={2.0}
@@ -531,7 +531,7 @@ export default function TherapeuticPlasmaExchangeSimulator() {
                     {settings.acdaRatio} : 1
                   </span>
                 </div>
-                <input
+                <input aria-label="Acda Ratio"
                   type="range"
                   min={10}
                   max={16}
@@ -557,7 +557,7 @@ export default function TherapeuticPlasmaExchangeSimulator() {
                     {settings.calciumGluconateInfusionMgHr} mg/hr
                   </span>
                 </div>
-                <input
+                <input aria-label="Calcium Gluconate Infusion Mg Hr"
                   type="range"
                   min={0}
                   max={2000}

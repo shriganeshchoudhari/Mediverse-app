@@ -534,7 +534,7 @@ export default function ToxicologyAntidoteSimulator() {
                     <span>Serum APAP Level:</span>
                     <span className="font-mono text-rose-400">{params.labs.apapUgMl} &mu;g/mL</span>
                   </div>
-                  <input
+                  <input aria-label="Serum APAP Level"
                     type="range"
                     min="0"
                     max="300"
@@ -550,7 +550,7 @@ export default function ToxicologyAntidoteSimulator() {
                     <span>Time Since Ingestion:</span>
                     <span className="font-mono text-sky-400">{params.labs.hoursPostIngestion} hours</span>
                   </div>
-                  <input
+                  <input aria-label="Time Since Ingestion"
                     type="range"
                     min="4"
                     max="24"

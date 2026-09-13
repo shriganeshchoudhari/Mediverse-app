@@ -70,7 +70,7 @@ export default function CardiacControlPanel({
             </label>
             <span className="text-rose-400 font-bold bg-rose-400/10 px-2 py-1 rounded-md text-sm">{heartRate} bpm</span>
           </div>
-          <input 
+          <input aria-label="Heart Rate" 
             type="range" min="40" max="200" step="1" 
             value={heartRate} onChange={(e) => setHeartRate(Number(e.target.value))}
             className="w-full accent-rose-500 h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer"
@@ -89,7 +89,7 @@ export default function CardiacControlPanel({
             </label>
             <span className="text-blue-400 font-bold bg-blue-400/10 px-2 py-1 rounded-md text-sm">{preload} mL</span>
           </div>
-          <input 
+          <input aria-label="Preload" 
             type="range" min="80" max="200" step="1" 
             value={preload} onChange={(e) => setPreload(Number(e.target.value))}
             className="w-full accent-blue-500 h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer"
@@ -108,7 +108,7 @@ export default function CardiacControlPanel({
             </label>
             <span className="text-purple-400 font-bold bg-purple-400/10 px-2 py-1 rounded-md text-sm">{afterload} mmHg</span>
           </div>
-          <input 
+          <input aria-label="Afterload" 
             type="range" min="40" max="160" step="1" 
             value={afterload} onChange={(e) => setAfterload(Number(e.target.value))}
             className="w-full accent-purple-500 h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer"
@@ -127,7 +127,7 @@ export default function CardiacControlPanel({
             </label>
             <span className="text-emerald-400 font-bold bg-emerald-400/10 px-2 py-1 rounded-md text-sm">{contractility.toFixed(1)}</span>
           </div>
-          <input 
+          <input aria-label="Contractility" 
             type="range" min="0.5" max="5.0" step="0.1" 
             value={contractility} onChange={(e) => setContractility(Number(e.target.value))}
             className="w-full accent-emerald-500 h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer"

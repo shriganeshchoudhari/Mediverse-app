@@ -7,6 +7,18 @@ import { ArrowLeft, Stethoscope, Sparkles } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Dynamic Virtual Patient Clinical Encounter & Voice Socratic Simulator | Mediverse',
   description: 'Interactive virtual patient encounter featuring conversational history taking, targeted physical examination, laboratory ordering, and clinical reasoning.',
+  openGraph: {
+    title: 'Dynamic Virtual Patient Clinical Encounter & Voice Socratic Simulator | Mediverse',
+    description: 'Interactive virtual patient encounter featuring conversational history taking, targeted physical examination, laboratory ordering, and clinical reasoning.',
+    url: 'https://mediverse.app/simulators/virtual-patient',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dynamic Virtual Patient Clinical Encounter & Voice Socratic Simulator | Mediverse',
+    description: 'Interactive virtual patient encounter featuring conversational history taking, targeted physical examination, laboratory ordering, and clinical reasoning.',
+  },
 };
 
 export const dynamic = 'force-static';

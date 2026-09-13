@@ -281,7 +281,7 @@ export default function VentilatorWeaningSimulator() {
                   <span className="text-slate-300 font-medium">SBT Duration Elapsed</span>
                   <span className="text-cyan-400 font-bold">{sbtDuration} minutes</span>
                 </div>
-                <input
+                <input aria-label="SBT Duration Elapsed"
                   type="range"
                   min="0"
                   max="120"
@@ -312,7 +312,7 @@ export default function VentilatorWeaningSimulator() {
                   <span className="text-slate-300 font-medium">Spontaneous Respiratory Rate (RR)</span>
                   <span className={`font-bold ${rr > 30 ? 'text-rose-400' : 'text-cyan-300'}`}>{rr} bpm</span>
                 </div>
-                <input
+                <input aria-label="30 ? text-rose-400 : text-cyan-300}`}>{rr} bpm"
                   type="range"
                   min="8"
                   max="45"
@@ -327,7 +327,7 @@ export default function VentilatorWeaningSimulator() {
                   <span className="text-slate-300 font-medium">Spontaneous Tidal Volume (Vt)</span>
                   <span className={`font-bold ${vt < 300 ? 'text-amber-400' : 'text-cyan-300'}`}>{vt} mL</span>
                 </div>
-                <input
+                <input aria-label="Spontaneous Tidal Volume (Vt)"
                   type="range"
                   min="150"
                   max="750"
@@ -343,7 +343,7 @@ export default function VentilatorWeaningSimulator() {
                   <span className="text-slate-300 font-medium">Initial SBT Minute-1 RSBI (Baseline)</span>
                   <span className="text-slate-300 font-semibold">{initialRsbi} bpm/L</span>
                 </div>
-                <input
+                <input aria-label="Initial SBT Minute-1 RSBI (Baseline)"
                   type="range"
                   min="20"
                   max="160"
@@ -360,7 +360,7 @@ export default function VentilatorWeaningSimulator() {
                     {p01.toFixed(1)} cmH2O
                   </span>
                 </div>
-                <input
+                <input aria-label="Airway Occlusion Pressure (P0.1)"
                   type="range"
                   min="0.5"
                   max="7.0"
@@ -407,7 +407,7 @@ export default function VentilatorWeaningSimulator() {
                     {excursion.toFixed(1)} cm (Normal &ge; 1.0)
                   </span>
                 </div>
-                <input
+                <input aria-label="Diaphragmatic Excursion"
                   type="range"
                   min="0.3"
                   max="2.8"
@@ -424,7 +424,7 @@ export default function VentilatorWeaningSimulator() {
                     <span className="text-slate-300 font-medium">End-Insp (Tinsp)</span>
                     <span className="text-cyan-400 font-bold">{tinsp.toFixed(1)} mm</span>
                   </div>
-                  <input
+                  <input aria-label="End-Insp (Tinsp)"
                     type="range"
                     min="1.2"
                     max="4.5"
@@ -439,7 +439,7 @@ export default function VentilatorWeaningSimulator() {
                     <span className="text-slate-300 font-medium">End-Exp (Texp)</span>
                     <span className="text-cyan-400 font-bold">{texp.toFixed(1)} mm</span>
                   </div>
-                  <input
+                  <input aria-label="End-Exp (Texp)"
                     type="range"
                     min="1.0"
                     max="3.5"
@@ -468,7 +468,7 @@ export default function VentilatorWeaningSimulator() {
                     {cuffLeak} mL ({Math.round((cuffLeak / Math.max(100, baselineVt)) * 100)}%)
                   </span>
                 </div>
-                <input
+                <input aria-label="Cuff Leak"
                   type="range"
                   min="20"
                   max="350"
@@ -503,7 +503,7 @@ export default function VentilatorWeaningSimulator() {
                     <span className="text-slate-300 font-medium">Systolic BP</span>
                     <span className={`font-bold ${sbp > 180 ? 'text-rose-400' : 'text-slate-200'}`}>{sbp} mmHg</span>
                   </div>
-                  <input
+                  <input aria-label="180 ? text-rose-400 : text-slate-200}`}>{sbp} mmHg"
                     type="range"
                     min="80"
                     max="220"
@@ -517,7 +517,7 @@ export default function VentilatorWeaningSimulator() {
                     <span className="text-slate-300 font-medium">Heart Rate</span>
                     <span className={`font-bold ${hr > 120 ? 'text-rose-400' : 'text-slate-200'}`}>{hr} bpm</span>
                   </div>
-                  <input
+                  <input aria-label="120 ? text-rose-400 : text-slate-200}`}>{hr} bpm"
                     type="range"
                     min="50"
                     max="160"

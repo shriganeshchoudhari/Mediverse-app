@@ -489,7 +489,7 @@ export default function HivAntiretroviralSimulator() {
                     {params.laboratory.estimatedCrClMlMin} mL/min
                   </span>
                 </div>
-                <input
+                <input aria-label="Estimated Cr Cl Ml Min"
                   type="range"
                   min="15"
                   max="120"
@@ -547,7 +547,7 @@ export default function HivAntiretroviralSimulator() {
                     {params.laboratory.cd4CountCellsPerUl} cells/&mu;L
                   </span>
                 </div>
-                <input
+                <input aria-label="Absolute CD4 Count (/&mu;L)"
                   type="range"
                   min="5"
                   max="1000"
@@ -760,7 +760,7 @@ export default function HivAntiretroviralSimulator() {
                       {params.weeksSinceOiTreatmentStarted} weeks
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Weeks Since Oi Treatment Started"
                     type="range"
                     min="0"
                     max="8"

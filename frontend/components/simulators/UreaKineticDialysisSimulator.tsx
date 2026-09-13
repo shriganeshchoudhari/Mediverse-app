@@ -321,7 +321,7 @@ export default function UreaKineticDialysisSimulator() {
                   <span className="text-slate-300 font-medium">Blood Flow Rate (Qb)</span>
                   <span className="font-mono text-sky-400 font-bold">{params.prescription.bloodFlowQbMlMin} mL/min</span>
                 </div>
-                <input
+                <input aria-label="Blood Flow Rate (Qb)"
                   type="range"
                   min="150"
                   max="500"
@@ -348,7 +348,7 @@ export default function UreaKineticDialysisSimulator() {
                   <span className="text-slate-300 font-medium">Treatment Duration (Time)</span>
                   <span className="font-mono text-indigo-300 font-bold">{params.prescription.durationHours} Hours</span>
                 </div>
-                <input
+                <input aria-label="Treatment Duration (Time)"
                   type="range"
                   min="2.0"
                   max="8.0"
@@ -376,7 +376,7 @@ export default function UreaKineticDialysisSimulator() {
                     <span className="text-slate-300">Pre-BUN</span>
                     <span className="font-mono text-amber-300 font-bold">{params.patient.preDialysisBunMgDl} mg/dL</span>
                   </div>
-                  <input
+                  <input aria-label="Pre-BUN"
                     type="range"
                     min="30"
                     max="160"
@@ -397,7 +397,7 @@ export default function UreaKineticDialysisSimulator() {
                     <span className="text-slate-300">Post-BUN</span>
                     <span className="font-mono text-emerald-300 font-bold">{params.patient.postDialysisBunMgDl} mg/dL</span>
                   </div>
-                  <input
+                  <input aria-label="Post-BUN"
                     type="range"
                     min="5"
                     max="80"
@@ -592,7 +592,7 @@ export default function UreaKineticDialysisSimulator() {
                   <span className="text-slate-300 font-medium">Pre-Dialysis Weight</span>
                   <span className="font-mono text-amber-300 font-bold">{params.patient.preWeightKg} kg</span>
                 </div>
-                <input
+                <input aria-label="Pre-Dialysis Weight"
                   type="range"
                   min="40"
                   max="140"
@@ -614,7 +614,7 @@ export default function UreaKineticDialysisSimulator() {
                   <span className="text-slate-300 font-medium">Target Post-Dialysis Dry Weight</span>
                   <span className="font-mono text-emerald-300 font-bold">{params.patient.postWeightKg} kg</span>
                 </div>
-                <input
+                <input aria-label="Target Post-Dialysis Dry Weight"
                   type="range"
                   min="38"
                   max="135"

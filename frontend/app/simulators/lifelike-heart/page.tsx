@@ -7,6 +7,18 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Lifelike 3D Heart & Ventricular Wringing | Mediverse',
   description: 'Photorealistic 3D human heart simulation featuring living biological tissue shaders, dual-phase Wiggers pumping, apical wringing, and surgical dissection.',
+  openGraph: {
+    title: 'Lifelike 3D Heart & Ventricular Wringing | Mediverse',
+    description: 'Photorealistic 3D human heart simulation featuring living biological tissue shaders, dual-phase Wiggers pumping, apical wringing, and surgical dissection.',
+    url: 'https://mediverse.app/simulators/lifelike-heart',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Lifelike 3D Heart & Ventricular Wringing | Mediverse',
+    description: 'Photorealistic 3D human heart simulation featuring living biological tissue shaders, dual-phase Wiggers pumping, apical wringing, and surgical dissection.',
+  },
 };
 
 

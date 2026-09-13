@@ -646,7 +646,7 @@ export default function TmaTtpAhusSimulator() {
                     <span className="text-slate-400">Platelet Count:</span>
                     <span className="font-mono font-bold text-rose-400">{params.plateletCountPerMicroliter.toLocaleString()} /µL</span>
                   </div>
-                  <input
+                  <input aria-label="Platelet Count"
                     type="range"
                     min="5000"
                     max="150000"
@@ -668,7 +668,7 @@ export default function TmaTtpAhusSimulator() {
                     <span className="text-slate-400">Serum Creatinine:</span>
                     <span className="font-mono font-bold text-cyan-300">{params.serumCreatinineMgPerDl} mg/dL</span>
                   </div>
-                  <input
+                  <input aria-label="Serum Creatinine"
                     type="range"
                     min="0.6"
                     max="8.0"
@@ -735,7 +735,7 @@ export default function TmaTtpAhusSimulator() {
                   <span className="text-slate-400">Schistocyte (Fragmented RBC) Percentage:</span>
                   <span className="font-mono font-bold text-rose-400 text-base">{params.schistocytePercentageOnSmear}%</span>
                 </div>
-                <input
+                <input aria-label="Schistocyte (Fragmented RBC) Percentage"
                   type="range"
                   min="0.1"
                   max="6.0"
@@ -777,7 +777,7 @@ export default function TmaTtpAhusSimulator() {
                     <span className="text-slate-400">Serum Lactate Dehydrogenase (LDH):</span>
                     <span className="font-mono font-bold text-amber-400">{params.serumLdhUL} U/L</span>
                   </div>
-                  <input
+                  <input aria-label="Serum Lactate Dehydrogenase (LDH)"
                     type="range"
                     min="150"
                     max="3000"

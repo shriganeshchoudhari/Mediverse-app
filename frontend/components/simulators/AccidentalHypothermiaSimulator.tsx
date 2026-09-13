@@ -546,7 +546,7 @@ export default function AccidentalHypothermiaSimulator() {
                       {params.coreTemperatureCelsius}°C ({((params.coreTemperatureCelsius * 9) / 5 + 32).toFixed(1)}°F)
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Core Temperature Celsius"
                     type="range"
                     min="18.0"
                     max="37.0"
@@ -578,7 +578,7 @@ export default function AccidentalHypothermiaSimulator() {
                         {params.serumPotassiumMmolPerL} mmol/L
                       </span>
                     </div>
-                    <input
+                    <input aria-label="Serum Potassium"
                       type="range"
                       min="2.5"
                       max="18.0"
@@ -708,7 +708,7 @@ export default function AccidentalHypothermiaSimulator() {
                     <span className="text-slate-400">Warmed (40-42°C) IV Crystalloids:</span>
                     <span className="font-mono font-bold text-cyan-300">{params.warmIvFluidsAdministeredMl} mL</span>
                   </div>
-                  <input
+                  <input aria-label="Warmed (40-42°C) IV Crystalloids"
                     type="range"
                     min="0"
                     max="4000"

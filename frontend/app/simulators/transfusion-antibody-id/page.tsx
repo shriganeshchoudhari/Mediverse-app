@@ -1,12 +1,24 @@
+import type { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { TransfusionAntibodyIdSimulator } from '../../../components/simulators/TransfusionAntibodyIdSimulator';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Transfusion Medicine & 11-Cell Antibody ID Simulator | Mediverse',
-  description:
-    'Interactive 11-cell reagent red blood cell antibody identification panel, dosage effect resolution, proteolytic enzyme treatment, and antigen-negative donor unit crossmatch simulator.',
+  description: 'Interactive 11-cell reagent red blood cell antibody identification panel, dosage effect resolution, proteolytic enzyme treatment, and antigen-negative donor unit crossmatch simulator.',
+  openGraph: {
+    title: 'Transfusion Medicine & 11-Cell Antibody ID Simulator | Mediverse',
+    description: 'Interactive 11-cell reagent red blood cell antibody identification panel, dosage effect resolution, proteolytic enzyme treatment, and antigen-negative donor unit crossmatch simulator.',
+    url: 'https://mediverse.app/simulators/transfusion-antibody-id',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Transfusion Medicine & 11-Cell Antibody ID Simulator | Mediverse',
+    description: 'Interactive 11-cell reagent red blood cell antibody identification panel, dosage effect resolution, proteolytic enzyme treatment, and antigen-negative donor unit crossmatch simulator.',
+  },
 };
 
 

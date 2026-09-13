@@ -5,7 +5,19 @@ import { Brain, Activity, ShieldAlert, Clock, Layers, Syringe, Zap, AlertTriangl
 
 export const metadata: Metadata = {
   title: 'Acute Ischemic Stroke (AIS), NIHSS, ASPECTS & Thrombolysis Protocol | Mediverse',
-  description: 'Complete 11-item NIHSS examination scoring, 10-region ASPECTS neuroimaging, AHA/ASA IV Thrombolysis (Tenecteplase / Alteplase) eligibility & weight-adjusted dosing, LVO Endovascular Thrombectomy (EVT) triage, and permissive hemodynamic guardrails.'
+  description: 'Complete 11-item NIHSS examination scoring, 10-region ASPECTS neuroimaging, AHA/ASA IV Thrombolysis (Tenecteplase / Alteplase) eligibility & weight-adjusted dosing, LVO Endovascular Thrombectomy (EVT) triage, and permissive hemodynamic guardrails.',
+  openGraph: {
+    title: 'Acute Ischemic Stroke (AIS), NIHSS, ASPECTS & Thrombolysis Protocol | Mediverse',
+    description: 'Complete 11-item NIHSS examination scoring, 10-region ASPECTS neuroimaging, AHA/ASA IV Thrombolysis (Tenecteplase / Alteplase) eligibility & weight-adjusted dosing, LVO Endovascular Thrombectomy (EVT) triage, and permissive hemodynamic guardrails.',
+    url: 'https://mediverse.app/simulators/stroke-nihss-thrombolysis',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Acute Ischemic Stroke (AIS), NIHSS, ASPECTS & Thrombolysis Protocol | Mediverse',
+    description: 'Complete 11-item NIHSS examination scoring, 10-region ASPECTS neuroimaging, AHA/ASA IV Thrombolysis (Tenecteplase / Alteplase) eligibility & weight-adjusted dosing, LVO Endovascular Thrombectomy (EVT) triage, and permissive hemodynamic guardrails.',
+  },
 };
 
 

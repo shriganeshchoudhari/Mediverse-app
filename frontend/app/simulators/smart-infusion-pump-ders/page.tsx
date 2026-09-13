@@ -4,7 +4,19 @@ import SmartInfusionPumpSimulator from '@/components/simulators/SmartInfusionPum
 
 export const metadata: Metadata = {
   title: 'Smart Infusion Pump Guardrails & Dose Error Reduction System (DERS) | Mediverse',
-  description: 'Biomedical smart pump simulation modeling hard and soft DERS limits, downstream occlusion pressure biophysics, secondary piggyback hydrostatic height, and tenfold decimal error prevention.'
+  description: 'Biomedical smart pump simulation modeling hard and soft DERS limits, downstream occlusion pressure biophysics, secondary piggyback hydrostatic height, and tenfold decimal error prevention.',
+  openGraph: {
+    title: 'Smart Infusion Pump Guardrails & Dose Error Reduction System (DERS) | Mediverse',
+    description: 'Biomedical smart pump simulation modeling hard and soft DERS limits, downstream occlusion pressure biophysics, secondary piggyback hydrostatic height, and tenfold decimal error prevention.',
+    url: 'https://mediverse.app/simulators/smart-infusion-pump-ders',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Smart Infusion Pump Guardrails & Dose Error Reduction System (DERS) | Mediverse',
+    description: 'Biomedical smart pump simulation modeling hard and soft DERS limits, downstream occlusion pressure biophysics, secondary piggyback hydrostatic height, and tenfold decimal error prevention.',
+  },
 };
 
 export const dynamic = 'force-static';

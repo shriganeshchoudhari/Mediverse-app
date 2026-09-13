@@ -5,6 +5,18 @@ import CardiacCycleSimulator from '@/components/simulators/CardiacCycleSimulator
 export const metadata: Metadata = {
   title: 'Cardiac Cycle & Pressure-Volume (PV) Loop Simulator | Mediverse',
   description: 'Interactive cardiovascular mechanics modeling left ventricular PV loops, Wiggers synchronized electrocardiogram-pressure waveforms, and Frank-Starling compliance curves.',
+  openGraph: {
+    title: 'Cardiac Cycle & Pressure-Volume (PV) Loop Simulator | Mediverse',
+    description: 'Interactive cardiovascular mechanics modeling left ventricular PV loops, Wiggers synchronized electrocardiogram-pressure waveforms, and Frank-Starling compliance curves.',
+    url: 'https://mediverse.app/simulators/cardiac-cycle',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cardiac Cycle & Pressure-Volume (PV) Loop Simulator | Mediverse',
+    description: 'Interactive cardiovascular mechanics modeling left ventricular PV loops, Wiggers synchronized electrocardiogram-pressure waveforms, and Frank-Starling compliance curves.',
+  },
 };
 
 export const dynamic = 'force-static';

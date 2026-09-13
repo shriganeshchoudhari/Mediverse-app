@@ -28,6 +28,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 *.log
+hs_err_*.log
+replay_*.log
 *.sqlite
 postgres_data/
 redis_data/

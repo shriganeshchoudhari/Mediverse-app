@@ -5,6 +5,18 @@ import RespiratoryVqSimulator from '@/components/simulators/RespiratoryVqSimulat
 export const metadata: Metadata = {
   title: 'Respiratory Ventilation-Perfusion (V/Q) & Alveolar Gas Solver | Mediverse',
   description: 'Pulmonary physiology workstation modeling the alveolar gas equation, Riley V/Q matching, shunt fraction calculations, and oxyhemoglobin dissociation dynamics.',
+  openGraph: {
+    title: 'Respiratory Ventilation-Perfusion (V/Q) & Alveolar Gas Solver | Mediverse',
+    description: 'Pulmonary physiology workstation modeling the alveolar gas equation, Riley V/Q matching, shunt fraction calculations, and oxyhemoglobin dissociation dynamics.',
+    url: 'https://mediverse.app/simulators/respiratory-vq',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Respiratory Ventilation-Perfusion (V/Q) & Alveolar Gas Solver | Mediverse',
+    description: 'Pulmonary physiology workstation modeling the alveolar gas equation, Riley V/Q matching, shunt fraction calculations, and oxyhemoglobin dissociation dynamics.',
+  },
 };
 
 export const dynamic = 'force-static';

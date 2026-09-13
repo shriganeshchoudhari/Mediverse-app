@@ -5,21 +5,19 @@ import ShuntHypoxemiaSimulator from '@/components/simulators/ShuntHypoxemiaSimul
 
 export const metadata: Metadata = {
   title: 'Hypoxemic & Hypercapnic Respiratory Failure Workstation | Mediverse',
-  description:
-    'Interactive pulmonology and critical care workstation modeling the Alveolar Gas Equation, A-a gradient, classic Berggren shunt fraction (Qs/Qt), 5 mechanisms of hypoxemia, and DO2/VO2 oxygen transport dynamics.',
-  keywords: [
-    'Shunt Fraction',
-    'Qs/Qt',
-    'Berggren Equation',
-    'Alveolar Gas Equation',
-    'A-a Gradient',
-    'Hypoxemia Mechanisms',
-    'V/Q Mismatch',
-    'ARDS Berlin Definition',
-    'Oxygen Delivery DO2',
-    'Oxygen Consumption VO2',
-    'Hyperoxia Test'
-  ]
+  description: 'Interactive pulmonology and critical care workstation modeling the Alveolar Gas Equation, A-a gradient, classic Berggren shunt fraction (Qs/Qt), 5 mechanisms of hypoxemia, and DO2/VO2 oxygen transport dynamics.',
+  openGraph: {
+    title: 'Hypoxemic & Hypercapnic Respiratory Failure Workstation | Mediverse',
+    description: 'Interactive pulmonology and critical care workstation modeling the Alveolar Gas Equation, A-a gradient, classic Berggren shunt fraction (Qs/Qt), 5 mechanisms of hypoxemia, and DO2/VO2 oxygen transport dynamics.',
+    url: 'https://mediverse.app/simulators/shunt-hypoxemia-vq-mismatch',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hypoxemic & Hypercapnic Respiratory Failure Workstation | Mediverse',
+    description: 'Interactive pulmonology and critical care workstation modeling the Alveolar Gas Equation, A-a gradient, classic Berggren shunt fraction (Qs/Qt), 5 mechanisms of hypoxemia, and DO2/VO2 oxygen transport dynamics.',
+  },
 };
 
 

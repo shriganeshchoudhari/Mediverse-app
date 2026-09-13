@@ -398,7 +398,7 @@ Please explain the surgical anatomy, physiological trade-offs of pneumoperitoneu
                   {iapMmHg} mmHg
                 </span>
               </div>
-              <input
+              <input aria-label="Intra-Abdominal Pressure (IAP)"
                 type="range"
                 min="0"
                 max="25"
@@ -454,7 +454,7 @@ Please explain the surgical anatomy, physiological trade-offs of pneumoperitoneu
                 <span>Table Angle (Tilt)</span>
                 <span className="font-mono text-cyan-400 font-bold">{tableTiltDeg}°</span>
               </div>
-              <input
+              <input aria-label="Table Angle (Tilt)"
                 type="range"
                 min="-30"
                 max="25"
@@ -546,7 +546,7 @@ Please explain the surgical anatomy, physiological trade-offs of pneumoperitoneu
                   <span>Generator Power Output</span>
                   <span className="font-mono text-amber-400 font-bold">{energyWatts} Watts</span>
                 </div>
-                <input
+                <input aria-label="Generator Power Output"
                   type="range"
                   min="10"
                   max="60"

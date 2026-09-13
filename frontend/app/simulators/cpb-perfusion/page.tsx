@@ -14,8 +14,19 @@ import { CPBPerfusionSimulator } from '@/components/simulators/CPBPerfusionSimul
 
 export const metadata: Metadata = {
   title: 'Cardiopulmonary Bypass (CPB) & Perfusion Workstation | Mediverse',
-  description:
-    'Comprehensive heart-lung machine simulation: roller vs centrifugal pumps, VAVD venous drainage, hypothermia gas strategies (alpha-stat vs pH-stat), cardioplegia myocardial protection, and protamine stoichiometry.',
+  description: 'Comprehensive heart-lung machine simulation: roller vs centrifugal pumps, VAVD venous drainage, hypothermia gas strategies (alpha-stat vs pH-stat), cardioplegia myocardial protection, and protamine stoichiometry.',
+  openGraph: {
+    title: 'Cardiopulmonary Bypass (CPB) & Perfusion Workstation | Mediverse',
+    description: 'Comprehensive heart-lung machine simulation: roller vs centrifugal pumps, VAVD venous drainage, hypothermia gas strategies (alpha-stat vs pH-stat), cardioplegia myocardial protection, and protamine stoichiometry.',
+    url: 'https://mediverse.app/simulators/cpb-perfusion',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cardiopulmonary Bypass (CPB) & Perfusion Workstation | Mediverse',
+    description: 'Comprehensive heart-lung machine simulation: roller vs centrifugal pumps, VAVD venous drainage, hypothermia gas strategies (alpha-stat vs pH-stat), cardioplegia myocardial protection, and protamine stoichiometry.',
+  },
 };
 
 

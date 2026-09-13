@@ -6,8 +6,19 @@ import AmnioticFluidEmbolismSimulator from '../../../components/simulators/Amnio
 
 export const metadata: Metadata = {
   title: 'Amniotic Fluid Embolism (AFE) & Obstetric Collapse | Mediverse Simulators',
-  description:
-    'Obstetric critical care simulation of Amniotic Fluid Embolism (AFE), Clark diagnostic criteria (SMFM 2016), biphasic right ventricular failure and consumptive hyperfibrinolytic DIC, A-OK protocol, inhaled epoprostenol, and VA-ECMO salvage.',
+  description: 'Obstetric critical care simulation of Amniotic Fluid Embolism (AFE), Clark diagnostic criteria (SMFM 2016), biphasic right ventricular failure and consumptive hyperfibrinolytic DIC, A-OK protocol, inhaled epoprostenol, and VA-ECMO salvage.',
+  openGraph: {
+    title: 'Amniotic Fluid Embolism (AFE) & Obstetric Collapse | Mediverse Simulators',
+    description: 'Obstetric critical care simulation of Amniotic Fluid Embolism (AFE), Clark diagnostic criteria (SMFM 2016), biphasic right ventricular failure and consumptive hyperfibrinolytic DIC, A-OK protocol, inhaled epoprostenol, and VA-ECMO salvage.',
+    url: 'https://mediverse.app/simulators/amniotic-fluid-embolism-afe',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Amniotic Fluid Embolism (AFE) & Obstetric Collapse | Mediverse Simulators',
+    description: 'Obstetric critical care simulation of Amniotic Fluid Embolism (AFE), Clark diagnostic criteria (SMFM 2016), biphasic right ventricular failure and consumptive hyperfibrinolytic DIC, A-OK protocol, inhaled epoprostenol, and VA-ECMO salvage.',
+  },
 };
 
 

@@ -4,8 +4,19 @@ import DifficultAirwaySimulator from '@/components/simulators/DifficultAirwaySim
 
 export const metadata: Metadata = {
   title: 'Difficult Airway & Awake Fiberoptic Intubation Workstation | Mediverse',
-  description:
-    'Anesthesiology & Critical Care clinical workstation: Mallampati Class I–IV, Cormack-Lehane Grade 1–4, POGO score, STOP-BANG OSA risk, DAS 2015 Plan A–D algorithm, and CICO emergency scalpel-bougie cricothyroidotomy protocol.',
+  description: 'Anesthesiology & Critical Care clinical workstation: Mallampati Class I–IV, Cormack-Lehane Grade 1–4, POGO score, STOP-BANG OSA risk, DAS 2015 Plan A–D algorithm, and CICO emergency scalpel-bougie cricothyroidotomy protocol.',
+  openGraph: {
+    title: 'Difficult Airway & Awake Fiberoptic Intubation Workstation | Mediverse',
+    description: 'Anesthesiology & Critical Care clinical workstation: Mallampati Class I–IV, Cormack-Lehane Grade 1–4, POGO score, STOP-BANG OSA risk, DAS 2015 Plan A–D algorithm, and CICO emergency scalpel-bougie cricothyroidotomy protocol.',
+    url: 'https://mediverse.app/simulators/difficult-airway-intubation',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Difficult Airway & Awake Fiberoptic Intubation Workstation | Mediverse',
+    description: 'Anesthesiology & Critical Care clinical workstation: Mallampati Class I–IV, Cormack-Lehane Grade 1–4, POGO score, STOP-BANG OSA risk, DAS 2015 Plan A–D algorithm, and CICO emergency scalpel-bougie cricothyroidotomy protocol.',
+  },
 };
 
 

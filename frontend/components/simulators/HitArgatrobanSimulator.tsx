@@ -750,7 +750,7 @@ export default function HitArgatrobanSimulator() {
                   <span>Optical Density (OD):</span>
                   <span className="font-bold text-cyan-400">{antiPf4ElisaOpticalDensity.toFixed(2)}</span>
                 </div>
-                <input
+                <input aria-label="Optical Density (OD)"
                   type="range"
                   min={0.05}
                   max={3.5}
@@ -904,7 +904,7 @@ export default function HitArgatrobanSimulator() {
                       {serumTotalBilirubinMgDl.toFixed(1)} mg/dL
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Serum Total Bilirubin (Hepatic Function)"
                     type="range"
                     min={0.2}
                     max={8.0}
@@ -927,7 +927,7 @@ export default function HitArgatrobanSimulator() {
                       {creatinineClearanceMlMin} mL/min
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Creatinine Clearance (Renal Function)"
                     type="range"
                     min={10}
                     max={120}

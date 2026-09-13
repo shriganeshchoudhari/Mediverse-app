@@ -4,8 +4,19 @@ import ThyroidStormSimulator from '../../../components/simulators/ThyroidStormSi
 
 export const metadata: Metadata = {
   title: 'Thyroid Storm & Burch-Wartofsky Crisis Workstation | Mediverse',
-  description:
-    'Comprehensive Endocrine & Neurocritical Care workstation modeling the Burch-Wartofsky Point Scale (BWPS), Japan Thyroid Association (Akamizu) diagnostic criteria, 5-Stage Multimodal Pharmacotherapy chain, mandatory Wolff-Chaikoff 60-minute iodine delay, and Aspirin TBG displacement hazards.',
+  description: 'Comprehensive Endocrine & Neurocritical Care workstation modeling the Burch-Wartofsky Point Scale (BWPS), Japan Thyroid Association (Akamizu) diagnostic criteria, 5-Stage Multimodal Pharmacotherapy chain, mandatory Wolff-Chaikoff 60-minute iodine delay, and Aspirin TBG displacement hazards.',
+  openGraph: {
+    title: 'Thyroid Storm & Burch-Wartofsky Crisis Workstation | Mediverse',
+    description: 'Comprehensive Endocrine & Neurocritical Care workstation modeling the Burch-Wartofsky Point Scale (BWPS), Japan Thyroid Association (Akamizu) diagnostic criteria, 5-Stage Multimodal Pharmacotherapy chain, mandatory Wolff-Chaikoff 60-minute iodine delay, and Aspirin TBG displacement hazards.',
+    url: 'https://mediverse.app/simulators/thyroid-storm-burch-wartofsky',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Thyroid Storm & Burch-Wartofsky Crisis Workstation | Mediverse',
+    description: 'Comprehensive Endocrine & Neurocritical Care workstation modeling the Burch-Wartofsky Point Scale (BWPS), Japan Thyroid Association (Akamizu) diagnostic criteria, 5-Stage Multimodal Pharmacotherapy chain, mandatory Wolff-Chaikoff 60-minute iodine delay, and Aspirin TBG displacement hazards.',
+  },
 };
 
 

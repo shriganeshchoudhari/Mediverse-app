@@ -313,7 +313,7 @@ export default function HepatorenalSyndromeSimulator() {
                     <span>Baseline Serum Cr</span>
                     <span className="font-bold text-slate-300">{params.baselineSerumCreatinineMgDl.toFixed(1)} mg/dL</span>
                   </div>
-                  <input
+                  <input aria-label="Baseline Serum Cr"
                     type="range"
                     min="0.5"
                     max="2.0"
@@ -328,7 +328,7 @@ export default function HepatorenalSyndromeSimulator() {
                     <span>Current Serum Cr</span>
                     <span className="font-bold text-amber-400">{params.currentSerumCreatinineMgDl.toFixed(1)} mg/dL</span>
                   </div>
-                  <input
+                  <input aria-label="Current Serum Cr"
                     type="range"
                     min="0.6"
                     max="6.0"
@@ -346,7 +346,7 @@ export default function HepatorenalSyndromeSimulator() {
                   <span>Systolic Blood Pressure (SBP)</span>
                   <span className="font-bold text-slate-300">{params.sbpMmHg} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Systolic Blood Pressure (SBP)"
                   type="range"
                   min="70"
                   max="130"
@@ -361,7 +361,7 @@ export default function HepatorenalSyndromeSimulator() {
                   <span>Diastolic Blood Pressure (DBP)</span>
                   <span className="font-bold text-slate-300">{params.dbpMmHg} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Diastolic Blood Pressure (DBP)"
                   type="range"
                   min="40"
                   max="80"
@@ -379,7 +379,7 @@ export default function HepatorenalSyndromeSimulator() {
                     {params.spO2PercentRoomAir}%
                   </span>
                 </div>
-                <input
+                <input aria-label="Room Air SpO₂ (CONFIRM Trial Safety)"
                   type="range"
                   min="82"
                   max="100"
@@ -412,7 +412,7 @@ export default function HepatorenalSyndromeSimulator() {
                     <span>Total Bilirubin</span>
                     <span className="font-bold text-amber-400">{params.totalBilirubinMgDl.toFixed(1)} mg/dL</span>
                   </div>
-                  <input
+                  <input aria-label="Total Bilirubin"
                     type="range"
                     min="1.0"
                     max="35.0"
@@ -427,7 +427,7 @@ export default function HepatorenalSyndromeSimulator() {
                     <span>INR</span>
                     <span className="font-bold text-rose-400">{params.inr.toFixed(1)}</span>
                   </div>
-                  <input
+                  <input aria-label="INR"
                     type="range"
                     min="1.0"
                     max="4.5"
@@ -448,7 +448,7 @@ export default function HepatorenalSyndromeSimulator() {
                       {params.serumSodiumMeqL} mEq/L
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Serum Sodium"
                     type="range"
                     min="118"
                     max="142"
@@ -462,7 +462,7 @@ export default function HepatorenalSyndromeSimulator() {
                     <span>Serum Albumin</span>
                     <span className="font-bold text-slate-300">{params.serumAlbuminGDl.toFixed(1)} g/dL</span>
                   </div>
-                  <input
+                  <input aria-label="Serum Albumin"
                     type="range"
                     min="1.5"
                     max="4.5"
@@ -578,7 +578,7 @@ export default function HepatorenalSyndromeSimulator() {
                       {params.urineSodiumMeqL} mEq/L
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Urine Sodium (UNa)"
                     type="range"
                     min="4"
                     max="80"
@@ -596,7 +596,7 @@ export default function HepatorenalSyndromeSimulator() {
                       {params.fractionalExcretionSodiumPercent.toFixed(2)}%
                     </span>
                   </div>
-                  <input
+                  <input aria-label="FeNa (%)"
                     type="range"
                     min="0.1"
                     max="3.5"
@@ -616,7 +616,7 @@ export default function HepatorenalSyndromeSimulator() {
                     <span>FeUrea (%)</span>
                     <span className="font-bold text-slate-300">{params.fractionalExcretionUreaPercent}%</span>
                   </div>
-                  <input
+                  <input aria-label="FeUrea (%)"
                     type="range"
                     min="15"
                     max="65"
@@ -634,7 +634,7 @@ export default function HepatorenalSyndromeSimulator() {
                       {params.urinaryNgalNgMl} ng/mL
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Urinary NGAL"
                     type="range"
                     min="20"
                     max="800"
@@ -705,7 +705,7 @@ export default function HepatorenalSyndromeSimulator() {
                     <span>Ascites Removed (Liters)</span>
                     <span className="font-bold text-amber-400">{params.largeVolumeParacentesisLiters} L</span>
                   </div>
-                  <input
+                  <input aria-label="Ascites Removed (Liters)"
                     type="range"
                     min="0"
                     max="15"
@@ -722,7 +722,7 @@ export default function HepatorenalSyndromeSimulator() {
                     <span>Post-LVP Albumin Administered</span>
                     <span className="font-bold text-sky-400">{params.paracentesisAlbuminGivenGrams} g</span>
                   </div>
-                  <input
+                  <input aria-label="Post-LVP Albumin Administered"
                     type="range"
                     min="0"
                     max="120"
@@ -761,7 +761,7 @@ export default function HepatorenalSyndromeSimulator() {
                     {params.asciticFluidPmnCountPerMm3} /mm³
                   </span>
                 </div>
-                <input
+                <input aria-label="Ascitic Fluid PMN Count"
                   type="range"
                   min="10"
                   max="2000"

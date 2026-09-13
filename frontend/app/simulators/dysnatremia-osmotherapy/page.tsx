@@ -4,8 +4,19 @@ import DysnatremiaSimulator from '@/components/simulators/DysnatremiaSimulator';
 
 export const metadata: Metadata = {
   title: 'Dysnatremia, Hyponatremia/Hypernatremia Kinetics & Osmotherapy Workstation | Mediverse',
-  description:
-    'Nephrology & Critical Care clinical workstation: Adrogué-Madias fluid dynamics, Osmotic Demyelination Syndrome (ODS) prevention, 3% hypertonic saline bolus, DDAVP clamp, and neuro-osmotherapy.',
+  description: 'Nephrology & Critical Care clinical workstation: Adrogué-Madias fluid dynamics, Osmotic Demyelination Syndrome (ODS) prevention, 3% hypertonic saline bolus, DDAVP clamp, and neuro-osmotherapy.',
+  openGraph: {
+    title: 'Dysnatremia, Hyponatremia/Hypernatremia Kinetics & Osmotherapy Workstation | Mediverse',
+    description: 'Nephrology & Critical Care clinical workstation: Adrogué-Madias fluid dynamics, Osmotic Demyelination Syndrome (ODS) prevention, 3% hypertonic saline bolus, DDAVP clamp, and neuro-osmotherapy.',
+    url: 'https://mediverse.app/simulators/dysnatremia-osmotherapy',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dysnatremia, Hyponatremia/Hypernatremia Kinetics & Osmotherapy Workstation | Mediverse',
+    description: 'Nephrology & Critical Care clinical workstation: Adrogué-Madias fluid dynamics, Osmotic Demyelination Syndrome (ODS) prevention, 3% hypertonic saline bolus, DDAVP clamp, and neuro-osmotherapy.',
+  },
 };
 
 

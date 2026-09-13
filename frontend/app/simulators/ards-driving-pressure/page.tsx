@@ -4,8 +4,19 @@ import ArdsSimulator from '../../../components/simulators/ArdsSimulator';
 
 export const metadata: Metadata = {
   title: 'ARDS Berlin Phenotyping, Driving Pressure & Mechanical Power | Mediverse',
-  description:
-    'Interactive critical care and mechanical ventilation workstation modeling Berlin ARDS definitions, Amato driving pressure, Gattinoni mechanical power, and PROSEVA prone positioning protocols.',
+  description: 'Interactive critical care and mechanical ventilation workstation modeling Berlin ARDS definitions, Amato driving pressure, Gattinoni mechanical power, and PROSEVA prone positioning protocols.',
+  openGraph: {
+    title: 'ARDS Berlin Phenotyping, Driving Pressure & Mechanical Power | Mediverse',
+    description: 'Interactive critical care and mechanical ventilation workstation modeling Berlin ARDS definitions, Amato driving pressure, Gattinoni mechanical power, and PROSEVA prone positioning protocols.',
+    url: 'https://mediverse.app/simulators/ards-driving-pressure',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ARDS Berlin Phenotyping, Driving Pressure & Mechanical Power | Mediverse',
+    description: 'Interactive critical care and mechanical ventilation workstation modeling Berlin ARDS definitions, Amato driving pressure, Gattinoni mechanical power, and PROSEVA prone positioning protocols.',
+  },
 };
 
 

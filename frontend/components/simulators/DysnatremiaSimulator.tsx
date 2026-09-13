@@ -390,7 +390,7 @@ export default function DysnatremiaSimulator() {
                       {patient.baselineSerumSodiumMeqL} mEq/L
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Serum Sodium ([Na+])"
                     type="range"
                     min="95"
                     max="175"
@@ -415,7 +415,7 @@ export default function DysnatremiaSimulator() {
                       {patient.serumGlucoseMgDl} mg/dL
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Serum Glucose"
                     type="range"
                     min="60"
                     max="950"
@@ -440,7 +440,7 @@ export default function DysnatremiaSimulator() {
                       {patient.serumBunMgDl} mg/dL
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Blood Urea Nitrogen (BUN)"
                     type="range"
                     min="5"
                     max="90"
@@ -468,7 +468,7 @@ export default function DysnatremiaSimulator() {
                       {patient.urineSodiumMeqL} mEq/L
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Urine Sodium (UNa)"
                     type="range"
                     min="5"
                     max="120"
@@ -495,7 +495,7 @@ export default function DysnatremiaSimulator() {
                       {patient.urineOsmolalityMOsmKg} mOsm/kg
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Urine Osmolality (UOsm)"
                     type="range"
                     min="50"
                     max="1000"
@@ -522,7 +522,7 @@ export default function DysnatremiaSimulator() {
                       {patient.urineOutputMlHr} mL/hr
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Urine Output Rate"
                     type="range"
                     min="10"
                     max="600"
@@ -668,7 +668,7 @@ export default function DysnatremiaSimulator() {
                       {regimen.infusionRateMlHr} mL/hr
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Continuous Infusion Rate"
                     type="range"
                     min="0"
                     max="500"
@@ -697,7 +697,7 @@ export default function DysnatremiaSimulator() {
                       {regimen.durationHours} hours
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Infusion Duration Window"
                     type="range"
                     min="1"
                     max="24"

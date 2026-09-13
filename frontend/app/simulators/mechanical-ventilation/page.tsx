@@ -17,6 +17,18 @@ import MechanicalVentilationSimulator from '@/components/simulators/MechanicalVe
 export const metadata: Metadata = {
   title: 'Mechanical Ventilation & Critical Care Respiratory Mechanics | Mediverse',
   description: 'Enterprise virtual mechanical ventilator workstation: Equation of Motion, VCV vs. PCV waveforms, inspiratory hold mechanics, driving pressure, auto-PEEP, and ARDSNet lung-protective titration.',
+  openGraph: {
+    title: 'Mechanical Ventilation & Critical Care Respiratory Mechanics | Mediverse',
+    description: 'Enterprise virtual mechanical ventilator workstation: Equation of Motion, VCV vs. PCV waveforms, inspiratory hold mechanics, driving pressure, auto-PEEP, and ARDSNet lung-protective titration.',
+    url: 'https://mediverse.app/simulators/mechanical-ventilation',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Mechanical Ventilation & Critical Care Respiratory Mechanics | Mediverse',
+    description: 'Enterprise virtual mechanical ventilator workstation: Equation of Motion, VCV vs. PCV waveforms, inspiratory hold mechanics, driving pressure, auto-PEEP, and ARDSNet lung-protective titration.',
+  },
 };
 
 

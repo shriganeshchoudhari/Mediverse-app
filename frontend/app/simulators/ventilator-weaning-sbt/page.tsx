@@ -6,8 +6,19 @@ import VentilatorWeaningSimulator from '../../../components/simulators/Ventilato
 
 export const metadata: Metadata = {
   title: 'Difficult Ventilator Weaning & Spontaneous Breathing Trials | Mediverse Simulators',
-  description:
-    'Pulmonology and critical care simulation of difficult mechanical ventilator liberation, Yang-Tobin RSBI kinetics, P0.1 neuro-ventilatory drive, diaphragmatic ultrasound (TFdi & excursion), PSV vs T-piece trials, and cuff leak laryngeal edema screening.',
+  description: 'Pulmonology and critical care simulation of difficult mechanical ventilator liberation, Yang-Tobin RSBI kinetics, P0.1 neuro-ventilatory drive, diaphragmatic ultrasound (TFdi & excursion), PSV vs T-piece trials, and cuff leak laryngeal edema screening.',
+  openGraph: {
+    title: 'Difficult Ventilator Weaning & Spontaneous Breathing Trials | Mediverse Simulators',
+    description: 'Pulmonology and critical care simulation of difficult mechanical ventilator liberation, Yang-Tobin RSBI kinetics, P0.1 neuro-ventilatory drive, diaphragmatic ultrasound (TFdi & excursion), PSV vs T-piece trials, and cuff leak laryngeal edema screening.',
+    url: 'https://mediverse.app/simulators/ventilator-weaning-sbt',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Difficult Ventilator Weaning & Spontaneous Breathing Trials | Mediverse Simulators',
+    description: 'Pulmonology and critical care simulation of difficult mechanical ventilator liberation, Yang-Tobin RSBI kinetics, P0.1 neuro-ventilatory drive, diaphragmatic ultrasound (TFdi & excursion), PSV vs T-piece trials, and cuff leak laryngeal edema screening.',
+  },
 };
 
 

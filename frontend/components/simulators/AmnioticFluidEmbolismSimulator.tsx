@@ -315,7 +315,7 @@ export default function AmnioticFluidEmbolismSimulator() {
                     {timingMin < 0 ? `${Math.abs(timingMin)} min Antepartum` : `${timingMin} min Postpartum`}
                   </span>
                 </div>
-                <input
+                <input aria-label="Peripartum Timing"
                   type="range"
                   min="-60"
                   max="120"
@@ -362,7 +362,7 @@ export default function AmnioticFluidEmbolismSimulator() {
                     <span className="text-slate-300 font-medium">Systolic BP</span>
                     <span className={`font-bold ${sbp < 90 ? 'text-rose-400' : 'text-slate-200'}`}>{sbp} mmHg</span>
                   </div>
-                  <input
+                  <input aria-label="Systolic BP"
                     type="range"
                     min="40"
                     max="140"
@@ -376,7 +376,7 @@ export default function AmnioticFluidEmbolismSimulator() {
                     <span className="text-slate-300 font-medium">SpO2 Oxygenation</span>
                     <span className={`font-bold ${spo2 < 90 ? 'text-rose-400' : 'text-slate-200'}`}>{spo2}%</span>
                   </div>
-                  <input
+                  <input aria-label="SpO2 Oxygenation"
                     type="range"
                     min="50"
                     max="100"
@@ -394,7 +394,7 @@ export default function AmnioticFluidEmbolismSimulator() {
                     {pvr} dyn·s/cm⁵ (Normal 50-150)
                   </span>
                 </div>
-                <input
+                <input aria-label="Pulmonary Vascular Resistance (PVR)"
                   type="range"
                   min="80"
                   max="900"
@@ -413,7 +413,7 @@ export default function AmnioticFluidEmbolismSimulator() {
                       {rvLvRatio.toFixed(2)}
                     </span>
                   </div>
-                  <input
+                  <input aria-label="RV/LV Ratio"
                     type="range"
                     min="0.4"
                     max="1.6"
@@ -430,7 +430,7 @@ export default function AmnioticFluidEmbolismSimulator() {
                       {temp.toFixed(1)} °C
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Temperature"
                     type="range"
                     min="35.5"
                     max="40.0"
@@ -473,7 +473,7 @@ export default function AmnioticFluidEmbolismSimulator() {
                     {fibrinogen} mg/dL (Pregnancy Target &gt; 200)
                   </span>
                 </div>
-                <input
+                <input aria-label="Serum Fibrinogen"
                   type="range"
                   min="40"
                   max="600"
@@ -497,7 +497,7 @@ export default function AmnioticFluidEmbolismSimulator() {
                       {platelets}k /µL
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Platelets"
                     type="range"
                     min="20"
                     max="350"
@@ -514,7 +514,7 @@ export default function AmnioticFluidEmbolismSimulator() {
                       {inr.toFixed(1)}
                     </span>
                   </div>
-                  <input
+                  <input aria-label="INR"
                     type="range"
                     min="0.9"
                     max="3.5"

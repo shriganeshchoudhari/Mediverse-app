@@ -4,8 +4,19 @@ import AorticStenosisSimulator from '@/components/simulators/AorticStenosisSimul
 
 export const metadata: Metadata = {
   title: 'Aortic Stenosis & Valve Hemodynamics Workstation | Mediverse',
-  description:
-    'Cardiology and interventional valve hemodynamics workstation: Doppler continuity equation, invasive Gorlin and Hakki equation solver, Energy Loss Index (ELI), Valvuloarterial Impedance (Zva), ACC/AHA 2020 Stage A-D3 classification, and Heart Team TAVI vs SAVR decision matrix.',
+  description: 'Cardiology and interventional valve hemodynamics workstation: Doppler continuity equation, invasive Gorlin and Hakki equation solver, Energy Loss Index (ELI), Valvuloarterial Impedance (Zva), ACC/AHA 2020 Stage A-D3 classification, and Heart Team TAVI vs SAVR decision matrix.',
+  openGraph: {
+    title: 'Aortic Stenosis & Valve Hemodynamics Workstation | Mediverse',
+    description: 'Cardiology and interventional valve hemodynamics workstation: Doppler continuity equation, invasive Gorlin and Hakki equation solver, Energy Loss Index (ELI), Valvuloarterial Impedance (Zva), ACC/AHA 2020 Stage A-D3 classification, and Heart Team TAVI vs SAVR decision matrix.',
+    url: 'https://mediverse.app/simulators/aortic-stenosis-valve',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Aortic Stenosis & Valve Hemodynamics Workstation | Mediverse',
+    description: 'Cardiology and interventional valve hemodynamics workstation: Doppler continuity equation, invasive Gorlin and Hakki equation solver, Energy Loss Index (ELI), Valvuloarterial Impedance (Zva), ACC/AHA 2020 Stage A-D3 classification, and Heart Team TAVI vs SAVR decision matrix.',
+  },
 };
 
 

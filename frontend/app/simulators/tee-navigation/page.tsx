@@ -14,8 +14,19 @@ import { TEENavigationSimulator } from '@/components/simulators/TEENavigationSim
 
 export const metadata: Metadata = {
   title: 'Transesophageal Echocardiography (TEE) 28-View Workstation | Mediverse',
-  description:
-    'Comprehensive ASE/SCA 28 standard TEE views navigation, multiplane omniplane probe manipulation, continuity equation for aortic stenosis, and diastolic hemodynamic solver.',
+  description: 'Comprehensive ASE/SCA 28 standard TEE views navigation, multiplane omniplane probe manipulation, continuity equation for aortic stenosis, and diastolic hemodynamic solver.',
+  openGraph: {
+    title: 'Transesophageal Echocardiography (TEE) 28-View Workstation | Mediverse',
+    description: 'Comprehensive ASE/SCA 28 standard TEE views navigation, multiplane omniplane probe manipulation, continuity equation for aortic stenosis, and diastolic hemodynamic solver.',
+    url: 'https://mediverse.app/simulators/tee-navigation',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Transesophageal Echocardiography (TEE) 28-View Workstation | Mediverse',
+    description: 'Comprehensive ASE/SCA 28 standard TEE views navigation, multiplane omniplane probe manipulation, continuity equation for aortic stenosis, and diastolic hemodynamic solver.',
+  },
 };
 
 

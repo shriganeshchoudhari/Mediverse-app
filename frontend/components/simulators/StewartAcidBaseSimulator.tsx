@@ -182,7 +182,7 @@ export default function StewartAcidBaseSimulator() {
               <span className="text-slate-400">Sodium (Na+):</span>
               <span className="font-bold text-teal-300">{params.naMeqL} mEq/L</span>
             </div>
-            <input
+            <input aria-label="Sodium (Na+)"
               type="range"
               min="120"
               max="160"
@@ -197,7 +197,7 @@ export default function StewartAcidBaseSimulator() {
               <span className="text-slate-400">Chloride (Cl-):</span>
               <span className="font-bold text-teal-300">{params.clMeqL} mEq/L</span>
             </div>
-            <input
+            <input aria-label="Chloride (Cl-)"
               type="range"
               min="70"
               max="130"
@@ -217,7 +217,7 @@ export default function StewartAcidBaseSimulator() {
               <span className="text-slate-400">Arterial pCO2:</span>
               <span className="font-bold text-teal-300">{params.pco2MmHg} mmHg</span>
             </div>
-            <input
+            <input aria-label="Arterial pCO2"
               type="range"
               min="15"
               max="80"
@@ -232,7 +232,7 @@ export default function StewartAcidBaseSimulator() {
               <span className="text-slate-400">Serum Albumin:</span>
               <span className="font-bold text-teal-300">{params.albuminGDL} g/dL (Atot Buffer)</span>
             </div>
-            <input
+            <input aria-label="Serum Albumin"
               type="range"
               min="1.0"
               max="5.5"
@@ -248,7 +248,7 @@ export default function StewartAcidBaseSimulator() {
               <span className="text-slate-400">Lactate:</span>
               <span className="font-bold text-teal-300">{params.lactateMeqL} mEq/L</span>
             </div>
-            <input
+            <input aria-label="Lactate"
               type="range"
               min="0.5"
               max="15.0"
@@ -420,7 +420,7 @@ export default function StewartAcidBaseSimulator() {
                   <span className="text-slate-400">Volume Infused:</span>
                   <span className="font-bold text-teal-300">{params.fluidVolumeLiters} Liters</span>
                 </div>
-                <input
+                <input aria-label="Volume Infused"
                   type="range"
                   min="1"
                   max="5"

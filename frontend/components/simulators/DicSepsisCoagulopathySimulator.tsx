@@ -201,7 +201,7 @@ export default function DicSepsisCoagulopathySimulator() {
                   {plateletsK} &times; 10³/&mu;L
                 </span>
               </div>
-              <input
+              <input aria-label="Platelets K"
                 type="range"
                 min="5"
                 max="250"
@@ -229,7 +229,7 @@ export default function DicSepsisCoagulopathySimulator() {
                   {fibrinogenMgDl} mg/dL
                 </span>
               </div>
-              <input
+              <input aria-label="Fibrinogen Mg Dl"
                 type="range"
                 min="20"
                 max="500"
@@ -261,7 +261,7 @@ export default function DicSepsisCoagulopathySimulator() {
                   {ptSeconds}s (&Delta;+{ptProlongationSeconds.toFixed(1)}s)
                 </span>
               </div>
-              <input
+              <input aria-label="Pt Seconds"
                 type="range"
                 min="11"
                 max="40"
@@ -283,7 +283,7 @@ export default function DicSepsisCoagulopathySimulator() {
                 <span className="text-slate-300 font-medium">International Normalized Ratio (INR):</span>
                 <span className="font-mono font-bold text-amber-300">{inr.toFixed(2)}</span>
               </div>
-              <input
+              <input aria-label="International Normalized Ratio (INR)"
                 type="range"
                 min="0.9"
                 max="4.5"
@@ -306,7 +306,7 @@ export default function DicSepsisCoagulopathySimulator() {
                   {dDimerNgMl.toLocaleString()} ng/mL
                 </span>
               </div>
-              <input
+              <input aria-label="D Dimer Ng Ml"
                 type="range"
                 min="200"
                 max="20000"
@@ -331,7 +331,7 @@ export default function DicSepsisCoagulopathySimulator() {
                     {antithrombinIii}%
                   </span>
                 </div>
-                <input
+                <input aria-label="Antithrombin III"
                   type="range"
                   min="15"
                   max="120"
@@ -349,7 +349,7 @@ export default function DicSepsisCoagulopathySimulator() {
                     {proteinC}%
                   </span>
                 </div>
-                <input
+                <input aria-label="Protein C"
                   type="range"
                   min="15"
                   max="120"

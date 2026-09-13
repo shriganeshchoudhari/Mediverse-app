@@ -384,7 +384,7 @@ Active Warnings: ${iabpResult.warnings.join('; ') || 'None'}`;
                 {inflationOffsetMs > 0 ? `+${inflationOffsetMs}` : inflationOffsetMs} ms
               </span>
             </div>
-            <input
+            <input aria-label="Inflation Offset Ms"
               type="range"
               min={-100}
               max={100}
@@ -408,7 +408,7 @@ Active Warnings: ${iabpResult.warnings.join('; ') || 'None'}`;
                 {deflationOffsetMs > 0 ? `+${deflationOffsetMs}` : deflationOffsetMs} ms
               </span>
             </div>
-            <input
+            <input aria-label="Deflation Offset Ms"
               type="range"
               min={-100}
               max={100}
@@ -434,7 +434,7 @@ Active Warnings: ${iabpResult.warnings.join('; ') || 'None'}`;
                 <span>Heart Rate</span>
                 <span className="font-mono text-slate-200">{heartRate} bpm</span>
               </div>
-              <input
+              <input aria-label="Heart Rate"
                 type="range"
                 min={50}
                 max={140}
@@ -449,7 +449,7 @@ Active Warnings: ${iabpResult.warnings.join('; ') || 'None'}`;
                 <span>Systolic Blood Pressure</span>
                 <span className="font-mono text-slate-200">{systolicBP} mmHg</span>
               </div>
-              <input
+              <input aria-label="Systolic Blood Pressure"
                 type="range"
                 min={60}
                 max={140}

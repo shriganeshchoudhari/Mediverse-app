@@ -587,7 +587,7 @@ export default function BronchopleuralFistulaSimulator() {
                     <span className="text-slate-400">Air Leak Volume per Breath:</span>
                     <span className="font-mono font-bold text-rose-400">{params.airLeakVolumeMlPerBreath} mL</span>
                   </div>
-                  <input
+                  <input aria-label="Air Leak Volume per Breath"
                     type="range"
                     min="30"
                     max="500"
@@ -609,7 +609,7 @@ export default function BronchopleuralFistulaSimulator() {
                     <span className="text-slate-400">Fistula Orifice Diameter:</span>
                     <span className="font-mono font-bold text-sky-300">{params.fistulaDiameterMm} mm</span>
                   </div>
-                  <input
+                  <input aria-label="Fistula Orifice Diameter"
                     type="range"
                     min="1.0"
                     max="12.0"

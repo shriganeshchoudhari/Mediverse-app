@@ -14,8 +14,19 @@ import EEGNeurophysiologySimulator from '@/components/simulators/EEGNeurophysiol
 
 export const metadata: Metadata = {
   title: 'Clinical Neurophysiology & Quantitative EEG (qEEG) Workstation | Mediverse',
-  description:
-    'Comprehensive 16-channel electrophysiological tracing, International 10-20 montages, physiological frequency bands, epileptiform discharges, and FFT quantitative spectral analytics.',
+  description: 'Comprehensive 16-channel electrophysiological tracing, International 10-20 montages, physiological frequency bands, epileptiform discharges, and FFT quantitative spectral analytics.',
+  openGraph: {
+    title: 'Clinical Neurophysiology & Quantitative EEG (qEEG) Workstation | Mediverse',
+    description: 'Comprehensive 16-channel electrophysiological tracing, International 10-20 montages, physiological frequency bands, epileptiform discharges, and FFT quantitative spectral analytics.',
+    url: 'https://mediverse.app/simulators/eeg-neurophysiology',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Clinical Neurophysiology & Quantitative EEG (qEEG) Workstation | Mediverse',
+    description: 'Comprehensive 16-channel electrophysiological tracing, International 10-20 montages, physiological frequency bands, epileptiform discharges, and FFT quantitative spectral analytics.',
+  },
 };
 
 

@@ -6,8 +6,19 @@ import DicSepsisCoagulopathySimulator from '../../../components/simulators/DicSe
 
 export const metadata: Metadata = {
   title: 'DIC & Sepsis-Induced Coagulopathy (SIC) Workstation | Mediverse Simulators',
-  description:
-    'Biophysical simulation of Disseminated Intravascular Coagulation (DIC), ISTH overt vs non-overt diagnostic scoring, Sepsis-Induced Coagulopathy (SIC), microvascular thrombosis vs consumptive hemorrhage, and component replacement dosing.',
+  description: 'Biophysical simulation of Disseminated Intravascular Coagulation (DIC), ISTH overt vs non-overt diagnostic scoring, Sepsis-Induced Coagulopathy (SIC), microvascular thrombosis vs consumptive hemorrhage, and component replacement dosing.',
+  openGraph: {
+    title: 'DIC & Sepsis-Induced Coagulopathy (SIC) Workstation | Mediverse Simulators',
+    description: 'Biophysical simulation of Disseminated Intravascular Coagulation (DIC), ISTH overt vs non-overt diagnostic scoring, Sepsis-Induced Coagulopathy (SIC), microvascular thrombosis vs consumptive hemorrhage, and component replacement dosing.',
+    url: 'https://mediverse.app/simulators/dic-sepsis-coagulopathy',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'DIC & Sepsis-Induced Coagulopathy (SIC) Workstation | Mediverse Simulators',
+    description: 'Biophysical simulation of Disseminated Intravascular Coagulation (DIC), ISTH overt vs non-overt diagnostic scoring, Sepsis-Induced Coagulopathy (SIC), microvascular thrombosis vs consumptive hemorrhage, and component replacement dosing.',
+  },
 };
 
 

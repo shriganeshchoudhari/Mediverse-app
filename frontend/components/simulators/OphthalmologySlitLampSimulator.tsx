@@ -186,7 +186,7 @@ export default function OphthalmologySlitLampSimulator() {
               <span className="text-slate-400">Slit Beam Width:</span>
               <span className="font-bold text-teal-300">{params.slitWidthMm} mm</span>
             </div>
-            <input
+            <input aria-label="Slit Beam Width"
               type="range"
               min="0.1"
               max="14.0"
@@ -206,7 +206,7 @@ export default function OphthalmologySlitLampSimulator() {
               <span className="text-slate-400">Illumination Angle:</span>
               <span className="font-bold text-teal-300">{params.beamAngleDeg}&deg;</span>
             </div>
-            <input
+            <input aria-label="Illumination Angle"
               type="range"
               min="0"
               max="60"
@@ -393,7 +393,7 @@ export default function OphthalmologySlitLampSimulator() {
               <span className="text-slate-400">Tonometer Dial Setting:</span>
               <span className="font-bold text-cyan-300">{params.tonometerDialMmHg} mmHg</span>
             </div>
-            <input
+            <input aria-label="Tonometer Dial Setting"
               type="range"
               min="4"
               max="80"
@@ -408,7 +408,7 @@ export default function OphthalmologySlitLampSimulator() {
               <span className="text-slate-400">Central Corneal Thickness (CCT):</span>
               <span className="font-mono text-cyan-300">{params.cctUm} μm ({liveData.goldmann.cctCorrectionOffsetMmHg >= 0 ? `+${liveData.goldmann.cctCorrectionOffsetMmHg}` : liveData.goldmann.cctCorrectionOffsetMmHg} mmHg)</span>
             </div>
-            <input
+            <input aria-label="Central Corneal Thickness (CCT)"
               type="range"
               min="460"
               max="620"

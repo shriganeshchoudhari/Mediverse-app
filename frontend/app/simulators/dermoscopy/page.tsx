@@ -5,6 +5,18 @@ import DermoscopySimulator from '@/components/simulators/DermoscopySimulator';
 export const metadata: Metadata = {
   title: 'Dermatology Dermoscopy & Wood\'s Lamp | Mediverse',
   description: 'Clinical dermoscopy workstation: polarized vs contact non-polarized optical microscopy, 365 nm UVA Wood\'s lamp fluorescence, Argenziano 7-point melanoma checklist, basal cell carcinoma arborizing vessels, and excisional biopsy planning.',
+  openGraph: {
+    title: 'Dermatology Dermoscopy & Wood\'s Lamp | Mediverse',
+    description: 'Clinical dermoscopy workstation: polarized vs contact non-polarized optical microscopy, 365 nm UVA Wood\'s lamp fluorescence, Argenziano 7-point melanoma checklist, basal cell carcinoma arborizing vessels, and excisional biopsy planning.',
+    url: 'https://mediverse.app/simulators/dermoscopy',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dermatology Dermoscopy & Wood\'s Lamp | Mediverse',
+    description: 'Clinical dermoscopy workstation: polarized vs contact non-polarized optical microscopy, 365 nm UVA Wood\'s lamp fluorescence, Argenziano 7-point melanoma checklist, basal cell carcinoma arborizing vessels, and excisional biopsy planning.',
+  },
 };
 
 

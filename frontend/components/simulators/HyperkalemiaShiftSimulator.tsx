@@ -320,7 +320,7 @@ export default function HyperkalemiaShiftSimulator() {
                     {potassium.toFixed(1)} mEq/L
                   </span>
                 </div>
-                <input
+                <input aria-label="Potassium"
                   type="range"
                   min="3.5"
                   max="10.0"
@@ -339,7 +339,7 @@ export default function HyperkalemiaShiftSimulator() {
                       {bloodPh.toFixed(2)}
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Blood pH"
                     type="range"
                     min="6.90"
                     max="7.55"
@@ -356,7 +356,7 @@ export default function HyperkalemiaShiftSimulator() {
                     <span className="text-slate-400">Serum HCO3-</span>
                     <span className="font-mono text-slate-200">{bicarbonate} mEq/L</span>
                   </div>
-                  <input
+                  <input aria-label="Serum HCO3-"
                     type="range"
                     min="5"
                     max="35"
@@ -380,7 +380,7 @@ export default function HyperkalemiaShiftSimulator() {
                       {bloodGlucose} mg/dL
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Blood Glucose"
                     type="range"
                     min="50"
                     max="400"
@@ -399,7 +399,7 @@ export default function HyperkalemiaShiftSimulator() {
                       {egfr} mL/min
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Renal eGFR"
                     type="range"
                     min="0"
                     max="120"
@@ -680,7 +680,7 @@ export default function HyperkalemiaShiftSimulator() {
                   <span className="text-slate-400">Ampules Administered</span>
                   <span className="font-mono text-emerald-300 font-bold">{calciumAmps} amp(s)</span>
                 </div>
-                <input
+                <input aria-label="Ampules Administered"
                   type="range"
                   min="0"
                   max="4"
@@ -695,7 +695,7 @@ export default function HyperkalemiaShiftSimulator() {
                   <span className="text-slate-400">Minutes Elapsed</span>
                   <span className="font-mono text-cyan-300 font-bold">{calciumMinutesAgo} min</span>
                 </div>
-                <input
+                <input aria-label="Minutes Elapsed"
                   type="range"
                   min="0"
                   max="90"
@@ -755,7 +755,7 @@ export default function HyperkalemiaShiftSimulator() {
                   <span>Regular Insulin</span>
                   <span className="font-mono text-cyan-300">{insulinUnits} units</span>
                 </div>
-                <input
+                <input aria-label="Regular Insulin"
                   type="range"
                   min="0"
                   max="15"
@@ -769,7 +769,7 @@ export default function HyperkalemiaShiftSimulator() {
                   <span>Dextrose (D50W)</span>
                   <span className="font-mono text-amber-300">{dextroseGrams} g</span>
                 </div>
-                <input
+                <input aria-label="Dextrose (D50W)"
                   type="range"
                   min="0"
                   max="75"
@@ -787,7 +787,7 @@ export default function HyperkalemiaShiftSimulator() {
                   <span>Albuterol Nebulizer</span>
                   <span className="font-mono text-teal-300">{albuterolMg} mg</span>
                 </div>
-                <input
+                <input aria-label="Albuterol Nebulizer"
                   type="range"
                   min="0"
                   max="20"
@@ -806,7 +806,7 @@ export default function HyperkalemiaShiftSimulator() {
                   <span>Sodium Bicarbonate</span>
                   <span className="font-mono text-purple-300">{bicarbMeq} mEq</span>
                 </div>
-                <input
+                <input aria-label="Sodium Bicarbonate"
                   type="range"
                   min="0"
                   max="150"
@@ -890,7 +890,7 @@ export default function HyperkalemiaShiftSimulator() {
                   <span>IV Furosemide</span>
                   <span className="font-mono text-cyan-300">{furosemideMg} mg</span>
                 </div>
-                <input
+                <input aria-label="IV Furosemide"
                   type="range"
                   min="0"
                   max="160"

@@ -5,6 +5,18 @@ import AudiometrySimulator from '@/components/simulators/AudiometrySimulator';
 export const metadata: Metadata = {
   title: 'Pure Tone Audiometry & Tympanometry | Mediverse',
   description: 'ENT & audiological medicine workstation: octave pure tone air/bone conduction audiograms, Jerger middle ear compliance curves (Type A, As, Ad, B, C), speech discrimination rollover, and stapedial reflex testing.',
+  openGraph: {
+    title: 'Pure Tone Audiometry & Tympanometry | Mediverse',
+    description: 'ENT & audiological medicine workstation: octave pure tone air/bone conduction audiograms, Jerger middle ear compliance curves (Type A, As, Ad, B, C), speech discrimination rollover, and stapedial reflex testing.',
+    url: 'https://mediverse.app/simulators/audiometry-ent',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pure Tone Audiometry & Tympanometry | Mediverse',
+    description: 'ENT & audiological medicine workstation: octave pure tone air/bone conduction audiograms, Jerger middle ear compliance curves (Type A, As, Ad, B, C), speech discrimination rollover, and stapedial reflex testing.',
+  },
 };
 
 

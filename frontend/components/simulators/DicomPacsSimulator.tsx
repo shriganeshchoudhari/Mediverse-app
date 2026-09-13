@@ -458,7 +458,7 @@ export default function DicomPacsSimulator() {
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
-                <input
+                <input aria-label="Current Slice Index"
                   type="range"
                   min={0}
                   max={maxSliceIdx}
@@ -505,7 +505,7 @@ export default function DicomPacsSimulator() {
                     <span>Window Level (Center):</span>
                     <span className="font-mono text-cyan-400">{windowLevel} HU</span>
                   </div>
-                  <input
+                  <input aria-label="Window Level (Center)"
                     type="range"
                     min={-1000}
                     max={1000}
@@ -520,7 +520,7 @@ export default function DicomPacsSimulator() {
                     <span>Window Width:</span>
                     <span className="font-mono text-cyan-400">{windowWidth} HU</span>
                   </div>
-                  <input
+                  <input aria-label="Window Width"
                     type="range"
                     min={1}
                     max={2500}

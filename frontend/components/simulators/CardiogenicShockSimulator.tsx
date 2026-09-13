@@ -301,7 +301,7 @@ export default function CardiogenicShockSimulator() {
                   </span>
                 </div>
                 <div className="grid grid-cols-2 gap-2">
-                  <input
+                  <input aria-label="Blood Pressure (Systolic / Diastolic)"
                     type="range"
                     min="50"
                     max="160"
@@ -309,7 +309,7 @@ export default function CardiogenicShockSimulator() {
                     onChange={(e) => setSbp(parseInt(e.target.value))}
                     className="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-rose-500"
                   />
-                  <input
+                  <input aria-label="Dbp"
                     type="range"
                     min="30"
                     max="100"
@@ -327,7 +327,7 @@ export default function CardiogenicShockSimulator() {
                     {co.toFixed(1)} L/min ({ci} L/min/m&sup2;)
                   </span>
                 </div>
-                <input
+                <input aria-label="Cardiac Output / Index"
                   type="range"
                   min="1.0"
                   max="8.0"
@@ -348,7 +348,7 @@ export default function CardiogenicShockSimulator() {
                       {pcwp} mmHg
                     </span>
                   </div>
-                  <input
+                  <input aria-label="PCWP (Wedge)"
                     type="range"
                     min="4"
                     max="35"
@@ -366,7 +366,7 @@ export default function CardiogenicShockSimulator() {
                       {cvp} mmHg
                     </span>
                   </div>
-                  <input
+                  <input aria-label="CVP (RA Pressure)"
                     type="range"
                     min="2"
                     max="28"
@@ -421,7 +421,7 @@ export default function CardiogenicShockSimulator() {
                     {lactate.toFixed(1)} mmol/L
                   </span>
                 </div>
-                <input
+                <input aria-label="Lactate"
                   type="range"
                   min="0.5"
                   max="14.0"
@@ -459,7 +459,7 @@ export default function CardiogenicShockSimulator() {
                   <span className="text-slate-400">Norepinephrine (&alpha;1 &gt; &beta;1)</span>
                   <span className="font-mono font-bold text-rose-400">{norepi.toFixed(2)} mcg/kg/min</span>
                 </div>
-                <input
+                <input aria-label="Norepinephrine (&alpha;1 &gt; &beta;1)"
                   type="range"
                   min="0"
                   max="0.8"
@@ -475,7 +475,7 @@ export default function CardiogenicShockSimulator() {
                   <span className="text-slate-400">Dobutamine (&beta;1 inotrope)</span>
                   <span className="font-mono font-bold text-cyan-400">{dobutamine.toFixed(1)} mcg/kg/min</span>
                 </div>
-                <input
+                <input aria-label="Dobutamine (&beta;1 inotrope)"
                   type="range"
                   min="0"
                   max="20"
@@ -492,7 +492,7 @@ export default function CardiogenicShockSimulator() {
                     <span className="text-slate-400">Epinephrine</span>
                     <span className="font-mono font-bold text-slate-200">{epi.toFixed(2)}</span>
                   </div>
-                  <input
+                  <input aria-label="Epinephrine"
                     type="range"
                     min="0"
                     max="0.5"
@@ -507,7 +507,7 @@ export default function CardiogenicShockSimulator() {
                     <span className="text-slate-400">Vasopressin</span>
                     <span className="font-mono font-bold text-slate-200">{vaso.toFixed(2)}</span>
                   </div>
-                  <input
+                  <input aria-label="Vasopressin"
                     type="range"
                     min="0"
                     max="0.04"

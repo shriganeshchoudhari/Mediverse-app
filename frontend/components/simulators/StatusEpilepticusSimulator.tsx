@@ -557,7 +557,7 @@ export default function StatusEpilepticusSimulator() {
                     <span className="text-slate-400">Patient Weight</span>
                     <span className="font-mono font-bold text-white">{weightKg} kg</span>
                   </div>
-                  <input
+                  <input aria-label="Patient Weight"
                     type="range"
                     min={15}
                     max={140}
@@ -613,7 +613,7 @@ export default function StatusEpilepticusSimulator() {
                     <span className="text-slate-400">Dose Administered</span>
                     <span className="font-mono font-bold text-rose-400">{bzdDoseGivenMg} mg</span>
                   </div>
-                  <input
+                  <input aria-label="Dose Administered"
                     type="range"
                     min={0.5}
                     max={15}
@@ -854,7 +854,7 @@ export default function StatusEpilepticusSimulator() {
                     <span className="text-slate-400">Infusion Rate</span>
                     <span className="font-mono font-bold text-rose-400">{anestheticDoseMgKgH} mg/kg/h</span>
                   </div>
-                  <input
+                  <input aria-label="Infusion Rate"
                     type="range"
                     min={0.5}
                     max={10.0}
@@ -870,7 +870,7 @@ export default function StatusEpilepticusSimulator() {
                     <span className="text-slate-400">Infusion Duration</span>
                     <span className="font-mono font-bold text-white">{anestheticHours} hours</span>
                   </div>
-                  <input
+                  <input aria-label="Infusion Duration"
                     type="range"
                     min={0}
                     max={72}
@@ -896,7 +896,7 @@ export default function StatusEpilepticusSimulator() {
                     <span className="text-slate-400">Observed Burst Suppression Ratio (BSR)</span>
                     <span className="font-mono font-bold text-cyan-400">{observedBsrPercent}%</span>
                   </div>
-                  <input
+                  <input aria-label="Observed Burst Suppression Ratio (BSR)"
                     type="range"
                     min={0}
                     max={100}
@@ -1026,7 +1026,7 @@ export default function StatusEpilepticusSimulator() {
                     <span className="text-slate-400">Discharge Frequency</span>
                     <span className="font-mono font-bold text-cyan-400">{eegFrequencyHz} Hz</span>
                   </div>
-                  <input
+                  <input aria-label="Discharge Frequency"
                     type="range"
                     min={0.5}
                     max={4.5}

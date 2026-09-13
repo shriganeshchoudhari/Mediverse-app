@@ -3,8 +3,19 @@ import AdrenalCrisisSimulator from '@/components/simulators/AdrenalCrisisSimulat
 
 export const metadata: Metadata = {
   title: 'Acute Adrenal Crisis & Steroid Equivalency Workstation | Mediverse',
-  description:
-    'Interactive Addisonian crisis resuscitation, Cosyntropin (ACTH) stimulation testing, stress-dose protocols, and synthetic glucocorticoid/mineralocorticoid pharmacokinetics.',
+  description: 'Interactive Addisonian crisis resuscitation, Cosyntropin (ACTH) stimulation testing, stress-dose protocols, and synthetic glucocorticoid/mineralocorticoid pharmacokinetics.',
+  openGraph: {
+    title: 'Acute Adrenal Crisis & Steroid Equivalency Workstation | Mediverse',
+    description: 'Interactive Addisonian crisis resuscitation, Cosyntropin (ACTH) stimulation testing, stress-dose protocols, and synthetic glucocorticoid/mineralocorticoid pharmacokinetics.',
+    url: 'https://mediverse.app/simulators/adrenal-crisis-steroid',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Acute Adrenal Crisis & Steroid Equivalency Workstation | Mediverse',
+    description: 'Interactive Addisonian crisis resuscitation, Cosyntropin (ACTH) stimulation testing, stress-dose protocols, and synthetic glucocorticoid/mineralocorticoid pharmacokinetics.',
+  },
 };
 
 

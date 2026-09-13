@@ -327,7 +327,7 @@ export default function StatusMigrainosusCSFLeakSimulator() {
                     {params.attackDurationHours} hrs {params.attackDurationHours >= 72 ? '(Status Migrainosus Criterion)' : ''}
                   </span>
                 </div>
-                <input
+                <input aria-label="Attack Duration Hours"
                   type="range"
                   min="12"
                   max="240"
@@ -411,7 +411,7 @@ export default function StatusMigrainosusCSFLeakSimulator() {
                     {params.csfOpeningPressureMmH2O} mmH2O
                   </span>
                 </div>
-                <input
+                <input aria-label="CSF Opening Pressure (mmH2O)"
                   type="range"
                   min="0"
                   max="400"
@@ -499,7 +499,7 @@ export default function StatusMigrainosusCSFLeakSimulator() {
                     <span>Blood Patch Volume (mL)</span>
                     <span className="font-bold text-indigo-400">{params.bloodPatchVolumeMl} mL</span>
                   </div>
-                  <input
+                  <input aria-label="Blood Patch Volume (mL)"
                     type="range"
                     min="5"
                     max="30"

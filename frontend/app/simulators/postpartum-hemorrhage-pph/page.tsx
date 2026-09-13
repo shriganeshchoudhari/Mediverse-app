@@ -1,12 +1,24 @@
+import type { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { PostpartumHemorrhageSimulator } from '../../../components/simulators/PostpartumHemorrhageSimulator';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Postpartum Hemorrhage (PPH) & Bakri Tamponade Simulator | Mediverse',
-  description:
-    'CMQCC / ACOG 4-stage obstetric hemorrhage simulation: quantitative blood loss (QBL), maternal shock index, contraindication-guarded uterotonics, and Bakri intrauterine balloon tamponade.',
+  description: 'CMQCC / ACOG 4-stage obstetric hemorrhage simulation: quantitative blood loss (QBL), maternal shock index, contraindication-guarded uterotonics, and Bakri intrauterine balloon tamponade.',
+  openGraph: {
+    title: 'Postpartum Hemorrhage (PPH) & Bakri Tamponade Simulator | Mediverse',
+    description: 'CMQCC / ACOG 4-stage obstetric hemorrhage simulation: quantitative blood loss (QBL), maternal shock index, contraindication-guarded uterotonics, and Bakri intrauterine balloon tamponade.',
+    url: 'https://mediverse.app/simulators/postpartum-hemorrhage-pph',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Postpartum Hemorrhage (PPH) & Bakri Tamponade Simulator | Mediverse',
+    description: 'CMQCC / ACOG 4-stage obstetric hemorrhage simulation: quantitative blood loss (QBL), maternal shock index, contraindication-guarded uterotonics, and Bakri intrauterine balloon tamponade.',
+  },
 };
 
 

@@ -14,8 +14,19 @@ import ICPDynamicsSimulator from '@/components/simulators/ICPDynamicsSimulator';
 
 export const metadata: Metadata = {
   title: 'Neurocritical Care & Intracranial Pressure (ICP) Workstation | Mediverse',
-  description:
-    'Interactive Monro-Kellie volume-pressure elastance, P1-P3 pulse waveform morphology, Lundberg waves, Brain Trauma Foundation tiered therapy, and herniation dynamics.',
+  description: 'Interactive Monro-Kellie volume-pressure elastance, P1-P3 pulse waveform morphology, Lundberg waves, Brain Trauma Foundation tiered therapy, and herniation dynamics.',
+  openGraph: {
+    title: 'Neurocritical Care & Intracranial Pressure (ICP) Workstation | Mediverse',
+    description: 'Interactive Monro-Kellie volume-pressure elastance, P1-P3 pulse waveform morphology, Lundberg waves, Brain Trauma Foundation tiered therapy, and herniation dynamics.',
+    url: 'https://mediverse.app/simulators/icp-dynamics',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Neurocritical Care & Intracranial Pressure (ICP) Workstation | Mediverse',
+    description: 'Interactive Monro-Kellie volume-pressure elastance, P1-P3 pulse waveform morphology, Lundberg waves, Brain Trauma Foundation tiered therapy, and herniation dynamics.',
+  },
 };
 
 

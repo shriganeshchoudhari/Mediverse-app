@@ -574,7 +574,7 @@ export default function StatusAsthmaticusSimulator() {
                   <span>Pulsus Paradoxus (SBP drop during inspiration):</span>
                   <span className="text-white font-bold">{patientInput.pulsusParadoxusMmHg} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Pulsus Paradoxus (SBP drop during inspiration)"
                   type="range"
                   min="0"
                   max="35"

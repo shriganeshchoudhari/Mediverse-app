@@ -4,8 +4,19 @@ import AutoantibodyAnaSimulator from '@/components/simulators/AutoantibodyAnaSim
 
 export const metadata: Metadata = {
   title: 'Autoantibody Profiling & ANA HEp-2 IFA Solver | Mediverse',
-  description:
-    'Diagnostic rheumatology and clinical immunology workstation: ICAP standardized HEp-2 IFA patterns (AC-1 to AC-29), quantitative end-point titer kinetics, ENA multiplex profiling, ANCA dual-fluorescence differential, and 2019 ACR/EULAR classification criteria solvers.',
+  description: 'Diagnostic rheumatology and clinical immunology workstation: ICAP standardized HEp-2 IFA patterns (AC-1 to AC-29), quantitative end-point titer kinetics, ENA multiplex profiling, ANCA dual-fluorescence differential, and 2019 ACR/EULAR classification criteria solvers.',
+  openGraph: {
+    title: 'Autoantibody Profiling & ANA HEp-2 IFA Solver | Mediverse',
+    description: 'Diagnostic rheumatology and clinical immunology workstation: ICAP standardized HEp-2 IFA patterns (AC-1 to AC-29), quantitative end-point titer kinetics, ENA multiplex profiling, ANCA dual-fluorescence differential, and 2019 ACR/EULAR classification criteria solvers.',
+    url: 'https://mediverse.app/simulators/autoantibody-ana',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Autoantibody Profiling & ANA HEp-2 IFA Solver | Mediverse',
+    description: 'Diagnostic rheumatology and clinical immunology workstation: ICAP standardized HEp-2 IFA patterns (AC-1 to AC-29), quantitative end-point titer kinetics, ENA multiplex profiling, ANCA dual-fluorescence differential, and 2019 ACR/EULAR classification criteria solvers.',
+  },
 };
 
 

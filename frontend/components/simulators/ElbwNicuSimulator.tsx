@@ -390,7 +390,7 @@ export default function ElbwNicuSimulator() {
                     {patientState.isolette.incubatorHumidityPercent}%
                   </span>
                 </div>
-                <input
+                <input aria-label="Incubator Humidity"
                   type="range"
                   min="50"
                   max="95"
@@ -461,7 +461,7 @@ export default function ElbwNicuSimulator() {
                     D{patientState.tpn.dextroseConcentrationPercent}W
                   </span>
                 </div>
-                <input
+                <input aria-label="Dextrose Concentration"
                   type="range"
                   min="5"
                   max="20"
@@ -487,7 +487,7 @@ export default function ElbwNicuSimulator() {
                     {patientState.tpn.totalFluidRateMlKgDay} mL/kg/day
                   </span>
                 </div>
-                <input
+                <input aria-label="Total Fluid Rate"
                   type="range"
                   min="60"
                   max="180"
@@ -646,7 +646,7 @@ export default function ElbwNicuSimulator() {
                     {patientState.respiratory.pipCmH2o} cmH2O
                   </span>
                 </div>
-                <input
+                <input aria-label="Peak Inspiratory Pressure (PIP)"
                   type="range"
                   min="12"
                   max="28"
@@ -672,7 +672,7 @@ export default function ElbwNicuSimulator() {
                     {patientState.respiratory.fio2Percent}%
                   </span>
                 </div>
-                <input
+                <input aria-label="Fraction of Inspired O2 (FiO2)"
                   type="range"
                   min="21"
                   max="100"

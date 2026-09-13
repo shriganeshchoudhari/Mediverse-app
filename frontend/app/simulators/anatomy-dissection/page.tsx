@@ -7,6 +7,18 @@ import { ArrowLeft, Scissors, Sparkles } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Volumetric 3D Layered Human Anatomy & Virtual Dissection Theater | Mediverse',
   description: 'Multi-layer human anatomy dissection lab exploring stratified tissue architecture, fascial planes, skeletal anatomy, and neurovascular bundles in 3D WebGL.',
+  openGraph: {
+    title: 'Volumetric 3D Layered Human Anatomy & Virtual Dissection Theater | Mediverse',
+    description: 'Multi-layer human anatomy dissection lab exploring stratified tissue architecture, fascial planes, skeletal anatomy, and neurovascular bundles in 3D WebGL.',
+    url: 'https://mediverse.app/simulators/anatomy-dissection',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Volumetric 3D Layered Human Anatomy & Virtual Dissection Theater | Mediverse',
+    description: 'Multi-layer human anatomy dissection lab exploring stratified tissue architecture, fascial planes, skeletal anatomy, and neurovascular bundles in 3D WebGL.',
+  },
 };
 
 export const dynamic = 'force-static';

@@ -190,7 +190,7 @@ export default function TtmCardiacArrestSimulator() {
                   <span className="text-slate-400">Hours Post-ROSC:</span>
                   <strong className="text-sky-300 font-mono font-bold">{hoursPostRosc} hours</strong>
                 </div>
-                <input
+                <input aria-label="Hours Post-ROSC"
                   type="range"
                   min="0"
                   max="96"
@@ -219,7 +219,7 @@ export default function TtmCardiacArrestSimulator() {
                     {coreTemp.toFixed(1)} °C
                   </strong>
                 </div>
-                <input
+                <input aria-label="Core Temp"
                   type="range"
                   min="32.0"
                   max="39.0"
@@ -242,7 +242,7 @@ export default function TtmCardiacArrestSimulator() {
                     {rewarmRate.toFixed(2)} °C/hr
                   </strong>
                 </div>
-                <input
+                <input aria-label="Rewarm Rate"
                   type="range"
                   min="0.10"
                   max="0.60"
@@ -265,7 +265,7 @@ export default function TtmCardiacArrestSimulator() {
                     Score {shiveringBsas} ({shiveringBsas === 0 ? 'None' : shiveringBsas === 1 ? 'Masseter' : shiveringBsas === 2 ? 'Chest/Pectoral' : 'Generalized'})
                   </strong>
                 </div>
-                <input
+                <input aria-label="Shivering Bsas"
                   type="range"
                   min="0"
                   max="3"
@@ -520,7 +520,7 @@ export default function TtmCardiacArrestSimulator() {
                       {nseLevel} µg/L
                     </strong>
                   </div>
-                  <input
+                  <input aria-label="Neuron-Specific Enolase (NSE)"
                     type="range"
                     min="10"
                     max="120"
@@ -543,7 +543,7 @@ export default function TtmCardiacArrestSimulator() {
                       {gwr.toFixed(2)}
                     </strong>
                   </div>
-                  <input
+                  <input aria-label="CT Gray-White Ratio (GWR)"
                     type="range"
                     min="1.00"
                     max="1.35"

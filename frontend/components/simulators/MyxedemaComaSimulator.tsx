@@ -536,7 +536,7 @@ export default function MyxedemaComaSimulator() {
                   <span>Core Temperature (°C):</span>
                   <span className="font-bold text-cyan-400">{coreTemperatureCelsius.toFixed(1)} °C</span>
                 </div>
-                <input
+                <input aria-label="Core Temperature (°C)"
                   type="range"
                   min={28.0}
                   max={38.0}
@@ -819,7 +819,7 @@ export default function MyxedemaComaSimulator() {
                     <span>Selected T4 Loading Dose:</span>
                     <span className="font-bold text-violet-400">{selectedT4LoadingDoseMcg} mcg IV</span>
                   </div>
-                  <input
+                  <input aria-label="Selected T4 Loading Dose"
                     type="range"
                     min={100}
                     max={500}

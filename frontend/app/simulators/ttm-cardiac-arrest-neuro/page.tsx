@@ -4,8 +4,19 @@ import TtmCardiacArrestSimulator from '../../../components/simulators/TtmCardiac
 
 export const metadata: Metadata = {
   title: 'Targeted Temperature Management (TTM) & Neuroprognostication Workstation | Mediverse',
-  description:
-    'Interactive resuscitation and neurocritical care workstation modeling core hypothermia induction (32-36°C), shivering metabolic surge, controlled rewarming electrolyte shifts, and Day 3 multimodal neuroprognostication (SSEP N20, continuous EEG, NSE, and CT GWR).',
+  description: 'Interactive resuscitation and neurocritical care workstation modeling core hypothermia induction (32-36°C), shivering metabolic surge, controlled rewarming electrolyte shifts, and Day 3 multimodal neuroprognostication (SSEP N20, continuous EEG, NSE, and CT GWR).',
+  openGraph: {
+    title: 'Targeted Temperature Management (TTM) & Neuroprognostication Workstation | Mediverse',
+    description: 'Interactive resuscitation and neurocritical care workstation modeling core hypothermia induction (32-36°C), shivering metabolic surge, controlled rewarming electrolyte shifts, and Day 3 multimodal neuroprognostication (SSEP N20, continuous EEG, NSE, and CT GWR).',
+    url: 'https://mediverse.app/simulators/ttm-cardiac-arrest-neuro',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Targeted Temperature Management (TTM) & Neuroprognostication Workstation | Mediverse',
+    description: 'Interactive resuscitation and neurocritical care workstation modeling core hypothermia induction (32-36°C), shivering metabolic surge, controlled rewarming electrolyte shifts, and Day 3 multimodal neuroprognostication (SSEP N20, continuous EEG, NSE, and CT GWR).',
+  },
 };
 
 

@@ -210,7 +210,7 @@ export default function BurnsResuscitationSimulator() {
                         <span>Partial Thickness (2nd Deg):</span>
                         <span className="text-amber-300 font-mono font-semibold">{reg.partialThicknessPct}%</span>
                       </div>
-                      <input
+                      <input aria-label="Partial Thickness (2nd Deg)"
                         type="range"
                         min="0"
                         max={reg.adultNinesPct}
@@ -225,7 +225,7 @@ export default function BurnsResuscitationSimulator() {
                         <span>Full Thickness (3rd Deg):</span>
                         <span className="text-rose-400 font-mono font-semibold">{reg.fullThicknessPct}%</span>
                       </div>
-                      <input
+                      <input aria-label="Full Thickness (3rd Deg)"
                         type="range"
                         min="0"
                         max={reg.adultNinesPct}
@@ -310,7 +310,7 @@ export default function BurnsResuscitationSimulator() {
                   <span className="text-zinc-400">Carboxyhemoglobin (COHb):</span>
                   <span className="font-mono font-bold text-rose-400">{carboxyhemoglobinPct}%</span>
                 </div>
-                <input
+                <input aria-label="Carboxyhemoglobin (COHb)"
                   type="range"
                   min="1"
                   max="60"
@@ -454,7 +454,7 @@ export default function BurnsResuscitationSimulator() {
                   {measuredUopMlh} mL/h ({(measuredUopMlh / weightKg).toFixed(2)} mL/kg/h)
                 </span>
               </div>
-              <input
+              <input aria-label="Current Measured Hourly UOP"
                 type="range"
                 min="5"
                 max="160"
@@ -500,7 +500,7 @@ export default function BurnsResuscitationSimulator() {
                   {bladderPressure} mmHg ({resuscitationPlan.intraAbdominalHypertensionGrade.replace(/_/g, ' ')})
                 </span>
               </div>
-              <input
+              <input aria-label="Bladder Pressure"
                 type="range"
                 min="4"
                 max="32"

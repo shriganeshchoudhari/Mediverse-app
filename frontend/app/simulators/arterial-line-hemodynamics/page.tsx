@@ -4,8 +4,19 @@ import ArterialLineHemodynamicsSimulator from '@/components/simulators/ArterialL
 
 export const metadata: Metadata = {
   title: 'Arterial Line Hemodynamics, PPV & Fluid Responsiveness Workstation | Mediverse',
-  description:
-    'Critical Care & Anesthesiology workstation: Invasive arterial blood pressure monitoring, Pulse Pressure Variation (PPV), Stroke Volume Variation (SVV), Dynamic Arterial Elastance (Ea_dyn), and Fast-Flush Square Wave Test damping analysis.',
+  description: 'Critical Care & Anesthesiology workstation: Invasive arterial blood pressure monitoring, Pulse Pressure Variation (PPV), Stroke Volume Variation (SVV), Dynamic Arterial Elastance (Ea_dyn), and Fast-Flush Square Wave Test damping analysis.',
+  openGraph: {
+    title: 'Arterial Line Hemodynamics, PPV & Fluid Responsiveness Workstation | Mediverse',
+    description: 'Critical Care & Anesthesiology workstation: Invasive arterial blood pressure monitoring, Pulse Pressure Variation (PPV), Stroke Volume Variation (SVV), Dynamic Arterial Elastance (Ea_dyn), and Fast-Flush Square Wave Test damping analysis.',
+    url: 'https://mediverse.app/simulators/arterial-line-hemodynamics',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Arterial Line Hemodynamics, PPV & Fluid Responsiveness Workstation | Mediverse',
+    description: 'Critical Care & Anesthesiology workstation: Invasive arterial blood pressure monitoring, Pulse Pressure Variation (PPV), Stroke Volume Variation (SVV), Dynamic Arterial Elastance (Ea_dyn), and Fast-Flush Square Wave Test damping analysis.',
+  },
 };
 
 

@@ -4,8 +4,19 @@ import RightHeartCathSimulator from '@/components/simulators/RightHeartCathSimul
 
 export const metadata: Metadata = {
   title: 'Right Heart Catheterization (RHC) & Fick Hemodynamics Workstation | Mediverse',
-  description:
-    'Pulmonology, critical care, and interventional cardiology workstation: Swan-Ganz catheter pressure waveforms, direct and indirect Fick cardiac output, Pulmonary Vascular Resistance (PVR), 2022 ESC/ERS Pulmonary Hypertension Phenotyping (Pre-capillary, Ipc-PH, Cpc-PH), and acute vasoreactivity challenge testing.',
+  description: 'Pulmonology, critical care, and interventional cardiology workstation: Swan-Ganz catheter pressure waveforms, direct and indirect Fick cardiac output, Pulmonary Vascular Resistance (PVR), 2022 ESC/ERS Pulmonary Hypertension Phenotyping (Pre-capillary, Ipc-PH, Cpc-PH), and acute vasoreactivity challenge testing.',
+  openGraph: {
+    title: 'Right Heart Catheterization (RHC) & Fick Hemodynamics Workstation | Mediverse',
+    description: 'Pulmonology, critical care, and interventional cardiology workstation: Swan-Ganz catheter pressure waveforms, direct and indirect Fick cardiac output, Pulmonary Vascular Resistance (PVR), 2022 ESC/ERS Pulmonary Hypertension Phenotyping (Pre-capillary, Ipc-PH, Cpc-PH), and acute vasoreactivity challenge testing.',
+    url: 'https://mediverse.app/simulators/right-heart-catheterization',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Right Heart Catheterization (RHC) & Fick Hemodynamics Workstation | Mediverse',
+    description: 'Pulmonology, critical care, and interventional cardiology workstation: Swan-Ganz catheter pressure waveforms, direct and indirect Fick cardiac output, Pulmonary Vascular Resistance (PVR), 2022 ESC/ERS Pulmonary Hypertension Phenotyping (Pre-capillary, Ipc-PH, Cpc-PH), and acute vasoreactivity challenge testing.',
+  },
 };
 
 

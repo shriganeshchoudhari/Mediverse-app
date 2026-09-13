@@ -4,8 +4,19 @@ import InoVasoreactivitySimulator from '../../../components/simulators/InoVasore
 
 export const metadata: Metadata = {
   title: 'Inhaled Nitric Oxide (iNO) & Acute Vasoreactivity Testing Workstation | Mediverse',
-  description:
-    'Interactive pulmonology and critical care workstation modeling selective pulmonary vasodilation, ESC/ERS acute vasoreactivity testing (Sitbon criteria), PVR/SVR hemodynamics, rebound pulmonary hypertension, and MetHb/NO2 toxicity.',
+  description: 'Interactive pulmonology and critical care workstation modeling selective pulmonary vasodilation, ESC/ERS acute vasoreactivity testing (Sitbon criteria), PVR/SVR hemodynamics, rebound pulmonary hypertension, and MetHb/NO2 toxicity.',
+  openGraph: {
+    title: 'Inhaled Nitric Oxide (iNO) & Acute Vasoreactivity Testing Workstation | Mediverse',
+    description: 'Interactive pulmonology and critical care workstation modeling selective pulmonary vasodilation, ESC/ERS acute vasoreactivity testing (Sitbon criteria), PVR/SVR hemodynamics, rebound pulmonary hypertension, and MetHb/NO2 toxicity.',
+    url: 'https://mediverse.app/simulators/ino-pulmonary-vasoreactivity',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Inhaled Nitric Oxide (iNO) & Acute Vasoreactivity Testing Workstation | Mediverse',
+    description: 'Interactive pulmonology and critical care workstation modeling selective pulmonary vasodilation, ESC/ERS acute vasoreactivity testing (Sitbon criteria), PVR/SVR hemodynamics, rebound pulmonary hypertension, and MetHb/NO2 toxicity.',
+  },
 };
 
 

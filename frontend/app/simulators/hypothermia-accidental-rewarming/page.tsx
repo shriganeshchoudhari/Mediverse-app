@@ -4,8 +4,19 @@ import AccidentalHypothermiaSimulator from "../../../components/simulators/Accid
 
 export const metadata: Metadata = {
   title: "Accidental Hypothermia & ECLS Rewarming Workstation | Mediverse",
-  description:
-    "Interactive critical care simulation for severe accidental hypothermia, Swiss clinical staging (HT I-IV), warm and dead rule (32-35°C), afterdrop biophysics, Osborn (J) wave arrhythmias, modified ACLS, and extracorporeal VA-ECMO rewarming with HOPE score.",
+  description: "Interactive critical care simulation for severe accidental hypothermia, Swiss clinical staging (HT I-IV), warm and dead rule (32-35°C), afterdrop biophysics, Osborn (J) wave arrhythmias, modified ACLS, and extracorporeal VA-ECMO rewarming with HOPE score.",
+  openGraph: {
+    title: "Accidental Hypothermia & ECLS Rewarming Workstation | Mediverse",
+    description: "Interactive critical care simulation for severe accidental hypothermia, Swiss clinical staging (HT I-IV), warm and dead rule (32-35°C), afterdrop biophysics, Osborn (J) wave arrhythmias, modified ACLS, and extracorporeal VA-ECMO rewarming with HOPE score.",
+    url: 'https://mediverse.app/simulators/hypothermia-accidental-rewarming',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Accidental Hypothermia & ECLS Rewarming Workstation | Mediverse",
+    description: "Interactive critical care simulation for severe accidental hypothermia, Swiss clinical staging (HT I-IV), warm and dead rule (32-35°C), afterdrop biophysics, Osborn (J) wave arrhythmias, modified ACLS, and extracorporeal VA-ECMO rewarming with HOPE score.",
+  },
 };
 
 

@@ -536,7 +536,7 @@ export default function CriticalCareOmnisuiteSimulator() {
                 <span className="text-slate-400">ECMO Blood Flow Rate:</span>
                 <span className="text-cyan-400 font-mono">{ecmoFlowLpm} L/min</span>
               </div>
-              <input
+              <input aria-label="ECMO Blood Flow Rate"
                 type="range"
                 min="0.0"
                 max="6.0"
@@ -552,7 +552,7 @@ export default function CriticalCareOmnisuiteSimulator() {
                 <span className="text-slate-400">Impella Microaxial Level:</span>
                 <span className="text-emerald-400 font-mono">P{impellaPLevel}</span>
               </div>
-              <input
+              <input aria-label="P{impellaPLevel}"
                 type="range"
                 min="0"
                 max="9"
@@ -591,7 +591,7 @@ export default function CriticalCareOmnisuiteSimulator() {
                 <span className="text-slate-400">Norepinephrine Dose:</span>
                 <span className="text-rose-400 font-mono">{norepinephrineDoseMcgKgMin} mcg/kg/min</span>
               </div>
-              <input
+              <input aria-label="Norepinephrine Dose"
                 type="range"
                 min="0.0"
                 max="1.0"
@@ -657,7 +657,7 @@ export default function CriticalCareOmnisuiteSimulator() {
                     +{cumulativeFluidBalanceLiters} Liters
                   </span>
                 </div>
-                <input
+                <input aria-label="Cumulative Fluid Balance Liters"
                   type="range"
                   min="-2"
                   max="18"

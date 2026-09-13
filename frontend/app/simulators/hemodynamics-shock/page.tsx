@@ -5,6 +5,18 @@ import HemodynamicsShockSimulator from '@/components/simulators/HemodynamicsShoc
 export const metadata: Metadata = {
   title: 'Swan-Ganz Hemodynamics & Shock Phenotype Classifier | Mediverse',
   description: 'Critical care workstation classifying cardiogenic, hypovolemic, distributive, and obstructive shock using pulmonary artery catheter thermodilution parameters.',
+  openGraph: {
+    title: 'Swan-Ganz Hemodynamics & Shock Phenotype Classifier | Mediverse',
+    description: 'Critical care workstation classifying cardiogenic, hypovolemic, distributive, and obstructive shock using pulmonary artery catheter thermodilution parameters.',
+    url: 'https://mediverse.app/simulators/hemodynamics-shock',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Swan-Ganz Hemodynamics & Shock Phenotype Classifier | Mediverse',
+    description: 'Critical care workstation classifying cardiogenic, hypovolemic, distributive, and obstructive shock using pulmonary artery catheter thermodilution parameters.',
+  },
 };
 
 export const dynamic = 'force-static';

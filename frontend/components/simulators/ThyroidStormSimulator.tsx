@@ -566,7 +566,7 @@ export default function ThyroidStormSimulator() {
                   <span>Temperature (°F):</span>
                   <span className="font-bold text-amber-400">{temperatureFahrenheit.toFixed(1)} °F</span>
                 </div>
-                <input
+                <input aria-label="Temperature (°F)"
                   type="range"
                   min={98.0}
                   max={106.0}
@@ -637,7 +637,7 @@ export default function ThyroidStormSimulator() {
                   <span>Heart Rate (bpm):</span>
                   <span className="font-bold text-rose-400">{heartRateBpm} bpm</span>
                 </div>
-                <input
+                <input aria-label="Heart Rate (bpm)"
                   type="range"
                   min={80}
                   max={200}
@@ -885,7 +885,7 @@ export default function ThyroidStormSimulator() {
                     {minutesElapsedSinceThionamide} min ({minutesElapsedSinceThionamide >= 60 ? 'Safe >= 60m' : 'HAZARD < 60m'})
                   </span>
                 </div>
-                <input
+                <input aria-label="Minutes Elapsed Since Thionamide"
                   type="range"
                   min={0}
                   max={120}
@@ -1084,7 +1084,7 @@ export default function ThyroidStormSimulator() {
                       {leftVentricularEjectionFractionPercent}% ({leftVentricularEjectionFractionPercent < 35 ? 'Depressed EF' : 'Preserved EF'})
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Left Ventricular Ejection Fraction Percent"
                     type="range"
                     min={15}
                     max={65}

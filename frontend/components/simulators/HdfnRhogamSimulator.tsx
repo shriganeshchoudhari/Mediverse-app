@@ -199,7 +199,7 @@ export default function HdfnRhogamSimulator() {
                   <span className="text-slate-400">Gestational Age:</span>
                   <strong className="text-white font-mono">{gestationalWeeks} weeks</strong>
                 </div>
-                <input
+                <input aria-label="Gestational Age"
                   type="range"
                   min="20"
                   max="41"
@@ -256,7 +256,7 @@ export default function HdfnRhogamSimulator() {
                     {hoursPostEvent} hours {hoursPostEvent > 72 ? '(Delayed &gt; 72h)' : ''}
                   </strong>
                 </div>
-                <input
+                <input aria-label="Hours Post Event"
                   type="range"
                   min="0"
                   max="96"
@@ -325,7 +325,7 @@ export default function HdfnRhogamSimulator() {
                     <span className="text-slate-400">Fetal Cells (per 2000 total):</span>
                     <strong className="text-pink-400 font-mono">{kbFetalCells} / 2000</strong>
                   </div>
-                  <input
+                  <input aria-label="Fetal Cells (per 2000 total)"
                     type="range"
                     min="0"
                     max="60"
@@ -361,7 +361,7 @@ export default function HdfnRhogamSimulator() {
                     <span className="text-slate-400">MCA PSV:</span>
                     <strong className="text-white font-mono">{mcaPsv} cm/s</strong>
                   </div>
-                  <input
+                  <input aria-label="MCA PSV"
                     type="range"
                     min="20"
                     max="90"

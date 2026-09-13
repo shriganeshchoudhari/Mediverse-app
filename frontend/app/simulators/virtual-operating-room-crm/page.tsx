@@ -15,8 +15,19 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Virtual OR & Surgical Airway Team Dynamics Simulator | Mediverse",
-  description:
-    "Interprofessional Operating Room Crisis Resource Management (CRM), Difficult Airway Society (DAS 2015) algorithm execution, and emergency scalpel-bougie-tube cricothyroidotomy procedural simulation.",
+  description: "Interprofessional Operating Room Crisis Resource Management (CRM), Difficult Airway Society (DAS 2015) algorithm execution, and emergency scalpel-bougie-tube cricothyroidotomy procedural simulation.",
+  openGraph: {
+    title: "Virtual OR & Surgical Airway Team Dynamics Simulator | Mediverse",
+    description: "Interprofessional Operating Room Crisis Resource Management (CRM), Difficult Airway Society (DAS 2015) algorithm execution, and emergency scalpel-bougie-tube cricothyroidotomy procedural simulation.",
+    url: 'https://mediverse.app/simulators/virtual-operating-room-crm',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Virtual OR & Surgical Airway Team Dynamics Simulator | Mediverse",
+    description: "Interprofessional Operating Room Crisis Resource Management (CRM), Difficult Airway Society (DAS 2015) algorithm execution, and emergency scalpel-bougie-tube cricothyroidotomy procedural simulation.",
+  },
 };
 
 

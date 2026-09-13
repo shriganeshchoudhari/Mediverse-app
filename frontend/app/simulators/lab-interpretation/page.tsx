@@ -18,6 +18,18 @@ import ClinicalLabInterpretationSimulator from '@/components/simulators/Clinical
 export const metadata: Metadata = {
   title: 'Clinical Diagnostic Laboratory & Blood Gas (ABG/VBG) Solver | Mediverse',
   description: 'Enterprise multi-disorder acid-base, anemia differentiation, electrolyte osmolar gap, and coagulation cascade interpretation workstation.',
+  openGraph: {
+    title: 'Clinical Diagnostic Laboratory & Blood Gas (ABG/VBG) Solver | Mediverse',
+    description: 'Enterprise multi-disorder acid-base, anemia differentiation, electrolyte osmolar gap, and coagulation cascade interpretation workstation.',
+    url: 'https://mediverse.app/simulators/lab-interpretation',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Clinical Diagnostic Laboratory & Blood Gas (ABG/VBG) Solver | Mediverse',
+    description: 'Enterprise multi-disorder acid-base, anemia differentiation, electrolyte osmolar gap, and coagulation cascade interpretation workstation.',
+  },
 };
 
 

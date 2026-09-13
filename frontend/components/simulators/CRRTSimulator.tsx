@@ -393,7 +393,7 @@ Please explain the membrane transport physics, troubleshooting for these pressur
               <span>Blood Pump Flow (Qb)</span>
               <span className="font-mono text-sky-400 font-bold">{bloodFlowQb} mL/min</span>
             </div>
-            <input
+            <input aria-label="Blood Pump Flow (Qb)"
               type="range"
               min={100}
               max={300}
@@ -412,7 +412,7 @@ Please explain the membrane transport physics, troubleshooting for these pressur
                 {modality === 'SCUF' || modality === 'CVVH' ? 0 : dialysateFlowQd} mL/hr
               </span>
             </div>
-            <input
+            <input aria-label="Dialysate Flow (Qd - Diffusion)"
               type="range"
               min={0}
               max={3000}
@@ -431,7 +431,7 @@ Please explain the membrane transport physics, troubleshooting for these pressur
                 {modality === 'SCUF' || modality === 'CVVHD' ? 0 : replacementFlowQrep} mL/hr
               </span>
             </div>
-            <input
+            <input aria-label="Replacement Fluid (Qrep - Convection)"
               type="range"
               min={0}
               max={3000}
@@ -472,7 +472,7 @@ Please explain the membrane transport physics, troubleshooting for these pressur
               <span>Patient Net Fluid Removal (Net UF)</span>
               <span className="font-mono text-amber-400 font-bold">{netUfRate} mL/hr</span>
             </div>
-            <input
+            <input aria-label="Patient Net Fluid Removal (Net UF)"
               type="range"
               min={0}
               max={500}
@@ -493,7 +493,7 @@ Please explain the membrane transport physics, troubleshooting for these pressur
               <span>Filter Wear / Clotting Simulation</span>
               <span className="font-mono text-rose-400 font-bold">{Math.round(filterClottingProgress * 100)}%</span>
             </div>
-            <input
+            <input aria-label="Filter Wear / Clotting Simulation"
               type="range"
               min={0}
               max={1}

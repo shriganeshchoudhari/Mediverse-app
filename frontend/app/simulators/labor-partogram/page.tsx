@@ -4,8 +4,19 @@ import LaborPartogramSimulator from '@/components/simulators/LaborPartogramSimul
 
 export const metadata: Metadata = {
   title: 'Labor Care Guide, Partogram & Bishop Score Solver | Mediverse',
-  description:
-    'Obstetrics and intrapartum care simulation workstation: Modified WHO Partogram (Alert and Action lines), Calder Modified Bishop Score for pre-induction cervical ripening, Montevideo Units (MVU) IUPC contraction physics, oxytocin tachysystole resuscitation, and cephalopelvic disproportion (CPD) diagnostics.',
+  description: 'Obstetrics and intrapartum care simulation workstation: Modified WHO Partogram (Alert and Action lines), Calder Modified Bishop Score for pre-induction cervical ripening, Montevideo Units (MVU) IUPC contraction physics, oxytocin tachysystole resuscitation, and cephalopelvic disproportion (CPD) diagnostics.',
+  openGraph: {
+    title: 'Labor Care Guide, Partogram & Bishop Score Solver | Mediverse',
+    description: 'Obstetrics and intrapartum care simulation workstation: Modified WHO Partogram (Alert and Action lines), Calder Modified Bishop Score for pre-induction cervical ripening, Montevideo Units (MVU) IUPC contraction physics, oxytocin tachysystole resuscitation, and cephalopelvic disproportion (CPD) diagnostics.',
+    url: 'https://mediverse.app/simulators/labor-partogram',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Labor Care Guide, Partogram & Bishop Score Solver | Mediverse',
+    description: 'Obstetrics and intrapartum care simulation workstation: Modified WHO Partogram (Alert and Action lines), Calder Modified Bishop Score for pre-induction cervical ripening, Montevideo Units (MVU) IUPC contraction physics, oxytocin tachysystole resuscitation, and cephalopelvic disproportion (CPD) diagnostics.',
+  },
 };
 
 

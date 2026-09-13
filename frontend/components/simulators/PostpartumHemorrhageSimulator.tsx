@@ -641,7 +641,7 @@ export const PostpartumHemorrhageSimulator: React.FC = () => {
                 <span className="font-semibold text-slate-300">Target Inflation Saline Volume:</span>
                 <span className="font-bold text-rose-400 font-mono text-base">{bakriVolumeInput} mL</span>
               </div>
-              <input
+              <input aria-label="Target Inflation Saline Volume"
                 type="range"
                 min="0"
                 max="500"

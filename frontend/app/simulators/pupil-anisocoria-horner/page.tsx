@@ -3,8 +3,19 @@ import PupilAnisocoriaHornerSimulator from '@/components/simulators/PupilAnisoco
 
 export const metadata: Metadata = {
   title: 'Anisocoria, Pupillary Light Reflex & Horner Syndrome Workstation | Mediverse',
-  description:
-    'Interactive neuro-ophthalmology solver for anisocoria, Horner syndrome 3-neuron localization, Compressive CN III palsy, Adie tonic pupil, swinging flashlight RAPD, and Apraclonidine/Cocaine/Pilocarpine pharmacology.',
+  description: 'Interactive neuro-ophthalmology solver for anisocoria, Horner syndrome 3-neuron localization, Compressive CN III palsy, Adie tonic pupil, swinging flashlight RAPD, and Apraclonidine/Cocaine/Pilocarpine pharmacology.',
+  openGraph: {
+    title: 'Anisocoria, Pupillary Light Reflex & Horner Syndrome Workstation | Mediverse',
+    description: 'Interactive neuro-ophthalmology solver for anisocoria, Horner syndrome 3-neuron localization, Compressive CN III palsy, Adie tonic pupil, swinging flashlight RAPD, and Apraclonidine/Cocaine/Pilocarpine pharmacology.',
+    url: 'https://mediverse.app/simulators/pupil-anisocoria-horner',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Anisocoria, Pupillary Light Reflex & Horner Syndrome Workstation | Mediverse',
+    description: 'Interactive neuro-ophthalmology solver for anisocoria, Horner syndrome 3-neuron localization, Compressive CN III palsy, Adie tonic pupil, swinging flashlight RAPD, and Apraclonidine/Cocaine/Pilocarpine pharmacology.',
+  },
 };
 
 

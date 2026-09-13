@@ -427,7 +427,7 @@ export default function NeonatalResuscitationSimulator() {
                 <span className="text-zinc-400">Timeline (Minute of Life):</span>
                 <span className="font-mono font-bold text-cyan-300">{minuteOfLife} min</span>
               </div>
-              <input
+              <input aria-label="Timeline (Minute of Life)"
                 type="range"
                 min="1"
                 max="10"
@@ -455,7 +455,7 @@ export default function NeonatalResuscitationSimulator() {
                   {heartRate} bpm
                 </span>
               </div>
-              <input
+              <input aria-label="Heart Rate"
                 type="range"
                 min="20"
                 max="180"
@@ -479,7 +479,7 @@ export default function NeonatalResuscitationSimulator() {
                     {preDuctalSpO2}%
                   </span>
                 </div>
-                <input
+                <input aria-label="Pre-Ductal SpO2 (Right Wrist)"
                   type="range"
                   min="40"
                   max="100"
@@ -495,7 +495,7 @@ export default function NeonatalResuscitationSimulator() {
                   <span className="text-zinc-400">Oxygen Blender (FiO2):</span>
                   <span className="font-mono font-bold text-white">{Math.round(fio2 * 100)}%</span>
                 </div>
-                <input
+                <input aria-label="Oxygen Blender (FiO2)"
                   type="range"
                   min="0.21"
                   max="1.0"

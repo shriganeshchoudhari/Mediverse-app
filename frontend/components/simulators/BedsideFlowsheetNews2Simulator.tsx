@@ -234,7 +234,7 @@ export default function BedsideFlowsheetNews2Simulator() {
                     </span>
                   </div>
                 </div>
-                <input
+                <input aria-label="Respiratory Rate"
                   type="range"
                   min={6}
                   max={45}
@@ -265,7 +265,7 @@ export default function BedsideFlowsheetNews2Simulator() {
                     </span>
                   </div>
                 </div>
-                <input
+                <input aria-label="Spo2 Percent"
                   type="range"
                   min={75}
                   max={100}
@@ -301,7 +301,7 @@ export default function BedsideFlowsheetNews2Simulator() {
                     </span>
                   </div>
                 </div>
-                <input
+                <input aria-label="Systolic Bp"
                   type="range"
                   min={60}
                   max={240}
@@ -322,7 +322,7 @@ export default function BedsideFlowsheetNews2Simulator() {
                     </span>
                   </div>
                 </div>
-                <input
+                <input aria-label="Heart Rate"
                   type="range"
                   min={30}
                   max={180}

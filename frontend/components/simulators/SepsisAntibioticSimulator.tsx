@@ -419,7 +419,7 @@ export default function SepsisAntibioticSimulator() {
                     {vitals.creatinineClearanceMlMin} mL/min
                   </span>
                 </div>
-                <input
+                <input aria-label="Creatinine Clearance (CrCl)"
                   type="range"
                   min="20"
                   max="180"
@@ -486,7 +486,7 @@ export default function SepsisAntibioticSimulator() {
                       {antibiotic.infusionDurationHours} hours {antibiotic.infusionDurationHours >= 3.0 ? '(Extended Infusion)' : '(Short Infusion)'}
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Infusion Duration Hours"
                     type="range"
                     min="0.5"
                     max="6.0"
@@ -507,7 +507,7 @@ export default function SepsisAntibioticSimulator() {
                     <span className="text-slate-400">Pathogen MIC (mg/L):</span>
                     <span className="font-mono text-rose-400 font-bold">{antibiotic.pathogenMicMgL} mg/L</span>
                   </div>
-                  <input
+                  <input aria-label="Pathogen MIC (mg/L)"
                     type="range"
                     min="0.5"
                     max="32"
@@ -559,7 +559,7 @@ export default function SepsisAntibioticSimulator() {
                     <span className="text-slate-400">Baseline Peak Procalcitonin:</span>
                     <span className="font-mono text-rose-400 font-bold">{vitals.baselineProcalcitoninMcgL} mcg/L</span>
                   </div>
-                  <input
+                  <input aria-label="Baseline Peak Procalcitonin"
                     type="range"
                     min="0.5"
                     max="25.0"
@@ -575,7 +575,7 @@ export default function SepsisAntibioticSimulator() {
                     <span className="text-slate-400">Current Day Procalcitonin:</span>
                     <span className="font-mono text-rose-400 font-bold">{vitals.currentProcalcitoninMcgL} mcg/L</span>
                   </div>
-                  <input
+                  <input aria-label="Current Day Procalcitonin"
                     type="range"
                     min="0.1"
                     max="20.0"

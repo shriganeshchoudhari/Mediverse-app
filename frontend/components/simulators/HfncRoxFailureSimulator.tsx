@@ -232,7 +232,7 @@ export default function HfncRoxFailureSimulator() {
                 <span className="text-slate-300 font-medium">Cannula Flow Rate:</span>
                 <span className="font-mono font-bold text-cyan-300">{flowRateLpm} L/min</span>
               </div>
-              <input
+              <input aria-label="Cannula Flow Rate"
                 type="range"
                 min="10"
                 max="80"
@@ -254,7 +254,7 @@ export default function HfncRoxFailureSimulator() {
                 <span className="text-slate-300 font-medium">Set Oxygen Fraction (FiO₂):</span>
                 <span className="font-mono font-bold text-cyan-300">{fio2Percent}% ({fio2Fraction.toFixed(2)})</span>
               </div>
-              <input
+              <input aria-label="Set Oxygen Fraction (FiO₂)"
                 type="range"
                 min="21"
                 max="100"
@@ -351,7 +351,7 @@ export default function HfncRoxFailureSimulator() {
                   {spo2}%
                 </span>
               </div>
-              <input
+              <input aria-label="Pulse Oximetry (SpO₂)"
                 type="range"
                 min="70"
                 max="100"
@@ -370,7 +370,7 @@ export default function HfncRoxFailureSimulator() {
                   {respiratoryRate} bpm
                 </span>
               </div>
-              <input
+              <input aria-label="Respiratory Rate (RR)"
                 type="range"
                 min="12"
                 max="50"
@@ -387,7 +387,7 @@ export default function HfncRoxFailureSimulator() {
                 <span className="text-slate-300">Heart Rate (HR):</span>
                 <span className="font-mono font-bold text-amber-300">{heartRate} bpm</span>
               </div>
-              <input
+              <input aria-label="Heart Rate (HR)"
                 type="range"
                 min="50"
                 max="160"
@@ -406,7 +406,7 @@ export default function HfncRoxFailureSimulator() {
                   {patientPifLpm} L/min
                 </span>
               </div>
-              <input
+              <input aria-label="Peak Inspiratory Flow Demand (PIF)"
                 type="range"
                 min="30"
                 max="130"

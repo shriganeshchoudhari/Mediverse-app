@@ -4,8 +4,19 @@ import ThyroidCrisisSimulator from '@/components/simulators/ThyroidCrisisSimulat
 
 export const metadata: Metadata = {
   title: 'Thyroid Storm & Myxedema Coma Crisis Workstation | Mediverse',
-  description:
-    'Endocrine emergency simulation workstation: Burch-Wartofsky Point Scale (BWPS) scoring for Thyroid Storm, 1-hour thionamide-to-iodine pharmacotherapy timing sequencer, and Popoveniuc Myxedema Coma triage and resuscitation protocols.',
+  description: 'Endocrine emergency simulation workstation: Burch-Wartofsky Point Scale (BWPS) scoring for Thyroid Storm, 1-hour thionamide-to-iodine pharmacotherapy timing sequencer, and Popoveniuc Myxedema Coma triage and resuscitation protocols.',
+  openGraph: {
+    title: 'Thyroid Storm & Myxedema Coma Crisis Workstation | Mediverse',
+    description: 'Endocrine emergency simulation workstation: Burch-Wartofsky Point Scale (BWPS) scoring for Thyroid Storm, 1-hour thionamide-to-iodine pharmacotherapy timing sequencer, and Popoveniuc Myxedema Coma triage and resuscitation protocols.',
+    url: 'https://mediverse.app/simulators/thyroid-storm-crisis',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Thyroid Storm & Myxedema Coma Crisis Workstation | Mediverse',
+    description: 'Endocrine emergency simulation workstation: Burch-Wartofsky Point Scale (BWPS) scoring for Thyroid Storm, 1-hour thionamide-to-iodine pharmacotherapy timing sequencer, and Popoveniuc Myxedema Coma triage and resuscitation protocols.',
+  },
 };
 
 

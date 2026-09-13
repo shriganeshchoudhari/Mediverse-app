@@ -349,7 +349,7 @@ export default function NeonatalHfovSimulator() {
                     <span className="text-slate-300">Mean Airway Pressure (mPaw)</span>
                     <span className="font-mono font-bold text-cyan-400">{hfov.meanAirwayPressureCmH2O} cmH2O</span>
                   </div>
-                  <input
+                  <input aria-label="Mean Airway Pressure (mPaw)"
                     type="range"
                     min="8"
                     max="26"
@@ -369,7 +369,7 @@ export default function NeonatalHfovSimulator() {
                     <span className="text-slate-300">Oscillatory Amplitude (&Delta;P / Power)</span>
                     <span className="font-mono font-bold text-purple-400">{hfov.amplitudeDeltaPCmH2O} cmH2O</span>
                   </div>
-                  <input
+                  <input aria-label="Oscillatory Amplitude (&Delta;P / Power)"
                     type="range"
                     min="15"
                     max="60"
@@ -389,7 +389,7 @@ export default function NeonatalHfovSimulator() {
                     <span className="text-slate-300">Frequency (Hz &bull; cycles/sec)</span>
                     <span className="font-mono font-bold text-cyan-400">{hfov.frequencyHz} Hz ({hfov.frequencyHz * 60} bpm)</span>
                   </div>
-                  <input
+                  <input aria-label="Frequency (Hz &bull; cycles/sec)"
                     type="range"
                     min="6"
                     max="15"
@@ -411,7 +411,7 @@ export default function NeonatalHfovSimulator() {
                     <span className="text-slate-300">Fraction of Inspired Oxygen (FiO2)</span>
                     <span className="font-mono font-bold text-slate-200">{hfov.fio2Pct}%</span>
                   </div>
-                  <input
+                  <input aria-label="Fraction of Inspired Oxygen (FiO2)"
                     type="range"
                     min="21"
                     max="100"
@@ -502,7 +502,7 @@ export default function NeonatalHfovSimulator() {
                       <span className="text-slate-300">Surface Tension (&gamma;)</span>
                       <span className="font-mono font-bold text-slate-200">{surfactant.alveolarSurfaceTensionMnm} mN/m</span>
                     </div>
-                    <input
+                    <input aria-label="Surface Tension (&gamma;)"
                       type="range"
                       min="3"
                       max="70"
@@ -524,7 +524,7 @@ export default function NeonatalHfovSimulator() {
                       <span className="text-slate-300">Alveolar Radius (r)</span>
                       <span className="font-mono font-bold text-slate-200">{alveolarRadiusMicrons} &mu;m</span>
                     </div>
-                    <input
+                    <input aria-label="Alveolar Radius (r)"
                       type="range"
                       min="20"
                       max="120"

@@ -956,7 +956,7 @@ Candidate Vitals: ${selectedScenario.initialVitals}.`;
                   <span className="text-slate-300 font-medium">Gain (Overall):</span>
                   <span className="font-mono text-blue-400 font-bold">{settings.gainDb} dB</span>
                 </div>
-                <input
+                <input aria-label="Gain (Overall)"
                   type="range"
                   min="20"
                   max="90"
@@ -971,7 +971,7 @@ Candidate Vitals: ${selectedScenario.initialVitals}.`;
                   <span className="text-slate-300 font-medium">Depth:</span>
                   <span className="font-mono text-emerald-400 font-bold">{settings.depthCm} cm</span>
                 </div>
-                <input
+                <input aria-label="Depth"
                   type="range"
                   min="4"
                   max="24"
@@ -990,7 +990,7 @@ Candidate Vitals: ${selectedScenario.initialVitals}.`;
               <div className="grid grid-cols-4 gap-2 text-center text-[9px] font-mono text-slate-400">
                 <div>
                   <label>Near</label>
-                  <input
+                  <input aria-label="Near"
                     type="range"
                     min="-10"
                     max="10"
@@ -1002,7 +1002,7 @@ Candidate Vitals: ${selectedScenario.initialVitals}.`;
                 </div>
                 <div>
                   <label>Mid 1</label>
-                  <input
+                  <input aria-label="Mid 1"
                     type="range"
                     min="-10"
                     max="10"
@@ -1014,7 +1014,7 @@ Candidate Vitals: ${selectedScenario.initialVitals}.`;
                 </div>
                 <div>
                   <label>Mid 2</label>
-                  <input
+                  <input aria-label="Mid 2"
                     type="range"
                     min="-10"
                     max="10"
@@ -1026,7 +1026,7 @@ Candidate Vitals: ${selectedScenario.initialVitals}.`;
                 </div>
                 <div>
                   <label>Far</label>
-                  <input
+                  <input aria-label="Far"
                     type="range"
                     min="-10"
                     max="10"

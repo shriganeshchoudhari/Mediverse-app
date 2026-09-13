@@ -466,7 +466,7 @@ export default function TensionPneumothoraxSimulator() {
                     <span>Intrapleural Air Volume:</span>
                     <span className="font-mono text-amber-400 font-bold">{params.intrapleuralAirVolumeMl} mL</span>
                   </div>
-                  <input
+                  <input aria-label="Intrapleural Air Volume"
                     type="range"
                     min={0}
                     max={2500}
@@ -526,7 +526,7 @@ export default function TensionPneumothoraxSimulator() {
                           {params.pleuralBloodVolumeMl} mL {params.pleuralBloodVolumeMl >= 1500 && "(MASSIVE HEMOTHORAX)"}
                         </span>
                       </div>
-                      <input
+                      <input aria-label="Pleural Blood Volume Ml"
                         type="range"
                         min={100}
                         max={2000}
@@ -675,7 +675,7 @@ export default function TensionPneumothoraxSimulator() {
                     <span>Patient Body Mass Index (BMI):</span>
                     <span className="font-mono text-amber-400 font-bold">{params.patientBmi} kg/m&sup2;</span>
                   </div>
-                  <input
+                  <input aria-label="Patient Body Mass Index (BMI)"
                     type="range"
                     min={18}
                     max={42}
@@ -767,7 +767,7 @@ export default function TensionPneumothoraxSimulator() {
                     <span>Suction Pressure Level:</span>
                     <span className="font-mono text-teal-400 font-bold">{params.suctionPressureCmH2O} cmH2O</span>
                   </div>
-                  <input
+                  <input aria-label="Suction Pressure Level"
                     type="range"
                     min={-40}
                     max={0}
@@ -784,7 +784,7 @@ export default function TensionPneumothoraxSimulator() {
                     <span>Chest Tube Caliber:</span>
                     <span className="font-mono text-cyan-400 font-bold">{params.chestTubeSizeFr} Fr</span>
                   </div>
-                  <input
+                  <input aria-label="Chest Tube Caliber"
                     type="range"
                     min={14}
                     max={36}

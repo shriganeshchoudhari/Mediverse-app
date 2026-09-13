@@ -4,8 +4,19 @@ import AcuteStrokeThrombolysisSimulator from '@/components/simulators/AcuteStrok
 
 export const metadata: Metadata = {
   title: 'Acute Stroke Thrombolysis & Thrombectomy Workstation | Mediverse',
-  description:
-    'Neurology emergency and acute stroke simulation workstation: NIH Stroke Scale (NIHSS) assessment, Alberta Stroke Program Early CT Score (ASPECTS) mapping, Tenecteplase (TNK-tPA) and Alteplase (rtPA) precision dosing, blood pressure thresholds, and Large Vessel Occlusion (LVO) mechanical thrombectomy criteria.',
+  description: 'Neurology emergency and acute stroke simulation workstation: NIH Stroke Scale (NIHSS) assessment, Alberta Stroke Program Early CT Score (ASPECTS) mapping, Tenecteplase (TNK-tPA) and Alteplase (rtPA) precision dosing, blood pressure thresholds, and Large Vessel Occlusion (LVO) mechanical thrombectomy criteria.',
+  openGraph: {
+    title: 'Acute Stroke Thrombolysis & Thrombectomy Workstation | Mediverse',
+    description: 'Neurology emergency and acute stroke simulation workstation: NIH Stroke Scale (NIHSS) assessment, Alberta Stroke Program Early CT Score (ASPECTS) mapping, Tenecteplase (TNK-tPA) and Alteplase (rtPA) precision dosing, blood pressure thresholds, and Large Vessel Occlusion (LVO) mechanical thrombectomy criteria.',
+    url: 'https://mediverse.app/simulators/acute-stroke-thrombolysis',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Acute Stroke Thrombolysis & Thrombectomy Workstation | Mediverse',
+    description: 'Neurology emergency and acute stroke simulation workstation: NIH Stroke Scale (NIHSS) assessment, Alberta Stroke Program Early CT Score (ASPECTS) mapping, Tenecteplase (TNK-tPA) and Alteplase (rtPA) precision dosing, blood pressure thresholds, and Large Vessel Occlusion (LVO) mechanical thrombectomy criteria.',
+  },
 };
 
 

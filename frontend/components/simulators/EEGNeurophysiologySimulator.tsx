@@ -346,7 +346,7 @@ Clinical Neurophysiology (EEG / qEEG) Case:
           <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700">
             <Sun className={`w-4 h-4 ${photicHz > 0 ? 'text-yellow-400 animate-spin' : 'text-slate-500'}`} />
             <span className="text-xs text-slate-400">Photic:</span>
-            <input
+            <input aria-label="Photic"
               type="range"
               min="0"
               max="30"
@@ -477,7 +477,7 @@ Clinical Neurophysiology (EEG / qEEG) Case:
           {/* Time scrubber bar below display */}
           <div className="flex items-center gap-4 px-4 py-2 bg-slate-900 border-t border-slate-800 text-xs">
             <span className="text-slate-400 font-mono">Epoch Scrub:</span>
-            <input
+            <input aria-label="Epoch Scrub"
               type="range"
               min="0"
               max="60"

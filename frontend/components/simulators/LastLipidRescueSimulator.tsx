@@ -200,7 +200,7 @@ export default function LastLipidRescueSimulator() {
                   <span className="text-slate-400">Patient Weight:</span>
                   <strong className="text-white font-mono">{weightKg} kg</strong>
                 </div>
-                <input
+                <input aria-label="Patient Weight"
                   type="range"
                   min="40"
                   max="120"
@@ -223,7 +223,7 @@ export default function LastLipidRescueSimulator() {
                     {doseMg} mg ({Math.round((doseMg / weightKg) * 10) / 10} mg/kg)
                   </strong>
                 </div>
-                <input
+                <input aria-label="Dose Mg"
                   type="range"
                   min="20"
                   max="agent === 'LIDOCAINE' ? 3000 : 400"
@@ -271,7 +271,7 @@ export default function LastLipidRescueSimulator() {
                     <span className="text-slate-400">Time Elapsed:</span>
                     <strong className="text-white font-mono">{elapsedMin} min</strong>
                   </div>
-                  <input
+                  <input aria-label="Time Elapsed"
                     type="range"
                     min="1"
                     max="60"

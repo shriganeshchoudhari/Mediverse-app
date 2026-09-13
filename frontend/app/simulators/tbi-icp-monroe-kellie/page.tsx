@@ -7,6 +7,18 @@ import TbiIcpSimulator from "../../../components/simulators/TbiIcpSimulator";
 export const metadata: Metadata = {
   title: 'Traumatic Brain Injury & Monro-Kellie ICP Dynamics Workstation | Mediverse',
   description: 'Neurocritical care workstation modeling intracranial compliance curves, cerebral perfusion pressure (CPP), hyperosmolar therapy, and herniation syndromes.',
+  openGraph: {
+    title: 'Traumatic Brain Injury & Monro-Kellie ICP Dynamics Workstation | Mediverse',
+    description: 'Neurocritical care workstation modeling intracranial compliance curves, cerebral perfusion pressure (CPP), hyperosmolar therapy, and herniation syndromes.',
+    url: 'https://mediverse.app/simulators/tbi-icp-monroe-kellie',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Traumatic Brain Injury & Monro-Kellie ICP Dynamics Workstation | Mediverse',
+    description: 'Neurocritical care workstation modeling intracranial compliance curves, cerebral perfusion pressure (CPP), hyperosmolar therapy, and herniation syndromes.',
+  },
 };
 
 export const dynamic = 'force-static';

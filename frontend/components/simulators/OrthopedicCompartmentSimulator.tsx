@@ -203,7 +203,7 @@ export default function OrthopedicCompartmentSimulator() {
                   <span className="text-slate-400">Anterior Compartment:</span>
                   <span className="font-bold text-cyan-400">{params.anteriorPressureMmHg} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Anterior Compartment"
                   type="range"
                   min="0"
                   max="80"
@@ -218,7 +218,7 @@ export default function OrthopedicCompartmentSimulator() {
                   <span className="text-slate-400">Lateral Compartment:</span>
                   <span className="font-bold text-cyan-400">{params.lateralPressureMmHg} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Lateral Compartment"
                   type="range"
                   min="0"
                   max="80"
@@ -233,7 +233,7 @@ export default function OrthopedicCompartmentSimulator() {
                   <span className="text-slate-400">Deep Posterior Compartment:</span>
                   <span className="font-bold text-cyan-400">{params.deepPostPressureMmHg} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Deep Posterior Compartment"
                   type="range"
                   min="0"
                   max="80"
@@ -249,7 +249,7 @@ export default function OrthopedicCompartmentSimulator() {
                 <span className="text-slate-400">Forearm Volar Pressure:</span>
                 <span className="font-bold text-cyan-400">{params.forearmVolarPressureMmHg} mmHg</span>
               </div>
-              <input
+              <input aria-label="Forearm Volar Pressure"
                 type="range"
                 min="0"
                 max="80"

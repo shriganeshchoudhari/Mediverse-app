@@ -4,8 +4,19 @@ import HivAntiretroviralSimulator from '@/components/simulators/HivAntiretrovira
 
 export const metadata: Metadata = {
   title: 'HIV Antiretroviral Therapy & CD4 Prophylaxis Solver | Mediverse',
-  description:
-    'Infectious disease and HIV pharmacotherapy workstation: DHHS/WHO first-line ART regimens (Biktarvy, Triumeq, Dovato), CD4 T-cell opportunistic infection prophylaxis thresholds (PCP, Toxoplasmosis, MAC), HLA-B*5701 hypersensitivity pharmacogenomics, HBV/TB drug interactions, and Immune Reconstitution Inflammatory Syndrome (IRIS) timing.',
+  description: 'Infectious disease and HIV pharmacotherapy workstation: DHHS/WHO first-line ART regimens (Biktarvy, Triumeq, Dovato), CD4 T-cell opportunistic infection prophylaxis thresholds (PCP, Toxoplasmosis, MAC), HLA-B*5701 hypersensitivity pharmacogenomics, HBV/TB drug interactions, and Immune Reconstitution Inflammatory Syndrome (IRIS) timing.',
+  openGraph: {
+    title: 'HIV Antiretroviral Therapy & CD4 Prophylaxis Solver | Mediverse',
+    description: 'Infectious disease and HIV pharmacotherapy workstation: DHHS/WHO first-line ART regimens (Biktarvy, Triumeq, Dovato), CD4 T-cell opportunistic infection prophylaxis thresholds (PCP, Toxoplasmosis, MAC), HLA-B*5701 hypersensitivity pharmacogenomics, HBV/TB drug interactions, and Immune Reconstitution Inflammatory Syndrome (IRIS) timing.',
+    url: 'https://mediverse.app/simulators/hiv-antiretroviral',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HIV Antiretroviral Therapy & CD4 Prophylaxis Solver | Mediverse',
+    description: 'Infectious disease and HIV pharmacotherapy workstation: DHHS/WHO first-line ART regimens (Biktarvy, Triumeq, Dovato), CD4 T-cell opportunistic infection prophylaxis thresholds (PCP, Toxoplasmosis, MAC), HLA-B*5701 hypersensitivity pharmacogenomics, HBV/TB drug interactions, and Immune Reconstitution Inflammatory Syndrome (IRIS) timing.',
+  },
 };
 
 

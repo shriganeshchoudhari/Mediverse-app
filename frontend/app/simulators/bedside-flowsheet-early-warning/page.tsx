@@ -4,7 +4,19 @@ import BedsideFlowsheetNews2Simulator from '@/components/simulators/BedsideFlows
 
 export const metadata: Metadata = {
   title: 'Bedside Flowsheet, Fluid Balance & Early Warning Deterioration (NEWS2) | Mediverse',
-  description: 'Inpatient ICU and surgical ward flowsheet modeling 24-hour vital trends, Royal College of Physicians NEWS2 escalation pathways, cumulative fluid balance, and percent fluid overload (%FO).'
+  description: 'Inpatient ICU and surgical ward flowsheet modeling 24-hour vital trends, Royal College of Physicians NEWS2 escalation pathways, cumulative fluid balance, and percent fluid overload (%FO).',
+  openGraph: {
+    title: 'Bedside Flowsheet, Fluid Balance & Early Warning Deterioration (NEWS2) | Mediverse',
+    description: 'Inpatient ICU and surgical ward flowsheet modeling 24-hour vital trends, Royal College of Physicians NEWS2 escalation pathways, cumulative fluid balance, and percent fluid overload (%FO).',
+    url: 'https://mediverse.app/simulators/bedside-flowsheet-early-warning',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Bedside Flowsheet, Fluid Balance & Early Warning Deterioration (NEWS2) | Mediverse',
+    description: 'Inpatient ICU and surgical ward flowsheet modeling 24-hour vital trends, Royal College of Physicians NEWS2 escalation pathways, cumulative fluid balance, and percent fluid overload (%FO).',
+  },
 };
 
 export const dynamic = 'force-static';

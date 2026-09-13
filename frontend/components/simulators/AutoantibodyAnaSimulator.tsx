@@ -367,7 +367,7 @@ export default function AutoantibodyAnaSimulator() {
                   <span className="text-slate-300 font-medium">Fluorescence Brightness (1+ to 4+)</span>
                   <span className="font-mono text-emerald-400 font-bold">{params.fluorescenceIntensity}+</span>
                 </div>
-                <input
+                <input aria-label="Fluorescence Brightness (1+ to 4+)"
                   type="range"
                   min="1"
                   max="4"
@@ -634,7 +634,7 @@ export default function AutoantibodyAnaSimulator() {
                     {params.ena.antiDsDnaIuMl} IU/mL ({params.ena.antiDsDnaIuMl >= 20 ? 'Positive' : 'Normal'})
                   </span>
                 </div>
-                <input
+                <input aria-label="Anti Ds Dna Iu Ml"
                   type="range"
                   min="0"
                   max="300"
@@ -659,7 +659,7 @@ export default function AutoantibodyAnaSimulator() {
                     {params.ena.antiU1RnpUml} U/mL ({params.ena.antiU1RnpUml >= 20 ? 'Positive' : 'Normal'})
                   </span>
                 </div>
-                <input
+                <input aria-label="Anti U1 Rnp Uml"
                   type="range"
                   min="0"
                   max="150"
@@ -739,7 +739,7 @@ export default function AutoantibodyAnaSimulator() {
                       {params.ena.antiPr3AncaUml} U/mL
                     </span>
                   </div>
-                  <input
+                  <input aria-label="c-ANCA / Anti-Proteinase-3 (Anti-PR3)"
                     type="range"
                     min="0"
                     max="100"
@@ -764,7 +764,7 @@ export default function AutoantibodyAnaSimulator() {
                       {params.ena.antiMpoAncaUml} U/mL
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Anti Mpo Anca Uml"
                     type="range"
                     min="0"
                     max="100"
@@ -801,7 +801,7 @@ export default function AutoantibodyAnaSimulator() {
                         {params.ena.complementC3MgDl} mg/dL
                       </span>
                     </div>
-                    <input
+                    <input aria-label="Complement C3"
                       type="range"
                       min="20"
                       max="200"
@@ -824,7 +824,7 @@ export default function AutoantibodyAnaSimulator() {
                         {params.ena.complementC4MgDl} mg/dL
                       </span>
                     </div>
-                    <input
+                    <input aria-label="Complement C4"
                       type="range"
                       min="2"
                       max="60"

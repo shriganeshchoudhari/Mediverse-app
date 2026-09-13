@@ -4,7 +4,19 @@ import PharmacogenomicsCpicSimulator from '@/components/simulators/Pharmacogenom
 
 export const metadata: Metadata = {
   title: 'Clinical Pharmacogenomics (PGx) & CPIC Precision Drug Dosing Station | Mediverse',
-  description: 'Precision clinical pharmacology workstation featuring star-allele genotype translation (CYP2D6, CYP2C19, CYP2C9, VKORC1, DPYD, SLCO1B1, HLA), IWPC warfarin dosing algorithms, and real-time CPIC Level A clinical decision support.'
+  description: 'Precision clinical pharmacology workstation featuring star-allele genotype translation (CYP2D6, CYP2C19, CYP2C9, VKORC1, DPYD, SLCO1B1, HLA), IWPC warfarin dosing algorithms, and real-time CPIC Level A clinical decision support.',
+  openGraph: {
+    title: 'Clinical Pharmacogenomics (PGx) & CPIC Precision Drug Dosing Station | Mediverse',
+    description: 'Precision clinical pharmacology workstation featuring star-allele genotype translation (CYP2D6, CYP2C19, CYP2C9, VKORC1, DPYD, SLCO1B1, HLA), IWPC warfarin dosing algorithms, and real-time CPIC Level A clinical decision support.',
+    url: 'https://mediverse.app/simulators/pharmacogenomics-cpic-precision',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Clinical Pharmacogenomics (PGx) & CPIC Precision Drug Dosing Station | Mediverse',
+    description: 'Precision clinical pharmacology workstation featuring star-allele genotype translation (CYP2D6, CYP2C19, CYP2C9, VKORC1, DPYD, SLCO1B1, HLA), IWPC warfarin dosing algorithms, and real-time CPIC Level A clinical decision support.',
+  },
 };
 
 export const dynamic = 'force-static';

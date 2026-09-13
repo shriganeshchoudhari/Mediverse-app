@@ -546,7 +546,7 @@ export default function CdhPphnSimulator() {
                     <span>Gestational Age:</span>
                     <span className="font-mono text-teal-400 font-bold">{params.gestationalAgeWeeks} weeks</span>
                   </div>
-                  <input
+                  <input aria-label="Gestational Age"
                     type="range"
                     min={32}
                     max={41}
@@ -563,7 +563,7 @@ export default function CdhPphnSimulator() {
                     <span>Birth Weight:</span>
                     <span className="font-mono text-teal-400 font-bold">{params.birthWeightKg.toFixed(1)} kg</span>
                   </div>
-                  <input
+                  <input aria-label="Birth Weight"
                     type="range"
                     min={1.6}
                     max={4.2}
@@ -637,7 +637,7 @@ export default function CdhPphnSimulator() {
                         {params.pip} cmH2O
                       </span>
                     </div>
-                    <input
+                    <input aria-label="Peak Inspiratory Pressure (PIP)"
                       type="range"
                       min={16}
                       max={36}
@@ -657,7 +657,7 @@ export default function CdhPphnSimulator() {
                       <span>PEEP:</span>
                       <span className="font-mono text-teal-400 font-bold">{params.peep} cmH2O</span>
                     </div>
-                    <input
+                    <input aria-label="PEEP"
                       type="range"
                       min={3}
                       max={8}
@@ -674,7 +674,7 @@ export default function CdhPphnSimulator() {
                       <span>Ventilator Rate:</span>
                       <span className="font-mono text-teal-400 font-bold">{params.rateBpm} bpm</span>
                     </div>
-                    <input
+                    <input aria-label="Ventilator Rate"
                       type="range"
                       min={30}
                       max={70}
@@ -691,7 +691,7 @@ export default function CdhPphnSimulator() {
                       <span>FiO2:</span>
                       <span className="font-mono text-teal-400 font-bold">{(params.fiO2 * 100).toFixed(0)}%</span>
                     </div>
-                    <input
+                    <input aria-label="FiO2"
                       type="range"
                       min={0.21}
                       max={1.0}
@@ -711,7 +711,7 @@ export default function CdhPphnSimulator() {
                       <span>Mean Airway Pressure (MAP):</span>
                       <span className="font-mono text-indigo-400 font-bold">{params.hfovMeanAirwayPressure} cmH2O</span>
                     </div>
-                    <input
+                    <input aria-label="Mean Airway Pressure (MAP)"
                       type="range"
                       min={10}
                       max={22}
@@ -728,7 +728,7 @@ export default function CdhPphnSimulator() {
                       <span>Amplitude (&Delta;P):</span>
                       <span className="font-mono text-indigo-400 font-bold">{params.hfovAmplitude} cmH2O</span>
                     </div>
-                    <input
+                    <input aria-label="Amplitude (&Delta;P)"
                       type="range"
                       min={20}
                       max={50}
@@ -745,7 +745,7 @@ export default function CdhPphnSimulator() {
                       <span>Frequency (Hz):</span>
                       <span className="font-mono text-indigo-400 font-bold">{params.hfovFrequencyHz} Hz</span>
                     </div>
-                    <input
+                    <input aria-label="Frequency (Hz)"
                       type="range"
                       min={8}
                       max={15}
@@ -762,7 +762,7 @@ export default function CdhPphnSimulator() {
                       <span>FiO2:</span>
                       <span className="font-mono text-indigo-400 font-bold">{(params.fiO2 * 100).toFixed(0)}%</span>
                     </div>
-                    <input
+                    <input aria-label="FiO2"
                       type="range"
                       min={0.21}
                       max={1.0}
@@ -798,7 +798,7 @@ export default function CdhPphnSimulator() {
                     <span className="font-semibold text-white">Inhaled Nitric Oxide (iNO):</span>
                     <span className="font-mono text-teal-400 font-bold">{params.iNoDosePpm} ppm</span>
                   </div>
-                  <input
+                  <input aria-label="Inhaled Nitric Oxide (iNO)"
                     type="range"
                     min={0}
                     max={40}
@@ -823,7 +823,7 @@ export default function CdhPphnSimulator() {
                     <span className="font-semibold text-white">Sildenafil IV (PDE-5 Inhibitor):</span>
                     <span className="font-mono text-teal-400 font-bold">{params.sildenafilDoseMgKgH.toFixed(2)} mg/kg/h</span>
                   </div>
-                  <input
+                  <input aria-label="Sildenafil IV (PDE-5 Inhibitor)"
                     type="range"
                     min={0}
                     max={0.15}
@@ -841,7 +841,7 @@ export default function CdhPphnSimulator() {
                     <span className="font-semibold text-white">Milrinone IV (PDE-3 Inodilator):</span>
                     <span className="font-mono text-teal-400 font-bold">{params.milrinoneDoseMcgKgMin.toFixed(2)} mcg/kg/min</span>
                   </div>
-                  <input
+                  <input aria-label="Milrinone IV (PDE-3 Inodilator)"
                     type="range"
                     min={0}
                     max={0.75}
@@ -859,7 +859,7 @@ export default function CdhPphnSimulator() {
                     <span className="font-semibold text-white">Norepinephrine IV (Vasopressor):</span>
                     <span className="font-mono text-teal-400 font-bold">{params.norepinephrineDoseMcgKgMin.toFixed(2)} mcg/kg/min</span>
                   </div>
-                  <input
+                  <input aria-label="Norepinephrine IV (Vasopressor)"
                     type="range"
                     min={0}
                     max={0.30}

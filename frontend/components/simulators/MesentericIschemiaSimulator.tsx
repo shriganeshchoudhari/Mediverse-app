@@ -612,7 +612,7 @@ export default function MesentericIschemiaSimulator() {
                       <span className="text-slate-400">Reported Pain Severity:</span>
                       <span className="font-bold text-amber-300">{params.painSeverityScore10}/10 (Severe)</span>
                     </div>
-                    <input
+                    <input aria-label="Reported Pain Severity"
                       type="range"
                       min="1"
                       max="10"
@@ -644,7 +644,7 @@ export default function MesentericIschemiaSimulator() {
                       {params.serumLactateMmolPerL} mmol/L
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Serum Lactate Level"
                     type="range"
                     min="0.5"
                     max="10.0"

@@ -6,6 +6,7 @@ import { OrbitControls, Float, Sphere, Text } from '@react-three/drei';
 import { Glasses, Move3d, Sparkles, HelpCircle, Volume2 } from 'lucide-react';
 import { SPATIAL_DISSECTION_TOOLS, DEFAULT_MEDICAL_XR_CONFIG } from '@/.gemini/skills/3d/SpatialXRPresets';
 import LifelikeHeartModel from './LifelikeHeartModel';
+import WebGLErrorBoundary from '../WebGLErrorBoundary';
 
 function HeartOrganModel({ isBeating = true }: { isBeating?: boolean }) {
   return (
@@ -92,16 +93,18 @@ export default function SpatialAnatomyCanvas({
 
       {/* 3D Canvas */}
       <div className="flex-1 w-full h-full cursor-grab active:cursor-grabbing">
-        <Canvas camera={{ position: [0, 0, 4], fov: 50 }}>
-          <ambientLight intensity={0.7} />
-          <directionalLight position={[10, 10, 5]} intensity={1.5} />
-          <directionalLight position={[-10, -10, -5]} intensity={0.5} color="#3b82f6" />
-          <pointLight position={[0, 2, 2]} intensity={1} color="#f43f5e" />
+        <WebGLErrorBoundary fallbackTitle="Spatial Anatomy 3D Canvas Unavailable">
+          <Canvas camera={{ position: [0, 0, 4], fov: 50 }}>
+            <ambientLight intensity={0.7} />
+            <directionalLight position={[10, 10, 5]} intensity={1.5} />
+            <directionalLight position={[-10, -10, -5]} intensity={0.5} color="#3b82f6" />
+            <pointLight position={[0, 2, 2]} intensity={1} color="#f43f5e" />
 
-          <HeartOrganModel />
+            <HeartOrganModel />
 
-          <OrbitControls enablePan={true} enableZoom={true} enableRotate={true} />
-        </Canvas>
+            <OrbitControls enablePan={true} enableZoom={true} enableRotate={true} />
+          </Canvas>
+        </WebGLErrorBoundary>
       </div>
 
       {/* Bottom Floating Socratic Spatial Annotation Panel */}

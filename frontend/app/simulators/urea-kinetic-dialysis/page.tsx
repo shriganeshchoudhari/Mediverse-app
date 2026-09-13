@@ -4,8 +4,19 @@ import UreaKineticDialysisSimulator from '@/components/simulators/UreaKineticDia
 
 export const metadata: Metadata = {
   title: 'Urea Kinetic Modeling (Kt/V) & Dialysis Solver | Mediverse',
-  description:
-    'Hemodialysis adequacy and Urea Kinetic Modeling (UKM) biophysical workstation: Daugirdas second-generation variable-volume spKt/V, equilibrated eKt/V with intracellular urea rebound, URR %, nPCR nutritional surveillance, vascular access recirculation (AR%), and ultrafiltration rate cardiovascular risk monitoring.',
+  description: 'Hemodialysis adequacy and Urea Kinetic Modeling (UKM) biophysical workstation: Daugirdas second-generation variable-volume spKt/V, equilibrated eKt/V with intracellular urea rebound, URR %, nPCR nutritional surveillance, vascular access recirculation (AR%), and ultrafiltration rate cardiovascular risk monitoring.',
+  openGraph: {
+    title: 'Urea Kinetic Modeling (Kt/V) & Dialysis Solver | Mediverse',
+    description: 'Hemodialysis adequacy and Urea Kinetic Modeling (UKM) biophysical workstation: Daugirdas second-generation variable-volume spKt/V, equilibrated eKt/V with intracellular urea rebound, URR %, nPCR nutritional surveillance, vascular access recirculation (AR%), and ultrafiltration rate cardiovascular risk monitoring.',
+    url: 'https://mediverse.app/simulators/urea-kinetic-dialysis',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Urea Kinetic Modeling (Kt/V) & Dialysis Solver | Mediverse',
+    description: 'Hemodialysis adequacy and Urea Kinetic Modeling (UKM) biophysical workstation: Daugirdas second-generation variable-volume spKt/V, equilibrated eKt/V with intracellular urea rebound, URR %, nPCR nutritional surveillance, vascular access recirculation (AR%), and ultrafiltration rate cardiovascular risk monitoring.',
+  },
 };
 
 

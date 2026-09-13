@@ -366,7 +366,7 @@ export default function EcmoCannulationSimulator() {
                   <span>ECMO Pump Blood Flow (L/min)</span>
                   <span className="font-bold text-cyan-400">{params.ecmoBloodFlowLpm} L/min</span>
                 </div>
-                <input
+                <input aria-label="ECMO Pump Blood Flow (L/min)"
                   type="range"
                   min="1.5"
                   max="7.0"
@@ -382,7 +382,7 @@ export default function EcmoCannulationSimulator() {
                   <span>Sweep Gas Flow (L/min) - Controls PaCO2</span>
                   <span className="font-bold text-slate-200">{params.sweepGasFlowLpm} L/min</span>
                 </div>
-                <input
+                <input aria-label="Sweep Gas Flow (L/min) - Controls PaCO2"
                   type="range"
                   min="1.0"
                   max="15.0"
@@ -398,7 +398,7 @@ export default function EcmoCannulationSimulator() {
                   <span>Membrane Oxygenator FiO2</span>
                   <span className="font-bold text-emerald-400">{Math.round(params.membraneFio2 * 100)}%</span>
                 </div>
-                <input
+                <input aria-label="Membrane Oxygenator FiO2"
                   type="range"
                   min="0.21"
                   max="1.0"
@@ -448,7 +448,7 @@ export default function EcmoCannulationSimulator() {
                     {params.nativeCardiacOutputLpm} L/min
                   </span>
                 </div>
-                <input
+                <input aria-label="Native Left Ventricle Output (L/min)"
                   type="range"
                   min="0.5"
                   max="6.5"
@@ -466,7 +466,7 @@ export default function EcmoCannulationSimulator() {
                     {params.nativeLungPaO2MmHg} mmHg
                   </span>
                 </div>
-                <input
+                <input aria-label="Native Lung Effluent PaO2 (mmHg)"
                   type="range"
                   min="35"
                   max="200"

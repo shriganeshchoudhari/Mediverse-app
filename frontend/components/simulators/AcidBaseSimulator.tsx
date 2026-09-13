@@ -411,7 +411,7 @@ export default function AcidBaseSimulator() {
                       {paco2} mmHg
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Arterial PaCO₂"
                     type="range"
                     min="10"
                     max="100"
@@ -435,7 +435,7 @@ export default function AcidBaseSimulator() {
                       {hco3} mEq/L
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Serum [HCO₃⁻]"
                     type="range"
                     min="4"
                     max="55"
@@ -459,7 +459,7 @@ export default function AcidBaseSimulator() {
                       {na} mEq/L
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Serum Sodium [Na⁺]"
                     type="range"
                     min="115"
                     max="165"
@@ -483,7 +483,7 @@ export default function AcidBaseSimulator() {
                       {cl} mEq/L
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Serum Chloride [Cl⁻]"
                     type="range"
                     min="65"
                     max="135"
@@ -546,7 +546,7 @@ export default function AcidBaseSimulator() {
                         <span className="text-slate-300">Serum Albumin</span>
                         <span className="text-amber-400 font-mono font-bold">{albumin.toFixed(1)} g/dL</span>
                       </div>
-                      <input
+                      <input aria-label="Serum Albumin"
                         type="range"
                         min="1.0"
                         max="5.5"

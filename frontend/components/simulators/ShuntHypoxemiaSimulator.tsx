@@ -337,7 +337,7 @@ export default function ShuntHypoxemiaSimulator() {
                   <span className="text-slate-300">Inspired Oxygen (FiO2)</span>
                   <span className="text-sky-300 font-mono font-bold">{(params.fiO2 * 100).toFixed(0)}%</span>
                 </div>
-                <input
+                <input aria-label="Inspired Oxygen (FiO2)"
                   type="range"
                   min="0.21"
                   max="1.0"
@@ -358,7 +358,7 @@ export default function ShuntHypoxemiaSimulator() {
                   <span className="text-slate-300">Arterial PO2 (PaO2)</span>
                   <span className="text-sky-300 font-mono font-bold">{params.paO2} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Arterial PO2 (PaO2)"
                   type="range"
                   min="30"
                   max="550"
@@ -375,7 +375,7 @@ export default function ShuntHypoxemiaSimulator() {
                   <span className="text-slate-300">Arterial PCO2 (PaCO2)</span>
                   <span className="text-sky-300 font-mono font-bold">{params.paCO2} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Arterial PCO2 (PaCO2)"
                   type="range"
                   min="15"
                   max="110"
@@ -397,7 +397,7 @@ export default function ShuntHypoxemiaSimulator() {
                   <span className="text-slate-300">Hemoglobin (Hb)</span>
                   <span className="text-pink-300 font-mono font-bold">{params.hemoglobin} g/dL</span>
                 </div>
-                <input
+                <input aria-label="Hemoglobin (Hb)"
                   type="range"
                   min="5.0"
                   max="22.0"
@@ -415,7 +415,7 @@ export default function ShuntHypoxemiaSimulator() {
                     <span className="text-slate-300">SaO2 %</span>
                     <span className="text-sky-300 font-mono">{params.saO2}%</span>
                   </div>
-                  <input
+                  <input aria-label="SaO2 %"
                     type="range"
                     min="50"
                     max="100"
@@ -430,7 +430,7 @@ export default function ShuntHypoxemiaSimulator() {
                     <span className="text-slate-300">SvO2 %</span>
                     <span className="text-indigo-300 font-mono">{params.svO2}%</span>
                   </div>
-                  <input
+                  <input aria-label="SvO2 %"
                     type="range"
                     min="30"
                     max="85"
@@ -448,7 +448,7 @@ export default function ShuntHypoxemiaSimulator() {
                   <span className="text-slate-300">Cardiac Output (CO)</span>
                   <span className="text-emerald-300 font-mono font-bold">{params.cardiacOutput} L/min</span>
                 </div>
-                <input
+                <input aria-label="Cardiac Output (CO)"
                   type="range"
                   min="1.5"
                   max="12.0"
@@ -466,7 +466,7 @@ export default function ShuntHypoxemiaSimulator() {
                     <span className="text-slate-300">Patm (mmHg)</span>
                     <span className="text-amber-300 font-mono">{params.barometricPressure}</span>
                   </div>
-                  <input
+                  <input aria-label="Patm (mmHg)"
                     type="range"
                     min="300"
                     max="780"
@@ -481,7 +481,7 @@ export default function ShuntHypoxemiaSimulator() {
                     <span className="text-slate-300">Age (yrs)</span>
                     <span className="text-slate-300 font-mono">{params.age}</span>
                   </div>
-                  <input
+                  <input aria-label="Age (yrs)"
                     type="range"
                     min="18"
                     max="95"
@@ -499,7 +499,7 @@ export default function ShuntHypoxemiaSimulator() {
                   <span className="text-slate-300">Mixed Expired PCO2 (PeCO2)</span>
                   <span className="text-slate-300 font-mono">{params.peCO2 ?? 24} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Mixed Expired PCO2 (PeCO2)"
                   type="range"
                   min="5"
                   max="50"
@@ -721,7 +721,7 @@ export default function ShuntHypoxemiaSimulator() {
                     <span className="text-slate-300">Simulate Test Inspired Oxygen (FiO2)</span>
                     <span className="text-amber-300 font-mono font-bold">{(testFiO2 * 100).toFixed(0)}%</span>
                   </div>
-                  <input
+                  <input aria-label="Simulate Test Inspired Oxygen (FiO2)"
                     type="range"
                     min="0.21"
                     max="1.0"

@@ -5,6 +5,18 @@ import ToxicologyAntidoteSimulator from '@/components/simulators/ToxicologyAntid
 export const metadata: Metadata = {
   title: 'Clinical Toxicology, Toxidromes & Antidote Precision | Mediverse',
   description: 'Interactive medical toxicology workstation: toxidrome pattern recognition (Hunter Serotonin vs Sympathomimetic, Cholinergic Killer Bs), Rumack-Matthew APAP nomogram solver, Osmolar/Anion gap diagnostics, and targeted antidote titration.',
+  openGraph: {
+    title: 'Clinical Toxicology, Toxidromes & Antidote Precision | Mediverse',
+    description: 'Interactive medical toxicology workstation: toxidrome pattern recognition (Hunter Serotonin vs Sympathomimetic, Cholinergic Killer Bs), Rumack-Matthew APAP nomogram solver, Osmolar/Anion gap diagnostics, and targeted antidote titration.',
+    url: 'https://mediverse.app/simulators/toxicology-antidote',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Clinical Toxicology, Toxidromes & Antidote Precision | Mediverse',
+    description: 'Interactive medical toxicology workstation: toxidrome pattern recognition (Hunter Serotonin vs Sympathomimetic, Cholinergic Killer Bs), Rumack-Matthew APAP nomogram solver, Osmolar/Anion gap diagnostics, and targeted antidote titration.',
+  },
 };
 
 

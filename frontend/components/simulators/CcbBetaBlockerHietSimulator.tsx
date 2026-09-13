@@ -707,7 +707,7 @@ export default function CcbBetaBlockerHietSimulator() {
                       <span>Insulin Infusion Rate:</span>
                       <span className="text-rose-400 font-bold">{patientInput.insulinInfusionRateUnitsKgH.toFixed(1)} U/kg/h</span>
                     </div>
-                    <input
+                    <input aria-label="Insulin Infusion Rate"
                       type="range"
                       min="0.5"
                       max="10.0"
@@ -730,7 +730,7 @@ export default function CcbBetaBlockerHietSimulator() {
                       <span>Dextrose Infusion Rate (Clamp Support):</span>
                       <span className="text-amber-400 font-bold">{patientInput.dextroseInfusionRateGKgH.toFixed(2)} g/kg/h</span>
                     </div>
-                    <input
+                    <input aria-label="Dextrose Infusion Rate (Clamp Support)"
                       type="range"
                       min="0.1"
                       max="1.0"
@@ -921,7 +921,7 @@ export default function CcbBetaBlockerHietSimulator() {
                   <span>Administered Calcium Dose:</span>
                   <span className="text-white font-bold">{patientInput.calciumDoseGrams.toFixed(1)} grams</span>
                 </div>
-                <input
+                <input aria-label="Administered Calcium Dose"
                   type="range"
                   min="1.0"
                   max="5.0"

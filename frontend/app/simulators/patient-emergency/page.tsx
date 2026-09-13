@@ -5,6 +5,18 @@ import PatientEmergencySimulator from '@/components/simulators/PatientEmergencyS
 export const metadata: Metadata = {
   title: 'Acute Patient Emergency Resuscitation Workstation | Mediverse',
   description: 'Emergency medicine simulation environment for rapid assessment, ABCDE stabilization, pharmacologic dosing titration, and acute clinical crisis management.',
+  openGraph: {
+    title: 'Acute Patient Emergency Resuscitation Workstation | Mediverse',
+    description: 'Emergency medicine simulation environment for rapid assessment, ABCDE stabilization, pharmacologic dosing titration, and acute clinical crisis management.',
+    url: 'https://mediverse.app/simulators/patient-emergency',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Acute Patient Emergency Resuscitation Workstation | Mediverse',
+    description: 'Emergency medicine simulation environment for rapid assessment, ABCDE stabilization, pharmacologic dosing titration, and acute clinical crisis management.',
+  },
 };
 
 export const dynamic = 'force-static';

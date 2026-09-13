@@ -16,6 +16,18 @@ import PocusUltrasoundSimulator from '@/components/simulators/PocusUltrasoundSim
 export const metadata: Metadata = {
   title: 'Point-of-Care Ultrasound (POCUS) Simulator | Mediverse',
   description: 'Interactive virtual sonography workstation: eFAST trauma survey, BLUE acute respiratory protocol, 2D B-mode and M-mode sweeps, tissue attenuation physics, and electronic caliper measurement.',
+  openGraph: {
+    title: 'Point-of-Care Ultrasound (POCUS) Simulator | Mediverse',
+    description: 'Interactive virtual sonography workstation: eFAST trauma survey, BLUE acute respiratory protocol, 2D B-mode and M-mode sweeps, tissue attenuation physics, and electronic caliper measurement.',
+    url: 'https://mediverse.app/simulators/pocus',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Point-of-Care Ultrasound (POCUS) Simulator | Mediverse',
+    description: 'Interactive virtual sonography workstation: eFAST trauma survey, BLUE acute respiratory protocol, 2D B-mode and M-mode sweeps, tissue attenuation physics, and electronic caliper measurement.',
+  },
 };
 
 

@@ -209,7 +209,7 @@ export default function CrrtCitrateClearanceSimulator() {
                 <span className="text-slate-300 font-medium">Blood Flow Rate (Qb):</span>
                 <span className="font-mono font-bold text-teal-300">{bloodFlowQb} mL/min</span>
               </div>
-              <input
+              <input aria-label="Blood Flow Rate (Qb)"
                 type="range"
                 min="100"
                 max="300"
@@ -232,7 +232,7 @@ export default function CrrtCitrateClearanceSimulator() {
                   <span className="text-slate-300 font-medium">Dialysate Flow (Qd - Diffusion):</span>
                   <span className="font-mono font-bold text-teal-300">{dialysateQd} mL/h</span>
                 </div>
-                <input
+                <input aria-label="Dialysate Flow (Qd - Diffusion)"
                   type="range"
                   min="0"
                   max="3500"
@@ -251,7 +251,7 @@ export default function CrrtCitrateClearanceSimulator() {
                   <span className="text-slate-300 font-medium">Replacement Flow (Qrep - Convection):</span>
                   <span className="font-mono font-bold text-cyan-300">{replacementQrep} mL/h</span>
                 </div>
-                <input
+                <input aria-label="Replacement Flow (Qrep - Convection)"
                   type="range"
                   min="0"
                   max="3500"
@@ -297,7 +297,7 @@ export default function CrrtCitrateClearanceSimulator() {
                 <span className="text-slate-300 font-medium">Net Ultrafiltration (Fluid Removal):</span>
                 <span className="font-mono font-bold text-amber-300">{netUf} mL/h</span>
               </div>
-              <input
+              <input aria-label="Net Ultrafiltration (Fluid Removal)"
                 type="range"
                 min="0"
                 max="600"
@@ -487,7 +487,7 @@ export default function CrrtCitrateClearanceSimulator() {
                     {circuitICa.toFixed(2)} mmol/L
                   </span>
                 </div>
-                <input
+                <input aria-label="Circuit I Ca"
                   type="range"
                   min="0.15"
                   max="0.60"
@@ -510,7 +510,7 @@ export default function CrrtCitrateClearanceSimulator() {
                     {systemicICa.toFixed(2)} mmol/L
                   </span>
                 </div>
-                <input
+                <input aria-label="Systemic I Ca"
                   type="range"
                   min="0.70"
                   max="1.50"
@@ -527,7 +527,7 @@ export default function CrrtCitrateClearanceSimulator() {
                   <span className="text-slate-400">Total Serum Calcium:</span>
                   <span className="font-mono font-bold text-slate-200">{totalCa.toFixed(2)} mmol/L</span>
                 </div>
-                <input
+                <input aria-label="Total Serum Calcium"
                   type="range"
                   min="1.80"
                   max="3.50"

@@ -5,19 +5,19 @@ import StandardizedPatientWorkstation from '@/components/simulators/Standardized
 
 export const metadata: Metadata = {
   title: 'Standardized Patient & Voice AI Telehealth Workstation | Mediverse',
-  description:
-    'Interactive generative standardized patient simulation workstation. Conduct live verbal patient history interviews, perform bedside physical exams, order STAT diagnostic investigations, and receive automated evidence-based OSCE SOAP note evaluations.',
-  keywords: [
-    'Standardized Patient',
-    'Voice AI Patient',
-    'Telehealth Simulator',
-    'OSCE Exam Simulator',
-    'Clinical History Taking',
-    'SOAP Note Grader',
-    'Acute Appendicitis',
-    'STEMI',
-    'Bacterial Meningitis'
-  ]
+  description: 'Interactive generative standardized patient simulation workstation. Conduct live verbal patient history interviews, perform bedside physical exams, order STAT diagnostic investigations, and receive automated evidence-based OSCE SOAP note evaluations.',
+  openGraph: {
+    title: 'Standardized Patient & Voice AI Telehealth Workstation | Mediverse',
+    description: 'Interactive generative standardized patient simulation workstation. Conduct live verbal patient history interviews, perform bedside physical exams, order STAT diagnostic investigations, and receive automated evidence-based OSCE SOAP note evaluations.',
+    url: 'https://mediverse.app/simulators/telehealth',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Standardized Patient & Voice AI Telehealth Workstation | Mediverse',
+    description: 'Interactive generative standardized patient simulation workstation. Conduct live verbal patient history interviews, perform bedside physical exams, order STAT diagnostic investigations, and receive automated evidence-based OSCE SOAP note evaluations.',
+  },
 };
 
 

@@ -306,7 +306,7 @@ export default function AorticDissectionSimulator() {
                     {params.heartRateBpm} bpm
                   </span>
                 </div>
-                <input
+                <input aria-label="Heart Rate (HR) &mdash; Target &lt; 60 bpm"
                   type="range"
                   min="45"
                   max="140"
@@ -324,7 +324,7 @@ export default function AorticDissectionSimulator() {
                     {params.sbpMmHg} mmHg
                   </span>
                 </div>
-                <input
+                <input aria-label="Systolic Blood Pressure (SBP) &mdash; Target 100-120 mmHg"
                   type="range"
                   min="80"
                   max="240"
@@ -339,7 +339,7 @@ export default function AorticDissectionSimulator() {
                   <span>Diastolic Blood Pressure (DBP)</span>
                   <span className="font-bold text-slate-300">{params.dbpMmHg} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Diastolic Blood Pressure (DBP)"
                   type="range"
                   min="40"
                   max="130"
@@ -482,7 +482,7 @@ export default function AorticDissectionSimulator() {
                     {params.maximumAorticDiameterMm} mm
                   </span>
                 </div>
-                <input
+                <input aria-label="Maximum Aortic Diameter"
                   type="range"
                   min="35"
                   max="80"
@@ -680,7 +680,7 @@ export default function AorticDissectionSimulator() {
                     {params.serumLactateMmolL.toFixed(1)} mmol/L
                   </span>
                 </div>
-                <input
+                <input aria-label="Serum Lactate (Mesenteric / Organ Ischemia)"
                   type="range"
                   min="0.5"
                   max="10.0"

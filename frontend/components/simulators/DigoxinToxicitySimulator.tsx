@@ -182,7 +182,7 @@ export default function DigoxinToxicitySimulator() {
                   <span className="text-slate-400">Patient Weight:</span>
                   <strong className="text-white font-mono">{weightKg} kg</strong>
                 </div>
-                <input
+                <input aria-label="Patient Weight"
                   type="range"
                   min="40"
                   max="130"
@@ -205,7 +205,7 @@ export default function DigoxinToxicitySimulator() {
                     {sdc} ng/mL
                   </strong>
                 </div>
-                <input
+                <input aria-label="Sdc"
                   type="range"
                   min="0.2"
                   max="15.0"
@@ -227,7 +227,7 @@ export default function DigoxinToxicitySimulator() {
                     <span className="text-slate-400">Known Ingested Amount:</span>
                     <strong className="text-rose-400 font-mono font-bold">{ingestedDose} mg</strong>
                   </div>
-                  <input
+                  <input aria-label="Known Ingested Amount"
                     type="range"
                     min="0"
                     max="20"
@@ -250,7 +250,7 @@ export default function DigoxinToxicitySimulator() {
                   <span className="text-slate-400">eGFR (Renal Clearance):</span>
                   <strong className="text-white font-mono">{gfr} mL/min</strong>
                 </div>
-                <input
+                <input aria-label="eGFR (Renal Clearance)"
                   type="range"
                   min="10"
                   max="120"
@@ -307,7 +307,7 @@ export default function DigoxinToxicitySimulator() {
                     {potassium} mEq/L
                   </strong>
                 </div>
-                <input
+                <input aria-label="Potassium"
                   type="range"
                   min="2.5"
                   max="8.0"
@@ -523,7 +523,7 @@ export default function DigoxinToxicitySimulator() {
                   <span className="text-slate-400">Administered DigiFab Vials:</span>
                   <strong className="text-amber-400 font-mono">{vialsAdministered} vials</strong>
                 </div>
-                <input
+                <input aria-label="Administered DigiFab Vials"
                   type="range"
                   min="0"
                   max="30"

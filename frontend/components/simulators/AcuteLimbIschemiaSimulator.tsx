@@ -336,7 +336,7 @@ export default function AcuteLimbIschemiaSimulator() {
                     {params.durationOfIschemiaHours} hrs
                   </span>
                 </div>
-                <input
+                <input aria-label="Duration of Ischemia (Hours)"
                   type="range"
                   min="0.5"
                   max="36"
@@ -549,7 +549,7 @@ export default function AcuteLimbIschemiaSimulator() {
                     {params.intracompartmentalPressureMmHg} mmHg
                   </span>
                 </div>
-                <input
+                <input aria-label="Intracompartmental Pressure (ICP)"
                   type="range"
                   min="0"
                   max="70"
@@ -565,7 +565,7 @@ export default function AcuteLimbIschemiaSimulator() {
                   <span>Diastolic Blood Pressure (DBP)</span>
                   <span className="font-bold text-slate-300">{params.diastolicBpMmHg} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Diastolic Blood Pressure (DBP)"
                   type="range"
                   min="40"
                   max="120"

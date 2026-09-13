@@ -617,7 +617,7 @@ Please explain the biochemical mechanism, metabolic pathway disruption, and CPIC
                     <span>Age</span>
                     <span className="font-mono text-indigo-400">{warfarinAge} years</span>
                   </div>
-                  <input
+                  <input aria-label="Age"
                     type="range"
                     min={20}
                     max={95}

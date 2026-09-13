@@ -223,7 +223,7 @@ export default function ArdsSimulator() {
                     <span>Height:</span>
                     <span className="font-mono text-slate-200 font-bold">{heightCm} cm</span>
                   </div>
-                  <input
+                  <input aria-label="Height"
                     type="range"
                     min="140"
                     max="205"
@@ -240,7 +240,7 @@ export default function ArdsSimulator() {
                   <span>Actual Body Weight:</span>
                   <span className="font-mono text-slate-300">{weightKg} kg (Do NOT use for Vt!)</span>
                 </div>
-                <input
+                <input aria-label="Actual Body Weight"
                   type="range"
                   min="40"
                   max="140"
@@ -274,7 +274,7 @@ export default function ArdsSimulator() {
                     {vt} mL ({metrics.tidalVolumeMlPerKgPbw} mL/kg PBW)
                   </span>
                 </div>
-                <input
+                <input aria-label="Tidal Volume (Vt)"
                   type="range"
                   min="240"
                   max="700"
@@ -291,7 +291,7 @@ export default function ArdsSimulator() {
                   <span>Respiratory Rate:</span>
                   <span className="font-mono text-slate-200 font-bold">{rr} breaths/min</span>
                 </div>
-                <input
+                <input aria-label="Respiratory Rate"
                   type="range"
                   min="10"
                   max="38"
@@ -309,7 +309,7 @@ export default function ArdsSimulator() {
                     <span>PEEP:</span>
                     <span className="font-mono text-cyan-400 font-bold">{peep} cmH2O</span>
                   </div>
-                  <input
+                  <input aria-label="PEEP"
                     type="range"
                     min="5"
                     max="24"
@@ -327,7 +327,7 @@ export default function ArdsSimulator() {
                       {pplat} cmH2O
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Plateau Pressure (Pplat)"
                     type="range"
                     min="12"
                     max="45"
@@ -346,7 +346,7 @@ export default function ArdsSimulator() {
                     <span>Peak Pressure (Ppeak):</span>
                     <span className="font-mono text-slate-300 font-bold">{ppeak} cmH2O</span>
                   </div>
-                  <input
+                  <input aria-label="Peak Pressure (Ppeak)"
                     type="range"
                     min="16"
                     max="55"
@@ -362,7 +362,7 @@ export default function ArdsSimulator() {
                     <span>FiO2:</span>
                     <span className="font-mono text-amber-400 font-bold">{fio2}%</span>
                   </div>
-                  <input
+                  <input aria-label="FiO2"
                     type="range"
                     min="21"
                     max="100"
@@ -393,7 +393,7 @@ export default function ArdsSimulator() {
                   <span>Arterial PaO2:</span>
                   <span className="font-mono text-cyan-400 font-bold">{pao2} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Arterial PaO2"
                   type="range"
                   min="40"
                   max="220"
@@ -411,7 +411,7 @@ export default function ArdsSimulator() {
                     <span>pH:</span>
                     <span className="font-mono text-purple-400 font-bold">{ph.toFixed(2)}</span>
                   </div>
-                  <input
+                  <input aria-label="pH"
                     type="range"
                     min="7.08"
                     max="7.48"
@@ -427,7 +427,7 @@ export default function ArdsSimulator() {
                     <span>HCO3-:</span>
                     <span className="font-mono text-slate-300 font-bold">{bicarbonate} mEq/L</span>
                   </div>
-                  <input
+                  <input aria-label="HCO3-"
                     type="range"
                     min="12"
                     max="32"

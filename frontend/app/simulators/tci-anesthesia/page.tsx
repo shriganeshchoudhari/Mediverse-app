@@ -4,8 +4,19 @@ import TciAnesthesiaSimulator from '@/components/simulators/TciAnesthesiaSimulat
 
 export const metadata: Metadata = {
   title: 'TCI Anesthesia & Volatile MAC Solver | Mediverse',
-  description:
-    'Target-Controlled Infusion (TCI) and Age-Corrected Volatile MAC simulator: Marsh & Schnider 3-compartment Propofol kinetics, Minto Remifentanil pharmacodynamics, Mapleson age decay, BIS electrocortical depth monitoring, and context-sensitive half-time.',
+  description: 'Target-Controlled Infusion (TCI) and Age-Corrected Volatile MAC simulator: Marsh & Schnider 3-compartment Propofol kinetics, Minto Remifentanil pharmacodynamics, Mapleson age decay, BIS electrocortical depth monitoring, and context-sensitive half-time.',
+  openGraph: {
+    title: 'TCI Anesthesia & Volatile MAC Solver | Mediverse',
+    description: 'Target-Controlled Infusion (TCI) and Age-Corrected Volatile MAC simulator: Marsh & Schnider 3-compartment Propofol kinetics, Minto Remifentanil pharmacodynamics, Mapleson age decay, BIS electrocortical depth monitoring, and context-sensitive half-time.',
+    url: 'https://mediverse.app/simulators/tci-anesthesia',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'TCI Anesthesia & Volatile MAC Solver | Mediverse',
+    description: 'Target-Controlled Infusion (TCI) and Age-Corrected Volatile MAC simulator: Marsh & Schnider 3-compartment Propofol kinetics, Minto Remifentanil pharmacodynamics, Mapleson age decay, BIS electrocortical depth monitoring, and context-sensitive half-time.',
+  },
 };
 
 

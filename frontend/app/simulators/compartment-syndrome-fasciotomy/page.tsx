@@ -3,7 +3,19 @@ import CompartmentSyndromeSimulator from '@/components/simulators/CompartmentSyn
 
 export const metadata: Metadata = {
   title: 'Acute Compartment Syndrome & Fasciotomy Workstation | Mediverse',
-  description: 'Emergency medicine, orthopedic surgery, and critical care simulation of acute traumatic compartment syndrome (ATCS), intracompartmental pressure (ICP) transduction, McQueen Delta Pressure criteria (ΔP <= 30 mmHg), two-incision four-compartment fasciotomy, and crush syndrome rhabdomyolysis nephroprotection.'
+  description: 'Emergency medicine, orthopedic surgery, and critical care simulation of acute traumatic compartment syndrome (ATCS), intracompartmental pressure (ICP) transduction, McQueen Delta Pressure criteria (ΔP <= 30 mmHg), two-incision four-compartment fasciotomy, and crush syndrome rhabdomyolysis nephroprotection.',
+  openGraph: {
+    title: 'Acute Compartment Syndrome & Fasciotomy Workstation | Mediverse',
+    description: 'Emergency medicine, orthopedic surgery, and critical care simulation of acute traumatic compartment syndrome (ATCS), intracompartmental pressure (ICP) transduction, McQueen Delta Pressure criteria (ΔP <= 30 mmHg), two-incision four-compartment fasciotomy, and crush syndrome rhabdomyolysis nephroprotection.',
+    url: 'https://mediverse.app/simulators/compartment-syndrome-fasciotomy',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Acute Compartment Syndrome & Fasciotomy Workstation | Mediverse',
+    description: 'Emergency medicine, orthopedic surgery, and critical care simulation of acute traumatic compartment syndrome (ATCS), intracompartmental pressure (ICP) transduction, McQueen Delta Pressure criteria (ΔP <= 30 mmHg), two-incision four-compartment fasciotomy, and crush syndrome rhabdomyolysis nephroprotection.',
+  },
 };
 
 

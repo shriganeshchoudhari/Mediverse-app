@@ -3,8 +3,19 @@ import SepsisAntibioticSimulator from '@/components/simulators/SepsisAntibioticS
 
 export const metadata: Metadata = {
   title: 'Sepsis Bundles (SEP-1), Antibiotic PK/PD & Procalcitonin Workstation | Mediverse',
-  description:
-    'Interactive Surviving Sepsis Campaign Hour-1 (SEP-1) protocol adherence, antimicrobial PK/PD optimization, Augmented Renal Clearance (ARC) detection, and procalcitonin-guided de-escalation engine.',
+  description: 'Interactive Surviving Sepsis Campaign Hour-1 (SEP-1) protocol adherence, antimicrobial PK/PD optimization, Augmented Renal Clearance (ARC) detection, and procalcitonin-guided de-escalation engine.',
+  openGraph: {
+    title: 'Sepsis Bundles (SEP-1), Antibiotic PK/PD & Procalcitonin Workstation | Mediverse',
+    description: 'Interactive Surviving Sepsis Campaign Hour-1 (SEP-1) protocol adherence, antimicrobial PK/PD optimization, Augmented Renal Clearance (ARC) detection, and procalcitonin-guided de-escalation engine.',
+    url: 'https://mediverse.app/simulators/sepsis-antibiotic-pkpd',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sepsis Bundles (SEP-1), Antibiotic PK/PD & Procalcitonin Workstation | Mediverse',
+    description: 'Interactive Surviving Sepsis Campaign Hour-1 (SEP-1) protocol adherence, antimicrobial PK/PD optimization, Augmented Renal Clearance (ARC) detection, and procalcitonin-guided de-escalation engine.',
+  },
 };
 
 

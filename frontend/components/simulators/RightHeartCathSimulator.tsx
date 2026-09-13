@@ -248,7 +248,7 @@ export default function RightHeartCathSimulator() {
                   {pam} mmHg
                 </span>
               </div>
-              <input
+              <input aria-label="Mean PA Pressure (mPAP)"
                 type="range"
                 min="8"
                 max="80"
@@ -266,7 +266,7 @@ export default function RightHeartCathSimulator() {
                   <span className="text-zinc-400">PA Systolic (sPAP):</span>
                   <span className="font-mono font-bold text-rose-400">{pas} mmHg</span>
                 </div>
-                <input
+                <input aria-label="PA Systolic (sPAP)"
                   type="range"
                   min="15"
                   max="120"
@@ -281,7 +281,7 @@ export default function RightHeartCathSimulator() {
                   <span className="text-zinc-400">PA Diastolic (dPAP):</span>
                   <span className="font-mono font-bold text-cyan-300">{pad} mmHg</span>
                 </div>
-                <input
+                <input aria-label="PA Diastolic (dPAP)"
                   type="range"
                   min="4"
                   max="60"
@@ -301,7 +301,7 @@ export default function RightHeartCathSimulator() {
                     {pawp} mmHg
                   </span>
                 </div>
-                <input
+                <input aria-label="PA Wedge (PAWP)"
                   type="range"
                   min="2"
                   max="35"
@@ -319,7 +319,7 @@ export default function RightHeartCathSimulator() {
                     {rap} mmHg
                   </span>
                 </div>
-                <input
+                <input aria-label="Right Atrial (RAP/CVP)"
                   type="range"
                   min="0"
                   max="25"
@@ -337,7 +337,7 @@ export default function RightHeartCathSimulator() {
                 <span className="text-zinc-400">Mean Arterial Pressure (MAP):</span>
                 <span className="font-mono font-bold text-white">{mapVal} mmHg</span>
               </div>
-              <input
+              <input aria-label="Mean Arterial Pressure (MAP)"
                 type="range"
                 min="45"
                 max="135"
@@ -366,7 +366,7 @@ export default function RightHeartCathSimulator() {
                   <span className="text-zinc-400">Arterial Sat (SaO2):</span>
                   <span className="font-mono font-bold text-cyan-300">{sao2}%</span>
                 </div>
-                <input
+                <input aria-label="Arterial Sat (SaO2)"
                   type="range"
                   min="75"
                   max="100"
@@ -383,7 +383,7 @@ export default function RightHeartCathSimulator() {
                     {svo2}%
                   </span>
                 </div>
-                <input
+                <input aria-label="Mixed Venous (SvO2)"
                   type="range"
                   min="30"
                   max="85"
@@ -402,7 +402,7 @@ export default function RightHeartCathSimulator() {
                   <span className="text-zinc-400">Hemoglobin (Hb):</span>
                   <span className="font-mono font-bold text-amber-300">{hb} g/dL</span>
                 </div>
-                <input
+                <input aria-label="Hemoglobin (Hb)"
                   type="range"
                   min="7.0"
                   max="20.0"
@@ -418,7 +418,7 @@ export default function RightHeartCathSimulator() {
                   <span className="text-zinc-400">Heart Rate:</span>
                   <span className="font-mono font-bold text-white">{hr} bpm</span>
                 </div>
-                <input
+                <input aria-label="Heart Rate"
                   type="range"
                   min="40"
                   max="130"
@@ -454,7 +454,7 @@ export default function RightHeartCathSimulator() {
                     <span className="text-zinc-400">Post-Challenge mPAP:</span>
                     <span className="font-mono font-bold text-purple-300">{postDrugMpap} mmHg</span>
                   </div>
-                  <input
+                  <input aria-label="Post-Challenge mPAP"
                     type="range"
                     min="18"
                     max="60"
@@ -472,7 +472,7 @@ export default function RightHeartCathSimulator() {
                     <span className="text-zinc-400">Post-Challenge CO:</span>
                     <span className="font-mono font-bold text-emerald-400">{postDrugCo} L/min</span>
                   </div>
-                  <input
+                  <input aria-label="Post-Challenge CO"
                     type="range"
                     min="2.0"
                     max="8.0"

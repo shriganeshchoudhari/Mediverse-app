@@ -4,8 +4,19 @@ import DigoxinToxicitySimulator from '../../../components/simulators/DigoxinToxi
 
 export const metadata: Metadata = {
   title: 'Digoxin Toxicity, DigiFab Stoichiometry & Arrhythmia Workstation | Mediverse',
-  description:
-    'Interactive cardiovascular toxicology workstation modeling myocardial Na+/K+-ATPase paralysis, hyperkalemia prognostic mortality curve, DigiFab antibody fragment neutralization stoichiometry, and Salvador Dalí scooped ST depressions.',
+  description: 'Interactive cardiovascular toxicology workstation modeling myocardial Na+/K+-ATPase paralysis, hyperkalemia prognostic mortality curve, DigiFab antibody fragment neutralization stoichiometry, and Salvador Dalí scooped ST depressions.',
+  openGraph: {
+    title: 'Digoxin Toxicity, DigiFab Stoichiometry & Arrhythmia Workstation | Mediverse',
+    description: 'Interactive cardiovascular toxicology workstation modeling myocardial Na+/K+-ATPase paralysis, hyperkalemia prognostic mortality curve, DigiFab antibody fragment neutralization stoichiometry, and Salvador Dalí scooped ST depressions.',
+    url: 'https://mediverse.app/simulators/digoxin-toxicity-fab',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Digoxin Toxicity, DigiFab Stoichiometry & Arrhythmia Workstation | Mediverse',
+    description: 'Interactive cardiovascular toxicology workstation modeling myocardial Na+/K+-ATPase paralysis, hyperkalemia prognostic mortality curve, DigiFab antibody fragment neutralization stoichiometry, and Salvador Dalí scooped ST depressions.',
+  },
 };
 
 

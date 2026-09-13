@@ -6,8 +6,19 @@ import ReboaSimulator from '../../../components/simulators/ReboaSimulator';
 
 export const metadata: Metadata = {
   title: 'REBOA & Aortic Occlusion Workstation | Mediverse Simulators',
-  description:
-    'Trauma and critical care simulation of Resuscitative Endovascular Balloon Occlusion of the Aorta (REBOA), Zone 1 vs Zone 3 occlusion, partial REBOA (pREBOA) titration, ischemia-reperfusion windows, and damage control resuscitation.',
+  description: 'Trauma and critical care simulation of Resuscitative Endovascular Balloon Occlusion of the Aorta (REBOA), Zone 1 vs Zone 3 occlusion, partial REBOA (pREBOA) titration, ischemia-reperfusion windows, and damage control resuscitation.',
+  openGraph: {
+    title: 'REBOA & Aortic Occlusion Workstation | Mediverse Simulators',
+    description: 'Trauma and critical care simulation of Resuscitative Endovascular Balloon Occlusion of the Aorta (REBOA), Zone 1 vs Zone 3 occlusion, partial REBOA (pREBOA) titration, ischemia-reperfusion windows, and damage control resuscitation.',
+    url: 'https://mediverse.app/simulators/reboa-aortic-occlusion',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'REBOA & Aortic Occlusion Workstation | Mediverse Simulators',
+    description: 'Trauma and critical care simulation of Resuscitative Endovascular Balloon Occlusion of the Aorta (REBOA), Zone 1 vs Zone 3 occlusion, partial REBOA (pREBOA) titration, ischemia-reperfusion windows, and damage control resuscitation.',
+  },
 };
 
 

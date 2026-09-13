@@ -14,8 +14,19 @@ import CoronaryAngiographySimulator from '@/components/simulators/CoronaryAngiog
 
 export const metadata: Metadata = {
   title: 'Cardiac Catheterization & Coronary Angiography Workstation | Mediverse',
-  description:
-    'Comprehensive C-arm fluoroscopy projections, 18-segment coronary tree, Gorlin equation Aortic Valve Area, FFR/iFR adenosine physiology, and TIMI flow grading.',
+  description: 'Comprehensive C-arm fluoroscopy projections, 18-segment coronary tree, Gorlin equation Aortic Valve Area, FFR/iFR adenosine physiology, and TIMI flow grading.',
+  openGraph: {
+    title: 'Cardiac Catheterization & Coronary Angiography Workstation | Mediverse',
+    description: 'Comprehensive C-arm fluoroscopy projections, 18-segment coronary tree, Gorlin equation Aortic Valve Area, FFR/iFR adenosine physiology, and TIMI flow grading.',
+    url: 'https://mediverse.app/simulators/coronary-angiography',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cardiac Catheterization & Coronary Angiography Workstation | Mediverse',
+    description: 'Comprehensive C-arm fluoroscopy projections, 18-segment coronary tree, Gorlin equation Aortic Valve Area, FFR/iFR adenosine physiology, and TIMI flow grading.',
+  },
 };
 
 

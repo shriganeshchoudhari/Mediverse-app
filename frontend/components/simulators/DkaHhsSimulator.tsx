@@ -175,7 +175,7 @@ export default function DkaHhsSimulator() {
                   <span>Blood Glucose:</span>
                   <span className="font-mono text-emerald-400 font-bold">{glucose} mg/dL</span>
                 </div>
-                <input
+                <input aria-label="Blood Glucose"
                   type="range"
                   min="100"
                   max="1400"
@@ -193,7 +193,7 @@ export default function DkaHhsSimulator() {
                     <span>Sodium (Na+):</span>
                     <span className="font-mono text-cyan-400 font-bold">{sodium} mEq/L</span>
                   </div>
-                  <input
+                  <input aria-label="Sodium (Na+)"
                     type="range"
                     min="115"
                     max="160"
@@ -210,7 +210,7 @@ export default function DkaHhsSimulator() {
                       {potassium.toFixed(1)} mEq/L
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Potassium (K+)"
                     type="range"
                     min="2.0"
                     max="6.5"
@@ -229,7 +229,7 @@ export default function DkaHhsSimulator() {
                     <span>Chloride (Cl-):</span>
                     <span className="font-mono text-slate-300 font-bold">{chloride} mEq/L</span>
                   </div>
-                  <input
+                  <input aria-label="Chloride (Cl-)"
                     type="range"
                     min="85"
                     max="125"
@@ -244,7 +244,7 @@ export default function DkaHhsSimulator() {
                     <span>Bicarbonate (HCO3-):</span>
                     <span className="font-mono text-purple-400 font-bold">{bicarbonate} mEq/L</span>
                   </div>
-                  <input
+                  <input aria-label="Bicarbonate (HCO3-)"
                     type="range"
                     min="3"
                     max="32"
@@ -263,7 +263,7 @@ export default function DkaHhsSimulator() {
                     <span>Venous/Art pH:</span>
                     <span className="font-mono text-rose-400 font-bold">{ph.toFixed(2)}</span>
                   </div>
-                  <input
+                  <input aria-label="Venous/Art pH"
                     type="range"
                     min="6.85"
                     max="7.48"
@@ -278,7 +278,7 @@ export default function DkaHhsSimulator() {
                     <span>β-Hydroxybutyrate:</span>
                     <span className="font-mono text-orange-400 font-bold">{betaOHB.toFixed(1)} mmol/L</span>
                   </div>
-                  <input
+                  <input aria-label="β-Hydroxybutyrate"
                     type="range"
                     min="0.1"
                     max="15.0"
@@ -297,7 +297,7 @@ export default function DkaHhsSimulator() {
                     <span>BUN:</span>
                     <span className="font-mono text-slate-300 font-bold">{bun} mg/dL</span>
                   </div>
-                  <input
+                  <input aria-label="BUN"
                     type="range"
                     min="8"
                     max="120"
@@ -312,7 +312,7 @@ export default function DkaHhsSimulator() {
                     <span>Glasgow Coma Scale:</span>
                     <span className="font-mono text-blue-400 font-bold">{gcs} / 15</span>
                   </div>
-                  <input
+                  <input aria-label="Glasgow Coma Scale"
                     type="range"
                     min="3"
                     max="15"
@@ -331,7 +331,7 @@ export default function DkaHhsSimulator() {
                     <span>Age:</span>
                     <span className="font-mono text-slate-300">{ageYears} yrs</span>
                   </div>
-                  <input
+                  <input aria-label="Age"
                     type="range"
                     min="6"
                     max="90"
@@ -346,7 +346,7 @@ export default function DkaHhsSimulator() {
                     <span>Weight:</span>
                     <span className="font-mono text-slate-300">{weightKg} kg</span>
                   </div>
-                  <input
+                  <input aria-label="Weight"
                     type="range"
                     min="20"
                     max="130"
@@ -374,7 +374,7 @@ export default function DkaHhsSimulator() {
                     {dropRate} mg/dL/h (Safe target: 50-75)
                   </span>
                 </div>
-                <input
+                <input aria-label="Hourly Glucose Decline Rate"
                   type="range"
                   min="0"
                   max="160"
@@ -394,7 +394,7 @@ export default function DkaHhsSimulator() {
                   </span>
                   <span className="font-mono text-cyan-400 font-bold">{bag1Rate} mL/h</span>
                 </div>
-                <input
+                <input aria-label="Bag1 Rate"
                   type="range"
                   min="0"
                   max="500"
@@ -414,7 +414,7 @@ export default function DkaHhsSimulator() {
                   </span>
                   <span className="font-mono text-amber-400 font-bold">{bag2Rate} mL/h</span>
                 </div>
-                <input
+                <input aria-label="Bag2 Rate"
                   type="range"
                   min="0"
                   max="500"
@@ -433,7 +433,7 @@ export default function DkaHhsSimulator() {
                     {insulinRate.toFixed(2)} U/kg/h ({(insulinRate * weightKg).toFixed(1)} U/h)
                   </span>
                 </div>
-                <input
+                <input aria-label="Regular Insulin Infusion"
                   type="range"
                   min="0.00"
                   max="0.20"

@@ -633,7 +633,7 @@ export default function VisualFieldPerimetrySimulator() {
                   <span className="text-zinc-400 font-medium">Measured Applanation IOP:</span>
                   <span className="text-cyan-300 font-mono font-bold">{measuredIop} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Measured Applanation IOP"
                   type="range"
                   min="8"
                   max="45"
@@ -648,7 +648,7 @@ export default function VisualFieldPerimetrySimulator() {
                   <span className="text-zinc-400 font-medium">Central Corneal Thickness (CCT):</span>
                   <span className="text-indigo-300 font-mono font-bold">{cctUm} µm</span>
                 </div>
-                <input
+                <input aria-label="Central Corneal Thickness (CCT)"
                   type="range"
                   min="420"
                   max="650"

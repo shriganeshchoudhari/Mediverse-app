@@ -4,8 +4,19 @@ import NeonatalHfovSimulator from '@/components/simulators/NeonatalHfovSimulator
 
 export const metadata: Metadata = {
   title: 'Neonatal HFOV & Surfactant Kinematics Workstation | Mediverse',
-  description:
-    'Neonatal & Pediatric Critical Care workstation: High-Frequency Oscillatory Ventilation (HFOV), sub-dead-space gas transport (Taylor dispersion, Pendelluft), Open-Lung hysteresis recruitment, and exogenous surfactant kinetics (LISA/MIST).',
+  description: 'Neonatal & Pediatric Critical Care workstation: High-Frequency Oscillatory Ventilation (HFOV), sub-dead-space gas transport (Taylor dispersion, Pendelluft), Open-Lung hysteresis recruitment, and exogenous surfactant kinetics (LISA/MIST).',
+  openGraph: {
+    title: 'Neonatal HFOV & Surfactant Kinematics Workstation | Mediverse',
+    description: 'Neonatal & Pediatric Critical Care workstation: High-Frequency Oscillatory Ventilation (HFOV), sub-dead-space gas transport (Taylor dispersion, Pendelluft), Open-Lung hysteresis recruitment, and exogenous surfactant kinetics (LISA/MIST).',
+    url: 'https://mediverse.app/simulators/neonatal-hfov-ventilation',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Neonatal HFOV & Surfactant Kinematics Workstation | Mediverse',
+    description: 'Neonatal & Pediatric Critical Care workstation: High-Frequency Oscillatory Ventilation (HFOV), sub-dead-space gas transport (Taylor dispersion, Pendelluft), Open-Lung hysteresis recruitment, and exogenous surfactant kinetics (LISA/MIST).',
+  },
 };
 
 

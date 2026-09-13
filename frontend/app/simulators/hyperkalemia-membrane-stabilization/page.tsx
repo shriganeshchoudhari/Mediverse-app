@@ -6,8 +6,19 @@ import HyperkalemiaShiftSimulator from '../../../components/simulators/Hyperkale
 
 export const metadata: Metadata = {
   title: 'Severe Hyperkalemia, Cardiac Membrane Stabilization & Shift Kinetics | Mediverse Simulators',
-  description:
-    'Biophysical electrophysiology simulation of Nernst resting membrane potential shift, Nav1.5 fast sodium channel inactivation, Calcium Gluconate vs Chloride stoichiometry, transcellular shift kinetics (Insulin/Dextrose, Albuterol, Bicarbonate), and definitive elimination.',
+  description: 'Biophysical electrophysiology simulation of Nernst resting membrane potential shift, Nav1.5 fast sodium channel inactivation, Calcium Gluconate vs Chloride stoichiometry, transcellular shift kinetics (Insulin/Dextrose, Albuterol, Bicarbonate), and definitive elimination.',
+  openGraph: {
+    title: 'Severe Hyperkalemia, Cardiac Membrane Stabilization & Shift Kinetics | Mediverse Simulators',
+    description: 'Biophysical electrophysiology simulation of Nernst resting membrane potential shift, Nav1.5 fast sodium channel inactivation, Calcium Gluconate vs Chloride stoichiometry, transcellular shift kinetics (Insulin/Dextrose, Albuterol, Bicarbonate), and definitive elimination.',
+    url: 'https://mediverse.app/simulators/hyperkalemia-membrane-stabilization',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Severe Hyperkalemia, Cardiac Membrane Stabilization & Shift Kinetics | Mediverse Simulators',
+    description: 'Biophysical electrophysiology simulation of Nernst resting membrane potential shift, Nav1.5 fast sodium channel inactivation, Calcium Gluconate vs Chloride stoichiometry, transcellular shift kinetics (Insulin/Dextrose, Albuterol, Bicarbonate), and definitive elimination.',
+  },
 };
 
 

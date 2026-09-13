@@ -12,6 +12,18 @@ import { ArrowLeft, Brain, ShieldCheck } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Clinical Case Branching & Standardized OSCE Patient Simulator | Mediverse',
   description: 'Evidence-based clinical encounter branching, diagnostic workup pathways, and automated OSCE rubric scoring aligned with USMLE Step 2 CS and MRCP PACES.',
+  openGraph: {
+    title: 'Clinical Case Branching & Standardized OSCE Patient Simulator | Mediverse',
+    description: 'Evidence-based clinical encounter branching, diagnostic workup pathways, and automated OSCE rubric scoring aligned with USMLE Step 2 CS and MRCP PACES.',
+    url: 'https://mediverse.app/simulators/clinical-case-branching',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Clinical Case Branching & Standardized OSCE Patient Simulator | Mediverse',
+    description: 'Evidence-based clinical encounter branching, diagnostic workup pathways, and automated OSCE rubric scoring aligned with USMLE Step 2 CS and MRCP PACES.',
+  },
 };
 
 export const dynamic = 'force-static';

@@ -454,7 +454,7 @@ Please guide me through the clinical troubleshooting steps, hemodynamic goals, a
                   <span>Central Venous Pressure (CVP Preload)</span>
                   <span className="font-mono text-cyan-400 font-bold">{cvpMmHg} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Central Venous Pressure (CVP Preload)"
                   type="range"
                   min="0"
                   max="25"
@@ -476,7 +476,7 @@ Please guide me through the clinical troubleshooting steps, hemodynamic goals, a
                     <span>V-A ECMO Circuit Flow</span>
                     <span className="font-mono text-rose-400 font-bold">{ecmoFlowLMin.toFixed(1)} L/min</span>
                   </div>
-                  <input
+                  <input aria-label="V-A ECMO Circuit Flow"
                     type="range"
                     min="1.0"
                     max="5.0"

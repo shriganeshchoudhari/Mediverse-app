@@ -312,7 +312,7 @@ export default function AcuteStrokeThrombolysisSimulator() {
                   <span className="text-zinc-400">Time from Last Known Well (LKW):</span>
                   <span className="font-mono font-bold text-cyan-300">{hoursFromLkw} hours</span>
                 </div>
-                <input
+                <input aria-label="Time from Last Known Well (LKW)"
                   type="range"
                   min="0.5"
                   max="12.0"
@@ -339,7 +339,7 @@ export default function AcuteStrokeThrombolysisSimulator() {
                       {systolicBp} mmHg
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Systolic BP"
                     type="range"
                     min="100"
                     max="230"
@@ -357,7 +357,7 @@ export default function AcuteStrokeThrombolysisSimulator() {
                       {diastolicBp} mmHg
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Diastolic BP"
                     type="range"
                     min="60"
                     max="130"
@@ -377,7 +377,7 @@ export default function AcuteStrokeThrombolysisSimulator() {
                     {bloodGlucose} mg/dL
                   </span>
                 </div>
-                <input
+                <input aria-label="Fingerstick Blood Glucose"
                   type="range"
                   min="30"
                   max="300"

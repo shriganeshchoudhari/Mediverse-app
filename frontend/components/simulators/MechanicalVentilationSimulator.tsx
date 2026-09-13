@@ -323,7 +323,7 @@ export default function MechanicalVentilationSimulator() {
                 <span className="font-semibold text-slate-200">Set Tidal Volume (VT)</span>
                 <span className="font-mono font-bold text-cyan-400">{settings.tidalVolumeMl} mL</span>
               </div>
-              <input
+              <input aria-label="Set Tidal Volume (VT)"
                 type="range"
                 min="200"
                 max="800"
@@ -344,7 +344,7 @@ export default function MechanicalVentilationSimulator() {
                 <span className="font-semibold text-slate-200">Inspiratory Pressure (Pinsp / ΔP)</span>
                 <span className="font-mono font-bold text-cyan-400">+{settings.inspiratoryPressureCmH2O} cmH2O</span>
               </div>
-              <input
+              <input aria-label="+{settings.inspiratoryPressureCmH2O} cmH2O"
                 type="range"
                 min="4"
                 max="35"
@@ -368,7 +368,7 @@ export default function MechanicalVentilationSimulator() {
                 <span className="text-slate-300">Rate (f, bpm)</span>
                 <span className="font-mono text-cyan-400">{settings.respiratoryRate}</span>
               </div>
-              <input
+              <input aria-label="Rate (f, bpm)"
                 type="range"
                 min="6"
                 max="40"
@@ -383,7 +383,7 @@ export default function MechanicalVentilationSimulator() {
                 <span className="text-slate-300">PEEP (cmH2O)</span>
                 <span className="font-mono text-cyan-400">{settings.peepCmH2O}</span>
               </div>
-              <input
+              <input aria-label="PEEP (cmH2O)"
                 type="range"
                 min="0"
                 max="24"
@@ -402,7 +402,7 @@ export default function MechanicalVentilationSimulator() {
                 <span className="text-slate-300">FiO2</span>
                 <span className="font-mono text-cyan-400">{Math.round(settings.fiO2 * 100)}%</span>
               </div>
-              <input
+              <input aria-label="FiO2"
                 type="range"
                 min="0.21"
                 max="1.00"
@@ -417,7 +417,7 @@ export default function MechanicalVentilationSimulator() {
                 <span className="text-slate-300">Peak Flow (L/min)</span>
                 <span className="font-mono text-cyan-400">{settings.peakFlowLpm}</span>
               </div>
-              <input
+              <input aria-label="Peak Flow (L/min)"
                 type="range"
                 min="30"
                 max="100"
@@ -498,7 +498,7 @@ export default function MechanicalVentilationSimulator() {
                 <span className="text-slate-300">Static Compliance (Cstat)</span>
                 <span className="font-mono font-bold text-cyan-400">{patient.complianceMlPerCmH2O} mL/cmH2O</span>
               </div>
-              <input
+              <input aria-label="Static Compliance (Cstat)"
                 type="range"
                 min="10"
                 max="90"
@@ -520,7 +520,7 @@ export default function MechanicalVentilationSimulator() {
                 <span className="text-slate-300">Airway Resistance (Raw)</span>
                 <span className="font-mono font-bold text-cyan-400">{patient.resistanceCmH2OPerLps} cmH2O/L/s</span>
               </div>
-              <input
+              <input aria-label="Airway Resistance (Raw)"
                 type="range"
                 min="2"
                 max="35"

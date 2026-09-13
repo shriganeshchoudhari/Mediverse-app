@@ -250,7 +250,7 @@ export default function ThyroidCrisisSimulator() {
                     {tempF}°F ({(((tempF - 32) * 5) / 9).toFixed(1)}°C) &mdash; {bwpsBreakdown.thermoregulatoryPoints} pts
                   </span>
                 </div>
-                <input
+                <input aria-label="Temp F"
                   type="range"
                   min="98.0"
                   max="106.0"
@@ -279,7 +279,7 @@ export default function ThyroidCrisisSimulator() {
                     {heartRate} bpm &mdash; {bwpsBreakdown.cardiovascularPoints} pts (incl. HF)
                   </span>
                 </div>
-                <input
+                <input aria-label="Heart Rate"
                   type="range"
                   min="70"
                   max="190"
@@ -501,7 +501,7 @@ export default function ThyroidCrisisSimulator() {
                     <span className="font-semibold text-cyan-300">1. Thionamide (PTU 200mg PO/NG q4h):</span>
                     <span className="font-mono text-zinc-300">T = {ptuMinute ?? 'None'} min</span>
                   </div>
-                  <input
+                  <input aria-label="T = {ptuMinute ?? None} min"
                     type="range"
                     min="0"
                     max="180"
@@ -519,7 +519,7 @@ export default function ThyroidCrisisSimulator() {
                     <span className="font-semibold text-amber-300">2. Inorganic Iodine (SSKI / Lugol&apos;s):</span>
                     <span className="font-mono text-zinc-300">T = {iodineMinute ?? 'None'} min</span>
                   </div>
-                  <input
+                  <input aria-label="T = {iodineMinute ?? None} min"
                     type="range"
                     min="0"
                     max="180"
@@ -539,7 +539,7 @@ export default function ThyroidCrisisSimulator() {
                     <span className="font-semibold text-emerald-300">3. Non-selective Beta-Blocker (Propranolol):</span>
                     <span className="font-mono text-zinc-300">T = {betaBlockerMinute ?? 'None'} min</span>
                   </div>
-                  <input
+                  <input aria-label="T = {betaBlockerMinute ?? None} min"
                     type="range"
                     min="0"
                     max="180"
@@ -557,7 +557,7 @@ export default function ThyroidCrisisSimulator() {
                     <span className="font-semibold text-purple-300">4. Glucocorticoid (Hydrocortisone 100mg IV):</span>
                     <span className="font-mono text-zinc-300">T = {steroidMinute ?? 'None'} min</span>
                   </div>
-                  <input
+                  <input aria-label="T = {steroidMinute ?? None} min"
                     type="range"
                     min="0"
                     max="180"
@@ -597,7 +597,7 @@ export default function ThyroidCrisisSimulator() {
                     {tempC}°C ({(tempC * 1.8 + 32).toFixed(1)}°F) &mdash; {myxedemaBreakdown.thermoregulatoryPoints} pts
                   </span>
                 </div>
-                <input
+                <input aria-label="Temp C"
                   type="range"
                   min="29.0"
                   max="37.5"
@@ -653,7 +653,7 @@ export default function ThyroidCrisisSimulator() {
                     <span className="text-zinc-400 font-semibold">Heart Rate (Bradycardia):</span>
                     <span className="font-mono font-bold text-cyan-300">{myxHr} bpm</span>
                   </div>
-                  <input
+                  <input aria-label="Heart Rate (Bradycardia)"
                     type="range"
                     min="30"
                     max="90"
@@ -669,7 +669,7 @@ export default function ThyroidCrisisSimulator() {
                     <span className="text-zinc-400 font-semibold">Mean Arterial Pressure (MAP):</span>
                     <span className="font-mono font-bold text-rose-300">{myxMap} mmHg</span>
                   </div>
-                  <input
+                  <input aria-label="Mean Arterial Pressure (MAP)"
                     type="range"
                     min="40"
                     max="100"
@@ -687,7 +687,7 @@ export default function ThyroidCrisisSimulator() {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                   <div>
                     <label className="text-zinc-400">Serum Na+ ({myxNa} mEq/L):</label>
-                    <input
+                    <input aria-label="Serum Na+ ({myxNa} mEq/L)"
                       type="range"
                       min="110"
                       max="142"
@@ -700,7 +700,7 @@ export default function ThyroidCrisisSimulator() {
 
                   <div>
                     <label className="text-zinc-400">Blood Glucose ({myxGlucose} mg/dL):</label>
-                    <input
+                    <input aria-label="Blood Glucose ({myxGlucose} mg/dL)"
                       type="range"
                       min="40"
                       max="130"

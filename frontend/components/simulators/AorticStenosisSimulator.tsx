@@ -244,7 +244,7 @@ export default function AorticStenosisSimulator() {
                 <span className="text-zinc-400">LVOT Diameter (Parasternal Long-Axis):</span>
                 <span className="font-mono font-bold text-cyan-300">{lvotDiameter} cm</span>
               </div>
-              <input
+              <input aria-label="LVOT Diameter (Parasternal Long-Axis)"
                 type="range"
                 min="1.6"
                 max="2.6"
@@ -262,7 +262,7 @@ export default function AorticStenosisSimulator() {
                   <span className="text-zinc-400">LVOT VTI:</span>
                   <span className="font-mono font-bold text-cyan-300">{lvotVti} cm</span>
                 </div>
-                <input
+                <input aria-label="LVOT VTI"
                   type="range"
                   min="10"
                   max="30"
@@ -278,7 +278,7 @@ export default function AorticStenosisSimulator() {
                   <span className="text-zinc-400">Aortic Valve VTI:</span>
                   <span className="font-mono font-bold text-rose-400">{avVti} cm</span>
                 </div>
-                <input
+                <input aria-label="Aortic Valve VTI"
                   type="range"
                   min="20"
                   max="120"
@@ -297,7 +297,7 @@ export default function AorticStenosisSimulator() {
                   <span className="text-zinc-400">LVOT Vmax:</span>
                   <span className="font-mono font-bold text-cyan-300">{lvotPeakVel} m/s</span>
                 </div>
-                <input
+                <input aria-label="LVOT Vmax"
                   type="range"
                   min="0.5"
                   max="1.5"
@@ -315,7 +315,7 @@ export default function AorticStenosisSimulator() {
                     {avPeakVel} m/s
                   </span>
                 </div>
-                <input
+                <input aria-label="Aortic Vmax"
                   type="range"
                   min="1.0"
                   max="6.0"
@@ -336,7 +336,7 @@ export default function AorticStenosisSimulator() {
                     {meanGrad} mmHg
                   </span>
                 </div>
-                <input
+                <input aria-label="Mean Gradient (&Delta;P)"
                   type="range"
                   min="4"
                   max="90"
@@ -352,7 +352,7 @@ export default function AorticStenosisSimulator() {
                   <span className="text-zinc-400">Aorta Root Diameter:</span>
                   <span className="font-mono font-bold text-indigo-300">{aortaDiameter} cm</span>
                 </div>
-                <input
+                <input aria-label="Aorta Root Diameter"
                   type="range"
                   min="2.0"
                   max="5.5"
@@ -382,7 +382,7 @@ export default function AorticStenosisSimulator() {
                   <span className="text-zinc-400">Cardiac Output:</span>
                   <span className="font-mono font-bold text-emerald-400">{cardiacOutput} L/min</span>
                 </div>
-                <input
+                <input aria-label="Cardiac Output"
                   type="range"
                   min="2.0"
                   max="8.0"
@@ -398,7 +398,7 @@ export default function AorticStenosisSimulator() {
                   <span className="text-zinc-400">Heart Rate:</span>
                   <span className="font-mono font-bold text-white">{heartRate} bpm</span>
                 </div>
-                <input
+                <input aria-label="Heart Rate"
                   type="range"
                   min="40"
                   max="130"
@@ -416,7 +416,7 @@ export default function AorticStenosisSimulator() {
                   <span className="text-zinc-400">Systolic Ejection Period:</span>
                   <span className="font-mono font-bold text-white">{sepSec} s/beat</span>
                 </div>
-                <input
+                <input aria-label="Systolic Ejection Period"
                   type="range"
                   min="0.20"
                   max="0.40"
@@ -432,7 +432,7 @@ export default function AorticStenosisSimulator() {
                   <span className="text-zinc-400">Cath Mean &Delta;P:</span>
                   <span className="font-mono font-bold text-amber-300">{invasiveMeanGrad} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Cath Mean &Delta;P"
                   type="range"
                   min="4"
                   max="90"
@@ -454,7 +454,7 @@ export default function AorticStenosisSimulator() {
             <div className="grid grid-cols-3 gap-2">
               <div>
                 <label className="text-zinc-400">Age: <span className="text-white font-mono font-bold">{age} yr</span></label>
-                <input
+                <input aria-label="Age"
                   type="range"
                   min="30"
                   max="95"
@@ -466,7 +466,7 @@ export default function AorticStenosisSimulator() {
 
               <div>
                 <label className="text-zinc-400">LVEF: <span className={`font-mono font-bold ${lvef < 50 ? 'text-rose-400' : 'text-emerald-400'}`}>{lvef}%</span></label>
-                <input
+                <input aria-label="Lvef"
                   type="range"
                   min="15"
                   max="75"
@@ -478,7 +478,7 @@ export default function AorticStenosisSimulator() {
 
               <div>
                 <label className="text-zinc-400">SVI: <span className={`font-mono font-bold ${svi < 35 ? 'text-amber-400' : 'text-cyan-300'}`}>{svi} mL/m&sup2;</span></label>
-                <input
+                <input aria-label="Svi"
                   type="range"
                   min="15"
                   max="55"
@@ -492,7 +492,7 @@ export default function AorticStenosisSimulator() {
             <div className="grid grid-cols-2 gap-3 pt-1">
               <div>
                 <label className="text-zinc-400">Systolic BP: <span className="text-white font-mono font-bold">{sbp} mmHg</span></label>
-                <input
+                <input aria-label="Sbp"
                   type="range"
                   min="90"
                   max="190"
@@ -504,7 +504,7 @@ export default function AorticStenosisSimulator() {
 
               <div>
                 <label className="text-zinc-400">STS-PROM Score: <span className={`font-mono font-bold ${stsScore >= 8 ? 'text-rose-400' : stsScore >= 4 ? 'text-amber-400' : 'text-emerald-400'}`}>{stsScore}%</span></label>
-                <input
+                <input aria-label="Sts Score"
                   type="range"
                   min="0.2"
                   max="15.0"

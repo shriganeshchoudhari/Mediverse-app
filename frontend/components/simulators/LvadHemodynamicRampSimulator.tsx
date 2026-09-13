@@ -426,7 +426,7 @@ export default function LvadHemodynamicRampSimulator() {
                   {patientState.pump.speedRpm} rpm
                 </span>
               </div>
-              <input
+              <input aria-label="HeartMate 3 Speed Titration"
                 type="range"
                 min="4800"
                 max="6400"

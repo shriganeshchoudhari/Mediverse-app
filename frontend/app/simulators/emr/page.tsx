@@ -14,6 +14,18 @@ import {
 export const metadata: Metadata = {
   title: 'Inpatient Electronic Medical Record (EMR) & Hospital Charting Simulator | Mediverse',
   description: 'Enterprise hospital clinical information system featuring computerized physician order entry (CPOE), eMAR barcode scanning, and shift fluid balancing.',
+  openGraph: {
+    title: 'Inpatient Electronic Medical Record (EMR) & Hospital Charting Simulator | Mediverse',
+    description: 'Enterprise hospital clinical information system featuring computerized physician order entry (CPOE), eMAR barcode scanning, and shift fluid balancing.',
+    url: 'https://mediverse.app/simulators/emr',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Inpatient Electronic Medical Record (EMR) & Hospital Charting Simulator | Mediverse',
+    description: 'Enterprise hospital clinical information system featuring computerized physician order entry (CPOE), eMAR barcode scanning, and shift fluid balancing.',
+  },
 };
 
 export const dynamic = 'force-static';

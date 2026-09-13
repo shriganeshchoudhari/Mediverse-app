@@ -852,7 +852,7 @@ export default function AcsRiskSimulator() {
                   </label>
                   <span className="text-xs font-mono font-bold text-rose-400">{chestPainOnsetHours} hours</span>
                 </div>
-                <input
+                <input aria-label="Chest Pain Onset Hours"
                   type="range"
                   min={0.5}
                   max={24}
@@ -876,7 +876,7 @@ export default function AcsRiskSimulator() {
                   </label>
                   <span className="text-xs font-mono font-bold text-rose-400">{baselineTroponin} ng/L</span>
                 </div>
-                <input
+                <input aria-label="Baseline Troponin"
                   type="range"
                   min={1}
                   max={200}
@@ -895,7 +895,7 @@ export default function AcsRiskSimulator() {
                   </label>
                   <span className="text-xs font-mono font-bold text-rose-400">{repeatTroponin} ng/L</span>
                 </div>
-                <input
+                <input aria-label="Repeat Troponin"
                   type="range"
                   min={1}
                   max={250}

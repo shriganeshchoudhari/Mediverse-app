@@ -3,7 +3,19 @@ import MethemoglobinSimulator from '@/components/simulators/MethemoglobinSimulat
 
 export const metadata: Metadata = {
   title: 'Methemoglobinemia & Sulfhemoglobinemia Workstation | Mediverse',
-  description: 'Clinical toxicology simulation of methemoglobinemia, pulse oximetry saturation gap (~85% plateau), multi-wavelength co-oximetry, methylene blue kinetics, and G6PD hemolysis risk.'
+  description: 'Clinical toxicology simulation of methemoglobinemia, pulse oximetry saturation gap (~85% plateau), multi-wavelength co-oximetry, methylene blue kinetics, and G6PD hemolysis risk.',
+  openGraph: {
+    title: 'Methemoglobinemia & Sulfhemoglobinemia Workstation | Mediverse',
+    description: 'Clinical toxicology simulation of methemoglobinemia, pulse oximetry saturation gap (~85% plateau), multi-wavelength co-oximetry, methylene blue kinetics, and G6PD hemolysis risk.',
+    url: 'https://mediverse.app/simulators/methemoglobinemia-methylene-blue',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Methemoglobinemia & Sulfhemoglobinemia Workstation | Mediverse',
+    description: 'Clinical toxicology simulation of methemoglobinemia, pulse oximetry saturation gap (~85% plateau), multi-wavelength co-oximetry, methylene blue kinetics, and G6PD hemolysis risk.',
+  },
 };
 
 

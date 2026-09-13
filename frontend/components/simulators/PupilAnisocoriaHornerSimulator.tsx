@@ -320,7 +320,7 @@ export default function PupilAnisocoriaHornerSimulator() {
                       </span>
                       <span className="font-bold text-white">{ambientLux} lx</span>
                     </div>
-                    <input
+                    <input aria-label="Ambient Lux"
                       type="range"
                       min="5"
                       max="1000"

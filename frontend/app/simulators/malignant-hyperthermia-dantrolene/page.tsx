@@ -7,6 +7,18 @@ import MalignantHyperthermiaSimulator from "../../../components/simulators/Malig
 export const metadata: Metadata = {
   title: 'Malignant Hyperthermia & Dantrolene Resuscitation Workstation | Mediverse',
   description: 'Operating room crisis management modeling volatile anesthetic triggers, RYR1 receptor calcium efflux, hypermetabolism kinetics, and rapid dantrolene reversal.',
+  openGraph: {
+    title: 'Malignant Hyperthermia & Dantrolene Resuscitation Workstation | Mediverse',
+    description: 'Operating room crisis management modeling volatile anesthetic triggers, RYR1 receptor calcium efflux, hypermetabolism kinetics, and rapid dantrolene reversal.',
+    url: 'https://mediverse.app/simulators/malignant-hyperthermia-dantrolene',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Malignant Hyperthermia & Dantrolene Resuscitation Workstation | Mediverse',
+    description: 'Operating room crisis management modeling volatile anesthetic triggers, RYR1 receptor calcium efflux, hypermetabolism kinetics, and rapid dantrolene reversal.',
+  },
 };
 
 export const dynamic = 'force-static';

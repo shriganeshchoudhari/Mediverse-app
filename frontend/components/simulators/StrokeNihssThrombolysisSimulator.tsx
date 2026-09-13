@@ -396,7 +396,7 @@ export function StrokeNihssThrombolysisSimulator() {
                   </div>
                   {!isWakeUpStroke ? (
                     <div>
-                      <input
+                      <input aria-label="Hours From Last Known Well"
                         id="hours-lkw-slider"
                         type="range"
                         min={0.5}
@@ -495,7 +495,7 @@ export function StrokeNihssThrombolysisSimulator() {
                   <label htmlFor="sbp-slider" className="block text-xs font-semibold text-slate-400 mb-1">
                     Systolic BP: {sbp} mmHg
                   </label>
-                  <input
+                  <input aria-label="Sbp"
                     id="sbp-slider"
                     type="range"
                     min={110}
@@ -512,7 +512,7 @@ export function StrokeNihssThrombolysisSimulator() {
                   <label htmlFor="dbp-slider" className="block text-xs font-semibold text-slate-400 mb-1">
                     Diastolic BP: {dbp} mmHg
                   </label>
-                  <input
+                  <input aria-label="Dbp"
                     id="dbp-slider"
                     type="range"
                     min={60}
@@ -529,7 +529,7 @@ export function StrokeNihssThrombolysisSimulator() {
                   <label htmlFor="glucose-input" className="block text-xs font-semibold text-slate-400 mb-1">
                     Blood Glucose: {bloodGlucoseMgDl} mg/dL
                   </label>
-                  <input
+                  <input aria-label="Blood Glucose Mg Dl"
                     id="glucose-input"
                     type="range"
                     min={30}
@@ -546,7 +546,7 @@ export function StrokeNihssThrombolysisSimulator() {
                   <label htmlFor="inr-input" className="block text-xs font-semibold text-slate-400 mb-1">
                     INR: {inr} (Plt: {(plateletCount/1000).toFixed(0)}k)
                   </label>
-                  <input
+                  <input aria-label="Inr"
                     id="inr-input"
                     type="range"
                     min={0.9}

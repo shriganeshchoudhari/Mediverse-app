@@ -5,6 +5,18 @@ import PharmacokineticsSimulator from '@/components/simulators/PharmacokineticsS
 export const metadata: Metadata = {
   title: 'Pharmacokinetics Two-Compartment PK/PD Solver | Mediverse',
   description: 'Quantitative pharmacology solver simulating IV/Oral/IM disposition curves, Cmax, AUC, volume of distribution, clearance kinetics, and MTC/MEC therapeutic safety margins.',
+  openGraph: {
+    title: 'Pharmacokinetics Two-Compartment PK/PD Solver | Mediverse',
+    description: 'Quantitative pharmacology solver simulating IV/Oral/IM disposition curves, Cmax, AUC, volume of distribution, clearance kinetics, and MTC/MEC therapeutic safety margins.',
+    url: 'https://mediverse.app/simulators/pharmacokinetics',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pharmacokinetics Two-Compartment PK/PD Solver | Mediverse',
+    description: 'Quantitative pharmacology solver simulating IV/Oral/IM disposition curves, Cmax, AUC, volume of distribution, clearance kinetics, and MTC/MEC therapeutic safety margins.',
+  },
 };
 
 export const dynamic = 'force-static';

@@ -288,7 +288,7 @@ export default function FetalMonitoringSimulator() {
               <span className="text-slate-400">Baseline FHR:</span>
               <span className="font-bold text-rose-400">{params.baselineFhrBpm} bpm</span>
             </div>
-            <input
+            <input aria-label="Baseline FHR"
               type="range"
               min="90"
               max="185"
@@ -343,7 +343,7 @@ export default function FetalMonitoringSimulator() {
                 {params.contractionsPer10Min} {params.contractionsPer10Min > 5 && '(Tachysystole)'}
               </span>
             </div>
-            <input
+            <input aria-label="Contractions / 10 min"
               type="range"
               min="1"
               max="8"
@@ -358,7 +358,7 @@ export default function FetalMonitoringSimulator() {
               <span className="text-slate-400">Oxytocin Infusion:</span>
               <span className="font-bold text-cyan-400">{params.oxytocinRateMilliunitsMin} mU/min</span>
             </div>
-            <input
+            <input aria-label="Oxytocin Infusion"
               type="range"
               min="0"
               max="30"
@@ -471,7 +471,7 @@ export default function FetalMonitoringSimulator() {
               <span className="text-slate-400">Dilation (0–10 cm):</span>
               <span className="font-bold text-cyan-400">{params.bishopDilation} cm</span>
             </div>
-            <input
+            <input aria-label="Dilation (0–10 cm)"
               type="range"
               min="0"
               max="10"
@@ -486,7 +486,7 @@ export default function FetalMonitoringSimulator() {
               <span className="text-slate-400">Effacement (0–100%):</span>
               <span className="font-bold text-cyan-400">{params.bishopEffacement}%</span>
             </div>
-            <input
+            <input aria-label="Effacement (0–100%)"
               type="range"
               min="0"
               max="100"
@@ -502,7 +502,7 @@ export default function FetalMonitoringSimulator() {
               <span className="text-slate-400">Station (-3 to +3):</span>
               <span className="font-bold text-cyan-400">{params.bishopStation > 0 ? `+${params.bishopStation}` : params.bishopStation}</span>
             </div>
-            <input
+            <input aria-label="Station (-3 to +3)"
               type="range"
               min="-3"
               max="3"

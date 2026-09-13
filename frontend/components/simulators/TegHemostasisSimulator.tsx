@@ -426,7 +426,7 @@ export default function TegHemostasisSimulator() {
                     <span>R-Time (min):</span>
                     <span className="font-mono text-cyan-400">{params.teg.rTimeMinutes}</span>
                   </div>
-                  <input
+                  <input aria-label="R-Time (min)"
                     type="range"
                     min="1.0"
                     max="30.0"
@@ -442,7 +442,7 @@ export default function TegHemostasisSimulator() {
                     <span>&alpha;-Angle (&deg;):</span>
                     <span className="font-mono text-emerald-400">{params.teg.alphaAngleDegrees}&deg;</span>
                   </div>
-                  <input
+                  <input aria-label="&alpha;-Angle (&deg;)"
                     type="range"
                     min="20"
                     max="85"
@@ -458,7 +458,7 @@ export default function TegHemostasisSimulator() {
                     <span>MA (mm):</span>
                     <span className="font-mono text-amber-400">{params.teg.maxAmplitudeMm} mm</span>
                   </div>
-                  <input
+                  <input aria-label="MA (mm)"
                     type="range"
                     min="15"
                     max="85"
@@ -474,7 +474,7 @@ export default function TegHemostasisSimulator() {
                     <span>LY30 (%):</span>
                     <span className="font-mono text-rose-400">{params.teg.ly30Pct}%</span>
                   </div>
-                  <input
+                  <input aria-label="LY30 (%)"
                     type="range"
                     min="0.0"
                     max="40.0"

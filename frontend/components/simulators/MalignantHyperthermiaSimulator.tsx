@@ -676,7 +676,7 @@ export default function MalignantHyperthermiaSimulator() {
                     <span className="text-slate-300 font-medium">Patient Body Weight</span>
                     <span className="font-mono text-white font-bold">{patientWeightKg} kg</span>
                   </div>
-                  <input
+                  <input aria-label="Patient Body Weight"
                     type="range"
                     min={40}
                     max={140}
@@ -691,7 +691,7 @@ export default function MalignantHyperthermiaSimulator() {
                     <span className="text-slate-300 font-medium">Target Dantrolene Dose</span>
                     <span className="font-mono text-emerald-300 font-bold">{dantroleneDoseMgPerKg} mg/kg</span>
                   </div>
-                  <input
+                  <input aria-label="Target Dantrolene Dose"
                     type="range"
                     min={1.0}
                     max={10.0}

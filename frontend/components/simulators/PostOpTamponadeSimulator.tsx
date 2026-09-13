@@ -971,7 +971,7 @@ export default function PostOpTamponadeSimulator() {
                   <span className="font-bold text-slate-300">Chest Drain Flow Rate:</span>
                   <span className="text-rose-400 font-bold">{params.chestTubeDrainageRateMlPerHour} mL/h</span>
                 </div>
-                <input
+                <input aria-label="Chest Drain Flow Rate"
                   type="range"
                   min="0"
                   max="500"
@@ -1010,7 +1010,7 @@ export default function PostOpTamponadeSimulator() {
                   <span className="font-bold text-slate-300">IV Fluid Bolus (Crystalloid / Colloid):</span>
                   <span className="text-cyan-400 font-bold">{params.fluidBolusGivenMl} mL</span>
                 </div>
-                <input
+                <input aria-label="IV Fluid Bolus (Crystalloid / Colloid)"
                   type="range"
                   min="0"
                   max="1000"
@@ -1030,7 +1030,7 @@ export default function PostOpTamponadeSimulator() {
                   <span className="font-bold text-slate-300">Inotropic / Vasopressor Score (VIS):</span>
                   <span className="text-amber-400 font-bold">{params.inotropicVasopressorScore}</span>
                 </div>
-                <input
+                <input aria-label="Inotropic / Vasopressor Score (VIS)"
                   type="range"
                   min="0"
                   max="50"
@@ -1050,7 +1050,7 @@ export default function PostOpTamponadeSimulator() {
                   <span className="font-bold text-slate-300">Mechanical Ventilator PEEP:</span>
                   <span className="text-purple-400 font-bold">{params.mechanicalVentilationPeepCmH2O} cmH₂O</span>
                 </div>
-                <input
+                <input aria-label="Mechanical Ventilator PEEP"
                   type="range"
                   min="5"
                   max="15"

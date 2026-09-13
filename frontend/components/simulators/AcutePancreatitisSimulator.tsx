@@ -240,7 +240,7 @@ export default function AcutePancreatitisSimulator() {
                       {lipaseUln.toFixed(1)}x ULN {lipaseUln >= 3.0 ? '(Diagnostic ≥ 3x)' : '(< 3x)'}
                     </span>
                   </div>
-                  <input
+                  <input aria-label="2. Serum Lipase / Amylase"
                     type="range"
                     min="0.5"
                     max="15.0"
@@ -315,7 +315,7 @@ export default function AcutePancreatitisSimulator() {
                     {pfRatio} {pfRatio <= 300 ? `(Score ${metrics.marshall.respiratoryScore})` : '(Normal)'}
                   </span>
                 </div>
-                <input
+                <input aria-label="Respiratory (PaO2/FiO2)"
                   type="range"
                   min="60"
                   max="480"
@@ -334,7 +334,7 @@ export default function AcutePancreatitisSimulator() {
                     {creatinine.toFixed(1)} mg/dL {creatinine >= 1.9 ? `(Score ${metrics.marshall.renalScore})` : ''}
                   </span>
                 </div>
-                <input
+                <input aria-label="Renal (Serum Creatinine)"
                   type="range"
                   min="0.5"
                   max="6.0"
@@ -353,7 +353,7 @@ export default function AcutePancreatitisSimulator() {
                     {sbp} mmHg {sbp < 90 ? `(Score ${metrics.marshall.cardiovascularScore})` : ''}
                   </span>
                 </div>
-                <input
+                <input aria-label="Cardiovascular (Systolic BP)"
                   type="range"
                   min="60"
                   max="160"
@@ -380,7 +380,7 @@ export default function AcutePancreatitisSimulator() {
                     <span>Arterial pH:</span>
                     <span className="font-mono text-purple-400 font-bold">{ph.toFixed(2)}</span>
                   </div>
-                  <input
+                  <input aria-label="Arterial pH"
                     type="range"
                     min="7.10"
                     max="7.46"
@@ -400,7 +400,7 @@ export default function AcutePancreatitisSimulator() {
                     {failureHours} hours {failureHours >= 48 ? '(Persistent ≥ 48h → Severe)' : '(Transient < 48h)'}
                   </span>
                 </div>
-                <input
+                <input aria-label="Organ Failure Duration"
                   type="range"
                   min="0"
                   max="96"
@@ -427,7 +427,7 @@ export default function AcutePancreatitisSimulator() {
                       {bun} mg/dL
                     </span>
                   </div>
-                  <input
+                  <input aria-label="BUN"
                     type="range"
                     min="8"
                     max="60"
@@ -444,7 +444,7 @@ export default function AcutePancreatitisSimulator() {
                       {hct}% {hct > 44 ? '(Hemoconc)' : ''}
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Hematocrit"
                     type="range"
                     min="25"
                     max="55"
@@ -462,7 +462,7 @@ export default function AcutePancreatitisSimulator() {
                     <span>SIRS Criteria Met:</span>
                     <span className="font-mono text-amber-400 font-bold">{sirsCount} / 4</span>
                   </div>
-                  <input
+                  <input aria-label="SIRS Criteria Met"
                     type="range"
                     min="0"
                     max="4"
@@ -477,7 +477,7 @@ export default function AcutePancreatitisSimulator() {
                     <span>GCS Score:</span>
                     <span className="font-mono text-blue-400 font-bold">{gcs} / 15</span>
                   </div>
-                  <input
+                  <input aria-label="GCS Score"
                     type="range"
                     min="8"
                     max="15"
@@ -518,7 +518,7 @@ export default function AcutePancreatitisSimulator() {
                       <span>Weight:</span>
                       <span className="font-mono text-slate-300">{weightKg} kg</span>
                     </div>
-                    <input
+                    <input aria-label="Weight"
                       type="range"
                       min="45"
                       max="120"
@@ -533,7 +533,7 @@ export default function AcutePancreatitisSimulator() {
                       <span>Active IV Rate:</span>
                       <span className="font-mono text-cyan-400 font-bold">{activeInfusionRate} mL/h</span>
                     </div>
-                    <input
+                    <input aria-label="Active IV Rate"
                       type="range"
                       min="50"
                       max="500"

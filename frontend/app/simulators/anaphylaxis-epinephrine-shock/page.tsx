@@ -6,8 +6,19 @@ import AnaphylaxisResuscitationSimulator from '../../../components/simulators/An
 
 export const metadata: Metadata = {
   title: 'Anaphylaxis & Refractory Vasoplegic Shock Workstation | Mediverse Simulators',
-  description:
-    'Biophysical simulation of WAO/EAACI diagnostic criteria, Vastus Lateralis IM Epinephrine pharmacokinetics, Refractory Vasoplegic Shock protocols (Continuous IV Epinephrine, Glucagon in Beta-Blocker patients, Methylene Blue), Biphasic Reactions, and Serum Tryptase validation.',
+  description: 'Biophysical simulation of WAO/EAACI diagnostic criteria, Vastus Lateralis IM Epinephrine pharmacokinetics, Refractory Vasoplegic Shock protocols (Continuous IV Epinephrine, Glucagon in Beta-Blocker patients, Methylene Blue), Biphasic Reactions, and Serum Tryptase validation.',
+  openGraph: {
+    title: 'Anaphylaxis & Refractory Vasoplegic Shock Workstation | Mediverse Simulators',
+    description: 'Biophysical simulation of WAO/EAACI diagnostic criteria, Vastus Lateralis IM Epinephrine pharmacokinetics, Refractory Vasoplegic Shock protocols (Continuous IV Epinephrine, Glucagon in Beta-Blocker patients, Methylene Blue), Biphasic Reactions, and Serum Tryptase validation.',
+    url: 'https://mediverse.app/simulators/anaphylaxis-epinephrine-shock',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Anaphylaxis & Refractory Vasoplegic Shock Workstation | Mediverse Simulators',
+    description: 'Biophysical simulation of WAO/EAACI diagnostic criteria, Vastus Lateralis IM Epinephrine pharmacokinetics, Refractory Vasoplegic Shock protocols (Continuous IV Epinephrine, Glucagon in Beta-Blocker patients, Methylene Blue), Biphasic Reactions, and Serum Tryptase validation.',
+  },
 };
 
 

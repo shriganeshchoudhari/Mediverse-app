@@ -6,8 +6,19 @@ import ToxicGasInhalationSimulator from '../../../components/simulators/ToxicGas
 
 export const metadata: Metadata = {
   title: 'Toxic Gas & Chemical Inhalation Workstation | Mediverse Simulators',
-  description:
-    'Clinical toxicology and hazmat simulation of toxic gas and chemical warfare inhalation injuries: Cyanide, Hydrogen Sulfide (H2S), Chlorine, and Phosgene. Mitochondrial Complex IV arrest, Hydroxocobalamin, Nitrite contraindication in smoke/CO, Nebulized Bicarbonate, and latent ARDS.',
+  description: 'Clinical toxicology and hazmat simulation of toxic gas and chemical warfare inhalation injuries: Cyanide, Hydrogen Sulfide (H2S), Chlorine, and Phosgene. Mitochondrial Complex IV arrest, Hydroxocobalamin, Nitrite contraindication in smoke/CO, Nebulized Bicarbonate, and latent ARDS.',
+  openGraph: {
+    title: 'Toxic Gas & Chemical Inhalation Workstation | Mediverse Simulators',
+    description: 'Clinical toxicology and hazmat simulation of toxic gas and chemical warfare inhalation injuries: Cyanide, Hydrogen Sulfide (H2S), Chlorine, and Phosgene. Mitochondrial Complex IV arrest, Hydroxocobalamin, Nitrite contraindication in smoke/CO, Nebulized Bicarbonate, and latent ARDS.',
+    url: 'https://mediverse.app/simulators/toxic-gas-inhalation-antidote',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Toxic Gas & Chemical Inhalation Workstation | Mediverse Simulators',
+    description: 'Clinical toxicology and hazmat simulation of toxic gas and chemical warfare inhalation injuries: Cyanide, Hydrogen Sulfide (H2S), Chlorine, and Phosgene. Mitochondrial Complex IV arrest, Hydroxocobalamin, Nitrite contraindication in smoke/CO, Nebulized Bicarbonate, and latent ARDS.',
+  },
 };
 
 

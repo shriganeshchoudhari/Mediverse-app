@@ -15,8 +15,19 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'WebXR Spatial Anatomy & Procedural Intervention Theater | Mediverse',
-  description:
-    'Interactive 3D spatial computing, real-time multiplanar ultrasound simulation, and 6-DoF catheter trajectory planning for Central Venous Lines, Pericardiocentesis, and Lumbar Puncture.',
+  description: 'Interactive 3D spatial computing, real-time multiplanar ultrasound simulation, and 6-DoF catheter trajectory planning for Central Venous Lines, Pericardiocentesis, and Lumbar Puncture.',
+  openGraph: {
+    title: 'WebXR Spatial Anatomy & Procedural Intervention Theater | Mediverse',
+    description: 'Interactive 3D spatial computing, real-time multiplanar ultrasound simulation, and 6-DoF catheter trajectory planning for Central Venous Lines, Pericardiocentesis, and Lumbar Puncture.',
+    url: 'https://mediverse.app/simulators/webxr-procedural-theater',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'WebXR Spatial Anatomy & Procedural Intervention Theater | Mediverse',
+    description: 'Interactive 3D spatial computing, real-time multiplanar ultrasound simulation, and 6-DoF catheter trajectory planning for Central Venous Lines, Pericardiocentesis, and Lumbar Puncture.',
+  },
 };
 
 

@@ -404,7 +404,7 @@ export default function PulmonaryEmbolismSimulator() {
                       {hemo.systolicBpMmHg} mmHg
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Systolic Blood Pressure"
                     type="range"
                     min="0"
                     max="180"
@@ -426,7 +426,7 @@ export default function PulmonaryEmbolismSimulator() {
                       {hemo.heartRateBpm} bpm
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Heart Rate"
                     type="range"
                     min="40"
                     max="180"
@@ -448,7 +448,7 @@ export default function PulmonaryEmbolismSimulator() {
                       {hemo.oxygenSaturationPct}%
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Arterial Oxygen Saturation"
                     type="range"
                     min="60"
                     max="100"
@@ -603,7 +603,7 @@ export default function PulmonaryEmbolismSimulator() {
                       {strain.rvToLvDiameterRatio.toFixed(2)}
                     </span>
                   </div>
-                  <input
+                  <input aria-label="RV to LV End-Diastolic Ratio"
                     type="range"
                     min="0.5"
                     max="2.0"
@@ -625,7 +625,7 @@ export default function PulmonaryEmbolismSimulator() {
                       {strain.tapseMm} mm
                     </span>
                   </div>
-                  <input
+                  <input aria-label="TAPSE (Tricuspid Annular Excursion)"
                     type="range"
                     min="6"
                     max="28"
@@ -649,7 +649,7 @@ export default function PulmonaryEmbolismSimulator() {
                       {strain.troponinIngMl} ng/mL
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Cardiac Troponin I (cTnI)"
                     type="range"
                     min="0.01"
                     max="1.50"
@@ -670,7 +670,7 @@ export default function PulmonaryEmbolismSimulator() {
                       {strain.bnpPgMl} pg/mL
                     </span>
                   </div>
-                  <input
+                  <input aria-label="B-Type Natriuretic Peptide (BNP)"
                     type="range"
                     min="10"
                     max="1500"

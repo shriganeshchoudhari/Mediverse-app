@@ -289,7 +289,7 @@ export default function ToxicGasInhalationSimulator() {
                     {timeSinceExposure.toFixed(1)} hours {agent === 'phosgene' && '(Phosgene Latent Phase)'}
                   </span>
                 </div>
-                <input
+                <input aria-label="Time Since Exposure"
                   type="range"
                   min="0.2"
                   max="24.0"
@@ -322,7 +322,7 @@ export default function ToxicGasInhalationSimulator() {
                     {lactate.toFixed(1)} mmol/L
                   </span>
                 </div>
-                <input
+                <input aria-label="Arterial Lactate (Mitochondrial Arrest Marker)"
                   type="range"
                   min="0.8"
                   max="18.0"
@@ -341,7 +341,7 @@ export default function ToxicGasInhalationSimulator() {
                       {svo2}% {svo2 >= 85 && '(Histotoxic!)'}
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Mixed Venous SvO2"
                     type="range"
                     min="45"
                     max="98"
@@ -357,7 +357,7 @@ export default function ToxicGasInhalationSimulator() {
                       {coHb}%
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Carboxyhemoglobin (COHb)"
                     type="range"
                     min="0"
                     max="50"
@@ -399,7 +399,7 @@ export default function ToxicGasInhalationSimulator() {
                     {edemaIndex}/10 (Capillary Permeability Leak)
                   </span>
                 </div>
-                <input
+                <input aria-label="Edema Index"
                   type="range"
                   min="0"
                   max="10"
@@ -417,7 +417,7 @@ export default function ToxicGasInhalationSimulator() {
                       {pao2} mmHg
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Arterial PaO2"
                     type="range"
                     min="40"
                     max="220"
@@ -433,7 +433,7 @@ export default function ToxicGasInhalationSimulator() {
                       {sbp} mmHg
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Systolic BP"
                     type="range"
                     min="50"
                     max="180"

@@ -5,6 +5,18 @@ import OrthopedicCompartmentSimulator from '@/components/simulators/OrthopedicCo
 export const metadata: Metadata = {
   title: 'Orthopedic Surgery & Compartment Syndrome | Mediverse',
   description: 'Orthopedic traumatology simulator: Whitesides intracompartmental pressure manometry, Delta P perfusion calculation, lower leg 4-compartment anatomy, 2-incision emergent fasciotomy, and Volkmann ischemic contracture prevention.',
+  openGraph: {
+    title: 'Orthopedic Surgery & Compartment Syndrome | Mediverse',
+    description: 'Orthopedic traumatology simulator: Whitesides intracompartmental pressure manometry, Delta P perfusion calculation, lower leg 4-compartment anatomy, 2-incision emergent fasciotomy, and Volkmann ischemic contracture prevention.',
+    url: 'https://mediverse.app/simulators/compartment-syndrome',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Orthopedic Surgery & Compartment Syndrome | Mediverse',
+    description: 'Orthopedic traumatology simulator: Whitesides intracompartmental pressure manometry, Delta P perfusion calculation, lower leg 4-compartment anatomy, 2-incision emergent fasciotomy, and Volkmann ischemic contracture prevention.',
+  },
 };
 
 

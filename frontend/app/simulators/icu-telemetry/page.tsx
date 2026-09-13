@@ -12,6 +12,18 @@ import { ArrowLeft, ShieldCheck, Activity } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'ICU Central Station Telemetry & Multi-Bed Alarm Simulator | Mediverse',
   description: 'Real-time multi-patient intensive care central station modeling 12-lead telemetry waveforms, arterial line hemodynamics, and alarm surveillance.',
+  openGraph: {
+    title: 'ICU Central Station Telemetry & Multi-Bed Alarm Simulator | Mediverse',
+    description: 'Real-time multi-patient intensive care central station modeling 12-lead telemetry waveforms, arterial line hemodynamics, and alarm surveillance.',
+    url: 'https://mediverse.app/simulators/icu-telemetry',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ICU Central Station Telemetry & Multi-Bed Alarm Simulator | Mediverse',
+    description: 'Real-time multi-patient intensive care central station modeling 12-lead telemetry waveforms, arterial line hemodynamics, and alarm surveillance.',
+  },
 };
 
 export const dynamic = 'force-static';

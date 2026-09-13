@@ -13,8 +13,19 @@ import CardiacPacingSimulator from '@/components/simulators/CardiacPacingSimulat
 
 export const metadata: Metadata = {
   title: 'Cardiac Electrophysiology & Temporary Pacemaker Workstation | Mediverse',
-  description:
-    'Transvenous and transcutaneous cardiac pacing mechanics, NASPE/BPEG pacing modes (VVI, DDD, VOO), capture and sensing threshold dials, R-on-T prevention, and pacemaker syndrome.',
+  description: 'Transvenous and transcutaneous cardiac pacing mechanics, NASPE/BPEG pacing modes (VVI, DDD, VOO), capture and sensing threshold dials, R-on-T prevention, and pacemaker syndrome.',
+  openGraph: {
+    title: 'Cardiac Electrophysiology & Temporary Pacemaker Workstation | Mediverse',
+    description: 'Transvenous and transcutaneous cardiac pacing mechanics, NASPE/BPEG pacing modes (VVI, DDD, VOO), capture and sensing threshold dials, R-on-T prevention, and pacemaker syndrome.',
+    url: 'https://mediverse.app/simulators/cardiac-pacing',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cardiac Electrophysiology & Temporary Pacemaker Workstation | Mediverse',
+    description: 'Transvenous and transcutaneous cardiac pacing mechanics, NASPE/BPEG pacing modes (VVI, DDD, VOO), capture and sensing threshold dials, R-on-T prevention, and pacemaker syndrome.',
+  },
 };
 
 

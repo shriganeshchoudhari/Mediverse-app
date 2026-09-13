@@ -255,7 +255,7 @@ export default function TraumaATLSSimulator() {
           <div className="border border-slate-700 rounded-lg p-3 bg-slate-900">
             <p className="text-xs font-bold text-red-300 mb-2 uppercase tracking-wide">Hemorrhage Quantification</p>
             <label className="text-xs text-slate-400">Estimated Blood Loss (mL)</label>
-            <input type="range" min={0} max={4000} step={50}
+            <input aria-label="Estimated Blood Loss (mL)" type="range" min={0} max={4000} step={50}
               value={params.estimatedBloodLossML}
               onChange={e => setParams(p => ({ ...p, estimatedBloodLossML: Number(e.target.value) }))}
               className="w-full mt-1"
@@ -300,7 +300,7 @@ export default function TraumaATLSSimulator() {
           <div className="border border-slate-700 rounded-lg p-3 bg-slate-900">
             <p className="text-xs font-bold text-blue-300 mb-2 uppercase tracking-wide">Environment & Neuro</p>
             <label className="text-xs text-slate-400">Temperature (°C)</label>
-            <input type="range" min={32} max={37.5} step={0.1}
+            <input aria-label="Temperature (°C)" type="range" min={32} max={37.5} step={0.1}
               value={params.tempCelsius}
               onChange={e => setParams(p => ({ ...p, tempCelsius: parseFloat(e.target.value) }))}
               className="w-full mt-1"
@@ -312,7 +312,7 @@ export default function TraumaATLSSimulator() {
             </div>
 
             <label className="text-xs text-slate-400 mt-2 block">GCS Penalty (0 = baseline)</label>
-            <input type="range" min={0} max={12} step={1}
+            <input aria-label="GCS Penalty (0 = baseline)" type="range" min={0} max={12} step={1}
               value={params.gcsPenalty}
               onChange={e => setParams(p => ({ ...p, gcsPenalty: Number(e.target.value) }))}
               className="w-full mt-1"

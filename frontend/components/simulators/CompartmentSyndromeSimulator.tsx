@@ -555,7 +555,7 @@ export default function CompartmentSyndromeSimulator() {
                       {params.measuredCompartmentPressures.anteriorMmHg} mmHg
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Anterior Mm Hg"
                     type="range"
                     min="0"
                     max="80"
@@ -574,7 +574,7 @@ export default function CompartmentSyndromeSimulator() {
                       {params.measuredCompartmentPressures.lateralMmHg} mmHg
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Lateral Mm Hg"
                     type="range"
                     min="0"
                     max="80"
@@ -593,7 +593,7 @@ export default function CompartmentSyndromeSimulator() {
                       {params.measuredCompartmentPressures.superficialPosteriorMmHg} mmHg
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Superficial Posterior Mm Hg"
                     type="range"
                     min="0"
                     max="80"
@@ -612,7 +612,7 @@ export default function CompartmentSyndromeSimulator() {
                       {params.measuredCompartmentPressures.deepPosteriorMmHg} mmHg
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Deep Posterior Mm Hg"
                     type="range"
                     min="0"
                     max="80"
@@ -693,7 +693,7 @@ export default function CompartmentSyndromeSimulator() {
                     <span className="text-slate-400">Diastolic BP Slider (Trauma Shock Model):</span>
                     <span className="font-bold text-cyan-300">{params.diastolicBpMmHg} mmHg</span>
                   </div>
-                  <input
+                  <input aria-label="Diastolic BP Slider (Trauma Shock Model)"
                     type="range"
                     min="30"
                     max="100"
@@ -820,7 +820,7 @@ export default function CompartmentSyndromeSimulator() {
                     {params.hoursSinceInjury} Hours Post-Injury
                   </span>
                 </div>
-                <input
+                <input aria-label="Duration of Ischemia"
                   type="range"
                   min="1"
                   max="16"
@@ -852,7 +852,7 @@ export default function CompartmentSyndromeSimulator() {
                   <span className="font-bold text-slate-300">IV Hydration Fluid Rate:</span>
                   <span className="text-cyan-400 font-bold">{params.ivFluidRateMlPerHour} mL/h</span>
                 </div>
-                <input
+                <input aria-label="IV Hydration Fluid Rate"
                   type="range"
                   min="50"
                   max="500"

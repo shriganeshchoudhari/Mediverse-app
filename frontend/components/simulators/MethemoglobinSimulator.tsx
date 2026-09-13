@@ -444,7 +444,7 @@ export default function MethemoglobinSimulator() {
                     <span>Baseline MetHb Fraction:</span>
                     <span className="font-mono text-cyan-400 font-bold">{params.baselineMetHbPct}%</span>
                   </div>
-                  <input
+                  <input aria-label="Baseline MetHb Fraction"
                     type="range"
                     min={0}
                     max={80}
@@ -482,7 +482,7 @@ export default function MethemoglobinSimulator() {
                         <span>SulfHb Percentage:</span>
                         <span className="font-mono text-purple-400 font-bold">{params.sulfHbPct}%</span>
                       </div>
-                      <input
+                      <input aria-label="SulfHb Percentage"
                         type="range"
                         min={1}
                         max={20}
@@ -500,7 +500,7 @@ export default function MethemoglobinSimulator() {
                     <span>Arterial PaO2:</span>
                     <span className="font-mono text-emerald-400 font-bold">{params.paO2MmHg} mmHg</span>
                   </div>
-                  <input
+                  <input aria-label="Arterial PaO2"
                     type="range"
                     min={60}
                     max={550}
@@ -517,7 +517,7 @@ export default function MethemoglobinSimulator() {
                     <span>Total Hemoglobin:</span>
                     <span className="font-mono text-cyan-400 font-bold">{params.hemoglobinGPerDl.toFixed(1)} g/dL</span>
                   </div>
-                  <input
+                  <input aria-label="Total Hemoglobin"
                     type="range"
                     min={6.0}
                     max={18.0}
@@ -633,7 +633,7 @@ export default function MethemoglobinSimulator() {
                     <span>Methylene Blue IV Dose:</span>
                     <span className="font-mono text-cyan-400 font-bold">{params.methyleneBlueDoseMgKg.toFixed(1)} mg/kg</span>
                   </div>
-                  <input
+                  <input aria-label="Methylene Blue IV Dose"
                     type="range"
                     min={0}
                     max={2.5}
@@ -651,7 +651,7 @@ export default function MethemoglobinSimulator() {
                     <span>Ascorbic Acid IV (Vitamin C):</span>
                     <span className="font-mono text-emerald-400 font-bold">{params.ascorbicAcidDoseGrams} g</span>
                   </div>
-                  <input
+                  <input aria-label="Ascorbic Acid IV (Vitamin C)"
                     type="range"
                     min={0}
                     max={10}
@@ -669,7 +669,7 @@ export default function MethemoglobinSimulator() {
                     <span>Elapsed Time Post-Treatment:</span>
                     <span className="font-mono text-cyan-400 font-bold">{params.elapsedMinutesSinceTreatment} minutes</span>
                   </div>
-                  <input
+                  <input aria-label="Elapsed Time Post-Treatment"
                     type="range"
                     min={0}
                     max={180}

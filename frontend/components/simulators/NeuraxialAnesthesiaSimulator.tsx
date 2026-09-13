@@ -537,7 +537,7 @@ export default function NeuraxialAnesthesiaSimulator() {
                       +{testDose.heartRateIncreaseBpm} bpm
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Heart Rate Increase (&Delta;HR)"
                     type="range"
                     min="0"
                     max="45"
@@ -568,7 +568,7 @@ export default function NeuraxialAnesthesiaSimulator() {
                       +{testDose.systolicBpIncreaseMmHg} mmHg
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Systolic BP Increase (&Delta;SBP)"
                     type="range"
                     min="0"
                     max="40"
@@ -754,7 +754,7 @@ export default function NeuraxialAnesthesiaSimulator() {
                   <div className="text-xl font-black text-white font-mono mt-1">
                     {patient.patientWeightKg} kg
                   </div>
-                  <input
+                  <input aria-label="Patient Weight Kg"
                     type="range"
                     min="40"
                     max="130"

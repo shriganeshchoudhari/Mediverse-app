@@ -18,6 +18,7 @@ import {
   Info,
 } from 'lucide-react';
 import { createClippingPlanes, DissectionPlaneType } from '@/.gemini/skills/3d/DissectionShader';
+import WebGLErrorBoundary from '../WebGLErrorBoundary';
 
 interface LandmarkInfo {
   id: string;
@@ -93,7 +94,8 @@ export default function LifelikeHeartViewer() {
         </div>
 
         {/* 3D Canvas */}
-        <Canvas
+        <WebGLErrorBoundary fallbackTitle="Cardiac 3D Viewer Unavailable">
+          <Canvas
           shadows
           camera={{ position: [0, 0.3, 3.6], fov: 45 }}
           gl={{
@@ -167,6 +169,7 @@ export default function LifelikeHeartViewer() {
 
           <OrbitControls makeDefault enableDamping dampingFactor={0.05} maxDistance={6} minDistance={2} />
         </Canvas>
+        </WebGLErrorBoundary>
 
         {/* Selected Landmark Card Overlay */}
         {selectedLandmark && (

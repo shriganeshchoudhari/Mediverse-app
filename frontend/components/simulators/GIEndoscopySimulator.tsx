@@ -203,7 +203,7 @@ export default function GIEndoscopySimulator() {
               <span className="text-slate-400">Insertion Depth:</span>
               <span className="font-bold text-cyan-400">{params.scopeInsertionDepthCm} cm</span>
             </div>
-            <input
+            <input aria-label="Insertion Depth"
               type="range"
               min="15"
               max="75"

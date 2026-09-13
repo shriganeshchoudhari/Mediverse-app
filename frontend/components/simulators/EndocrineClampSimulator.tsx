@@ -377,7 +377,7 @@ export default function EndocrineClampSimulator() {
                     <span>Target Glucose:</span>
                     <span className="font-mono text-emerald-400">{params.targetGlucoseMgDl} mg/dL</span>
                   </div>
-                  <input
+                  <input aria-label="Target Glucose"
                     type="range"
                     min="70"
                     max="160"
@@ -393,7 +393,7 @@ export default function EndocrineClampSimulator() {
                     <span>Insulin Infusion:</span>
                     <span className="font-mono text-purple-400">{params.insulinInfusionRateMuKgMin} mU/kg/min</span>
                   </div>
-                  <input
+                  <input aria-label="Insulin Infusion"
                     type="range"
                     min="0.0"
                     max="3.0"
@@ -409,7 +409,7 @@ export default function EndocrineClampSimulator() {
                     <span>D20W Infusion Rate:</span>
                     <span className="font-mono text-amber-400">{params.dextroseInfusionRateMlHr} mL/hr</span>
                   </div>
-                  <input
+                  <input aria-label="D20W Infusion Rate"
                     type="range"
                     min="0"
                     max="350"

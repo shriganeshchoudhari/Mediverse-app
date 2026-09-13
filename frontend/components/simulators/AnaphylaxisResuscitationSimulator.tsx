@@ -392,7 +392,7 @@ export default function AnaphylaxisResuscitationSimulator() {
                     <span className="text-slate-400">Onset Latency</span>
                     <span className="font-mono text-cyan-300">{minutesSinceExposure} min</span>
                   </div>
-                  <input
+                  <input aria-label="Onset Latency"
                     type="range"
                     min="2"
                     max="180"
@@ -497,7 +497,7 @@ export default function AnaphylaxisResuscitationSimulator() {
                     <span className="text-slate-400">Resp Rate</span>
                     <span className="font-mono text-slate-200">{tachypneaRr} /min</span>
                   </div>
-                  <input
+                  <input aria-label="Resp Rate"
                     type="range"
                     min="10"
                     max="50"
@@ -513,7 +513,7 @@ export default function AnaphylaxisResuscitationSimulator() {
                       {spo2}%
                     </span>
                   </div>
-                  <input
+                  <input aria-label="SpO2"
                     type="range"
                     min="70"
                     max="100"
@@ -785,7 +785,7 @@ export default function AnaphylaxisResuscitationSimulator() {
                 <span className="font-semibold text-slate-200">Continuous IV Epinephrine Infusion:</span>
                 <span className="font-mono text-cyan-300 font-bold">{ivEpiInfusion} mcg/kg/min</span>
               </div>
-              <input
+              <input aria-label="Continuous IV Epinephrine Infusion"
                 type="range"
                 min="0.0"
                 max="1.0"
@@ -936,7 +936,7 @@ export default function AnaphylaxisResuscitationSimulator() {
                     <span className="text-slate-400">Acute Tryptase (1-2h)</span>
                     <span className="font-mono text-purple-300">{acuteTryptase} mcg/L</span>
                   </div>
-                  <input
+                  <input aria-label="Acute Tryptase (1-2h)"
                     type="range"
                     min="1"
                     max="80"
@@ -951,7 +951,7 @@ export default function AnaphylaxisResuscitationSimulator() {
                     <span className="text-slate-400">Baseline Tryptase</span>
                     <span className="font-mono text-slate-300">{baselineTryptase} mcg/L</span>
                   </div>
-                  <input
+                  <input aria-label="Baseline Tryptase"
                     type="range"
                     min="1"
                     max="20"

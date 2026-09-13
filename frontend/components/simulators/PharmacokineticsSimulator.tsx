@@ -295,7 +295,7 @@ export default function PharmacokineticsSimulator() {
                 <span className="text-slate-300">Administered Dose</span>
                 <span className="font-mono text-blue-400 font-bold">{doseMg} mg</span>
               </div>
-              <input
+              <input aria-label="Administered Dose"
                 type="range"
                 min="5"
                 max="2000"
@@ -312,7 +312,7 @@ export default function PharmacokineticsSimulator() {
                 <span className="text-slate-300">Patient Weight</span>
                 <span className="font-mono text-slate-200">{patientWeightKg} kg</span>
               </div>
-              <input
+              <input aria-label="Patient Weight"
                 type="range"
                 min="40"
                 max="140"
@@ -329,7 +329,7 @@ export default function PharmacokineticsSimulator() {
                 <span className="text-slate-300">Apparent Vd (L/kg)</span>
                 <span className="font-mono text-slate-200">{vdLperKg} L/kg ({totalVd} L)</span>
               </div>
-              <input
+              <input aria-label="Apparent Vd (L/kg)"
                 type="range"
                 min="0.1"
                 max="10.0"
@@ -346,7 +346,7 @@ export default function PharmacokineticsSimulator() {
                 <span className="text-slate-300">Elimination Half-Life (t½)</span>
                 <span className="font-mono text-slate-200">{halfLifeHours} hrs (ke = {ke}/h)</span>
               </div>
-              <input
+              <input aria-label="Elimination Half-Life (t½)"
                 type="range"
                 min="0.5"
                 max="48.0"
@@ -364,7 +364,7 @@ export default function PharmacokineticsSimulator() {
                   <span className="text-slate-300">Bioavailability (F)</span>
                   <span className="font-mono text-slate-200">{(bioavailabilityF * 100).toFixed(0)}%</span>
                 </div>
-                <input
+                <input aria-label="Bioavailability (F)"
                   type="range"
                   min="0.1"
                   max="1.0"

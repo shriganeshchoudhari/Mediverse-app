@@ -4,7 +4,19 @@ import OncologyGenomicsSimulator from '@/components/simulators/OncologyGenomicsS
 
 export const metadata: Metadata = {
   title: 'Clinical Genomics, Somatic Oncology NGS & Precision Targeted Therapy | Mediverse',
-  description: 'Precision molecular oncology workstation modeling next-generation sequencing (NGS) gene panels, Variant Allele Fraction (VAF %) deconvolution, AMP/ASCO/CAP 4-tier actionability, and targeted TKI clonal resistance dynamics.'
+  description: 'Precision molecular oncology workstation modeling next-generation sequencing (NGS) gene panels, Variant Allele Fraction (VAF %) deconvolution, AMP/ASCO/CAP 4-tier actionability, and targeted TKI clonal resistance dynamics.',
+  openGraph: {
+    title: 'Clinical Genomics, Somatic Oncology NGS & Precision Targeted Therapy | Mediverse',
+    description: 'Precision molecular oncology workstation modeling next-generation sequencing (NGS) gene panels, Variant Allele Fraction (VAF %) deconvolution, AMP/ASCO/CAP 4-tier actionability, and targeted TKI clonal resistance dynamics.',
+    url: 'https://mediverse.app/simulators/genomics-oncology-targeted-therapy',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Clinical Genomics, Somatic Oncology NGS & Precision Targeted Therapy | Mediverse',
+    description: 'Precision molecular oncology workstation modeling next-generation sequencing (NGS) gene panels, Variant Allele Fraction (VAF %) deconvolution, AMP/ASCO/CAP 4-tier actionability, and targeted TKI clonal resistance dynamics.',
+  },
 };
 
 export const dynamic = 'force-static';

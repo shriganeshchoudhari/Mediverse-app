@@ -4,8 +4,19 @@ import CirrhosisPortalHypertensionSimulator from '@/components/simulators/Cirrho
 
 export const metadata: Metadata = {
   title: 'Cirrhosis Decompensation & MELD-Na Solver | Mediverse',
-  description:
-    'Hepatology and portal hypertension clinical workstation: 2016 UNOS MELD-Na, Child-Turcotte-Pugh (CTP) score, Maddrey Discriminant Function for alcoholic hepatitis, hepatic venous pressure gradient (HVPG) hemodynamics, diagnostic paracentesis SAAG, spontaneous bacterial peritonitis (SBP), and hepatorenal syndrome (HRS-AKI).',
+  description: 'Hepatology and portal hypertension clinical workstation: 2016 UNOS MELD-Na, Child-Turcotte-Pugh (CTP) score, Maddrey Discriminant Function for alcoholic hepatitis, hepatic venous pressure gradient (HVPG) hemodynamics, diagnostic paracentesis SAAG, spontaneous bacterial peritonitis (SBP), and hepatorenal syndrome (HRS-AKI).',
+  openGraph: {
+    title: 'Cirrhosis Decompensation & MELD-Na Solver | Mediverse',
+    description: 'Hepatology and portal hypertension clinical workstation: 2016 UNOS MELD-Na, Child-Turcotte-Pugh (CTP) score, Maddrey Discriminant Function for alcoholic hepatitis, hepatic venous pressure gradient (HVPG) hemodynamics, diagnostic paracentesis SAAG, spontaneous bacterial peritonitis (SBP), and hepatorenal syndrome (HRS-AKI).',
+    url: 'https://mediverse.app/simulators/cirrhosis-portal-hypertension',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cirrhosis Decompensation & MELD-Na Solver | Mediverse',
+    description: 'Hepatology and portal hypertension clinical workstation: 2016 UNOS MELD-Na, Child-Turcotte-Pugh (CTP) score, Maddrey Discriminant Function for alcoholic hepatitis, hepatic venous pressure gradient (HVPG) hemodynamics, diagnostic paracentesis SAAG, spontaneous bacterial peritonitis (SBP), and hepatorenal syndrome (HRS-AKI).',
+  },
 };
 
 

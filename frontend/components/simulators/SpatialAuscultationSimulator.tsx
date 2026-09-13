@@ -254,7 +254,7 @@ export default function SpatialAuscultationSimulator() {
               ) : (
                 <Volume2 className="w-4 h-4 text-cyan-400" />
               )}
-              <input
+              <input aria-label="Volume"
                 type="range"
                 min={0}
                 max={1}

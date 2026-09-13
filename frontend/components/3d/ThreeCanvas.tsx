@@ -44,6 +44,7 @@ import {
   Minimize2,
   Sparkles,
 } from "lucide-react";
+import WebGLErrorBoundary from "../WebGLErrorBoundary";
 
 interface ThreeCanvasProps {
   chapterId?: string;
@@ -152,7 +153,11 @@ export default function ThreeCanvas({
           onPinSelect={setActivePinId}
         />
       ) : (
-        <Canvas
+        <WebGLErrorBoundary
+          fallbackTitle="3D Organ Canvas Unavailable"
+          fallbackDescription="Your browser or device encountered a WebGL rendering error. You can switch to 2D vector schematic mode using the toolbar below."
+        >
+          <Canvas
           key={`${resetKey}-${currentPreset.id}`}
           camera={{ position: currentPreset.cameraPosition, fov: 45 }}
           gl={{
@@ -219,6 +224,7 @@ export default function ThreeCanvas({
           />
         </XR>
       </Canvas>
+      </WebGLErrorBoundary>
     )}
 
       {/* Top Left: Organ & Preset Selector Overlay */}

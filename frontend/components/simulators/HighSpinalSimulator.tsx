@@ -502,7 +502,7 @@ export default function HighSpinalSimulator() {
               <label className="text-xs text-slate-400 block mb-1">
                 Elapsed Time Post-Injection: <span className="text-cyan-400 font-mono">{minutesSinceInjection} mins</span>
               </label>
-              <input
+              <input aria-label="Minutes Since Injection"
                 type="range"
                 min="2"
                 max="60"
@@ -556,7 +556,7 @@ export default function HighSpinalSimulator() {
                 <span className="text-slate-400">IV Crystalloid Infused:</span>
                 <span className="text-cyan-400 font-mono">{ivFluidInfusedMl} mL</span>
               </div>
-              <input
+              <input aria-label="IV Crystalloid Infused"
                 type="range"
                 min="0"
                 max="2500"

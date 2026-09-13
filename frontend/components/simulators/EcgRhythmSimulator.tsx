@@ -298,7 +298,7 @@ export default function EcgRhythmSimulator() {
                 <span className="text-slate-300">Heart Rate (BPM)</span>
                 <span className="font-mono text-emerald-400 font-bold">{heartRateBpm} bpm</span>
               </div>
-              <input
+              <input aria-label="Heart Rate (BPM)"
                 type="range"
                 min="30"
                 max="220"
@@ -315,7 +315,7 @@ export default function EcgRhythmSimulator() {
                 <span className="text-slate-300">PR Interval</span>
                 <span className="font-mono text-slate-200">{prIntervalMs} ms {prIntervalMs > 200 ? '(1° AV Block)' : ''}</span>
               </div>
-              <input
+              <input aria-label="PR Interval"
                 type="range"
                 min="80"
                 max="320"
@@ -335,7 +335,7 @@ export default function EcgRhythmSimulator() {
                   {qrsDurationMs} ms {isQrsProlonged ? '(Wide/BBB)' : '(Narrow)'}
                 </span>
               </div>
-              <input
+              <input aria-label="QRS Duration"
                 type="range"
                 min="60"
                 max="220"
@@ -353,7 +353,7 @@ export default function EcgRhythmSimulator() {
                 <span className="text-slate-300">QT Interval</span>
                 <span className="font-mono text-slate-200">{qtIntervalMs} ms</span>
               </div>
-              <input
+              <input aria-label="QT Interval"
                 type="range"
                 min="240"
                 max="600"
@@ -373,7 +373,7 @@ export default function EcgRhythmSimulator() {
                   {stElevationMv > 0 ? `+${stElevationMv.toFixed(1)}` : stElevationMv.toFixed(1)} mV
                 </span>
               </div>
-              <input
+              <input aria-label="ST Deviation"
                 type="range"
                 min="-2.0"
                 max="5.0"

@@ -468,7 +468,7 @@ export default function SynovialFluidGoutSimulator() {
                   </span>
                   <span className="font-mono text-rose-300 font-bold">{crystalAngle}&deg;</span>
                 </div>
-                <input
+                <input aria-label="Crystal Angle"
                   type="range"
                   min="0"
                   max="180"
@@ -593,7 +593,7 @@ export default function SynovialFluidGoutSimulator() {
                       {fluidInput.wbcCountPerMm3.toLocaleString()} /mm&sup3;
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Synovial WBC Count"
                     type="range"
                     min="100"
                     max="120000"
@@ -619,7 +619,7 @@ export default function SynovialFluidGoutSimulator() {
                     <span className="text-slate-400">Neutrophils (% PMN):</span>
                     <span className="font-mono text-rose-400 font-bold">{fluidInput.neutrophilPercent}%</span>
                   </div>
-                  <input
+                  <input aria-label="Neutrophils (% PMN)"
                     type="range"
                     min="10"
                     max="99"
@@ -803,7 +803,7 @@ export default function SynovialFluidGoutSimulator() {
                     <span className="text-slate-400">Serum Urate Level:</span>
                     <span className="font-mono text-rose-400 font-bold">{criteria.serumUrateMgDl} mg/dL</span>
                   </div>
-                  <input
+                  <input aria-label="Serum Urate Level"
                     type="range"
                     min="3.0"
                     max="14.0"
@@ -910,7 +910,7 @@ export default function SynovialFluidGoutSimulator() {
                 <span className="text-slate-400">Patient eGFR:</span>
                 <span className="font-mono text-rose-400 font-bold">{comorbidities.eGfrMlMin} mL/min</span>
               </div>
-              <input
+              <input aria-label="Patient eGFR"
                 type="range"
                 min="10"
                 max="120"

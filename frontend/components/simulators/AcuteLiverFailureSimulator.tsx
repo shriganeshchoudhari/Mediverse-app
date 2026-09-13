@@ -283,7 +283,7 @@ export default function AcuteLiverFailureSimulator() {
                   <span className="text-slate-400">Jaundice to Encephalopathy Interval</span>
                   <span className="font-mono text-cyan-300 font-bold">{latencyDays} days</span>
                 </div>
-                <input
+                <input aria-label="Jaundice to Encephalopathy Interval"
                   type="range"
                   min="1"
                   max="60"
@@ -355,7 +355,7 @@ export default function AcuteLiverFailureSimulator() {
                     {arterialPh.toFixed(2)}
                   </span>
                 </div>
-                <input
+                <input aria-label="Arterial pH"
                   type="range"
                   min="7.10"
                   max="7.55"
@@ -374,7 +374,7 @@ export default function AcuteLiverFailureSimulator() {
                     {lactate.toFixed(1)} mmol/L
                   </span>
                 </div>
-                <input
+                <input aria-label="Arterial Lactate"
                   type="range"
                   min="0.5"
                   max="12.0"
@@ -393,7 +393,7 @@ export default function AcuteLiverFailureSimulator() {
                     {creatinine.toFixed(1)} mg/dL
                   </span>
                 </div>
-                <input
+                <input aria-label="Serum Creatinine"
                   type="range"
                   min="0.5"
                   max="8.0"
@@ -412,7 +412,7 @@ export default function AcuteLiverFailureSimulator() {
                     {inr.toFixed(1)}
                   </span>
                 </div>
-                <input
+                <input aria-label="Prothrombin INR"
                   type="range"
                   min="1.0"
                   max="12.0"
@@ -431,7 +431,7 @@ export default function AcuteLiverFailureSimulator() {
                     {factorV}%
                   </span>
                 </div>
-                <input
+                <input aria-label="Factor V Activity"
                   type="range"
                   min="5"
                   max="100"
@@ -449,7 +449,7 @@ export default function AcuteLiverFailureSimulator() {
                     {bilirubin.toFixed(1)} mg/dL
                   </span>
                 </div>
-                <input
+                <input aria-label="Total Bilirubin"
                   type="range"
                   min="1.0"
                   max="45.0"
@@ -475,7 +475,7 @@ export default function AcuteLiverFailureSimulator() {
                     {ammonia} &mu;mol/L
                   </span>
                 </div>
-                <input
+                <input aria-label="Ammonia"
                   type="range"
                   min="30"
                   max="350"
@@ -502,7 +502,7 @@ export default function AcuteLiverFailureSimulator() {
                     {sodium} mEq/L
                   </span>
                 </div>
-                <input
+                <input aria-label="Sodium"
                   type="range"
                   min="125"
                   max="160"

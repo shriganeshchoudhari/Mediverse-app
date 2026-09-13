@@ -5,6 +5,18 @@ import ChestTubePleuralSimulator from '@/components/simulators/ChestTubePleuralS
 export const metadata: Metadata = {
   title: 'Pleural Dynamics & Chest Tube Thoracostomy | Mediverse',
   description: 'Critical care pulmonology and trauma workstation: intrapleural pressure dynamics, 3-chamber water seal drainage (collection, water seal, suction), air leak grading, and ATLS massive hemothorax emergency protocols.',
+  openGraph: {
+    title: 'Pleural Dynamics & Chest Tube Thoracostomy | Mediverse',
+    description: 'Critical care pulmonology and trauma workstation: intrapleural pressure dynamics, 3-chamber water seal drainage (collection, water seal, suction), air leak grading, and ATLS massive hemothorax emergency protocols.',
+    url: 'https://mediverse.app/simulators/chest-tube-pleural',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pleural Dynamics & Chest Tube Thoracostomy | Mediverse',
+    description: 'Critical care pulmonology and trauma workstation: intrapleural pressure dynamics, 3-chamber water seal drainage (collection, water seal, suction), air leak grading, and ATLS massive hemothorax emergency protocols.',
+  },
 };
 
 

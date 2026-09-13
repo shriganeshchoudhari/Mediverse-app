@@ -13,8 +13,19 @@ import IABPCounterpulsationSimulator from '@/components/simulators/IABPCounterpu
 
 export const metadata: Metadata = {
   title: 'Intra-Aortic Balloon Pump (IABP) Counterpulsation Workstation | Mediverse',
-  description:
-    'Interactive mechanical circulatory support simulator: diastolic augmentation, coronary perfusion, afterload reduction, dicrotic notch timing errors, and arterial line waveform analysis.',
+  description: 'Interactive mechanical circulatory support simulator: diastolic augmentation, coronary perfusion, afterload reduction, dicrotic notch timing errors, and arterial line waveform analysis.',
+  openGraph: {
+    title: 'Intra-Aortic Balloon Pump (IABP) Counterpulsation Workstation | Mediverse',
+    description: 'Interactive mechanical circulatory support simulator: diastolic augmentation, coronary perfusion, afterload reduction, dicrotic notch timing errors, and arterial line waveform analysis.',
+    url: 'https://mediverse.app/simulators/iabp-counterpulsation',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Intra-Aortic Balloon Pump (IABP) Counterpulsation Workstation | Mediverse',
+    description: 'Interactive mechanical circulatory support simulator: diastolic augmentation, coronary perfusion, afterload reduction, dicrotic notch timing errors, and arterial line waveform analysis.',
+  },
 };
 
 

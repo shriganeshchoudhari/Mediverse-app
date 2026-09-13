@@ -14,8 +14,19 @@ import ECMODynamicsSimulator from '@/components/simulators/ECMODynamicsSimulator
 
 export const metadata: Metadata = {
   title: 'Extracorporeal Membrane Oxygenation (ECMO) Workstation | Mediverse',
-  description:
-    'Comprehensive VV & VA ECMO simulation: gas exchange kinetics, sweep gas titration, recirculation fraction, Harlequin syndrome dual circulation, and LV venting mechanics.',
+  description: 'Comprehensive VV & VA ECMO simulation: gas exchange kinetics, sweep gas titration, recirculation fraction, Harlequin syndrome dual circulation, and LV venting mechanics.',
+  openGraph: {
+    title: 'Extracorporeal Membrane Oxygenation (ECMO) Workstation | Mediverse',
+    description: 'Comprehensive VV & VA ECMO simulation: gas exchange kinetics, sweep gas titration, recirculation fraction, Harlequin syndrome dual circulation, and LV venting mechanics.',
+    url: 'https://mediverse.app/simulators/ecmo-dynamics',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Extracorporeal Membrane Oxygenation (ECMO) Workstation | Mediverse',
+    description: 'Comprehensive VV & VA ECMO simulation: gas exchange kinetics, sweep gas titration, recirculation fraction, Harlequin syndrome dual circulation, and LV venting mechanics.',
+  },
 };
 
 

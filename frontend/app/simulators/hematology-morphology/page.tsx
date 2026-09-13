@@ -4,8 +4,19 @@ import HematologyMorphologySimulator from '@/components/simulators/HematologyMor
 
 export const metadata: Metadata = {
   title: 'Hematology Smear & Bone Marrow Morphology Workstation | Mediverse',
-  description:
-    'Clinical hematology and pathology workstation: Peripheral blood smear (PBS) red cell poikilocytosis (schistocytes, target cells, tear drops), bone marrow myeloid-to-erythroid (M:E) ratio, WHO 2022 acute and chronic leukemia classification, and Cairo-Bishop Tumor Lysis Syndrome emergency triage.',
+  description: 'Clinical hematology and pathology workstation: Peripheral blood smear (PBS) red cell poikilocytosis (schistocytes, target cells, tear drops), bone marrow myeloid-to-erythroid (M:E) ratio, WHO 2022 acute and chronic leukemia classification, and Cairo-Bishop Tumor Lysis Syndrome emergency triage.',
+  openGraph: {
+    title: 'Hematology Smear & Bone Marrow Morphology Workstation | Mediverse',
+    description: 'Clinical hematology and pathology workstation: Peripheral blood smear (PBS) red cell poikilocytosis (schistocytes, target cells, tear drops), bone marrow myeloid-to-erythroid (M:E) ratio, WHO 2022 acute and chronic leukemia classification, and Cairo-Bishop Tumor Lysis Syndrome emergency triage.',
+    url: 'https://mediverse.app/simulators/hematology-morphology',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hematology Smear & Bone Marrow Morphology Workstation | Mediverse',
+    description: 'Clinical hematology and pathology workstation: Peripheral blood smear (PBS) red cell poikilocytosis (schistocytes, target cells, tear drops), bone marrow myeloid-to-erythroid (M:E) ratio, WHO 2022 acute and chronic leukemia classification, and Cairo-Bishop Tumor Lysis Syndrome emergency triage.',
+  },
 };
 
 

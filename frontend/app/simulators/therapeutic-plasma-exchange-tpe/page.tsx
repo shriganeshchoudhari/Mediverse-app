@@ -18,8 +18,19 @@ import TherapeuticPlasmaExchangeSimulator from '@/components/simulators/Therapeu
 
 export const metadata: Metadata = {
   title: 'Therapeutic Plasma Exchange (TPE) Workstation | Mediverse',
-  description:
-    'American Society for Apheresis (ASFA 2023) Guidelines: Plasma Volume Kinetics, First-Order Solute Removal, 5% Albumin vs FFP Replacement, ACD-A Citrate & Calcium Titration.',
+  description: 'American Society for Apheresis (ASFA 2023) Guidelines: Plasma Volume Kinetics, First-Order Solute Removal, 5% Albumin vs FFP Replacement, ACD-A Citrate & Calcium Titration.',
+  openGraph: {
+    title: 'Therapeutic Plasma Exchange (TPE) Workstation | Mediverse',
+    description: 'American Society for Apheresis (ASFA 2023) Guidelines: Plasma Volume Kinetics, First-Order Solute Removal, 5% Albumin vs FFP Replacement, ACD-A Citrate & Calcium Titration.',
+    url: 'https://mediverse.app/simulators/therapeutic-plasma-exchange-tpe',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Therapeutic Plasma Exchange (TPE) Workstation | Mediverse',
+    description: 'American Society for Apheresis (ASFA 2023) Guidelines: Plasma Volume Kinetics, First-Order Solute Removal, 5% Albumin vs FFP Replacement, ACD-A Citrate & Calcium Titration.',
+  },
 };
 
 

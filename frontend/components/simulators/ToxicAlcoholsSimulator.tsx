@@ -200,7 +200,7 @@ export default function ToxicAlcoholsSimulator() {
                   <span className="text-slate-400">Time Post-Ingestion:</span>
                   <strong className="text-white font-mono">{hoursPostIngestion} hours</strong>
                 </div>
-                <input
+                <input aria-label="Time Post-Ingestion"
                   type="range"
                   min="0"
                   max="36"
@@ -217,7 +217,7 @@ export default function ToxicAlcoholsSimulator() {
                   <span className="text-slate-400">Body Weight (kg):</span>
                   <strong className="text-white font-mono">{bodyWeightKg} kg</strong>
                 </div>
-                <input
+                <input aria-label="Body Weight (kg)"
                   type="range"
                   min="40"
                   max="120"

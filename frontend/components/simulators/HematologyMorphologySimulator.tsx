@@ -314,7 +314,7 @@ export default function HematologyMorphologySimulator() {
                   {wbc} &times; 10&sup9;/L
                 </span>
               </div>
-              <input
+              <input aria-label="Total WBC Count"
                 type="range"
                 min="1.0"
                 max="180.0"
@@ -333,7 +333,7 @@ export default function HematologyMorphologySimulator() {
                   <span className="text-zinc-400">Hemoglobin:</span>
                   <span className="font-mono font-bold text-rose-400">{hb} g/dL</span>
                 </div>
-                <input
+                <input aria-label="Hemoglobin"
                   type="range"
                   min="4.0"
                   max="18.0"
@@ -351,7 +351,7 @@ export default function HematologyMorphologySimulator() {
                     {plt} &times; 10&sup9;/L
                   </span>
                 </div>
-                <input
+                <input aria-label="Platelets"
                   type="range"
                   min="5"
                   max="600"
@@ -366,7 +366,7 @@ export default function HematologyMorphologySimulator() {
             <div className="grid grid-cols-3 gap-2 pt-1 border-t border-slate-800/80">
               <div>
                 <label className="text-zinc-400">Blasts: <span className="font-mono font-bold text-rose-400">{blasts}%</span></label>
-                <input
+                <input aria-label="Blasts"
                   type="range"
                   min="0"
                   max="90"
@@ -378,7 +378,7 @@ export default function HematologyMorphologySimulator() {
 
               <div>
                 <label className="text-zinc-400">Promyelo: <span className="font-mono font-bold text-purple-300">{promyelocytes}%</span></label>
-                <input
+                <input aria-label="Promyelocytes"
                   type="range"
                   min="0"
                   max="80"
@@ -390,7 +390,7 @@ export default function HematologyMorphologySimulator() {
 
               <div>
                 <label className="text-zinc-400">Lymphs: <span className="font-mono font-bold text-cyan-300">{lymphocytes}%</span></label>
-                <input
+                <input aria-label="Lymphocytes"
                   type="range"
                   min="0"
                   max="95"
@@ -419,7 +419,7 @@ export default function HematologyMorphologySimulator() {
                   <span className="text-zinc-400">Myeloid Lineage:</span>
                   <span className="font-mono font-bold text-white">{marrowMyeloid}%</span>
                 </div>
-                <input
+                <input aria-label="Myeloid Lineage"
                   type="range"
                   min="10"
                   max="95"
@@ -434,7 +434,7 @@ export default function HematologyMorphologySimulator() {
                   <span className="text-zinc-400">Erythroid Lineage:</span>
                   <span className="font-mono font-bold text-rose-400">{marrowErythroid}%</span>
                 </div>
-                <input
+                <input aria-label="Erythroid Lineage"
                   type="range"
                   min="2"
                   max="60"
@@ -453,7 +453,7 @@ export default function HematologyMorphologySimulator() {
                     {marrowBlasts}%
                   </span>
                 </div>
-                <input
+                <input aria-label="Marrow Blasts"
                   type="range"
                   min="0"
                   max="95"
@@ -471,7 +471,7 @@ export default function HematologyMorphologySimulator() {
                     {marrowPlasma}%
                   </span>
                 </div>
-                <input
+                <input aria-label="Plasma Cells"
                   type="range"
                   min="0"
                   max="70"
@@ -572,7 +572,7 @@ export default function HematologyMorphologySimulator() {
             <div className="grid grid-cols-3 gap-2">
               <div>
                 <label className="text-zinc-400">Uric Acid: <span className={`font-mono font-bold ${uricAcid >= 8 ? 'text-rose-400' : 'text-white'}`}>{uricAcid}</span></label>
-                <input
+                <input aria-label="= 8 ? text-rose-400 : text-white}`}>{uricAcid}"
                   type="range"
                   min="2.0"
                   max="16.0"
@@ -585,7 +585,7 @@ export default function HematologyMorphologySimulator() {
 
               <div>
                 <label className="text-zinc-400">Potassium: <span className={`font-mono font-bold ${potassium >= 6 ? 'text-rose-400' : 'text-white'}`}>{potassium}</span></label>
-                <input
+                <input aria-label="= 6 ? text-rose-400 : text-white}`}>{potassium}"
                   type="range"
                   min="3.0"
                   max="8.0"
@@ -598,7 +598,7 @@ export default function HematologyMorphologySimulator() {
 
               <div>
                 <label className="text-zinc-400">Phos: <span className={`font-mono font-bold ${phosphorus >= 4.5 ? 'text-rose-400' : 'text-white'}`}>{phosphorus}</span></label>
-                <input
+                <input aria-label="= 4.5 ? text-rose-400 : text-white}`}>{phosphorus}"
                   type="range"
                   min="2.0"
                   max="10.0"
@@ -613,7 +613,7 @@ export default function HematologyMorphologySimulator() {
             <div className="grid grid-cols-2 gap-3 pt-1">
               <div>
                 <label className="text-zinc-400">Calcium: <span className={`font-mono font-bold ${calcium <= 7 ? 'text-rose-400' : 'text-white'}`}>{calcium} mg/dL</span></label>
-                <input
+                <input aria-label="Calcium"
                   type="range"
                   min="5.0"
                   max="14.0"
@@ -626,7 +626,7 @@ export default function HematologyMorphologySimulator() {
 
               <div>
                 <label className="text-zinc-400">Creatinine: <span className={`font-mono font-bold ${creatinine >= 1.8 ? 'text-rose-400' : 'text-white'}`}>{creatinine} mg/dL</span></label>
-                <input
+                <input aria-label="= 1.8 ? text-rose-400 : text-white}`}>{creatinine} mg/dL"
                   type="range"
                   min="0.5"
                   max="5.0"

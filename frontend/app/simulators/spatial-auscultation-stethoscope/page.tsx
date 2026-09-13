@@ -4,7 +4,19 @@ import SpatialAuscultationSimulator from '@/components/simulators/SpatialAuscult
 
 export const metadata: Metadata = {
   title: '3D Spatial Auscultation & Directional Phonocardiogram Workstation | Mediverse',
-  description: 'Precision clinical examination simulator featuring spatial thoracic chest acoustic mapping, inverse-square attenuation, dynamic auscultatory maneuvers, and synchronized PCG / Lead II ECG wave synthesis.'
+  description: 'Precision clinical examination simulator featuring spatial thoracic chest acoustic mapping, inverse-square attenuation, dynamic auscultatory maneuvers, and synchronized PCG / Lead II ECG wave synthesis.',
+  openGraph: {
+    title: '3D Spatial Auscultation & Directional Phonocardiogram Workstation | Mediverse',
+    description: 'Precision clinical examination simulator featuring spatial thoracic chest acoustic mapping, inverse-square attenuation, dynamic auscultatory maneuvers, and synchronized PCG / Lead II ECG wave synthesis.',
+    url: 'https://mediverse.app/simulators/spatial-auscultation-stethoscope',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '3D Spatial Auscultation & Directional Phonocardiogram Workstation | Mediverse',
+    description: 'Precision clinical examination simulator featuring spatial thoracic chest acoustic mapping, inverse-square attenuation, dynamic auscultatory maneuvers, and synchronized PCG / Lead II ECG wave synthesis.',
+  },
 };
 
 export const dynamic = 'force-static';

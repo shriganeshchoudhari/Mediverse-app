@@ -5,6 +5,18 @@ import TegHemostasisSimulator from '@/components/simulators/TegHemostasisSimulat
 export const metadata: Metadata = {
   title: 'Thromboelastography TEG / ROTEM & Transfusion Solver | Mediverse',
   description: 'Viscoelastic coagulation and hemostasis workstation: TEG clot kinetics (R, K, alpha, MA, LY30), ROTEM 5-assay differential diagnostics (FIBTEM, HEPTEM, APTEM), and goal-directed targeted transfusion algorithms.',
+  openGraph: {
+    title: 'Thromboelastography TEG / ROTEM & Transfusion Solver | Mediverse',
+    description: 'Viscoelastic coagulation and hemostasis workstation: TEG clot kinetics (R, K, alpha, MA, LY30), ROTEM 5-assay differential diagnostics (FIBTEM, HEPTEM, APTEM), and goal-directed targeted transfusion algorithms.',
+    url: 'https://mediverse.app/simulators/teg-hemostasis',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Thromboelastography TEG / ROTEM & Transfusion Solver | Mediverse',
+    description: 'Viscoelastic coagulation and hemostasis workstation: TEG clot kinetics (R, K, alpha, MA, LY30), ROTEM 5-assay differential diagnostics (FIBTEM, HEPTEM, APTEM), and goal-directed targeted transfusion algorithms.',
+  },
 };
 
 

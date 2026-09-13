@@ -443,7 +443,7 @@ export default function RenalFiltrationSimulator() {
                             {affRadius.toFixed(1)} μm
                           </span>
                         </div>
-                        <input
+                        <input aria-label="Aff Radius"
                           type="range"
                           min="5.0"
                           max="20.0"
@@ -468,7 +468,7 @@ export default function RenalFiltrationSimulator() {
                             {effRadius.toFixed(1)} μm
                           </span>
                         </div>
-                        <input
+                        <input aria-label="Eff Radius"
                           type="range"
                           min="5.0"
                           max="20.0"
@@ -493,7 +493,7 @@ export default function RenalFiltrationSimulator() {
                             {bloodPressure} mmHg
                           </span>
                         </div>
-                        <input
+                        <input aria-label="Blood Pressure"
                           type="range"
                           min="50"
                           max="200"
@@ -520,7 +520,7 @@ export default function RenalFiltrationSimulator() {
                             {directPgc.toFixed(1)} mmHg
                           </span>
                         </div>
-                        <input
+                        <input aria-label="Direct Pgc"
                           type="range"
                           min="30"
                           max="80"
@@ -541,7 +541,7 @@ export default function RenalFiltrationSimulator() {
                             {directPbs.toFixed(1)} mmHg
                           </span>
                         </div>
-                        <input
+                        <input aria-label="Direct Pbs"
                           type="range"
                           min="5"
                           max="40"
@@ -562,7 +562,7 @@ export default function RenalFiltrationSimulator() {
                             {directPiGc.toFixed(1)} mmHg
                           </span>
                         </div>
-                        <input
+                        <input aria-label="Direct Pi Gc"
                           type="range"
                           min="15"
                           max="50"
@@ -585,7 +585,7 @@ export default function RenalFiltrationSimulator() {
                         {kf.toFixed(1)} mL/min/mmHg
                       </span>
                     </div>
-                    <input
+                    <input aria-label="Kf"
                       type="range"
                       min="5.0"
                       max="20.0"

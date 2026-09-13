@@ -5,7 +5,19 @@ import { ShieldAlert, BookOpen, HeartPulse, Brain, AlertTriangle, Activity, Zap 
 
 export const metadata: Metadata = {
   title: 'Hypertensive Crisis & IV Antihypertensive Titration Workstation | Mediverse',
-  description: 'Emergency vs Urgency triage, acute target organ damage stratification, cerebral autoregulation curve shifts, and precision pharmacotherapy bench (Nicardipine, Clevidipine, Labetalol, Esmolol, Nitroprusside, Nitroglycerin).'
+  description: 'Emergency vs Urgency triage, acute target organ damage stratification, cerebral autoregulation curve shifts, and precision pharmacotherapy bench (Nicardipine, Clevidipine, Labetalol, Esmolol, Nitroprusside, Nitroglycerin).',
+  openGraph: {
+    title: 'Hypertensive Crisis & IV Antihypertensive Titration Workstation | Mediverse',
+    description: 'Emergency vs Urgency triage, acute target organ damage stratification, cerebral autoregulation curve shifts, and precision pharmacotherapy bench (Nicardipine, Clevidipine, Labetalol, Esmolol, Nitroprusside, Nitroglycerin).',
+    url: 'https://mediverse.app/simulators/hypertensive-crisis-titration',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hypertensive Crisis & IV Antihypertensive Titration Workstation | Mediverse',
+    description: 'Emergency vs Urgency triage, acute target organ damage stratification, cerebral autoregulation curve shifts, and precision pharmacotherapy bench (Nicardipine, Clevidipine, Labetalol, Esmolol, Nitroprusside, Nitroglycerin).',
+  },
 };
 
 

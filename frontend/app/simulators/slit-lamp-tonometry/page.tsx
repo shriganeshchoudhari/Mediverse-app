@@ -5,6 +5,18 @@ import OphthalmologySlitLampSimulator from '@/components/simulators/Ophthalmolog
 export const metadata: Metadata = {
   title: 'Slit Lamp Biomicroscopy & Goldmann Tonometry | Mediverse',
   description: 'Ophthalmology biomicroscopy workstation: optical slit beam cross-sectioning, Goldmann applanation tonometry (GAT) Imbert-Fick physics, CCT pachymetry correction, Van Herick anterior chamber depth grading, and acute angle-closure crisis management.',
+  openGraph: {
+    title: 'Slit Lamp Biomicroscopy & Goldmann Tonometry | Mediverse',
+    description: 'Ophthalmology biomicroscopy workstation: optical slit beam cross-sectioning, Goldmann applanation tonometry (GAT) Imbert-Fick physics, CCT pachymetry correction, Van Herick anterior chamber depth grading, and acute angle-closure crisis management.',
+    url: 'https://mediverse.app/simulators/slit-lamp-tonometry',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Slit Lamp Biomicroscopy & Goldmann Tonometry | Mediverse',
+    description: 'Ophthalmology biomicroscopy workstation: optical slit beam cross-sectioning, Goldmann applanation tonometry (GAT) Imbert-Fick physics, CCT pachymetry correction, Van Herick anterior chamber depth grading, and acute angle-closure crisis management.',
+  },
 };
 
 

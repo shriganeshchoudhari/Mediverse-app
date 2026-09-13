@@ -1,4 +1,4 @@
-﻿apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mediverse-frontend
@@ -42,10 +42,10 @@ spec:
           resources:
             requests:
               cpu: "250m"
-              memory: "256Mi"
+              memory: "512Mi"
             limits:
               cpu: "1000m"
-              memory: "512Mi"
+              memory: "1536Mi"
           livenessProbe:
             httpGet:
               path: /

@@ -319,7 +319,7 @@ export default function OrganophosphateToxSimulator() {
                   <span className="text-slate-400">Elapsed Time Since Exposure</span>
                   <span className="font-mono text-cyan-300">{exposureHoursAgo} hours</span>
                 </div>
-                <input
+                <input aria-label="Elapsed Time Since Exposure"
                   type="range"
                   min="0.5"
                   max="96"
@@ -336,7 +336,7 @@ export default function OrganophosphateToxSimulator() {
                     <span className="text-slate-400">RBC AChE Activity</span>
                     <span className="font-mono text-emerald-300">{rbcAche}%</span>
                   </div>
-                  <input
+                  <input aria-label="RBC AChE Activity"
                     type="range"
                     min="1"
                     max="100"
@@ -351,7 +351,7 @@ export default function OrganophosphateToxSimulator() {
                     <span className="text-slate-400">Plasma BuChE Activity</span>
                     <span className="font-mono text-cyan-300">{plasmaAche}%</span>
                   </div>
-                  <input
+                  <input aria-label="Plasma BuChE Activity"
                     type="range"
                     min="1"
                     max="100"
@@ -383,7 +383,7 @@ export default function OrganophosphateToxSimulator() {
                     {heartRate} bpm
                   </span>
                 </div>
-                <input
+                <input aria-label="Heart Rate"
                   type="range"
                   min="30"
                   max="160"
@@ -400,7 +400,7 @@ export default function OrganophosphateToxSimulator() {
                     {systolicBp} mmHg
                   </span>
                 </div>
-                <input
+                <input aria-label="Systolic BP"
                   type="range"
                   min="50"
                   max="160"
@@ -415,7 +415,7 @@ export default function OrganophosphateToxSimulator() {
                   <span className="text-slate-400">Resp Rate</span>
                   <span className="font-mono text-slate-200">{respiratoryRate} /min</span>
                 </div>
-                <input
+                <input aria-label="Resp Rate"
                   type="range"
                   min="8"
                   max="50"
@@ -432,7 +432,7 @@ export default function OrganophosphateToxSimulator() {
                     {spo2}%
                   </span>
                 </div>
-                <input
+                <input aria-label="SpO2"
                   type="range"
                   min="60"
                   max="100"
@@ -505,7 +505,7 @@ export default function OrganophosphateToxSimulator() {
                   <span className="text-slate-300 font-semibold">Pupil Diameter</span>
                   <span className="font-mono text-amber-300">{pupilDiameter.toFixed(1)} mm</span>
                 </div>
-                <input
+                <input aria-label="Pupil Diameter"
                   type="range"
                   min="1.0"
                   max="8.0"
@@ -560,7 +560,7 @@ export default function OrganophosphateToxSimulator() {
                   {diaphragmStrength}%
                 </span>
               </div>
-              <input
+              <input aria-label="Diaphragm Motor Strength"
                 type="range"
                 min="10"
                 max="100"

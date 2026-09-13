@@ -5,6 +5,18 @@ import FetalMonitoringSimulator from '@/components/simulators/FetalMonitoringSim
 export const metadata: Metadata = {
   title: 'Fetal Monitoring & CTG Interpretation | Mediverse',
   description: 'Cardiotocography (CTG) biophysical simulator: NICHD 3-tier categories, early/late/variable/sinusoidal decelerations, Montevideo units, Bishop score, and intrauterine resuscitation protocols.',
+  openGraph: {
+    title: 'Fetal Monitoring & CTG Interpretation | Mediverse',
+    description: 'Cardiotocography (CTG) biophysical simulator: NICHD 3-tier categories, early/late/variable/sinusoidal decelerations, Montevideo units, Bishop score, and intrauterine resuscitation protocols.',
+    url: 'https://mediverse.app/simulators/fetal-monitoring',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Fetal Monitoring & CTG Interpretation | Mediverse',
+    description: 'Cardiotocography (CTG) biophysical simulator: NICHD 3-tier categories, early/late/variable/sinusoidal decelerations, Montevideo units, Bishop score, and intrauterine resuscitation protocols.',
+  },
 };
 
 

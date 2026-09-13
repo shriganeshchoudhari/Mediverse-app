@@ -326,7 +326,7 @@ export default function MassivePulmonaryEmbolismSimulator() {
                   <span>Systolic Blood Pressure (SBP)</span>
                   <span className="font-bold text-rose-400">{params.sbpMmHg} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Systolic Blood Pressure (SBP)"
                   type="range"
                   min="50"
                   max="160"
@@ -344,7 +344,7 @@ export default function MassivePulmonaryEmbolismSimulator() {
                   <span>Diastolic Blood Pressure (DBP)</span>
                   <span className="font-bold text-slate-300">{params.dbpMmHg} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Diastolic Blood Pressure (DBP)"
                   type="range"
                   min="30"
                   max="100"
@@ -360,7 +360,7 @@ export default function MassivePulmonaryEmbolismSimulator() {
                   <span>Heart Rate (HR)</span>
                   <span className="font-bold text-slate-300">{params.heartRateBpm} bpm</span>
                 </div>
-                <input
+                <input aria-label="Heart Rate (HR)"
                   type="range"
                   min="40"
                   max="180"
@@ -379,7 +379,7 @@ export default function MassivePulmonaryEmbolismSimulator() {
                       {params.arterialPh.toFixed(2)}
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Arterial pH"
                     type="range"
                     min="6.90"
                     max="7.45"
@@ -396,7 +396,7 @@ export default function MassivePulmonaryEmbolismSimulator() {
                       {params.serumLactateMmolL.toFixed(1)} mmol/L
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Serum Lactate"
                     type="range"
                     min="0.5"
                     max="10.0"
@@ -448,7 +448,7 @@ export default function MassivePulmonaryEmbolismSimulator() {
                     {params.rvLvDiameterRatio.toFixed(2)}
                   </span>
                 </div>
-                <input
+                <input aria-label="RV / LV Basal End-Diastolic Diameter Ratio"
                   type="range"
                   min="0.6"
                   max="1.8"
@@ -470,7 +470,7 @@ export default function MassivePulmonaryEmbolismSimulator() {
                     {params.tapseMm} mm
                   </span>
                 </div>
-                <input
+                <input aria-label="Tricuspid Annular Plane Systolic Excursion (TAPSE)"
                   type="range"
                   min="6"
                   max="26"
@@ -558,7 +558,7 @@ export default function MassivePulmonaryEmbolismSimulator() {
                     {params.ivFluidAdministeredMl} mL
                   </span>
                 </div>
-                <input
+                <input aria-label="Iv Fluid Administered Ml"
                   type="range"
                   min="0"
                   max="3000"

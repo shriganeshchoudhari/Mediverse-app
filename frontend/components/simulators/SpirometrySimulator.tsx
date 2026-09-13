@@ -231,7 +231,7 @@ export default function SpirometrySimulator() {
                     <span className="text-xs font-semibold text-slate-350">Airway Radius (mm)</span>
                     <span className="text-sky-400 font-bold text-sm bg-sky-400/10 px-2 py-0.5 rounded">{radius.toFixed(1)}</span>
                   </div>
-                  <input
+                  <input aria-label="Airway Radius (mm)"
                     type="range" min="0.5" max="4.0" step="0.1"
                     value={radius} onChange={(e) => setRadius(parseFloat(e.target.value))}
                     className="w-full accent-sky-500 h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer"
@@ -244,7 +244,7 @@ export default function SpirometrySimulator() {
                     <span className="text-xs font-semibold text-slate-350">Compliance (L/cm H₂O)</span>
                     <span className="text-sky-400 font-bold text-sm bg-sky-400/10 px-2 py-0.5 rounded">{compliance.toFixed(2)}</span>
                   </div>
-                  <input
+                  <input aria-label="Compliance (L/cm H₂O)"
                     type="range" min="0.05" max="0.40" step="0.01"
                     value={compliance} onChange={(e) => setCompliance(parseFloat(e.target.value))}
                     className="w-full accent-sky-500 h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer"

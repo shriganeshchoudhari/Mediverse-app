@@ -467,7 +467,7 @@ export default function ArterialLineHemodynamicsSimulator() {
                     <span className="text-slate-300">Systolic Blood Pressure (True SBP)</span>
                     <span className="font-mono font-bold text-slate-200">{hemo.systolicBpMmHg} mmHg</span>
                   </div>
-                  <input
+                  <input aria-label="Systolic Blood Pressure (True SBP)"
                     type="range"
                     min="60"
                     max="220"
@@ -485,7 +485,7 @@ export default function ArterialLineHemodynamicsSimulator() {
                     <span className="text-slate-300">Diastolic Blood Pressure (True DBP)</span>
                     <span className="font-mono font-bold text-slate-200">{hemo.diastolicBpMmHg} mmHg</span>
                   </div>
-                  <input
+                  <input aria-label="Diastolic Blood Pressure (True DBP)"
                     type="range"
                     min="30"
                     max="130"
@@ -503,7 +503,7 @@ export default function ArterialLineHemodynamicsSimulator() {
                     <span className="text-slate-300">Heart Rate</span>
                     <span className="font-mono font-bold text-slate-200">{hemo.heartRateBpm} bpm</span>
                   </div>
-                  <input
+                  <input aria-label="Heart Rate"
                     type="range"
                     min="40"
                     max="180"
@@ -521,7 +521,7 @@ export default function ArterialLineHemodynamicsSimulator() {
                     <span className="text-slate-300">Stroke Volume</span>
                     <span className="font-mono font-bold text-slate-200">{hemo.strokeVolumeMl} mL</span>
                   </div>
-                  <input
+                  <input aria-label="Stroke Volume"
                     type="range"
                     min="20"
                     max="140"
@@ -539,7 +539,7 @@ export default function ArterialLineHemodynamicsSimulator() {
                     <span className="text-slate-300">Central Venous Pressure (CVP)</span>
                     <span className="font-mono font-bold text-slate-200">{hemo.centralVenousPressureMmHg} mmHg</span>
                   </div>
-                  <input
+                  <input aria-label="Central Venous Pressure (CVP)"
                     type="range"
                     min="0"
                     max="25"
@@ -559,7 +559,7 @@ export default function ArterialLineHemodynamicsSimulator() {
                     <span className="text-slate-300">Contractility (Inotropy / dP/dt)</span>
                     <span className="font-mono font-bold text-slate-200">{hemo.myocardialInotropyPct}%</span>
                   </div>
-                  <input
+                  <input aria-label="Contractility (Inotropy / dP/dt)"
                     type="range"
                     min="50"
                     max="160"
@@ -636,7 +636,7 @@ export default function ArterialLineHemodynamicsSimulator() {
                   <span className="text-slate-300">User Defined PPV (%)</span>
                   <span className="font-mono font-bold text-indigo-400">{userPpvOverride}%</span>
                 </div>
-                <input
+                <input aria-label="User Defined PPV (%)"
                   type="range"
                   min="2"
                   max="35"
@@ -755,7 +755,7 @@ export default function ArterialLineHemodynamicsSimulator() {
                       {damping.dampingCoefficientZeta.toFixed(2)}
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Damping Coefficient (&zeta;)"
                     type="range"
                     min="0.15"
                     max="1.20"
@@ -781,7 +781,7 @@ export default function ArterialLineHemodynamicsSimulator() {
                       {damping.naturalFrequencyHz} Hz
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Natural Frequency (fn)"
                     type="range"
                     min="8"
                     max="35"

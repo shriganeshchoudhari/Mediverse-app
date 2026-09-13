@@ -19,6 +19,18 @@ import CPETSimulator from '@/components/simulators/CPETSimulator';
 export const metadata: Metadata = {
   title: 'Cardiopulmonary Exercise Testing (CPET) & Metabolic Ergometry | Mediverse',
   description: 'Wasserman 9-panel diagnostic CPET workstation: VO2 peak, anaerobic threshold (V-slope), ventilatory efficiency (VE/VCO2 slope), oxygen pulse kinetics, breathing reserve, and exercise limitation classification.',
+  openGraph: {
+    title: 'Cardiopulmonary Exercise Testing (CPET) & Metabolic Ergometry | Mediverse',
+    description: 'Wasserman 9-panel diagnostic CPET workstation: VO2 peak, anaerobic threshold (V-slope), ventilatory efficiency (VE/VCO2 slope), oxygen pulse kinetics, breathing reserve, and exercise limitation classification.',
+    url: 'https://mediverse.app/simulators/cpet',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cardiopulmonary Exercise Testing (CPET) & Metabolic Ergometry | Mediverse',
+    description: 'Wasserman 9-panel diagnostic CPET workstation: VO2 peak, anaerobic threshold (V-slope), ventilatory efficiency (VE/VCO2 slope), oxygen pulse kinetics, breathing reserve, and exercise limitation classification.',
+  },
 };
 
 

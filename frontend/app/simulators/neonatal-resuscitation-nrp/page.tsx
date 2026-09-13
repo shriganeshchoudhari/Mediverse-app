@@ -4,8 +4,19 @@ import NeonatalResuscitationSimulator from '@/components/simulators/NeonatalResu
 
 export const metadata: Metadata = {
   title: 'Neonatal Resuscitation Program (NRP 8th Ed.) Workstation | Mediverse',
-  description:
-    'Pediatrics & neonatology delivery room resuscitation simulator: NRP 8th Edition step-by-step algorithm, interactive APGAR score calculator, pre-ductal target SpO2 nomogram, MR. SOPA ventilation troubleshooting, weight-based epinephrine dosing, and Sarnat HIE hypothermia criteria.',
+  description: 'Pediatrics & neonatology delivery room resuscitation simulator: NRP 8th Edition step-by-step algorithm, interactive APGAR score calculator, pre-ductal target SpO2 nomogram, MR. SOPA ventilation troubleshooting, weight-based epinephrine dosing, and Sarnat HIE hypothermia criteria.',
+  openGraph: {
+    title: 'Neonatal Resuscitation Program (NRP 8th Ed.) Workstation | Mediverse',
+    description: 'Pediatrics & neonatology delivery room resuscitation simulator: NRP 8th Edition step-by-step algorithm, interactive APGAR score calculator, pre-ductal target SpO2 nomogram, MR. SOPA ventilation troubleshooting, weight-based epinephrine dosing, and Sarnat HIE hypothermia criteria.',
+    url: 'https://mediverse.app/simulators/neonatal-resuscitation-nrp',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Neonatal Resuscitation Program (NRP 8th Ed.) Workstation | Mediverse',
+    description: 'Pediatrics & neonatology delivery room resuscitation simulator: NRP 8th Edition step-by-step algorithm, interactive APGAR score calculator, pre-ductal target SpO2 nomogram, MR. SOPA ventilation troubleshooting, weight-based epinephrine dosing, and Sarnat HIE hypothermia criteria.',
+  },
 };
 
 

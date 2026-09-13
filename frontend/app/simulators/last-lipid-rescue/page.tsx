@@ -3,8 +3,19 @@ import LastLipidRescueSimulator from '@/components/simulators/LastLipidRescueSim
 
 export const metadata: Metadata = {
   title: 'Local Anesthetic Systemic Toxicity (LAST) & 20% Lipid Rescue Workstation | Mediverse',
-  description:
-    'Interactive ASRA resuscitation solver for Local Anesthetic Systemic Toxicity (LAST). Simulate Bupivacaine cardiotoxicity, QRS widening, 20% Lipid Emulsion bolus and infusion, reduced-dose epinephrine, and ECMO alerts.',
+  description: 'Interactive ASRA resuscitation solver for Local Anesthetic Systemic Toxicity (LAST). Simulate Bupivacaine cardiotoxicity, QRS widening, 20% Lipid Emulsion bolus and infusion, reduced-dose epinephrine, and ECMO alerts.',
+  openGraph: {
+    title: 'Local Anesthetic Systemic Toxicity (LAST) & 20% Lipid Rescue Workstation | Mediverse',
+    description: 'Interactive ASRA resuscitation solver for Local Anesthetic Systemic Toxicity (LAST). Simulate Bupivacaine cardiotoxicity, QRS widening, 20% Lipid Emulsion bolus and infusion, reduced-dose epinephrine, and ECMO alerts.',
+    url: 'https://mediverse.app/simulators/last-lipid-rescue',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Local Anesthetic Systemic Toxicity (LAST) & 20% Lipid Rescue Workstation | Mediverse',
+    description: 'Interactive ASRA resuscitation solver for Local Anesthetic Systemic Toxicity (LAST). Simulate Bupivacaine cardiotoxicity, QRS widening, 20% Lipid Emulsion bolus and infusion, reduced-dose epinephrine, and ECMO alerts.',
+  },
 };
 
 

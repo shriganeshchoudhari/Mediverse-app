@@ -6,8 +6,19 @@ import CardiogenicShockSimulator from '../../../components/simulators/Cardiogeni
 
 export const metadata: Metadata = {
   title: 'Cardiogenic Shock & MCS Escalation (SCAI Stages A-E, CPO, PAPi) | Mediverse Simulators',
-  description:
-    'Biophysical critical care cardiology simulation of SCAI Shock Classification (Stages A to E), invasive Swan-Ganz indices (Cardiac Power Output [CPO], PAPi, PVR, SVR), biventricular failure, and device escalation (IABP, Impella CP/5.5, VA-ECMO, ECPELLA).',
+  description: 'Biophysical critical care cardiology simulation of SCAI Shock Classification (Stages A to E), invasive Swan-Ganz indices (Cardiac Power Output [CPO], PAPi, PVR, SVR), biventricular failure, and device escalation (IABP, Impella CP/5.5, VA-ECMO, ECPELLA).',
+  openGraph: {
+    title: 'Cardiogenic Shock & MCS Escalation (SCAI Stages A-E, CPO, PAPi) | Mediverse Simulators',
+    description: 'Biophysical critical care cardiology simulation of SCAI Shock Classification (Stages A to E), invasive Swan-Ganz indices (Cardiac Power Output [CPO], PAPi, PVR, SVR), biventricular failure, and device escalation (IABP, Impella CP/5.5, VA-ECMO, ECPELLA).',
+    url: 'https://mediverse.app/simulators/cardiogenic-shock-mcs-escalation',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cardiogenic Shock & MCS Escalation (SCAI Stages A-E, CPO, PAPi) | Mediverse Simulators',
+    description: 'Biophysical critical care cardiology simulation of SCAI Shock Classification (Stages A to E), invasive Swan-Ganz indices (Cardiac Power Output [CPO], PAPi, PVR, SVR), biventricular failure, and device escalation (IABP, Impella CP/5.5, VA-ECMO, ECPELLA).',
+  },
 };
 
 

@@ -338,7 +338,7 @@ export default function SevereBurnResuscitationSimulator() {
                   <span>Patient Weight (kg)</span>
                   <span className="font-bold text-white">{params.weightKg} kg</span>
                 </div>
-                <input
+                <input aria-label="Patient Weight (kg)"
                   type="range"
                   min="40"
                   max="140"
@@ -356,7 +356,7 @@ export default function SevereBurnResuscitationSimulator() {
                     {params.tbsaPercentage}% TBSA
                   </span>
                 </div>
-                <input
+                <input aria-label="Total Body Surface Area (TBSA % - 2nd/3rd degree only)"
                   type="range"
                   min="10"
                   max="90"
@@ -386,7 +386,7 @@ export default function SevereBurnResuscitationSimulator() {
                   <span>Hours Elapsed Since Burn Injury (Clock starts at injury time)</span>
                   <span className="font-bold text-white">{params.hoursSinceBurnInjury} hrs</span>
                 </div>
-                <input
+                <input aria-label="Hours Since Burn Injury"
                   type="range"
                   min="0"
                   max="24"
@@ -437,7 +437,7 @@ export default function SevereBurnResuscitationSimulator() {
                   <span>Cumulative Crystalloid Infused (mL)</span>
                   <span className="font-bold text-cyan-400">{params.cumulativeCrystalloidInfusedMl} mL</span>
                 </div>
-                <input
+                <input aria-label="Cumulative Crystalloid Infused (mL)"
                   type="range"
                   min="1000"
                   max="30000"
@@ -455,7 +455,7 @@ export default function SevereBurnResuscitationSimulator() {
                     {params.intraAbdominalPressureMmHg} mmHg
                   </span>
                 </div>
-                <input
+                <input aria-label="Intra-abdominal Bladder Pressure (mmHg)"
                   type="range"
                   min="5"
                   max="35"
@@ -511,7 +511,7 @@ export default function SevereBurnResuscitationSimulator() {
                   <span>Current Hourly Urine Output (mL/hr)</span>
                   <span className="font-bold text-emerald-400">{params.hourlyUrineOutputMl} mL/hr</span>
                 </div>
-                <input
+                <input aria-label="Current Hourly Urine Output (mL/hr)"
                   type="range"
                   min="0"
                   max="160"
@@ -527,7 +527,7 @@ export default function SevereBurnResuscitationSimulator() {
                   <span>Current IV Infusion Rate (mL/hr)</span>
                   <span className="font-bold text-white">{params.currentIvRateMlPerHour} mL/hr</span>
                 </div>
-                <input
+                <input aria-label="Current IV Infusion Rate (mL/hr)"
                   type="range"
                   min="50"
                   max="2000"
@@ -585,7 +585,7 @@ export default function SevereBurnResuscitationSimulator() {
                     {params.coHbPercent}%
                   </span>
                 </div>
-                <input
+                <input aria-label="Carboxyhemoglobin (COHb %)"
                   type="range"
                   min="0"
                   max="50"

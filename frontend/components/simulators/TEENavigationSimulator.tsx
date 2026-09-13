@@ -241,7 +241,7 @@ Transesophageal Echocardiography (TEE) Case Interrogation:
                   </button>
                 ))}
               </div>
-              <input
+              <input aria-label="Depth Cm"
                 type="range"
                 min={20}
                 max={50}
@@ -281,7 +281,7 @@ Transesophageal Echocardiography (TEE) Case Interrogation:
                 ))}
               </div>
 
-              <input
+              <input aria-label="Omniplane Angle Deg"
                 type="range"
                 min={0}
                 max={180}
@@ -302,7 +302,7 @@ Transesophageal Echocardiography (TEE) Case Interrogation:
                   {probeRotationDeg > 0 ? `+${probeRotationDeg}° CW` : probeRotationDeg < 0 ? `${probeRotationDeg}° CCW` : '0° Neutral'}
                 </span>
               </div>
-              <input
+              <input aria-label="Probe Rotation Deg"
                 type="range"
                 min={-90}
                 max={90}
@@ -328,7 +328,7 @@ Transesophageal Echocardiography (TEE) Case Interrogation:
                   {tipDeflectionDeg > 0 ? `+${tipDeflectionDeg}° Anteflex` : tipDeflectionDeg < 0 ? `${tipDeflectionDeg}° Retroflex` : '0° Neutral'}
                 </span>
               </div>
-              <input
+              <input aria-label="Tip Deflection Deg"
                 type="range"
                 min={-30}
                 max={30}
@@ -640,7 +640,7 @@ Transesophageal Echocardiography (TEE) Case Interrogation:
                   <span className="text-slate-400">AV Peak Velocity (Vmax)</span>
                   <span className="font-mono text-cyan-400 font-bold">{measurements.avPeakVelocityMs} m/s</span>
                 </div>
-                <input
+                <input aria-label="AV Peak Velocity (Vmax)"
                   type="range"
                   min={1.0}
                   max={5.5}
@@ -657,7 +657,7 @@ Transesophageal Echocardiography (TEE) Case Interrogation:
                   <span className="text-slate-400">LVOT VTI</span>
                   <span className="font-mono text-cyan-400 font-bold">{measurements.lvotVtiCm} cm</span>
                 </div>
-                <input
+                <input aria-label="LVOT VTI"
                   type="range"
                   min={10}
                   max={30}
@@ -674,7 +674,7 @@ Transesophageal Echocardiography (TEE) Case Interrogation:
                   <span className="text-slate-400">Aortic Valve VTI</span>
                   <span className="font-mono text-cyan-400 font-bold">{measurements.avVtiCm} cm</span>
                 </div>
-                <input
+                <input aria-label="Aortic Valve VTI"
                   type="range"
                   min={15}
                   max={90}
@@ -691,7 +691,7 @@ Transesophageal Echocardiography (TEE) Case Interrogation:
                   <span className="text-slate-400">TR Peak Jet Velocity</span>
                   <span className="font-mono text-cyan-400 font-bold">{measurements.trPeakVelocityMs} m/s</span>
                 </div>
-                <input
+                <input aria-label="TR Peak Jet Velocity"
                   type="range"
                   min={1.5}
                   max={4.8}

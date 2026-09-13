@@ -4,8 +4,19 @@ import BurnsResuscitationSimulator from '@/components/simulators/BurnsResuscitat
 
 export const metadata: Metadata = {
   title: 'Emergency Burns Resuscitation & Fluid Shift Workstation | Mediverse',
-  description:
-    'Emergency burn care and critical care fluid resuscitation simulator: Wallace Rule of Nines, Lund-Browder pediatric age adjustments, Parkland and ABA Consensus formulas, hourly urine output (UOP) titration, carboxyhemoglobin kinetics, and Ivy index fluid creep surveillance.',
+  description: 'Emergency burn care and critical care fluid resuscitation simulator: Wallace Rule of Nines, Lund-Browder pediatric age adjustments, Parkland and ABA Consensus formulas, hourly urine output (UOP) titration, carboxyhemoglobin kinetics, and Ivy index fluid creep surveillance.',
+  openGraph: {
+    title: 'Emergency Burns Resuscitation & Fluid Shift Workstation | Mediverse',
+    description: 'Emergency burn care and critical care fluid resuscitation simulator: Wallace Rule of Nines, Lund-Browder pediatric age adjustments, Parkland and ABA Consensus formulas, hourly urine output (UOP) titration, carboxyhemoglobin kinetics, and Ivy index fluid creep surveillance.',
+    url: 'https://mediverse.app/simulators/burns-resuscitation',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Emergency Burns Resuscitation & Fluid Shift Workstation | Mediverse',
+    description: 'Emergency burn care and critical care fluid resuscitation simulator: Wallace Rule of Nines, Lund-Browder pediatric age adjustments, Parkland and ABA Consensus formulas, hourly urine output (UOP) titration, carboxyhemoglobin kinetics, and Ivy index fluid creep surveillance.',
+  },
 };
 
 

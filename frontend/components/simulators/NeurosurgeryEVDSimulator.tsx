@@ -183,7 +183,7 @@ export default function NeurosurgeryEVDSimulator() {
               <span className="text-slate-400">Entry from Nasion:</span>
               <span className="font-bold text-cyan-300">{params.trajectory.burrHoleFromNasionCm} cm (Target: 11 cm)</span>
             </div>
-            <input
+            <input aria-label="Entry from Nasion"
               type="range"
               min="9.0"
               max="13.0"
@@ -204,7 +204,7 @@ export default function NeurosurgeryEVDSimulator() {
               <span className="text-slate-400">Entry from Midline:</span>
               <span className="font-bold text-cyan-300">{params.trajectory.burrHoleFromMidlineCm} cm (Target: 3 cm)</span>
             </div>
-            <input
+            <input aria-label="Entry from Midline"
               type="range"
               min="1.5"
               max="4.5"
@@ -225,7 +225,7 @@ export default function NeurosurgeryEVDSimulator() {
               <span className="text-slate-400">Coronal Angle (Medial Canthus):</span>
               <span className="font-bold text-cyan-300">{params.trajectory.coronalAngleDeg}&deg; (Perpendicular 90&deg;)</span>
             </div>
-            <input
+            <input aria-label="Coronal Angle (Medial Canthus)"
               type="range"
               min="70"
               max="110"
@@ -245,7 +245,7 @@ export default function NeurosurgeryEVDSimulator() {
               <span className="text-slate-400">Catheter Insertion Depth:</span>
               <span className="font-bold text-cyan-300">{params.trajectory.catheterDepthCm} cm (Target: 5.5–6.5 cm)</span>
             </div>
-            <input
+            <input aria-label="Catheter Insertion Depth"
               type="range"
               min="4.0"
               max="8.0"
@@ -401,7 +401,7 @@ export default function NeurosurgeryEVDSimulator() {
               <span className="text-slate-400">Burette Chamber Height:</span>
               <span className="font-bold text-cyan-300">{params.chamberHeightCmH2O} cmH2O</span>
             </div>
-            <input
+            <input aria-label="Burette Chamber Height"
               type="range"
               min="0"
               max="25"
@@ -421,7 +421,7 @@ export default function NeurosurgeryEVDSimulator() {
               <span className="text-slate-400">Catheter Patency:</span>
               <span className="font-bold text-cyan-300">{params.catheterPatencyPercent}%</span>
             </div>
-            <input
+            <input aria-label="Catheter Patency"
               type="range"
               min="0"
               max="100"

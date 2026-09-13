@@ -4,8 +4,19 @@ import PreeclampsiaMgso4Simulator from '@/components/simulators/PreeclampsiaMgso
 
 export const metadata: Metadata = {
   title: 'Preeclampsia with Severe Features, Eclampsia & MgSO4 Workstation | Mediverse',
-  description:
-    'Obstetrics & Maternal-Fetal Medicine clinical workstation: ACOG diagnostic classification, Zuspan/Pritchard Magnesium Sulfate kinetics, toxicity monitoring, 10% Calcium Gluconate antidote, and emergent antihypertensives.',
+  description: 'Obstetrics & Maternal-Fetal Medicine clinical workstation: ACOG diagnostic classification, Zuspan/Pritchard Magnesium Sulfate kinetics, toxicity monitoring, 10% Calcium Gluconate antidote, and emergent antihypertensives.',
+  openGraph: {
+    title: 'Preeclampsia with Severe Features, Eclampsia & MgSO4 Workstation | Mediverse',
+    description: 'Obstetrics & Maternal-Fetal Medicine clinical workstation: ACOG diagnostic classification, Zuspan/Pritchard Magnesium Sulfate kinetics, toxicity monitoring, 10% Calcium Gluconate antidote, and emergent antihypertensives.',
+    url: 'https://mediverse.app/simulators/preeclampsia-eclampsia-mgso4',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Preeclampsia with Severe Features, Eclampsia & MgSO4 Workstation | Mediverse',
+    description: 'Obstetrics & Maternal-Fetal Medicine clinical workstation: ACOG diagnostic classification, Zuspan/Pritchard Magnesium Sulfate kinetics, toxicity monitoring, 10% Calcium Gluconate antidote, and emergent antihypertensives.',
+  },
 };
 
 

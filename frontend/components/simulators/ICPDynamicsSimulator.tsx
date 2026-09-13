@@ -419,7 +419,7 @@ Please explain the Monro-Kellie biophysics, cerebral autoregulation curve, and e
               <span>Intracranial Mass Lesion Volume</span>
               <span className="font-mono text-rose-400 font-bold">{massVolume} mL</span>
             </div>
-            <input
+            <input aria-label="Intracranial Mass Lesion Volume"
               type="range"
               min={0}
               max={120}
@@ -439,7 +439,7 @@ Please explain the Monro-Kellie biophysics, cerebral autoregulation curve, and e
               <span>Mean Arterial Pressure (MAP)</span>
               <span className="font-mono text-sky-400 font-bold">{map} mmHg</span>
             </div>
-            <input
+            <input aria-label="Mean Arterial Pressure (MAP)"
               type="range"
               min={50}
               max={160}
@@ -456,7 +456,7 @@ Please explain the Monro-Kellie biophysics, cerebral autoregulation curve, and e
               <span>Arterial PaCO2</span>
               <span className="font-mono text-emerald-400 font-bold">{paCO2} mmHg</span>
             </div>
-            <input
+            <input aria-label="Arterial PaCO2"
               type="range"
               min={24}
               max={55}

@@ -4,8 +4,19 @@ import PeritonealDialysisSimulator from '@/components/simulators/PeritonealDialy
 
 export const metadata: Metadata = {
   title: 'Peritoneal Dialysis (PD), Adequacy & PET Membrane Workstation | Mediverse',
-  description:
-    'Nephrology clinical workstation: Twardowski 4-hour Peritoneal Equilibration Test (PET), Three-Pore Model aquaporin-1 sodium sieving, Weekly Kt/V adequacy, Ultrafiltration Failure (UFF Type I-IV), and 2022 ISPD Peritonitis guidelines.',
+  description: 'Nephrology clinical workstation: Twardowski 4-hour Peritoneal Equilibration Test (PET), Three-Pore Model aquaporin-1 sodium sieving, Weekly Kt/V adequacy, Ultrafiltration Failure (UFF Type I-IV), and 2022 ISPD Peritonitis guidelines.',
+  openGraph: {
+    title: 'Peritoneal Dialysis (PD), Adequacy & PET Membrane Workstation | Mediverse',
+    description: 'Nephrology clinical workstation: Twardowski 4-hour Peritoneal Equilibration Test (PET), Three-Pore Model aquaporin-1 sodium sieving, Weekly Kt/V adequacy, Ultrafiltration Failure (UFF Type I-IV), and 2022 ISPD Peritonitis guidelines.',
+    url: 'https://mediverse.app/simulators/peritoneal-dialysis-pet',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Peritoneal Dialysis (PD), Adequacy & PET Membrane Workstation | Mediverse',
+    description: 'Nephrology clinical workstation: Twardowski 4-hour Peritoneal Equilibration Test (PET), Three-Pore Model aquaporin-1 sodium sieving, Weekly Kt/V adequacy, Ultrafiltration Failure (UFF Type I-IV), and 2022 ISPD Peritonitis guidelines.',
+  },
 };
 
 

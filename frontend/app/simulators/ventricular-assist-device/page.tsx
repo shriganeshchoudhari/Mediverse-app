@@ -15,8 +15,19 @@ import VentricularAssistSimulator from '@/components/simulators/VentricularAssis
 
 export const metadata: Metadata = {
   title: 'Mechanical Circulatory Support & Percutaneous VAD Workstation | Mediverse',
-  description:
-    'High-fidelity simulation of microaxial transvalvular blood pumps (Impella CP, 5.5, RP), TandemHeart, and ECPELLA synergy. Real-time PV-loop unloading dynamics, P-level kinetics, purge fluidics, and suction troubleshooting.',
+  description: 'High-fidelity simulation of microaxial transvalvular blood pumps (Impella CP, 5.5, RP), TandemHeart, and ECPELLA synergy. Real-time PV-loop unloading dynamics, P-level kinetics, purge fluidics, and suction troubleshooting.',
+  openGraph: {
+    title: 'Mechanical Circulatory Support & Percutaneous VAD Workstation | Mediverse',
+    description: 'High-fidelity simulation of microaxial transvalvular blood pumps (Impella CP, 5.5, RP), TandemHeart, and ECPELLA synergy. Real-time PV-loop unloading dynamics, P-level kinetics, purge fluidics, and suction troubleshooting.',
+    url: 'https://mediverse.app/simulators/ventricular-assist-device',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Mechanical Circulatory Support & Percutaneous VAD Workstation | Mediverse',
+    description: 'High-fidelity simulation of microaxial transvalvular blood pumps (Impella CP, 5.5, RP), TandemHeart, and ECPELLA synergy. Real-time PV-loop unloading dynamics, P-level kinetics, purge fluidics, and suction troubleshooting.',
+  },
 };
 
 

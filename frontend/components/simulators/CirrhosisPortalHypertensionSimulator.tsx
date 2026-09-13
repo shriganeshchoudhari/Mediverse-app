@@ -322,7 +322,7 @@ export default function CirrhosisPortalHypertensionSimulator() {
                   <span className="text-slate-300 font-medium">Total Bilirubin</span>
                   <span className="font-mono text-amber-300 font-bold">{params.biomarkers.totalBilirubinMgDl} mg/dL</span>
                 </div>
-                <input
+                <input aria-label="Total Bilirubin"
                   type="range"
                   min="0.2"
                   max="30.0"
@@ -344,7 +344,7 @@ export default function CirrhosisPortalHypertensionSimulator() {
                   <span className="text-slate-300 font-medium">Serum Creatinine</span>
                   <span className="font-mono text-rose-300 font-bold">{params.biomarkers.serumCreatinineMgDl} mg/dL</span>
                 </div>
-                <input
+                <input aria-label="Serum Creatinine"
                   type="range"
                   min="0.5"
                   max="6.0"
@@ -382,7 +382,7 @@ export default function CirrhosisPortalHypertensionSimulator() {
                   <span className="text-slate-300 font-medium">INR (Prothrombin Time)</span>
                   <span className="font-mono text-indigo-300 font-bold">{params.biomarkers.inr}</span>
                 </div>
-                <input
+                <input aria-label="INR (Prothrombin Time)"
                   type="range"
                   min="0.9"
                   max="4.0"
@@ -404,7 +404,7 @@ export default function CirrhosisPortalHypertensionSimulator() {
                   <span className="text-slate-300 font-medium">Serum Sodium</span>
                   <span className="font-mono text-cyan-300 font-bold">{params.biomarkers.serumSodiumMeqL} mEq/L</span>
                 </div>
-                <input
+                <input aria-label="Serum Sodium"
                   type="range"
                   min="115"
                   max="145"
@@ -427,7 +427,7 @@ export default function CirrhosisPortalHypertensionSimulator() {
                   <span className="text-slate-300 font-medium">Serum Albumin</span>
                   <span className="font-mono text-emerald-300 font-bold">{params.biomarkers.serumAlbuminGDl} g/dL</span>
                 </div>
-                <input
+                <input aria-label="Serum Albumin"
                   type="range"
                   min="1.5"
                   max="5.0"
@@ -546,7 +546,7 @@ export default function CirrhosisPortalHypertensionSimulator() {
                   <span className="text-slate-300">Wedged Hepatic Venous Pressure (WHVP)</span>
                   <span className="font-mono text-rose-300 font-bold">{params.hemodynamics.wedgedHepaticVenousPressureMmhg} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Wedged Hepatic Venous Pressure (WHVP)"
                   type="range"
                   min="5"
                   max="35"
@@ -567,7 +567,7 @@ export default function CirrhosisPortalHypertensionSimulator() {
                   <span className="text-slate-300">Free Hepatic Venous Pressure (FHVP)</span>
                   <span className="font-mono text-sky-300 font-bold">{params.hemodynamics.freeHepaticVenousPressureMmhg} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Free Hepatic Venous Pressure (FHVP)"
                   type="range"
                   min="2"
                   max="12"
@@ -702,7 +702,7 @@ export default function CirrhosisPortalHypertensionSimulator() {
                   <span className="text-slate-300">Ascitic Fluid Albumin</span>
                   <span className="font-mono text-sky-300 font-bold">{params.paracentesis.asciticAlbuminGDl} g/dL</span>
                 </div>
-                <input
+                <input aria-label="Ascitic Fluid Albumin"
                   type="range"
                   min="0.2"
                   max="3.5"
@@ -726,7 +726,7 @@ export default function CirrhosisPortalHypertensionSimulator() {
                     {params.paracentesis.asciticAbsolutePmnCountPerMm3} /mm&sup3;
                   </span>
                 </div>
-                <input
+                <input aria-label="Ascitic Absolute Pmn Count Per Mm3"
                   type="range"
                   min="10"
                   max="1200"

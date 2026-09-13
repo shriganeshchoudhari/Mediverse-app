@@ -300,7 +300,7 @@ export default function ReboaSimulator() {
                   <span className="text-slate-300 font-medium">Balloon Inflation Volume</span>
                   <span className="text-rose-400 font-bold">{inflationVol.toFixed(1)} mL</span>
                 </div>
-                <input
+                <input aria-label="Balloon Inflation Volume"
                   type="range"
                   min="0"
                   max="12"
@@ -329,7 +329,7 @@ export default function ReboaSimulator() {
                     {durationMin} minutes (Ceiling: {ischAudit.maxSafeDurationMinutes} min)
                   </span>
                 </div>
-                <input
+                <input aria-label="Duration Min"
                   type="range"
                   min="0"
                   max="90"
@@ -363,7 +363,7 @@ export default function ReboaSimulator() {
                     {radialSbp} mmHg (MAP {hemoAudit.proximalMap})
                   </span>
                 </div>
-                <input
+                <input aria-label="Radial / Proximal SBP"
                   type="range"
                   min="50"
                   max="200"
@@ -378,7 +378,7 @@ export default function ReboaSimulator() {
                   <span className="text-slate-300 font-medium">Radial / Proximal DBP</span>
                   <span className="text-slate-200 font-semibold">{radialDbp} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Radial / Proximal DBP"
                   type="range"
                   min="30"
                   max="120"
@@ -401,7 +401,7 @@ export default function ReboaSimulator() {
                     {femoralMap} mmHg (Target pREBOA: 35-45)
                   </span>
                 </div>
-                <input
+                <input aria-label="Femoral Map"
                   type="range"
                   min="10"
                   max="80"
@@ -427,7 +427,7 @@ export default function ReboaSimulator() {
                     <span className="text-slate-300 font-medium">PRBC Transfused</span>
                     <span className="text-rose-400 font-bold">{unitsPrbc} units</span>
                   </div>
-                  <input
+                  <input aria-label="PRBC Transfused"
                     type="range"
                     min="0"
                     max="18"
@@ -443,7 +443,7 @@ export default function ReboaSimulator() {
                       {lactate.toFixed(1)} mmol/L
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Arterial Lactate"
                     type="range"
                     min="1.0"
                     max="16.0"
@@ -463,7 +463,7 @@ export default function ReboaSimulator() {
                       {potassium.toFixed(1)} mEq/L
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Serum K+"
                     type="range"
                     min="3.0"
                     max="7.5"
@@ -480,7 +480,7 @@ export default function ReboaSimulator() {
                       {arterialPh.toFixed(2)}
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Arterial pH"
                     type="range"
                     min="6.90"
                     max="7.45"

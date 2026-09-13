@@ -486,7 +486,7 @@ export default function TcaToxicityBicarbonateSimulator() {
                   <span>QRS Duration:</span>
                   <span className="text-rose-400 font-bold">{patientInput.qrsDurationMs} ms</span>
                 </div>
-                <input
+                <input aria-label="QRS Duration"
                   type="range"
                   min="70"
                   max="240"
@@ -508,7 +508,7 @@ export default function TcaToxicityBicarbonateSimulator() {
                   <span>Lead aVR Terminal R Wave Amplitude:</span>
                   <span className="text-amber-400 font-bold">{patientInput.terminalRWaveAvrMm.toFixed(1)} mm</span>
                 </div>
-                <input
+                <input aria-label="Lead aVR Terminal R Wave Amplitude"
                   type="range"
                   min="0.5"
                   max="8.0"
@@ -529,7 +529,7 @@ export default function TcaToxicityBicarbonateSimulator() {
                   <span>Lead aVR R/S Ratio:</span>
                   <span className="text-cyan-400 font-bold">{patientInput.rToSRatioAvr.toFixed(2)}</span>
                 </div>
-                <input
+                <input aria-label="Lead aVR R/S Ratio"
                   type="range"
                   min="0.2"
                   max="2.0"
@@ -550,7 +550,7 @@ export default function TcaToxicityBicarbonateSimulator() {
                   <span>QTc Interval:</span>
                   <span className="text-purple-400 font-bold">{patientInput.qtcIntervalMs} ms</span>
                 </div>
-                <input
+                <input aria-label="QTc Interval"
                   type="range"
                   min="380"
                   max="620"
@@ -645,7 +645,7 @@ export default function TcaToxicityBicarbonateSimulator() {
                     <span>Arterial pH (Blood Gas):</span>
                     <span className="text-cyan-400 font-bold">{patientInput.arterialPh.toFixed(2)}</span>
                   </div>
-                  <input
+                  <input aria-label="Arterial pH (Blood Gas)"
                     type="range"
                     min="7.05"
                     max="7.65"
@@ -667,7 +667,7 @@ export default function TcaToxicityBicarbonateSimulator() {
                     <span>Serum Potassium (K+):</span>
                     <span className="text-purple-400 font-bold">{patientInput.serumPotassiumMeqL.toFixed(1)} mEq/L</span>
                   </div>
-                  <input
+                  <input aria-label="Serum Potassium (K+)"
                     type="range"
                     min="2.5"
                     max="5.5"

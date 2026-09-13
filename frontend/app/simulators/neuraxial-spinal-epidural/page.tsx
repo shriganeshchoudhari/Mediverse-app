@@ -4,8 +4,19 @@ import NeuraxialAnesthesiaSimulator from '@/components/simulators/NeuraxialAnest
 
 export const metadata: Metadata = {
   title: 'Neuraxial Anesthesia, Spinal/Epidural Level & LAST Rescue Workstation | Mediverse',
-  description:
-    'Anesthesiology & Obstetric clinical workstation: dermatome sensory level mapping, Bromage motor score, high/total spinal Bezold-Jarisch resuscitation, epidural test dose, and ASRA 20% Lipid Emulsion rescue.',
+  description: 'Anesthesiology & Obstetric clinical workstation: dermatome sensory level mapping, Bromage motor score, high/total spinal Bezold-Jarisch resuscitation, epidural test dose, and ASRA 20% Lipid Emulsion rescue.',
+  openGraph: {
+    title: 'Neuraxial Anesthesia, Spinal/Epidural Level & LAST Rescue Workstation | Mediverse',
+    description: 'Anesthesiology & Obstetric clinical workstation: dermatome sensory level mapping, Bromage motor score, high/total spinal Bezold-Jarisch resuscitation, epidural test dose, and ASRA 20% Lipid Emulsion rescue.',
+    url: 'https://mediverse.app/simulators/neuraxial-spinal-epidural',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Neuraxial Anesthesia, Spinal/Epidural Level & LAST Rescue Workstation | Mediverse',
+    description: 'Anesthesiology & Obstetric clinical workstation: dermatome sensory level mapping, Bromage motor score, high/total spinal Bezold-Jarisch resuscitation, epidural test dose, and ASRA 20% Lipid Emulsion rescue.',
+  },
 };
 
 

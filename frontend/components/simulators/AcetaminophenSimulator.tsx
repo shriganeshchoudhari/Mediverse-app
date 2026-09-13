@@ -229,7 +229,7 @@ export default function AcetaminophenSimulator() {
                     {hours} hours {hours < 4 ? '(Too early for nomogram)' : hours > 24 ? '(Beyond 24h nomogram)' : '(Nomogram valid)'}
                   </span>
                 </div>
-                <input
+                <input aria-label="Hours"
                   type="range"
                   min="1"
                   max="36"
@@ -248,7 +248,7 @@ export default function AcetaminophenSimulator() {
                     {apapLevel} mcg/mL ({(apapLevel * 6.62).toFixed(0)} µmol/L)
                   </span>
                 </div>
-                <input
+                <input aria-label="Serum Acetaminophen"
                   type="range"
                   min="0"
                   max="500"
@@ -267,7 +267,7 @@ export default function AcetaminophenSimulator() {
                     {weightKg} kg {weightKg > 100 ? '(Dosing capped at 100 kg)' : ''}
                   </span>
                 </div>
-                <input
+                <input aria-label="Patient Weight"
                   type="range"
                   min="40"
                   max="130"
@@ -300,7 +300,7 @@ export default function AcetaminophenSimulator() {
                       {alt} IU/L
                     </span>
                   </div>
-                  <input
+                  <input aria-label="ALT"
                     type="range"
                     min="20"
                     max="8000"
@@ -318,7 +318,7 @@ export default function AcetaminophenSimulator() {
                       {ast} IU/L
                     </span>
                   </div>
-                  <input
+                  <input aria-label="AST"
                     type="range"
                     min="20"
                     max="8000"
@@ -339,7 +339,7 @@ export default function AcetaminophenSimulator() {
                       {inr.toFixed(1)} {inr > 6.5 ? '(King\'s > 6.5)' : ''}
                     </span>
                   </div>
-                  <input
+                  <input aria-label="INR"
                     type="range"
                     min="0.9"
                     max="10.0"
@@ -357,7 +357,7 @@ export default function AcetaminophenSimulator() {
                       {creatinine.toFixed(1)} mg/dL {creatinine > 3.4 ? '(King\'s > 3.4)' : ''}
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Creatinine"
                     type="range"
                     min="0.6"
                     max="6.0"
@@ -378,7 +378,7 @@ export default function AcetaminophenSimulator() {
                       {ph.toFixed(2)} {ph < 7.30 ? '(King\'s < 7.30)' : ''}
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Arterial pH"
                     type="range"
                     min="7.10"
                     max="7.46"
@@ -396,7 +396,7 @@ export default function AcetaminophenSimulator() {
                       {lactate.toFixed(1)} mmol/L
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Arterial Lactate"
                     type="range"
                     min="0.8"
                     max="8.0"
@@ -416,7 +416,7 @@ export default function AcetaminophenSimulator() {
                     Grade {encephalopathy} {encephalopathy === 0 ? '(Normal)' : encephalopathy === 1 ? '(Sleep inversion)' : encephalopathy === 2 ? '(Confusion/Asterixis)' : encephalopathy === 3 ? '(Stupor - King\'s)' : '(Coma - King\'s)'}
                   </span>
                 </div>
-                <input
+                <input aria-label="Encephalopathy"
                   type="range"
                   min="0"
                   max="4"
@@ -458,7 +458,7 @@ export default function AcetaminophenSimulator() {
                     <span>NAC Hours Completed:</span>
                     <span className="font-mono text-cyan-400 font-bold">{completedHours} / 21 hours</span>
                   </div>
-                  <input
+                  <input aria-label="NAC Hours Completed"
                     type="range"
                     min="0"
                     max="28"

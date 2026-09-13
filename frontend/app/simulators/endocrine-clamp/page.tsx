@@ -5,6 +5,18 @@ import EndocrineClampSimulator from '@/components/simulators/EndocrineClampSimul
 export const metadata: Metadata = {
   title: 'Endocrine Glucose Clamp & HOMA2 Precision Solver | Mediverse',
   description: 'Biophysical metabolic workstation: DeFronzo hyperinsulinemic-euglycemic clamp dynamics, whole-body glucose disposal (M value), HOMA2-IR, HOMA2-Beta, and DKA two-bag transition protocols.',
+  openGraph: {
+    title: 'Endocrine Glucose Clamp & HOMA2 Precision Solver | Mediverse',
+    description: 'Biophysical metabolic workstation: DeFronzo hyperinsulinemic-euglycemic clamp dynamics, whole-body glucose disposal (M value), HOMA2-IR, HOMA2-Beta, and DKA two-bag transition protocols.',
+    url: 'https://mediverse.app/simulators/endocrine-clamp',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Endocrine Glucose Clamp & HOMA2 Precision Solver | Mediverse',
+    description: 'Biophysical metabolic workstation: DeFronzo hyperinsulinemic-euglycemic clamp dynamics, whole-body glucose disposal (M value), HOMA2-IR, HOMA2-Beta, and DKA two-bag transition protocols.',
+  },
 };
 
 

@@ -579,7 +579,7 @@ export default function SpinalCordInjurySimulator() {
                           {params.vasopressorDoseMcgPerMin} mcg/min
                         </span>
                       </div>
-                      <input
+                      <input aria-label="Vasopressor Infusion Rate"
                         type="range"
                         min="1"
                         max="30"
@@ -968,7 +968,7 @@ export default function SpinalCordInjurySimulator() {
                     <span className="text-slate-400">Average Motor Strength Below Lesion:</span>
                     <span className="font-bold text-cyan-300">Grade {params.motorScoreAverageBelowLesion}/5</span>
                   </div>
-                  <input
+                  <input aria-label="Grade {params.motorScoreAverageBelowLesion}/5"
                     type="range"
                     min="0"
                     max="5"

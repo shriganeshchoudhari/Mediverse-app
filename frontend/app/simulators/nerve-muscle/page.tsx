@@ -5,6 +5,18 @@ import NerveMuscleSimulator from '@/components/simulators/NerveMuscleSimulator';
 export const metadata: Metadata = {
   title: 'Hodgkin-Huxley Nerve-Muscle Electrophysiology Chamber | Mediverse',
   description: 'Neurophysiology laboratory modeling Goldman-Hodgkin-Katz membrane potentials, action potential ion channel conductances, and skeletal muscle isometric twitch summation.',
+  openGraph: {
+    title: 'Hodgkin-Huxley Nerve-Muscle Electrophysiology Chamber | Mediverse',
+    description: 'Neurophysiology laboratory modeling Goldman-Hodgkin-Katz membrane potentials, action potential ion channel conductances, and skeletal muscle isometric twitch summation.',
+    url: 'https://mediverse.app/simulators/nerve-muscle',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hodgkin-Huxley Nerve-Muscle Electrophysiology Chamber | Mediverse',
+    description: 'Neurophysiology laboratory modeling Goldman-Hodgkin-Katz membrane potentials, action potential ion channel conductances, and skeletal muscle isometric twitch summation.',
+  },
 };
 
 export const dynamic = 'force-static';

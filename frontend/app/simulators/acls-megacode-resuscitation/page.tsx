@@ -15,8 +15,19 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "ACLS Megacode & Cardiac Arrest Resuscitation Simulator | Mediverse",
-  description:
-    "AHA 2020/2025 Advanced Cardiovascular Life Support (ACLS) megacode simulation: shockable (VF/pVT) and non-shockable (PEA/Asystole) algorithms, biphasic defibrillation, quantitative waveform capnography, and the 10 reversible causes (H's and T's).",
+  description: "AHA 2020/2025 Advanced Cardiovascular Life Support (ACLS) megacode simulation: shockable (VF/pVT) and non-shockable (PEA/Asystole) algorithms, biphasic defibrillation, quantitative waveform capnography, and the 10 reversible causes (H's and T's).",
+  openGraph: {
+    title: "ACLS Megacode & Cardiac Arrest Resuscitation Simulator | Mediverse",
+    description: "AHA 2020/2025 Advanced Cardiovascular Life Support (ACLS) megacode simulation: shockable (VF/pVT) and non-shockable (PEA/Asystole) algorithms, biphasic defibrillation, quantitative waveform capnography, and the 10 reversible causes (H's and T's).",
+    url: 'https://mediverse.app/simulators/acls-megacode-resuscitation',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "ACLS Megacode & Cardiac Arrest Resuscitation Simulator | Mediverse",
+    description: "AHA 2020/2025 Advanced Cardiovascular Life Support (ACLS) megacode simulation: shockable (VF/pVT) and non-shockable (PEA/Asystole) algorithms, biphasic defibrillation, quantitative waveform capnography, and the 10 reversible causes (H's and T's).",
+  },
 };
 
 

@@ -14,8 +14,19 @@ import { BronchoscopySimulator } from '@/components/simulators/BronchoscopySimul
 
 export const metadata: Metadata = {
   title: 'Flexible Bronchoscopy & EBUS Staging Workstation | Mediverse',
-  description:
-    'Comprehensive tracheobronchial 18-segment navigation, EBUS mediastinal lymph node staging, transbronchial needle aspiration (TBNA), and massive hemoptysis emergency protocol.',
+  description: 'Comprehensive tracheobronchial 18-segment navigation, EBUS mediastinal lymph node staging, transbronchial needle aspiration (TBNA), and massive hemoptysis emergency protocol.',
+  openGraph: {
+    title: 'Flexible Bronchoscopy & EBUS Staging Workstation | Mediverse',
+    description: 'Comprehensive tracheobronchial 18-segment navigation, EBUS mediastinal lymph node staging, transbronchial needle aspiration (TBNA), and massive hemoptysis emergency protocol.',
+    url: 'https://mediverse.app/simulators/bronchoscopy-navigation',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Flexible Bronchoscopy & EBUS Staging Workstation | Mediverse',
+    description: 'Comprehensive tracheobronchial 18-segment navigation, EBUS mediastinal lymph node staging, transbronchial needle aspiration (TBNA), and massive hemoptysis emergency protocol.',
+  },
 };
 
 

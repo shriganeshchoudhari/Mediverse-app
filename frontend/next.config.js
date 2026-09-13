@@ -16,6 +16,9 @@ const withPWA = require('@ducanh2912/next-pwa').default({
 
 
 const nextConfig = {
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'recharts'],
+  },
   async rewrites() {
     const backendUrl = process.env.BACKEND_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8085';
     return [
@@ -101,7 +104,7 @@ const nextConfig = {
           },
           {
             key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()'
+            value: 'camera=(), microphone=(self), geolocation=()'
           },
           {
             key: 'Content-Security-Policy',

@@ -306,7 +306,7 @@ export default function SubarachnoidHemorrhageSimulator() {
                     Day {dayPostBleed}
                   </span>
                 </div>
-                <input
+                <input aria-label="Bleed Day (Vasospasm Peak: Days 4 - 14)"
                   type="range"
                   min="1"
                   max="21"
@@ -409,7 +409,7 @@ export default function SubarachnoidHemorrhageSimulator() {
                     {mcaVelocity} cm/s
                   </span>
                 </div>
-                <input
+                <input aria-label="Mca Velocity"
                   type="range"
                   min="60"
                   max="280"
@@ -429,7 +429,7 @@ export default function SubarachnoidHemorrhageSimulator() {
                   <span className="text-slate-400">Extracranial ICA Mean Velocity (eICA)</span>
                   <span className="font-mono font-bold text-slate-200">{eicaVelocity} cm/s</span>
                 </div>
-                <input
+                <input aria-label="Extracranial ICA Mean Velocity (eICA)"
                   type="range"
                   min="20"
                   max="100"
@@ -464,7 +464,7 @@ export default function SubarachnoidHemorrhageSimulator() {
                   <span className="text-slate-400">Blood Pressure (MAP {map})</span>
                   <span className="font-mono font-bold text-slate-200">{sbp} / {dbp}</span>
                 </div>
-                <input
+                <input aria-label="Blood Pressure (MAP {map})"
                   type="range"
                   min="90"
                   max="200"
@@ -481,7 +481,7 @@ export default function SubarachnoidHemorrhageSimulator() {
                     {cvp} mmHg
                   </span>
                 </div>
-                <input
+                <input aria-label="CVP (Target 6-8 mmHg)"
                   type="range"
                   min="2"
                   max="14"
@@ -499,7 +499,7 @@ export default function SubarachnoidHemorrhageSimulator() {
                   {sodium} mEq/L
                 </span>
               </div>
-              <input
+              <input aria-label="Serum Sodium (CSW Threat &lt; 135 mEq/L)"
                 type="range"
                 min="120"
                 max="150"
@@ -621,7 +621,7 @@ export default function SubarachnoidHemorrhageSimulator() {
             <div className="grid grid-cols-3 gap-3 text-xs">
               <div>
                 <span className="text-slate-400 block mb-1">Pop-Off Height</span>
-                <input
+                <input aria-label="Pop-Off Height"
                   type="range"
                   min="0"
                   max="25"
@@ -632,7 +632,7 @@ export default function SubarachnoidHemorrhageSimulator() {
               </div>
               <div>
                 <span className="text-slate-400 block mb-1">CSF Rate (mL/hr)</span>
-                <input
+                <input aria-label="CSF Rate (mL/hr)"
                   type="range"
                   min="0"
                   max="45"
@@ -643,7 +643,7 @@ export default function SubarachnoidHemorrhageSimulator() {
               </div>
               <div>
                 <span className="text-slate-400 block mb-1">ICP (mmHg)</span>
-                <input
+                <input aria-label="ICP (mmHg)"
                   type="range"
                   min="5"
                   max="35"

@@ -3,8 +3,19 @@ import MassiveTransfusionDcrSimulator from '@/components/simulators/MassiveTrans
 
 export const metadata: Metadata = {
   title: 'Massive Transfusion Protocol (MTP) & Damage Control Resuscitation | Mediverse',
-  description:
-    'Interactive Damage Control Resuscitation (DCR), Massive Transfusion Protocol (MTP) cooler dispatch, ABC Score activation, Lethal Triad biophysics, permissive hypotension, and viscoelastic TEG hemostatic guidance.',
+  description: 'Interactive Damage Control Resuscitation (DCR), Massive Transfusion Protocol (MTP) cooler dispatch, ABC Score activation, Lethal Triad biophysics, permissive hypotension, and viscoelastic TEG hemostatic guidance.',
+  openGraph: {
+    title: 'Massive Transfusion Protocol (MTP) & Damage Control Resuscitation | Mediverse',
+    description: 'Interactive Damage Control Resuscitation (DCR), Massive Transfusion Protocol (MTP) cooler dispatch, ABC Score activation, Lethal Triad biophysics, permissive hypotension, and viscoelastic TEG hemostatic guidance.',
+    url: 'https://mediverse.app/simulators/massive-transfusion-dcr',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Massive Transfusion Protocol (MTP) & Damage Control Resuscitation | Mediverse',
+    description: 'Interactive Damage Control Resuscitation (DCR), Massive Transfusion Protocol (MTP) cooler dispatch, ABC Score activation, Lethal Triad biophysics, permissive hypotension, and viscoelastic TEG hemostatic guidance.',
+  },
 };
 
 

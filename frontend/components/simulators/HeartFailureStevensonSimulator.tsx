@@ -656,7 +656,7 @@ export default function HeartFailureStevensonSimulator() {
                   <span>Pulmonary Capillary Wedge Pressure (PCWP):</span>
                   <span className="font-bold text-cyan-400">{pcwpMmHg} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Pulmonary Capillary Wedge Pressure (PCWP)"
                   type="range"
                   min={6}
                   max={36}
@@ -749,7 +749,7 @@ export default function HeartFailureStevensonSimulator() {
                   <span>Cardiac Index (CI):</span>
                   <span className="font-bold text-rose-400">{cardiacIndexLMinM2.toFixed(1)} L/min/m²</span>
                 </div>
-                <input
+                <input aria-label="Cardiac Index (CI)"
                   type="range"
                   min={1.0}
                   max={4.0}
@@ -805,7 +805,7 @@ export default function HeartFailureStevensonSimulator() {
                   <span>Central Venous Pressure (CVP):</span>
                   <span className="font-bold text-cyan-400">{cvpMmHg} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Central Venous Pressure (CVP)"
                   type="range"
                   min={0}
                   max={25}

@@ -373,7 +373,7 @@ export default function SmartInfusionPumpSimulator() {
                     <span className="text-slate-400">Adjust Target Dose ({drugA.dosingUnits}):</span>
                     <span className="font-mono text-cyan-400 font-bold">{doseA}</span>
                   </div>
-                  <input
+                  <input aria-label="Adjust Target Dose ({drugA.dosingUnits})"
                     type="range"
                     min={drugA.hardLowerLimit}
                     max={drugA.hardUpperLimit * 1.3}
@@ -438,7 +438,7 @@ export default function SmartInfusionPumpSimulator() {
                     <span className="text-slate-300">Secondary Container Height Differential:</span>
                     <span className="font-mono text-amber-400 font-bold">{secondaryHeightCm} cm</span>
                   </div>
-                  <input
+                  <input aria-label="Secondary Container Height Differential"
                     type="range"
                     min={0}
                     max={45}

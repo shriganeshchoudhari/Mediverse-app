@@ -5,6 +5,18 @@ import NeurosurgeryEVDSimulator from '@/components/simulators/NeurosurgeryEVDSim
 export const metadata: Metadata = {
   title: 'Neurosurgery EVD & Kocher\'s Point Ventriculostomy | Mediverse',
   description: 'Neurosurgical ventriculostomy workstation: Kocher\'s point stereotactic trajectory, Foramen of Monro frontal horn cannulation, EVD graduated burette hydrodynamics, tragus zero leveling, slit ventricle prevention, and intrathecal thrombolysis.',
+  openGraph: {
+    title: 'Neurosurgery EVD & Kocher\'s Point Ventriculostomy | Mediverse',
+    description: 'Neurosurgical ventriculostomy workstation: Kocher\'s point stereotactic trajectory, Foramen of Monro frontal horn cannulation, EVD graduated burette hydrodynamics, tragus zero leveling, slit ventricle prevention, and intrathecal thrombolysis.',
+    url: 'https://mediverse.app/simulators/neurosurgery-evd',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Neurosurgery EVD & Kocher\'s Point Ventriculostomy | Mediverse',
+    description: 'Neurosurgical ventriculostomy workstation: Kocher\'s point stereotactic trajectory, Foramen of Monro frontal horn cannulation, EVD graduated burette hydrodynamics, tragus zero leveling, slit ventricle prevention, and intrathecal thrombolysis.',
+  },
 };
 
 

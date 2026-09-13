@@ -263,7 +263,7 @@ Flexible Bronchoscopy & Interventional Pulmonology Case Interrogation:
                 <span className="text-slate-400">Insertion Depth</span>
                 <span className="font-mono text-cyan-400 font-bold">{depthCm} cm</span>
               </div>
-              <input
+              <input aria-label="Insertion Depth"
                 type="range"
                 min={15}
                 max={45}
@@ -290,7 +290,7 @@ Flexible Bronchoscopy & Interventional Pulmonology Case Interrogation:
                   {tipDeflectionDeg > 0 ? `+${tipDeflectionDeg}° Up` : tipDeflectionDeg < 0 ? `${tipDeflectionDeg}° Down` : '0° Neutral'}
                 </span>
               </div>
-              <input
+              <input aria-label="Tip Deflection Deg"
                 type="range"
                 min={-130}
                 max={180}
@@ -309,7 +309,7 @@ Flexible Bronchoscopy & Interventional Pulmonology Case Interrogation:
                   {shaftRotationDeg > 0 ? `+${shaftRotationDeg}° Right` : shaftRotationDeg < 0 ? `${shaftRotationDeg}° Left` : '0° Neutral'}
                 </span>
               </div>
-              <input
+              <input aria-label="Shaft Torque (Left ↔ Right)"
                 type="range"
                 min={-90}
                 max={90}
@@ -375,7 +375,7 @@ Flexible Bronchoscopy & Interventional Pulmonology Case Interrogation:
                       <span className="text-slate-400">Balloon Saline Contact</span>
                       <span className="font-mono text-cyan-300">{ebusBalloonSalineMl} mL</span>
                     </div>
-                    <input
+                    <input aria-label="Balloon Saline Contact"
                       type="range"
                       min={0.0}
                       max={0.6}

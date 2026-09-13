@@ -5,6 +5,18 @@ import InfectiousDiseaseSimulator from '@/components/simulators/InfectiousDiseas
 export const metadata: Metadata = {
   title: 'Infectious Disease & Antibiogram Solver | Mediverse',
   description: 'Clinical microbiology and antimicrobial stewardship simulator: CLSI/EUCAST MIC breakpoints, PK/PD target attainment, MDRO resistance mechanisms (MRSA, VRE, ESBL, CRE), and Surviving Sepsis 1-hour bundle.',
+  openGraph: {
+    title: 'Infectious Disease & Antibiogram Solver | Mediverse',
+    description: 'Clinical microbiology and antimicrobial stewardship simulator: CLSI/EUCAST MIC breakpoints, PK/PD target attainment, MDRO resistance mechanisms (MRSA, VRE, ESBL, CRE), and Surviving Sepsis 1-hour bundle.',
+    url: 'https://mediverse.app/simulators/infectious-disease',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Infectious Disease & Antibiogram Solver | Mediverse',
+    description: 'Clinical microbiology and antimicrobial stewardship simulator: CLSI/EUCAST MIC breakpoints, PK/PD target attainment, MDRO resistance mechanisms (MRSA, VRE, ESBL, CRE), and Surviving Sepsis 1-hour bundle.',
+  },
 };
 
 

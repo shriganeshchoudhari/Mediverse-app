@@ -540,7 +540,7 @@ Please explain the anesthetic circuit physics, gas wash-in dynamics, and emergen
                 </span>
                 <span className="font-mono text-white">{mixerSettings.o2FlowLMin} L/min</span>
               </div>
-              <input
+              <input aria-label="Oxygen (O₂)"
                 type="range"
                 min={0.2}
                 max={10.0}
@@ -559,7 +559,7 @@ Please explain the anesthetic circuit physics, gas wash-in dynamics, and emergen
                 </span>
                 <span className="font-mono text-white">{mixerSettings.n2oFlowLMin} L/min</span>
               </div>
-              <input
+              <input aria-label="Nitrous Oxide (N₂O)"
                 type="range"
                 min={0.0}
                 max={10.0}
@@ -578,7 +578,7 @@ Please explain the anesthetic circuit physics, gas wash-in dynamics, and emergen
                 </span>
                 <span className="font-mono text-white">{mixerSettings.airFlowLMin} L/min</span>
               </div>
-              <input
+              <input aria-label="Medical Air"
                 type="range"
                 min={0.0}
                 max={10.0}
@@ -642,7 +642,7 @@ Please explain the anesthetic circuit physics, gas wash-in dynamics, and emergen
                   </span>
                   <span className="font-mono font-bold text-amber-300">{vaporizerDial}%</span>
                 </div>
-                <input
+                <input aria-label="Vaporizer Dial"
                   type="range"
                   min={0.0}
                   max={selectedAgent === 'desflurane' ? 18.0 : selectedAgent === 'sevoflurane' ? 8.0 : 5.0}

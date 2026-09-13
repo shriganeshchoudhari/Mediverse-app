@@ -420,7 +420,7 @@ export default function TciAnesthesiaSimulator() {
                   </span>
                   <span className="font-mono text-cyan-400 font-bold">{params.tci.propofolTargetCeUgMl} &mu;g/mL</span>
                 </div>
-                <input
+                <input aria-label="Propofol Target Ce Ug Ml"
                   type="range"
                   min="0.0"
                   max="8.0"
@@ -452,7 +452,7 @@ export default function TciAnesthesiaSimulator() {
                     {params.tci.remifentanilTargetCeNgMl} ng/mL
                   </span>
                 </div>
-                <input
+                <input aria-label="Remifentanil Target Ce Ng Ml"
                   type="range"
                   min="0.0"
                   max="10.0"
@@ -482,7 +482,7 @@ export default function TciAnesthesiaSimulator() {
                   </span>
                   <span className="font-mono text-sky-400 font-bold">{params.tci.elapsedMinutes} min</span>
                 </div>
-                <input
+                <input aria-label="Elapsed Minutes"
                   type="range"
                   min="5"
                   max="240"
@@ -747,7 +747,7 @@ export default function TciAnesthesiaSimulator() {
                   <span className="text-slate-300 font-medium">Patient Age (Years)</span>
                   <span className="font-mono text-indigo-300 font-bold">{params.demographics.ageYears} yrs</span>
                 </div>
-                <input
+                <input aria-label="Patient Age (Years)"
                   type="range"
                   min="1"
                   max="100"
@@ -771,7 +771,7 @@ export default function TciAnesthesiaSimulator() {
                   <span className="text-slate-300 font-medium">Sevoflurane (Yellow)</span>
                   <span className="font-mono text-amber-300 font-bold">{params.volatiles.sevofluranePct}%</span>
                 </div>
-                <input
+                <input aria-label="Sevoflurane (Yellow)"
                   type="range"
                   min="0.0"
                   max="8.0"
@@ -798,7 +798,7 @@ export default function TciAnesthesiaSimulator() {
                   <span className="text-slate-300 font-medium">Desflurane (Blue)</span>
                   <span className="font-mono text-blue-400 font-bold">{params.volatiles.desfluranePct}%</span>
                 </div>
-                <input
+                <input aria-label="Desflurane (Blue)"
                   type="range"
                   min="0.0"
                   max="18.0"
@@ -825,7 +825,7 @@ export default function TciAnesthesiaSimulator() {
                   <span className="text-slate-300 font-medium">Isoflurane (Purple)</span>
                   <span className="font-mono text-purple-400 font-bold">{params.volatiles.isofluranePct}%</span>
                 </div>
-                <input
+                <input aria-label="Isoflurane (Purple)"
                   type="range"
                   min="0.0"
                   max="4.0"
@@ -847,7 +847,7 @@ export default function TciAnesthesiaSimulator() {
                   <span className="text-slate-300 font-medium">Nitrous Oxide (N&sub2;O)</span>
                   <span className="font-mono text-teal-400 font-bold">{params.volatiles.nitrousOxidePct}%</span>
                 </div>
-                <input
+                <input aria-label="Nitrous Oxide (N&sub2;O)"
                   type="range"
                   min="0"
                   max="70"

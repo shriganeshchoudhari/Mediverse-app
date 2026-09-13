@@ -6,8 +6,19 @@ import AcuteLiverFailureSimulator from '../../../components/simulators/AcuteLive
 
 export const metadata: Metadata = {
   title: "Acute Liver Failure (ALF), King's College Criteria & Cerebral Edema | Mediverse Simulators",
-  description:
-    "Biophysical hepatology simulation of King's College Hospital & Clichy emergency liver transplantation criteria, hyperacute vs subacute latency phenotypes, arterial ammonia astrocytic glutamine swelling, ICP neurocritical bundle, and rebalanced hemostasis.",
+  description: "Biophysical hepatology simulation of King's College Hospital & Clichy emergency liver transplantation criteria, hyperacute vs subacute latency phenotypes, arterial ammonia astrocytic glutamine swelling, ICP neurocritical bundle, and rebalanced hemostasis.",
+  openGraph: {
+    title: "Acute Liver Failure (ALF), King's College Criteria & Cerebral Edema | Mediverse Simulators",
+    description: "Biophysical hepatology simulation of King's College Hospital & Clichy emergency liver transplantation criteria, hyperacute vs subacute latency phenotypes, arterial ammonia astrocytic glutamine swelling, ICP neurocritical bundle, and rebalanced hemostasis.",
+    url: 'https://mediverse.app/simulators/acute-liver-failure-kings',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Acute Liver Failure (ALF), King's College Criteria & Cerebral Edema | Mediverse Simulators",
+    description: "Biophysical hepatology simulation of King's College Hospital & Clichy emergency liver transplantation criteria, hyperacute vs subacute latency phenotypes, arterial ammonia astrocytic glutamine swelling, ICP neurocritical bundle, and rebalanced hemostasis.",
+  },
 };
 
 

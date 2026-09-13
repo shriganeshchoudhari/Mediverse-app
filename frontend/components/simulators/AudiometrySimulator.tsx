@@ -508,7 +508,7 @@ export default function AudiometrySimulator() {
 
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-slate-400">Tone Intensity:</span>
-                  <input
+                  <input aria-label="Tone Intensity"
                     type="range"
                     min="10"
                     max="90"
@@ -579,7 +579,7 @@ export default function AudiometrySimulator() {
                     {[500, 1000, 2000, 4000].map((f) => (
                       <div key={`slider-r-${f}`} className="flex items-center justify-between text-xs">
                         <span className="text-slate-400 w-14">{f} Hz:</span>
-                        <input
+                        <input aria-label="Ac[f] ?? 10"
                           type="range"
                           min="0"
                           max="110"
@@ -636,7 +636,7 @@ export default function AudiometrySimulator() {
                     {[500, 1000, 2000, 4000].map((f) => (
                       <div key={`slider-l-${f}`} className="flex items-center justify-between text-xs">
                         <span className="text-slate-400 w-14">{f} Hz:</span>
-                        <input
+                        <input aria-label="Ac[f] ?? 10"
                           type="range"
                           min="0"
                           max="110"
@@ -835,7 +835,7 @@ export default function AudiometrySimulator() {
                       <span>Middle Ear Pressure (daPa):</span>
                       <span className="font-mono text-red-400">{params.rightTymp.middleEarPressureDaPa}</span>
                     </div>
-                    <input
+                    <input aria-label="Middle Ear Pressure (daPa)"
                       type="range"
                       min="-350"
                       max="100"
@@ -856,7 +856,7 @@ export default function AudiometrySimulator() {
                       <span>Peak Compliance (mL):</span>
                       <span className="font-mono text-red-400">{params.rightTymp.peakComplianceMl}</span>
                     </div>
-                    <input
+                    <input aria-label="Peak Compliance (mL)"
                       type="range"
                       min="0.02"
                       max="2.2"

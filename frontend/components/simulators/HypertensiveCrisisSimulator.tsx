@@ -353,7 +353,7 @@ export function HypertensiveCrisisSimulator() {
                   <label htmlFor="sbp-input" className="block text-xs font-semibold text-slate-400 mb-1">
                     Systolic BP (SBP): {sbp} mmHg
                   </label>
-                  <input
+                  <input aria-label="Sbp"
                     id="sbp-input"
                     type="range"
                     min={140}
@@ -374,7 +374,7 @@ export function HypertensiveCrisisSimulator() {
                   <label htmlFor="dbp-input" className="block text-xs font-semibold text-slate-400 mb-1">
                     Diastolic BP (DBP): {dbp} mmHg
                   </label>
-                  <input
+                  <input aria-label="Dbp"
                     id="dbp-input"
                     type="range"
                     min={70}
@@ -395,7 +395,7 @@ export function HypertensiveCrisisSimulator() {
                   <label htmlFor="hr-input" className="block text-xs font-semibold text-slate-400 mb-1">
                     Heart Rate: {heartRate} bpm
                   </label>
-                  <input
+                  <input aria-label="Heart Rate"
                     id="hr-input"
                     type="range"
                     min={40}
@@ -416,7 +416,7 @@ export function HypertensiveCrisisSimulator() {
                   <label htmlFor="weight-input" className="block text-xs font-semibold text-slate-400 mb-1">
                     Patient Weight: {weightKg} kg
                   </label>
-                  <input
+                  <input aria-label="Weight Kg"
                     id="weight-input"
                     type="range"
                     min={45}
@@ -554,7 +554,7 @@ export function HypertensiveCrisisSimulator() {
                       <span>Infusion Rate</span>
                       <strong className="text-blue-400">{nicardipineRate} mg/h</strong>
                     </div>
-                    <input
+                    <input aria-label="Infusion Rate"
                       type="range"
                       min={0}
                       max={18}
@@ -591,7 +591,7 @@ export function HypertensiveCrisisSimulator() {
                       <span>Infusion Rate</span>
                       <strong className="text-cyan-400">{clevidipineRate} mg/h</strong>
                     </div>
-                    <input
+                    <input aria-label="Infusion Rate"
                       type="range"
                       min={0}
                       max={35}
@@ -612,7 +612,7 @@ export function HypertensiveCrisisSimulator() {
                       <span>Duration of Infusion</span>
                       <span className="text-slate-400">{clevidipineHours} hours</span>
                     </div>
-                    <input
+                    <input aria-label="Duration of Infusion"
                       type="range"
                       min={1}
                       max={72}
@@ -726,7 +726,7 @@ export function HypertensiveCrisisSimulator() {
                       <span>Infusion Rate</span>
                       <strong className="text-amber-400">{nitroglycerinRate} &mu;g/min</strong>
                     </div>
-                    <input
+                    <input aria-label="Infusion Rate"
                       type="range"
                       min={0}
                       max={400}
@@ -763,7 +763,7 @@ export function HypertensiveCrisisSimulator() {
                       <span>Infusion Rate</span>
                       <strong className="text-red-400">{nitroprussideRate} &mu;g/kg/min</strong>
                     </div>
-                    <input
+                    <input aria-label="Infusion Rate"
                       type="range"
                       min={0}
                       max={12}
@@ -778,7 +778,7 @@ export function HypertensiveCrisisSimulator() {
                       <span>Cumulative Infusion Duration</span>
                       <span className="text-slate-400">{nitroprussideHours} hours</span>
                     </div>
-                    <input
+                    <input aria-label="Cumulative Infusion Duration"
                       type="range"
                       min={1}
                       max={72}

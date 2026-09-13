@@ -6,8 +6,19 @@ import HfncRoxFailureSimulator from '../../../components/simulators/HfncRoxFailu
 
 export const metadata: Metadata = {
   title: 'HFNC Mechanics, ROX Index Trajectory & Failure Prediction | Mediverse Simulators',
-  description:
-    'Advanced biophysical simulation of High-Flow Nasal Cannula (HFNC), anatomical dead space washout, entrainment dilution, Roca ROX index validation, dynamic trajectory modeling, and P-SILI prevention.',
+  description: 'Advanced biophysical simulation of High-Flow Nasal Cannula (HFNC), anatomical dead space washout, entrainment dilution, Roca ROX index validation, dynamic trajectory modeling, and P-SILI prevention.',
+  openGraph: {
+    title: 'HFNC Mechanics, ROX Index Trajectory & Failure Prediction | Mediverse Simulators',
+    description: 'Advanced biophysical simulation of High-Flow Nasal Cannula (HFNC), anatomical dead space washout, entrainment dilution, Roca ROX index validation, dynamic trajectory modeling, and P-SILI prevention.',
+    url: 'https://mediverse.app/simulators/hfnc-rox-failure-prediction',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HFNC Mechanics, ROX Index Trajectory & Failure Prediction | Mediverse Simulators',
+    description: 'Advanced biophysical simulation of High-Flow Nasal Cannula (HFNC), anatomical dead space washout, entrainment dilution, Roca ROX index validation, dynamic trajectory modeling, and P-SILI prevention.',
+  },
 };
 
 

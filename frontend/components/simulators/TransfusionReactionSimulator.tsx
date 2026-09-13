@@ -507,7 +507,7 @@ export default function TransfusionReactionSimulator() {
                 <span className="text-slate-400">Volume Infused Before Discovery:</span>
                 <span className="text-rose-400 font-mono">{volumeInfusedMl} mL</span>
               </div>
-              <input
+              <input aria-label="Volume Infused Before Discovery"
                 type="range"
                 min="10"
                 max="500"
@@ -543,7 +543,7 @@ export default function TransfusionReactionSimulator() {
                 <span className="text-slate-400">IV Saline Bolus (Hydration):</span>
                 <span className="text-cyan-400 font-mono">{ivSalineBolusMl} mL</span>
               </div>
-              <input
+              <input aria-label="IV Saline Bolus (Hydration)"
                 type="range"
                 min="0"
                 max="3000"
@@ -560,7 +560,7 @@ export default function TransfusionReactionSimulator() {
                 <span className="text-slate-400">IV Furosemide (Loop Diuretic):</span>
                 <span className="text-purple-400 font-mono">{furosemideDoseMg} mg</span>
               </div>
-              <input
+              <input aria-label="IV Furosemide (Loop Diuretic)"
                 type="range"
                 min="0"
                 max="80"

@@ -476,7 +476,7 @@ export default function LaborPartogramSimulator() {
                   <span className="text-slate-300">Cervical Dilatation (cm)</span>
                   <span className="font-mono text-sky-300 font-bold">{params.bishop.dilatationCm} cm</span>
                 </div>
-                <input
+                <input aria-label="Cervical Dilatation (cm)"
                   type="range"
                   min="0"
                   max="10"
@@ -500,7 +500,7 @@ export default function LaborPartogramSimulator() {
                     {params.bishop.stationFifth >= 0 ? `+${params.bishop.stationFifth}` : params.bishop.stationFifth}
                   </span>
                 </div>
-                <input
+                <input aria-label="Fetal Head Station (Ischial Spines)"
                   type="range"
                   min="-3"
                   max="3"
@@ -527,7 +527,7 @@ export default function LaborPartogramSimulator() {
                   <span className="text-slate-300">Elapsed Hours in Active Labor</span>
                   <span className="font-mono text-emerald-300 font-bold">{params.currentHour} hours</span>
                 </div>
-                <input
+                <input aria-label="Elapsed Hours in Active Labor"
                   type="range"
                   min="0"
                   max="12"
@@ -828,7 +828,7 @@ export default function LaborPartogramSimulator() {
                     {params.uterineContractions.frequencyPer10Min} / 10 min {params.uterineContractions.frequencyPer10Min >= 6 ? '(Tachysystole)' : ''}
                   </span>
                 </div>
-                <input
+                <input aria-label="Frequency Per10 Min"
                   type="range"
                   min="1"
                   max="8"
@@ -852,7 +852,7 @@ export default function LaborPartogramSimulator() {
                   <span className="text-slate-300">Contraction Duration (seconds)</span>
                   <span className="font-mono text-amber-300 font-bold">{params.uterineContractions.durationSeconds} sec</span>
                 </div>
-                <input
+                <input aria-label="Contraction Duration (seconds)"
                   type="range"
                   min="15"
                   max="80"
@@ -877,7 +877,7 @@ export default function LaborPartogramSimulator() {
                   <span className="text-slate-300">Peak Contraction Intensity (mmHg)</span>
                   <span className="font-mono text-emerald-300 font-bold">{params.uterineContractions.intensityMmhg} mmHg</span>
                 </div>
-                <input
+                <input aria-label="Peak Contraction Intensity (mmHg)"
                   type="range"
                   min="20"
                   max="80"
@@ -902,7 +902,7 @@ export default function LaborPartogramSimulator() {
                   <span className="text-slate-300">Oxytocin Infusion Rate (mU/min)</span>
                   <span className="font-mono text-indigo-300 font-bold">{params.uterineContractions.oxytocinInfusionRateMuMin} mU/min</span>
                 </div>
-                <input
+                <input aria-label="Oxytocin Infusion Rate (mU/min)"
                   type="range"
                   min="0"
                   max="40"
@@ -1024,7 +1024,7 @@ export default function LaborPartogramSimulator() {
                   <span className="text-slate-300">Caput Succedaneum Severity</span>
                   <span className="font-mono text-purple-300 font-bold">Grade +{params.caputSuccedaneumScale}</span>
                 </div>
-                <input
+                <input aria-label="Grade +{params.caputSuccedaneumScale}"
                   type="range"
                   min="0"
                   max="3"

@@ -327,7 +327,7 @@ export default function PheochromocytomaSimulator() {
                     {params.daysOfAlphaBlockade} days
                   </span>
                 </div>
-                <input
+                <input aria-label="Duration of Preoperative Alpha-Blockade"
                   type="range"
                   min="0"
                   max="30"
@@ -406,7 +406,7 @@ export default function PheochromocytomaSimulator() {
                     {params.sbpMmHg} mmHg
                   </span>
                 </div>
-                <input
+                <input aria-label="Supine Systolic Blood Pressure (Target &lt; 130 mmHg)"
                   type="range"
                   min="70"
                   max="300"
@@ -423,7 +423,7 @@ export default function PheochromocytomaSimulator() {
                     {params.dbpMmHg} mmHg
                   </span>
                 </div>
-                <input
+                <input aria-label="Supine Diastolic Blood Pressure (Target &lt; 80 mmHg)"
                   type="range"
                   min="40"
                   max="160"
@@ -441,7 +441,7 @@ export default function PheochromocytomaSimulator() {
                     {params.standingSbpDropMmHg} mmHg
                   </span>
                 </div>
-                <input
+                <input aria-label="Standing Sbp Drop Mm Hg"
                   type="range"
                   min="0"
                   max="40"
@@ -457,7 +457,7 @@ export default function PheochromocytomaSimulator() {
                   <span>Heart Rate</span>
                   <span className="font-bold text-slate-300">{params.heartRateBpm} bpm</span>
                 </div>
-                <input
+                <input aria-label="Heart Rate"
                   type="range"
                   min="50"
                   max="180"
@@ -486,7 +486,7 @@ export default function PheochromocytomaSimulator() {
                     {params.plasmaFreeNormetanephrinePgMl} pg/mL
                   </span>
                 </div>
-                <input
+                <input aria-label="Plasma Free Normetanephrine (ULN &lt; 148 pg/mL)"
                   type="range"
                   min="50"
                   max="5000"
@@ -505,7 +505,7 @@ export default function PheochromocytomaSimulator() {
                     {params.plasmaFreeMetanephrinePgMl} pg/mL
                   </span>
                 </div>
-                <input
+                <input aria-label="Plasma Free Metanephrine (ULN &lt; 57 pg/mL)"
                   type="range"
                   min="20"
                   max="3000"
@@ -522,7 +522,7 @@ export default function PheochromocytomaSimulator() {
                   <span>Tumor Diameter</span>
                   <span className="font-bold text-slate-300">{params.tumorDiameterCm.toFixed(1)} cm</span>
                 </div>
-                <input
+                <input aria-label="Tumor Diameter"
                   type="range"
                   min="1.0"
                   max="15.0"
@@ -612,7 +612,7 @@ export default function PheochromocytomaSimulator() {
                   <span>IV Fluid Resuscitation Boluses (For Phase 2 Collapse)</span>
                   <span className="font-bold text-sky-400">{params.ivFluidBolusAdministeredMl} mL</span>
                 </div>
-                <input
+                <input aria-label="IV Fluid Resuscitation Boluses (For Phase 2 Collapse)"
                   type="range"
                   min="0"
                   max="4000"

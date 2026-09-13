@@ -158,7 +158,7 @@ export default function InoVasoreactivitySimulator() {
                   <span className="text-slate-400">Baseline Mean PAP (mPAP):</span>
                   <strong className="text-rose-400 font-mono font-bold">{baselineMpap} mmHg</strong>
                 </div>
-                <input
+                <input aria-label="Baseline Mean PAP (mPAP)"
                   type="range"
                   min="20"
                   max="80"
@@ -179,7 +179,7 @@ export default function InoVasoreactivitySimulator() {
                   <span className="text-slate-400">Cardiac Output (CO):</span>
                   <strong className="text-emerald-400 font-mono">{baselineCo} L/min</strong>
                 </div>
-                <input
+                <input aria-label="Cardiac Output (CO)"
                   type="range"
                   min="2.0"
                   max="8.0"
@@ -196,7 +196,7 @@ export default function InoVasoreactivitySimulator() {
                   <span className="text-slate-400">PCWP (Wedge):</span>
                   <strong className="text-blue-400 font-mono">{baselinePcwp} mmHg</strong>
                 </div>
-                <input
+                <input aria-label="PCWP (Wedge)"
                   type="range"
                   min="4"
                   max="20"
@@ -217,7 +217,7 @@ export default function InoVasoreactivitySimulator() {
                     <span className="text-slate-400">MAP:</span>
                     <strong className="text-white font-mono">{baselineMap}</strong>
                   </div>
-                  <input
+                  <input aria-label="MAP"
                     type="range"
                     min="60"
                     max="110"
@@ -232,7 +232,7 @@ export default function InoVasoreactivitySimulator() {
                     <span className="text-slate-400">CVP:</span>
                     <strong className="text-white font-mono">{baselineCvp}</strong>
                   </div>
-                  <input
+                  <input aria-label="CVP"
                     type="range"
                     min="2"
                     max="18"
@@ -329,7 +329,7 @@ export default function InoVasoreactivitySimulator() {
                     {dose} {agent === 'INHALED_NITRIC_OXIDE' ? 'ppm' : 'mcg/kg/min'}
                   </strong>
                 </div>
-                <input
+                <input aria-label="Dose"
                   type="range"
                   min="0"
                   max={agent === 'INHALED_NITRIC_OXIDE' ? '80' : '20'}
@@ -352,7 +352,7 @@ export default function InoVasoreactivitySimulator() {
                     <span className="text-slate-400">Duration:</span>
                     <strong className="text-white font-mono">{duration} min</strong>
                   </div>
-                  <input
+                  <input aria-label="Duration"
                     type="range"
                     min="5"
                     max="120"

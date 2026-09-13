@@ -4,8 +4,19 @@ import VisualFieldPerimetrySimulator from '@/components/simulators/VisualFieldPe
 
 export const metadata: Metadata = {
   title: 'Automated Perimetry & Glaucoma Visual Field Workstation | Mediverse',
-  description:
-    'Ophthalmology visual field perimetry simulator: Humphrey Field Analyzer (HFA) 24-2 SITA-Standard testing, decibel sensitivity mapping, Glaucoma Hemifield Test (GHT), Hodapp-Anderson-Parrish (HAP) glaucoma staging, corneal pachymetry CCT-adjusted IOP, and target IOP solver.',
+  description: 'Ophthalmology visual field perimetry simulator: Humphrey Field Analyzer (HFA) 24-2 SITA-Standard testing, decibel sensitivity mapping, Glaucoma Hemifield Test (GHT), Hodapp-Anderson-Parrish (HAP) glaucoma staging, corneal pachymetry CCT-adjusted IOP, and target IOP solver.',
+  openGraph: {
+    title: 'Automated Perimetry & Glaucoma Visual Field Workstation | Mediverse',
+    description: 'Ophthalmology visual field perimetry simulator: Humphrey Field Analyzer (HFA) 24-2 SITA-Standard testing, decibel sensitivity mapping, Glaucoma Hemifield Test (GHT), Hodapp-Anderson-Parrish (HAP) glaucoma staging, corneal pachymetry CCT-adjusted IOP, and target IOP solver.',
+    url: 'https://mediverse.app/simulators/visual-field-perimetry',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Automated Perimetry & Glaucoma Visual Field Workstation | Mediverse',
+    description: 'Ophthalmology visual field perimetry simulator: Humphrey Field Analyzer (HFA) 24-2 SITA-Standard testing, decibel sensitivity mapping, Glaucoma Hemifield Test (GHT), Hodapp-Anderson-Parrish (HAP) glaucoma staging, corneal pachymetry CCT-adjusted IOP, and target IOP solver.',
+  },
 };
 
 

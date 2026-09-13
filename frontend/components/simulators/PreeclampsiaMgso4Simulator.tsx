@@ -434,7 +434,7 @@ export default function PreeclampsiaMgso4Simulator() {
                       {vitals.systolicBpMmHg} mmHg
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Systolic Blood Pressure"
                     type="range"
                     min="110"
                     max="220"
@@ -456,7 +456,7 @@ export default function PreeclampsiaMgso4Simulator() {
                       {vitals.diastolicBpMmHg} mmHg
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Diastolic Blood Pressure"
                     type="range"
                     min="60"
                     max="140"
@@ -478,7 +478,7 @@ export default function PreeclampsiaMgso4Simulator() {
                       {vitals.gestationalAgeWeeks.toFixed(1)} wks
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Gestational Age"
                     type="range"
                     min="18"
                     max="42"
@@ -503,7 +503,7 @@ export default function PreeclampsiaMgso4Simulator() {
                       {labs.plateletCountPerUl.toLocaleString()} /µL
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Platelet Count"
                     type="range"
                     min="20000"
                     max="350000"
@@ -525,7 +525,7 @@ export default function PreeclampsiaMgso4Simulator() {
                       {labs.astUperL} U/L
                     </span>
                   </div>
-                  <input
+                  <input aria-label="AST Transaminase"
                     type="range"
                     min="10"
                     max="600"
@@ -547,7 +547,7 @@ export default function PreeclampsiaMgso4Simulator() {
                       {labs.serumCreatinineMgDl} mg/dL
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Serum Creatinine"
                     type="range"
                     min="0.4"
                     max="3.0"
@@ -695,7 +695,7 @@ export default function PreeclampsiaMgso4Simulator() {
                       {regimen.maintenanceRateGramsHr} g/hr
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Continuous Maintenance Infusion"
                     type="range"
                     min="0"
                     max="3"
@@ -724,7 +724,7 @@ export default function PreeclampsiaMgso4Simulator() {
                       {regimen.infusionHoursElapsed} hours
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Infusion Duration Elapsed"
                     type="range"
                     min="0"
                     max="24"
@@ -750,7 +750,7 @@ export default function PreeclampsiaMgso4Simulator() {
                       {vitals.urineOutputMlHr} mL/hr
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Urine Output Rate (Renal Elimination)"
                     type="range"
                     min="5"
                     max="100"
@@ -873,7 +873,7 @@ export default function PreeclampsiaMgso4Simulator() {
                       {vitals.respiratoryRateBpm} bpm
                     </span>
                   </div>
-                  <input
+                  <input aria-label="Respiratory Rate (Breaths/min)"
                     type="range"
                     min="6"
                     max="30"

@@ -384,7 +384,7 @@ Active Warnings: ${ecmoResult.warnings.join('; ') || 'None'}`;
               <span className="font-semibold text-amber-300">Blood Flow (Pump Output)</span>
               <span className="font-mono text-amber-400 font-bold">{bloodFlowLpm.toFixed(1)} L/min</span>
             </div>
-            <input
+            <input aria-label="Blood Flow (Pump Output)"
               type="range"
               min={1.0}
               max={7.0}
@@ -404,7 +404,7 @@ Active Warnings: ${ecmoResult.warnings.join('; ') || 'None'}`;
               <span className="font-semibold text-sky-300">Sweep Gas Flow (CO2 Clearance)</span>
               <span className="font-mono text-sky-400 font-bold">{sweepGasFlowLpm.toFixed(1)} L/min</span>
             </div>
-            <input
+            <input aria-label="Sweep Gas Flow (CO2 Clearance)"
               type="range"
               min={0.5}
               max={15.0}
@@ -424,7 +424,7 @@ Active Warnings: ${ecmoResult.warnings.join('; ') || 'None'}`;
               <span className="font-semibold text-emerald-300">Oxygenator FiO2</span>
               <span className="font-mono text-emerald-400 font-bold">{Math.round(oxygenatorFiO2 * 100)}%</span>
             </div>
-            <input
+            <input aria-label="Oxygenator FiO2"
               type="range"
               min={0.21}
               max={1.0}
@@ -456,7 +456,7 @@ Active Warnings: ${ecmoResult.warnings.join('; ') || 'None'}`;
               <div>
                 <span className="text-[11px] text-slate-400 block mb-1">Cannula Distance</span>
                 <div className="flex items-center gap-1.5">
-                  <input
+                  <input aria-label="Cannula Distance"
                     type="range"
                     min={5}
                     max={25}

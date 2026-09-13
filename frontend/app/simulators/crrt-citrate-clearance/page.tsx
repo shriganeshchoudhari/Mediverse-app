@@ -6,8 +6,19 @@ import CrrtCitrateClearanceSimulator from '../../../components/simulators/CrrtCi
 
 export const metadata: Metadata = {
   title: 'CRRT Kinetics, Modalities & Regional Citrate Anticoagulation | Mediverse Simulators',
-  description:
-    'Advanced biophysical simulation of Continuous Renal Replacement Therapy (CRRT: CVVH, CVVHD, CVVHDF, SCUF), convective vs diffusive solute clearance, filtration fraction, KDIGO effluent dosing, and Regional Citrate Anticoagulation (RCA).',
+  description: 'Advanced biophysical simulation of Continuous Renal Replacement Therapy (CRRT: CVVH, CVVHD, CVVHDF, SCUF), convective vs diffusive solute clearance, filtration fraction, KDIGO effluent dosing, and Regional Citrate Anticoagulation (RCA).',
+  openGraph: {
+    title: 'CRRT Kinetics, Modalities & Regional Citrate Anticoagulation | Mediverse Simulators',
+    description: 'Advanced biophysical simulation of Continuous Renal Replacement Therapy (CRRT: CVVH, CVVHD, CVVHDF, SCUF), convective vs diffusive solute clearance, filtration fraction, KDIGO effluent dosing, and Regional Citrate Anticoagulation (RCA).',
+    url: 'https://mediverse.app/simulators/crrt-citrate-clearance',
+    siteName: 'Mediverse Medical Simulation',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CRRT Kinetics, Modalities & Regional Citrate Anticoagulation | Mediverse Simulators',
+    description: 'Advanced biophysical simulation of Continuous Renal Replacement Therapy (CRRT: CVVH, CVVHD, CVVHDF, SCUF), convective vs diffusive solute clearance, filtration fraction, KDIGO effluent dosing, and Regional Citrate Anticoagulation (RCA).',
+  },
 };
 
 

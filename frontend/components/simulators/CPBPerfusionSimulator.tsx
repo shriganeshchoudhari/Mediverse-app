@@ -279,7 +279,7 @@ Cardiopulmonary Bypass (CPB) & Extracorporeal Perfusion Case Interrogation:
                   </span>
                 </span>
               </div>
-              <input
+              <input aria-label="Pump Flow Lpm"
                 type="range"
                 min={0.0}
                 max={7.0}
@@ -297,7 +297,7 @@ Cardiopulmonary Bypass (CPB) & Extracorporeal Perfusion Case Interrogation:
                   <span className="text-slate-400">Sweep Gas</span>
                   <span className="font-mono text-cyan-300">{sweepGasLpm.toFixed(1)} L/m</span>
                 </div>
-                <input
+                <input aria-label="Sweep Gas"
                   type="range"
                   min={0.5}
                   max={8.0}
@@ -313,7 +313,7 @@ Cardiopulmonary Bypass (CPB) & Extracorporeal Perfusion Case Interrogation:
                   <span className="text-slate-400">FiO2</span>
                   <span className="font-mono text-cyan-300">{Math.round(fio2Fraction * 100)}%</span>
                 </div>
-                <input
+                <input aria-label="FiO2"
                   type="range"
                   min={0.21}
                   max={1.0}
@@ -353,7 +353,7 @@ Cardiopulmonary Bypass (CPB) & Extracorporeal Perfusion Case Interrogation:
                     <span className="text-slate-400">VAVD Vacuum</span>
                     <span className="font-mono text-sky-300">{vavdVacuumMmHg} mmHg</span>
                   </div>
-                  <input
+                  <input aria-label="VAVD Vacuum"
                     type="range"
                     min={-60}
                     max={0}
@@ -375,7 +375,7 @@ Cardiopulmonary Bypass (CPB) & Extracorporeal Perfusion Case Interrogation:
                     {reservoirLevelMl} mL
                   </span>
                 </div>
-                <input
+                <input aria-label="Venous Reservoir Level"
                   type="range"
                   min={400}
                   max={3000}
@@ -411,7 +411,7 @@ Cardiopulmonary Bypass (CPB) & Extracorporeal Perfusion Case Interrogation:
                 </span>
                 <span className="font-mono text-blue-300 font-bold">{patientCoreTempC.toFixed(1)}°C</span>
               </div>
-              <input
+              <input aria-label="Patient Core Temp C"
                 type="range"
                 min={18.0}
                 max={37.5}
@@ -491,7 +491,7 @@ Cardiopulmonary Bypass (CPB) & Extracorporeal Perfusion Case Interrogation:
                         <span className="text-slate-400">ACP Flow Rate</span>
                         <span className="font-mono text-emerald-400">{acpFlowRateMlMin} mL/min</span>
                       </div>
-                      <input
+                      <input aria-label="ACP Flow Rate"
                         type="range"
                         min={400}
                         max={1400}
@@ -757,7 +757,7 @@ Cardiopulmonary Bypass (CPB) & Extracorporeal Perfusion Case Interrogation:
                 <span className="text-slate-400">Protamine Reversal</span>
                 <span className="font-mono text-cyan-300 font-bold">{protamineDoseAdministeredMg} mg</span>
               </div>
-              <input
+              <input aria-label="Protamine Reversal"
                 type="range"
                 min={0}
                 max={400}
