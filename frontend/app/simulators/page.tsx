@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'toxic-gas-inhalation-antidote',
+    title: 'Toxic Gas & Chemical Inhalation Workstation',
+    description: 'Cellular asphyxiants (Cyanide vs H2S) & irritants (Chlorine vs Phosgene), Cytochrome c Oxidase inhibition, Hydroxocobalamin, Nitrite contraindication in smoke/CO, and latent ARDS.',
+    icon: <Skull className="w-7 h-7 text-amber-400 animate-pulse" />,
+    badge: 'Toxicology & Hazmat Care',
+    status: 'Available'
+  },
+  {
     id: 'amniotic-fluid-embolism-afe',
     title: 'Amniotic Fluid Embolism (AFE) & Collapse Workstation',
     description: 'Clark diagnostic criteria (SMFM 2016), biphasic RV acute cor pulmonale vs consumptive hyperfibrinolytic DIC, A-OK protocol, inhaled prostacyclin, and VA-ECMO triage.',
