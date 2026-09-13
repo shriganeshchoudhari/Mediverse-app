@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'massive-hemoptysis-isolation',
+    title: 'Massive Hemoptysis & Endobronchial Isolation Workstation',
+    description: 'Asphyxiation risk vs exsanguination, "bad lung down" positioning, endobronchial blocker isolation, bronchial artery embolization (BAE), and Artery of Adamkiewicz spinal safety.',
+    icon: <Wind className="w-7 h-7 text-rose-500 animate-pulse" />,
+    badge: 'Pulmonology & Critical Care',
+    status: 'Available'
+  },
+  {
     id: 'post-op-tamponade-resternotomy',
     title: 'Post-Op Cardiac Tamponade vs Restrictive Physiology',
     description: 'Post-CPB localized posterior hematomas, TEE vs TTE acoustic shadowing, blunted pulsus paradoxus, diastolic pressure equalization (CVP ≈ PAD ≈ PCWP), and CALS emergency resternotomy.',
