@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
+    id: 'status-migrainosus-csf-leak',
+    title: 'Status Migrainosus & Intracranial Hypotension Workstation',
+    description: 'Monro-Kellie doctrine, CSF volume depletion, orthostatic headache mechanics, DHE-triptan 24h vasospasm contraindication, subdural hygroma burr hole hazard, and epidural blood patch.',
+    icon: <Brain className="w-7 h-7 text-indigo-400 animate-pulse" />,
+    badge: 'Neurology & Neurocritical Care',
+    status: 'Available'
+  },
+  {
     id: 'acute-limb-ischemia-rutherford',
     title: 'Acute Limb Ischemia & Rutherford Staging Workstation',
     description: 'Rutherford classification (I, IIa, IIb, III), The 6 Ps, Fogarty embolectomy vs CDT timing trap, reperfusion compartment syndrome (Delta Pressure), and lethal washout catastrophe.',
