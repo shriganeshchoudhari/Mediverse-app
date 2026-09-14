@@ -36,7 +36,7 @@ test.describe('API Contract & Schema Integration @integration @contract', () => 
     allure.label('severity', 'critical');
     allure.description('Tests /api/auth/login schema contract with invalid credentials, ensuring structured error payload.');
 
-    const invalidLoginRes = await request.post(`${API_BASE}/api/auth/login`, {
+    const invalidLoginRes = await request.post(`${API_BASE}/api/v1/auth/login`, {
       data: {
         email: 'nonexistent.user@mediverse.qa',
         password: 'WrongPassword123!',
@@ -47,7 +47,7 @@ test.describe('API Contract & Schema Integration @integration @contract', () => 
     });
 
     // Should return 401 Unauthorized or 400 Bad Request
-    expect([400, 401, 404]).toContain(invalidLoginRes.status());
+    expect([400, 401]).toContain(invalidLoginRes.status());
 
     if (invalidLoginRes.status() === 401 || invalidLoginRes.status() === 400) {
       const errBody = await invalidLoginRes.json();
@@ -64,13 +64,15 @@ test.describe('API Contract & Schema Integration @integration @contract', () => 
     const domains = ['allopathic', 'dental', 'ayush', 'pharmacy', 'nursing'];
 
     for (const domain of domains) {
-      const res = await request.get(`${API_BASE}/api/curriculum/${domain}`, {
+      const res = await request.get(`${API_BASE}/api/v1/healthcare/domains/${domain}`, {
         headers: { 'Accept': 'application/json' },
       });
 
-      // API should respond or require auth (200, 401, 403, 404 in mock)
-      expect([200, 401, 403, 404]).toContain(res.status());
+      // API should respond with 200 OK for valid healthcare domain metadata
+      expect([200]).toContain(res.status());
       expect(res.headers()).toHaveProperty('content-type');
+      const body = await res.json();
+      expect(body).toHaveProperty('id', domain);
     }
   });
 });

@@ -105,6 +105,15 @@ Content-Type: {{contentType}}
   "newPassword": "NewSecurePassword456!"
 }
 
+### 1.10 Refresh Access Token (Token Rotation)
+# @name refreshToken
+POST {{baseUrl}}/auth/refresh
+Content-Type: {{contentType}}
+
+{
+  "refreshToken": "{{loginStudent.response.body.refreshToken}}"
+}
+
 
 ###############################################################################
 # 2. MEDICAL CURRICULUM & CBME TAXONOMY SUBSYSTEM (/api/v1/curriculum)
@@ -529,35 +538,70 @@ Accept: {{contentType}}
 
 
 ###############################################################################
-# 11. IMS GLOBAL LTI 1.3 ADVANTAGE INTEROPERABILITY (/api/v1/lti)
+# 11. ELECTRONIC MEDICAL RECORDS & MULTI-TENANCY (/api/v1/emr & /admin/tenants)
 ###############################################################################
 
-### 11.1 Retrieve Mediverse Public RS256 JWKS Keyset
-# @name getJwks
-GET http://localhost:8085/.well-known/jwks.json
+### 11.1 Get All EMR Patients
+# @name getEmrPatients
+GET {{baseUrl}}/emr/patients
+Authorization: Bearer {{authToken}}
 Accept: {{contentType}}
 
-### 11.2 Initiate OIDC Third-Party LMS Login
-# @name initiateLtiLogin
-POST {{baseUrl}}/lti/login/init
-Content-Type: application/x-www-form-urlencoded
+### 11.2 Get Patient Clinical Chart
+# @name getPatientChart
+@patientId = 00000000-0000-0000-0000-000000000001
+GET {{baseUrl}}/emr/patients/{{patientId}}/chart
+Authorization: Bearer {{authToken}}
+Accept: {{contentType}}
 
-iss=https://canvas.instructure.com&login_hint=user_12345&target_link_uri=http://localhost:8085/api/v1/lti/launch
-
-### 11.3 Trigger Automated Assignment and Grade Passback (AGS v2.0)
-# @name triggerGradePassback
-POST {{baseUrl}}/lti/grade-passback
-Authorization: Bearer {{adminToken}}
+### 11.3 Add Clinical Progress Note
+# @name addClinicalNote
+POST {{baseUrl}}/emr/patients/{{patientId}}/notes
+Authorization: Bearer {{authToken}}
 Content-Type: {{contentType}}
 
 {
-  "deploymentId": "00000000-0000-0000-0000-000000000014",
-  "userId": "00000000-0000-0000-0000-000000000015",
-  "examId": "00000000-0000-0000-0000-000000000016",
-  "scoreGiven": 95.0,
-  "scoreMaximum": 100.0,
-  "lineItemUrl": "https://canvas.instructure.com/api/lti/courses/101/line_items/55"
+  "noteType": "PROGRESS",
+  "subjective": "Patient reports dyspnea improved after 40mg IV furosemide.",
+  "objective": "BP 132/84, HR 78, SpO2 97% on room air. Lungs clear to auscultation.",
+  "assessment": "Acute Decompensated Heart Failure, resolving with diuresis.",
+  "plan": "Continue oral furosemide 40mg daily, follow electrolytes and BUN/Cr."
 }
+
+### 11.4 Place CPOE Medication Order with Safety Check
+# @name placeCpoeOrder
+POST {{baseUrl}}/emr/orders?systolicBp=132.0
+Authorization: Bearer {{authToken}}
+Content-Type: {{contentType}}
+
+{
+  "patientId": "{{patientId}}",
+  "orderType": "MEDICATION",
+  "orderName": "Lisinopril",
+  "dose": "10 mg",
+  "route": "PO",
+  "frequency": "Daily"
+}
+
+### 11.5 Evaluate SOAP Note Auto-Grading Rubric
+# @name evaluateSoapNote
+POST {{baseUrl}}/emr/soap-grade/evaluate
+Authorization: Bearer {{authToken}}
+Content-Type: {{contentType}}
+
+{
+  "subjective": "45yo male with crushing retrosternal chest pain radiating to left jaw.",
+  "objective": "BP 150/95, HR 102, ECG shows 3mm ST-elevation in leads V1-V4.",
+  "assessment": "Acute Anterior Wall ST-Elevation Myocardial Infarction (STEMI).",
+  "plan": "Aspirin 300mg + Ticagrelor 180mg PO, IV unfractionated heparin, activate cardiac cath lab for emergent PCI."
+}
+
+### 11.6 List Multi-Tenant Institutions (Admin Protected)
+# @name getTenants
+GET {{baseUrl}}/admin/tenants
+Authorization: Bearer {{adminToken}}
+X-Tenant-ID: mediverse-default
+Accept: {{contentType}}
 
 
 ###############################################################################

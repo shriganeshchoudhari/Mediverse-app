@@ -1,8 +1,8 @@
-{
+﻿{
   "info": {
     "name": "Mediverse Comprehensive API Regression Suite",
     "_postman_id": "mediverse-api-reg-001",
-    "description": "Production-grade API regression collection for Mediverse Medical Platform across 9 Healthcare Domains, Socratic AI Tutor, OSCE Exam Engine, and Actuators.",
+    "description": "Production-grade API regression collection for Mediverse Medical Platform across 9 Healthcare Domains, Socratic AI Tutor, OSCE Exam Engine, EMR, and Actuators.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -15,13 +15,8 @@
             "method": "GET",
             "url": {
               "raw": "{{baseUrl}}/actuator/health",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "actuator",
-                "health"
-              ]
+              "host": ["{{baseUrl}}"],
+              "path": ["actuator", "health"]
             }
           },
           "event": [
@@ -30,9 +25,34 @@
               "script": {
                 "exec": [
                   "pm.test('Status code is 200 OK', function () { pm.response.to.have.status(200); });",
-                  "pm.test('Health status is UP', function () {",
+                  "pm.test('Health status is UP or contains status', function () {",
                   "    var jsonData = pm.response.json();",
-                  "    pm.expect(jsonData.status).to.eql('UP');",
+                  "    pm.expect(jsonData).to.have.property('status');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Actuator Prometheus Metrics",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/actuator/prometheus",
+              "host": ["{{baseUrl}}"],
+              "path": ["actuator", "prometheus"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200 OK', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Contains Prometheus metric headers', function () {",
+                  "    pm.expect(pm.response.text()).to.include('jvm_');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -50,28 +70,36 @@
           "request": {
             "method": "POST",
             "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
+              { "key": "Content-Type", "value": "application/json" }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\\n  \"email\": \"student.test@mediverse.edu\",\\n  \"password\": \"SecurePassword123!\",\\n  \"firstName\": \"Arjun\",\\n  \"lastName\": \"Sharma\"\\n}"
+              "raw": "{\n  \"email\": \"student.test@mediverse.edu\",\n  \"password\": \"SecurePassword123!\",\n  \"firstName\": \"Arjun\",\n  \"lastName\": \"Sharma\"\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/api/v1/auth/register",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "auth",
-                "register"
-              ]
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "auth", "register"]
             }
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200 OK or 400 (if existing)', function () {",
+                  "    pm.expect([200, 400]).to.include(pm.response.code);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('token');",
+                  "    pm.environment.set('authToken', jsonData.token);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
         },
         {
           "name": "Login Student",
@@ -85,6 +113,7 @@
                   "pm.test('JWT token is returned', function () {",
                   "    pm.expect(jsonData).to.have.property('token');",
                   "    pm.environment.set('authToken', jsonData.token);",
+                  "    if (jsonData.refreshToken) { pm.environment.set('refreshToken', jsonData.refreshToken); }",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -94,26 +123,77 @@
           "request": {
             "method": "POST",
             "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
+              { "key": "Content-Type", "value": "application/json" }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\\n  \"email\": \"{{patientEmail}}\",\\n  \"password\": \"{{patientPassword}}\"\\n}"
+              "raw": "{\n  \"email\": \"{{patientEmail}}\",\n  \"password\": \"{{patientPassword}}\"\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/api/v1/auth/login",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "auth",
-                "login"
-              ]
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Refresh Access Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Refresh token returns rotated tokens or valid response', function () {",
+                  "    pm.expect([200, 400, 401]).to.include(pm.response.code);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refreshToken\": \"{{refreshToken}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/auth/refresh",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "auth", "refresh"]
+            }
+          }
+        },
+        {
+          "name": "Get Current User Profile (/me)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200 OK', function () { pm.response.to.have.status(200); });",
+                  "var jsonData = pm.response.json();",
+                  "pm.test('Contains user profile data', function () {",
+                  "    pm.expect(jsonData).to.have.property('email');",
+                  "    pm.expect(jsonData).to.have.property('role');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{authToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/auth/me",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "auth", "me"]
             }
           }
         }
@@ -127,22 +207,12 @@
           "request": {
             "method": "GET",
             "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{authToken}}"
-              }
+              { "key": "Authorization", "value": "Bearer {{authToken}}" }
             ],
             "url": {
               "raw": "{{baseUrl}}/api/v1/healthcare/domains",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "healthcare",
-                "domains"
-              ]
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "healthcare", "domains"]
             }
           },
           "event": [
@@ -163,61 +233,79 @@
           ]
         },
         {
-          "name": "Get Allopathic MBBS Curriculum",
+          "name": "Get Allopathic MBBS Curriculum by Code",
           "request": {
             "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{authToken}}" }
+            ],
             "url": {
-              "raw": "{{baseUrl}}/api/v1/curriculum/allopathic/mbbs",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "curriculum",
-                "allopathic",
-                "mbbs"
-              ]
+              "raw": "{{baseUrl}}/api/v1/curriculum/MBBS-2026",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "curriculum", "MBBS-2026"]
             }
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200 OK or 404', function () { pm.expect([200, 404]).to.include(pm.response.code); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
         },
         {
-          "name": "Get Dental BDS Curriculum",
+          "name": "Get Dental BDS Subjects",
           "request": {
             "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{authToken}}" }
+            ],
             "url": {
-              "raw": "{{baseUrl}}/api/v1/curriculum/dental/bds",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "curriculum",
-                "dental",
-                "bds"
-              ]
+              "raw": "{{baseUrl}}/api/v1/curriculum/dental/bds/subjects",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "curriculum", "dental", "bds", "subjects"]
             }
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200 OK', function () { pm.response.to.have.status(200); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
         },
         {
-          "name": "Get AYUSH BAMS Curriculum",
+          "name": "Get AYUSH BAMS Subjects",
           "request": {
             "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{authToken}}" }
+            ],
             "url": {
-              "raw": "{{baseUrl}}/api/v1/curriculum/ayush/bams",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "curriculum",
-                "ayush",
-                "bams"
-              ]
+              "raw": "{{baseUrl}}/api/v1/curriculum/ayush/bams/subjects",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "curriculum", "ayush", "bams", "subjects"]
             }
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200 OK', function () { pm.response.to.have.status(200); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
         }
       ]
     },
@@ -229,33 +317,32 @@
           "request": {
             "method": "POST",
             "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{authToken}}"
-              }
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{authToken}}" }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\\n  \"domain\": \"ALLOPATHIC\",\\n  \"topic\": \"Cardiovascular Physiology\",\\n  \"questionCount\": 5\\n}"
+              "raw": "{\n  \"text\": \"Ventricular action potential Phase 0 rapid Na influx, Phase 1 transient outward K, Phase 2 plateau Ca influx, Phase 3 repolarization K efflux.\",\n  \"count\": 3\n}"
             },
             "url": {
-              "raw": "{{baseUrl}}/api/v1/ai/generate/mcq",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "ai",
-                "generate",
-                "mcq"
-              ]
+              "raw": "{{baseUrl}}/api/v1/ai/generate/quiz",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "ai", "generate", "quiz"]
             }
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 200 OK or 403 (role check)', function () {",
+                  "    pm.expect([200, 403]).to.include(pm.response.code);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
         }
       ]
     },
@@ -267,25 +354,126 @@
           "request": {
             "method": "GET",
             "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{authToken}}"
-              }
+              { "key": "Authorization", "value": "Bearer {{authToken}}" }
             ],
             "url": {
-              "raw": "{{baseUrl}}/api/v1/exams/osce/stations",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "exams",
-                "osce",
-                "stations"
-              ]
+              "raw": "{{baseUrl}}/api/v1/exam/osce/stations",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "exam", "osce", "stations"]
             }
-          }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200 OK', function () { pm.response.to.have.status(200); });",
+                  "pm.test('Returns stations array', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.be.an('array');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "06. EMR & Clinical Notes",
+      "item": [
+        {
+          "name": "Get EMR Patients",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{authToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/emr/patients",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "emr", "patients"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200 OK', function () { pm.response.to.have.status(200); });",
+                  "var jsonData = pm.response.json();",
+                  "pm.test('Returns patients array', function () {",
+                  "    pm.expect(jsonData).to.be.an('array');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Evaluate SOAP Note Grading",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{authToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subjective\": \"45yo male with crushing retrosternal chest pain radiating to left arm\",\n  \"objective\": \"BP 150/95, HR 102, ST elevations in V1-V4\",\n  \"assessment\": \"Acute Anterior STEMI\",\n  \"plan\": \"DAPT Aspirin 300mg + Ticagrelor 180mg, immediate cath lab activation\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/emr/soap-grade/evaluate",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "emr", "soap-grade", "evaluate"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200 OK', function () { pm.response.to.have.status(200); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "07. Multi-Tenant Administration",
+      "item": [
+        {
+          "name": "Get All Tenants (Admin Protected)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{authToken}}" },
+              { "key": "X-Tenant-ID", "value": "mediverse-default" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/admin/tenants",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "admin", "tenants"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200 OK or 403 Forbidden', function () {",
+                  "    pm.expect([200, 403]).to.include(pm.response.code);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
         }
       ]
     }

@@ -4,7 +4,7 @@
 # Compatible with: VS Code REST Client, JetBrains HTTP Client, Bruno, Postman CLI, curl
 ###############################################################################
 
-@baseUrl = http://localhost:8080/api/v1
+@baseUrl = http://localhost:8085/api/v1
 @contentType = application/json
 
 # Global variables updated dynamically after authentication
@@ -55,8 +55,8 @@ POST {{baseUrl}}/auth/login
 Content-Type: {{contentType}}
 
 {
-  "email": "admin@physiombbs.com",
-  "password": "admin123"
+  "email": "admin@mediverse.edu",
+  "password": "AdminPassword123!"
 }
 
 ### 1.5 Login with Invalid Password (Negative Test - Expects 401 Unauthorized)

@@ -7,7 +7,7 @@ test.describe('Authentication Smoke Suite @smoke @critical', () => {
 
   test.beforeEach(async ({ page }) => {
     loginPage = new LoginPage(page);
-    await loginPage.navigateTo('/login');
+    await loginPage.navigateTo('/auth/login');
   });
 
   test('UI-AUTH-001: Patient can login with valid credentials', async ({ page }) => {
