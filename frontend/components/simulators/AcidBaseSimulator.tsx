@@ -29,6 +29,7 @@ import {
   NORMAL_AG,
 } from "@/lib/simulations/acidBaseSolver";
 import SimulatorPresetPanel, { SimulatorPreset } from "./SimulatorPresetPanel";
+import { useSimulationTelemetry } from "@/hooks/useSimulationTelemetry";
 
 const ACID_BASE_PRESETS: SimulatorPreset[] = [
   { id: 'normal', label: 'Normal ABG', icon: '💚', description: 'Normal arterial blood gas values.', values: { paco2: 40, hco3: 24, na: 140, cl: 104, albumin: 4.0 } },
@@ -52,12 +53,19 @@ export default function AcidBaseSimulator() {
   // Active view tab: 'davenport' | 'engine' | 'electrolytes'
   const [activeTab, setActiveTab] = useState<"davenport" | "engine" | "electrolytes">("davenport");
 
+  const { logSession } = useSimulationTelemetry('acid-base');
+
   const handleAcidBasePreset = (values: Record<string, number | boolean>) => {
     if (typeof values.paco2 === 'number') setPaco2(values.paco2);
     if (typeof values.hco3 === 'number') setHco3(values.hco3);
     if (typeof values.na === 'number') setNa(values.na);
     if (typeof values.cl === 'number') setCl(values.cl);
     if (typeof values.albumin === 'number') setAlbumin(values.albumin);
+    logSession(
+      { paco2: values.paco2, hco3: values.hco3, na: values.na, cl: values.cl, albumin: values.albumin },
+      { source: 'preset-apply' },
+      true
+    );
   };
   const handleAcidBaseReset = () => { setPaco2(40); setHco3(24); setNa(140); setCl(104); setAlbumin(4.0); };
 

@@ -3,7 +3,9 @@ package com.curiolearn.emr.controller;
 import com.curiolearn.emr.model.Patient;
 import com.curiolearn.emr.model.ClinicalNote;
 import com.curiolearn.emr.service.EmrService;
+import jakarta.validation.Valid;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
@@ -30,7 +32,9 @@ public class EmrController {
     }
     
     @PostMapping("/patients/{id}/notes")
-    public ClinicalNote addNote(@PathVariable UUID id, @RequestBody ClinicalNote note) {
+    public ClinicalNote addNote(@PathVariable UUID id, @Valid @RequestBody ClinicalNote note, Authentication authentication) {
+        // Always derive authorId from the authenticated principal, never from client input
+        note.setAuthorId(authentication.getName());
         return emrService.addNote(id, note);
     }
 }

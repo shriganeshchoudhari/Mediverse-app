@@ -1,4 +1,4 @@
-﻿apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: mediverse-ingress
@@ -27,13 +27,6 @@ spec:
                 port:
                   number: 8085
           - path: /ws
-            pathType: Prefix
-            backend:
-              service:
-                name: mediverse-backend
-                port:
-                  number: 8085
-          - path: /actuator
             pathType: Prefix
             backend:
               service:

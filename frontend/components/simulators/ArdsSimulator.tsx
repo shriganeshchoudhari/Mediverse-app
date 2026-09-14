@@ -23,6 +23,7 @@ import {
   computeArdsMechanics,
   ARDS_PRESETS,
 } from '../../.gemini/skills/ArdsMechanicsEngine';
+import { useSimulationTelemetry } from '@/hooks/useSimulationTelemetry';
 
 export default function ArdsSimulator() {
   const [gender, setGender] = useState<PatientGender>('MALE');
@@ -89,6 +90,8 @@ export default function ArdsSimulator() {
 
   const metrics = useMemo(() => computeArdsMechanics(currentInput), [currentInput]);
 
+  const { logSession } = useSimulationTelemetry('ards-mechanics');
+
   const applyPreset = (presetId: string) => {
     const p = ARDS_PRESETS.find((item) => item.id === presetId);
     if (!p) return;
@@ -108,6 +111,11 @@ export default function ArdsSimulator() {
     setBilateralInfiltrates(p.input.bilateralInfiltratesNotCardiac);
     setVasopressor(p.input.vasopressorRequired);
     setProneActive(p.input.pronePositioningActive);
+    logSession(
+      { presetId, ...p.input },
+      { source: 'preset-apply' },
+      true
+    );
   };
 
   return (

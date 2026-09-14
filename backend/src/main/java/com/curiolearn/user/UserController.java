@@ -20,17 +20,24 @@ import java.util.UUID;
 public class UserController {
 
     private final UserService userService;
+    private final UserRepository userRepository;
+
+    private UUID resolveUserId(Authentication authentication) {
+        return userRepository.findByEmail(authentication.getName())
+                .orElseThrow(() -> new RuntimeException("Authenticated user not found"))
+                .getId();
+    }
 
     @PutMapping("/profile")
     public ResponseEntity<?> updateProfile(@Valid @RequestBody ProfileUpdateDto dto, Authentication authentication) {
-        UUID userId = UUID.fromString(authentication.getName());
+        UUID userId = resolveUserId(authentication);
         userService.updateProfile(userId, dto);
         return ResponseEntity.ok(Map.of("message", "Profile updated successfully"));
     }
 
     @PutMapping("/password")
     public ResponseEntity<?> changePassword(@Valid @RequestBody PasswordChangeDto dto, Authentication authentication) {
-        UUID userId = UUID.fromString(authentication.getName());
+        UUID userId = resolveUserId(authentication);
         try {
             userService.changePassword(userId, dto);
             return ResponseEntity.ok(Map.of("message", "Password changed successfully"));

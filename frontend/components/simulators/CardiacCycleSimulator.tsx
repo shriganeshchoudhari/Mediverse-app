@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { solveCardiacCycle } from '@/lib/simulations/cardiacSolver';
 import { asBeatsPerMinute, asMilliliters, asMmHg } from '@/lib/simulations/types';
 import SimulatorPresetPanel, { SimulatorPreset } from '@/components/simulators/SimulatorPresetPanel';
+import { useSimulationTelemetry } from '@/hooks/useSimulationTelemetry';
 
 const CARDIAC_PRESETS: SimulatorPreset[] = [
   {
@@ -45,11 +46,18 @@ export default function CardiacCycleSimulator() {
   const [contractility, setContractility] = useState(2.0);
   const [activeTab, setActiveTab] = useState<"wiggers" | "pvloop" | "starling">("wiggers");
 
+  const { logSession } = useSimulationTelemetry('cardiac-cycle');
+
   const handlePresetApply = (values: Record<string, number | boolean>) => {
     if (typeof values.heartRate === 'number') setHeartRate(values.heartRate);
     if (typeof values.preload === 'number') setPreload(values.preload);
     if (typeof values.afterload === 'number') setAfterload(values.afterload);
     if (typeof values.contractility === 'number') setContractility(values.contractility);
+    logSession(
+      { heartRate: values.heartRate, preload: values.preload, afterload: values.afterload, contractility: values.contractility },
+      { source: 'preset-apply' },
+      true
+    );
   };
 
   const handlePresetReset = () => {
@@ -141,6 +149,11 @@ export default function CardiacCycleSimulator() {
                 onClick={() => {
                   const msg = `Interpret these cardiac hemodynamics: HR=${heartRate} bpm, EDV=${preload}mL, Afterload=${afterload}mmHg, Contractility Ees=${contractility}. Calculated: SV=${Math.round(strokeVolume)}mL, EF=${Math.round(ejectionFraction)}%, CO=${cardiacOutput.toFixed(1)}L/min, SBP=${Math.round(systolicPressure)}/${Math.round(diastolicPressure)}mmHg. What does this pattern suggest clinically?`;
                   window.dispatchEvent(new CustomEvent('mediverse:ask-ai', { detail: { text: msg } }));
+                  logSession(
+                    { heartRate, preload, afterload, contractility },
+                    { strokeVolumeMl: Math.round(strokeVolume), ejectionFractionPct: Math.round(ejectionFraction), cardiacOutputLpm: parseFloat(cardiacOutput.toFixed(1)), systolicPressureMmHg: Math.round(systolicPressure) },
+                    true
+                  );
                 }}
                 style={{
                   display: 'flex', alignItems: 'center', gap: '0.5rem',

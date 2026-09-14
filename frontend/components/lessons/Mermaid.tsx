@@ -8,7 +8,7 @@ if (typeof window !== "undefined") {
   mermaid.initialize({
     startOnLoad: false,
     theme: "dark",
-    securityLevel: "loose",
+    securityLevel: "strict",
     themeVariables: {
       background: "#0b1329",
       primaryColor: "#1e293b",

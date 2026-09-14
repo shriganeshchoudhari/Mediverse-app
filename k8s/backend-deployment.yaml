@@ -1,4 +1,4 @@
-﻿apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mediverse-backend
@@ -30,7 +30,7 @@ spec:
       containers:
         - name: backend
           image: ghcr.io/shriganeshchoudhari/mediverse-backend:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 8085
               name: http-api

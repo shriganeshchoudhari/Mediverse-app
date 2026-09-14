@@ -62,6 +62,11 @@ public class RateLimitingFilter extends OncePerRequestFilter {
         if (uri.startsWith("/api/v1/auth/login") && "POST".equalsIgnoreCase(request.getMethod())) {
             limit = AUTH_LIMIT_PER_MINUTE;
             bucketPrefix = "AUTH";
+        } else if (uri.startsWith("/api/v1/auth/register") ||
+                   uri.startsWith("/api/v1/auth/forgot-password") ||
+                   uri.startsWith("/api/v1/auth/reset-password")) {
+            limit = 5;
+            bucketPrefix = "REG";
         } else if (uri.startsWith("/api/v1/ai/") || uri.startsWith("/api/v1/tutor/")) {
             limit = AI_LIMIT_PER_MINUTE;
             bucketPrefix = "AI";

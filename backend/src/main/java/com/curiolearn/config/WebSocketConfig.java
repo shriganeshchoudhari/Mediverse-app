@@ -2,6 +2,7 @@ package com.curiolearn.config;
 
 import com.curiolearn.social.StudyRoomWebSocketHandler;
 import com.curiolearn.ai.TelehealthWebSocketHandler;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
@@ -10,6 +11,9 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 @Configuration
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
+
+    @Value("${app.frontend.url:http://localhost:3000}")
+    private String frontendUrl;
 
     private final StudyRoomWebSocketHandler studyRoomWebSocketHandler;
     private final TelehealthWebSocketHandler telehealthWebSocketHandler;
@@ -22,9 +26,10 @@ public class WebSocketConfig implements WebSocketConfigurer {
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
         registry.addHandler(studyRoomWebSocketHandler, "/ws/study-room")
-                .setAllowedOrigins("*");
+                .setAllowedOriginPatterns(frontendUrl);
         registry.addHandler(telehealthWebSocketHandler, "/ws/telehealth")
-                .setAllowedOrigins("*");
+                .setAllowedOriginPatterns(frontendUrl);
     }
 }
+
 

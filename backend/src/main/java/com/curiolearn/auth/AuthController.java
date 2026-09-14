@@ -242,10 +242,19 @@ public class AuthController {
 
         String newAccessToken = jwtService.generateToken(springUser);
 
+        // Rotate refresh token: delete the used token and issue a fresh one
+        refreshTokenRepository.delete(refreshToken);
+        RefreshToken newRefreshToken = RefreshToken.builder()
+                .user(user)
+                .token(java.util.UUID.randomUUID().toString())
+                .expiresAt(LocalDateTime.now().plusDays(30))
+                .build();
+        refreshTokenRepository.save(newRefreshToken);
+
         return ResponseEntity.ok(
                 AuthResponseDto.builder()
                         .token(newAccessToken)
-                        .refreshToken(refreshToken.getToken())
+                        .refreshToken(newRefreshToken.getToken())
                         .userId(user.getId())
                         .email(user.getEmail())
                         .firstName(user.getFirstName())

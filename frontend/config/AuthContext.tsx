@@ -32,6 +32,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     localStorage.removeItem("token");
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("user");
+    // Clear cookie so Next.js edge middleware no longer sees a valid session
+    document.cookie = 'token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Strict';
     setToken(null);
     setRefreshToken(null);
     setUser(null);
@@ -55,6 +57,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         const data = await response.json();
         if (data.token) {
           localStorage.setItem("token", data.token);
+          // Sync refreshed access token to cookie so middleware stays consistent
+          document.cookie = `token=${data.token}; path=/; SameSite=Strict`;
           setToken(data.token);
           if (data.refreshToken) {
             localStorage.setItem("refreshToken", data.refreshToken);
@@ -107,6 +111,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const login = (newToken: string, newUser: UserProfile, newRefreshToken?: string) => {
     localStorage.setItem("token", newToken);
     localStorage.setItem("user", JSON.stringify(newUser));
+    // Sync to cookie so Next.js edge middleware can authenticate the session
+    document.cookie = `token=${newToken}; path=/; SameSite=Strict`;
     setToken(newToken);
     setUser(newUser);
 

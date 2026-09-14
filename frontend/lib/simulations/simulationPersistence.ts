@@ -1,11 +1,7 @@
 /**
  * Utility to record student clinical simulation runs and telemetry to the backend
  */
-function getCookie(name: string): string | null {
-  if (typeof document === "undefined") return null;
-  const match = document.cookie.match(new RegExp("(^|;\\s*)" + name + "=([^;]*)"));
-  return match ? decodeURIComponent(match[2]) : null;
-}
+import { getCookie } from '../utils/cookies';
 
 export async function recordSimulationRun(
   simulationType: string,
@@ -28,8 +24,8 @@ export async function recordSimulationRun(
       headers,
       body: JSON.stringify({
         simulationType,
-        inputParameters: JSON.stringify(inputParameters),
-        outcomeMetrics: JSON.stringify(outcomeMetrics),
+        inputParameters,
+        outcomeMetrics,
       }),
     });
 

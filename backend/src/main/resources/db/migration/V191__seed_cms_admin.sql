@@ -2,7 +2,7 @@ INSERT INTO users (id, email, password_hash, first_name, last_name, role, curren
 VALUES (
     '00000000-0000-0000-0000-000000000001', 
     'admin@physiology.app', 
-    '$2a$10$tZptE6xQ7F9P.41Z9G81gOuO36pGle8q2k/p7sJp3NnC1R.N3K0D2', -- Bcrypt for 'physiologyPassword123'
+    '$2a$10$tZptE6xQ7F9P.41Z9G81gOuO36pGle8q2k/p7sJp3NnC1R.N3K0D2',
     'System', 
     'Admin', 
     'ADMIN', 
@@ -14,7 +14,7 @@ INSERT INTO users (id, email, password_hash, first_name, last_name, role, curren
 VALUES (
     '00000000-0000-0000-0000-000000000002', 
     'faculty@physiology.app', 
-    '$2a$10$tZptE6xQ7F9P.41Z9G81gOuO36pGle8q2k/p7sJp3NnC1R.N3K0D2', -- Bcrypt for 'physiologyPassword123'
+    '$2a$10$tZptE6xQ7F9P.41Z9G81gOuO36pGle8q2k/p7sJp3NnC1R.N3K0D2',
     'Medical', 
     'Faculty', 
     'FACULTY', 
