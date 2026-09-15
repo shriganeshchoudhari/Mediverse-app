@@ -352,6 +352,10 @@ public class RagService {
                                     emb.setEmbedding(vector.toString());
                                 }
                                 vectorBatch.add(emb);
+                                if (vectorBatch.size() >= 50 && vectorEmbeddingRepository != null) {
+                                    vectorEmbeddingRepository.saveAll(vectorBatch);
+                                    vectorBatch.clear();
+                                }
                             }
                         }
                     }
@@ -361,6 +365,7 @@ public class RagService {
 
         if (vectorEmbeddingRepository != null && !vectorBatch.isEmpty()) {
             vectorEmbeddingRepository.saveAll(vectorBatch);
+            vectorBatch.clear();
         }
     }
 }
