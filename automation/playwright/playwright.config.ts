@@ -77,4 +77,11 @@ export default defineConfig({
       dependencies: ['setup'],
     },
   ],
+  webServer: {
+    command: 'npm run start',
+    cwd: path.join(__dirname, '../../frontend'),
+    url: 'http://localhost:3000',
+    reuseExistingServer: !process.env.CI,
+    timeout: 120 * 1000,
+  },
 });

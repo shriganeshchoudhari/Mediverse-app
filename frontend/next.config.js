@@ -46,10 +46,39 @@ const nextConfig = {
         source: '/healthcare/allopathic/md-ms',
         destination: '/healthcare/allopathic',
       },
+      {
+        source: '/domains/:path*',
+        destination: '/healthcare/:path*',
+      },
+      {
+        source: '/study-rooms',
+        destination: '/study-groups',
+      },
+      {
+        source: '/study-rooms/:path*',
+        destination: '/study-groups/:path*',
+      },
+      {
+        source: '/osce',
+        destination: '/exam/osce',
+      },
+      {
+        source: '/osce/:path*',
+        destination: '/exam/osce/:path*',
+      },
+      {
+        source: '/admin/tenants',
+        destination: '/admin/institution',
+      },
     ];
   },
   async redirects() {
     return [
+      {
+        source: '/login',
+        destination: '/auth/login',
+        permanent: false,
+      },
       {
         source: '/cardiovascular',
         destination: '/healthcare/allopathic/mbbs/cardiovascularadv',

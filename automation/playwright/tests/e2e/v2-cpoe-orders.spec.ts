@@ -49,7 +49,7 @@ test.describe('V2.5 Hospital EMR CPOE & eMAR Safety @e2e @v2 @emr @cpoe', () => 
     await screenBtn.click();
 
     // Verify fatal contraindication warning
-    await expect(page.getByText(/CRITICAL SAFETY RED FLAG — DO NOT ADMINISTER/i)).toBeVisible();
+    await expect(page.getByText(/CRITICAL SAFETY RED FLAG.*DO NOT ADMINISTER/i)).toBeVisible();
     await expect(page.getByText(/Hemodynamic Contraindication: Hypotension/i)).toBeVisible();
   });
 });

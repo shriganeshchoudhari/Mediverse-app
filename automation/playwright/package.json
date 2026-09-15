@@ -12,8 +12,9 @@
     "allure:open": "allure open allure-report"
   },
   "dependencies": {
+    "@axe-core/playwright": "^4.10.0",
     "@faker-js/faker": "^8.4.1",
-    "@playwright/test": "^1.42.1",
+    "@playwright/test": "^1.45.0",
     "allure-playwright": "^2.15.1",
     "dotenv": "^16.4.5"
   },

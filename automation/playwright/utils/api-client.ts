@@ -4,7 +4,7 @@ export class ApiTestClient {
   private requestContext!: APIRequestContext;
   private baseUrl: string;
 
-  constructor(baseUrl: string = process.env.API_BASE_URL || 'http://localhost:8080') {
+  constructor(baseUrl: string = process.env.API_BASE_URL || 'http://localhost:8085') {
     this.baseUrl = baseUrl;
   }
 
@@ -16,11 +16,19 @@ export class ApiTestClient {
   }
 
   async getHealth() {
-    return this.requestContext.get('/api/v1/actuator/health');
+    const res = await this.requestContext.get('/actuator/health');
+    if (res.status() === 404) {
+      return this.requestContext.get('/api/v1/actuator/health');
+    }
+    return res;
   }
 
-  async login(credentials: { email: string; pass: string }) {
-    return this.requestContext.post('/api/v1/auth/login', { data: credentials });
+  async login(credentials: { email: string; password?: string; pass?: string }) {
+    const payload = {
+      email: credentials.email,
+      password: credentials.password || credentials.pass,
+    };
+    return this.requestContext.post('/api/v1/auth/login', { data: payload });
   }
 
   async dispose() {

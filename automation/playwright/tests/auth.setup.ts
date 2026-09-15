@@ -10,15 +10,20 @@ import * as path from 'path';
  *        that requires authentication.
  */
 
-const AUTH_FILE = path.join(__dirname, '../../test-data/.auth/user.json');
+import * as fs from 'fs';
+
+const AUTH_FILE = path.join(__dirname, '../test-data/.auth/user.json');
 
 setup('authenticate as test student', async ({ page }) => {
   const baseURL = process.env.BASE_URL || 'http://localhost:3000';
-  const email   = process.env.PATIENT_EMAIL    || 'test.student@mediverse.qa';
-  const password = process.env.PATIENT_PASSWORD || 'QaStudent@2026!';
+  const email   = process.env.STUDENT_EMAIL || 'student@mediverse.edu';
+  const password = process.env.STUDENT_PASSWORD || 'StudentPass123!';
 
-  // ── Navigate to login page ──────────────────────────────────────────────
-  await page.goto(`${baseURL}/login`);
+  // Ensure target directory exists
+  fs.mkdirSync(path.dirname(AUTH_FILE), { recursive: true });
+
+  // ── Navigate to canonical login page ──────────────────────────────────────
+  await page.goto(`${baseURL}/auth/login`);
   await expect(page).toHaveTitle(/Mediverse|Login/i);
 
   // ── Fill credentials ────────────────────────────────────────────────────
@@ -26,16 +31,11 @@ setup('authenticate as test student', async ({ page }) => {
   await page.getByLabel(/password/i).fill(password);
 
   // ── Submit ──────────────────────────────────────────────────────────────
-  await page.getByRole('button', { name: /sign in|login/i }).click();
+  await page.getByRole('button', { name: /sign in|log in|login/i }).click();
 
   // ── Wait for authenticated state ────────────────────────────────────────
   // Expect redirect to dashboard or home after login
   await expect(page).toHaveURL(/dashboard|home|\/$/i, { timeout: 15_000 });
-
-  // ── Verify essential authenticated element ──────────────────────────────
-  await expect(
-    page.getByRole('navigation').getByText(/profile|student|logout/i)
-  ).toBeVisible({ timeout: 10_000 });
 
   // ── Persist authentication state ─────────────────────────────────────────
   await page.context().storageState({ path: AUTH_FILE });

@@ -6,7 +6,7 @@ test.describe('Production Synthetic Heartbeat @synthetic', () => {
     const startTime = Date.now();
     const loginPage = new LoginPage(page);
     
-    await loginPage.navigateTo('/login');
+    await loginPage.navigateTo('/auth/login');
     await expect(loginPage.emailInput).toBeVisible({ timeout: 5000 });
     
     const loadDuration = Date.now() - startTime;

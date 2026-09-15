@@ -15,7 +15,7 @@ test.describe('Automated Accessibility (axe-core WCAG 2.1 AA) @e2e @a11y', () =>
     allure.label('severity', 'critical');
     allure.description('Audits login screen for color contrast, label bindings, keyboard operability, and ARIA attributes.');
 
-    await page.goto('/login');
+    await page.goto('/auth/login');
     await page.waitForLoadState('domcontentloaded');
 
     const accessibilityScanResults = await new AxeBuilder({ page })
@@ -53,7 +53,7 @@ test.describe('Automated Accessibility (axe-core WCAG 2.1 AA) @e2e @a11y', () =>
     allure.label('severity', 'high');
     allure.description('Verifies that timer countdowns and interactive rubric checklists do not disrupt assistive technologies.');
 
-    await page.goto('/osce');
+    await page.goto('/exam/osce');
     await page.waitForLoadState('domcontentloaded');
 
     const accessibilityScanResults = await new AxeBuilder({ page })

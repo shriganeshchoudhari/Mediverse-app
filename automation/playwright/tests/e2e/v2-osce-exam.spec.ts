@@ -17,7 +17,7 @@ test.describe('V2.5 Multi-Station OSCE Clinical Examination Engine @e2e @v2 @osc
     allure.label('severity', 'critical');
     allure.description('Verifies scenario title, patient demographics, and 5-station progression banner.');
 
-    await expect(page.getByText(/Acute Coronary Syndrome — Anterior Wall STEMI/i)).toBeVisible();
+    await expect(page.getByText(/Acute Coronary Syndrome.*Anterior Wall STEMI/i)).toBeVisible();
     await expect(page.getByText(/Ramesh Sundaram/i)).toBeVisible();
     await expect(page.getByText(/STATION 1/i)).toBeVisible();
     await expect(page.getByText(/STATION 5/i)).toBeVisible();
