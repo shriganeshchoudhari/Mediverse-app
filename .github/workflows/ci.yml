@@ -158,11 +158,11 @@ jobs:
 
       - name: Install Playwright Browsers
         working-directory: frontend
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps chromium firefox webkit
 
-      - name: Run Playwright E2E Tests
+      - name: Run Playwright E2E Tests (Cross-Browser)
         working-directory: frontend
-        run: npx playwright test --project="Desktop Chromium"
+        run: npx playwright test --project="Desktop Chromium" --project="Desktop Firefox" --project="Desktop WebKit"
         env:
           CI: true
 

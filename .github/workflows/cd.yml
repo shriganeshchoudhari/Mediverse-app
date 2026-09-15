@@ -103,8 +103,8 @@ jobs:
             echo "Applying Kubernetes manifests with pinned commit SHA image tags: $IMAGE_TAG"
             kubectl apply -f k8s/namespace.yaml
             kubectl apply -f k8s/
-            kubectl set image deployment/mediverse-backend mediverse-backend=${{ env.IMAGE_BACKEND }}:$IMAGE_TAG -n mediverse
-            kubectl set image deployment/mediverse-frontend mediverse-frontend=${{ env.IMAGE_FRONTEND }}:$IMAGE_TAG -n mediverse
+            kubectl set image deployment/mediverse-backend backend=${{ env.IMAGE_BACKEND }}:$IMAGE_TAG -n mediverse
+            kubectl set image deployment/mediverse-frontend frontend=${{ env.IMAGE_FRONTEND }}:$IMAGE_TAG -n mediverse
 
             echo "Verifying rollout status..."
             kubectl rollout status deployment/mediverse-backend -n mediverse --timeout=180s

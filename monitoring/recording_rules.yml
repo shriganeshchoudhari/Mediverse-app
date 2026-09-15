@@ -1,0 +1,47 @@
+﻿groups:
+  - name: mediverse_slo_recording_rules
+    interval: 30s
+    rules:
+      # Precomputed total request rates
+      - record: job:http_requests:rate5m
+        expr: sum(rate(http_server_requests_seconds_count[5m]))
+
+      - record: job:http_requests:rate1h
+        expr: sum(rate(http_server_requests_seconds_count[1h]))
+
+      - record: job:http_requests:rate6h
+        expr: sum(rate(http_server_requests_seconds_count[6h]))
+
+      # Precomputed 5xx error rates
+      - record: job:http_errors_5xx:rate5m
+        expr: sum(rate(http_server_requests_seconds_count{status=~"5.."}[5m]))
+
+      - record: job:http_errors_5xx:rate1h
+        expr: sum(rate(http_server_requests_seconds_count{status=~"5.."}[1h]))
+
+      - record: job:http_errors_5xx:rate6h
+        expr: sum(rate(http_server_requests_seconds_count{status=~"5.."}[6h]))
+
+      # Ratio of errors (SLI)
+      - record: job:http_error_ratio:5m
+        expr: job:http_errors_5xx:rate5m / job:http_requests:rate5m
+
+      - record: job:http_error_ratio:1h
+        expr: job:http_errors_5xx:rate1h / job:http_requests:rate1h
+
+      - record: job:http_error_ratio:6h
+        expr: job:http_errors_5xx:rate6h / job:http_requests:rate6h
+
+      # Error budget burn rate for 99.95% SLO
+      - record: job:slo_burn_rate:1h
+        expr: job:http_error_ratio:1h / (1 - 0.9995)
+
+      - record: job:slo_burn_rate:6h
+        expr: job:http_error_ratio:6h / (1 - 0.9995)
+
+      # Latency percentiles
+      - record: job:api_latency:p95_5m
+        expr: histogram_quantile(0.95, sum(rate(http_server_requests_seconds_bucket[5m])) by (le))
+
+      - record: job:ai_latency:p95_5m
+        expr: histogram_quantile(0.95, sum(rate(http_server_requests_seconds_bucket{uri=~"/api/v1/ai/.*"}[5m])) by (le))

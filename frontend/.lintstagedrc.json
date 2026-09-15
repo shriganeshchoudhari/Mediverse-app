@@ -1,0 +1,8 @@
+﻿{
+  "*.{ts,tsx,js,jsx}": [
+    "npm run lint -- --file"
+  ],
+  "*.{json,css,md}": [
+    "git add"
+  ]
+}

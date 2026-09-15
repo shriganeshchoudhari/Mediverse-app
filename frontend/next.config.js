@@ -1,4 +1,4 @@
-/** @type {import('next').NextConfig} */
+﻿/** @type {import('next').NextConfig} */
 const withPWA = require('@ducanh2912/next-pwa').default({
   dest: 'public',
   disable: process.env.NODE_ENV === 'development',
@@ -16,6 +16,8 @@ const withPWA = require('@ducanh2912/next-pwa').default({
 
 
 const nextConfig = {
+  compress: true,
+  poweredByHeader: false,
   experimental: {
     optimizePackageImports: ['lucide-react', 'recharts'],
   },
@@ -137,7 +139,7 @@ const nextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' http://localhost:8085 http://127.0.0.1:8085 ws://localhost:8085 wss://localhost:8085 https:; frame-ancestors 'none';"
+            value: "default-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' http://localhost:8085 http://127.0.0.1:8085 ws://localhost:8085 wss://localhost:8085 https:; frame-ancestors 'none';"
           }
         ]
       }
@@ -145,4 +147,10 @@ const nextConfig = {
   },
 };
 
-module.exports = withPWA(nextConfig);
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+module.exports = withBundleAnalyzer(withPWA(nextConfig));
+
+

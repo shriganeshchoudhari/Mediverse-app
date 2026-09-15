@@ -29,7 +29,7 @@ spec:
         fsGroup: 1001
       containers:
         - name: frontend
-          image: ghcr.io/shriganeshchoudhari/mediverse-frontend:latest
+          image: ghcr.io/shriganeshchoudhari/mediverse-frontend:IMAGE_TAG_PLACEHOLDER
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000

@@ -29,7 +29,7 @@ spec:
         fsGroup: 10001
       containers:
         - name: backend
-          image: ghcr.io/shriganeshchoudhari/mediverse-backend:latest
+          image: ghcr.io/shriganeshchoudhari/mediverse-backend:IMAGE_TAG_PLACEHOLDER
           imagePullPolicy: Always
           ports:
             - containerPort: 8085

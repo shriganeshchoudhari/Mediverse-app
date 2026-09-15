@@ -28,6 +28,14 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
     {
+      name: 'Desktop Firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
+    {
+      name: 'Desktop WebKit',
+      use: { ...devices['Desktop Safari'] },
+    },
+    {
       name: 'Mobile Chrome (Pixel 5)',
       use: { ...devices['Pixel 5'] },
     },

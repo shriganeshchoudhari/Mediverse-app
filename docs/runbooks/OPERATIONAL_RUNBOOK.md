@@ -1,4 +1,4 @@
-﻿# Mediverse Operational Incident Response Runbooks
+# Mediverse Operational Incident Response Runbooks
 
 This document provides operational triage procedures, diagnostic commands, and remediation steps for on-call engineers.
 
@@ -87,3 +87,95 @@ docker exec -t mediverse-postgres pg_dump -U mediverse_user -d mediverse_db -F c
 ```bash
 docker exec -i mediverse-postgres pg_restore -U mediverse_user -d mediverse_db -v -c /var/lib/postgresql/data/backup_file.dump
 ```
+
+---
+
+## Runbook 6: Emergency JWT Secret Rotation
+
+### Scenario
+A compromised or suspected leaked `JWT_SECRET` (e.g. committed to git or exposed in build logs).
+
+### Impact
+All previously issued tokens are invalidated upon restart; active students and faculty will be forced to re-authenticate.
+
+### Execution Steps
+1. Generate a cryptographically secure 256-bit base64 secret:
+   ```bash
+   openssl rand -base64 32
+   ```
+2. Update the Kubernetes Secret or Docker environment variable:
+   ```bash
+   # In Kubernetes:
+   kubectl create secret generic mediverse-secrets \
+     --from-literal=JWT_SECRET="<new_base64_secret>" \
+     --dry-run=client -o yaml | kubectl apply -f -
+
+   # In Docker Compose:
+   # Update .env file: JWT_SECRET=<new_base64_secret>
+   ```
+3. Perform a rolling restart of backend and frontend pods:
+   ```bash
+   kubectl rollout restart deployment/mediverse-backend -n mediverse
+   kubectl rollout restart deployment/mediverse-frontend -n mediverse
+   ```
+4. Verify backend health endpoint responds:
+   ```bash
+   curl -s http://localhost:8085/actuator/health | grep '"status":"UP"'
+   ```
+
+---
+
+## Runbook 7: Elasticsearch Full-Text Curriculum Reindexing
+
+### Scenario
+Curriculum search returns stale, corrupted, or missing search results post data migration or ES restart.
+
+### Execution Steps
+1. Verify Elasticsearch cluster status:
+   ```bash
+   curl -s http://localhost:9200/_cluster/health?pretty
+   ```
+2. Check current curriculum index document count:
+   ```bash
+   curl -s http://localhost:9200/curriculum_blocks/_count?pretty
+   ```
+3. If the index is corrupt, delete the existing index:
+   ```bash
+   curl -X DELETE http://localhost:9200/curriculum_blocks
+   ```
+4. Trigger full database-to-Elasticsearch reindex via Spring Boot actuator or management endpoint:
+   ```bash
+   curl -X POST http://localhost:8085/api/v1/curriculum/admin/reindex \
+     -H "Authorization: Bearer <ADMIN_TOKEN>" \
+     -H "Content-Type: application/json"
+   ```
+5. Monitor reindex progression until document count matches database row count:
+   ```bash
+   curl -s http://localhost:9200/curriculum_blocks/_count?pretty
+   ```
+
+---
+
+## Runbook 8: Manual Kubernetes Scaling & Traffic Surge Management
+
+### Scenario
+Scheduled campus-wide OSCE exam or synchronized university quiz expected to exceed normal traffic patterns.
+
+### Execution Steps
+1. Pause HPA to prevent conflicting automated scale-down:
+   ```bash
+   kubectl scale hpa/mediverse-backend-hpa --replicas=0 -n mediverse
+   ```
+2. Pre-scale backend pods ahead of peak exam load:
+   ```bash
+   kubectl scale deployment/mediverse-backend --replicas=10 -n mediverse
+   kubectl scale deployment/mediverse-frontend --replicas=6 -n mediverse
+   ```
+3. Verify all pods are running and passing readiness probes:
+   ```bash
+   kubectl get pods -n mediverse -l app.kubernetes.io/name=mediverse-backend
+   ```
+4. Post-event recovery: restore normal HPA autoscaling policies:
+   ```bash
+   kubectl apply -f k8s/hpa.yaml
+   ```

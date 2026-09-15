@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 
@@ -22,6 +22,28 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+/** Set HttpOnly cookie via the server-side API route (XSS-safe). */
+async function setServerCookie(token: string): Promise<void> {
+  try {
+    await fetch("/api/auth/session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token }),
+    });
+  } catch {
+    // Non-critical: in-memory token still available
+  }
+}
+
+/** Clear the HttpOnly cookie via the server-side API route. */
+async function clearServerCookie(): Promise<void> {
+  try {
+    await fetch("/api/auth/session", { method: "DELETE" });
+  } catch {
+    // Non-critical
+  }
+}
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [token, setToken] = useState<string | null>(null);
   const [refreshToken, setRefreshToken] = useState<string | null>(null);
@@ -29,14 +51,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   const logout = () => {
-    localStorage.removeItem("token");
+    // Keep refreshToken in localStorage only — access token removed for security
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("user");
-    // Clear cookie so Next.js edge middleware no longer sees a valid session
-    document.cookie = 'token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Strict';
+    // Clear in-memory access token
     setToken(null);
     setRefreshToken(null);
     setUser(null);
+    // Clear the HttpOnly cookie asynchronously
+    clearServerCookie();
   };
 
   const refreshAccessToken = async (): Promise<boolean> => {
@@ -56,9 +79,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       if (response.ok) {
         const data = await response.json();
         if (data.token) {
-          localStorage.setItem("token", data.token);
-          // Sync refreshed access token to cookie so middleware stays consistent
-          document.cookie = `token=${data.token}; path=/; SameSite=Strict`;
+          // Store access token in HttpOnly cookie (not localStorage)
+          await setServerCookie(data.token);
           setToken(data.token);
           if (data.refreshToken) {
             localStorage.setItem("refreshToken", data.refreshToken);
@@ -76,43 +98,32 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   useEffect(() => {
-    const savedToken = localStorage.getItem("token");
     const savedRefreshToken = localStorage.getItem("refreshToken");
     const savedUser = localStorage.getItem("user");
 
-    if (savedToken && savedUser) {
+    // Access token is stored in HttpOnly cookie — we check for user + refreshToken
+    // to determine if a session exists, then refresh to get a usable in-memory token
+    if (savedRefreshToken && savedUser) {
       try {
-        const parts = savedToken.split(".");
-        if (parts.length === 3) {
-          const payload = JSON.parse(window.atob(parts[1]));
-          if (payload.exp && payload.exp * 1000 < Date.now()) {
-            // Token expired, attempt refresh
-            if (savedRefreshToken) {
-              refreshAccessToken();
-            } else {
-              logout();
-            }
-          } else {
-            setToken(savedToken);
-            setRefreshToken(savedRefreshToken || null);
-            setUser(JSON.parse(savedUser));
-          }
-        } else {
-          logout();
-        }
+        setRefreshToken(savedRefreshToken);
+        setUser(JSON.parse(savedUser));
+        // Attempt silent refresh to hydrate the in-memory token
+        refreshAccessToken().finally(() => setLoading(false));
+        return;
       } catch (e) {
-        console.error("Restoration check failed", e);
+        console.error("Session restoration failed", e);
         logout();
       }
     }
     setLoading(false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const login = (newToken: string, newUser: UserProfile, newRefreshToken?: string) => {
-    localStorage.setItem("token", newToken);
+    // Store only non-sensitive data in localStorage
     localStorage.setItem("user", JSON.stringify(newUser));
-    // Sync to cookie so Next.js edge middleware can authenticate the session
-    document.cookie = `token=${newToken}; path=/; SameSite=Strict`;
+    // Access token goes into HttpOnly cookie (async, fire-and-forget)
+    setServerCookie(newToken);
     setToken(newToken);
     setUser(newUser);
 
@@ -143,6 +154,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return () => {
       if (interval) clearInterval(interval);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token, refreshToken]);
 
   return (

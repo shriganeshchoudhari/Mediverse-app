@@ -85,6 +85,13 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
           if (refreshRes.ok) {
             const data = await refreshRes.json();
             if (data && data.token) {
+              try {
+                fetch("/api/auth/session", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ token: data.token }),
+                }).catch(() => {});
+              } catch {}
               localStorage.setItem("token", data.token);
               finalHeaders["Authorization"] = `Bearer ${data.token}`;
               res = await fetch(`${API_BASE_URL}${path}`, {

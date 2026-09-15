@@ -1,0 +1,5 @@
+﻿#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Running pre-commit quality checks..."
+cd frontend && npx lint-staged

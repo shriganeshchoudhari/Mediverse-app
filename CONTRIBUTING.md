@@ -36,11 +36,60 @@ Thank you for contributing to the Interactive Physiology Learning Platform. Plea
 
 ---
 
-## Development Workflow
+## Development Workflow & GitFlow Model (DEV-06)
 
-1. **Local Setup**: Refer to `README.md` and use the local docker configurations to start the dependencies.
-2. **Feature Branching**: Prefix your git branch with standard descriptors:
-   * `feat/` for new features or simulators
-   * `fix/` for bug resolution
-   * `docs/` for educational content and documentation adjustments
-3. **Lint & Test**: Ensure code compiles without warnings and all automated test suites pass before submitting pull requests.
+Mediverse follows a structured **GitFlow** branching strategy to ensure high release stability and auditable compliance:
+
+### 1. Branch Taxonomy
+- **`main`**: Production releases only. Protected by GitHub Rulesets. Every commit is tagged with a semantic version (`vX.Y.Z`).
+- **`develop`**: Integration branch for upcoming releases. All feature and bugfix branches merge here.
+- **`feature/<domain>-<description>`**: New features, simulators, or curriculum models (e.g., `feature/cardio-ecg-sim`). Branch off `develop`, merge into `develop`.
+- **`bugfix/<ticket>-<description>`**: Non-emergency bug resolutions (e.g., `bugfix/auth-cookie-refresh`). Branch off `develop`, merge into `develop`.
+- **`release/<version>`**: Release stabilization branch (e.g., `release/1.2.0`). Allows final testing and metadata fixes before merging into `main` and back into `develop`.
+- **`hotfix/<cve-or-issue>`**: Urgent production remediations branched directly off `main` and merged back into both `main` and `develop`.
+
+---
+
+## Commit Message Convention (Conventional Commits)
+
+All commit messages are validated via **Commitlint** and must adhere to the Conventional Commits specification:
+
+```text
+<type>(<scope>): <subject>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+### Supported Types
+| Type | Purpose | Example |
+|---|---|---|
+| `feat` | Introduces a new feature or simulator | `feat(simulators): add 3D cardiac cycle solver` |
+| `fix` | Patches a bug or security vulnerability | `fix(auth): migrate token storage to HttpOnly cookie` |
+| `docs` | Documentation changes or additions | `docs(adr): document monolith vs microservice decision` |
+| `perf` | Performance improvement or bundle optimization | `perf(frontend): add gzip compression and bundle analyzer` |
+| `refactor` | Code restructuring without feature or bug change | `refactor(client): normalize backend API client error handling` |
+| `test` | Adding missing tests or refactoring test suites | `test(e2e): expand Playwright matrix to Firefox and WebKit` |
+| `ci` | Changes to CI/CD pipelines and workflows | `ci(github): add cross-browser Playwright test matrix` |
+| `chore` | Build tasks, package updates, or repo maintenance | `chore(deps): bump capacitor dependencies` |
+
+---
+
+## Pull Request Quality Checklist
+
+Before submitting a Pull Request for review:
+1. **Local Build & Test**:
+   - Backend: `./gradlew test` passes.
+   - Frontend: `npm test` passes with zero failures.
+   - Production Build: `npm run build` succeeds cleanly.
+2. **Lint & Formatting**:
+   - `npm run lint` generates no blocking ESLint errors.
+   - Staged files pass `lint-staged` pre-commit checks.
+3. **Accessibility**:
+   - New components respect WCAG 2.1 AA standards and support `@media (prefers-reduced-motion: reduce)`.
+4. **Security**:
+   - No sensitive secrets, API keys, or raw JWTs committed in code or git history.
+5. **Code Coverage**:
+   - Backend changes maintain or increase JaCoCo branch and line coverage.
+   - Frontend changes adhere to the 50% Jest coverage threshold.

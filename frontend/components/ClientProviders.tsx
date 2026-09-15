@@ -1,9 +1,12 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { getQueryClient } from "../lib/queryClient";
 import { AuthProvider } from "../config/AuthContext";
 import Navbar from "./Navbar";
 import { ToastProvider } from "./ToastContext";
+import WebVitals from "./WebVitals";
 
 export default function ClientProviders({ children }: { children: React.ReactNode }) {
   // Initialize user accessibility, theme, and low-bandwidth settings on mount
@@ -54,12 +57,17 @@ export default function ClientProviders({ children }: { children: React.ReactNod
     }
   }, []);
 
+  const [queryClient] = useState(() => getQueryClient());
+
   return (
-    <ToastProvider>
-      <AuthProvider>
-        <Navbar />
-        {children}
-      </AuthProvider>
-    </ToastProvider>
+    <QueryClientProvider client={queryClient}>
+      <ToastProvider>
+        <AuthProvider>
+          <Navbar />
+          {children}
+          <WebVitals />
+        </AuthProvider>
+      </ToastProvider>
+    </QueryClientProvider>
   );
 }

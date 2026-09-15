@@ -45,3 +45,30 @@ groups:
         annotations:
           summary: "High error rate on AI Socratic Tutor service"
           description: "HTTP 5xx error rate on /api/v1/ai/* endpoints exceeds 10% over the last 5 minutes."
+
+      - alert: HighAiTutorLatency
+        expr: histogram_quantile(0.95, sum(rate(http_server_requests_seconds_bucket{uri=~"/api/v1/ai/.*"}[5m])) by (le)) > 1.5
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Elevated AI Tutor Socratic response latency"
+          description: "p95 latency on /api/v1/ai/* exceeds 1500ms (current: {{ $value }}s), violating Tier 2 TTFT SLO."
+
+      - alert: SloBurnRateFast
+        expr: (sum(rate(http_server_requests_seconds_count{status=~"5.."}[1h])) / sum(rate(http_server_requests_seconds_count[1h]))) > (14.4 * (1 - 0.9995))
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Rapid Error Budget Burn Rate (1h window)"
+          description: "API Gateway error budget is burning at 14.4x rate (consuming >2% budget in 1 hour)."
+
+      - alert: SloBurnRateSlow
+        expr: (sum(rate(http_server_requests_seconds_count{status=~"5.."}[6h])) / sum(rate(http_server_requests_seconds_count[6h]))) > (6 * (1 - 0.9995))
+        for: 15m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Slow Sustained Error Budget Burn Rate (6h window)"
+          description: "API Gateway error budget is burning at 6x rate (consuming >5% budget in 6 hours)."

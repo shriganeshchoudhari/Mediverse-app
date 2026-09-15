@@ -1,0 +1,25 @@
+﻿/**
+ * Reduced Motion Accessibility (A11Y-06)
+ * Respects the OS-level "Reduce Motion" preference.
+ * Also honoured by the mediverse:reduced-motion localStorage setting via data-reduced-motion attribute.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Manual override via user preference stored in localStorage */
+[data-reduced-motion="true"] *,
+[data-reduced-motion="true"] ::before,
+[data-reduced-motion="true"] ::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
