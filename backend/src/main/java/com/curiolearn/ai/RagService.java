@@ -4,6 +4,8 @@ import com.curiolearn.curriculum.Lesson;
 import com.curiolearn.curriculum.ContentBlock;
 import com.curiolearn.curriculum.LessonRepository;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.elasticsearch.client.elc.NativeQuery;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
@@ -18,10 +20,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.concurrent.*;
 import java.util.stream.Stream;
 
 @Service
 public class RagService {
+
+    private static final Logger log = LoggerFactory.getLogger(RagService.class);
+    private final ExecutorService ragExecutor = Executors.newVirtualThreadPerTaskExecutor();
 
     private final TextbookChunkRepository textbookChunkRepository;
     private final ElasticsearchOperations elasticsearchOperations;
@@ -57,9 +63,22 @@ public class RagService {
         }
     }
 
+    private static class HitItem {
+        final String id;
+        final String heading;
+        final String content;
+
+        HitItem(String id, String heading, String content) {
+            this.id = id;
+            this.heading = heading;
+            this.content = content;
+        }
+    }
+
     /**
      * Performs hybrid retrieval using Reciprocal Rank Fusion (RRF) between
-     * Elasticsearch BM25 sparse index and PostgreSQL full-text ranker.
+     * Elasticsearch BM25 sparse index, PostgreSQL full-text ranker, and dense
+     * vector embeddings, executed concurrently via CompletableFuture.
      *
      * <p>Results are cached in the {@code rag_context} Redis cache (10-minute TTL).
      * The cache key is an MD5 hash of the lowercased, trimmed prompt so that
@@ -76,8 +95,11 @@ public class RagService {
 
         Map<String, RankedDocument> docMap = new HashMap<>();
 
-        // 1. Retrieve from Elasticsearch (BM25 sparse ranking)
-        if (elasticsearchOperations != null) {
+        // 1. Elasticsearch sparse BM25 retrieval (async)
+        CompletableFuture<List<HitItem>> esFuture = CompletableFuture.supplyAsync(() -> {
+            if (elasticsearchOperations == null) {
+                return Collections.emptyList();
+            }
             try {
                 Query query = NativeQuery.builder()
                         .withQuery(q -> q
@@ -90,56 +112,93 @@ public class RagService {
                         .build();
 
                 SearchHits<TextbookChunk> searchHits = elasticsearchOperations.search(query, TextbookChunk.class);
-                if (searchHits != null && !searchHits.isEmpty()) {
-                    int rank = 1;
-                    for (SearchHit<TextbookChunk> hit : searchHits) {
-                        TextbookChunk chunk = hit.getContent();
-                        String id = chunk.getId() != null ? chunk.getId() : chunk.getContent().substring(0, Math.min(30, chunk.getContent().length()));
-                        RankedDocument doc = docMap.computeIfAbsent(id, k -> new RankedDocument(id, chunk.getHeading(), chunk.getContent()));
-                        doc.rrfScore += 1.0 / (RRF_K + rank);
-                        rank++;
-                    }
+                if (searchHits == null || searchHits.isEmpty()) {
+                    return Collections.emptyList();
                 }
-            } catch (Exception ignored) {}
-        }
+                List<HitItem> hits = new ArrayList<>();
+                for (SearchHit<TextbookChunk> hit : searchHits) {
+                    TextbookChunk chunk = hit.getContent();
+                    String id = chunk.getId() != null ? chunk.getId() : chunk.getContent().substring(0, Math.min(30, chunk.getContent().length()));
+                    hits.add(new HitItem(id, chunk.getHeading(), chunk.getContent()));
+                }
+                return hits;
+            } catch (Exception e) {
+                log.debug("Elasticsearch sparse retrieval skipped: {}", e.getMessage());
+                return Collections.emptyList();
+            }
+        }, ragExecutor);
 
-        // 2. Retrieve from PostgreSQL (Full-text ts_rank search)
-        if (vectorEmbeddingRepository != null) {
+        // 2. PostgreSQL GIN full-text retrieval (async)
+        CompletableFuture<List<HitItem>> pgFuture = CompletableFuture.supplyAsync(() -> {
+            if (vectorEmbeddingRepository == null) {
+                return Collections.emptyList();
+            }
             try {
                 List<CurriculumVectorEmbedding> pgHits = vectorEmbeddingRepository.searchPostgresFullTextRanked(userPrompt, 5);
-                if (pgHits.isEmpty()) {
+                if (pgHits == null || pgHits.isEmpty()) {
                     pgHits = vectorEmbeddingRepository.searchKeywordFallback(userPrompt, 5);
                 }
-
-                int rank = 1;
+                if (pgHits == null || pgHits.isEmpty()) {
+                    return Collections.emptyList();
+                }
+                List<HitItem> hits = new ArrayList<>();
                 for (CurriculumVectorEmbedding emb : pgHits) {
                     String id = emb.getId() != null ? emb.getId().toString() : emb.getChunkText().substring(0, Math.min(30, emb.getChunkText().length()));
-                    RankedDocument doc = docMap.computeIfAbsent(id, k -> new RankedDocument(id, emb.getHeading(), emb.getChunkText()));
-                    doc.rrfScore += 1.0 / (RRF_K + rank);
-                    rank++;
+                    hits.add(new HitItem(id, emb.getHeading(), emb.getChunkText()));
                 }
+                return hits;
+            } catch (Exception e) {
+                log.debug("Postgres full-text retrieval skipped: {}", e.getMessage());
+                return Collections.emptyList();
+            }
+        }, ragExecutor);
 
-                // 3. Retrieve from PostgreSQL (Dense Vector Search via Gemini Embeddings)
+        // 3. Dense Vector search via Gemini Embeddings + pgvector cosine similarity (async)
+        CompletableFuture<List<HitItem>> vectorFuture = CompletableFuture.supplyAsync(() -> {
+            if (vectorEmbeddingRepository == null || embeddingService == null) {
+                return Collections.emptyList();
+            }
+            try {
                 List<Double> promptEmbedding = embeddingService.getEmbedding(userPrompt);
-                if (!promptEmbedding.isEmpty()) {
-                    String vectorString = promptEmbedding.toString(); // e.g. "[0.1, 0.2, ...]"
-                    List<CurriculumVectorEmbedding> vectorHits = vectorEmbeddingRepository.searchByVectorSimilarity(vectorString, 5);
-                    rank = 1;
-                    for (CurriculumVectorEmbedding emb : vectorHits) {
-                        String id = emb.getId() != null ? emb.getId().toString() : emb.getChunkText().substring(0, Math.min(30, emb.getChunkText().length()));
-                        RankedDocument doc = docMap.computeIfAbsent(id, k -> new RankedDocument(id, emb.getHeading(), emb.getChunkText()));
-                        doc.rrfScore += 1.0 / (RRF_K + rank); // Stack the RRF score
-                        rank++;
-                    }
+                if (promptEmbedding == null || promptEmbedding.isEmpty()) {
+                    return Collections.emptyList();
                 }
-            } catch (Exception ignored) {}
+                String vectorString = promptEmbedding.toString(); // e.g. "[0.1, 0.2, ...]"
+                List<CurriculumVectorEmbedding> vectorHits = vectorEmbeddingRepository.searchByVectorSimilarity(vectorString, 5);
+                if (vectorHits == null || vectorHits.isEmpty()) {
+                    return Collections.emptyList();
+                }
+                List<HitItem> hits = new ArrayList<>();
+                for (CurriculumVectorEmbedding emb : vectorHits) {
+                    String id = emb.getId() != null ? emb.getId().toString() : emb.getChunkText().substring(0, Math.min(30, emb.getChunkText().length()));
+                    hits.add(new HitItem(id, emb.getHeading(), emb.getChunkText()));
+                }
+                return hits;
+            } catch (Exception e) {
+                log.debug("Dense vector retrieval skipped: {}", e.getMessage());
+                return Collections.emptyList();
+            }
+        }, ragExecutor);
+
+        // Await all retrieval tasks with a bounded 5-second timeout
+        try {
+            CompletableFuture.allOf(esFuture, pgFuture, vectorFuture).get(5, TimeUnit.SECONDS);
+        } catch (TimeoutException te) {
+            log.warn("RAG retrieval exceeded 5s timeout, proceeding with completed sources");
+        } catch (Exception e) {
+            log.warn("RAG retrieval exception: {}", e.getMessage());
         }
+
+        // Apply Reciprocal Rank Fusion (RRF) across available results
+        mergeRrfHits(docMap, esFuture);
+        mergeRrfHits(docMap, pgFuture);
+        mergeRrfHits(docMap, vectorFuture);
 
         if (docMap.isEmpty()) {
             return "";
         }
 
-        // 3. Sort by aggregated RRF score (highest relevance first)
+        // Sort by aggregated RRF score (highest relevance first)
         List<RankedDocument> sortedDocs = new ArrayList<>(docMap.values());
         sortedDocs.sort((a, b) -> Double.compare(b.rrfScore, a.rrfScore));
 
@@ -156,6 +215,22 @@ public class RagService {
         }
 
         return contextBuilder.toString();
+    }
+
+    private void mergeRrfHits(Map<String, RankedDocument> docMap, CompletableFuture<List<HitItem>> future) {
+        if (!future.isDone() || future.isCompletedExceptionally()) {
+            return;
+        }
+        try {
+            List<HitItem> hits = future.getNow(Collections.emptyList());
+            if (hits == null) return;
+            int rank = 1;
+            for (HitItem hit : hits) {
+                RankedDocument doc = docMap.computeIfAbsent(hit.id, k -> new RankedDocument(hit.id, hit.heading, hit.content));
+                doc.rrfScore += 1.0 / (RRF_K + rank);
+                rank++;
+            }
+        } catch (Exception ignored) {}
     }
 
     public void ingestCurriculum(String curriculumDirPath) throws IOException {

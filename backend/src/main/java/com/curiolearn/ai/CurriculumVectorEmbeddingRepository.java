@@ -12,8 +12,8 @@ public interface CurriculumVectorEmbeddingRepository extends JpaRepository<Curri
     List<CurriculumVectorEmbedding> findByLessonId(UUID lessonId);
 
     @Query(value = "SELECT * FROM curriculum_vector_embeddings " +
-                   "WHERE to_tsvector('english', chunk_text || ' ' || COALESCE(heading, '')) @@ plainto_tsquery('english', :query) " +
-                   "ORDER BY ts_rank(to_tsvector('english', chunk_text || ' ' || COALESCE(heading, '')), plainto_tsquery('english', :query)) DESC " +
+                   "WHERE content_tsv @@ plainto_tsquery('english', :query) " +
+                   "ORDER BY ts_rank(content_tsv, plainto_tsquery('english', :query)) DESC " +
                    "LIMIT :limit", nativeQuery = true)
     List<CurriculumVectorEmbedding> searchPostgresFullTextRanked(@Param("query") String query, @Param("limit") int limit);
 

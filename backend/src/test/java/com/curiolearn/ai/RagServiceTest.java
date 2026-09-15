@@ -98,4 +98,54 @@ class RagServiceTest {
         assertTrue(context.contains("Phase 0 depolarization"));
         assertTrue(context.contains("RRF Hybrid Search"));
     }
+
+    @Test
+    @DisplayName("TC-RAG-003: searchRelevantContext gracefully handles embedding service failure")
+    void testSearchRelevantContext_EmbeddingExceptionGracefulFallback() {
+        when(vectorEmbeddingRepository.searchPostgresFullTextRanked("action potential", 5)).thenReturn(List.of(
+                CurriculumVectorEmbedding.builder()
+                        .heading("Electrophysiology")
+                        .chunkText("Phase 0 depolarization is mediated by inward Na+ current.")
+                        .build()
+        ));
+        when(embeddingService.getEmbedding("action potential")).thenThrow(new RuntimeException("Gemini API rate limited"));
+
+        String context = ragService.searchRelevantContext("action potential");
+
+        assertNotNull(context);
+        assertTrue(context.contains("Phase 0 depolarization"));
+        assertTrue(context.contains("RRF Hybrid Search"));
+    }
+
+    @Test
+    @DisplayName("TC-RAG-004: searchRelevantContext combines dense vector search when available")
+    void testSearchRelevantContext_WithDenseVectorSearch() {
+        when(vectorEmbeddingRepository.searchPostgresFullTextRanked("antiarrhythmic", 5)).thenReturn(List.of(
+                CurriculumVectorEmbedding.builder()
+                        .heading("Pharmacology")
+                        .chunkText("Class IA blocks fast sodium channels.")
+                        .build()
+        ));
+        when(embeddingService.getEmbedding("antiarrhythmic")).thenReturn(List.of(0.12, 0.34, -0.56));
+        when(vectorEmbeddingRepository.searchByVectorSimilarity(anyString(), eq(5))).thenReturn(List.of(
+                CurriculumVectorEmbedding.builder()
+                        .heading("Cardiology")
+                        .chunkText("Vaughan-Williams classification of antiarrhythmic agents.")
+                        .build()
+        ));
+
+        String context = ragService.searchRelevantContext("antiarrhythmic");
+
+        assertNotNull(context);
+        assertTrue(context.contains("Class IA blocks fast sodium"));
+        assertTrue(context.contains("Vaughan-Williams"));
+    }
+
+    @Test
+    @DisplayName("TC-RAG-005: searchRelevantContext returns empty for blank or null prompt")
+    void testSearchRelevantContext_EmptyOrNullPrompt() {
+        assertEquals("", ragService.searchRelevantContext(""));
+        assertEquals("", ragService.searchRelevantContext("   "));
+        assertEquals("", ragService.searchRelevantContext(null));
+    }
 }
