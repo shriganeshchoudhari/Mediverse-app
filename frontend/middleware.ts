@@ -106,5 +106,7 @@ export const config = {
   matcher: [
     '/admin/:path*',
     '/cms/:path*',
+    '/emr/:path*',
+    '/osce/:path*',
   ],
 };

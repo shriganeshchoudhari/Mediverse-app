@@ -120,15 +120,45 @@ public class RateLimitingFilter extends OncePerRequestFilter {
     }
 
     private String getClientIp(HttpServletRequest request) {
-        String xForwardedFor = request.getHeader("X-Forwarded-For");
-        if (xForwardedFor != null && !xForwardedFor.isEmpty()) {
-            String candidate = xForwardedFor.split(",")[0].trim();
-            if (IPV4_PATTERN.matcher(candidate).matches() || candidate.contains(":")) {
-                return candidate;
+        String remoteAddr = request.getRemoteAddr();
+        if (remoteAddr == null || remoteAddr.isEmpty()) {
+            remoteAddr = "127.0.0.1";
+        }
+
+        // Only trust X-Forwarded-For if request arrived from a trusted reverse proxy or local loopback
+        if (isTrustedProxy(remoteAddr)) {
+            String xForwardedFor = request.getHeader("X-Forwarded-For");
+            if (xForwardedFor != null && !xForwardedFor.isEmpty()) {
+                String candidate = xForwardedFor.split(",")[0].trim();
+                if (IPV4_PATTERN.matcher(candidate).matches() || candidate.contains(":")) {
+                    return candidate;
+                }
             }
         }
-        String remoteAddr = request.getRemoteAddr();
-        return (remoteAddr != null && !remoteAddr.isEmpty()) ? remoteAddr : "127.0.0.1";
+
+        return remoteAddr;
+    }
+
+    private boolean isTrustedProxy(String remoteAddr) {
+        if (remoteAddr == null || remoteAddr.isEmpty()) return false;
+        if ("127.0.0.1".equals(remoteAddr) || "::1".equals(remoteAddr) || "0:0:0:0:0:0:0:1".equals(remoteAddr)) {
+            return true;
+        }
+        if (remoteAddr.startsWith("10.") || remoteAddr.startsWith("192.168.")) {
+            return true;
+        }
+        if (remoteAddr.startsWith("172.")) {
+            String[] parts = remoteAddr.split("\\.");
+            if (parts.length > 1) {
+                try {
+                    int secondOctet = Integer.parseInt(parts[1]);
+                    if (secondOctet >= 16 && secondOctet <= 31) {
+                        return true;
+                    }
+                } catch (NumberFormatException ignored) {}
+            }
+        }
+        return false;
     }
 }
 

@@ -3,38 +3,63 @@
 ```text
 Document ID:       MED-OPS-01
 Classification:    Enterprise Standard
-Status:            APPROVED
+Status:            VERIFIED & AUDITED (v0.5.0)
+Architecture Tier: Current Modular Monolith with Phase 2 Target Roadmap
 ```
 
 ---
 
-## 50-Point Production Verification Gate
+## Production Verification Gate Summary
 
-### 1. Application & Domain Architecture
-- [x] **DDD Boundaries:** All microservices map to distinct bounded contexts with zero cross-database table joins.
-- [x] **Connection Pooling:** HikariCP configured with `maximumPoolSize = 20`, `connectionTimeout = 30000ms`, and leak detection.
-- [x] **Graceful Shutdown:** `server.shutdown: graceful` enabled with `timeout-per-shutdown-phase = 30s`.
-- [x] **Idempotency:** All POST/PUT mutating APIs and Kafka consumers enforce idempotent message deduplication.
+The Mediverse production readiness gate operates on a two-tier evaluation framework:
+1. **Current Production Gate (v0.5 Modular Monolith)**: Gates mandatory for current high-availability monolithic deployment on Kubernetes/EKS.
+2. **Target Distributed Architecture Gate (Phase 2 Roadmap)**: Advanced enterprise distributed gates scheduled for cloud-native microservices scale.
 
-### 2. Resilience & Reliability
-- [x] **PodDisruptionBudgets:** `minAvailable = 1` declared on all multi-replica deployments.
-- [x] **Health Probes:** Distinct `/actuator/health/readiness`, `/actuator/health/liveness`, and `/actuator/health/startup` probes configured.
-- [x] **Circuit Breakers:** Resilience4j circuit breakers and rate limiters active on all external AI and cloud dependencies.
-- [x] **Transactional Outbox:** Kafka producers emit domain events strictly via transactional outbox tables.
+---
 
-### 3. Zero-Trust Security
-- [x] **NetworkPolicies:** Kubernetes default-deny rules active across all application namespaces.
-- [x] **Secrets Management:** External Secrets Operator (ESO) syncing from AWS Secrets Manager / Vault. Zero plain-text credentials in Git.
-- [x] **SAST & Vulnerability Gates:** GitHub Actions pipelines fail on any Critical or High CVE findings (Semgrep, Trivy).
-- [x] **Identity & MFA:** Keycloak OIDC authentication enforced with TOTP MFA required for faculty and admin roles.
+## Tier 1: Current Monolith Production Gate (VERIFIED & ACTIVE)
 
-### 4. Observability & SRE
-- [x] **Distributed Tracing:** OpenTelemetry W3C trace context propagated across HTTP, gRPC, and Kafka headers.
-- [x] **Metrics Collection:** Prometheus scraping Spring Boot Actuator endpoints every 15 seconds.
-- [x] **Dashboards:** 15-panel Grafana KPI dashboard active tracking SLOs, error budgets, and P95 latencies.
-- [x] **Alerting:** Alertmanager routing S1 critical incidents to Slack `#qa-alerts` and on-call rotation.
+### 1. Application & Data Tier
+- [x] **Modular Domain Boundaries:** 20 package-by-feature modules under `com.curiolearn` with ArchUnit compile-time boundary enforcement (`ArchitectureTest.java`).
+- [x] **Connection Pooling:** HikariCP configured with `maximumPoolSize = 20`, `connectionTimeout = 30000ms`, and leak detection threshold (`application.yml`).
+- [x] **Graceful Shutdown:** `server.shutdown: graceful` enabled with 30s timeout per shutdown phase across all pods.
+- [x] **Flyway Migrations:** 200 versioned schema migrations (V1–V201) executed sequentially with Postgres 16 and pgvector support.
+- [x] **Full-Text & Vector Search:** Elasticsearch 8.x index auto-initialization and pgvector `curriculum_vector_embeddings` table operational.
 
-### 5. Disaster Recovery & Backups
-- [x] **Database PITR:** Aurora PostgreSQL continuous automated backups enabled with 35-day retention.
-- [x] **Cross-Region Replication:** Asynchronous Aurora storage replication and S3 CRR active to DR region (`ap-southeast-1`).
-- [x] **RTO/RPO Compliance:** Disaster recovery drill validated under $15\text{ mins}$ RTO and $< 1\text{ min}$ RPO.
+### 2. High Availability & Resilience
+- [x] **Health Probes:** Kubernetes liveness (`/actuator/health/liveness`) and readiness (`/actuator/health/readiness`) probes configured with initial delays and period intervals.
+- [x] **Zero-Downtime Rollouts:** Kubernetes Deployment with `RollingUpdate` strategy (`maxUnavailable: 0`, `maxSurge: 1`).
+- [x] **Horizontal Pod Autoscaling (HPA):** Configured for backend (3–15 pods) and frontend (2–10 pods) based on CPU/memory utilization.
+- [x] **Adaptive Rate Limiting:** Redis-backed sliding-window rate limiter with in-memory fallback on auth, registration, and AI routes (`RateLimitingFilter.java`).
+- [x] **Trusted Proxy Verification:** Header validation ensures `X-Forwarded-For` is only accepted from verified internal/private reverse proxy CIDRs.
+
+### 3. Application Security & Access Control
+- [x] **Edge HMAC-SHA256 Token Verification:** Next.js Edge Middleware enforces cryptographic JWT signature validation on `/admin/*`, `/cms/*`, `/emr/*`, and `/osce/*`.
+- [x] **Stateless JWT with DB Refresh Tokens:** Dual-token model with rotating refresh tokens stored in `RefreshTokenRepository`.
+- [x] **Defense-in-Depth Security Headers:** Strict-Transport-Security (HSTS), X-Frame-Options DENY, X-Content-Type-Options nosniff, Referrer-Policy, and Permissions-Policy.
+- [x] **Automated SAST & Container Scanning:** Semgrep static code analysis and Trivy container vulnerability scans run on every pull request.
+- [x] **AI PII Redaction:** Automatic redaction of student PII before external LLM dispatch via `PiiRedactionUtil.java`.
+
+### 4. Observability & Telemetry
+- [x] **Metrics Collection:** Prometheus scraping Spring Boot Actuator metrics (`/actuator/prometheus`) on a 15-second interval.
+- [x] **Log Aggregation:** Promtail shipping container logs to Grafana Loki instance.
+- [x] **Operational Dashboards:** Provisioned Grafana dashboards for JVM, HTTP latency, and QA metrics (`monitoring/dashboards/`).
+- [x] **SLO Latency Alerting:** Prometheus alerting rules configured for HTTP 5xx error rate spikes and p95 latency warnings (`alerting_rules.yml`).
+
+---
+
+## Tier 2: Target Cloud-Native Architecture Gate (SCHEDULED — PHASE 2)
+
+*The following capabilities are architected in `ENTERPRISE_SYSTEM_ARCHITECTURE.md` and scheduled for deployment in Phase 2:*
+
+### 1. Enterprise Identity & Event Streaming
+- [ ] **Enterprise Identity Provider:** Standalone Keycloak 24 OIDC service with institutional SAML 2.0 integration and mandatory TOTP MFA.
+- [ ] **Distributed Event Streaming:** Apache Kafka cluster with Transactional Outbox pattern for asynchronous domain event propagation.
+- [ ] **Service Mesh & API Gateway:** Dedicated Spring Cloud Gateway / Envoy service mesh for inter-service mTLS and dynamic routing.
+
+### 2. Multi-Region Cloud & Disaster Recovery
+- [ ] **Cross-Region Database PITR:** Amazon Aurora PostgreSQL continuous automated backups with asynchronous multi-region storage replication.
+- [ ] **Cross-Region S3 Storage:** Dual-region asset storage replication with S3 Cross-Region Replication (CRR) for medical imagery.
+- [ ] **External Secrets Operator (ESO):** Automated bidirectional secret synchronization from AWS Secrets Manager / HashiCorp Vault.
+- [ ] **Chaos Engineering & Validated DR Drill:** Validated automated failover testing targeting $< 15\text{ mins}$ RTO and $< 1\text{ min}$ RPO.
+

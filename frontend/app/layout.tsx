@@ -2,6 +2,7 @@ import React from "react";
 import ClientProviders from "../components/ClientProviders";
 import GlobalSearch from "../components/GlobalSearch";
 import GlobalSocraticAssistant from "../components/ai/GlobalSocraticAssistant";
+import ErrorBoundary from "../components/ErrorBoundary";
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 
@@ -30,11 +31,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
         <ClientProviders>
-          <GlobalSearch />
-          <div className="flex-1">
-            {children}
-          </div>
-          <GlobalSocraticAssistant />
+          <ErrorBoundary>
+            <GlobalSearch />
+            <div className="flex-1">
+              {children}
+            </div>
+            <GlobalSocraticAssistant />
+          </ErrorBoundary>
         </ClientProviders>
       </body>
     </html>

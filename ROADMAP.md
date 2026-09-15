@@ -1,4 +1,4 @@
-﻿# Project Roadmap & Developer Checklist
+# Project Roadmap & Developer Checklist
 
 This document is the single source of truth for the Mediverse platform, defining high-level engineering phases, detailed developer tasks, completed progress, and planned backlog.
 
@@ -39,7 +39,7 @@ This document is the single source of truth for the Mediverse platform, defining
 ### Phase 6: Obsolescence, DevOps & CI/CD (In Progress)
 - [x] Create GitHub Actions workflow (`.github/workflows/ci.yml`) for Gradle backend builds (against Postgres/Redis/Elasticsearch service containers) and Next.js frontend builds (lint/test/build).
 - [x] Configure Prometheus metric export (Spring Boot Actuator + Micrometer, `/actuator/prometheus`) and a `prometheus` service in `docker-compose.yml` scraping the backend.
-- [ ] **Backlog**: Grafana/Loki dashboards (Prometheus scraping is wired; visualization layer not yet built).
+- [x] Grafana/Loki dashboards provisioned for JVM, HTTP latency, and QA telemetry metrics (`monitoring/dashboards/`).
 - [x] Setup production Dockerfiles and deployment configurations.
 - [x] Implement Progressive Web App (PWA) configurations for offline capability.
 

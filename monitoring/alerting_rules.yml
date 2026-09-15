@@ -1,4 +1,4 @@
-﻿groups:
+groups:
   - name: mediverse_alerts
     rules:
       - alert: HighHttpErrorRate
@@ -11,13 +11,13 @@
           description: "HTTP 5xx error rate is above 5% (current: {{ $value | humanizePercentage }}) over the last 5 minutes."
 
       - alert: SlowResponseLatency
-        expr: histogram_quantile(0.95, sum(rate(http_server_requests_seconds_bucket[5m])) by (le)) > 2.0
+        expr: histogram_quantile(0.95, sum(rate(http_server_requests_seconds_bucket[5m])) by (le)) > 0.5
         for: 3m
         labels:
           severity: warning
         annotations:
           summary: "Elevated p95 API response latency"
-          description: "p95 API response latency exceeds 2000ms (current: {{ $value }}s) over the last 5 minutes."
+          description: "p95 API response latency exceeds 500ms (current: {{ $value }}s) over the last 5 minutes, risking curriculum SLO breach."
 
       - alert: HikariPoolSaturation
         expr: (hikaricp_connections_active / hikaricp_connections_max) > 0.85
@@ -37,11 +37,11 @@
           summary: "High JVM Heap Memory Usage"
           description: "JVM Heap usage is above 85% of allocated maximum."
 
-      - alert: AICircuitBreakerTripped
-        expr: circuit_breaker_state{name="GeminiLLM"} == 1
-        for: 1m
+      - alert: HighAiServiceErrorRate
+        expr: sum(rate(http_server_requests_seconds_count{uri=~"/api/v1/ai/.*",status=~"5.."}[5m])) / (sum(rate(http_server_requests_seconds_count{uri=~"/api/v1/ai/.*"}[5m])) > 0 or 1) > 0.10
+        for: 2m
         labels:
           severity: warning
         annotations:
-          summary: "Gemini AI Tutor Circuit Breaker is OPEN"
-          description: "Circuit breaker tripped due to consecutive failures. Fallback pedagogical engine is active."
+          summary: "High error rate on AI Socratic Tutor service"
+          description: "HTTP 5xx error rate on /api/v1/ai/* endpoints exceeds 10% over the last 5 minutes."

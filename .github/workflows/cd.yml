@@ -1,4 +1,4 @@
-﻿name: Mediverse Continuous Delivery (CD)
+name: Mediverse Continuous Delivery (CD)
 
 on:
   push:
@@ -78,17 +78,39 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Validate Kubernetes Manifests
-        run: |
-          echo "Validating k8s manifests with dry-run..."
-          # YAML validation simulation
-          cat k8s/*.yaml > /dev/null
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v4
+        with:
+          version: 'latest'
 
-      - name: Execute Kubernetes Rollout
+      - name: Client Dry-Run Manifest Validation
         run: |
-          echo "Simulating staged rolling update to EKS Staging cluster..."
-          echo "kubectl apply -f k8s/namespace.yaml"
-          echo "kubectl apply -f k8s/"
-          echo "kubectl rollout status deployment/mediverse-backend -n mediverse"
-          echo "kubectl rollout status deployment/mediverse-frontend -n mediverse"
-          echo "Staging Deployment Succeeded."
+          echo "Executing client-side dry-run validation against all Kubernetes manifests..."
+          kubectl apply --dry-run=client -f k8s/namespace.yaml
+          kubectl apply --dry-run=client -f k8s/
+
+      - name: Staging Rollout Execution
+        env:
+          KUBECONFIG_DATA: ${{ secrets.KUBECONFIG }}
+          IMAGE_TAG: sha-${{ github.sha }}
+        run: |
+          if [ -n "$KUBECONFIG_DATA" ]; then
+            echo "KUBECONFIG secret detected. Configuring cluster context..."
+            mkdir -p ~/.kube
+            echo "$KUBECONFIG_DATA" | base64 --decode > ~/.kube/config
+            chmod 600 ~/.kube/config
+
+            echo "Applying Kubernetes manifests with pinned commit SHA image tags: $IMAGE_TAG"
+            kubectl apply -f k8s/namespace.yaml
+            kubectl apply -f k8s/
+            kubectl set image deployment/mediverse-backend mediverse-backend=${{ env.IMAGE_BACKEND }}:$IMAGE_TAG -n mediverse
+            kubectl set image deployment/mediverse-frontend mediverse-frontend=${{ env.IMAGE_FRONTEND }}:$IMAGE_TAG -n mediverse
+
+            echo "Verifying rollout status..."
+            kubectl rollout status deployment/mediverse-backend -n mediverse --timeout=180s
+            kubectl rollout status deployment/mediverse-frontend -n mediverse --timeout=180s
+            echo "Staging Deployment Succeeded."
+          else
+            echo "NOTICE: KUBECONFIG secret is not configured in this repository environment."
+            echo "Client-side manifest dry-run succeeded. Skipping live cluster deployment until cluster credentials are provisioned."
+          fi

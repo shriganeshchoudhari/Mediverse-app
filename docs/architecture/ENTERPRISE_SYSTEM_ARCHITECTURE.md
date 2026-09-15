@@ -24,7 +24,11 @@ The platform bridges didactic medical theory and real-world clinical acumen thro
 3. **Objective Structured Clinical Examination (OSCE) Engine & Mock EMR Sandboxes** with automated clinical SOAP note evaluation.
 4. **Multi-Tenant University Workspaces** providing institutional branding, cohort competency analytics, and strict data partitioning.
 
-From an engineering perspective, Mediverse is designed as a **modular, domain-driven distributed system** executing on **Kubernetes (EKS/GKE)**, backed by **Java 21 / Spring Boot 3.5**, **PostgreSQL 16 with pgvector**, **Redis 7 Cluster**, **Apache Kafka event backbone**, and **Cloudflare/AWS CloudFront Global CDN**. The architecture guarantees **zero-trust security**, **strict HIPAA/GDPR data isolation**, **high availability ($99.95\%$ uptime SLA, $\text{RTO} < 15\text{ mins}, \text{RPO} < 1\text{ min}$)**, and complete bidirectional traceability across the **Jira $\leftrightarrow$ GitHub $\leftrightarrow$ Argo CD GitOps SDLC**.
+From an engineering perspective, Mediverse is designed with an evolutionary architecture path:
+- **Current Deployed Architecture (v0.5 Modular Monolith)**: The active production baseline is a high-performance **Spring Boot 3.5.16 / Java 21 modular monolith** structured into 20 package-by-feature domains under `com.curiolearn` with compile-time ArchUnit boundaries, serving REST & WebSocket APIs alongside a **Next.js 14 App Router** frontend, backed by **PostgreSQL 16 with pgvector**, **Redis 7**, and **Elasticsearch 8.11**.
+- **Target Architecture (Phase 2 Cloud-Native Scale)**: As institutional tenant scale expands, the modular boundaries are designed to decouple into independent microservices executing behind **Spring Cloud Gateway**, with **Keycloak 24 IAM**, an **Apache Kafka event backbone**, and **Amazon Aurora multi-region replication**, as detailed throughout this blueprint.
+
+The architecture guarantees **zero-trust security**, **strict DPDP/DISHA data isolation**, **high availability ($99.95\%$ uptime SLA)**, and complete bidirectional traceability across the **Jira $\leftrightarrow$ GitHub Actions $\leftrightarrow$ Kubernetes** SDLC.
 
 ```mermaid
 graph TB
