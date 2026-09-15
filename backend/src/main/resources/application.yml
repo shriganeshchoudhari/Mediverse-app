@@ -82,10 +82,11 @@ app:
 springdoc:
   api-docs:
     path: /v3/api-docs
-    enabled: true
+    # Disabled by default in production. Set SWAGGER_ENABLED=true in dev/staging only.
+    enabled: ${SWAGGER_ENABLED:false}
   swagger-ui:
     path: /swagger-ui.html
-    enabled: true
+    enabled: ${SWAGGER_ENABLED:false}
     operationsSorter: method
     tagsSorter: alpha
-    tryItOutEnabled: true
+    tryItOutEnabled: ${SWAGGER_ENABLED:false}

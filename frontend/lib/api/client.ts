@@ -31,7 +31,9 @@ function getCookie(name: string): string | null {
 
 function getToken(): string | null {
   if (typeof window === "undefined") return null;
-  return getCookie("token") || getCookie("auth_token") || localStorage.getItem("token");
+  // Token is stored only in HttpOnly cookies after migration (SEC-01).
+  // localStorage fallback removed to prevent XSS token exfiltration.
+  return getCookie("token") || getCookie("auth_token");
 }
 
 function getTenantId(): string {
@@ -72,41 +74,29 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
       signal: controller.signal,
     });
 
-    // Gap 7.1: If 401 Unauthorized, attempt refresh token exchange once and retry
+    // Gap 7.1: If 401 Unauthorized, attempt refresh token exchange once and retry.
+    // Refresh token is sent as an HttpOnly cookie (refresh_token) — not read from localStorage (SEC-01).
     if (res.status === 401 && authenticated && typeof window !== "undefined" && !path.startsWith("/auth/")) {
-      const refreshToken = localStorage.getItem("refreshToken");
-      if (refreshToken) {
-        try {
-          const refreshRes = await fetch(`${API_BASE_URL}/auth/refresh`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ refreshToken }),
+      // Clear any stale localStorage tokens from before the HttpOnly migration
+      localStorage.removeItem("token");
+      localStorage.removeItem("refreshToken");
+      try {
+        const refreshRes = await fetch(`${API_BASE_URL}/auth/refresh`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include", // sends HttpOnly refresh_token cookie
+        });
+        if (refreshRes.ok) {
+          // Backend sets new access token cookie; retry the original request
+          res = await fetch(`${API_BASE_URL}${path}`, {
+            ...rest,
+            headers: finalHeaders,
+            signal: controller.signal,
+            credentials: "include",
           });
-          if (refreshRes.ok) {
-            const data = await refreshRes.json();
-            if (data && data.token) {
-              try {
-                fetch("/api/auth/session", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({ token: data.token }),
-                }).catch(() => {});
-              } catch {}
-              localStorage.setItem("token", data.token);
-              finalHeaders["Authorization"] = `Bearer ${data.token}`;
-              res = await fetch(`${API_BASE_URL}${path}`, {
-                ...rest,
-                headers: finalHeaders,
-                signal: controller.signal,
-              });
-            }
-          } else {
-            localStorage.removeItem("token");
-            localStorage.removeItem("refreshToken");
-          }
-        } catch {
-          // Ignore refresh error and proceed to throw ApiError below
         }
+      } catch {
+        // Ignore refresh error and let the ApiError below propagate
       }
     }
 

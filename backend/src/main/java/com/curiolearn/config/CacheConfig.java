@@ -37,12 +37,13 @@ public class CacheConfig {
                 .withCacheConfiguration("achievements", config.entryTtl(Duration.ofHours(1)))
                 .withCacheConfiguration("curriculum_tree", config.entryTtl(Duration.ofHours(1)))
                 .withCacheConfiguration("domain_stats", config.entryTtl(Duration.ofHours(1)))
+                .withCacheConfiguration("rag_context", config.entryTtl(Duration.ofMinutes(10)))
                 .build();
     }
 
     @Bean
     @ConditionalOnMissingBean(CacheManager.class)
     public CacheManager fallbackCacheManager() {
-        return new ConcurrentMapCacheManager("leaderboard", "achievements", "simulations", "curriculum_tree", "domain_stats");
+        return new ConcurrentMapCacheManager("leaderboard", "achievements", "simulations", "curriculum_tree", "domain_stats", "rag_context");
     }
 }

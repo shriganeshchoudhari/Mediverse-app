@@ -4,12 +4,14 @@ import com.curiolearn.curriculum.Lesson;
 import com.curiolearn.curriculum.ContentBlock;
 import com.curiolearn.curriculum.LessonRepository;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.elasticsearch.client.elc.NativeQuery;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.data.elasticsearch.core.query.Query;
 import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -58,7 +60,15 @@ public class RagService {
     /**
      * Performs hybrid retrieval using Reciprocal Rank Fusion (RRF) between
      * Elasticsearch BM25 sparse index and PostgreSQL full-text ranker.
+     *
+     * <p>Results are cached in the {@code rag_context} Redis cache (10-minute TTL).
+     * The cache key is an MD5 hash of the lowercased, trimmed prompt so that
+     * identical and near-identical questions skip all DB queries and the Gemini
+     * embedding API call.
      */
+    @Cacheable(value = "rag_context",
+               key = "T(org.springframework.util.DigestUtils).md5DigestAsHex(#userPrompt.toLowerCase().trim().getBytes())",
+               condition = "#userPrompt != null && #userPrompt.length() > 0")
     public String searchRelevantContext(String userPrompt) {
         if (userPrompt == null || userPrompt.trim().isEmpty()) {
             return "";

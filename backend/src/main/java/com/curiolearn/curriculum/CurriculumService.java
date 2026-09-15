@@ -1,12 +1,13 @@
 package com.curiolearn.curriculum;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import java.util.stream.Collectors;
-
 
 @Service
 @RequiredArgsConstructor
@@ -82,12 +83,14 @@ public class CurriculumService {
         return referenceRepository.findByConceptId(conceptId);
     }
 
+    @Cacheable(value = "curriculum_tree", key = "#code.toLowerCase()")
     public Optional<SubjectTreeDto> getSubjectTreeByCode(String code) {
         return subjectRepository.findByCodeIgnoreCase(code)
                 .or(() -> subjectRepository.findByTitleIgnoreCase(code))
                 .map(this::buildSubjectTree);
     }
 
+    @Cacheable(value = "curriculum_tree", key = "'id:' + #subjectId")
     public Optional<SubjectTreeDto> getSubjectTreeById(UUID subjectId) {
         return subjectRepository.findById(subjectId)
                 .map(this::buildSubjectTree);
